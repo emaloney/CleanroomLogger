@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Gilt Groupe. All rights reserved.
 //
 
-import CleanroomBase
-
 /**
 Contains the information of an ASL log entry.
 */
