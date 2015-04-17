@@ -1,5 +1,5 @@
 //
-//  ASL.swift
+//  ASLLogEntry.swift
 //  Cleanroom Project
 //
 //  Created by Evan Maloney on 3/17/15.
@@ -13,8 +13,8 @@ Contains the information of an ASL log entry.
 */
 public struct ASLLogEntry
 {
-    let priority: ASLPriorityLevel
-    let message: String
-    let timestamp: NSDate
+    public let priority: ASLPriorityLevel
+    public let message: String
+    public let timestamp: NSDate
 }
 
