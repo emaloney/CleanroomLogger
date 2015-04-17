@@ -1,0 +1,4 @@
+ApplicationURL.swift
+	public let urlTypes: [String]
+	public let allSchemes: [String]
+	let typesToSchemes: [String: [String]]

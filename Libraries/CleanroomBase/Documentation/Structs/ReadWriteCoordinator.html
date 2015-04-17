@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ReadWriteCoordinator Struct Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script type="text/javascript">
+    window.jazzy = {'docset': false}
+    if (typeof window.dash != 'undefined') {
+      document.documentElement.className += ' dash'
+      window.jazzy.docset = true
+    }
+    if (navigator.userAgent.match(/xcode/i)) {
+      document.documentElement.className += ' xcode'
+      window.jazzy.docset = true
+    }
+    </script>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body id="reference" class="Swift">
+    <a name="//apple_ref/swift/Struct/ReadWriteCoordinator" class="dashAnchor"></a>
+    <a title="ReadWriteCoordinator Struct Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p class="header-text"><a href="../index.html"> Docs</a> (97% documented)</p>
+        <p id="header-links"><a href=""><img id="header-icon" src="../img/gh.png" height="16px" width="16px" />View on GitHub</a></p>
+      </div>
+    </header>
+    <section id="valence">
+      <div class="content-wrapper">
+        <p id="hierarchial_navigation">
+        <a href="../index.html" id="design_resources_link"> Reference</a>
+        <img id="carat" src="../img/carat.png" height="10px" width="6px" />
+        ReadWriteCoordinator Struct Reference
+        </p>
+      </div>
+    </section>
+    <div class="content-wrapper">
+      <nav class="book-parts">
+        <ul class="nav-parts">
+          <li class="part-name tasks">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Classes/ApplicationSettingsReader.html">ApplicationSettingsReader</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/ApplicationSettingsWriter.html">ApplicationSettingsWriter</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/DefaultApplicationSettings.html">DefaultApplicationSettings</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/DefaultApplicationSettingsProvider.html">DefaultApplicationSettingsProvider</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/DefaultApplicationSettingsStorage.html">DefaultApplicationSettingsStorage</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/DictionaryApplicationSettingsProvider.html">DictionaryApplicationSettingsProvider</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/MutableDictionaryApplicationSettingsStorage.html">MutableDictionaryApplicationSettingsStorage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Functions.html">Functions</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase5asyncFFT_T_T_">async(_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase5asyncFT5delaySdFT_T__T_">async(delay:_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase12asyncBarrierFFT_T_T_">asyncBarrier(_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase10mainThreadFFT_T_T_">mainThread(_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase10mainThreadFT5delaySdFT_T__T_">mainThread(delay:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Protocols/ApplicationSettingsProvider.html">ApplicationSettingsProvider</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/ApplicationSettingsStorage.html">ApplicationSettingsStorage</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/ApplicationURL.html">ApplicationURL</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/QueryString.html">QueryString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Structs/DefaultApplicationURL.html">DefaultApplicationURL</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Structs/QueryStringImpl.html">QueryStringImpl</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Structs/ReadWriteCoordinator.html">ReadWriteCoordinator</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Structs/ThreadLocalValue.html">ThreadLocalValue</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="pixel-line"></div>
+      <div class="rubber-band-gap"></div>
+      <article class="chapter">
+      <a name="/"></a>
+        <h1 class="chapter-name">ReadWriteCoordinator</h1>
+        <section>
+          <section class="section">
+            <p class="para"><code>ReadWriteCoordinator</code> instances can be used to coordinate access to a mutable resource shared across multiple threads.</p><p class="para">You can think of the <code>ReadWriteCoordinator</code> as a read/write lock having the following properties:<blockquote><ul><li>The <em>read lock</em> allows any number of <em>readers</em> to execute concurrently.</li><li>The <em>write lock</em> allows one and only one <em>writer</em> to execute at a time.</li><li>As long as there is at least one reader executing, the write lock cannot be acquired.</li><li>As long as the write lock is held, no readers can execute.</li></ul></blockquote></p>
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                
+                <a name="/Unnamed"></a>
+                
+              </div>
+              <ul class="task-group-list">
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:vV13CleanroomBase20ReadWriteCoordinator5queueCSo8NSObject">
+                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:vV13CleanroomBase20ReadWriteCoordinator5queueCSo8NSObject">queue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">The dispatch queue used by the receiver.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FV13CleanroomBase20ReadWriteCoordinatorcFMS0_FT_S0_">
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FV13CleanroomBase20ReadWriteCoordinatorcFMS0_FT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Initializes a new <code>ReadWriteCoordinator</code> instance.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FV13CleanroomBase20ReadWriteCoordinatorcFMS0_FT9queueNameSS_S0_">
+                    <a name="//apple_ref/swift/Method/init(queueName:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FV13CleanroomBase20ReadWriteCoordinatorcFMS0_FT9queueNameSS_S0_">init(queueName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Initializes a new <code>ReadWriteCoordinator</code> instance.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">queueName</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="parameters">
+                        <h4>Parameters</h4>
+                        <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <code>
+                                <em class="term">queueName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div class="definition">
+                                  <p class="para">The name for the Grand Central Dispatch queue that  will be created for the new <code>ReadWriteCoordinator</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FV13CleanroomBase20ReadWriteCoordinator4readFS0_FFT_T_T_">
+                    <a name="//apple_ref/swift/Method/read(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FV13CleanroomBase20ReadWriteCoordinator4readFS0_FFT_T_T_">read(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Synchronously acquires the read lock and executes the passed-in function.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">read</span><span class="p">(</span><span class="nv">fn</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="parameters">
+                        <h4>Parameters</h4>
+                        <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <code>
+                                <em class="term">fn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div class="definition">
+                                  <p class="para">A no-argument function that will be called when the read lock is held.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FV13CleanroomBase20ReadWriteCoordinator12enqueueWriteFS0_FFT_T_T_">
+                    <a name="//apple_ref/swift/Method/enqueueWrite(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FV13CleanroomBase20ReadWriteCoordinator12enqueueWriteFS0_FFT_T_T_">enqueueWrite(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Enqueues an asynchronous request for the write lock and returns immediately. When the write lock is acquired, the passed-in function is executed.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">enqueueWrite</span><span class="p">(</span><span class="nv">fn</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="parameters">
+                        <h4>Parameters</h4>
+                        <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <code>
+                                <em class="term">fn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div class="definition">
+                                  <p class="para">A no-argument function that will be called when the write lock is held.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p class="copyright">&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-03-25)</p>
+          <p class="copyright">Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.1.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

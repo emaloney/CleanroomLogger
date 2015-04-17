@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>QueryString Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script type="text/javascript">
+    window.jazzy = {'docset': false}
+    if (typeof window.dash != 'undefined') {
+      document.documentElement.className += ' dash'
+      window.jazzy.docset = true
+    }
+    if (navigator.userAgent.match(/xcode/i)) {
+      document.documentElement.className += ' xcode'
+      window.jazzy.docset = true
+    }
+    </script>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body id="reference" class="Swift">
+    <a name="//apple_ref/swift/Protocol/QueryString" class="dashAnchor"></a>
+    <a title="QueryString Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p class="header-text"><a href="../index.html"> Docs</a> (97% documented)</p>
+        <p id="header-links"><a href=""><img id="header-icon" src="../img/gh.png" height="16px" width="16px" />View on GitHub</a></p>
+      </div>
+    </header>
+    <section id="valence">
+      <div class="content-wrapper">
+        <p id="hierarchial_navigation">
+        <a href="../index.html" id="design_resources_link"> Reference</a>
+        <img id="carat" src="../img/carat.png" height="10px" width="6px" />
+        QueryString Protocol Reference
+        </p>
+      </div>
+    </section>
+    <div class="content-wrapper">
+      <nav class="book-parts">
+        <ul class="nav-parts">
+          <li class="part-name tasks">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Classes/ApplicationSettingsReader.html">ApplicationSettingsReader</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/ApplicationSettingsWriter.html">ApplicationSettingsWriter</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/DefaultApplicationSettings.html">DefaultApplicationSettings</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/DefaultApplicationSettingsProvider.html">DefaultApplicationSettingsProvider</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/DefaultApplicationSettingsStorage.html">DefaultApplicationSettingsStorage</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/DictionaryApplicationSettingsProvider.html">DictionaryApplicationSettingsProvider</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/MutableDictionaryApplicationSettingsStorage.html">MutableDictionaryApplicationSettingsStorage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Functions.html">Functions</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase5asyncFFT_T_T_">async(_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase5asyncFT5delaySdFT_T__T_">async(delay:_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase12asyncBarrierFFT_T_T_">asyncBarrier(_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase10mainThreadFFT_T_T_">mainThread(_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F13CleanroomBase10mainThreadFT5delaySdFT_T__T_">mainThread(delay:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Protocols/ApplicationSettingsProvider.html">ApplicationSettingsProvider</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/ApplicationSettingsStorage.html">ApplicationSettingsStorage</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/ApplicationURL.html">ApplicationURL</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/QueryString.html">QueryString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Structs/DefaultApplicationURL.html">DefaultApplicationURL</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Structs/QueryStringImpl.html">QueryStringImpl</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Structs/ReadWriteCoordinator.html">ReadWriteCoordinator</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Structs/ThreadLocalValue.html">ThreadLocalValue</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="pixel-line"></div>
+      <div class="rubber-band-gap"></div>
+      <article class="chapter">
+      <a name="/"></a>
+        <h1 class="chapter-name">QueryString</h1>
+        <section>
+          <section class="section">
+            <p class="para">The <code>QueryString</code> protocol is adopted by entities capable of providing  information about the contents of a query string. The default implementation of this protocol is <code>QueryStringImpl</code>.</p>
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                
+                <a name="/Unnamed"></a>
+                
+              </div>
+              <ul class="task-group-list">
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:vP13CleanroomBase11QueryString11queryStringSS">
+                    <a name="//apple_ref/swift/Property/queryString" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:vP13CleanroomBase11QueryString11queryStringSS">queryString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Returns the query string itself.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">queryString</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FP13CleanroomBase11QueryString18countValuesForNameUS0___FRQPS0_FSSSi">
+                    <a name="//apple_ref/swift/Method/countValuesForName(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FP13CleanroomBase11QueryString18countValuesForNameUS0___FRQPS0_FSSSi">countValuesForName(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Returns the number of values in existence for the given query string parameter.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">countValuesForName</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="parameters">
+                        <h4>Parameters</h4>
+                        <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <code>
+                                <em class="term">name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div class="definition">
+                                  <p class="para">The name of the query string parameter whose count of values is sought</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="result-description">
+                        <h4>Return Value</h4>
+                        <p class="para">The number of values in the query string with the name <code>name</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FP13CleanroomBase11QueryString17firstValueForNameUS0___FRQPS0_FSSGSqSS_">
+                    <a name="//apple_ref/swift/Method/firstValueForName(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FP13CleanroomBase11QueryString17firstValueForNameUS0___FRQPS0_FSSGSqSS_">firstValueForName(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Returns the first value for the query string parameter with the given name.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">firstValueForName</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="parameters">
+                        <h4>Parameters</h4>
+                        <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <code>
+                                <em class="term">name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div class="definition">
+                                  <p class="para">The name of the query string parameter whose first value  is sought</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="result-description">
+                        <h4>Return Value</h4>
+                        <p class="para">The first value in the query string with the name <code>name</code>, or  <code>nil</code> if there were no values with the specified name</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FP13CleanroomBase11QueryString16allValuesForNameUS0___FRQPS0_FSSGSqGSaSS__">
+                    <a name="//apple_ref/swift/Method/allValuesForName(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FP13CleanroomBase11QueryString16allValuesForNameUS0___FRQPS0_FSSGSqGSaSS__">allValuesForName(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Returns all values associated with the given query string parameter name.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">allValuesForName</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="parameters">
+                        <h4>Parameters</h4>
+                        <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <code>
+                                <em class="term">name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div class="definition">
+                                  <p class="para">The name of the query string parameter whose values are sought</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="result-description">
+                        <h4>Return Value</h4>
+                        <p class="para">All values in the query string with the name <code>name</code>, or <code>nil</code> if there were no values with the specified name</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p class="copyright">&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-03-25)</p>
+          <p class="copyright">Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.1.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
