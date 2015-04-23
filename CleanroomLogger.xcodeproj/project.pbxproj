@@ -20,7 +20,6 @@
 		3B4596E11AE196E50049A743 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D61AE196E50049A743 /* LogRecorder.swift */; };
 		3B4596E21AE196E50049A743 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D71AE196E50049A743 /* LogSeverity.swift */; };
 		3B4596E31AE196FB0049A743 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4596C91AE196730049A743 /* CleanroomASL.framework */; };
-		3B4596ED1AE197340049A743 /* CleanroomBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4596EA1AE1972A0049A743 /* CleanroomBase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,20 +44,6 @@
 			remoteGlobalIDString = 3B4596761AE16BE60049A743;
 			remoteInfo = CleanroomASLTests;
 		};
-		3B4596E91AE1972A0049A743 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B4596E41AE1972A0049A743 /* CleanroomBase.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B8FBD521AC070B50068756A;
-			remoteInfo = CleanroomBase;
-		};
-		3B4596EB1AE1972A0049A743 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B4596E41AE1972A0049A743 /* CleanroomBase.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B8FBD5D1AC070B50068756A;
-			remoteInfo = CleanroomBaseTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +61,6 @@
 		3B4596D51AE196E50049A743 /* LogReceptacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogReceptacle.swift; path = Code/LogReceptacle.swift; sourceTree = SOURCE_ROOT; };
 		3B4596D61AE196E50049A743 /* LogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogRecorder.swift; path = Code/LogRecorder.swift; sourceTree = SOURCE_ROOT; };
 		3B4596D71AE196E50049A743 /* LogSeverity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogSeverity.swift; path = Code/LogSeverity.swift; sourceTree = SOURCE_ROOT; };
-		3B4596E41AE1972A0049A743 /* CleanroomBase.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomBase.xcodeproj; path = Libraries/CleanroomBase/CleanroomBase.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B4596ED1AE197340049A743 /* CleanroomBase.framework in Frameworks */,
 				3B4596E31AE196FB0049A743 /* CleanroomASL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,7 +131,6 @@
 		3B4596B61AE195900049A743 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				3B4596E41AE1972A0049A743 /* CleanroomBase.xcodeproj */,
 				3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */,
 			);
 			name = Libraries;
@@ -173,15 +155,6 @@
 			name = Implementation;
 			path = Code/Implementation;
 			sourceTree = SOURCE_ROOT;
-		};
-		3B4596E51AE1972A0049A743 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3B4596EA1AE1972A0049A743 /* CleanroomBase.framework */,
-				3B4596EC1AE1972A0049A743 /* CleanroomBaseTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -264,10 +237,6 @@
 					ProductGroup = 3B4596C31AE196730049A743 /* Products */;
 					ProjectRef = 3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */;
 				},
-				{
-					ProductGroup = 3B4596E51AE1972A0049A743 /* Products */;
-					ProjectRef = 3B4596E41AE1972A0049A743 /* CleanroomBase.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -290,20 +259,6 @@
 			fileType = wrapper.cfbundle;
 			path = CleanroomASLTests.xctest;
 			remoteRef = 3B4596CA1AE196730049A743 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B4596EA1AE1972A0049A743 /* CleanroomBase.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomBase.framework;
-			remoteRef = 3B4596E91AE1972A0049A743 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B4596EC1AE1972A0049A743 /* CleanroomBaseTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CleanroomBaseTests.xctest;
-			remoteRef = 3B4596EB1AE1972A0049A743 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
