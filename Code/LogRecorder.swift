@@ -27,6 +27,11 @@ public protocol LogRecorder
     var formatters: [LogFormatter] { get }
 
     /**
+    
+    */
+    var queue: dispatch_queue_t { get }
+
+    /**
     Called by the `LogReceptacle` to record the specified log string. Note that
     this is only called if one of the `formatters` associated with the receiver
     returned a non-`nil` string.
