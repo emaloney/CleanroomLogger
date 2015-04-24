@@ -57,10 +57,6 @@ public struct ASLLogRecorder: LogRecorder
 
     public func recordFormattedString(str: String, forLogEntry entry: LogEntry)
     {
-        if !client.isOpen {
-            client.open()
-        }
-
         let msg = ASLMessageObject(priorityLevel: entry.severity.aslPriorityLevel, message: str)
 
         client.log(msg)
