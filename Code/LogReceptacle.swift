@@ -21,8 +21,6 @@ public final class LogReceptacle
     public let configuration: [LogConfiguration]
 
     private lazy var acceptQueue: dispatch_queue_t = dispatch_queue_create("LogReceptacle.acceptQueue", DISPATCH_QUEUE_SERIAL)
-    private let criticalSection = CriticalSection() // for protecting access to recorderNamesToQueues
-    private var recorderNamesToQueues: [String: dispatch_queue_t] = [:]
 
     /**
     Constructs a new `LogReceptacle` that will use the specified configuration.
@@ -58,20 +56,6 @@ public final class LogReceptacle
         return true
     }
 
-    private func queueForRecorder(recorder: LogRecorder)
-        -> dispatch_queue_t
-    {
-        var queue: dispatch_queue_t?
-        criticalSection.execute {
-            queue = self.recorderNamesToQueues[recorder.name]
-            if queue == nil {
-                queue = dispatch_queue_create("LogRecorder.\(recorder.name)", DISPATCH_QUEUE_SERIAL)
-                self.recorderNamesToQueues[recorder.name] = queue!
-            }
-        }
-        return queue!
-    }
-
     private func dispatcherForQueue(queue: dispatch_queue_t, synchronous: Bool)(block: dispatch_block_t)
     {
         if synchronous {
@@ -89,11 +73,7 @@ public final class LogReceptacle
             acceptDispatcher {
                 if self.logEntry(entry, passesFilters: config.filters) {
                     for recorder in config.recorders {
-                        // each recorder also formats and records independently and
-                        // potentially asynchronously, but using a single-threaded
-                        // serial queue
-                        let queue = self.queueForRecorder(recorder)
-                        let recordDispatcher = self.dispatcherForQueue(queue, synchronous: synchronous)
+                        let recordDispatcher = self.dispatcherForQueue(recorder.queue, synchronous: synchronous)
                         recordDispatcher {
                             for formatter in recorder.formatters {
                                 if let formatted = formatter.formatLogEntry(entry) {

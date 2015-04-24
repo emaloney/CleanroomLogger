@@ -31,6 +31,7 @@ public struct ASLLogRecorder: LogRecorder
     public let name: String
     public let formatters: [LogFormatter]
     public let client: ASLClient
+    public var queue: dispatch_queue_t { return client.queue }
 
     public init()
     {

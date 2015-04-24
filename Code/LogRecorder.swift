@@ -22,12 +22,17 @@ public protocol LogRecorder
     /**
     The `LogFormatter`s that should be used to create a formatted log string
     for passing to the receiver's `recordFormattedString(_: forLogEntry:)`
-    function.
+    function. The formatters will be called sequentially and given an
+    opportunity to return a formatted string for each log entry. The first
+    non-`nil` return value will be what gets recorded in the log.
     */
     var formatters: [LogFormatter] { get }
 
     /**
-    
+    Returns the GCD queue that will be used when executing tasks related to
+    the receiver. Log formatting and recording will be performed using
+    this queue. This is typically a serial queue because the underlying log
+    implementation is usually single-threaded.
     */
     var queue: dispatch_queue_t { get }
 
