@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LogChannel Struct Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/LogChannel" class="dashAnchor"></a>
+    <a title="LogChannel Struct Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (52% documented)</p>
+        <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        LogChannel Struct Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/LogReceptacle.html">LogReceptacle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/LogSeverity.html">LogSeverity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFilter.html">LogFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFormatter.html">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogRecorder.html">LogRecorder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogChannel.html">LogChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogConfiguration.html">LogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>LogChannel</h1>
+            <p><code>LogChannel</code> instances provide the high-level interface for accepting log
+messages.</p>
+
+<p>They are responsible for converting requests to log information into 
+<code>LogEntry</code> instances, which they then pass along to their associated
+<code>LogReceptacle</code>s to perform the actual logging.</p>
+
+<p><code>LogChannel</code>s are provided as a convenience, exposed as static properties
+through the <code>Log</code> struct. Use of <code>LogChannel</code>s and the <code>Log</code> is not required
+for logging; you can also perform logging by creating <code>LogEntry</code> instances
+manually and passing them along to a <code>LogReceptacle</code>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV15CleanroomLogger10LogChannel8severityOS_11LogSeverity"></a>
+                    <a name="//apple_ref/swift/Property/severity" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV15CleanroomLogger10LogChannel8severityOS_11LogSeverity">severity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>LogSeverity</code> of this <code>LogChannel</code>, which determines the severity
+of the <code>LogEntry</code> instances it creates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV15CleanroomLogger10LogChannel10receptacleCS_13LogReceptacle"></a>
+                    <a name="//apple_ref/swift/Property/receptacle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV15CleanroomLogger10LogChannel10receptacleCS_13LogReceptacle">receptacle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>LogReceptacle</code> into which this <code>LogChannel</code> will deposit
+the <code>LogEntry</code> instances it creates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">receptacle</span><span class="p">:</span> <span class="kt">LogReceptacle</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger10LogChannelcFMS0_FT8severityOS_11LogSeverity10receptacleCS_13LogReceptacle_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(severity:receptacle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger10LogChannelcFMS0_FT8severityOS_11LogSeverity10receptacleCS_13LogReceptacle_S0_">init(severity:receptacle:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>LogChannel</code> instance using the specified parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">,</span> <span class="nv">receptacle</span><span class="p">:</span> <span class="kt">LogReceptacle</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>severity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogSeverity</code> to use for log entries written to the
+receiving channel.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>receptacle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>LogFormatter</code> instance to use for formatting log
+entries.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger10LogChannel5traceFS0_FT8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/trace(function:filePath:fileLine:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger10LogChannel5traceFS0_FT8functionSS8filePathSS8fileLineSi_T_">trace(function:filePath:fileLine:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Writes program execution trace information to the log. This information
+includes the signature of the calling function, as well as the source file
+and line at which the call to <code>trace()</code> was issued.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">trace</span><span class="p">(</span><span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>function</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the signature of the calling function. <strong>You should not provide
+a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filePath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the file path of the code issuing the call to this function. 
+<strong>You should not provide a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileLine</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the line number issuing the call to this function. <strong>You should
+not provide a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger10LogChannel7messageFS0_FTSS8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/message(_:function:filePath:fileLine:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger10LogChannel7messageFS0_FTSS8functionSS8filePathSS8fileLineSi_T_">message(_:function:filePath:fileLine:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Writes a string-based message to the log.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">message</span><span class="p">(</span><span class="nv">msg</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>msg</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message to log.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>function</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the signature of the calling function. <strong>You should not provide
+a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filePath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the file path of the code issuing the call to this function. 
+<strong>You should not provide a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileLine</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the line number issuing the call to this function. <strong>You should
+not provide a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger10LogChannel4dataFS0_FTP_8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/data(_:function:filePath:fileLine:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger10LogChannel4dataFS0_FTP_8functionSS8filePathSS8fileLineSi_T_">data(_:function:filePath:fileLine:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Writes arbitrary data to the log.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">data</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data to write to the log. The underlying logging
+implementation must support the data type provided or else the
+log request may be silently ignored.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>function</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the signature of the calling function. <strong>You should not provide
+a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filePath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the file path of the code issuing the call to this function. 
+<strong>You should not provide a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fileLine</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The default value provided for this parameter captures
+the line number issuing the call to this function. <strong>You should
+not provide a value for this parameter.</strong></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-04-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

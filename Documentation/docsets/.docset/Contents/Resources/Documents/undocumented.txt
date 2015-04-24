@@ -1,0 +1,37 @@
+LogSeverity.swift
+	public enum LogSeverity: Int
+	public enum LogSeverity : Int
+	public enum Comparator
+	public func compare(lVal: LogSeverity, against rVal: LogSeverity)
+            -> Bool
+	public func compare(comparator: Comparator, against severity: LogSeverity)
+        -> Bool
+	public enum LogSeverity : Int
+	public var description: String { return EnumPrinter.description(self) }
+	public var debugDescription: String { return EnumPrinter.debugDescription(self) }
+	public var printableEnumName: String { return "LogSeverity" }
+	public var printableValueName: String
+	public enum LogSeverity : Int
+ASLLogRecorder.swift
+	public var aslPriorityLevel: ASLPriorityLevel
+	public let name: String
+	public let formatters: [LogFormatter]
+	public let client: ASLClient
+	public var queue: dispatch_queue_t { return client.queue }
+	public init()
+	public init(name: String)
+	public init(name: String, formatter: LogFormatter)
+	public init(name: String, formatters: [LogFormatter])
+	public func recordFormattedString(str: String, forLogEntry entry: LogEntry)
+DefaultLogFormatter.swift
+	public struct DefaultLogFormatter: LogFormatter
+	public func formatLogEntry(entry: LogEntry)
+        -> String?
+LogConfiguration.swift
+	public struct LogConfiguration
+	public let severity: LogSeverity
+	public let filters: [LogFilter]
+	public let recorders: [LogRecorder]
+	public let synchronousMode: Bool
+LogReceptacle.swift
+	public func log(entry: LogEntry)
