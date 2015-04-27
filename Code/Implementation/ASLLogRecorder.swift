@@ -57,7 +57,9 @@ public struct ASLLogRecorder: LogRecorder
 
     public func recordFormattedString(str: String, forLogEntry entry: LogEntry)
     {
-        let msg = ASLMessageObject(priorityLevel: entry.severity.aslPriorityLevel, message: str)
+        // by default, NSLog() uses the ASL_LEVEL_WARNING priority;
+        // we'll do the same since it's familiar to Cocoa developers
+        let msg = ASLMessageObject(priorityLevel: .Warning, message: str)
 
         client.log(msg)
     }
