@@ -53,7 +53,7 @@ public struct DefaultLogFormatter: LogFormatter
     public static func formatLogMessageWithSeverity(severity: String, caller: String, message: String)
         -> String
     {
-        return "\(severity) | \(caller) — \(message)"
+        return "\(severity) | \(caller) — \(message)"
     }
 
     /**
