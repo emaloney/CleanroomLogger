@@ -19,7 +19,8 @@ public protocol LogFilter
     Called to determine whether the given `LogEntry` should be recorded.
     
     Because multiple `LogFilter`s can be associated with a given `LogChannel`,
-    `entry` will not be recorded if *any* filter returns `false`.
+    `entry` will not be recorded if *any* filter returns `false`. In other
+    words, a log entry will *only* be recorded if *all* filters return `true`.
 
     :param:     entry The `LogEntry` to be evaluated by the filter.
     

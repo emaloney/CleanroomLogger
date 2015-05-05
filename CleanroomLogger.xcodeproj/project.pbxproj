@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1DEE8E1AF87A5600D9A0BF /* DefaultLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1DEE8D1AF87A5600D9A0BF /* DefaultLogConfiguration.swift */; };
 		3B4596B21AE195900049A743 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4596A61AE195900049A743 /* CleanroomLogger.framework */; };
 		3B4596D81AE196E50049A743 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596CD1AE196E50049A743 /* ASLLogRecorder.swift */; };
 		3B4596D91AE196E50049A743 /* DefaultLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596CE1AE196E50049A743 /* DefaultLogFormatter.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B1DEE8D1AF87A5600D9A0BF /* DefaultLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLogConfiguration.swift; sourceTree = "<group>"; };
 		3B4596A61AE195900049A743 /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4596B11AE195900049A743 /* CleanroomLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomASL.xcodeproj; path = Libraries/CleanroomASL/CleanroomASL.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -151,6 +153,7 @@
 			children = (
 				3B4596CD1AE196E50049A743 /* ASLLogRecorder.swift */,
 				3B4596CE1AE196E50049A743 /* DefaultLogFormatter.swift */,
+				3B1DEE8D1AF87A5600D9A0BF /* DefaultLogConfiguration.swift */,
 			);
 			name = Implementation;
 			path = Code/Implementation;
@@ -288,6 +291,7 @@
 				3B4596E21AE196E50049A743 /* LogSeverity.swift in Sources */,
 				3B4596D81AE196E50049A743 /* ASLLogRecorder.swift in Sources */,
 				3B4596D91AE196E50049A743 /* DefaultLogFormatter.swift in Sources */,
+				3B1DEE8E1AF87A5600D9A0BF /* DefaultLogConfiguration.swift in Sources */,
 				3B4596DB1AE196E50049A743 /* LogChannel.swift in Sources */,
 				3B4596DF1AE196E50049A743 /* LogFormatter.swift in Sources */,
 				3B4596E11AE196E50049A743 /* LogRecorder.swift in Sources */,

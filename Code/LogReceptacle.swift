@@ -23,7 +23,7 @@ public final class LogReceptacle
     private lazy var acceptQueue: dispatch_queue_t = dispatch_queue_create("LogReceptacle.acceptQueue", DISPATCH_QUEUE_SERIAL)
 
     /**
-    Constructs a new `LogReceptacle` that will use the specified configuration.
+    Constructs a new `LogReceptacle` that will use the specified configurations.
 
     :param:     configuration An array of `LogConfiguration` instances that 
                 specify how the logging system will behave when messages
@@ -38,7 +38,7 @@ public final class LogReceptacle
         -> LogConfiguration?
     {
         for config in configuration {
-            if entry.severity.compare(.AsOrMoreSevereThan, against: config.severity) {
+            if entry.severity.compare(.AsOrMoreSevereThan, against: config.minimumSeverity) {
                 return config
             }
         }

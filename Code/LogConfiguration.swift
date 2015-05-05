@@ -8,10 +8,21 @@
 
 import Foundation
 
-public struct LogConfiguration
+/**
+Defines an interface for specifying the configuration of the logging system.
+*/
+public protocol LogConfiguration
 {
-    public let severity: LogSeverity
-    public let filters: [LogFilter]
-    public let recorders: [LogRecorder]
-    public let synchronousMode: Bool
+    /** The minimum `LogSeverity` supported by the configuration. */
+    var minimumSeverity: LogSeverity { get }
+
+    /** The list of `LogFilter`s to be used. */
+    var filters: [LogFilter]  { get }
+
+    /** The list of `LogRecorder`s to be used. */
+    var recorders: [LogRecorder]  { get }
+
+    /** A flag indicating when synchronous mode should be used for the
+    configuration. */
+    var synchronousMode: Bool  { get }
 }

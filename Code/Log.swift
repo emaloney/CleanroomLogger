@@ -63,15 +63,29 @@ public struct Log
     */
     public static func enable(minimumSeverity: LogSeverity = .Info, synchronousMode: Bool = false)
     {
-        dispatch_once(&enableOnce) {
-            let config = LogConfiguration(severity: minimumSeverity, filters: [], recorders: [ASLLogRecorder()], synchronousMode: synchronousMode)
-            let recept = LogReceptacle(configuration: [config])
+        let config = DefaultLogConfiguration(minimumSeverity: minimumSeverity, synchronousMode: synchronousMode)
+        enable(config)
+    }
 
-            self.error = self.logChannelWithSeverity(.Error, receptacle: recept, minimumSeverity: minimumSeverity)
-            self.warning = self.logChannelWithSeverity(.Warning, receptacle: recept, minimumSeverity: minimumSeverity)
-            self.info = self.logChannelWithSeverity(.Info, receptacle: recept, minimumSeverity: minimumSeverity)
-            self.debug = self.logChannelWithSeverity(.Debug, receptacle: recept, minimumSeverity: minimumSeverity)
-            self.verbose = self.logChannelWithSeverity(.Verbose, receptacle: recept, minimumSeverity: minimumSeverity)
+    public static func enable(configuration: LogConfiguration)
+    {
+        enable([configuration], minimumSeverity: configuration.minimumSeverity)
+    }
+
+    public static func enable(configuration: [LogConfiguration], minimumSeverity: LogSeverity = .Info)
+    {
+        let recept = LogReceptacle(configuration: configuration)
+        enable(recept, minimumSeverity: minimumSeverity)
+    }
+
+    public static func enable(receptacle: LogReceptacle, minimumSeverity: LogSeverity = .Info)
+    {
+        dispatch_once(&enableOnce) {
+            self.error = self.logChannelWithSeverity(.Error, receptacle: receptacle, minimumSeverity: minimumSeverity)
+            self.warning = self.logChannelWithSeverity(.Warning, receptacle: receptacle, minimumSeverity: minimumSeverity)
+            self.info = self.logChannelWithSeverity(.Info, receptacle: receptacle, minimumSeverity: minimumSeverity)
+            self.debug = self.logChannelWithSeverity(.Debug, receptacle: receptacle, minimumSeverity: minimumSeverity)
+            self.verbose = self.logChannelWithSeverity(.Verbose, receptacle: receptacle, minimumSeverity: minimumSeverity)
         }
     }
 
