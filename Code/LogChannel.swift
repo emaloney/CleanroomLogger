@@ -12,14 +12,14 @@ import Foundation
 `LogChannel` instances provide the high-level interface for accepting log
 messages.
 
-They are responsible for converting requests to log information into 
-`LogEntry` instances, which they then pass along to their associated
-`LogReceptacle`s to perform the actual logging.
+They are responsible for converting log requests into `LogEntry` instances
+that they then pass along to their associated `LogReceptacle`s to perform the
+actual logging.
 
 `LogChannel`s are provided as a convenience, exposed as static properties
-through the `Log` struct. Use of `LogChannel`s and the `Log` is not required
-for logging; you can also perform logging by creating `LogEntry` instances
-manually and passing them along to a `LogReceptacle`.
+through `Log`. Use of `LogChannel`s and the `Log` is not required for logging;
+you can also perform logging by creating `LogEntry` instances manually and 
+passing them along to a `LogReceptacle`.
 */
 public struct LogChannel
 {
@@ -99,11 +99,12 @@ public struct LogChannel
     }
 
     /**
-    Writes arbitrary data to the log.
+    Writes an arbitrary value to the log.
 
-    :param:     data The data to write to the log. The underlying logging
-                implementation must support the data type provided or else the
-                log request may be silently ignored.
+    :param:     value The value to write to the log. The underlying logging
+                implementation is responsible for converting `value` into a
+                text representation. If that is not possible, the log request
+                may be silently ignored.
     
     :param:     function The default value provided for this parameter captures
                 the signature of the calling function. **You should not provide
@@ -117,11 +118,11 @@ public struct LogChannel
                 the line number issuing the call to this function. **You should
                 not provide a value for this parameter.**
     */
-    public func data(data: Any, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    public func value(value: Any?, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
     {
         let threadID = pthread_mach_thread_np(pthread_self())
 
-        let entry = LogEntry(payload: .Data(data), severity: severity, callingFunction: function, callingFilePath: filePath, callingFileLine: fileLine, callingThreadID: Int(threadID))
+        let entry = LogEntry(payload: .Value(value), severity: severity, callingFunction: function, callingFilePath: filePath, callingFileLine: fileLine, callingThreadID: Int(threadID))
 
         receptacle.log(entry)
     }

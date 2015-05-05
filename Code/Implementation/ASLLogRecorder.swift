@@ -13,6 +13,10 @@ import CleanroomBase
 /**
 The `ASLLogRecorder` is an implemention of the `LogRecorder` protocol that
 records log entries to the Apple System Log (ASL) facility.
+
+Unless a `LogLevelTranslator` is specified during construction, the
+`ASLLogRecorder` will record log messages using `ASL_LEVEL_WARNING`. This
+is consistent with the behavior of `NSLog()`.
 */
 public struct ASLLogRecorder: LogRecorder
 {

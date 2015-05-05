@@ -17,13 +17,24 @@ more convenient to use within your code.
 */
 public final class LogReceptacle
 {
-    /// The `LogConfiguration` instances used to construct the receiver.
+    /** The `LogConfiguration` instances used to construct the receiver. */
     public let configuration: [LogConfiguration]
-
-    private lazy var acceptQueue: dispatch_queue_t = dispatch_queue_create("LogReceptacle.acceptQueue", DISPATCH_QUEUE_SERIAL)
 
     /**
     Constructs a new `LogReceptacle` that will use the specified configurations.
+
+    When a `LogEntry` is passed to the receiver's `log()` function, the
+    `LogConfiguration`s passed to this initializer will be evaluated in order
+    until the first one is found where the entry's `severity` property is as
+    severe or more severe than the `minimumSeverity` of the `LogConfiguration`.
+    
+    The first `LogConfiguration` matching that criteria is then used to perform
+    logging. If no matching `LogConfiguration` exists, then the log request
+    is silently ignored.
+    
+    This mechanism can be used to allow different `LogConfiguration`s to be
+    used for each individual `LogSeverity` (or for a range of contiguous
+    `LogSeverity` values).
 
     :param:     configuration An array of `LogConfiguration` instances that 
                 specify how the logging system will behave when messages
@@ -33,6 +44,37 @@ public final class LogReceptacle
     {
         self.configuration = configuration
     }
+
+    /**
+    This function accepts a `LogEntry` instance and attempts to record it
+    to the underlying log storage facility.
+    
+    :param:     entry The `LogEntry` being logged.
+    */
+    public func log(entry: LogEntry)
+    {
+        if let config = configurationForLogEntry(entry) {
+            let synchronous = config.synchronousMode
+            let acceptDispatcher = dispatcherForQueue(acceptQueue, synchronous: synchronous)
+            acceptDispatcher {
+                if self.logEntry(entry, passesFilters: config.filters) {
+                    for recorder in config.recorders {
+                        let recordDispatcher = self.dispatcherForQueue(recorder.queue, synchronous: synchronous)
+                        recordDispatcher {
+                            for formatter in recorder.formatters {
+                                if let formatted = formatter.formatLogEntry(entry) {
+                                    recorder.recordFormattedString(formatted, forLogEntry: entry)
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private lazy var acceptQueue: dispatch_queue_t = dispatch_queue_create("LogReceptacle.acceptQueue", DISPATCH_QUEUE_SERIAL)
 
     private func configurationForLogEntry(entry: LogEntry)
         -> LogConfiguration?
@@ -62,29 +104,6 @@ public final class LogReceptacle
             return dispatch_sync(queue, block)
         } else {
             return dispatch_async(queue, block)
-        }
-    }
-
-    public func log(entry: LogEntry)
-    {
-        if let config = configurationForLogEntry(entry) {
-            let synchronous = config.synchronousMode
-            let acceptDispatcher = dispatcherForQueue(acceptQueue, synchronous: synchronous)
-            acceptDispatcher {
-                if self.logEntry(entry, passesFilters: config.filters) {
-                    for recorder in config.recorders {
-                        let recordDispatcher = self.dispatcherForQueue(recorder.queue, synchronous: synchronous)
-                        recordDispatcher {
-                            for formatter in recorder.formatters {
-                                if let formatted = formatter.formatLogEntry(entry) {
-                                    recorder.recordFormattedString(formatted, forLogEntry: entry)
-                                    break
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 }

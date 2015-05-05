@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LogRecorder Protocol Reference</title>
+    <title>LogSeverity Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/LogRecorder" class="dashAnchor"></a>
-    <a title="LogRecorder Protocol Reference"></a>
+    <a name="//apple_ref/swift/Enum/LogSeverity" class="dashAnchor"></a>
+    <a title="LogSeverity Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        LogRecorder Protocol Reference
+        LogSeverity Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -99,9 +99,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>LogRecorder</h1>
-            <p>Each <code>LogRecorder</code> instance is responsible recording formatted log strings
-to an underlying log data store.</p>
+            <h1>LogSeverity</h1>
+            <p>Used to indicate the <em>severity</em>, or importance, of a log message.</p>
+
+<p>Severity is a continuum, from <code>.Verbose</code> being least severe to <code>.Error</code> being
+most severe.</p>
+
+<p>The logging system may be configured so that messages lower than a given
+severity are ignored.</p>
 
           </section>
           <section class="section task-group-section">
@@ -110,9 +115,9 @@ to an underlying log data store.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vP15CleanroomLogger11LogRecorder4nameSS"></a>
-                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vP15CleanroomLogger11LogRecorder4nameSS">name</a>
+                    <a name="/s:OO15CleanroomLogger11LogSeverity10Comparator"></a>
+                    <a name="//apple_ref/swift/Enum/Comparator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OO15CleanroomLogger11LogSeverity10Comparator">Comparator</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -120,14 +125,15 @@ to an underlying log data store.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the <code>LogRecorder</code>, which must be unique.</p>
+                        <p>The <code>LogSeverity.Comparator</code> is used to compare <code>LogSeverity</code> values.</p>
 
+                        <a href="../Enums/LogSeverity/Comparator.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Comparator</span></code></pre>
 
                         </div>
                       </div>
@@ -137,9 +143,9 @@ to an underlying log data store.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vP15CleanroomLogger11LogRecorder10formattersGSaPS_12LogFormatter__"></a>
-                    <a name="//apple_ref/swift/Property/formatters" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vP15CleanroomLogger11LogRecorder10formattersGSaPS_12LogFormatter__">formatters</a>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity5ErrorFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Error" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity5ErrorFMS0_S0_">Error</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -147,18 +153,15 @@ to an underlying log data store.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogFormatter</code>s that should be used to create a formatted log string
-for passing to the receiver&rsquo;s <code>recordFormattedString(_: forLogEntry:)</code>
-function. The formatters will be called sequentially and given an
-opportunity to return a formatted string for each log entry. The first
-non-<code>nil</code> return value will be what gets recorded in the log.</p>
+                        <p>The highest severity, used to indicate that something has gone wrong;
+a fatal error may be imminent.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Error</span>      <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -168,9 +171,9 @@ non-<code>nil</code> return value will be what gets recorded in the log.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vP15CleanroomLogger11LogRecorder5queueCSo8NSObject"></a>
-                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vP15CleanroomLogger11LogRecorder5queueCSo8NSObject">queue</a>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity4InfoFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Info" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity4InfoFMS0_S0_">Info</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -178,17 +181,14 @@ non-<code>nil</code> return value will be what gets recorded in the log.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the GCD queue that will be used when executing tasks related to
-the receiver. Log formatting and recording will be performed using
-this queue. This is typically a serial queue because the underlying log
-implementation is usually single-threaded.</p>
+                        <p>Used to indicate something of interest that is not problematic.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Info</span>       <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -198,9 +198,9 @@ implementation is usually single-threaded.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP15CleanroomLogger11LogRecorder21recordFormattedStringUS0___FQPS0_FTSS11forLogEntryVS_8LogEntry_T_"></a>
-                    <a name="//apple_ref/swift/Method/recordFormattedString(_:forLogEntry:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP15CleanroomLogger11LogRecorder21recordFormattedStringUS0___FQPS0_FTSS11forLogEntryVS_8LogEntry_T_">recordFormattedString(_:forLogEntry:)</a>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity7VerboseFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Verbose" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7VerboseFMS0_S0_">Verbose</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -208,16 +208,102 @@ implementation is usually single-threaded.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Called by the <code>LogReceptacle</code> to record the specified log string. Note that
-this is only called if one of the <code>formatters</code> associated with the receiver
-returned a non-<code>nil</code> string.</p>
+                        <p>The lowest severity, used for detailed or frequently occurring
+debugging and diagnostic information. Not intended for use in production
+code.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">recordFormattedString</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Verbose</span>    <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity5DebugFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Debug" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity5DebugFMS0_S0_">Debug</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used for debugging and diagnostic information. Not intended for use
+in production code.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Debug</span>      <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Warning" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_">Warning</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used to indicate that something appears amiss and potentially
+problematic. The situation bears looking into before a larger problem
+arises.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Warning</span>    <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity7compareFS0_FTOS0_10Comparator7againstS0__Sb"></a>
+                    <a name="//apple_ref/swift/Method/compare(_:against:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7compareFS0_FTOS0_10Comparator7againstS0__Sb">compare(_:against:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compares the receiver against another <code>LogSeverity</code> value using the given
+comparator.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">compare</span><span class="p">(</span><span class="nv">comparator</span><span class="p">:</span> <span class="kt">Comparator</span><span class="p">,</span> <span class="n">against</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -228,12 +314,13 @@ returned a non-<code>nil</code> string.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>str</em>
+                                <em>comparator</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The log string to record.</p>
+                                  <p>The <code>LogSeverity.Comparator</code> to use for the 
+comparison.</p>
 
                                 </div>
                               </td>
@@ -241,18 +328,25 @@ returned a non-<code>nil</code> string.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>entry</em>
+                                <em>severity</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogEntry</code> being recorded.</p>
+                                  <p>The <code>LogSeverity</code> value being compared against the
+receiver. This value represents the righthand value in the
+comparison, while the receiver represents the lefthand value.</p>
 
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The result of the comparison.</p>
+
                       </div>
                     </section>
                   </div>

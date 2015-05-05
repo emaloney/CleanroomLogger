@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Comparator Enum Reference</title>
+    <title>Payload Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,11 +9,11 @@
     <script src="../../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/Comparator" class="dashAnchor"></a>
-    <a title="Comparator Enum Reference"></a>
+    <a name="//apple_ref/swift/Enum/Payload" class="dashAnchor"></a>
+    <a title="Payload Enum Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../../index.html"> Docs</a> (81% documented)</p>
+        <p><a href="../../index.html"> Docs</a> (100% documented)</p>
         <p class="header-right"><a href=""><img src="../../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../../index.html"> Reference</a>
         <img id="carat" src="../../img/carat.png" />
-        Comparator Enum Reference
+        Payload Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -39,7 +39,7 @@
           <a href="../../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../../Enums.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+                <a href="../../Enums/LogSeverity.html">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -47,7 +47,7 @@
           <a href="../../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../../Extensions/LogSeverity.html">LogSeverity</a>
+                <a href="../../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -87,7 +87,7 @@
                 <a href="../../Structs/LogChannel.html">LogChannel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../../Structs.html#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
+                <a href="../../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
@@ -99,8 +99,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Comparator</h1>
-            <p>Undocumented</p>
+            <h1>Payload</h1>
+            <p>Represents the payload contained within a log entry.</p>
 
           </section>
           <section class="section task-group-section">
@@ -109,9 +109,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FOO15CleanroomLogger11LogSeverity10Comparator7compareFS1_FTS0_7againstS0__Sb"></a>
-                    <a name="//apple_ref/swift/Method/compare(_:against:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOO15CleanroomLogger11LogSeverity10Comparator7compareFS1_FTS0_7againstS0__Sb">compare(_:against:)</a>
+                    <a name="/s:FOV15CleanroomLogger8LogEntry7Payload5ValueFMS1_FGSqP__S1_"></a>
+                    <a name="//apple_ref/swift/Element/Value" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOV15CleanroomLogger8LogEntry7Payload5ValueFMS1_FGSqP__S1_">Value</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -119,8 +119,70 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The payload contains an arbitrary value, or <code>nil</code>.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Value</span><span class="p">(</span><span class="kt">Any</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOV15CleanroomLogger8LogEntry7Payload7MessageFMS1_FSSS1_"></a>
+                    <a name="//apple_ref/swift/Element/Message" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOV15CleanroomLogger8LogEntry7Payload7MessageFMS1_FSSS1_">Message</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The payload contains a text message.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Message</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOV15CleanroomLogger8LogEntry7Payload5TraceFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/Trace" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOV15CleanroomLogger8LogEntry7Payload5TraceFMS1_S1_">Trace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The log entry is a trace call and contains no explicit payload.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Trace</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

@@ -14,7 +14,7 @@ Represents an entry to be written to the log.
 public struct LogEntry
 {
     /** Represents the payload contained within a log entry. */
-    enum Payload
+    public enum Payload
     {
         /** The log entry is a trace call and contains no explicit payload. */
         case Trace
@@ -22,8 +22,8 @@ public struct LogEntry
         /** The payload contains a text message. */
         case Message(String)
 
-        /** The payload contains arbitrary data. */
-        case Data(Any)
+        /** The payload contains an arbitrary value, or `nil`. */
+        case Value(Any?)
     }
 
     /** The payload of the log entry. */

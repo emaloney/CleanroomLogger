@@ -8,25 +8,79 @@
 
 import CleanroomBase
 
+/**
+Used to indicate the *severity*, or importance, of a log message.
+
+Severity is a continuum, from `.Verbose` being least severe to `.Error` being
+most severe.
+
+The logging system may be configured so that messages lower than a given
+severity are ignored.
+*/
 public enum LogSeverity: Int
 {
+    /** The lowest severity, used for detailed or frequently occurring
+    debugging and diagnostic information. Not intended for use in production
+    code. */
     case Verbose    = 1
-    case Debug      = 2
-    case Info       = 3
-    case Warning    = 4
-    case Error      = 5
-}
 
-extension LogSeverity
-{
+    /** Used for debugging and diagnostic information. Not intended for use
+    in production code. */
+    case Debug      = 2
+
+    /** Used to indicate something of interest that is not problematic. */
+    case Info       = 3
+
+    /** Used to indicate that something appears amiss and potentially
+    problematic. The situation bears looking into before a larger problem
+    arises. */
+    case Warning    = 4
+
+    /** The highest severity, used to indicate that something has gone wrong;
+    a fatal error may be imminent. */
+    case Error      = 5
+
+    /**
+    The `LogSeverity.Comparator` is used to compare `LogSeverity` values.
+    */
     public enum Comparator
     {
+        /** Represents a comparator whose `compare()` function will return
+        `true` when the value of the `lVal` argument is less severe than that
+        of the `rVal` argument. */
         case LessSevereThan
+
+        /** Represents a comparator whose `compare()` function will return
+        `true` when the value of the `lVal` argument is as or less severe than
+        that of the `rVal` argument. */
         case AsOrLessSevereThan
+
+        /** Represents a comparator whose `compare()` function will return
+        `true` when the value of the `lVal` argument is equal to that of the
+        `rVal` argument. */
         case EqualToSeverityOf
+
+        /** Represents a comparator whose `compare()` function will return
+        `true` when the value of the `lVal` argument is as or more severe than
+        that of the `rVal` argument. */
         case AsOrMoreSevereThan
+
+        /** Represents a comparator whose `compare()` function will return
+        `true` when the value of the `lVal` argument is more severe than
+        that of the `rVal` argument. */
         case MoreSevereThan
 
+        /**
+        Executes the function represented by the comparator using the
+        specified `lVal` and `rVal` arguments.
+        
+        :param:     lVal The lefthand value for the comparison
+        
+        :param:     rVal The righthand value for the comparison
+        
+        :returns:   The result of the comparison given the values `lVal` and
+                    `rVal`.
+        */
         public func compare(lVal: LogSeverity, against rVal: LogSeverity)
             -> Bool
         {
@@ -48,7 +102,20 @@ extension LogSeverity
             }
         }
     }
+
+    /**
+    Compares the receiver against another `LogSeverity` value using the given
+    comparator.
+
+    :param:     comparator The `LogSeverity.Comparator` to use for the 
+                comparison.
     
+    :param:     severity The `LogSeverity` value being compared against the
+                receiver. This value represents the righthand value in the
+                comparison, while the receiver represents the lefthand value.
+    
+    :returns:   The result of the comparison.
+    */
     public func compare(comparator: Comparator, against severity: LogSeverity)
         -> Bool
     {
@@ -58,12 +125,16 @@ extension LogSeverity
 
 extension LogSeverity: DebugPrintableEnum
 {
+    /// :nodoc:
     public var description: String { return EnumPrinter.description(self) }
 
+    /// :nodoc:
     public var debugDescription: String { return EnumPrinter.debugDescription(self) }
 
+    /// :nodoc:
     public var printableEnumName: String { return "LogSeverity" }
 
+    /// :nodoc:
     public var printableValueName: String {
         switch self {
         case Verbose:   return "Verbose"

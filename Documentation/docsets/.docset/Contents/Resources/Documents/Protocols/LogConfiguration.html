@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LogSeverity Extension Reference</title>
+    <title>LogConfiguration Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,11 +9,11 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Extension/LogSeverity" class="dashAnchor"></a>
-    <a title="LogSeverity Extension Reference"></a>
+    <a name="//apple_ref/swift/Protocol/LogConfiguration" class="dashAnchor"></a>
+    <a title="LogConfiguration Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (95% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
         <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        LogSeverity Extension Reference
+        LogConfiguration Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -47,7 +47,7 @@
           <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/LogSeverity.html">LogSeverity</a>
+                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -99,14 +99,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>LogSeverity</h1>
-            <p>Used to indicate the <em>severity</em>, or importance, of a log message.</p>
-
-<p>Severity is a continuum, from <code>.Verbose</code> being least severe to <code>.Error</code> being
-most severe.</p>
-
-<p>The logging system may be configured so that messages lower than a given
-severity are ignored.</p>
+            <h1>LogConfiguration</h1>
+            <p>Defines an interface for specifying the configuration of the logging system.</p>
 
           </section>
           <section class="section task-group-section">
@@ -115,9 +109,9 @@ severity are ignored.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vO15CleanroomLogger11LogSeverity11descriptionSS"></a>
-                    <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vO15CleanroomLogger11LogSeverity11descriptionSS">description</a>
+                    <a name="/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity"></a>
+                    <a name="//apple_ref/swift/Property/minimumSeverity" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity">minimumSeverity</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -125,8 +119,16 @@ severity are ignored.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The minimum <code>LogSeverity</code> supported by the configuration.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -134,9 +136,9 @@ severity are ignored.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vO15CleanroomLogger11LogSeverity16debugDescriptionSS"></a>
-                    <a name="//apple_ref/swift/Property/debugDescription" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vO15CleanroomLogger11LogSeverity16debugDescriptionSS">debugDescription</a>
+                    <a name="/s:vP15CleanroomLogger16LogConfiguration7filtersGSaPS_9LogFilter__"></a>
+                    <a name="//apple_ref/swift/Property/filters" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP15CleanroomLogger16LogConfiguration7filtersGSaPS_9LogFilter__">filters</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -144,8 +146,16 @@ severity are ignored.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The list of <code>LogFilter</code>s to be used.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span>  <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -153,9 +163,9 @@ severity are ignored.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vO15CleanroomLogger11LogSeverity17printableEnumNameSS"></a>
-                    <a name="//apple_ref/swift/Property/printableEnumName" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vO15CleanroomLogger11LogSeverity17printableEnumNameSS">printableEnumName</a>
+                    <a name="/s:vP15CleanroomLogger16LogConfiguration9recordersGSaPS_11LogRecorder__"></a>
+                    <a name="//apple_ref/swift/Property/recorders" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP15CleanroomLogger16LogConfiguration9recordersGSaPS_11LogRecorder__">recorders</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -163,8 +173,16 @@ severity are ignored.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The list of <code>LogRecorder</code>s to be used.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">recorders</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogRecorder</span><span class="p">]</span>  <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -172,9 +190,9 @@ severity are ignored.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vO15CleanroomLogger11LogSeverity18printableValueNameSS"></a>
-                    <a name="//apple_ref/swift/Property/printableValueName" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vO15CleanroomLogger11LogSeverity18printableValueNameSS">printableValueName</a>
+                    <a name="/s:vP15CleanroomLogger16LogConfiguration15synchronousModeSb"></a>
+                    <a name="//apple_ref/swift/Property/synchronousMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP15CleanroomLogger16LogConfiguration15synchronousModeSb">synchronousMode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -182,8 +200,17 @@ severity are ignored.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A flag indicating when synchronous mode should be used for the
+configuration.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span>  <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

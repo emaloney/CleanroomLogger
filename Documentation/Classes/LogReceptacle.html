@@ -13,7 +13,7 @@
     <a title="LogReceptacle Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (52% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
         <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -39,7 +39,7 @@
           <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+                <a href="../Enums/LogSeverity.html">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -47,13 +47,16 @@
           <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/LogSeverity.html">LogSeverity</a>
+                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Protocols/LogFilter.html">LogFilter</a>
               </li>
@@ -72,6 +75,9 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -81,10 +87,7 @@
                 <a href="../Structs/LogChannel.html">LogChannel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/LogConfiguration.html">LogConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
+                <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
@@ -110,9 +113,9 @@ more convenient to use within your code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger13LogReceptacle13configurationGSaVS_16LogConfiguration_"></a>
+                    <a name="/s:vC15CleanroomLogger13LogReceptacle13configurationGSaPS_16LogConfiguration__"></a>
                     <a name="//apple_ref/swift/Property/configuration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger13LogReceptacle13configurationGSaVS_16LogConfiguration_">configuration</a>
+                    <a class="token" href="#/s:vC15CleanroomLogger13LogReceptacle13configurationGSaPS_16LogConfiguration__">configuration</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -137,9 +140,9 @@ more convenient to use within your code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger13LogReceptaclecFMS0_FT13configurationGSaVS_16LogConfiguration__S0_"></a>
+                    <a name="/s:FC15CleanroomLogger13LogReceptaclecFMS0_FT13configurationGSaPS_16LogConfiguration___S0_"></a>
                     <a name="//apple_ref/swift/Method/init(configuration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger13LogReceptaclecFMS0_FT13configurationGSaVS_16LogConfiguration__S0_">init(configuration:)</a>
+                    <a class="token" href="#/s:FC15CleanroomLogger13LogReceptaclecFMS0_FT13configurationGSaPS_16LogConfiguration___S0_">init(configuration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -147,7 +150,20 @@ more convenient to use within your code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Constructs a new <code>LogReceptacle</code> that will use the specified configuration.</p>
+                        <p>Constructs a new <code>LogReceptacle</code> that will use the specified configurations.</p>
+
+<p>When a <code>LogEntry</code> is passed to the receiver&rsquo;s <code>log()</code> function, the
+<code>LogConfiguration</code>s passed to this initializer will be evaluated in order
+until the first one is found where the entry&rsquo;s <code>severity</code> property is as
+severe or more severe than the <code>minimumSeverity</code> of the <code>LogConfiguration</code>.</p>
+
+<p>The first <code>LogConfiguration</code> matching that criteria is then used to perform
+logging. If no matching <code>LogConfiguration</code> exists, then the log request
+is silently ignored.</p>
+
+<p>This mechanism can be used to allow different <code>LogConfiguration</code>s to be
+used for each individual <code>LogSeverity</code> (or for a range of contiguous
+<code>LogSeverity</code> values).</p>
 
                       </div>
                       <div class="declaration">
@@ -196,8 +212,37 @@ are added.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>This function accepts a <code>LogEntry</code> instance and attempts to record it
+to the underlying log storage facility.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">log</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> being logged.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -207,7 +252,7 @@ are added.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-04-24)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -12,7 +12,7 @@
     <a title="Structs  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (52% documented)</p>
+        <p><a href="index.html"> Docs</a> (100% documented)</p>
         <p class="header-right"><a href=""><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -38,7 +38,7 @@
           <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+                <a href="Enums/LogSeverity.html">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -46,13 +46,16 @@
           <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions/LogSeverity.html">LogSeverity</a>
+                <a href="Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Protocols/LogFilter.html">LogFilter</a>
               </li>
@@ -71,6 +74,9 @@
                 <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -80,10 +86,7 @@
                 <a href="Structs/LogChannel.html">LogChannel</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/LogConfiguration.html">LogConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs.html#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
+                <a href="Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
@@ -118,6 +121,10 @@
                         <p>The <code>ASLLogRecorder</code> is an implemention of the <code>LogRecorder</code> protocol that
 records log entries to the Apple System Log (ASL) facility.</p>
 
+<p>Unless a <code>LogLevelTranslator</code> is specified during construction, the
+<code>ASLLogRecorder</code> will record log messages using <code>ASL_LEVEL_WARNING</code>. This
+is consistent with the behavior of <code>NSLog()</code>.</p>
+
                         <a href="Structs/ASLLogRecorder.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -148,9 +155,59 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <code>DefaultLogFormatter</code> is a basic implementation of the <code>LogFormatter</code> 
+protocol.</p>
+
+<p>This implementation is used by default if no other log formatters are specified.</p>
 
                         <a href="Structs/DefaultLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger23DefaultLogConfiguration"></a>
+                    <a name="//apple_ref/swift/Struct/DefaultLogConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger23DefaultLogConfiguration">DefaultLogConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>DefaultLogConfiguration</code> is the implementation of the <code>LogConfiguration</code>
+protocol used by default if no other is provided.</p>
+
+<p>The <code>DefaultLogConfiguration</code> uses the <code>ASLLogRecorder</code> to write to the Apple
+System Log as well as the <code>stderr</code> console.</p>
+
+<p>Additional optional <code>LogRecorders</code> may be specified to record messages to
+other arbitrary types of data stores, such as files or HTTP endpoints.</p>
+
+                        <a href="Structs/DefaultLogConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogConfiguration</span><span class="p">:</span> <span class="kt">LogConfiguration</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -175,14 +232,14 @@ records log entries to the Apple System Log (ASL) facility.</p>
                         <p><code>LogChannel</code> instances provide the high-level interface for accepting log
 messages.</p>
 
-<p>They are responsible for converting requests to log information into 
-<code>LogEntry</code> instances, which they then pass along to their associated
-<code>LogReceptacle</code>s to perform the actual logging.</p>
+<p>They are responsible for converting log requests into <code>LogEntry</code> instances
+that they then pass along to their associated <code>LogReceptacle</code>s to perform the
+actual logging.</p>
 
 <p><code>LogChannel</code>s are provided as a convenience, exposed as static properties
-through the <code>Log</code> struct. Use of <code>LogChannel</code>s and the <code>Log</code> is not required
-for logging; you can also perform logging by creating <code>LogEntry</code> instances
-manually and passing them along to a <code>LogReceptacle</code>.</p>
+through <code>Log</code>. Use of <code>LogChannel</code>s and the <code>Log</code> is not required for logging;
+you can also perform logging by creating <code>LogEntry</code> instances manually and 
+passing them along to a <code>LogReceptacle</code>.</p>
 
                         <a href="Structs/LogChannel.html" class="slightly-smaller">See more</a>
                       </div>
@@ -204,30 +261,6 @@ manually and passing them along to a <code>LogReceptacle</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger16LogConfiguration"></a>
-                    <a name="//apple_ref/swift/Struct/LogConfiguration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger16LogConfiguration">LogConfiguration</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Structs/LogConfiguration.html" class="slightly-smaller">See more</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:V15CleanroomLogger3Log"></a>
                     <a name="//apple_ref/swift/Struct/Log" class="dashAnchor"></a>
                     <a class="token" href="#/s:V15CleanroomLogger3Log">Log</a>
@@ -238,13 +271,147 @@ manually and passing them along to a <code>LogReceptacle</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>Log</code> is a convenience that allows you to submit log messages at specific
-log levels without having to use the more verbose, lower-level API provided
-by <code>LogReceptacle</code>.</p>
+                        <p><code>Log</code> is the primary public API for CleanroomLogger.</p>
 
-<p>Before using <code>Log</code>, your application must call the <code>Log.enable()</code> function. 
-This is typically done at the earliest possible place within your app delegate&rsquo;s
-<code>application(_: didFinishLaunchingWithOptions:)</code> function.</p>
+<p>If you wish to send a message to the log, you do so by calling the appropriae
+function provided by the appropriate <code>LogChannel</code> given the importance of your
+message.</p>
+
+<p>There are five levels of severity at which log messages can be recorded. Each
+level is represented by a read-only static variable maintained by the <code>Log</code>:</p>
+
+<ul>
+<li><p><code>Log.error</code> — The highest severity; something has gone wrong and a fatal error
+may be imminent</p></li>
+<li><p><code>Log.warning</code> — Something appears amiss and might bear looking into before a
+larger problem arises</p></li>
+<li><p><code>Log.info</code> — Something notable happened, but it isn&rsquo;t anything to worry about</p></li>
+<li><p><code>Log.debug</code> — Used for debugging and diagnostic information</p></li>
+<li><p><code>Log.verbose</code> - The lowest severity; used for detailed or frequently occurring
+debugging and diagnostic information</p></li>
+</ul>
+
+<p>Each <code>LogChannel</code> can be used in one of three ways:</p>
+
+<ul>
+<li>The <code>trace()</code> function records a short log message detailing the source
+file, source line, and function name of the caller. It is intended to be called
+with no arguments, as follows:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.debug?.trace()
+</code></pre>
+
+<ul>
+<li>The <code>message()</code> function records a message specified by the caller:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.info?.message("The application has finished launching.")
+</code></pre>
+
+<p><code>message()</code> is intended to be called with a single parameter, the message 
+string, as shown above. Unlike <code>NSLog()</code>, no <code>printf</code>-like functionality
+is provided; instead, use Swift string interpolation to construct parameterized
+messages.</p>
+
+<ul>
+<li>Finally, the <code>value()</code> function records a string representation of an 
+arbitrary <code>Any</code> value:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.verbose?.value(delegate)
+</code></pre>
+
+<p>The <code>value()</code> function is intended to be called with a single parameter, of
+type <code>Any?</code>.</p>
+
+<p>The underlying logging implementation is responsible for converting this value
+into a string representation.</p>
+
+<p>Note that some implementations may not be able to convert certain values into
+strings; in those cases, log requests may be silently ignored.</p>
+
+<p><a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3></p>
+
+<p>By default, logging is disabled, meaning that none of the <code>Log</code>&rsquo;s <em>log channels</em>
+have been populated. As a result, attempts to perform any logging will silently
+fail.</p>
+
+<p>It is the responsibility of the <em>application developer</em> to enable logging, which
+is done by calling the appropriate <code>Log.enable()</code> function.</p>
+
+<blockquote>
+<p>The reason we specifically say the application developer is responsible
+for enabling logging is to give the developer the power to control the use
+of logging process-wide. As with any code that executes, there&rsquo;s an expense
+to logging, and the application developer should get to make that choice.</p>
+
+<p>CleanroomLogger is designed to be used from within frameworks, shared
+libraries, Cocoapods, etc., as well as at the application level. However, code
+such as this—any code designed to be embedded in other applications—<strong>must not 
+ever</strong> call <code>Log.enable()</code>, because by doing so, you will be taking control away
+from the application developer.</p>
+
+<p>The general rule is, if you didn&rsquo;t write the <code>UIApplicationDelegate</code> for
+the app in which the code will execute, don&rsquo;t ever call <code>Log.enable()</code>.</p>
+</blockquote>
+
+<p>Ideally, logging is enabled at the first possible point in the application&rsquo;s
+launch cycle. Otherwise, critical log messages may be missed during launch
+because the logger wasn&rsquo;t yet initialized.</p>
+
+<p>The best place to put the call to <code>Log.enable()</code> is at the first line of your
+app delegate&rsquo;s <code>init()</code>.</p>
+
+<p>If you&rsquo;d rather not do that for some reason, the next best place to put it is in
+the <code>application(_: willFinishLaunchingWithOptions:)</code> function within your app
+delegate. Note that we&rsquo;re recommending the <code>will</code> function, not the typical 
+<code>did</code>; this is because the former is called earlier in the launch cycle.</p>
+
+<p><strong>Note:</strong> During the running lifetime of an application process, only the
+<em>first</em> call to <code>Log.enable()</code> function will have any effect. All subsequent
+calls are ignored silently.</p>
+
+<p><a href='#global_state' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='global_state'>Global State</h3></p>
+
+<p>If you&rsquo;ve been reading the op-ed pages lately, you know that Global State is
+the enemy of civilization. You may also have noticed that the static variables
+of the <code>Log</code> struct constitute global state.</p>
+
+<p>Before you pick up your phone to alert Thought Control that a heretic has been
+detected and the network of Twitter shamebots should prepare to activate, 
+consider:</p>
+
+<ul>
+<li><p>In most cases, <code>Log</code> is used as an interface to two resources that are 
+effectively singletons: the Apple System Log daemon of the device where the
+code will be running, and the <code>stderr</code> output stream of the running application.
+<code>Log</code> <em>maintains</em> global state because it <em>represents</em> global state.</p></li>
+<li><p>The state represented by <code>Log</code> is effectively immutable. The public interface
+is read-only, and the values are guaranteed to only ever be set once: at app
+launch, when <code>Log.enable()</code> is called from within the app delegate. The design 
+of this gives full control to the application developer over the logging 
+performed within the application; even third-party libraries using 
+CleanroomLogger will use the logging configuration specified by the app
+developer.</p></li>
+<li><p><code>Log</code> designed to be <em>convenient</em> to encourage the judicious use of logging.
+During debugging, you might want to quickly add some debug tracing to some
+already-existing code; you can simply add <code>Log.debug?.trace()</code> to the
+appropriate places without refactoring your codebase to pass around
+<code>LogChannel</code>s or <code>LogReceptacle</code>s everywhere. Given that literally
+every single function in your code is a candidate for using logging, it&rsquo;s
+impractical to use logging extensively <em>without</em> the convenience of <code>Log</code>.</p></li>
+<li><p>If you have a compelling reason to avoid using <code>Log</code>, but you still wish
+to use the functionality provided by CleanroomLogger, you can always
+construct and manage your own <code>LogChannel</code>s and <code>LogReceptacle</code>s directly.
+The only global state within the CleanroomLogger project is contained in <code>Log</code>
+itself.</p></li>
+</ul>
+
+<p>Although there are many good reasons why global state is to be generally
+avoided and otherwise looked at skeptically, in this particular case, our use
+of global state is deliberate, well-isolated and not required to take advantage
+of the functionality provided by CleanroomLogger.</p>
 
                         <a href="Structs/Log.html" class="slightly-smaller">See more</a>
                       </div>
@@ -311,6 +478,7 @@ This is typically done at the earliest possible place within your app delegate&r
                       <div class="abstract">
                         <p>Represents an entry to be written to the log.</p>
 
+                        <a href="Structs/LogEntry.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -328,7 +496,7 @@ This is typically done at the earliest possible place within your app delegate&r
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-04-24)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

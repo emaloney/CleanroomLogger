@@ -13,7 +13,7 @@
     <a title="ASLLogRecorder Struct Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (52% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
         <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -39,7 +39,7 @@
           <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+                <a href="../Enums/LogSeverity.html">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -47,13 +47,16 @@
           <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/LogSeverity.html">LogSeverity</a>
+                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Protocols/LogFilter.html">LogFilter</a>
               </li>
@@ -72,6 +75,9 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -81,10 +87,7 @@
                 <a href="../Structs/LogChannel.html">LogChannel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/LogConfiguration.html">LogConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
+                <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
@@ -100,10 +103,71 @@
             <p>The <code>ASLLogRecorder</code> is an implemention of the <code>LogRecorder</code> protocol that
 records log entries to the Apple System Log (ASL) facility.</p>
 
+<p>Unless a <code>LogLevelTranslator</code> is specified during construction, the
+<code>ASLLogRecorder</code> will record log messages using <code>ASL_LEVEL_WARNING</code>. This
+is consistent with the behavior of <code>NSLog()</code>.</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvV15CleanroomLogger14ASLLogRecorder11DefaultNameSS"></a>
+                    <a name="//apple_ref/swift/Variable/DefaultName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvV15CleanroomLogger14ASLLogRecorder11DefaultNameSS">DefaultName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default value used when a <code>name</code> is not specified during
+instantiation of <code>ASLLogRecorder</code>s.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">DefaultName</span> <span class="o">=</span> <span class="s">"CleanroomLogger.ASLLogRecorder"</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger14ASLLogRecorder18LogLevelTranslator"></a>
+                    <a name="//apple_ref/swift/Alias/LogLevelTranslator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger14ASLLogRecorder18LogLevelTranslator">LogLevelTranslator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defines the interface of a function that translates <code>LogSeverity</code>
+values into <code>ASLPriorityLevel</code> values. This function is used to determine
+the <code>ASLPriorityLevel</code> used for a given <code>LogEntry</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">LogLevelTranslator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">LogSeverity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ASLPriorityLevel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -117,8 +181,16 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The name of the <code>ASLLogRecorder</code>.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -136,8 +208,16 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <code>LogFormatter</code>s to be used in conjunction with the receiver.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -155,8 +235,16 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <code>ASLClient</code> that will be used to perform logging.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">client</span><span class="p">:</span> <span class="kt">ASLClient</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -174,8 +262,16 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The GCD queue used by the receiver to record messages.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span> <span class="p">{</span> <span class="k">return</span> <span class="n">client</span><span class="o">.</span><span class="n">queue</span> <span class="p">}</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -183,9 +279,9 @@ records log entries to the Apple System Log (ASL) facility.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT_S0_">init()</a>
+                    <a name="/s:vV15CleanroomLogger14ASLLogRecorder18logLevelTranslatorERR"></a>
+                    <a name="//apple_ref/swift/Property/logLevelTranslator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV15CleanroomLogger14ASLLogRecorder18logLevelTranslatorERR">logLevelTranslator</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -193,8 +289,19 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <code>LogLevelTranslator</code> function used by the receiver to convert
+<code>LogSeverity</code> values to <code>ASLPriorityLevel</code> values. If one was not
+explicitly provided at instantiation, a default implementation will
+be used.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">logLevelTranslator</span><span class="p">:</span> <span class="kt">LogLevelTranslator</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -212,8 +319,42 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the <code>DefaultLogFormatter</code>
+implementation for formatting log messages.</p>
 
+<p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
+level, which is consistent with the behavior of <code>NSLog()</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">ASLLogRecorder</span><span class="o">.</span><span class="kt">DefaultName</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the log recorder, which must be unique.
+Defaults to <code>ASLLogRecorder.DefaultName</code> if the parameter
+is not specified.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -221,9 +362,9 @@ records log entries to the Apple System Log (ASL) facility.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT4nameSS9formatterPS_12LogFormatter__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(name:formatter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT4nameSS9formatterPS_12LogFormatter__S0_">init(name:formatter:)</a>
+                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT9formatterPS_12LogFormatter_4nameSS_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(formatter:name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT9formatterPS_12LogFormatter_4nameSS_S0_">init(formatter:name:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -231,8 +372,56 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the specified <code>LogFormatter</code>
+for formatting log messages.</p>
 
+<p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
+level, which is consistent with the behavior of <code>NSLog()</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt">LogFormatter</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">ASLLogRecorder</span><span class="o">.</span><span class="kt">DefaultName</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatter</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogFormatter</code> to use for formatting log messages
+recorded by the receiver.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the log recorder, which must be unique. 
+Defaults to <code>ASLLogRecorder.DefaultName</code> if the parameter
+is not specified.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -240,9 +429,9 @@ records log entries to the Apple System Log (ASL) facility.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT4nameSS10formattersGSaPS_12LogFormatter___S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(name:formatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT4nameSS10formattersGSaPS_12LogFormatter___S0_">init(name:formatters:)</a>
+                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT10formattersGSaPS_12LogFormatter__4nameSS_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(formatters:name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFMS0_FT10formattersGSaPS_12LogFormatter__4nameSS_S0_">init(formatters:name:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -250,8 +439,138 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the specified <code>LogFormatter</code>
+for formatting log messages.</p>
 
+<p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
+level, which is consistent with the behavior of <code>NSLog()</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">],</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">ASLLogRecorder</span><span class="o">.</span><span class="kt">DefaultName</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of <code>LogFormatter<code>s to use for formatting log
+messages recorded by the receiver. Each formatter will be
+consulted in sequence, and the formatted string returned by the
+first formatter to yield a non-</code>nil</code> value will be recorded.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the log recorder, which must be unique. 
+Defaults to <code>ASLLogRecorder.DefaultName</code> if the parameter 
+is not specified.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercERR"></a>
+                    <a name="//apple_ref/swift/Method/init(logLevelTranslator:formatters:name:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercERR">init(logLevelTranslator:formatters:name:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the specified <code>LogFormatter</code>
+for formatting log messages.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">logLevelTranslator</span> <span class="nv">translator</span><span class="p">:</span> <span class="kt">LogLevelTranslator</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">],</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">ASLLogRecorder</span><span class="o">.</span><span class="kt">DefaultName</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>translator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>LogLevelTranslator</code> function that is used to
+convert <code>LogSeverity</code> values to <code>ASLPriorityLevel</code> values.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of <code>LogFormatter<code>s to use for formatting log
+messages recorded by the receiver. Each formatter will be
+consulted in sequence, and the formatted string returned by the
+first formatter to yield a non-</code>nil</code> value will be recorded.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the log recorder, which must be unique. 
+Defaults to <code>ASLLogRecorder.DefaultName</code> if the parameter 
+is not specified.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -269,8 +588,52 @@ records log entries to the Apple System Log (ASL) facility.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Called to record the specified string to the Apple System Log.</p>
 
+<p>Note that this is only called if one of the <code>formatters</code> associated with 
+the receiver returned a non-<code>nil</code> string.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">recordFormattedString</span><span class="p">(</span><span class="nv">str</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>str</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The formatted log string to record.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> being recorded.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -280,7 +643,7 @@ records log entries to the Apple System Log (ASL) facility.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-04-24)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -13,7 +13,7 @@
     <a title="DefaultLogFormatter Struct Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (52% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
         <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -39,7 +39,7 @@
           <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+                <a href="../Enums/LogSeverity.html">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -47,13 +47,16 @@
           <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/LogSeverity.html">LogSeverity</a>
+                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Protocols/LogFilter.html">LogFilter</a>
               </li>
@@ -72,6 +75,9 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -81,10 +87,7 @@
                 <a href="../Structs/LogChannel.html">LogChannel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/LogConfiguration.html">LogConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
+                <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
@@ -97,7 +100,10 @@
         <section>
           <section class="section">
             <h1>DefaultLogFormatter</h1>
-            <p>Undocumented</p>
+            <p>The <code>DefaultLogFormatter</code> is a basic implementation of the <code>LogFormatter</code> 
+protocol.</p>
+
+<p>This implementation is used by default if no other log formatters are specified.</p>
 
           </section>
           <section class="section task-group-section">
@@ -116,7 +122,424 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns a formatted representation of the given <code>LogEntry</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">formatLogEntry</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> being formatted.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The formatted representation of <code>entry</code>. This particular
+implementation will never return <code>nil</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV15CleanroomLogger19DefaultLogFormatter28formatLogMessageWithSeverityFMS0_FTSS6callerSS7messageSS_SS"></a>
+                    <a name="//apple_ref/swift/Method/formatLogMessageWithSeverity(_:caller:message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger19DefaultLogFormatter28formatLogMessageWithSeverityFMS0_FTSS6callerSS7messageSS_SS">formatLogMessageWithSeverity(_:caller:message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the formatted log message given the string representation of the
+severity, caller and message associated with a given <code>LogEntry</code>.</p>
+
+<p>This implementation is used by the <code>DefaultLogFormatter</code> for creating
+the log messages that will be recorded.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">formatLogMessageWithSeverity</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">caller</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>severity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The string representation of the log entry&rsquo;s severity.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>caller</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The string representation of the caller&rsquo;s source file
+and line.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The log message.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The formatted log message.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV15CleanroomLogger19DefaultLogFormatter30stringRepresentationOfSeverityFMS0_FOS_11LogSeveritySS"></a>
+                    <a name="//apple_ref/swift/Method/stringRepresentationOfSeverity(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger19DefaultLogFormatter30stringRepresentationOfSeverityFMS0_FOS_11LogSeveritySS">stringRepresentationOfSeverity(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a string representation of a given <code>LogSeverity</code> value.</p>
+
+<p>This implementation is used by the <code>DefaultLogFormatter</code> for creating
+string representations for representing the <code>severity</code> value of
+<code>LogEntry</code> instances.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">stringRepresentationOfSeverity</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>severity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogSeverity</code> for which a string representation
+is desired.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string representation of the <code>severity</code> value.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV15CleanroomLogger19DefaultLogFormatter34stringRepresentationForCallingFileFMS0_FTSS4lineSi_SS"></a>
+                    <a name="//apple_ref/swift/Method/stringRepresentationForCallingFile(_:line:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger19DefaultLogFormatter34stringRepresentationForCallingFileFMS0_FTSS4lineSi_SS">stringRepresentationForCallingFile(_:line:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a string representation for a calling file and line.</p>
+
+<p>This implementation is used by the <code>DefaultLogFormatter</code> for creating
+string representations of a <code>LogEntry</code>&rsquo;s <code>callingFilePath</code> and
+<code>callingFileLine</code> properties.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">stringRepresentationForCallingFile</span><span class="p">(</span><span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">line</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filePath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The full file path of the calling file.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>line</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The line number within the calling file.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The string representation of <code>filePath</code> and <code>line</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV15CleanroomLogger19DefaultLogFormatter30stringRepresentationForPayloadFMS0_FVS_8LogEntrySS"></a>
+                    <a name="//apple_ref/swift/Method/stringRepresentationForPayload(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger19DefaultLogFormatter30stringRepresentationForPayloadFMS0_FVS_8LogEntrySS">stringRepresentationForPayload(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a string representation of an arbitrary optional value.</p>
+
+<p>This implementation is used by the <code>DefaultLogFormatter</code> for creating
+string representations of <code>LogEntry</code> payloads.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">stringRepresentationForPayload</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> whose payload is desired in string form.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The string representation of <code>entry</code>&rsquo;s payload.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV15CleanroomLogger19DefaultLogFormatter28stringRepresentationForValueFMS0_FGSqP__SS"></a>
+                    <a name="//apple_ref/swift/Method/stringRepresentationForValue(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger19DefaultLogFormatter28stringRepresentationForValueFMS0_FGSqP__SS">stringRepresentationForValue(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a string representation of an arbitrary optional value.</p>
+
+<p>This implementation is used by the <code>DefaultLogFormatter</code> for creating
+string representations of <code>LogEntry</code> instances containing <code>.Value</code> payloads.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">stringRepresentationForValue</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value for which a string representation is desired.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>If value is <code>nil</code>, the string <q><code>(nil)</code></q> is returned; otherwise,
+the return value of <code>stringRepresentationForValue(Any)</code> is
+returned.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV15CleanroomLogger19DefaultLogFormatter28stringRepresentationForValueFMS0_FP_SS"></a>
+                    <a name="//apple_ref/swift/Method/stringRepresentationForValue(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger19DefaultLogFormatter28stringRepresentationForValueFMS0_FP_SS">stringRepresentationForValue(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a string representation of an arbitrary value.</p>
+
+<p>This implementation is used by the <code>DefaultLogFormatter</code> for creating
+string representations of <code>LogEntry</code> instances containing <code>.Value</code> payloads.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">stringRepresentationForValue</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value for which a string representation is desired.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A string representation of <code>value</code>.</p>
 
                       </div>
                     </section>
@@ -127,7 +550,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-04-24)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

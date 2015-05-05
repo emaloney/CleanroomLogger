@@ -13,7 +13,7 @@
     <a title="LogChannel Struct Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (52% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
         <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -39,7 +39,7 @@
           <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Enums.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+                <a href="../Enums/LogSeverity.html">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -47,13 +47,16 @@
           <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Extensions/LogSeverity.html">LogSeverity</a>
+                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
           <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Protocols/LogFilter.html">LogFilter</a>
               </li>
@@ -72,6 +75,9 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -81,10 +87,7 @@
                 <a href="../Structs/LogChannel.html">LogChannel</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/LogConfiguration.html">LogConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
+                <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
@@ -100,14 +103,14 @@
             <p><code>LogChannel</code> instances provide the high-level interface for accepting log
 messages.</p>
 
-<p>They are responsible for converting requests to log information into 
-<code>LogEntry</code> instances, which they then pass along to their associated
-<code>LogReceptacle</code>s to perform the actual logging.</p>
+<p>They are responsible for converting log requests into <code>LogEntry</code> instances
+that they then pass along to their associated <code>LogReceptacle</code>s to perform the
+actual logging.</p>
 
 <p><code>LogChannel</code>s are provided as a convenience, exposed as static properties
-through the <code>Log</code> struct. Use of <code>LogChannel</code>s and the <code>Log</code> is not required
-for logging; you can also perform logging by creating <code>LogEntry</code> instances
-manually and passing them along to a <code>LogReceptacle</code>.</p>
+through <code>Log</code>. Use of <code>LogChannel</code>s and the <code>Log</code> is not required for logging;
+you can also perform logging by creating <code>LogEntry</code> instances manually and 
+passing them along to a <code>LogReceptacle</code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -407,9 +410,9 @@ not provide a value for this parameter.</strong></p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger10LogChannel4dataFS0_FTP_8functionSS8filePathSS8fileLineSi_T_"></a>
-                    <a name="//apple_ref/swift/Method/data(_:function:filePath:fileLine:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger10LogChannel4dataFS0_FTP_8functionSS8filePathSS8fileLineSi_T_">data(_:function:filePath:fileLine:)</a>
+                    <a name="/s:FV15CleanroomLogger10LogChannel5valueFS0_FTGSqP__8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/value(_:function:filePath:fileLine:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger10LogChannel5valueFS0_FTGSqP__8functionSS8filePathSS8fileLineSi_T_">value(_:function:filePath:fileLine:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -417,14 +420,14 @@ not provide a value for this parameter.</strong></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Writes arbitrary data to the log.</p>
+                        <p>Writes an arbitrary value to the log.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">data</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -435,14 +438,15 @@ not provide a value for this parameter.</strong></p>
                             <tr>
                               <td>
                                 <code>
-                                <em>data</em>
+                                <em>value</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The data to write to the log. The underlying logging
-implementation must support the data type provided or else the
-log request may be silently ignored.</p>
+                                  <p>The value to write to the log. The underlying logging
+implementation is responsible for converting <code>value</code> into a
+text representation. If that is not possible, the log request
+may be silently ignored.</p>
 
                                 </div>
                               </td>
@@ -503,7 +507,7 @@ not provide a value for this parameter.</strong></p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-04-24)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
