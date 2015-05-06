@@ -123,6 +123,7 @@ public enum LogSeverity: Int
     }
 }
 
+/// :nodoc:
 extension LogSeverity: DebugPrintableEnum
 {
     /// :nodoc:
