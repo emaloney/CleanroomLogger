@@ -4,15 +4,15 @@
 
 CleanroomLogger provides a simple, lightweight Swift logging API designed to be readily understood by anyone familiar with packages such as [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) and [log4j](https://en.wikipedia.org/wiki/Log4j).
 
-CleanroomLogger is part of [the Cleanroom Project](http://github.com/gilt/Cleanroom) from [Gilt Tech](http://tech.gilt.com) and is distributed under the [MIT license](LICENSE).
+CleanroomLogger is part of [the Cleanroom Project](http://github.com/gilt/Cleanroom) from [Gilt Tech](http://tech.gilt.com).
 
-## Why CleanroomLogger?
+## What it’s for
 
 If you're familiar with [`NSLog()`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog), then you'll understand the purpose of CleanroomLogger.
 
-As with `NSLog()`, CleanroomLogger messages are (by default) directed to the Apple System Log and to the `stderr` output stream of the running process. (CleanroomLogger depends on [CleanroomASL](https://github.com/emaloney/CleanroomASL) to provide this functionality.)
+As with `NSLog()`, CleanroomLogger messages are (by default) directed to the Apple System Log and to the `stderr` output stream of the running process.
 
-However, CleanroomLogger adds several important features not provided by `NSLog()`:
+However, CleanroomLogger adds a number of important features not provided by `NSLog()`:
 
 1. Each log message is associated with a [`LogSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Enums/LogSeverity.html) value that indicates the importance of the message. This enables you to very easily do things like squelch out low-priority messages—such as those logged with `.Debug` and `.Verbose` severity values—in production binaries, thereby lessening the amount of work your App Store build does at runtime.
 
@@ -29,7 +29,7 @@ However, CleanroomLogger adds several important features not provided by `NSLog(
 
 6. CleanroomLogger is respectful of the calling thread. `NSLog()` does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each `LogRecorder` also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won't prevent the processing of log messages by other recorders.
 
-7. CleanroomLogger uses Swift short-circuiting to avoid executing code when a given `LogChannel` shouldn't be used. Each `LogChannel` maintained by `Log` is exposed as an optional. Depending on how the logging system has been configured at runtime, a given `LogChannel` may be `nil`. For example, in production code, we recommend setting `.Info` as the minimum `LogSeverity` required for logging, meaning that messages with a severity of `.Verbose` or `.Debug` would be ignored. To avoid unneeded code execution, in such cases `Log.debug` and `Log.verbose` would be `nil`, allowing efficient short-circuiting of any code using those channels.
+7. CleanroomLogger uses Swift short-circuiting to avoid executing code when a given `LogChannel` shouldn't be used. Each `LogChannel` maintained by `Log` is exposed as an optional. Depending on how the logging system has been configured at runtime, a given `LogChannel` may be `nil`. For example, in production code, we recommend setting `.Info` as the minimum `LogSeverity` required for logging, meaning that messages with a severity of `.Verbose` or `.Debug` would be ignored. To avoid unneeded code execution, in such cases `Log.debug` and `Log.verbose` would be `nil`, allowing efficient short-circuiting of any code attempting to use those channels.
 
 ## In a nutshell: Using CleanroomLogger
 
@@ -59,13 +59,13 @@ It is the responsibility of the *application developer* to enable logging, which
 >
 > CleanroomLogger is built to be used from within frameworks, shared libraries, Cocoapods, etc., as well as at the application level. However, any code designed to be embedded in other applications **must** interact with CleanroomLogger via the `Log` API **only**. Also, embedded code **must never** call `Log.enable()`, because by doing so, control is taken away from the application developer.
 >
-> **The general rule is, if you didn't write the `UIApplicationDelegate` for the app in which the code will execute, don't ever call `Log.enable()`.**
+> *The general rule is, if you didn't write the `UIApplicationDelegate` for the app in which the code will execute, don't ever call `Log.enable()`.*
 
 Ideally, logging is enabled at the first possible point in the application's launch cycle. Otherwise, critical log messages may be missed during launch because the logger wasn't yet initialized.
 
 The best place to put the call to `Log.enable()` is at the first line of your app delegate's `init()`.
 
-If you'd rather not do that for some reason, the next best place to put it is in the `application(_:willFinishLaunchingWithOptions:)` function of your app delegate. We're specifically recommending the `will` function, not the typical `did`, because the former is called earlier in the application's launch cycle.
+If you'd rather not do that for some reason, the next best place to put it is in the `application(_:willFinishLaunchingWithOptions:)` function of your app delegate. You'll notice that we're specifically recommending the `will` function, not the typical `did`, because the former is called earlier in the application's launch cycle.
 
 > **Note:** During the running lifetime of an application process, only the *first* call to `Log.enable()` function will have any effect. All subsequent calls are ignored silently.
 
