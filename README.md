@@ -125,7 +125,7 @@ This would result in output looking like:
 
 For more information on using CleanroomLogger, read [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html), starting with [Log](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html).
 
-## A Note about Global State
+### Full Disclosure: A Note about Global State
 
 If you've been reading the op-ed pages lately, you know that Global State is the enemy of civilization. You may also have noticed that `Log`'s static variables constitute global state.
 
@@ -140,3 +140,13 @@ Before you pick up your phone and demand that Thought Control activates its netw
 - If you have a compelling reason to avoid using `Log`, but you still wish to use the functionality provided by CleanroomLogger, you can always construct and manage your own `LogChannel`s and `LogReceptacle`s directly. The only global state within the CleanroomLogger project is contained in `Log` itself. Note, however, that this should **only** be done by the app developer; **vendors of embedded code should only ever interact with CleanroomLogger through the public API provided by `Log`** to ensure that the app developer is always in control of logging.
  
 Although there are many good reasons why global state is to be generally avoided and otherwise looked at skeptically, in this particular case, our use of global state is deliberate, well-isolated and not required to take advantage of the core functionality provided by CleanroomLogger.
+
+## Acknowledgements
+
+CleanroomLogger embeds the following open-source projects:
+
+- [CleanroomBase](https://github.com/emaloney/CleanroomBase) — Low-level utilities for developing Swift-based iOS applications
+
+- [CleanroomASL](https://github.com/emaloney/CleanroomASL) — An iOS framework providing a Swift-based API for writing to and reading from the Apple System Log (ASL) facility.
+
+[API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html) is generated using [Realm](http://realm.io)'s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
