@@ -169,79 +169,6 @@ fail.</p>
 <p>It is the responsibility of the <em>application developer</em> to enable logging, which
 is done by calling the appropriate <code>Log.enable()</code> function.</p>
 
-<blockquote>
-<p>The reason we specifically say the application developer is responsible
-for enabling logging is to give the developer the power to control the use
-of logging process-wide. As with any code that executes, there&rsquo;s an expense
-to logging, and the application developer should get to make that choice.</p>
-
-<p>CleanroomLogger is designed to be used from within frameworks, shared
-libraries, Cocoapods, etc., as well as at the application level. However, code
-such as this—any code designed to be embedded in other applications—<strong>must not 
-ever</strong> call <code>Log.enable()</code>, because by doing so, you will be taking control away
-from the application developer.</p>
-
-<p>The general rule is, if you didn&rsquo;t write the <code>UIApplicationDelegate</code> for
-the app in which the code will execute, don&rsquo;t ever call <code>Log.enable()</code>.</p>
-</blockquote>
-
-<p>Ideally, logging is enabled at the first possible point in the application&rsquo;s
-launch cycle. Otherwise, critical log messages may be missed during launch
-because the logger wasn&rsquo;t yet initialized.</p>
-
-<p>The best place to put the call to <code>Log.enable()</code> is at the first line of your
-app delegate&rsquo;s <code>init()</code>.</p>
-
-<p>If you&rsquo;d rather not do that for some reason, the next best place to put it is in
-the <code>application(_: willFinishLaunchingWithOptions:)</code> function within your app
-delegate. Note that we&rsquo;re recommending the <code>will</code> function, not the typical 
-<code>did</code>; this is because the former is called earlier in the launch cycle.</p>
-
-<p><strong>Note:</strong> During the running lifetime of an application process, only the
-<em>first</em> call to <code>Log.enable()</code> function will have any effect. All subsequent
-calls are ignored silently.</p>
-
-<p><a href='#global_state' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='global_state'>Global State</h3></p>
-
-<p>If you&rsquo;ve been reading the op-ed pages lately, you know that Global State is
-the enemy of civilization. You may also have noticed that the static variables
-of the <code>Log</code> struct constitute global state.</p>
-
-<p>Before you pick up your phone to alert Thought Control that a heretic has been
-detected and the network of Twitter shamebots should prepare to activate, 
-consider:</p>
-
-<ul>
-<li><p>In most cases, <code>Log</code> is used as an interface to two resources that are 
-effectively singletons: the Apple System Log daemon of the device where the
-code will be running, and the <code>stderr</code> output stream of the running application.
-<code>Log</code> <em>maintains</em> global state because it <em>represents</em> global state.</p></li>
-<li><p>The state represented by <code>Log</code> is effectively immutable. The public interface
-is read-only, and the values are guaranteed to only ever be set once: at app
-launch, when <code>Log.enable()</code> is called from within the app delegate. The design 
-of this gives full control to the application developer over the logging 
-performed within the application; even third-party libraries using 
-CleanroomLogger will use the logging configuration specified by the app
-developer.</p></li>
-<li><p><code>Log</code> designed to be <em>convenient</em> to encourage the judicious use of logging.
-During debugging, you might want to quickly add some debug tracing to some
-already-existing code; you can simply add <code>Log.debug?.trace()</code> to the
-appropriate places without refactoring your codebase to pass around
-<code>LogChannel</code>s or <code>LogReceptacle</code>s everywhere. Given that literally
-every single function in your code is a candidate for using logging, it&rsquo;s
-impractical to use logging extensively <em>without</em> the convenience of <code>Log</code>.</p></li>
-<li><p>If you have a compelling reason to avoid using <code>Log</code>, but you still wish
-to use the functionality provided by CleanroomLogger, you can always
-construct and manage your own <code>LogChannel</code>s and <code>LogReceptacle</code>s directly.
-The only global state within the CleanroomLogger project is contained in <code>Log</code>
-itself.</p></li>
-</ul>
-
-<p>Although there are many good reasons why global state is to be generally
-avoided and otherwise looked at skeptically, in this particular case, our use
-of global state is deliberate, well-isolated and not required to take advantage
-of the functionality provided by CleanroomLogger.</p>
-
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -756,7 +683,7 @@ a <code>severity</code> of <code>.Verbose</code>.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-05)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
