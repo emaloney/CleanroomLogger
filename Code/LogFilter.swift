@@ -9,18 +9,14 @@
 import Foundation
 
 /**
-Before a `LogEntry` is recorded, the `LogFilter`s associated with the 
-`LogChannel` that generated the entry are given a chance to prevent the
-entry from being recorded.
+Before a `LogEntry` is recorded, any `LogFilter`s specified in the active
+`LogConfiguration` are given a chance to prevent the entry from being recorded
+by returning `false` from the `shouldRecordLogEntry()` function.
 */
 public protocol LogFilter
 {
     /**
     Called to determine whether the given `LogEntry` should be recorded.
-    
-    Because multiple `LogFilter`s can be associated with a given `LogChannel`,
-    `entry` will not be recorded if *any* filter returns `false`. In other
-    words, a log entry will *only* be recorded if *all* filters return `true`.
 
     :param:     entry The `LogEntry` to be evaluated by the filter.
     

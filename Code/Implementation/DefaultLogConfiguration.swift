@@ -35,8 +35,10 @@ public struct DefaultLogConfiguration: LogConfiguration
     public let synchronousMode: Bool
 
     /**
-    The `DefaultLogConfiguration` initializer.
-    
+    A `DefaultLogConfiguration` that uses the `ASLLogRecorder` for logging
+    messages to the Apple System Log and the application's `stderr` output
+    stream.
+
     :param:     minimumSeverity The minimum `LogSeverity` supported by the
                 configuration.
     
@@ -57,13 +59,40 @@ public struct DefaultLogConfiguration: LogConfiguration
     */
     public init(minimumSeverity: LogSeverity = .Info, filters: [LogFilter] = [], formatters: [LogFormatter] = [DefaultLogFormatter()], additionalRecorders: [LogRecorder] = [], synchronousMode: Bool = false)
     {
-        self.minimumSeverity = minimumSeverity
-        self.filters = filters
-        self.synchronousMode = synchronousMode
-
         var recorders: [LogRecorder] = [ASLLogRecorder(formatters: formatters)]
         recorders += additionalRecorders
 
+        self.init(recorders: recorders, minimumSeverity: minimumSeverity, filters: filters, formatters: formatters, synchronousMode: synchronousMode)
+    }
+
+    /**
+    A `DefaultLogConfiguration` initializer that uses the specified 
+    `LogRecorder`s (and *does not* include the use of the `ASLLogRecorder` 
+    unless explicitly specified).
+    
+    :param:     recorders A list of `LogRecorder`s to be used for recording
+                log messages.
+
+    :param:     minimumSeverity The minimum `LogSeverity` supported by the
+                configuration.
+    
+    :param:     filters A list of `LogFilter`s to be used for filtering log
+                messages.
+    
+    :param:     formatters A list of `LogFormatter`s to be used for formatting
+                log messages.
+
+    :param:     synchronousMode Determines whether synchronous mode logging
+                will be used. **Use of synchronous mode is not recommended in
+                production code**; it is provided for use during debugging, to
+                help ensure that messages send prior to hitting a breakpoint
+                will appear in the console when the breakpoint is hit.
+    */
+    public init(recorders: [LogRecorder], minimumSeverity: LogSeverity = .Info, filters: [LogFilter] = [], formatters: [LogFormatter] = [DefaultLogFormatter()], synchronousMode: Bool = false)
+    {
+        self.minimumSeverity = minimumSeverity
+        self.filters = filters
+        self.synchronousMode = synchronousMode
         self.recorders = recorders
     }
 }
