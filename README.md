@@ -6,7 +6,7 @@ CleanroomLogger provides a simple, lightweight Swift logging API designed to be 
 
 CleanroomLogger is part of [the Cleanroom Project](http://github.com/gilt/Cleanroom) from [Gilt Tech](http://tech.gilt.com) and is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/master/LICENSE).
 
-## What it’s for
+#### Why CleanroomLogger?
 
 If you're familiar with [`NSLog()`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog), then you'll understand the purpose of CleanroomLogger.
 
@@ -30,6 +30,20 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 6. **CleanroomLogger is respectful of the calling thread.** `NSLog()` does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each `LogRecorder` also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won't prevent the processing of log messages by other recorders.
 
 7. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.
+
+#### Pre-Release Software
+
+CleanroomLogger is in active development, and as such, it needs additional unit tests, more documentation, and probably a bit of debugging.
+
+If you’d like to contribute to this or any other Cleanroom Project repo, please read the [contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).
+
+CleanroomLogger is pre-release software. It is provided for your use, free-of-charge and on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
+
+#### Requirements
+
+CleanroomLogger requires a **mimimum Xcode version of 6.3** to be built, and the resulting binary can be used on **iOS 8.1 and higher**.
+
+**CleanroomLogger is designed specificially to be used from Swift code.** Although you *may* be able to use some (or all) of it from Objective-C, we do not specifically support it and can’t provide any help or advice for doing so.
 
 ## In a nutshell: Using CleanroomLogger
 
