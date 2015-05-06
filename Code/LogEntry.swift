@@ -27,22 +27,22 @@ public struct LogEntry
     }
 
     /** The payload of the log entry. */
-    let payload: Payload
+    public let payload: Payload
 
     /** The severity of the log entry. */
-    let severity: LogSeverity
+    public let severity: LogSeverity
 
     /** The signature of the function that issued the log request. */
-    let callingFunction: String
+    public let callingFunction: String
 
     /** The path of the source file containing the calling function that issued
     the log request. */
-    let callingFilePath: String
+    public let callingFilePath: String
 
     /** The line within the source file at which the log request was issued. */
-    let callingFileLine: Int
+    public let callingFileLine: Int
 
     /** A numeric identifier for the calling thread. Note that thread IDs are
     recycled over time. */
-    let callingThreadID: Int
+    public let callingThreadID: Int
 }
