@@ -120,3 +120,23 @@ This would result in output looking like:
 ```
 
 > **Note:** Although every attempt is made to create a string representation of the value passed to the function, there is no guarantee that a given log implementation will support values of a given type.
+
+### Further reading
+
+For more information on using CleanroomLogger, read [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html), starting with [Log](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html).
+
+## A Note about Global State
+
+If you've been reading the op-ed pages lately, you know that Global State is the enemy of civilization. You may also have noticed that `Log`'s static variables constitute global state.
+
+Before you pick up your phone and demand that Thought Control activates its network of Twitter shamebots because a heretic has been detected, consider:
+
+- In most cases, `Log` is used as an interface to two resources that are effectively singletons: the Apple System Log daemon of the device where the code will be running, and the `stderr` output stream of the running application. `Log` *maintains* global state because it *represents* global state.
+
+- The state represented by `Log` is effectively immutable. The public interface is read-only, and the values are guaranteed to only ever be set once: at app launch, when `Log.enable()` is called from within the app delegate. The design of this gives full control to the application developer over the logging performed within the application; even third-party libraries using CleanroomLogger will use the logging configuration specified by the app developer.
+
+- `Log` designed to be *convenient* to encourage the judicious use of logging. During debugging, you might want to quickly add some debug tracing to some already-existing code; you can simply add `Log.debug?.trace()` to the appropriate places without refactoring your codebase to pass around `LogChannel`s or `LogReceptacle`s everywhere. Given that literally every single function in your code is a candidate for using logging, it's impractical to use logging extensively *without* the convenience of `Log`.
+
+- If you have a compelling reason to avoid using `Log`, but you still wish to use the functionality provided by CleanroomLogger, you can always construct and manage your own `LogChannel`s and `LogReceptacle`s directly. The only global state within the CleanroomLogger project is contained in `Log` itself.
+
+Although there are many good reasons why global state is to be generally avoided and otherwise looked at skeptically, in this particular case, our use of global state is deliberate, well-isolated and not required to take advantage of the functionality provided by CleanroomLogger.
