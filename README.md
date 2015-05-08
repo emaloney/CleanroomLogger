@@ -31,6 +31,16 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 7. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.
 
+## Adding CleanroomLogger to your project
+
+In order to use CleanroomLogger within your project, [you must embed `CleanroomLogger.framework` and its dependencies](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) into your application. 
+
+Then, all you will need to do is add the following `import` statement to any Swift file where you want to use CleanroomLogger:
+
+```swift
+import CleanroomLogger
+```
+
 ## In a nutshell: Using CleanroomLogger
 
 The main public API for CleanroomLogger is provided by [`Log`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html).
