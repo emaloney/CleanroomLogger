@@ -4,7 +4,7 @@
 
 CleanroomLogger provides a simple, lightweight Swift logging API designed to be readily understood by anyone familiar with packages such as [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) and [log4j](https://en.wikipedia.org/wiki/Log4j).
 
-CleanroomLogger is part of [the Cleanroom Project](http://github.com/gilt/Cleanroom) from [Gilt Tech](http://tech.gilt.com) and is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/master/LICENSE).
+CleanroomLogger is part of [the Cleanroom Project](http://github.com/gilt/Cleanroom) from [Gilt Tech](http://tech.gilt.com) and is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/master/LICENSE). CleanroomLogger is provided for your use, free-of-charge and on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
 
 #### Why CleanroomLogger?
 
@@ -30,20 +30,6 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 6. **CleanroomLogger is respectful of the calling thread.** `NSLog()` does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each `LogRecorder` also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won't prevent the processing of log messages by other recorders.
 
 7. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.
-
-#### Pre-Release Software
-
-CleanroomLogger is in active development, and as such, it needs additional unit tests, more documentation, and probably a bit of debugging.
-
-If you’d like to contribute to this or any other Cleanroom Project repo, please read the [contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).
-
-CleanroomLogger is pre-release software. It is provided for your use, free-of-charge and on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
-
-#### Requirements
-
-CleanroomLogger requires a **mimimum Xcode version of 6.3** to be built, and the resulting binary can be used on **iOS 8.1 and higher**.
-
-**CleanroomLogger is designed specificially to be used from Swift code.** Although you *may* be able to use some (or all) of it from Objective-C, we do not specifically support it and can’t provide any help or advice for doing so.
 
 ## In a nutshell: Using CleanroomLogger
 
@@ -164,3 +150,9 @@ CleanroomLogger embeds the following open-source projects:
 - [CleanroomASL](https://github.com/emaloney/CleanroomASL) — An iOS framework providing a Swift-based API for writing to and reading from the Apple System Log (ASL) facility.
 
 [API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html) is generated using [Realm](http://realm.io)'s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
+
+## Contributing
+
+CleanroomLogger is in active development, and we welcome your contributions.
+
+If you’d like to contribute to this or any other Cleanroom Project repo, please read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).
