@@ -104,8 +104,8 @@
 
 <p>CleanroomLogger provides a simple, lightweight Swift logging API designed to be readily understood by anyone familiar with packages such as <a href="https://github.com/CocoaLumberjack/CocoaLumberjack">CocoaLumberjack</a> and <a href="https://en.wikipedia.org/wiki/Log4j">log4j</a>.</p>
 
-<p>CleanroomLogger is part of <a href="http://github.com/gilt/Cleanroom">the Cleanroom Project</a> from <a href="http://tech.gilt.com">Gilt Tech</a> and is distributed under <a href="https://github.com/emaloney/CleanroomLogger/blob/master/LICENSE">the MIT license</a>.</p>
-<a href='#what_it_s_for' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='what_it_s_for'>What it’s for</h2>
+<p>CleanroomLogger is part of <a href="http://github.com/gilt/Cleanroom">the Cleanroom Project</a> from <a href="http://tech.gilt.com">Gilt Tech</a> and is distributed under <a href="https://github.com/emaloney/CleanroomLogger/blob/master/LICENSE">the MIT license</a>. CleanroomLogger is provided for your use, free-of-charge and on an as-is basis. We make no guarantees, promises or apologies. <em>Caveat developer.</em></p>
+<a href='#why_cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='why_cleanroomlogger'>Why CleanroomLogger?</h4>
 
 <p>If you&rsquo;re familiar with <a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog"><code>NSLog()</code></a>, then you&rsquo;ll understand the purpose of CleanroomLogger.</p>
 
@@ -128,6 +128,13 @@
 <li><p><strong>CleanroomLogger is respectful of the calling thread.</strong> <code>NSLog()</code> does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each <code>LogRecorder</code> also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won&rsquo;t prevent the processing of log messages by other recorders.</p></li>
 <li><p><strong>CleanroomLogger uses Swift short-circuiting to avoid needless code execution.</strong> For example, in production code with <code>.Info</code> as the minimum <code>LogSeverity</code>, messages with a severity of <code>.Verbose</code> or <code>.Debug</code> will always be ignored. To avoid unneeded code execution, <code>Log.debug</code> and <code>Log.verbose</code> in this case would be <code>nil</code>, allowing efficient short-circuiting of any code attempting to use these inactive log channels.</p></li>
 </ol>
+<a href='#adding_cleanroomlogger_to_your_project' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='adding_cleanroomlogger_to_your_project'>Adding CleanroomLogger to your project</h2>
+
+<p>In order to use CleanroomLogger within your project, <a href="https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md">you must embed <code>CleanroomLogger.framework</code> and its dependencies</a> into your application. </p>
+
+<p>Then, all you will need to do is add the following <code>import</code> statement to any Swift file where you want to use CleanroomLogger:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">CleanroomLogger</span>
+</code></pre>
 <a href='#in_a_nutshell_using_cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='in_a_nutshell_using_cleanroomlogger'>In a nutshell: Using CleanroomLogger</h2>
 
 <p>The main public API for CleanroomLogger is provided by <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html"><code>Log</code></a>.</p>
@@ -241,11 +248,16 @@
 </ul>
 
 <p><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html">API documentation for CleanroomLogger</a> is generated using <a href="http://realm.io">Realm</a>&rsquo;s <a href="https://github.com/realm/jazzy/">jazzy</a> project, maintained by <a href="https://github.com/jpsim">JP Simard</a> and <a href="https://github.com/segiddins">Samuel E. Giddins</a>.</p>
+<a href='#contributing' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contributing'>Contributing</h2>
+
+<p>CleanroomLogger is in active development, and we welcome your contributions.</p>
+
+<p>If you’d like to contribute to this or any other Cleanroom Project repo, please read <a href="https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project">the contribution guidelines</a>.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-06)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
