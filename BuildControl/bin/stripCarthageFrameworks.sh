@@ -75,6 +75,7 @@ if [[ -z "$PLATFORM" ]]; then
 	if [[ $PLAT_COUNT > 1 ]]; then
 		exitWithError 6 "The --platform (-p) parameter must be specified when more than one platform is available; the following platforms are available: $VALID_PLATFORMS"
 	fi
+	PLATFORM=$PLAT
 fi
 
 #
