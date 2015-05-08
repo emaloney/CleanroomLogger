@@ -172,11 +172,11 @@ public struct Log
     public static func enable(receptacle: LogReceptacle, minimumSeverity: LogSeverity = .Info)
     {
         enable(
-            errorChannel: self.logChannelWithSeverity(.Error, receptacle: receptacle, minimumSeverity: minimumSeverity),
-            warningChannel: self.logChannelWithSeverity(.Warning, receptacle: receptacle, minimumSeverity: minimumSeverity),
-            infoChannel: self.logChannelWithSeverity(.Info, receptacle: receptacle, minimumSeverity: minimumSeverity),
-            debugChannel: self.logChannelWithSeverity(.Debug, receptacle: receptacle, minimumSeverity: minimumSeverity),
-            verboseChannel: self.logChannelWithSeverity(.Verbose, receptacle: receptacle, minimumSeverity: minimumSeverity)
+            errorChannel: self.createLogChannelWithSeverity(.Error, receptacle: receptacle, minimumSeverity: minimumSeverity),
+            warningChannel: self.createLogChannelWithSeverity(.Warning, receptacle: receptacle, minimumSeverity: minimumSeverity),
+            infoChannel: self.createLogChannelWithSeverity(.Info, receptacle: receptacle, minimumSeverity: minimumSeverity),
+            debugChannel: self.createLogChannelWithSeverity(.Debug, receptacle: receptacle, minimumSeverity: minimumSeverity),
+            verboseChannel: self.createLogChannelWithSeverity(.Verbose, receptacle: receptacle, minimumSeverity: minimumSeverity)
         )
     }
 
@@ -224,7 +224,105 @@ public struct Log
 
     private static var enableOnce = dispatch_once_t()
 
-    private static func logChannelWithSeverity(severity: LogSeverity, receptacle: LogReceptacle, minimumSeverity: LogSeverity)
+    /**
+    Returns the `LogChannel` responsible for logging at the given severity.
+    
+    :param:     severity The `LogSeverity` level of the `LogChannel` to
+                return.
+    
+    :returns:   The `LogChannel` used by `Log` to perform logging at the given
+                severity; will be `nil` if `Log` is not configured to
+                perform logging at that severity.
+    */
+    public static func channelForSeverity(severity: LogSeverity)
+        -> LogChannel?
+    {
+        switch severity {
+        case .Verbose:  return _verbose
+        case .Debug:    return _debug
+        case .Info:     return _info
+        case .Warning:  return _warning
+        case .Error:    return _error
+        }
+    }
+
+    /**
+    Writes program execution trace information to the log using the specified
+    severity. This information includes the signature of the calling function, 
+    as well as the source file and line at which the call to `trace()` was
+    issued.
+    
+    :param:     severity The `LogSeverity` for the message being recorded.
+
+    :param:     function The default value provided for this parameter captures
+                the signature of the calling function. **You should not provide
+                a value for this parameter.**
+    
+    :param:     filePath The default value provided for this parameter captures
+                the file path of the code issuing the call to this function. 
+                **You should not provide a value for this parameter.**
+
+    :param:     fileLine The default value provided for this parameter captures
+                the line number issuing the call to this function. **You should
+                not provide a value for this parameter.**
+    */
+    public static func trace(severity: LogSeverity, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    {
+        channelForSeverity(severity)?.trace(function: function, filePath: filePath, fileLine: fileLine)
+    }
+
+    /**
+    Writes a string-based message to the log using the specified severity.
+    
+    :param:     severity The `LogSeverity` for the message being recorded.
+
+    :param:     msg The message to log.
+    
+    :param:     function The default value provided for this parameter captures
+                the signature of the calling function. **You should not provide
+                a value for this parameter.**
+    
+    :param:     filePath The default value provided for this parameter captures
+                the file path of the code issuing the call to this function. 
+                **You should not provide a value for this parameter.**
+
+    :param:     fileLine The default value provided for this parameter captures
+                the line number issuing the call to this function. **You should
+                not provide a value for this parameter.**
+    */
+    public static func message(severity: LogSeverity, message: String, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    {
+        channelForSeverity(severity)?.message(message, function: function, filePath: filePath, fileLine: fileLine)
+    }
+
+    /**
+    Writes an arbitrary value to the log using the specified severity.
+
+    :param:     severity The `LogSeverity` for the message being recorded.
+
+    :param:     value The value to write to the log. The underlying logging
+                implementation is responsible for converting `value` into a
+                text representation. If that is not possible, the log request
+                may be silently ignored.
+    
+    :param:     function The default value provided for this parameter captures
+                the signature of the calling function. **You should not provide
+                a value for this parameter.**
+    
+    :param:     filePath The default value provided for this parameter captures
+                the file path of the code issuing the call to this function. 
+                **You should not provide a value for this parameter.**
+
+    :param:     fileLine The default value provided for this parameter captures
+                the line number issuing the call to this function. **You should
+                not provide a value for this parameter.**
+    */
+    public static func value(severity: LogSeverity, value: Any?, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    {
+        channelForSeverity(severity)?.value(value, function: function, filePath: filePath, fileLine: fileLine)
+    }
+
+    private static func createLogChannelWithSeverity(severity: LogSeverity, receptacle: LogReceptacle, minimumSeverity: LogSeverity)
         -> LogChannel?
     {
         if severity.compare(.AsOrMoreSevereThan, against: minimumSeverity) {
