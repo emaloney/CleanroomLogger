@@ -17,6 +17,11 @@ This implementation is used by default if no other log formatters are specified.
 public struct DefaultLogFormatter: LogFormatter
 {
     /**
+    Default initializer.
+    */
+    public init() {}
+
+    /**
     Returns a formatted representation of the given `LogEntry`.
     
     :param:         entry The `LogEntry` being formatted.
