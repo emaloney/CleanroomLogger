@@ -121,6 +121,27 @@ public enum LogSeverity: Int
     {
         return comparator.compare(self, against: severity)
     }
+
+    /**
+    A convenience function to determine the minimum `LogSeverity` value to
+    use by default, based on whether or not the application was compiled
+    with debugging turned on.
+    
+    :param:     minimumForDebugMode The `LogSeverity` value to return when
+                `isInDebugMode` is `true`.
+    
+    :param:     isInDebugMode Defaults to `false`. Pass the value `(DEBUG != 0)`
+                to ensure the correct value for your build.
+    */
+    public static func defaultMinimumSeverity(minimumForDebugMode: LogSeverity = .Debug, isInDebugMode: Bool = false)
+        -> LogSeverity
+    {
+        if isInDebugMode {
+            return minimumForDebugMode
+        } else {
+            return .Info
+        }
+    }
 }
 
 /// :nodoc:
