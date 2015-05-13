@@ -48,7 +48,10 @@ public protocol LogRecorder
                 Synchronous mode is used during debugging to help ensure that
                 logs reflect the latest state when debug breakpoints are hit.
     
+    :param:     queue The GCD queue on which the function is being executed.
+                This allows the re-use of current queues where appropriate.
+
     :param:     entry The `LogEntry` being recorded.
     */
-    func recordFormattedString(str: String, synchronously recordSynchronously: Bool, forLogEntry entry: LogEntry)
+    func recordFormattedString(str: String, synchronously recordSynchronously: Bool, currentQueue queue: dispatch_queue_t, forLogEntry entry: LogEntry)
 }
