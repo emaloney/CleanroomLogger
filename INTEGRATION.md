@@ -197,7 +197,7 @@ For iOS, Carthage builds *universal binary* frameworks, meaning that they will w
 Carthage integration is a little simpler than manual integration:
 
 1. Update the `Cartfile` with an entry for CleanroomLogger
-2. Download and build CleanroomLogger`; this will also cause any required dependencies to be built
+2. Download and build CleanroomLogger; this will also cause any required dependencies to be built
 3. Add `CleanroomLogger.framework` and the required dependencies to your application target
 4. Create a build phase to strip the extra processor architectures from the Carthage frameworks
 
