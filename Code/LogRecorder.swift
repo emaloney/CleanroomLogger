@@ -43,7 +43,12 @@ public protocol LogRecorder
     
     :param:     str The log string to record.
     
+    :param:     recordSynchronously If `true`, the receiver should record the
+                log entry synchronously and flush any buffers before returning.
+                Synchronous mode is used during debugging to help ensure that
+                logs reflect the latest state when debug breakpoints are hit.
+    
     :param:     entry The `LogEntry` being recorded.
     */
-    func recordFormattedString(str: String, forLogEntry entry: LogEntry)
+    func recordFormattedString(str: String, synchronously recordSynchronously: Bool, forLogEntry entry: LogEntry)
 }

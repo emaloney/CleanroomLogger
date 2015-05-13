@@ -143,13 +143,18 @@ public struct ASLLogRecorder: LogRecorder
     the receiver returned a non-`nil` string.
 
     :param:     str The formatted log string to record.
-
+    
+    :param:     recordSynchronously If `true`, the receiver should record the
+                log entry synchronously and flush any buffers before returning.
+                Synchronous mode is used during debugging to help ensure that
+                logs reflect the latest state when debug breakpoints are hit.
+    
     :param:     entry The `LogEntry` being recorded.
     */
-    public func recordFormattedString(str: String, forLogEntry entry: LogEntry)
+    public func recordFormattedString(str: String, synchronously recordSynchronously: Bool, forLogEntry entry: LogEntry)
     {
         let msg = ASLMessageObject(priorityLevel: logLevelTranslator(entry.severity), message: str)
-        client.log(msg)
+        client.log(msg, logSynchronously: recordSynchronously)
     }
 }
 
