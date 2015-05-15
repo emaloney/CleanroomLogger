@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DefaultLogConfiguration Struct Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/DefaultLogConfiguration" class="dashAnchor"></a>
+    <a title="DefaultLogConfiguration Struct Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomLogger"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CleanroomLogger Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DefaultLogConfiguration Struct Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/LogReceptacle.html">LogReceptacle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/LogSeverity.html">LogSeverity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFilter.html">LogFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFormatter.html">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogRecorder.html">LogRecorder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogChannel.html">LogChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogEntry.html">LogEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DefaultLogConfiguration</h1>
+            <p><code>DefaultLogConfiguration</code> is the implementation of the <code>LogConfiguration</code>
+protocol used by default if no other is provided.</p>
+
+<p>The <code>DefaultLogConfiguration</code> uses the <code>ASLLogRecorder</code> to write to the Apple
+System Log as well as the <code>stderr</code> console.</p>
+
+<p>Additional optional <code>LogRecorders</code> may be specified to record messages to
+other arbitrary types of data stores, such as files or HTTP endpoints.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV15CleanroomLogger23DefaultLogConfiguration15minimumSeverityOS_11LogSeverity"></a>
+                    <a name="//apple_ref/swift/Property/minimumSeverity" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV15CleanroomLogger23DefaultLogConfiguration15minimumSeverityOS_11LogSeverity">minimumSeverity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The minimum <code>LogSeverity</code> supported by the configuration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV15CleanroomLogger23DefaultLogConfiguration7filtersGSaPS_9LogFilter__"></a>
+                    <a name="//apple_ref/swift/Property/filters" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV15CleanroomLogger23DefaultLogConfiguration7filtersGSaPS_9LogFilter__">filters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The list of <code>LogFilter</code>s to be used for filtering log messages.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV15CleanroomLogger23DefaultLogConfiguration9recordersGSaPS_11LogRecorder__"></a>
+                    <a name="//apple_ref/swift/Property/recorders" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV15CleanroomLogger23DefaultLogConfiguration9recordersGSaPS_11LogRecorder__">recorders</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The list of <code>LogRecorder</code>s to be used for recording messages to the 
+underlying logging facility.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">recorders</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogRecorder</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV15CleanroomLogger23DefaultLogConfiguration15synchronousModeSb"></a>
+                    <a name="//apple_ref/swift/Property/synchronousMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV15CleanroomLogger23DefaultLogConfiguration15synchronousModeSb">synchronousMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A flag indicating when synchronous mode should be used for the
+configuration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger23DefaultLogConfigurationcFMS0_FT15minimumSeverityOS_11LogSeverity7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter__19additionalRecordersGSaPS_11LogRecorder__15synchronousModeSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(minimumSeverity:filters:formatters:additionalRecorders:synchronousMode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger23DefaultLogConfigurationcFMS0_FT15minimumSeverityOS_11LogSeverity7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter__19additionalRecordersGSaPS_11LogRecorder__15synchronousModeSb_S0_">init(minimumSeverity:filters:formatters:additionalRecorders:synchronousMode:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>DefaultLogConfiguration</code> that uses the <code>ASLLogRecorder</code> for logging
+messages to the Apple System Log and the application&rsquo;s <code>stderr</code> output
+stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">DefaultLogFormatter</span><span class="p">()],</span> <span class="nv">additionalRecorders</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogRecorder</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>minimumSeverity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The minimum <code>LogSeverity</code> supported by the
+configuration.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of <code>LogFilter</code>s to be used for filtering log
+messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of <code>LogFormatter</code>s to be used for formatting
+log messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>additionalRecorders</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of <code>LogRecorder<code>s to be used in
+addition to the</code>ASLLogRecorder</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>synchronousMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Determines whether synchronous mode logging
+will be used. <strong>Use of synchronous mode is not recommended in
+production code</strong>; it is provided for use during debugging, to
+help ensure that messages send prior to hitting a breakpoint
+will appear in the console when the breakpoint is hit.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger23DefaultLogConfigurationcFMS0_FT9recordersGSaPS_11LogRecorder__15minimumSeverityOS_11LogSeverity7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter__15synchronousModeSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(recorders:minimumSeverity:filters:formatters:synchronousMode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger23DefaultLogConfigurationcFMS0_FT9recordersGSaPS_11LogRecorder__15minimumSeverityOS_11LogSeverity7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter__15synchronousModeSb_S0_">init(recorders:minimumSeverity:filters:formatters:synchronousMode:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>DefaultLogConfiguration</code> initializer that uses the specified 
+<code>LogRecorder</code>s (and <em>does not</em> include the use of the <code>ASLLogRecorder</code> 
+unless explicitly specified).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">recorders</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogRecorder</span><span class="p">],</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">DefaultLogFormatter</span><span class="p">()],</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>recorders</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of <code>LogRecorder</code>s to be used for recording
+log messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>minimumSeverity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The minimum <code>LogSeverity</code> supported by the
+configuration.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of <code>LogFilter</code>s to be used for filtering log
+messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of <code>LogFormatter</code>s to be used for formatting
+log messages.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>synchronousMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Determines whether synchronous mode logging
+will be used. <strong>Use of synchronous mode is not recommended in
+production code</strong>; it is provided for use during debugging, to
+help ensure that messages send prior to hitting a breakpoint
+will appear in the console when the breakpoint is hit.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

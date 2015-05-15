@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Structs  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a title="Structs  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">CleanroomLogger Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomLogger"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">CleanroomLogger Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Structs  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+          <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/LogReceptacle.html">LogReceptacle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/LogSeverity.html">LogSeverity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LogFilter.html">LogFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LogFormatter.html">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LogRecorder.html">LogRecorder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogChannel.html">LogChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogEntry.html">LogEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Structs</h1>
+            <p>The following structs are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger14ASLLogRecorder"></a>
+                    <a name="//apple_ref/swift/Struct/ASLLogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger14ASLLogRecorder">ASLLogRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>ASLLogRecorder</code> is an implemention of the <code>LogRecorder</code> protocol that
+records log entries to the Apple System Log (ASL) facility.</p>
+
+<p>Unless a <code>LogLevelTranslator</code> is specified during construction, the
+<code>ASLLogRecorder</code> will record log messages using <code>ASL_LEVEL_WARNING</code>. This
+is consistent with the behavior of <code>NSLog()</code>.</p>
+
+                        <a href="Structs/ASLLogRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger19DefaultLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/DefaultLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger19DefaultLogFormatter">DefaultLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>DefaultLogFormatter</code> is a basic implementation of the <code>LogFormatter</code> 
+protocol.</p>
+
+<p>This implementation is used by default if no other log formatters are specified.</p>
+
+                        <a href="Structs/DefaultLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger23DefaultLogConfiguration"></a>
+                    <a name="//apple_ref/swift/Struct/DefaultLogConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger23DefaultLogConfiguration">DefaultLogConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>DefaultLogConfiguration</code> is the implementation of the <code>LogConfiguration</code>
+protocol used by default if no other is provided.</p>
+
+<p>The <code>DefaultLogConfiguration</code> uses the <code>ASLLogRecorder</code> to write to the Apple
+System Log as well as the <code>stderr</code> console.</p>
+
+<p>Additional optional <code>LogRecorders</code> may be specified to record messages to
+other arbitrary types of data stores, such as files or HTTP endpoints.</p>
+
+                        <a href="Structs/DefaultLogConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogConfiguration</span><span class="p">:</span> <span class="kt">LogConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger10LogChannel"></a>
+                    <a name="//apple_ref/swift/Struct/LogChannel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger10LogChannel">LogChannel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>LogChannel</code> instances provide the high-level interface for accepting log
+messages.</p>
+
+<p>They are responsible for converting log requests into <code>LogEntry</code> instances
+that they then pass along to their associated <code>LogReceptacle</code>s to perform the
+actual logging.</p>
+
+<p><code>LogChannel</code>s are provided as a convenience, exposed as static properties
+through <code>Log</code>. Use of <code>LogChannel</code>s and the <code>Log</code> is not required for logging;
+you can also perform logging by creating <code>LogEntry</code> instances manually and 
+passing them along to a <code>LogReceptacle</code>.</p>
+
+                        <a href="Structs/LogChannel.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogChannel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger3Log"></a>
+                    <a name="//apple_ref/swift/Struct/Log" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger3Log">Log</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>Log</code> is the primary public API for CleanroomLogger.</p>
+
+<p>If you wish to send a message to the log, you do so by calling the appropriae
+function provided by the appropriate <code>LogChannel</code> given the importance of your
+message.</p>
+
+<p>There are five levels of severity at which log messages can be recorded. Each
+level is represented by a read-only static variable maintained by the <code>Log</code>:</p>
+
+<ul>
+<li><p><code>Log.error</code> — The highest severity; something has gone wrong and a fatal error
+may be imminent</p></li>
+<li><p><code>Log.warning</code> — Something appears amiss and might bear looking into before a
+larger problem arises</p></li>
+<li><p><code>Log.info</code> — Something notable happened, but it isn&rsquo;t anything to worry about</p></li>
+<li><p><code>Log.debug</code> — Used for debugging and diagnostic information</p></li>
+<li><p><code>Log.verbose</code> - The lowest severity; used for detailed or frequently occurring
+debugging and diagnostic information</p></li>
+</ul>
+
+<p>Each <code>LogChannel</code> can be used in one of three ways:</p>
+
+<ul>
+<li>The <code>trace()</code> function records a short log message detailing the source
+file, source line, and function name of the caller. It is intended to be called
+with no arguments, as follows:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.debug?.trace()
+</code></pre>
+
+<ul>
+<li>The <code>message()</code> function records a message specified by the caller:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.info?.message("The application has finished launching.")
+</code></pre>
+
+<p><code>message()</code> is intended to be called with a single parameter, the message 
+string, as shown above. Unlike <code>NSLog()</code>, no <code>printf</code>-like functionality
+is provided; instead, use Swift string interpolation to construct parameterized
+messages.</p>
+
+<ul>
+<li>Finally, the <code>value()</code> function records a string representation of an 
+arbitrary <code>Any</code> value:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.verbose?.value(delegate)
+</code></pre>
+
+<p>The <code>value()</code> function is intended to be called with a single parameter, of
+type <code>Any?</code>.</p>
+
+<p>The underlying logging implementation is responsible for converting this value
+into a string representation.</p>
+
+<p>Note that some implementations may not be able to convert certain values into
+strings; in those cases, log requests may be silently ignored.</p>
+
+<p><a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3></p>
+
+<p>By default, logging is disabled, meaning that none of the <code>Log</code>&rsquo;s <em>log channels</em>
+have been populated. As a result, attempts to perform any logging will silently
+fail.</p>
+
+<p>It is the responsibility of the <em>application developer</em> to enable logging, which
+is done by calling the appropriate <code>Log.enable()</code> function.</p>
+
+                        <a href="Structs/Log.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Log</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger17LogSeverityFilter"></a>
+                    <a name="//apple_ref/swift/Struct/LogSeverityFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger17LogSeverityFilter">LogSeverityFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>LogFilter</code> implementation that filters out any <code>LogEntry</code> with a 
+<code>LogSeverity</code> less than a specified value.</p>
+
+                        <a href="Structs/LogSeverityFilter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogSeverityFilter</span><span class="p">:</span> <span class="kt">LogFilter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger8LogEntry"></a>
+                    <a name="//apple_ref/swift/Struct/LogEntry" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents an entry to be written to the log.</p>
+
+                        <a href="Structs/LogEntry.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogEntry</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-15)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
