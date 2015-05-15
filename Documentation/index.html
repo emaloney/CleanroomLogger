@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>  Reference</title>
+    <title>CleanroomLogger  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,18 +9,18 @@
     <script src="js/jazzy.js" defer></script>
   </head>
   <body>
-    <a title="  Reference"></a>
+    <a title="CleanroomLogger  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (100% documented)</p>
-        <p class="header-right"><a href=""><img src="img/gh.png"/>View on GitHub</a></p>
+        <p><a href="index.html">CleanroomLogger Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomLogger"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="index.html"> Reference</a>
+        <a href="index.html">CleanroomLogger Reference</a>
         <img id="carat" src="img/carat.png" />
-          Reference
+        CleanroomLogger  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -99,166 +99,15 @@
         <section>
           <section class="section">
             
-            <p><img src="https://raw.githubusercontent.com/gilt/Cleanroom/master/Assets/gilt-tech-logo.png" alt="Gilt Tech logo"></p>
-<a href='#cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='cleanroomlogger'>CleanroomLogger</h1>
+            <a href='#cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='cleanroomlogger'>CleanroomLogger</h1>
+<a href='#authors' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='authors'>Authors</h3>
 
-<p>CleanroomLogger provides a simple, lightweight Swift logging API designed to be readily understood by anyone familiar with packages such as <a href="https://github.com/CocoaLumberjack/CocoaLumberjack">CocoaLumberjack</a> and <a href="https://en.wikipedia.org/wiki/Log4j">log4j</a>.</p>
-
-<p>CleanroomLogger is part of <a href="http://github.com/gilt/Cleanroom">the Cleanroom Project</a> from <a href="http://tech.gilt.com">Gilt Tech</a> and is distributed under <a href="https://github.com/emaloney/CleanroomLogger/blob/master/LICENSE">the MIT license</a>. CleanroomLogger is provided for your use, free-of-charge and on an as-is basis. We make no guarantees, promises or apologies. <em>Caveat developer.</em></p>
-<a href='#why_cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='why_cleanroomlogger'>Why CleanroomLogger?</h4>
-
-<p>If you&rsquo;re familiar with <a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog"><code>NSLog()</code></a>, then you&rsquo;ll understand the purpose of CleanroomLogger.</p>
-
-<p>As with <code>NSLog()</code>, CleanroomLogger messages are (by default) directed to the Apple System Log and to the <code>stderr</code> output stream of the running process.</p>
-
-<p>However, CleanroomLogger adds a number of important features not provided by <code>NSLog()</code>:</p>
-
-<ol>
-<li><p><strong>Each log message is associated with a <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Enums/LogSeverity.html"><code>LogSeverity</code></a> value indicating the importance of that message.</strong> This enables you to very easily do things like squelch out low-priority messages—such as those logged with <code>.Debug</code> and <code>.Verbose</code> severity values—in production binaries, thereby lessening the amount of work your App Store build does at runtime.</p></li>
-<li><p><strong>CleanroomLogger makes it easy to find the <em>where</em> your code is issuing log messages.</strong> With <code>NSLog()</code> and <code>println()</code>, it can sometimes be difficult to figure out what code is responsible for generating log messages. When a message is constructed programmatically, for example, it may not be possible to find its source. CleanroomLogger outputs the file and line responsible for each log message, so you can literally <em>go straight to the source</em>.</p></li>
-<li><p><strong>CleanroomLogger provides code execution tracing functionality through the <code>trace()</code> function.</strong> A simple no-argument function call is all that&rsquo;s needed to log the source filename, line number and function name of the caller. This makes it easy to understand the path your code is taking as it executes.</p></li>
-<li><p><strong>CleanroomLogger is <em>configurable</em></strong>; its behavior can be modified by through different configuration options specified when logging is activated. You can configure the logging engine through the parameter values specified when constructing a new <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/DefaultLogConfiguration.html"><code>DefaultLogConfiguration</code></a> instance, or you can provide your own implementation of the <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Protocols/LogConfiguration.html"><code>LogConfiguration</code></a> protocol if that doesn&rsquo;t suit your needs.</p></li>
-<li><p><strong>CleanroomLogger is <em>extensible</em></strong>. Several extension points are available, allowing you to provide custom implementations for specific functionality within the logging process:</p>
-
-<ul>
-<li>A <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Protocols/LogFilter.html"><code>LogFilter</code></a> implementation can inspect&ndash;and potentially block&ndash;any log message before it is recorded.</li>
-<li>A custom <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Protocols/LogFormatter.html"><code>LogFormatter</code></a> implementation can be used to generate string representations in a specific format for each <code>LogEntry</code> that gets recorded<br></li>
-<li>The <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Protocols/LogRecorder.html"><code>LogRecorder</code></a> protocol makes it possible to create custom log message storage implementations. This is where to start if you want to provide a custom solution to write log messages to a database table, a local file, or a remote HTTP endpoint, for example.</li>
-</ul></li>
-<li><p><strong>CleanroomLogger puts the application developer in control.</strong> The behavior of logging is set once, early in the application within the <code>UIApplicationDelegate</code> implementation; after that, the configuration is immutable for the remainder of the application&rsquo;s life. Any code using CleanroomLogger through <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html">the <code>Log</code> API</a>, including embedded frameworks, shared libraries, Cocoapods, etc. will automatically adhere to the policy establushed by the application developer Embedded code that uses CleanroomLogger is inherently <em>well behaved</em>, whereas code using plain old <code>NSLog()</code> is not; third-party code using <code>NSLog()</code> give no control to the application developer.</p></li>
-<li><p><strong>CleanroomLogger is respectful of the calling thread.</strong> <code>NSLog()</code> does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each <code>LogRecorder</code> also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won&rsquo;t prevent the processing of log messages by other recorders.</p></li>
-<li><p><strong>CleanroomLogger uses Swift short-circuiting to avoid needless code execution.</strong> For example, in production code with <code>.Info</code> as the minimum <code>LogSeverity</code>, messages with a severity of <code>.Verbose</code> or <code>.Debug</code> will always be ignored. To avoid unneeded code execution, <code>Log.debug</code> and <code>Log.verbose</code> in this case would be <code>nil</code>, allowing efficient short-circuiting of any code attempting to use these inactive log channels.</p></li>
-</ol>
-<a href='#adding_cleanroomlogger_to_your_project' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='adding_cleanroomlogger_to_your_project'>Adding CleanroomLogger to your project</h2>
-
-<p>In order to use CleanroomLogger within your project, <a href="https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md">you must embed <code>CleanroomLogger.framework</code> and its dependencies</a> into your application. </p>
-
-<p>Then, all you will need to do is add the following <code>import</code> statement to any Swift file where you want to use CleanroomLogger:</p>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">CleanroomLogger</span>
-</code></pre>
-<a href='#in_a_nutshell_using_cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='in_a_nutshell_using_cleanroomlogger'>In a nutshell: Using CleanroomLogger</h2>
-
-<p>The main public API for CleanroomLogger is provided by <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html"><code>Log</code></a>.</p>
-
-<p><code>Log</code> maintains five static read-only <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html"><code>LogChannel</code></a> properties that correspond to one of five <em>severity levels</em> indicating the importance of messages sent through that channel. When sending a message, you would select a severity appropriate for that message, and use the corresponding channel:</p>
-
-<ul>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_"><code>Log.error</code></a> — The highest severity; something has gone wrong and a fatal error may be imminent</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_"><code>Log.warning</code></a> — Something appears amiss and might bear looking into before a larger problem arises</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_"><code>Log.info</code></a> — Something notable happened, but it isn&rsquo;t anything to worry about</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_"><code>Log.debug</code></a> — Used for debugging and diagnostic information (not intended for use in production code)</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_"><code>Log.verbose</code></a> - The lowest severity; used for detailed or frequently occurring debugging and diagnostic information (not intended for use in production code)</li>
-</ul>
-
-<p>Each of these <code>LogChannel</code>s provide three functions to record log messages:</p>
-
-<ul>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5traceFS0_FT8functionSS8filePathSS8fileLineSi_T_"><code>trace()</code></a> — This function records a log message with program executing trace information including the filename, line number and name of the calling function.</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel7messageFS0_FTSS8functionSS8filePathSS8fileLineSi_T_"><code>message(String)</code></a> — This function records the log message passed to it.</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5valueFS0_FTGSqP__8functionSS8filePathSS8fileLineSi_T_"><code>value(Any?)</code></a> — This function attempts to record a log message containing a string representation of the optional <code>Any</code> value passed to it. </li>
-</ul>
-<a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3>
-
-<p>By default, logging is disabled, meaning that none of the <code>Log</code>&rsquo;s channels have been populated. As a result, they have <code>nil</code> values and any attempts to perform logging will silently fail.</p>
-
-<p>It is the responsibility of the <em>application developer</em> to enable logging, which is done by calling the appropriate <code>Log.enable()</code> function.</p>
-
-<blockquote>
-<p>The reason we specifically say that the application developer is responsible for enabling logging is to give the developer the power to control the use of logging process-wide. As with any code that executes, there&rsquo;s an expense to logging, and the application developer should get to decide how to handle the tradeoff between the utility of collecting logs and the expense of collecting them at a given level of detail.</p>
-
-<p>CleanroomLogger is built to be used from within frameworks, shared libraries, Cocoapods, etc., as well as at the application level. However, any code designed to be embedded in other applications <strong>must</strong> interact with CleanroomLogger via the <code>Log</code> API <strong>only</strong>. Also, embedded code <strong>must never</strong> call <code>Log.enable()</code>, because by doing so, control is taken away from the application developer.</p>
-
-<p><em>The general rule is, if you didn&rsquo;t write the <code>UIApplicationDelegate</code> for the app in which the code will execute, don&rsquo;t ever call <code>Log.enable()</code>.</em></p>
-</blockquote>
-
-<p>Ideally, logging is enabled at the first possible point in the application&rsquo;s launch cycle. Otherwise, critical log messages may be missed during launch because the logger wasn&rsquo;t yet initialized.</p>
-
-<p>The best place to put the call to <code>Log.enable()</code> is at the first line of your app delegate&rsquo;s <code>init()</code>.</p>
-
-<p>If you&rsquo;d rather not do that for some reason, the next best place to put it is in the <code>application(_:willFinishLaunchingWithOptions:)</code> function of your app delegate. You&rsquo;ll notice that we&rsquo;re specifically recommending the <code>will</code> function, not the typical <code>did</code>, because the former is called earlier in the application&rsquo;s launch cycle.</p>
-
-<blockquote>
-<p><strong>Note:</strong> During the running lifetime of an application process, only the <em>first</em> call to <code>Log.enable()</code> function will have any effect. All subsequent calls are ignored silently.</p>
-</blockquote>
-<a href='#logging_examples' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='logging_examples'>Logging examples</h3>
-
-<p>To send record items in the log, simply select the appropriate channel and call the appropriate function.</p>
-
-<p>Here are a few examples:</p>
-<a href='#logging_an_arbitrary_text_message' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging_an_arbitrary_text_message'>Logging an arbitrary text message</h4>
-
-<p>Let&rsquo;s say your application just finished launching. This is a significant event, but it isn&rsquo;t an error. You also might want to see this information in production app logs. Therefore, you decide the appropriate <code>LogSeverity</code> is <code>.Info</code> and you select the corresponding <code>LogChannel</code>, which is <code>Log.info</code>:</p>
-<pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="n">info</span><span class="p">?</span><span class="o">.</span><span class="nf">message</span><span class="p">(</span><span class="s">"The application has finished launching."</span><span class="p">)</span>
-</code></pre>
-<a href='#logging_a_trace_message' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging_a_trace_message'>Logging a trace message</h4>
-
-<p>If you&rsquo;re working on some code and you&rsquo;re curious about the order of execution, you can sprinkle some <code>trace()</code> calls around.</p>
-
-<p>This function outputs the filename, line number and name of the calling function.</p>
-
-<p>For example, if you put the following code on line 364 of a file called ModularTable.swift in a function with the signature <code>tableView(_:cellForRowAtIndexPath:)</code>:</p>
-<pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="n">debug</span><span class="p">?</span><span class="o">.</span><span class="nf">trace</span><span class="p">()</span>
-</code></pre>
-
-<p>The following message would be logged when that line gets executed:</p>
-<pre class="highlight plaintext"><code>ModularTable.swift:364 — tableView(_:cellForRowAtIndexPath:)
-</code></pre>
-
-<blockquote>
-<p><strong>Note:</strong> Because trace information is typically not desired in production code, you would generally only perform tracing at the <code>.Debug</code> or <code>.Verbose</code> severity levels.</p>
-</blockquote>
-<a href='#logging_an_arbitrary_value' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging_an_arbitrary_value'>Logging an arbitrary value</h4>
-
-<p>The <code>value()</code> function can be used for outputting information about a specific value. The function takes an argument of type <code>Any?</code> and is intended to accept any valid runtime value.</p>
-
-<p>For example, you might want to output the <code>NSIndexPath</code> value passed to your <code>UITableViewDataSource</code>&rsquo;s <code>tableView(_: cellForRowAtIndexPath:)</code> function:</p>
-<pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="n">verbose</span><span class="p">?</span><span class="o">.</span><span class="nf">value</span><span class="p">(</span><span class="n">indexPath</span><span class="p">)</span>
-</code></pre>
-
-<p>This would result in output looking like:</p>
-<pre class="highlight plaintext"><code>&lt;NSIndexPath: 0xc0000000000180d6&gt; {length = 2, path = 3 - 3}
-</code></pre>
-
-<blockquote>
-<p><strong>Note:</strong> Although every attempt is made to create a string representation of the value passed to the function, there is no guarantee that a given log implementation will support values of a given type.</p>
-</blockquote>
-<a href='#further_reading' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='further_reading'>Further reading</h3>
-
-<p>For more information on using CleanroomLogger, read <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html">the API documentation</a>, starting with <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html">Log</a>.</p>
-<a href='#full_disclosure_a_note_about_global_state' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='full_disclosure_a_note_about_global_state'>Full Disclosure: A Note about Global State</h3>
-
-<p>If you&rsquo;ve been reading the op-ed pages lately, you know that Global State is the enemy of civilization. You may also have noticed that <code>Log</code>&rsquo;s static variables constitute global state.</p>
-
-<p>Before you pick up your phone and demand that Thought Control activates its network of Twitter shamebots because a heretic has been detected, consider:</p>
-
-<ul>
-<li><p>In most cases, <code>Log</code> is used as an interface to two resources that are effectively singletons: the Apple System Log daemon of the device where the code will be running, and the <code>stderr</code> output stream of the running application. <code>Log</code> <em>maintains</em> global state because it <em>represents</em> global state.</p></li>
-<li><p>The state represented by <code>Log</code> is effectively immutable. The public interface is read-only, and the values are guaranteed to only ever be set once: at app launch, when <code>Log.enable()</code> is called from within the app delegate. The design of this gives full control to the application developer over the logging performed within the application; even third-party libraries using CleanroomLogger will use the logging configuration specified by the app developer.</p></li>
-<li><p><code>Log</code> designed to be <em>convenient</em> to encourage the judicious use of logging. During debugging, you might want to quickly add some debug tracing to some already-existing code; you can simply add <code>Log.debug?.trace()</code> to the appropriate places without refactoring your codebase to pass around <code>LogChannel</code>s or <code>LogReceptacle</code>s everywhere. Given that every single function in your code is a candidate for logging, it&rsquo;s impractical to use logging extensively <em>without</em> the convenience of <code>Log</code>.</p></li>
-<li><p>If you have a compelling reason to avoid using <code>Log</code>, but you still wish to use the functionality provided by CleanroomLogger, you can always construct and manage your own <code>LogChannel</code>s and <code>LogReceptacle</code>s directly. The only global state within the CleanroomLogger project is contained in <code>Log</code> itself. Note, however, that this should <strong>only</strong> be done by the app developer; <strong>vendors of embedded code should only ever interact with CleanroomLogger through the public API provided by <code>Log</code></strong> to ensure that the app developer is always in control of logging.</p></li>
-</ul>
-
-<p>Although there are many good reasons why global state is to be generally avoided and otherwise looked at skeptically, in this particular case, our use of global state is deliberate, well-isolated and not required to take advantage of the core functionality provided by CleanroomLogger.</p>
-<a href='#acknowledgements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='acknowledgements'>Acknowledgements</h2>
-
-<p>CleanroomLogger embeds the following open-source projects:</p>
-
-<ul>
-<li><p><a href="https://github.com/emaloney/CleanroomBase">CleanroomBase</a> — Low-level utilities for developing Swift-based iOS applications</p></li>
-<li><p><a href="https://github.com/emaloney/CleanroomASL">CleanroomASL</a> — An iOS framework providing a Swift-based API for writing to and reading from the Apple System Log (ASL) facility.</p></li>
-</ul>
-
-<p><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html">API documentation for CleanroomLogger</a> is generated using <a href="http://realm.io">Realm</a>&rsquo;s <a href="https://github.com/realm/jazzy/">jazzy</a> project, maintained by <a href="https://github.com/jpsim">JP Simard</a> and <a href="https://github.com/segiddins">Samuel E. Giddins</a>.</p>
-<a href='#contributing' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='contributing'>Contributing</h2>
-
-<p>CleanroomLogger is in active development, and we welcome your contributions.</p>
-
-<p>If you’d like to contribute to this or any other Cleanroom Project repo, please read <a href="https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project">the contribution guidelines</a>.</p>
+<p>Gilt Groupe</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-05-14)</p>
+          <p>&copy; 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
