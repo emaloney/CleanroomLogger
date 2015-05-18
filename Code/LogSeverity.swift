@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Gilt Groupe. All rights reserved.
 //
 
-import CleanroomBase
-
 /**
 Used to indicate the *severity*, or importance, of a log message.
 
@@ -145,13 +143,13 @@ public enum LogSeverity: Int
 }
 
 /// :nodoc:
-extension LogSeverity: DebugPrintableEnum
+extension LogSeverity // DebugPrintableEnum
 {
-    /// :nodoc:
-    public var description: String { return EnumPrinter.description(self) }
-
-    /// :nodoc:
-    public var debugDescription: String { return EnumPrinter.debugDescription(self) }
+//    /// :nodoc:
+//    public var description: String { return EnumPrinter.description(self) }
+//
+//    /// :nodoc:
+//    public var debugDescription: String { return EnumPrinter.debugDescription(self) }
 
     /// :nodoc:
     public var printableEnumName: String { return "LogSeverity" }

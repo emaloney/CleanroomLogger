@@ -155,9 +155,7 @@ Although there are many good reasons why global state is to be generally avoided
 
 ## Acknowledgements
 
-CleanroomLogger embeds the following open-source projects:
-
-- [CleanroomBase](https://github.com/emaloney/CleanroomBase) — Low-level utilities for developing Swift-based iOS applications
+CleanroomLogger embeds the following open-source project:
 
 - [CleanroomASL](https://github.com/emaloney/CleanroomASL) — An iOS framework providing a Swift-based API for writing to and reading from the Apple System Log (ASL) facility.
 

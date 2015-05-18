@@ -133,7 +133,6 @@ If all went well, you should see several files in this folder; the ones we're co
 
 - `CleanroomLogger.framework`
 - `CleanroomASL.framework`
-- `CleanroomBase.framework`
 
 If those files aren't present, something went wrong with the build.
 
@@ -141,15 +140,15 @@ If those files aren't present, something went wrong with the build.
 
 In Xcode, select the *General* tab in the build settings for your application target. Scroll to the bottom of the screen to reveal the section entitled *Embedded Binaries* (the second-to-last section).
 
-Go back to Finder, and option-click `CleanroomLogger.framework`, `CleanroomASL.framework` and `CleanroomBase.framework` to select them all, and then drag them into the list area directly below  *Embedded Binaries*.
+Go back to Finder, and option-click `CleanroomLogger.framework` and `CleanroomASL.framework` to select them both, and then drag them into the list area directly below  *Embedded Binaries*.
 
-If successful, you should see `CleanroomLogger.framework`, `CleanroomASL.framework` and `CleanroomBase.framework` listed under both the *Embedded Binaries* and *Linked Frameworks and Libraries* sections.
+If successful, you should see `CleanroomLogger.framework` and `CleanroomASL.framework` listed under both the *Embedded Binaries* and *Linked Frameworks and Libraries* sections.
 
 ### 5. Fix how Xcode references the frameworks
 
 Unfortunately, Xcode will reference the frameworks you just added in a way that will eventually cause you pain, particularly if multiple developers are sharing the same project file (in which case the pain will be felt almost immediately).
 
-So, to make things sane again, you'll need to make sure Xcode references `CleanroomLogger.framework`, `CleanroomASL.framework` and `CleanroomBase.framework` using a "Relative to Build Products" location.
+So, to make things sane again, you'll need to make sure Xcode references `CleanroomLogger.framework` and `CleanroomASL.framework` using a "Relative to Build Products" location.
 
 To do this, repeat the following steps for each framework:
 
@@ -235,7 +234,7 @@ Once Carthage is done building CleanroomLogger and its dependencies, you can exe
 open Carthage/Build/iOS
 ```
 
-This will cause the directory containing `CleanroomLogger.framework` and its required `CleanroomASL.framework` and `CleanroomBase.framework` dependencies to open in Finder.
+This will cause the directory containing `CleanroomLogger.framework` and its required `CleanroomASL.framework` dependency to open in Finder.
 
 If those files aren't present, something went wrong with the build.
 
@@ -243,9 +242,9 @@ If those files aren't present, something went wrong with the build.
 
 In Xcode, select the *General* tab in the build settings for your application target. Scroll to the bottom of the screen to reveal the section entitled *Embedded Binaries* (the second-to-last section).
 
-Go back to Finder, and option-click `CleanroomLogger.framework`, `CleanroomASL.framework` and `CleanroomBase.framework` to select them all, and then drag them into the list area directly below  *Embedded Binaries*.
+Go back to Finder, and option-click `CleanroomLogger.framework` and `CleanroomASL.framework` to select them both, and then drag them into the list area directly below  *Embedded Binaries*.
 
-If successful, you should see `CleanroomLogger.framework`, `CleanroomASL.framework` and `CleanroomBase.framework` listed under both the *Embedded Binaries* and *Linked Frameworks and Libraries* sections.
+If successful, you should see `CleanroomLogger.framework` and `CleanroomASL.framework` listed under both the *Embedded Binaries* and *Linked Frameworks and Libraries* sections.
 
 ### 4. Create a build phase to strip the Carthage frameworks
 

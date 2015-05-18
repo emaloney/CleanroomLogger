@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Gilt Groupe. All rights reserved.
 //
 
-import CleanroomBase
+import Foundation
 
 /**
 The `DefaultLogFormatter` is a basic implementation of the `LogFormatter` 
