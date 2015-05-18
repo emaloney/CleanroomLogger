@@ -143,9 +143,9 @@ severity are ignored.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO15CleanroomLogger11LogSeverity5ErrorFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Error" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity5ErrorFMS0_S0_">Error</a>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Warning" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_">Warning</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -153,71 +153,16 @@ severity are ignored.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The highest severity, used to indicate that something has gone wrong;
-a fatal error may be imminent.</p>
+                        <p>Used to indicate that something appears amiss and potentially
+problematic. The situation bears looking into before a larger problem
+arises.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Error</span>      <span class="o">=</span> <span class="mi">5</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger11LogSeverity4InfoFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Info" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity4InfoFMS0_S0_">Info</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Used to indicate something of interest that is not problematic.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Info</span>       <span class="o">=</span> <span class="mi">3</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger11LogSeverity7VerboseFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Verbose" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7VerboseFMS0_S0_">Verbose</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The lowest severity, used for detailed or frequently occurring
-debugging and diagnostic information. Not intended for use in production
-code.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Verbose</span>    <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Warning</span>    <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -255,9 +200,9 @@ in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Warning" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_">Warning</a>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity4InfoFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Info" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity4InfoFMS0_S0_">Info</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -265,16 +210,71 @@ in production code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Used to indicate that something appears amiss and potentially
-problematic. The situation bears looking into before a larger problem
-arises.</p>
+                        <p>Used to indicate something of interest that is not problematic.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Warning</span>    <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Info</span>       <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity5ErrorFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Error" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity5ErrorFMS0_S0_">Error</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The highest severity, used to indicate that something has gone wrong;
+a fatal error may be imminent.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Error</span>      <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity7VerboseFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Verbose" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7VerboseFMS0_S0_">Verbose</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The lowest severity, used for detailed or frequently occurring
+debugging and diagnostic information. Not intended for use in production
+code.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Verbose</span>    <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -421,7 +421,7 @@ to ensure the correct value for your build.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-15)</p>
+          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
