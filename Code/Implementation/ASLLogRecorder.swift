@@ -8,7 +8,6 @@
 
 import Foundation
 import CleanroomASL
-import CleanroomBase
 
 /**
 The `ASLLogRecorder` is an implemention of the `LogRecorder` protocol that

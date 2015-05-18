@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Gilt Groupe. All rights reserved.
 //
 
-import CleanroomBase
+import Foundation
 
 /**
 `LogReceptacle`s provide the low-level interface for accepting log messages.
