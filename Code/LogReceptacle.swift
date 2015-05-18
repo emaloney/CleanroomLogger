@@ -63,7 +63,7 @@ public final class LogReceptacle
                         recordDispatcher {
                             for formatter in recorder.formatters {
                                 if let formatted = formatter.formatLogEntry(entry) {
-                                    recorder.recordFormattedString(formatted, synchronously: synchronous, currentQueue: recorder.queue, forLogEntry: entry)
+                                    recorder.recordFormattedMessage(formatted, forLogEntry: entry, currentQueue: recorder.queue, synchronousMode: synchronous)
                                     break
                                 }
                             }

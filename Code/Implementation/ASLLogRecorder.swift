@@ -136,27 +136,28 @@ public struct ASLLogRecorder: LogRecorder
     }
 
     /**
-    Called to record the specified string to the Apple System Log.
-    
-    Note that this is only called if one of the `formatters` associated with 
-    the receiver returned a non-`nil` string.
+    Called to record the specified message to the Apple System Log.
 
-    :param:     str The formatted log string to record.
+    **Note:** This function is only called if one of the `formatters` 
+    associated with the receiver returned a non-`nil` string.
     
-    :param:     recordSynchronously If `true`, the receiver should record the
-                log entry synchronously and flush any buffers before returning.
-                Synchronous mode is used during debugging to help ensure that
-                logs reflect the latest state when debug breakpoints are hit.
-    
-    :param:     queue The GCD queue on which the function is being executed.
-                This allows the re-use of current queues where appropriate.
-    
-    :param:     entry The `LogEntry` being recorded.
+    :param:     message The message to record.
+
+    :param:     entry The `LogEntry` for which `message` was created.
+
+    :param:     currentQueue The GCD queue on which the function is being 
+                executed.
+
+    :param:     synchronousMode If `true`, the receiver should record the
+                log entry synchronously. Synchronous mode is used during
+                debugging to help ensure that logs reflect the latest state
+                when debug breakpoints are hit. It is not recommended for
+                production code.
     */
-    public func recordFormattedString(str: String, synchronously recordSynchronously: Bool, currentQueue queue: dispatch_queue_t, forLogEntry entry: LogEntry)
+    public func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
     {
-        let msg = ASLMessageObject(priorityLevel: logLevelTranslator(entry.severity), message: str)
-        client.log(msg, logSynchronously: recordSynchronously, currentQueue: queue)
+        let msgObj = ASLMessageObject(priorityLevel: logLevelTranslator(entry.severity), message: message)
+        client.log(msgObj, logSynchronously: synchronousMode, currentQueue: currentQueue)
     }
 }
 
