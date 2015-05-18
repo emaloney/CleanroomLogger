@@ -137,6 +137,29 @@ This would result in output looking like:
 
 For more information on using CleanroomLogger, read [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html), starting with [Log](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html).
 
+## Architectural Overview
+
+CleanroomLogger is designed to do avoid doing formatting or logging work on the calling thread, making use of Grand Central Dispatch (GCD) queues for efficient processing.
+
+In terms of threads of execution, each request to log *anything* can go through three main phases of processing:
+
+1. On the calling thread:
+  1. Caller attempts to issue a log request by calling a logging function (eg., `message()`, `trace()` or `value()`) of the appropriate `LogChannel` maintained by `Log`.
+    - If there is no `LogChannel` for the given *severity* of the log message (because CleanroomLogger hasn't yet been `enabled()` or it is not configured to log at that severity), Swift short-circuiting prevents further execution. This makes it possible to leave debug logging calls in place when shipping production code without affecting performance. 
+  2. If a `LogChannel` does exist, it creates an immutable `LogEntry` struct to represent the *thing* being logged.
+  3. The `LogEntry` is then passed to the `LogReceptacle` associated with the `LogChannel`. 
+  4. Based on the severity of the `LogEntry`, the `LogReceptacle` determines the appropriate `LogConfiguration` to use for recording the message. Among other things, this configuration determines whether or not further processing proceeds synchronously or asynchronously when passed to the `LogReceptacle`'s GCD queue. (Synchronous processing is useful during debugging, but is not recommended for general production code.)
+
+2. On the `LogReceptacle` queue:
+  1. The `LogEntry` is passed through zero or more `LogFilter`s that are given a chance to prevent further processing of the `LogEntry`. If *any* filter indicates that `LogEntry` should not be recorded, processing stops.
+  2. The `LogConfiguration` is used to determine which `LogRecorder`s (if any) will be used to record the `LogEntry`.
+  3. For each `LogRecorder` instance specified by the configuration, the `LogEntry` is then dispatched to the GCD queue provided by the `LogRecorder`.
+
+3. On each `LogRecorder` queue:
+  1. The `LogEntry` is passed sequentially to each `LogFormatter` provided by the `LogRecorder`, giving the formatters a chance to create the formatted message for the `LogEntry`.
+    - If no `LogFormatter` returns a string representation of `LogEntry`, further processing stops and nothing is recorded.
+    - If any `LogFormatter` returns a non-`nil` value to represent the formatted message of the `LogEntry`, that string is then passed to the `LogRecorder` for final logging.
+
 ### Full Disclosure: A Note about Global State
 
 If you've been reading the op-ed pages lately, you know that Global State is the enemy of civilization. You may also have noticed that `Log`'s static variables constitute global state.
