@@ -4,7 +4,7 @@
 
 This document describes how to integrate CleanroomLogger into your application.
 
-*Integration* is the act of embedding the `CleanroomLogger.framework` binary (and its required dependencies) into your project and exposing the API it provides to your code.
+*Integration* is the act of embedding the `CleanroomLogger.framework` binary (and its required `CleanroomASL.framework` dependency) into your project, thereby exposing the API it provides to your code.
 
 Note that CleanroomLogger is built as a *Swift framework*. This has several implications, not the least of which is that it will only work on iOS 8 or above. It is also only supported for use by other Swift code. Some, all or none of it may work from Objective-C; we haven't tried it, we wouldn't recommend it, and we don't support it.
 
@@ -40,7 +40,7 @@ For these reasons, we do not release Cleanroom projects as framework binaries. I
 
 There are two supported options for integration:
 
-- **Manual integration** — The `CleanroomLogger.xcodeproj` Xcode project file is embedded directly within your project. You then add `CleanroomLogger.framework` and its dependencies to the *Embedded Binaries* and *Linked Frameworks and Libraries* sections under the *General* tab for your application target.
+- **Manual integration** — The `CleanroomLogger.xcodeproj` Xcode project file is embedded directly within your project. You then add `CleanroomLogger.framework` and `CleanroomASL.framework` to the *Embedded Binaries* and *Linked Frameworks and Libraries* sections under the *General* tab for your application target.
 
 - **Carthage integration** — [Carthage](https://github.com/Carthage/Carthage) is a dependency package manager designed to build frameworks. Once Carthage is installed, to add CleanroomLogger to your project using Carthage, you would put the line `github "emaloney/CleanroomLogger"` in your `Cartfile` and then issue the command `carthage update`.
 
@@ -59,13 +59,9 @@ You’ll also be able to step into CleanroomLogger code directly in the debugger
 Manual integration is a bit involved; there are five high-level tasks that you'll need to perform:
 
 1. Download the CleanroomLogger source into your project structure
-
 2. Embed `CleanroomLogger.xcodeproj` in your Xcode project
-
-3. Build `CleanroomLogger.framework`; this will also cause any required dependencies to be built
-
-4. Add `CleanroomLogger.framework` and the required dependencies to your application target
-
+3. Build `CleanroomLogger.framework`; this will also cause the `CleanroomASL.framework` dependency to be built
+4. Add `CleanroomLogger.framework` and `CleanroomASL.framework` to your application target
 5. Fix the way Xcode references the frameworks you added in Step 4
 
 #### Getting Started
@@ -94,7 +90,7 @@ If you're using some other form of version control of if you're not using versio
 
 > **Important:** Skip this section if you plan to download CleanroomLogger using `git clone`.
 
-From within the `Libraries` directory, issue the following commands to download CleanroomLogger and its dependencies:
+From within the `Libraries` directory, issue the following commands to download CleanroomLogger:
 
 ```bash
 git submodule add https://github.com/emaloney/CleanroomLogger.git
@@ -115,7 +111,7 @@ git clone --recursive https://github.com/emaloney/CleanroomLogger.git
 
 ### 2. Embed CleanroomLogger in your project
 
-In the Terminal, the command `open CleanroomLogger` to open the folder containing the CleanroomLogger source in the Finder. This will reveal the `CleanroomLogger.xcodeproj` Xcode project and all files needed to build `CleanroomLogger.framework` and its dependencies.
+In the Terminal, the command `open CleanroomLogger` to open the folder containing the CleanroomLogger source in the Finder. This will reveal the `CleanroomLogger.xcodeproj` Xcode project and all files needed to build `CleanroomLogger.framework` and its `CleanroomASL.framework` dependency.
 
 Then, open your application in Xcode, and drag `CleanroomLogger.xcodeproj` into the Xcode project browser. This will embed CleanroomLogger in your project and allow you to add the targets built by CleanroomLogger to your project.
 
@@ -196,8 +192,8 @@ For iOS, Carthage builds *universal binary* frameworks, meaning that they will w
 Carthage integration is a little simpler than manual integration:
 
 1. Update the `Cartfile` with an entry for CleanroomLogger
-2. Download and build CleanroomLogger; this will also cause any required dependencies to be built
-3. Add `CleanroomLogger.framework` and the required dependencies to your application target
+2. Download and build CleanroomLogger
+3. Add `CleanroomLogger.framework` and `CleanroomASL.framework`  to your application target
 4. Create a build phase to strip the extra processor architectures from the Carthage frameworks
 
 ### Getting Started
