@@ -35,9 +35,9 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 ## Adding CleanroomLogger to your project
 
-In order to use CleanroomLogger within your project, [you must embed `CleanroomLogger.framework` and its dependencies](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) into your application. 
+You'll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html) it provides.
 
-Then, all you will need to do is add the following `import` statement to any Swift file where you want to use CleanroomLogger:
+Then, just add the following `import` statement to any Swift file where you want to use CleanroomLogger:
 
 ```swift
 import CleanroomLogger
