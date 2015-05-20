@@ -75,7 +75,7 @@ For our integration examples, we're going to be showing the top-level `Cleanroom
 If you do not already have a `Libraries` directory, create one:
 
 ```bash
-mkdir libraries
+mkdir Libraries
 ```
 
 Next, `cd` into `Libraries` and follow the instructions below.
