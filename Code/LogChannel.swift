@@ -65,9 +65,10 @@ public struct LogChannel
     */
     public func trace(function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
     {
-        let threadID = pthread_mach_thread_np(pthread_self())
+        var threadID: UInt64 = 0
+        pthread_threadid_np(nil, &threadID)
 
-        let entry = LogEntry(payload: .Trace, severity: severity, callingFunction: function, callingFilePath: filePath, callingFileLine: fileLine, callingThreadID: Int(threadID))
+        let entry = LogEntry(payload: .Trace, severity: severity, callingFunction: function, callingFilePath: filePath, callingFileLine: fileLine, callingThreadID: threadID)
 
         receptacle.log(entry)
     }
@@ -91,9 +92,10 @@ public struct LogChannel
     */
     public func message(msg: String, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
     {
-        let threadID = pthread_mach_thread_np(pthread_self())
+        var threadID: UInt64 = 0
+        pthread_threadid_np(nil, &threadID)
 
-        let entry = LogEntry(payload: .Message(msg), severity: severity, callingFunction: function, callingFilePath: filePath, callingFileLine: fileLine, callingThreadID: Int(threadID))
+        let entry = LogEntry(payload: .Message(msg), severity: severity, callingFunction: function, callingFilePath: filePath, callingFileLine: fileLine, callingThreadID: threadID)
 
         receptacle.log(entry)
     }
@@ -120,9 +122,10 @@ public struct LogChannel
     */
     public func value(value: Any?, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
     {
-        let threadID = pthread_mach_thread_np(pthread_self())
+        var threadID: UInt64 = 0
+        pthread_threadid_np(nil, &threadID)
 
-        let entry = LogEntry(payload: .Value(value), severity: severity, callingFunction: function, callingFilePath: filePath, callingFileLine: fileLine, callingThreadID: Int(threadID))
+        let entry = LogEntry(payload: .Value(value), severity: severity, callingFunction: function, callingFilePath: filePath, callingFileLine: fileLine, callingThreadID: threadID)
 
         receptacle.log(entry)
     }

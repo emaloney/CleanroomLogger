@@ -44,7 +44,7 @@ public struct LogEntry
 
     /** A numeric identifier for the calling thread. Note that thread IDs are
     recycled over time. */
-    public let callingThreadID: Int
+    public let callingThreadID: UInt64
 
     /** The time at which the `LogEntry` was created. */
     public let timestamp: NSDate
@@ -71,7 +71,7 @@ public struct LogEntry
     :param:     timestamp The time at which the log entry was created. Defaults
                 to the current time if not specified.
     */
-    public init(payload: Payload, severity: LogSeverity, callingFunction: String, callingFilePath: String, callingFileLine: Int, callingThreadID: Int, timestamp: NSDate = NSDate())
+    public init(payload: Payload, severity: LogSeverity, callingFunction: String, callingFilePath: String, callingFileLine: Int, callingThreadID: UInt64, timestamp: NSDate = NSDate())
     {
         self.payload = payload
         self.severity = severity
