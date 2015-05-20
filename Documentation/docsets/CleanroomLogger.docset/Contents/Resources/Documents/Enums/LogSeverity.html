@@ -13,7 +13,7 @@
     <a title="LogSeverity Enum Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
+        <p><a href="../index.html">CleanroomLogger Docs</a> (98% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomLogger"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -31,7 +31,16 @@
           <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/LogReceptacle.html">LogReceptacle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LogRecorderBase.html">LogRecorderBase</a>
               </li>
             </ul>
           </li>
@@ -115,9 +124,9 @@ severity are ignored.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OO15CleanroomLogger11LogSeverity10Comparator"></a>
-                    <a name="//apple_ref/swift/Enum/Comparator" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OO15CleanroomLogger11LogSeverity10Comparator">Comparator</a>
+                    <a name="/s:ZFO15CleanroomLogger11LogSeverity22defaultMinimumSeverityFMS0_FT19minimumForDebugModeS0_13isInDebugModeSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/defaultMinimumSeverity(minimumForDebugMode:isInDebugMode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFO15CleanroomLogger11LogSeverity22defaultMinimumSeverityFMS0_FT19minimumForDebugModeS0_13isInDebugModeSb_S0_">defaultMinimumSeverity(minimumForDebugMode:isInDebugMode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -125,46 +134,54 @@ severity are ignored.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogSeverity.Comparator</code> is used to compare <code>LogSeverity</code> values.</p>
-
-                        <a href="../Enums/LogSeverity/Comparator.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Comparator</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Warning" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_">Warning</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Used to indicate that something appears amiss and potentially
-problematic. The situation bears looking into before a larger problem
-arises.</p>
+                        <p>A convenience function to determine the minimum <code>LogSeverity</code> value to
+use by default, based on whether or not the application was compiled
+with debugging turned on.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Warning</span>    <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">defaultMinimumSeverity</span><span class="p">(</span><span class="nv">minimumForDebugMode</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Debug</span><span class="p">,</span> <span class="nv">isInDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">LogSeverity</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>minimumForDebugMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogSeverity</code> value to return when
+<code>isInDebugMode</code> is <code>true</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isInDebugMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Defaults to <code>false</code>. Pass the value <code>(DEBUG != 0)</code>
+to ensure the correct value for your build.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -218,6 +235,35 @@ in production code.</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="k">case</span> <span class="kt">Info</span>       <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Warning" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7WarningFMS0_S0_">Warning</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used to indicate that something appears amiss and potentially
+problematic. The situation bears looking into before a larger problem
+arises.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Warning</span>    <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -281,147 +327,12 @@ code.</p>
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger11LogSeverity7compareFS0_FTOS0_10Comparator7againstS0__Sb"></a>
-                    <a name="//apple_ref/swift/Method/compare(_:against:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger11LogSeverity7compareFS0_FTOS0_10Comparator7againstS0__Sb">compare(_:against:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Compares the receiver against another <code>LogSeverity</code> value using the given
-comparator.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">compare</span><span class="p">(</span><span class="nv">comparator</span><span class="p">:</span> <span class="kt">Comparator</span><span class="p">,</span> <span class="n">against</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">)</span>
-        <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>comparator</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity.Comparator</code> to use for the 
-comparison.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>severity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> value being compared against the
-receiver. This value represents the righthand value in the
-comparison, while the receiver represents the lefthand value.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The result of the comparison.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZFO15CleanroomLogger11LogSeverity22defaultMinimumSeverityFMS0_FT19minimumForDebugModeS0_13isInDebugModeSb_S0_"></a>
-                    <a name="//apple_ref/swift/Method/defaultMinimumSeverity(minimumForDebugMode:isInDebugMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFO15CleanroomLogger11LogSeverity22defaultMinimumSeverityFMS0_FT19minimumForDebugModeS0_13isInDebugModeSb_S0_">defaultMinimumSeverity(minimumForDebugMode:isInDebugMode:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A convenience function to determine the minimum <code>LogSeverity</code> value to
-use by default, based on whether or not the application was compiled
-with debugging turned on.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">defaultMinimumSeverity</span><span class="p">(</span><span class="nv">minimumForDebugMode</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Debug</span><span class="p">,</span> <span class="nv">isInDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span>
-        <span class="o">-&gt;</span> <span class="kt">LogSeverity</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>minimumForDebugMode</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> value to return when
-<code>isInDebugMode</code> is <code>true</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>isInDebugMode</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Defaults to <code>false</code>. Pass the value <code>(DEBUG != 0)</code>
-to ensure the correct value for your build.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-17)</p>
+          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

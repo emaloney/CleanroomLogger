@@ -12,7 +12,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">CleanroomLogger Docs</a> (100% documented)</p>
+        <p><a href="index.html">CleanroomLogger Docs</a> (98% documented)</p>
         <p class="header-right"><a href="https://github.com/emaloney/CleanroomLogger"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -30,7 +30,16 @@
           <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/FileLogRecorder.html">FileLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/LogReceptacle.html">LogReceptacle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LogRecorderBase.html">LogRecorderBase</a>
               </li>
             </ul>
           </li>
@@ -108,6 +117,118 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C15CleanroomLogger15LogRecorderBase"></a>
+                    <a name="//apple_ref/swift/Class/LogRecorderBase" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger15LogRecorderBase">LogRecorderBase</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A partial implementation of the <code>LogRecorder</code> protocol.</p>
+
+<p>Note that this implementation provides no mechanism for log file rotation
+or log pruning. It is the responsibility of the developer to keep the log
+file at a reasonable size.</p>
+
+                        <a href="Classes/LogRecorderBase.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LogRecorderBase</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger28DailyRotatingLogFileRecorder"></a>
+                    <a name="//apple_ref/swift/Class/DailyRotatingLogFileRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger28DailyRotatingLogFileRecorder">DailyRotatingLogFileRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>LogRecorder</code> implementation that maintains a set of daily rotating log
+files, kept for a user-specified number of days.</p>
+
+<p><strong>Important:</strong> The <code>DailyRotatingLogFileRecorder</code> is expected to have full
+control over the <code>directoryPath</code> with which it was instantiated. Any file not
+explicitly known to be an active log file may be removed during the pruning
+process. Therefore, be careful not to store anything in the <code>directoryPath</code>
+that you wouldn&rsquo;t mind being deleted when pruning occurs.</p>
+
+                        <a href="Classes/DailyRotatingLogFileRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DailyRotatingLogFileRecorder</span><span class="p">:</span> <span class="kt">LogRecorderBase</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger15FileLogRecorder"></a>
+                    <a name="//apple_ref/swift/Class/FileLogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger15FileLogRecorder">FileLogRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code>LogRecorder</code> implementation that stores log messages in a file.</p>
+
+<p><strong>Note:</strong> This implementation provides no mechanism for log file rotation
+or log pruning. It is the responsibility of the developer to keep the log
+file at a reasonable size. Use <code>DailyRotatingLogFileRecorder</code> instead if you&rsquo;d 
+rather not have to think about such details.</p>
+
+                        <a href="Classes/FileLogRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FileLogRecorder</span><span class="p">:</span> <span class="kt">LogRecorderBase</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C15CleanroomLogger13LogReceptacle"></a>
                     <a name="//apple_ref/swift/Class/LogReceptacle" class="dashAnchor"></a>
                     <a class="token" href="#/s:C15CleanroomLogger13LogReceptacle">LogReceptacle</a>
@@ -142,7 +263,7 @@ more convenient to use within your code.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-17)</p>
+          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-05-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
