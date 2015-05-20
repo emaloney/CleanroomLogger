@@ -16,10 +16,23 @@ This implementation is used by default if no other log formatters are specified.
 */
 public struct DefaultLogFormatter: LogFormatter
 {
+    public let includeTimestamp: Bool
+    public let includeThreadID: Bool
+
     /**
-    Default initializer.
+    Initializes the DefaultLogFormatter using the given settings.
+
+    :param:     includeTimestamp If `true`, the log entry timestamp will be
+                included in the formatted message.
+
+    :param:     includeThreadID If `true`, an identifier for the calling thread
+                will be included in the formatted message.
     */
-    public init() {}
+    public init(includeTimestamp: Bool = false, includeThreadID: Bool = false)
+    {
+        self.includeTimestamp = includeTimestamp
+        self.includeThreadID = includeThreadID
+    }
 
     /**
     Returns a formatted representation of the given `LogEntry`.

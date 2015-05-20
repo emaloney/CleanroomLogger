@@ -21,6 +21,9 @@
 		3B4596E11AE196E50049A743 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D61AE196E50049A743 /* LogRecorder.swift */; };
 		3B4596E21AE196E50049A743 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D71AE196E50049A743 /* LogSeverity.swift */; };
 		3B4596E31AE196FB0049A743 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4596C91AE196730049A743 /* CleanroomASL.framework */; };
+		3B93F9151B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */; };
+		3B93F9161B0CDD0300F3392A /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9131B0CDD0300F3392A /* FileLogRecorder.swift */; };
+		3B93F9171B0CDD0300F3392A /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9141B0CDD0300F3392A /* LogRecorderBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		3B4596D51AE196E50049A743 /* LogReceptacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogReceptacle.swift; path = Code/LogReceptacle.swift; sourceTree = SOURCE_ROOT; };
 		3B4596D61AE196E50049A743 /* LogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogRecorder.swift; path = Code/LogRecorder.swift; sourceTree = SOURCE_ROOT; };
 		3B4596D71AE196E50049A743 /* LogSeverity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogSeverity.swift; path = Code/LogSeverity.swift; sourceTree = SOURCE_ROOT; };
+		3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyRotatingLogFileRecorder.swift; sourceTree = "<group>"; };
+		3B93F9131B0CDD0300F3392A /* FileLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogRecorder.swift; sourceTree = "<group>"; };
+		3B93F9141B0CDD0300F3392A /* LogRecorderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorderBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,8 +158,11 @@
 			isa = PBXGroup;
 			children = (
 				3B4596CD1AE196E50049A743 /* ASLLogRecorder.swift */,
-				3B4596CE1AE196E50049A743 /* DefaultLogFormatter.swift */,
+				3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */,
 				3B1DEE8D1AF87A5600D9A0BF /* DefaultLogConfiguration.swift */,
+				3B4596CE1AE196E50049A743 /* DefaultLogFormatter.swift */,
+				3B93F9131B0CDD0300F3392A /* FileLogRecorder.swift */,
+				3B93F9141B0CDD0300F3392A /* LogRecorderBase.swift */,
 			);
 			name = Implementation;
 			path = Code/Implementation;
@@ -294,9 +303,12 @@
 				3B1DEE8E1AF87A5600D9A0BF /* DefaultLogConfiguration.swift in Sources */,
 				3B4596DB1AE196E50049A743 /* LogChannel.swift in Sources */,
 				3B4596DF1AE196E50049A743 /* LogFormatter.swift in Sources */,
+				3B93F9171B0CDD0300F3392A /* LogRecorderBase.swift in Sources */,
 				3B4596E11AE196E50049A743 /* LogRecorder.swift in Sources */,
 				3B4596DC1AE196E50049A743 /* LogConfiguration.swift in Sources */,
+				3B93F9151B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift in Sources */,
 				3B4596DA1AE196E50049A743 /* Log.swift in Sources */,
+				3B93F9161B0CDD0300F3392A /* FileLogRecorder.swift in Sources */,
 				3B4596E01AE196E50049A743 /* LogReceptacle.swift in Sources */,
 				3B4596DE1AE196E50049A743 /* LogFilter.swift in Sources */,
 				3B4596DD1AE196E50049A743 /* LogEntry.swift in Sources */,
