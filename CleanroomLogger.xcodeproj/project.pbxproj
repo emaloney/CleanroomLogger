@@ -24,6 +24,7 @@
 		3B93F9151B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */; };
 		3B93F9161B0CDD0300F3392A /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9131B0CDD0300F3392A /* FileLogRecorder.swift */; };
 		3B93F9171B0CDD0300F3392A /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9141B0CDD0300F3392A /* LogRecorderBase.swift */; };
+		6911AE911B0C264D0035F749 /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911AE901B0C264D0035F749 /* LogSeverityTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyRotatingLogFileRecorder.swift; sourceTree = "<group>"; };
 		3B93F9131B0CDD0300F3392A /* FileLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogRecorder.swift; sourceTree = "<group>"; };
 		3B93F9141B0CDD0300F3392A /* LogRecorderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorderBase.swift; sourceTree = "<group>"; };
+		6911AE901B0C264D0035F749 /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogSeverityTests.swift; path = Code/Tests/LogSeverityTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		3B4596B51AE195900049A743 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				6911AE901B0C264D0035F749 /* LogSeverityTests.swift */,
 			);
 			name = Tests;
 			path = CleanroomLoggerTests;
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6911AE911B0C264D0035F749 /* LogSeverityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

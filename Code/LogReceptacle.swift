@@ -80,7 +80,7 @@ public final class LogReceptacle
         -> LogConfiguration?
     {
         for config in configuration {
-            if entry.severity.compare(.AsOrMoreSevereThan, against: config.minimumSeverity) {
+            if entry.severity >= config.minimumSeverity {
                 return config
             }
         }
