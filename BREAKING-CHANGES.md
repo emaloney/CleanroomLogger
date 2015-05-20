@@ -15,3 +15,7 @@ This system assigns version numbers with three independent integer values separa
 1. The dependency on CleanroomBase has been removed. As a result, `CleanroomLogger.xcodeproj` will no longer build `CleanroomBase.framework`. If your project references `CleanroomBase.framework` solely as a result of a previous version of CleanroomLogger, you may safely remove it. Otherwise, if your project continues to use CleanroomBase, [you will need to integrate with it directly](https://github.com/emaloney/CleanroomBase/blob/master/INTEGRATION.md).
 
 2. The signature of the `LogRecorder` function `recordFormattedString(_:synchronously:currentQueue:forLogEntry:)` has been refactored to `recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)` to be more consistent with terminology used elsewhere in the API.
+
+## 1.3.0
+
+The `LogSeverity.Comparator` enum has been removed. Instead, the `LogSeverity` protocol now conforms to `Comparable`.
