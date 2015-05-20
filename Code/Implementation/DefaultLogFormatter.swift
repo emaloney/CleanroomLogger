@@ -19,6 +19,12 @@ public struct DefaultLogFormatter: LogFormatter
     public let includeTimestamp: Bool
     public let includeThreadID: Bool
 
+    private static let timestampFormatter: NSDateFormatter = {
+        let fmt = NSDateFormatter()
+        fmt.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS zzz"
+        return fmt
+    }()
+
     /**
     Initializes the DefaultLogFormatter using the given settings.
 
@@ -49,7 +55,17 @@ public struct DefaultLogFormatter: LogFormatter
         let caller = DefaultLogFormatter.stringRepresentationForCallingFile(entry.callingFilePath, line: entry.callingFileLine)
         let message = DefaultLogFormatter.stringRepresentationForPayload(entry)
 
-        return DefaultLogFormatter.formatLogMessageWithSeverity(severity, caller: caller, message: message)
+        var timestamp: String?
+        if includeTimestamp {
+            timestamp = DefaultLogFormatter.stringRepresentationOfTimestamp(entry.timestamp)
+        }
+
+        var threadID: String?
+        if includeThreadID {
+            threadID = DefaultLogFormatter.stringRepresentationOfThreadID(entry.callingThreadID)
+        }
+
+        return DefaultLogFormatter.formatLogMessageWithSeverity(severity, caller: caller, message: message, timestamp: timestamp, threadID: threadID)
     }
 
     /**
@@ -66,12 +82,25 @@ public struct DefaultLogFormatter: LogFormatter
     
     :param:     message The log message.
     
+    :param:     timestamp An optional timestamp string to include in the 
+                message.
+
+    :param:     threadID An optional thread ID to include in the message.
+
     :returns:   The formatted log message.
     */
-    public static func formatLogMessageWithSeverity(severity: String, caller: String, message: String)
+    public static func formatLogMessageWithSeverity(severity: String, caller: String, message: String, timestamp: String?, threadID: String?)
         -> String
     {
-        return "\(severity) | \(caller) — \(message)"
+        var fmt = ""
+        if let timestamp = timestamp {
+            fmt += "\(timestamp) | "
+        }
+        if let threadID = threadID {
+            fmt += "\(threadID) | "
+        }
+        fmt += "\(severity) | \(caller) — \(message)"
+        return fmt
     }
 
     /**
@@ -90,7 +119,7 @@ public struct DefaultLogFormatter: LogFormatter
         -> String
     {
         var severityTag = severity.printableValueName.uppercaseString
-        while count(severityTag.utf16) < 10 {
+        while count(severityTag.utf16) < 7 {
             severityTag = " " + severityTag
         }
         return severityTag
@@ -189,5 +218,17 @@ public struct DefaultLogFormatter: LogFormatter
         }
 
         return "<\(type): \(desc)>"
+    }
+
+    public static func stringRepresentationOfTimestamp(timestamp: NSDate)
+        -> String
+    {
+        return timestampFormatter.stringFromDate(timestamp)
+    }
+
+    public static func stringRepresentationOfThreadID(threadID: UInt64)
+        -> String
+    {
+        return NSString(format: "%08X", threadID) as String
     }
 }
