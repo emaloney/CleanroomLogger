@@ -37,89 +37,7 @@ public enum LogSeverity: Int
     /** The highest severity, used to indicate that something has gone wrong;
     a fatal error may be imminent. */
     case Error      = 5
-
-    /**
-    The `LogSeverity.Comparator` is used to compare `LogSeverity` values.
-    */
-    public enum Comparator
-    {
-        /** Represents a comparator whose `compare()` function will return
-        `true` when the value of the `lVal` argument is less severe than that
-        of the `rVal` argument. */
-        case LessSevereThan
-
-        /** Represents a comparator whose `compare()` function will return
-        `true` when the value of the `lVal` argument is as or less severe than
-        that of the `rVal` argument. */
-        case AsOrLessSevereThan
-
-        /** Represents a comparator whose `compare()` function will return
-        `true` when the value of the `lVal` argument is equal to that of the
-        `rVal` argument. */
-        case EqualToSeverityOf
-
-        /** Represents a comparator whose `compare()` function will return
-        `true` when the value of the `lVal` argument is as or more severe than
-        that of the `rVal` argument. */
-        case AsOrMoreSevereThan
-
-        /** Represents a comparator whose `compare()` function will return
-        `true` when the value of the `lVal` argument is more severe than
-        that of the `rVal` argument. */
-        case MoreSevereThan
-
-        /**
-        Executes the function represented by the comparator using the
-        specified `lVal` and `rVal` arguments.
-        
-        :param:     lVal The lefthand value for the comparison
-        
-        :param:     rVal The righthand value for the comparison
-        
-        :returns:   The result of the comparison given the values `lVal` and
-                    `rVal`.
-        */
-        public func compare(lVal: LogSeverity, against rVal: LogSeverity)
-            -> Bool
-        {
-            switch self {
-            case LessSevereThan:
-                return lVal.rawValue < rVal.rawValue
-
-            case AsOrLessSevereThan:
-                return lVal.rawValue <= rVal.rawValue
-
-            case EqualToSeverityOf:
-                return lVal.rawValue == rVal.rawValue
-
-            case AsOrMoreSevereThan:
-                return lVal.rawValue >= rVal.rawValue
-                
-            case MoreSevereThan:
-                return lVal.rawValue > rVal.rawValue
-            }
-        }
-    }
-
-    /**
-    Compares the receiver against another `LogSeverity` value using the given
-    comparator.
-
-    :param:     comparator The `LogSeverity.Comparator` to use for the 
-                comparison.
     
-    :param:     severity The `LogSeverity` value being compared against the
-                receiver. This value represents the righthand value in the
-                comparison, while the receiver represents the lefthand value.
-    
-    :returns:   The result of the comparison.
-    */
-    public func compare(comparator: Comparator, against severity: LogSeverity)
-        -> Bool
-    {
-        return comparator.compare(self, against: severity)
-    }
-
     /**
     A convenience function to determine the minimum `LogSeverity` value to
     use by default, based on whether or not the application was compiled
@@ -140,6 +58,14 @@ public enum LogSeverity: Int
             return .Info
         }
     }
+}
+
+/// :nodoc:
+extension LogSeverity: Comparable {}
+
+/// :nodoc:
+public func <(lhs: LogSeverity, rhs: LogSeverity) -> Bool {
+    return lhs.rawValue < rhs.rawValue
 }
 
 /// :nodoc:

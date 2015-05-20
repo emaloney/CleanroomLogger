@@ -325,7 +325,7 @@ public struct Log
     private static func createLogChannelWithSeverity(severity: LogSeverity, receptacle: LogReceptacle, minimumSeverity: LogSeverity)
         -> LogChannel?
     {
-        if severity.compare(.AsOrMoreSevereThan, against: minimumSeverity) {
+        if severity >= minimumSeverity {
             return LogChannel(severity: severity, receptacle: receptacle)
         }
         return nil
