@@ -59,6 +59,6 @@ public struct LogSeverityFilter: LogFilter
     public func shouldRecordLogEntry(entry: LogEntry)
         -> Bool
     {
-        return entry.severity.compare(.AsOrMoreSevereThan, against: severity)
+        return entry.severity >= severity
     }
 }
