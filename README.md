@@ -148,7 +148,7 @@ In terms of threads of execution, each request to log *anything* can go through 
     - If there is no `LogChannel` for the given *severity* of the log message (because CleanroomLogger hasn't yet been `enabled()` or it is not configured to log at that severity), Swift short-circuiting prevents further execution. This makes it possible to leave debug logging calls in place when shipping production code without affecting performance. 
   2. If a `LogChannel` does exist, it creates an immutable `LogEntry` struct to represent the *thing* being logged.
   3. The `LogEntry` is then passed to the `LogReceptacle` associated with the `LogChannel`. 
-  4. Based on the severity of the `LogEntry`, the `LogReceptacle` determines the appropriate `LogConfiguration` to use for recording the message. Among other things, this configuration determines whether or not further processing proceeds synchronously or asynchronously when passed to the `LogReceptacle`'s GCD queue. (Synchronous processing is useful during debugging, but is not recommended for general production code.)
+  4. Based on the severity of the `LogEntry`, the `LogReceptacle` determines the appropriate `LogConfiguration` to use for recording the message. Among other things, this configuration determines whether further processing proceeds synchronously or asynchronously when passed to the `LogReceptacle`'s GCD queue. (Synchronous processing is useful during debugging, but is not recommended for general production code.)
 
 2. On the `LogReceptacle` queue:
   1. The `LogEntry` is passed through zero or more `LogFilter`s that are given a chance to prevent further processing of the `LogEntry`. If *any* filter indicates that `LogEntry` should not be recorded, processing stops.
