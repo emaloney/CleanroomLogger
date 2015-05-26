@@ -40,9 +40,9 @@ For these reasons, we do not release Cleanroom projects as framework binaries. I
 
 There are two supported options for integration:
 
-- **Manual integration** — The `CleanroomLogger.xcodeproj` Xcode project file is embedded directly within your project. You then add `CleanroomLogger.framework` and `CleanroomASL.framework` to the *Embedded Binaries* and *Linked Frameworks and Libraries* sections under the *General* tab for your application target.
+- **[Manual integration](#manual-integration)** — The `CleanroomLogger.xcodeproj` Xcode project file is embedded directly within your project. You then add `CleanroomLogger.framework` and `CleanroomASL.framework` to the *Embedded Binaries* and *Linked Frameworks and Libraries* sections under the *General* tab for your application target.
 
-- **Carthage integration** — [Carthage](https://github.com/Carthage/Carthage) is a dependency package manager designed to build frameworks. Once Carthage is installed, to add CleanroomLogger to your project using Carthage, you would put the line `github "emaloney/CleanroomLogger"` in your `Cartfile` and then issue the command `carthage update`.
+- **[Carthage integration](#carthage-integration)** — [Carthage](https://github.com/Carthage/Carthage) is a dependency package manager designed to build frameworks. Once Carthage is installed, to add CleanroomLogger to your project using Carthage, you would put the line `github "emaloney/CleanroomLogger"` in your `Cartfile` and then issue the command `carthage update`.
 
 Whether you choose one over the other largely depends on your preferences and—in the case of Carthage—whether you're already using that solution for other dependencies.
 
