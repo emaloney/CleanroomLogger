@@ -35,6 +35,8 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 ## Adding CleanroomLogger to your project
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 You'll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html) it provides.
 
 Then, just add the following `import` statement to any Swift file where you want to use CleanroomLogger:
