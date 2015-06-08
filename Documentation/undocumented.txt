@@ -1,3 +1,0 @@
-DefaultLogFormatter.swift
-	public let includeTimestamp: Bool
-	public let includeThreadID: Bool
