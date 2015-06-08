@@ -24,7 +24,10 @@ public protocol LogRecorder
     for passing to the receiver's `recordFormattedString(_: forLogEntry:)`
     function. The formatters will be called sequentially and given an
     opportunity to return a formatted string for each log entry. The first
-    non-`nil` return value will be what gets recorded in the log.
+    non-`nil` return value will be what gets recorded in the log. Typically,
+    an implementation of this protocol would not hard-code the `LogFormatter`s
+    it uses, but would instead provide a constructor that accepts an array of
+    `LogFormatter`s, which it will subsequently return from this property.
     */
     var formatters: [LogFormatter] { get }
 
