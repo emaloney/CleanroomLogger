@@ -410,9 +410,10 @@ updateStatus "Rebuilding documentation"
 executeCommand "$SCRIPT_DIR/generateDocumentation.sh"
 
 updateStatus "Committing changes"
-COMMIT_COMMENT="Release $VERSION"
+BUILD_NUMBER=`agvtool vers -terse`
+COMMIT_COMMENT="Release $VERSION (build $BUILD_NUMBER)"
 if [[ $REPO_IS_DIRTY && $COMMIT_DIRTY_FILES ]]; then
-	COMMIT_COMMENT="$COMMIT_COMMENT (committed with other changes)"
+	COMMIT_COMMENT="$COMMIT_COMMENT -- committed with other changes"
 fi
 executeCommand "git commit -a -m '$COMMIT_COMMENT'"
 
