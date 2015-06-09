@@ -408,6 +408,7 @@ executeCommand "agvtool bump"
 
 updateStatus "Rebuilding documentation"
 executeCommand "$SCRIPT_DIR/generateDocumentation.sh"
+executeCommand "git add Documentation/."
 
 updateStatus "Committing changes"
 BUILD_NUMBER=`agvtool vers -terse`
