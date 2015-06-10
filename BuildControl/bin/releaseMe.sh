@@ -223,6 +223,7 @@ cleanupDirtyStash()
 #
 # make sure we're in a git repo
 #
+cd "$SCRIPT_DIR/../../."
 git status 2&> /dev/null
 if [[ $? != 0 ]]; then
 	exitWithErrorShowingHelp "You must invoke this script from within a git repo"
