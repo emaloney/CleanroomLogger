@@ -39,19 +39,19 @@ public struct DefaultLogConfiguration: LogConfiguration
     messages to the Apple System Log and the application's `stderr` output
     stream.
 
-    :param:     minimumSeverity The minimum `LogSeverity` supported by the
+    - parameter     minimumSeverity: The minimum `LogSeverity` supported by the
                 configuration.
     
-    :param:     filters A list of `LogFilter`s to be used for filtering log
+    - parameter     filters: A list of `LogFilter`s to be used for filtering log
                 messages.
     
-    :param:     formatters A list of `LogFormatter`s to be used for formatting
+    - parameter     formatters: A list of `LogFormatter`s to be used for formatting
                 log messages.
     
-    :param:     additionalRecorders A list of `LogRecorder`s to be used in
+    - parameter     additionalRecorders: A list of `LogRecorder`s to be used in
                 addition to the `ASLLogRecorder`.
     
-    :param:     synchronousMode Determines whether synchronous mode logging
+    - parameter     synchronousMode: Determines whether synchronous mode logging
                 will be used. **Use of synchronous mode is not recommended in
                 production code**; it is provided for use during debugging, to
                 help ensure that messages send prior to hitting a breakpoint
@@ -70,19 +70,19 @@ public struct DefaultLogConfiguration: LogConfiguration
     `LogRecorder`s (and *does not* include the use of the `ASLLogRecorder` 
     unless explicitly specified).
     
-    :param:     recorders A list of `LogRecorder`s to be used for recording
+    - parameter     recorders: A list of `LogRecorder`s to be used for recording
                 log messages.
 
-    :param:     minimumSeverity The minimum `LogSeverity` supported by the
+    - parameter     minimumSeverity: The minimum `LogSeverity` supported by the
                 configuration.
     
-    :param:     filters A list of `LogFilter`s to be used for filtering log
+    - parameter     filters: A list of `LogFilter`s to be used for filtering log
                 messages.
     
-    :param:     formatters A list of `LogFormatter`s to be used for formatting
+    - parameter     formatters: A list of `LogFormatter`s to be used for formatting
                 log messages.
 
-    :param:     synchronousMode Determines whether synchronous mode logging
+    - parameter     synchronousMode: Determines whether synchronous mode logging
                 will be used. **Use of synchronous mode is not recommended in
                 production code**; it is provided for use during debugging, to
                 help ensure that messages send prior to hitting a breakpoint

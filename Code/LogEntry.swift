@@ -52,23 +52,23 @@ public struct LogEntry
     /**
     `LogEntry` initializer.
     
-    :param:     payload The payload of the `LogEntry` being constructed.
+    - parameter     payload: The payload of the `LogEntry` being constructed.
     
-    :param:     severity The `LogSeverity` of the message being logged.
+    - parameter     severity: The `LogSeverity` of the message being logged.
     
-    :param:     callingFunction The signature of the function that issued the 
+    - parameter     callingFunction: The signature of the function that issued the 
                 log request.
     
-    :param:     callingFilePath The path of the source file containing the 
+    - parameter     callingFilePath: The path of the source file containing the 
                 calling function that issued the log request.
     
-    :param:     callingFileLine The line within the source file at which the log
+    - parameter     callingFileLine: The line within the source file at which the log
                 request was issued.
 
-    :param:     callingThreadID A numeric identifier for the calling thread. 
+    - parameter     callingThreadID: A numeric identifier for the calling thread. 
                 Note that thread IDs are recycled over time.
     
-    :param:     timestamp The time at which the log entry was created. Defaults
+    - parameter     timestamp: The time at which the log entry was created. Defaults
                 to the current time if not specified.
     */
     public init(payload: Payload, severity: LogSeverity, callingFunction: String, callingFilePath: String, callingFileLine: Int, callingThreadID: UInt64, timestamp: NSDate = NSDate())
