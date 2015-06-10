@@ -48,13 +48,13 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
     active log file may be removed. Be careful not to put anything in this
     directory you might not want deleted when pruning occurs.
 
-    :param:     daysToKeep The number of days for which log files should be
+    - parameter     daysToKeep: The number of days for which log files should be
                 retained.
     
-    :param:     directoryPath The filesystem path of the directory where the
+    - parameter     directoryPath: The filesystem path of the directory where the
                 log files will be stores.
 
-    :param:     formatters The `LogFormatter`s to use for the recorder.
+    - parameter     formatters: The `LogFormatter`s to use for the recorder.
     */
     public init?(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [DefaultLogFormatter()])
     {
@@ -62,30 +62,31 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
         self.directoryPath = directoryPath
 
         // try to create the directory that will contain the log files
-        var dirCreationFailed = false
-        if let url = NSURL(fileURLWithPath: directoryPath, isDirectory: true) {
-            var err: NSError?
-            if !NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: &err)
-            {
-                dirCreationFailed = true
-                println("Error attempting to create directory structure for path <\(directoryPath)>: \(err)")
-            }
-        }
+		var dirCreationFailed = false
+		
+		do {
+			let url = NSURL(fileURLWithPath: directoryPath, isDirectory: true)
+			try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+			
+		} catch let error as NSError {
+			dirCreationFailed = true
+			print("Error attempting to create directory structure for path <\(directoryPath)>: \(error)")
+		}
 
         super.init(name: "DailyRotatingLogFileRecorder[\(directoryPath)]", formatters: formatters)
-
-        if dirCreationFailed {
-            return nil
-        }
+		
+		if dirCreationFailed {
+			return nil
+		}
     }
 
     /**
     Returns a string representing the filename that will be used to store logs
     recorded on the given date.
     
-    :param:     date The `NSDate` for which the log file name is desired.
+    - parameter     date: The `NSDate` for which the log file name is desired.
     
-    :returns:   The filename.
+    - returns:   The filename.
     */
     public class func logFilenameForDate(date: NSDate)
         -> String
@@ -121,14 +122,14 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
     **Note:** This function is only called if one of the `formatters` 
     associated with the receiver returned a non-`nil` string.
     
-    :param:     message The message to record.
+    - parameter     message: The message to record.
 
-    :param:     entry The `LogEntry` for which `message` was created.
+    - parameter     entry: The `LogEntry` for which `message` was created.
 
-    :param:     currentQueue The GCD queue on which the function is being 
+    - parameter     currentQueue: The GCD queue on which the function is being 
                 executed.
 
-    :param:     synchronousMode If `true`, the receiver should record the
+    - parameter     synchronousMode: If `true`, the receiver should record the
                 log entry synchronously. Synchronous mode is used during
                 debugging to help ensure that logs reflect the latest state
                 when debug breakpoints are hit. It is not recommended for
@@ -159,32 +160,39 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
     public func prune()
     {
         // figure out what files we'd want to keep, then nuke everything else
-        let cal = NSCalendar.currentCalendar()
+//        let cal = NSCalendar.currentCalendar()
         var date = NSDate()
         var filesToKeep = Set<String>()
         for _ in 0..<daysToKeep {
             let filename = self.dynamicType.logFilenameForDate(date)
             filesToKeep.insert(filename)
-            date = cal.dateByAddingUnit(.CalendarUnitDay, value: -1, toDate: date, options: nil)!
+
+			// FIXME: Switch back to using date components. Does not work in Swift 2.0 B1.
+			// https://forums.developer.apple.com/message/7236
+			// date = cal.dateByAddingUnit(NSCalendarUnit.Day, value: -1, toDate: date, options: nil) ?? date
+			date = NSDate(timeInterval: -60*60*25, sinceDate: date)
         }
 
         let fileMgr = NSFileManager.defaultManager()
-        var err: NSError?
-        if let filenames = fileMgr.contentsOfDirectoryAtPath(directoryPath, error: &err) as? [String] {
-            let pathsToRemove = filenames
-                .filter { return !$0.hasPrefix(".") }
-                .filter { return !filesToKeep.contains($0) }
-                .map { return self.directoryPath.stringByAppendingPathComponent($0) }
-
-            for path in pathsToRemove {
-                if !fileMgr.removeItemAtPath(path, error: &err) {
-                    println("Error attempting to delete the unneeded file <\(path)>: \(err)")
-                }
-            }
-        }
-        else {
-            println("Error attempting to read directory at path <\(directoryPath)>: \(err)")
-        }
+		
+		do {
+			
+			let filenames = try fileMgr.contentsOfDirectoryAtPath(directoryPath)
+			let pathsToRemove = filenames
+				.filter { return !$0.hasPrefix(".") }
+				.filter { return !filesToKeep.contains($0) }
+				.map { return self.directoryPath.stringByAppendingPathComponent($0) }
+			
+			for path in pathsToRemove {
+				do {
+					try fileMgr.removeItemAtPath(path)
+				} catch let error as NSError {
+					print("Error attempting to delete the unneeded file <\(path)>: \(error)")
+				}
+			}
+		} catch let error as NSError {
+			print("Error attempting to read directory at path <\(directoryPath)>: \(error)")
+		}
     }
 }
 

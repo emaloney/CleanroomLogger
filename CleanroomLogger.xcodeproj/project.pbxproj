@@ -234,7 +234,8 @@
 		3B45969D1AE195900049A743 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Gilt Groupe";
 				TargetAttributes = {
 					3B4596A51AE195900049A743 = {

@@ -36,7 +36,7 @@ public final class LogReceptacle
     used for each individual `LogSeverity` (or for a range of contiguous
     `LogSeverity` values).
 
-    :param:     configuration An array of `LogConfiguration` instances that 
+    - parameter     configuration: An array of `LogConfiguration` instances that 
                 specify how the logging system will behave when messages
                 are added.
     */
@@ -49,7 +49,7 @@ public final class LogReceptacle
     This function accepts a `LogEntry` instance and attempts to record it
     to the underlying log storage facility.
     
-    :param:     entry The `LogEntry` being logged.
+    - parameter     entry: The `LogEntry` being logged.
     */
     public func log(entry: LogEntry)
     {

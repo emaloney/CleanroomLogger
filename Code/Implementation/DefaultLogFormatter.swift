@@ -34,10 +34,10 @@ public struct DefaultLogFormatter: LogFormatter
     /**
     Initializes the DefaultLogFormatter using the given settings.
 
-    :param:     includeTimestamp If `true`, the log entry timestamp will be
+    - parameter     includeTimestamp: If `true`, the log entry timestamp will be
                 included in the formatted message.
 
-    :param:     includeThreadID If `true`, an identifier for the calling thread
+    - parameter     includeThreadID: If `true`, an identifier for the calling thread
                 will be included in the formatted message.
     */
     public init(includeTimestamp: Bool = false, includeThreadID: Bool = false)
@@ -49,9 +49,9 @@ public struct DefaultLogFormatter: LogFormatter
     /**
     Returns a formatted representation of the given `LogEntry`.
     
-    :param:         entry The `LogEntry` being formatted.
+    - parameter         entry: The `LogEntry` being formatted.
 
-    :returns:       The formatted representation of `entry`. This particular
+    - returns:       The formatted representation of `entry`. This particular
                     implementation will never return `nil`.
     */
     public func formatLogEntry(entry: LogEntry)
@@ -81,19 +81,19 @@ public struct DefaultLogFormatter: LogFormatter
     This implementation is used by the `DefaultLogFormatter` for creating
     the log messages that will be recorded.
     
-    :param:     severity The string representation of the log entry's severity.
+    - parameter     severity: The string representation of the log entry's severity.
     
-    :param:     caller The string representation of the caller's source file
+    - parameter     caller: The string representation of the caller's source file
                 and line.
     
-    :param:     message The log message.
+    - parameter     message: The log message.
     
-    :param:     timestamp An optional timestamp string to include in the 
+    - parameter     timestamp: An optional timestamp string to include in the 
                 message.
 
-    :param:     threadID An optional thread ID to include in the message.
+    - parameter     threadID: An optional thread ID to include in the message.
 
-    :returns:   The formatted log message.
+    - returns:   The formatted log message.
     */
     public static func formatLogMessageWithSeverity(severity: String, caller: String, message: String, timestamp: String?, threadID: String?)
         -> String
@@ -116,16 +116,16 @@ public struct DefaultLogFormatter: LogFormatter
     string representations for representing the `severity` value of
     `LogEntry` instances.
     
-    :param:     severity The `LogSeverity` for which a string representation
+    - parameter     severity: The `LogSeverity` for which a string representation
                 is desired.
     
-    :returns:   A string representation of the `severity` value.
+    - returns:   A string representation of the `severity` value.
     */
     public static func stringRepresentationOfSeverity(severity: LogSeverity)
         -> String
     {
         var severityTag = severity.printableValueName.uppercaseString
-        while count(severityTag.utf16) < 7 {
+        while severityTag.utf16.count < 7 {
             severityTag = " " + severityTag
         }
         return severityTag
@@ -138,11 +138,11 @@ public struct DefaultLogFormatter: LogFormatter
     string representations of a `LogEntry`'s `callingFilePath` and
     `callingFileLine` properties.
 
-    :param:     filePath The full file path of the calling file.
+    - parameter     filePath: The full file path of the calling file.
     
-    :param:     line The line number within the calling file.
+    - parameter     line: The line number within the calling file.
     
-    :returns:   The string representation of `filePath` and `line`.
+    - returns:   The string representation of `filePath` and `line`.
     */
     public static func stringRepresentationForCallingFile(filePath: String, line: Int)
         -> String
@@ -158,9 +158,9 @@ public struct DefaultLogFormatter: LogFormatter
     This implementation is used by the `DefaultLogFormatter` for creating
     string representations of `LogEntry` payloads.
 
-    :param:     entry The `LogEntry` whose payload is desired in string form.
+    - parameter     entry: The `LogEntry` whose payload is desired in string form.
     
-    :returns:   The string representation of `entry`'s payload.
+    - returns:   The string representation of `entry`'s payload.
     */
     public static func stringRepresentationForPayload(entry: LogEntry)
         -> String
@@ -178,9 +178,9 @@ public struct DefaultLogFormatter: LogFormatter
     This implementation is used by the `DefaultLogFormatter` for creating
     string representations of `LogEntry` instances containing `.Value` payloads.
 
-    :param:     value The value for which a string representation is desired.
+    - parameter     value: The value for which a string representation is desired.
     
-    :returns:   If value is `nil`, the string "`(nil)`" is returned; otherwise,
+    - returns:   If value is `nil`, the string "`(nil)`" is returned; otherwise,
                 the return value of `stringRepresentationForValue(Any)` is
                 returned.
     */
@@ -200,9 +200,9 @@ public struct DefaultLogFormatter: LogFormatter
     This implementation is used by the `DefaultLogFormatter` for creating
     string representations of `LogEntry` instances containing `.Value` payloads.
 
-    :param:     value The value for which a string representation is desired.
+    - parameter     value: The value for which a string representation is desired.
     
-    :returns:   A string representation of `value`.
+    - returns:   A string representation of `value`.
     */
     public static func stringRepresentationForValue(value: Any)
         -> String
@@ -210,10 +210,10 @@ public struct DefaultLogFormatter: LogFormatter
         let type = reflect(value).summary
 
         let desc: String
-        if let debugValue = value as? DebugPrintable {
+        if let debugValue = value as? CustomDebugStringConvertible {
             desc = debugValue.debugDescription
         }
-        else if let printValue = value as? Printable {
+        else if let printValue = value as? CustomStringConvertible {
             desc = printValue.description
         }
         else if let objcValue = value as? NSObject {
@@ -232,9 +232,9 @@ public struct DefaultLogFormatter: LogFormatter
     This implementation is used by the `DefaultLogFormatter` for creating
     string representations of a `LogEntry`'s `timestamp` property.
 
-    :param:     timestamp The timestamp.
+    - parameter     timestamp: The timestamp.
     
-    :returns:   The string representation of `timestamp`.
+    - returns:   The string representation of `timestamp`.
     */
     public static func stringRepresentationOfTimestamp(timestamp: NSDate)
         -> String
@@ -248,9 +248,9 @@ public struct DefaultLogFormatter: LogFormatter
     This implementation is used by the `DefaultLogFormatter` for creating
     string representations of a `LogEntry`'s `callingThreadID` property.
 
-    :param:     threadID The thread identifier.
+    - parameter     threadID: The thread identifier.
     
-    :returns:   The string representation of `threadID`.
+    - returns:   The string representation of `threadID`.
     */
     public static func stringRepresentationOfThreadID(threadID: UInt64)
         -> String
