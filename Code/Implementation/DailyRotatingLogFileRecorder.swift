@@ -56,27 +56,17 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
 
     :param:     formatters The `LogFormatter`s to use for the recorder.
     */
-    public init?(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [DefaultLogFormatter()])
+    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [DefaultLogFormatter()]) throws
     {
         self.daysToKeep = daysToKeep
         self.directoryPath = directoryPath
 
-        // try to create the directory that will contain the log files
-        var dirCreationFailed = false
-        if let url = NSURL(fileURLWithPath: directoryPath, isDirectory: true) {
-            var err: NSError?
-            if !NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil, error: &err)
-            {
-                dirCreationFailed = true
-                println("Error attempting to create directory structure for path <\(directoryPath)>: \(err)")
-            }
-        }
-
         super.init(name: "DailyRotatingLogFileRecorder[\(directoryPath)]", formatters: formatters)
 
-        if dirCreationFailed {
-            return nil
-        }
+        // try to create the directory that will contain the log files
+        let url = NSURL(fileURLWithPath: directoryPath, isDirectory: true)
+
+        try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
     }
 
     /**
@@ -165,25 +155,29 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
         for _ in 0..<daysToKeep {
             let filename = self.dynamicType.logFilenameForDate(date)
             filesToKeep.insert(filename)
-            date = cal.dateByAddingUnit(.CalendarUnitDay, value: -1, toDate: date, options: nil)!
+            date = cal.dateByAddingUnit(.Day, value: -1, toDate: date, options: .WrapComponents)!
         }
 
-        let fileMgr = NSFileManager.defaultManager()
-        var err: NSError?
-        if let filenames = fileMgr.contentsOfDirectoryAtPath(directoryPath, error: &err) as? [String] {
+        do {
+            let fileMgr = NSFileManager.defaultManager()
+            let filenames = try fileMgr.contentsOfDirectoryAtPath(directoryPath)
+
             let pathsToRemove = filenames
                 .filter { return !$0.hasPrefix(".") }
                 .filter { return !filesToKeep.contains($0) }
                 .map { return self.directoryPath.stringByAppendingPathComponent($0) }
 
             for path in pathsToRemove {
-                if !fileMgr.removeItemAtPath(path, error: &err) {
-                    println("Error attempting to delete the unneeded file <\(path)>: \(err)")
+                do {
+                    try fileMgr.removeItemAtPath(path)
+                }
+                catch {
+                    print("Error attempting to delete the unneeded file <\(path)>: \(error)")
                 }
             }
         }
-        else {
-            println("Error attempting to read directory at path <\(directoryPath)>: \(err)")
+        catch {
+            print("Error attempting to read directory at path <\(directoryPath)>: \(error)")
         }
     }
 }

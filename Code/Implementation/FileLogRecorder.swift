@@ -85,7 +85,7 @@ public class FileLogRecorder: LogRecorderBase
     {
         var addNewline = true
         let uniStr = message.unicodeScalars
-        if count(uniStr) > 0 {
+        if uniStr.count > 0 {
             let c = unichar(uniStr[uniStr.endIndex.predecessor()].value)
             addNewline = !newlineCharset.characterIsMember(c)
         }

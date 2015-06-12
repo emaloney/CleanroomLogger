@@ -125,7 +125,7 @@ public struct DefaultLogFormatter: LogFormatter
         -> String
     {
         var severityTag = severity.printableValueName.uppercaseString
-        while count(severityTag.utf16) < 7 {
+        while severityTag.utf16.count < 7 {
             severityTag = " " + severityTag
         }
         return severityTag
@@ -210,10 +210,10 @@ public struct DefaultLogFormatter: LogFormatter
         let type = reflect(value).summary
 
         let desc: String
-        if let debugValue = value as? DebugPrintable {
+        if let debugValue = value as? CustomDebugStringConvertible {
             desc = debugValue.debugDescription
         }
-        else if let printValue = value as? Printable {
+        else if let printValue = value as? CustomStringConvertible {
             desc = printValue.description
         }
         else if let objcValue = value as? NSObject {

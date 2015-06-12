@@ -205,7 +205,7 @@ public struct Log
     :param:     verboseChannel The `LogChannel` to use for logging messages with
                 a `severity` of `.Verbose`.
     */
-    public static func enable(#errorChannel: LogChannel?, warningChannel: LogChannel?, infoChannel: LogChannel?, debugChannel: LogChannel?, verboseChannel: LogChannel?)
+    public static func enable(errorChannel errorChannel: LogChannel?, warningChannel: LogChannel?, infoChannel: LogChannel?, debugChannel: LogChannel?, verboseChannel: LogChannel?)
     {
         dispatch_once(&enableOnce) {
             self._error = errorChannel
@@ -268,7 +268,7 @@ public struct Log
     */
     public static func trace(severity: LogSeverity, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
     {
-        channelForSeverity(severity)?.trace(function: function, filePath: filePath, fileLine: fileLine)
+        channelForSeverity(severity)?.trace(function, filePath: filePath, fileLine: fileLine)
     }
 
     /**
