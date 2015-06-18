@@ -59,6 +59,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B0693841B3303AE0040CDF3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		3B0693851B3303AE0040CDF3 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
+		3B0693861B3303AE0040CDF3 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		3B0693871B3303AE0040CDF3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		3B0693881B3303AE0040CDF3 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		3B0693891B3303AE0040CDF3 /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
+		3B06938A1B3303AE0040CDF3 /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
 		3B1DEE8D1AF87A5600D9A0BF /* DefaultLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLogConfiguration.swift; sourceTree = "<group>"; };
 		3B4596A61AE195900049A743 /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4596B11AE195900049A743 /* CleanroomLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,12 +107,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B06937E1B3303AE0040CDF3 /* BuildControl */ = {
+			isa = PBXGroup;
+			children = (
+				3B0693831B3303AE0040CDF3 /* config */,
+				3B0693891B3303AE0040CDF3 /* Info-Framework.plist */,
+				3B06938A1B3303AE0040CDF3 /* Info-Tests.plist */,
+			);
+			path = BuildControl;
+			sourceTree = "<group>";
+		};
+		3B0693831B3303AE0040CDF3 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				3B0693841B3303AE0040CDF3 /* Debug.xcconfig */,
+				3B0693851B3303AE0040CDF3 /* Framework.xcconfig */,
+				3B0693861B3303AE0040CDF3 /* Project.xcconfig */,
+				3B0693871B3303AE0040CDF3 /* Release.xcconfig */,
+				3B0693881B3303AE0040CDF3 /* Tests.xcconfig */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
 		3B45969C1AE195900049A743 = {
 			isa = PBXGroup;
 			children = (
 				3B4596A81AE195900049A743 /* Code */,
 				3B4596B61AE195900049A743 /* Libraries */,
 				3B4596B51AE195900049A743 /* Tests */,
+				3B06937E1B3303AE0040CDF3 /* BuildControl */,
 				3B4596A71AE195900049A743 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -353,6 +383,7 @@
 /* Begin XCBuildConfiguration section */
 		3B4596BA1AE195900049A743 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B0693861B3303AE0040CDF3 /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -391,7 +422,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -404,6 +434,7 @@
 		};
 		3B4596BB1AE195900049A743 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B0693861B3303AE0040CDF3 /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -435,7 +466,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -447,15 +477,13 @@
 		};
 		3B4596BD1AE195900049A743 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B0693841B3303AE0040CDF3 /* Debug.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "BuildControl/Info-Framework.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -465,15 +493,13 @@
 		};
 		3B4596BE1AE195900049A743 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B0693871B3303AE0040CDF3 /* Release.xcconfig */;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "BuildControl/Info-Framework.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -482,16 +508,12 @@
 		};
 		3B4596C01AE195900049A743 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B0693881B3303AE0040CDF3 /* Tests.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "BuildControl/Info-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,12 +522,8 @@
 		};
 		3B4596C11AE195900049A743 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B0693881B3303AE0040CDF3 /* Tests.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BuildControl/Info-Tests.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
