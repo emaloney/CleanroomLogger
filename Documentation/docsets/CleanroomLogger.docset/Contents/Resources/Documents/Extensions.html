@@ -30,16 +30,16 @@
           <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/ASLClient.html">ASLClient</a>
+                <a href="Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ASLMessageObject.html">ASLMessageObject</a>
+                <a href="Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ASLObject.html">ASLObject</a>
+                <a href="Classes/LogReceptacle.html">LogReceptacle</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ASLQueryObject.html">ASLQueryObject</a>
+                <a href="Classes/LogRecorderBase.html">LogRecorderBase</a>
               </li>
             </ul>
           </li>
@@ -47,10 +47,7 @@
           <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ASLAttributeKey.html">ASLAttributeKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/ASLPriorityLevel.html">ASLPriorityLevel</a>
+                <a href="Enums/LogSeverity.html">LogSeverity</a>
               </li>
             </ul>
           </li>
@@ -58,18 +55,50 @@
           <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions/asl_object_t.html">asl_object_t</a>
+                <a href="Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Subscripts.html">Subscripts</a>
+          <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Subscripts.html#/s:sE12CleanroomASLVSs14COpaquePointer9subscriptFVSs6UInt32GSqSS_">subscript(_:)</a>
+                <a href="Protocols/LogConfiguration.html">LogConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a href="Subscripts.html#/s:sE12CleanroomASLVSs14COpaquePointer9subscriptFOS_15ASLAttributeKeyGSqSS_">subscript(_:)</a>
+                <a href="Protocols/LogFilter.html">LogFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LogFormatter.html">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LogRecorder.html">LogRecorder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+          <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogChannel.html">LogChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogEntry.html">LogEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
             </ul>
           </li>
@@ -88,9 +117,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@T@asl_object_t"></a>
-                    <a name="//apple_ref/swift/Extension/asl_object_t" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@T@asl_object_t">asl_object_t</a>
+                    <a name="/s:O15CleanroomLogger11LogSeverity"></a>
+                    <a name="//apple_ref/swift/Extension/LogSeverity" class="dashAnchor"></a>
+                    <a class="token" href="#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -98,9 +127,22 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Used to indicate the <em>severity</em>, or importance, of a log message.</p>
 
-                        <a href="Extensions/asl_object_t.html" class="slightly-smaller">See more</a>
+<p>Severity is a continuum, from <code>.Verbose</code> being least severe to <code>.Error</code> being
+most severe.</p>
+
+<p>The logging system may be configured so that messages lower than a given
+severity are ignored.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">LogSeverity</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
