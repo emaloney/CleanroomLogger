@@ -37,8 +37,8 @@ showHelp()
 	printf "\t\t--push\n"
 	printf "\t\t\tPush all changes when finished\n"
 	echo
-	printf "\t\t--ignore-dirty-files\n"
-	printf "\t\t\tReleases a dirty repo by ignoring dirty files\n"
+	printf "\t\t--stash-dirty-files\n"
+	printf "\t\t\tStashes dirty files before attempting to release a repo\n"
 	echo
 	printf "\t\t--commit-dirty-files\n"
 	printf "\t\t\tReleases a dirty repo by committing dirty files\n"
@@ -130,10 +130,10 @@ showHelp()
 	printf "\tyet been committed.\n"
 	echo
 	printf "\tHowever, you can force a release to be issued from a dirty repo\n"
-	printf "\tusing either the --ignore-dirty-files or the --commit-dirty-files\n"
+	printf "\tusing either the --stash-dirty-files or the --commit-dirty-files\n"
 	printf "\targument.\n"
 	echo
-	printf "\tThe --ignore-dirty-files option causes a git stash operation to\n"
+	printf "\tThe --stash-dirty-files option causes a git stash operation to\n"
 	printf "\toccur at the start of the release process, and a stash pop at the\n"
 	printf "\tend. This safely moves the dirty files out of the way when the\n"
 	printf "\tscript it doing its thing, and restores them when it is done.\n"
@@ -161,13 +161,24 @@ showHelp()
 	echo
 }
 
-exitWithErrorShowingHelp()
+printError()
 {
 	echo "error: $1"
 	echo
 	if [[ ! -z $2 ]]; then
 		printf "  $2\n\n"
 	fi
+}
+
+exitWithError()
+{
+	printError "$1" "$2"
+	exit 1
+}
+
+exitWithErrorSuggestHelp()
+{
+	printError "$1" "$2"
 	printf "  To display help, run:\n\n\t$0 --help\n"
 	exit 1
 }
@@ -175,7 +186,7 @@ exitWithErrorShowingHelp()
 validateVersion()
 {
 	if [[ ! ($1 =~ ^[0-9]+\.[0-9]+\.[0-9]+$) ]]; then
-		exitWithErrorShowingHelp "Expected $2 to contain three period-separated numeric components (eg., 3.6.1, 4.0.0, etc.); got $1 instead"
+		exitWithErrorSuggestHelp "Expected $2 to contain three period-separated numeric components (eg., 3.6.1, 4.0.0, etc.); got $1 instead"
 	fi
 }
 
@@ -211,6 +222,9 @@ executeCommand()
 		echo "> $1"
 	else
 		eval "$1"
+		if [[ $? != 0 ]]; then
+			exitWithError "Command failed"
+		fi
 	fi
 }
 
@@ -226,7 +240,7 @@ cleanupDirtyStash()
 cd "$SCRIPT_DIR/../../."
 git status 2&> /dev/null
 if [[ $? != 0 ]]; then
-	exitWithErrorShowingHelp "You must invoke this script from within a git repo"
+	exitWithErrorSuggestHelp "You must invoke this script from within a git repo"
 fi
 
 #
@@ -237,7 +251,7 @@ while [[ $1 ]]; do
 	--untag)
 		shift
 		if [[ -z $1 ]]; then
-			exitWithErrorShowingHelp "The $1 argument expects a value"
+			exitWithErrorSuggestHelp "The $1 argument expects a value"
 		else
 			validateVersion $1 "the version passed with the --untag argument"
 			UNTAG_VERSION=$1
@@ -247,7 +261,7 @@ while [[ $1 ]]; do
 	--set-version)
 		shift
 		if [[ -z $1 ]]; then
-			exitWithErrorShowingHelp "The $1 argument expects a value"
+			exitWithErrorSuggestHelp "The $1 argument expects a value"
 		else
 			validateVersion $1 "the version passed with the --set-version argument"
 			SET_VERSION=$1
@@ -258,8 +272,8 @@ while [[ $1 ]]; do
 		AUTOMATED_MODE=1
 		;;
 		
-	--ignore-dirty-files)
-		IGNORE_DIRTY_FILES=1
+	--stash-dirty-files)
+		STASH_DIRTY_FILES=1
 		;;
 		
 	--commit-dirty-files)
@@ -279,7 +293,7 @@ while [[ $1 ]]; do
 		;;
 		
 	-*)
-		exitWithErrorShowingHelp "Unrecognized argument: $1"
+		exitWithErrorSuggestHelp "Unrecognized argument: $1"
 		;;
 		
 	*)
@@ -305,30 +319,30 @@ for ARG in $ARGS; do
 	if [[ -z $RELEASE_TYPE ]]; then
 		RELEASE_TYPE="$ARG"
 	else 
-		exitWithErrorShowingHelp "Unrecognized argument: $ARG"
+		exitWithErrorSuggestHelp "Unrecognized argument: $ARG"
 	fi
 done
 
 #
 # validate the input
 #
-if [[ $IGNORE_DIRTY_FILES && $COMMIT_DIRTY_FILES ]]; then
-	exitWithErrorShowingHelp "The --ignore-dirty-files and --commit-dirty-files arguments are mutually exclusive and can't be used with each other"
+if [[ $STASH_DIRTY_FILES && $COMMIT_DIRTY_FILES ]]; then
+	exitWithErrorSuggestHelp "The --stash-dirty-files and --commit-dirty-files arguments are mutually exclusive and can't be used with each other"
 fi
 if [[ ! -z $UNTAG_VERSION && ! -z $SET_VERSION ]]; then
-	exitWithErrorShowingHelp "The --untag and --set-version arguments are mutually exclusive and can't be used with each other"
+	exitWithErrorSuggestHelp "The --untag and --set-version arguments are mutually exclusive and can't be used with each other"
 fi
 if [[ ! -z $RELEASE_TYPE ]]; then
 	if [[ ! -z $UNTAG_VERSION ]]; then
-		exitWithErrorShowingHelp "The release type can't be specified when --untag is used"
+		exitWithErrorSuggestHelp "The release type can't be specified when --untag is used"
 	elif [[ ! -z $SET_VERSION ]]; then
-		exitWithErrorShowingHelp "The release type can't be specified when --set-version is used"
+		exitWithErrorSuggestHelp "The release type can't be specified when --set-version is used"
 	elif [[ $RELEASE_TYPE != "major" && $RELEASE_TYPE != "minor" && $RELEASE_TYPE != "patch" ]]; then
-		exitWithErrorShowingHelp "The release type argument must be one of: 'major', 'minor' or 'patch'"
+		exitWithErrorSuggestHelp "The release type argument must be one of: 'major', 'minor' or 'patch'"
 	fi
 elif [[ -z $UNTAG_VERSION && -z $SET_VERSION ]]; then
 	if [[ -z $RELEASE_TYPE ]]; then
-		exitWithErrorShowingHelp "The release type ('major', 'minor' or 'patch') must be specified as an argument."
+		exitWithErrorSuggestHelp "The release type ('major', 'minor' or 'patch') must be specified as an argument."
 	fi
 fi
 
@@ -337,11 +351,11 @@ fi
 #
 PLIST_BUDDY=/usr/libexec/PlistBuddy
 if [[ ! -x "$PLIST_BUDDY" ]]; then
-	exitWithErrorShowingHelp "Expected to find PlistBuddy at path $PLIST_BUDDY"
+	exitWithErrorSuggestHelp "Expected to find PlistBuddy at path $PLIST_BUDDY"
 fi
 FRAMEWORK_PLIST_FILE="Info-Framework.plist"
 FRAMEWORK_PLIST_PATH="$SCRIPT_DIR/../$FRAMEWORK_PLIST_FILE"
-CURRENT_VERSION=`"$PLIST_BUDDY" "$FRAMEWORK_PLIST_PATH" -c "Print :CFBundleShortVersionString"`
+CURRENT_VERSION=`$PLIST_BUDDY "$FRAMEWORK_PLIST_PATH" -c "Print :CFBundleShortVersionString"`
 validateVersion "$CURRENT_VERSION" "the CFBundleShortVersionString value in the $FRAMEWORK_PLIST_FILE file"
 
 #
@@ -388,23 +402,41 @@ elif [[ ! -z $RELEASE_TYPE ]]; then
 fi
 
 #
+# try to figure out the origin repo name
+#
+REPO_NAME=$(git remote -v | awk '{print $2}' | xargs basename | sed 'sq.git$qq')
+if [[ -z "$REPO_NAME" ]]; then
+	exitWithErrorSuggestHelp "Couldn't determine repo name"
+fi
+
+#
 # see if we've got uncommitted changes
 #
 git diff-index --quiet HEAD -- ; REPO_IS_DIRTY=$?
-if [[ $REPO_IS_DIRTY != 0 && -z $IGNORE_DIRTY_FILES && -z $COMMIT_DIRTY_FILES ]]; then
-	exitWithErrorShowingHelp "You have uncommitted changes in this repo; won't do anything" "(use --ignore-dirty-files or --commit-dirty-files to bypass this error)"
+if [[ $REPO_IS_DIRTY != 0 && -z $STASH_DIRTY_FILES && -z $COMMIT_DIRTY_FILES ]]; then
+	exitWithErrorSuggestHelp "You have uncommitted changes in this repo; won't do anything" "(use --stash-dirty-files or --commit-dirty-files to bypass this error)"
 fi
 
-confirmationPrompt "Releasing version $VERSION (current is $CURRENT_VERSION)"
+confirmationPrompt "Releasing version $REPO_NAME $VERSION (current is $CURRENT_VERSION)"
 
-if [[ $REPO_IS_DIRTY && $IGNORE_DIRTY_FILES ]]; then
+if [[ $REPO_IS_DIRTY && $STASH_DIRTY_FILES ]]; then
 	updateStatus "Stashing modified files"
 	executeCommand "git stash"
     trap cleanupDirtyStash EXIT
 fi
 
+#
+# make sure it builds
+#
+updateStatus "Verifying that $REPO_NAME builds"
+XCODEBUILD=/usr/bin/xcodebuild
+if [[ ! -x "$XCODEBUILD" ]]; then
+	exitWithErrorSuggestHelp "Expected to find xcodebuild at path $XCODEBUILD"
+fi
+executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj clean build -alltargets -configuration Release"
+
 updateStatus "Adjusting version numbers"
-executeCommand "\"$PLIST_BUDDY\" \"$FRAMEWORK_PLIST_PATH\" -c \"Set :CFBundleShortVersionString $VERSION\""
+executeCommand "$PLIST_BUDDY \"$FRAMEWORK_PLIST_PATH\" -c \"Set :CFBundleShortVersionString $VERSION\""
 executeCommand "agvtool bump"
 
 updateStatus "Rebuilding documentation"
