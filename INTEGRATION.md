@@ -16,7 +16,7 @@ Note that CleanroomLogger is built as a *Swift framework*. This has several impl
 
 ### Requirements
 
-CleanroomLogger requires a **mimimum Xcode version of 6.3** to be built, and the resulting binary can be used on **iOS 8.1 and higher**.
+CleanroomLogger requires a **Xcode 7 or higher** to be built, and the resulting binary can be used on **iOS 8.0 and higher**.
 
 We'll also be using the `git` command in the Terminal for installing the CleanroomLogger repo in your codebase. These steps have been tested with **git 2.3.2 (Apple Git-55)**, although they should be compatible with a wide range of git versions.
 
