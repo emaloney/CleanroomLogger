@@ -21,3 +21,7 @@ This system assigns version numbers with three independent integer values separa
 1. The `LogSeverity.Comparator` enum has been removed. Instead, the `LogSeverity` protocol now conforms to `Comparable`.
 
 2. The representation of thread IDs has been changed from `Int` to `UInt64` to be in line with the C-based `pthread` API from which we're retrieving them.
+
+## 1.4.0
+
+**This release uses version 2.0 of the Swift language, and therefore requires Xcode 7 or higher.**
