@@ -417,7 +417,7 @@ if [[ $REPO_IS_DIRTY != 0 && -z $STASH_DIRTY_FILES && -z $COMMIT_DIRTY_FILES ]];
 	exitWithErrorSuggestHelp "You have uncommitted changes in this repo; won't do anything" "(use --stash-dirty-files or --commit-dirty-files to bypass this error)"
 fi
 
-confirmationPrompt "Releasing version $REPO_NAME $VERSION (current is $CURRENT_VERSION)"
+confirmationPrompt "Releasing $REPO_NAME $VERSION (current is $CURRENT_VERSION)"
 
 if [[ $REPO_IS_DIRTY && $STASH_DIRTY_FILES ]]; then
 	updateStatus "Stashing modified files"
@@ -433,7 +433,7 @@ XCODEBUILD=/usr/bin/xcodebuild
 if [[ ! -x "$XCODEBUILD" ]]; then
 	exitWithErrorSuggestHelp "Expected to find xcodebuild at path $XCODEBUILD"
 fi
-executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj clean build -alltargets -configuration Release"
+executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme ${REPO_NAME} -configuration Release clean build"
 
 updateStatus "Adjusting version numbers"
 executeCommand "$PLIST_BUDDY \"$FRAMEWORK_PLIST_PATH\" -c \"Set :CFBundleShortVersionString $VERSION\""
