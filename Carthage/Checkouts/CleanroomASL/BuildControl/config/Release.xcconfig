@@ -1,0 +1,3 @@
+#include "Framework.xcconfig"
+
+SWIFT_OPTIMIZATION_LEVEL = -Owholemodule
