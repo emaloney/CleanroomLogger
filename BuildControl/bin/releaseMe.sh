@@ -43,6 +43,9 @@ showHelp()
 	printf "\t\t--commit-dirty-files\n"
 	printf "\t\t\tReleases a dirty repo by committing dirty files\n"
 	echo
+	printf "\t\t--skip-docs\n"
+	printf "\t\t\tSkips generating the documentation\n"
+	echo
 	printf "\t\t--untag <version>\n"
 	printf "\t\t\tRemove the repo tags for <version>\n"
 	echo
@@ -280,6 +283,10 @@ while [[ $1 ]]; do
 		COMMIT_DIRTY_FILES=1
 		;;
 		
+	--skip-docs)
+		SKIP_DOCUMENTATION=1
+		;;
+		
 	--dry-run)
 		DRY_RUN_MODE=1
 		;;
@@ -439,9 +446,11 @@ updateStatus "Adjusting version numbers"
 executeCommand "$PLIST_BUDDY \"$FRAMEWORK_PLIST_PATH\" -c \"Set :CFBundleShortVersionString $VERSION\""
 executeCommand "agvtool bump"
 
-updateStatus "Rebuilding documentation"
-executeCommand "$SCRIPT_DIR/generateDocumentation.sh"
-executeCommand "git add Documentation/."
+if [[ ! $SKIP_DOCUMENTATION ]]; then
+	updateStatus "Rebuilding documentation"
+	executeCommand "$SCRIPT_DIR/generateDocumentation.sh"
+	executeCommand "git add Documentation/."
+fi
 
 updateStatus "Committing changes"
 BUILD_NUMBER=`agvtool vers -terse`
