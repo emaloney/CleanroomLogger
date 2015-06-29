@@ -48,6 +48,15 @@ Once integrated, just add the following `import` statement to any Swift file whe
 import CleanroomLogger
 ```
 
+### Swift 1.2 & 2.0 compatibility notes
+
+We're currently maintaining two parallel release lines for CleanroomLogger:
+
+- The CleanroomLogger 1.4.x release line is Swift 2.0 compliant and requires Xcode 7 beta 2 or higher to compile. **CleanroomLogger 1.4.x and higher will not compile on Xcode 6.3.2 or lower.**
+- The CleanroomLogger 1.3.x release line is Swift 1.2 compliant and requires Xcode 6.3.2 to compile. **CleanroomLogger 1.3.x will not compile on Xcode 7 or higher.**
+
+We will continue maintaining these two release lines until Swift 2.0 becomes available in a final release GM (non-beta) version of Xcode 7.
+
 ## In a nutshell: Using CleanroomLogger
 
 The main public API for CleanroomLogger is provided by [`Log`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html).
