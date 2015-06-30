@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3B4596A51AE195900049A743"
                BuildableName = "CleanroomLogger.framework"
-               BlueprintName = "CleanroomLogger"
+               BlueprintName = "CleanroomLogger iOS"
                ReferencedContainer = "container:CleanroomLogger.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -58,7 +58,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3B4596A51AE195900049A743"
             BuildableName = "CleanroomLogger.framework"
-            BlueprintName = "CleanroomLogger"
+            BlueprintName = "CleanroomLogger iOS"
             ReferencedContainer = "container:CleanroomLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,7 +80,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3B4596A51AE195900049A743"
             BuildableName = "CleanroomLogger.framework"
-            BlueprintName = "CleanroomLogger"
+            BlueprintName = "CleanroomLogger iOS"
             ReferencedContainer = "container:CleanroomLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,7 +98,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3B4596A51AE195900049A743"
             BuildableName = "CleanroomLogger.framework"
-            BlueprintName = "CleanroomLogger"
+            BlueprintName = "CleanroomLogger iOS"
             ReferencedContainer = "container:CleanroomLogger.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
