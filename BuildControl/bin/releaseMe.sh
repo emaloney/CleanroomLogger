@@ -440,7 +440,15 @@ XCODEBUILD=/usr/bin/xcodebuild
 if [[ ! -x "$XCODEBUILD" ]]; then
 	exitWithErrorSuggestHelp "Expected to find xcodebuild at path $XCODEBUILD"
 fi
-executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme ${REPO_NAME} -configuration Release clean build"
+
+#
+# build each scheme to try
+#
+xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" | while read SCHEME
+do
+	updateStatus "Building $SCHEME..."
+	executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean build"
+done
 
 updateStatus "Adjusting version numbers"
 executeCommand "$PLIST_BUDDY \"$FRAMEWORK_PLIST_PATH\" -c \"Set :CFBundleShortVersionString $VERSION\""
