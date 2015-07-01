@@ -25,7 +25,7 @@ CleanroomLogger is **Swift 2.0**-compliant and requires **Xcode 7 beta 2 or high
 
 Some familiarity with the Terminal application, the bash command line, and the `git` command is assumed.
 
-The steps below have been tested with **git 2.3.2 (Apple Git-55)**, although they should be compatible with a wide range of git versions.
+The steps below have been tested with **git 2.3.7 (Apple Git-57)**, although they should be compatible with a wide range of git versions.
 
 ### About Frameworks on iOS
 
@@ -180,7 +180,7 @@ carthage version
 
 If Carthage is available, the version you have installed will be shown.
 
-> As of this writing, the current version of Carthage is 0.6.4.
+> As of this writing, the current version of Carthage is 0.7.5.
 
 If Carthage is not present, you will see an error that looks like:
 
