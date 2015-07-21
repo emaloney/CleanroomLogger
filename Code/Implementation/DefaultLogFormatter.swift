@@ -207,7 +207,7 @@ public struct DefaultLogFormatter: LogFormatter
     public static func stringRepresentationForValue(value: Any)
         -> String
     {
-        let type = reflect(value).summary
+        let type = Mirror(reflecting: value).subjectType
 
         let desc: String
         if let debugValue = value as? CustomDebugStringConvertible {
