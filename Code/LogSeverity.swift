@@ -67,3 +67,28 @@ extension LogSeverity: Comparable {}
 public func <(lhs: LogSeverity, rhs: LogSeverity) -> Bool {
     return lhs.rawValue < rhs.rawValue
 }
+
+/// :nodoc:
+extension LogSeverity // DebugPrintableEnum
+{
+//    /// :nodoc:
+//    public var description: String { return EnumPrinter.description(self) }
+//
+//    /// :nodoc:
+//    public var debugDescription: String { return EnumPrinter.debugDescription(self) }
+
+    /// :nodoc:
+    public var printableEnumName: String { return "LogSeverity" }
+
+    /// :nodoc:
+    public var printableValueName: String {
+        switch self {
+        case Verbose:   return "Verbose"
+        case Debug:     return "Debug"
+        case Info:      return "Info"
+        case Warning:   return "Warning"
+        case Error:     return "Error"
+        }
+    }
+}
+
