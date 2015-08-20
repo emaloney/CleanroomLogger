@@ -57,7 +57,7 @@ fi
 #
 PLAT_COUNT=0
 for PLAT_PATH in "$CARTHAGE_BUILD_DIR/"*; do
-	PLAT=`basename $PLAT_PATH`
+	PLAT=$(basename "$PLAT_PATH")
 
 	if [[ -z "$VALID_PLATFORMS" ]]; then
 		VALID_PLATFORMS=$PLAT	
