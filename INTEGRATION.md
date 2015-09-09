@@ -13,7 +13,7 @@ Platform|Minimum version
 iOS|iOS 8.0
 Mac|OS X 10.10
 
-CleanroomLogger is **Swift 2.0**-compliant and requires **Xcode 7 beta 2 or higher** to be built.
+CleanroomLogger is **Swift 2.0**-compliant and requires **Xcode 7 beta 6 or higher** to be built.
 
 ### Contents
 

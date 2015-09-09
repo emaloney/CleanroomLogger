@@ -39,7 +39,7 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 ### Build Requirements
 
-This branch is Swift 2.0 compliant. **Xcode 7 beta 5 or higher to is required to build**.
+This branch is Swift 2.0 compliant. **Xcode 7 beta 6 or higher to is required to build**.
 
 
 ### License
