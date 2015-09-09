@@ -87,7 +87,7 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
         -> FileLogRecorder?
     {
         let fileName = self.logFilenameForDate(date)
-        let filePath = directoryPath.stringByAppendingPathComponent(fileName)
+        let filePath = (directoryPath as NSString).stringByAppendingPathComponent(fileName)
         return FileLogRecorder(filePath: filePath, formatters: formatters)
     }
 
@@ -165,7 +165,7 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
             let pathsToRemove = filenames
                 .filter { return !$0.hasPrefix(".") }
                 .filter { return !filesToKeep.contains($0) }
-                .map { return self.directoryPath.stringByAppendingPathComponent($0) }
+                .map { return (self.directoryPath as NSString).stringByAppendingPathComponent($0) }
 
             for path in pathsToRemove {
                 do {

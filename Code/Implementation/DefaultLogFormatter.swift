@@ -147,7 +147,7 @@ public struct DefaultLogFormatter: LogFormatter
     public static func stringRepresentationForCallingFile(filePath: String, line: Int)
         -> String
     {
-        let file = filePath.pathComponents.last ?? "(unknown)"
+        let file = (filePath as NSString).pathComponents.last ?? "(unknown)"
 
         return "\(file):\(line)"
     }
