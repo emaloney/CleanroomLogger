@@ -20,7 +20,21 @@
 		3B4596E01AE196E50049A743 /* LogReceptacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D51AE196E50049A743 /* LogReceptacle.swift */; };
 		3B4596E11AE196E50049A743 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D61AE196E50049A743 /* LogRecorder.swift */; };
 		3B4596E21AE196E50049A743 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D71AE196E50049A743 /* LogSeverity.swift */; };
-		3B4596E31AE196FB0049A743 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4596C91AE196730049A743 /* CleanroomASL.framework */; };
+		3B6940FF1B54952800DECA01 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596CD1AE196E50049A743 /* ASLLogRecorder.swift */; };
+		3B6941001B54952800DECA01 /* DailyRotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */; };
+		3B6941011B54952800DECA01 /* DefaultLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1DEE8D1AF87A5600D9A0BF /* DefaultLogConfiguration.swift */; };
+		3B6941021B54952800DECA01 /* DefaultLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596CE1AE196E50049A743 /* DefaultLogFormatter.swift */; };
+		3B6941031B54952800DECA01 /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9131B0CDD0300F3392A /* FileLogRecorder.swift */; };
+		3B6941041B54952800DECA01 /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9141B0CDD0300F3392A /* LogRecorderBase.swift */; };
+		3B6941051B54952800DECA01 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596CF1AE196E50049A743 /* Log.swift */; };
+		3B6941061B54952800DECA01 /* LogChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D01AE196E50049A743 /* LogChannel.swift */; };
+		3B6941071B54952800DECA01 /* LogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D11AE196E50049A743 /* LogConfiguration.swift */; };
+		3B6941081B54952800DECA01 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D21AE196E50049A743 /* LogEntry.swift */; };
+		3B6941091B54952800DECA01 /* LogFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D31AE196E50049A743 /* LogFilter.swift */; };
+		3B69410A1B54952800DECA01 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D41AE196E50049A743 /* LogFormatter.swift */; };
+		3B69410B1B54952800DECA01 /* LogReceptacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D51AE196E50049A743 /* LogReceptacle.swift */; };
+		3B69410C1B54952800DECA01 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D61AE196E50049A743 /* LogRecorder.swift */; };
+		3B69410D1B54952800DECA01 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D71AE196E50049A743 /* LogSeverity.swift */; };
 		3B7810181B4239E80052F741 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596CD1AE196E50049A743 /* ASLLogRecorder.swift */; };
 		3B7810191B4239E80052F741 /* DailyRotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */; };
 		3B78101A1B4239E80052F741 /* DefaultLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1DEE8D1AF87A5600D9A0BF /* DefaultLogConfiguration.swift */; };
@@ -36,7 +50,6 @@
 		3B7810241B4239E80052F741 /* LogReceptacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D51AE196E50049A743 /* LogReceptacle.swift */; };
 		3B7810251B4239E80052F741 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D61AE196E50049A743 /* LogRecorder.swift */; };
 		3B7810261B4239E80052F741 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4596D71AE196E50049A743 /* LogSeverity.swift */; };
-		3B7810291B423A280052F741 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B55424A1B4234DB001D6BE7 /* CleanroomASL.framework */; };
 		3B93F9151B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */; };
 		3B93F9161B0CDD0300F3392A /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9131B0CDD0300F3392A /* FileLogRecorder.swift */; };
 		3B93F9171B0CDD0300F3392A /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B93F9141B0CDD0300F3392A /* LogRecorderBase.swift */; };
@@ -44,6 +57,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3B45324D1BA14454009BCC3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B4532471BA14454009BCC3F /* CleanroomASL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B45966B1AE16BE60049A743;
+			remoteInfo = "CleanroomASL iOS";
+		};
+		3B45324F1BA14454009BCC3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B4532471BA14454009BCC3F /* CleanroomASL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B5542191B420D18001D6BE7;
+			remoteInfo = "CleanroomASL OSX";
+		};
+		3B4532511BA14454009BCC3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B4532471BA14454009BCC3F /* CleanroomASL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B4596761AE16BE60049A743;
+			remoteInfo = CleanroomASLTests;
+		};
 		3B4596B31AE195900049A743 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3B45969D1AE195900049A743 /* Project object */;
@@ -51,50 +85,41 @@
 			remoteGlobalIDString = 3B4596A51AE195900049A743;
 			remoteInfo = CleanroomLogger;
 		};
-		3B4596C81AE196730049A743 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B45966B1AE16BE60049A743;
-			remoteInfo = CleanroomASL;
-		};
-		3B4596CA1AE196730049A743 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B4596761AE16BE60049A743;
-			remoteInfo = CleanroomASLTests;
-		};
-		3B5542491B4234DB001D6BE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3B5542191B420D18001D6BE7;
-			remoteInfo = "CleanroomASL OSX";
-		};
-		3B7810271B423A110052F741 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B5542181B420D18001D6BE7;
-			remoteInfo = "CleanroomASL OSX";
-		};
-		3B99DEA01B0CED04007BD39E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B45966A1AE16BE60049A743;
-			remoteInfo = CleanroomASL;
-		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		00D5B0261B59750A00679539 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3B0693891B3303AE0040CDF3 /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
 		3B06938A1B3303AE0040CDF3 /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
 		3B1DEE8D1AF87A5600D9A0BF /* DefaultLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLogConfiguration.swift; sourceTree = "<group>"; };
+		3B4532391BA14386009BCC3F /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
+		3B45323A1BA14386009BCC3F /* Debug-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-OSX.xcconfig"; sourceTree = "<group>"; };
+		3B45323B1BA14386009BCC3F /* Debug-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-tvOS.xcconfig"; sourceTree = "<group>"; };
+		3B45323C1BA14386009BCC3F /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		3B45323D1BA14386009BCC3F /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
+		3B45323E1BA14386009BCC3F /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
+		3B45323F1BA14386009BCC3F /* OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OSX.xcconfig; sourceTree = "<group>"; };
+		3B4532401BA14386009BCC3F /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		3B4532411BA14386009BCC3F /* Release-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-iOS.xcconfig"; sourceTree = "<group>"; };
+		3B4532421BA14386009BCC3F /* Release-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-OSX.xcconfig"; sourceTree = "<group>"; };
+		3B4532431BA14386009BCC3F /* Release-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-tvOS.xcconfig"; sourceTree = "<group>"; };
+		3B4532441BA14386009BCC3F /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		3B4532451BA14386009BCC3F /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		3B4532461BA14386009BCC3F /* tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
+		3B4532471BA14454009BCC3F /* CleanroomASL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomASL.xcodeproj; path = Libraries/CleanroomASL/CleanroomASL.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3B4596A61AE195900049A743 /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4596B11AE195900049A743 /* CleanroomLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomASL.xcodeproj; path = Libraries/CleanroomASL/CleanroomASL.xcodeproj; sourceTree = SOURCE_ROOT; };
 		3B4596CD1AE196E50049A743 /* ASLLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLLogRecorder.swift; sourceTree = "<group>"; };
 		3B4596CE1AE196E50049A743 /* DefaultLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultLogFormatter.swift; sourceTree = "<group>"; };
 		3B4596CF1AE196E50049A743 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Code/Log.swift; sourceTree = SOURCE_ROOT; };
@@ -107,17 +132,7 @@
 		3B4596D61AE196E50049A743 /* LogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogRecorder.swift; path = Code/LogRecorder.swift; sourceTree = SOURCE_ROOT; };
 		3B4596D71AE196E50049A743 /* LogSeverity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogSeverity.swift; path = Code/LogSeverity.swift; sourceTree = SOURCE_ROOT; };
 		3B5542501B423542001D6BE7 /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B78100D1B4236510052F741 /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
-		3B78100E1B4236510052F741 /* Debug-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-OSX.xcconfig"; sourceTree = "<group>"; };
-		3B78100F1B4236510052F741 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		3B7810101B4236510052F741 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
-		3B7810111B4236510052F741 /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
-		3B7810121B4236510052F741 /* OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OSX.xcconfig; sourceTree = "<group>"; };
-		3B7810131B4236510052F741 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
-		3B7810141B4236510052F741 /* Release-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-iOS.xcconfig"; sourceTree = "<group>"; };
-		3B7810151B4236510052F741 /* Release-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-OSX.xcconfig"; sourceTree = "<group>"; };
-		3B7810161B4236510052F741 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		3B7810171B4236510052F741 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		3B6940E91B54940A00DECA01 /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B93F9121B0CDD0300F3392A /* DailyRotatingLogFileRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyRotatingLogFileRecorder.swift; sourceTree = "<group>"; };
 		3B93F9131B0CDD0300F3392A /* FileLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogRecorder.swift; sourceTree = "<group>"; };
 		3B93F9141B0CDD0300F3392A /* LogRecorderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorderBase.swift; sourceTree = "<group>"; };
@@ -129,7 +144,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B4596E31AE196FB0049A743 /* CleanroomASL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +159,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7810291B423A280052F741 /* CleanroomASL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B6940E51B54940A00DECA01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,19 +185,32 @@
 		3B0693831B3303AE0040CDF3 /* config */ = {
 			isa = PBXGroup;
 			children = (
-				3B78100D1B4236510052F741 /* Debug-iOS.xcconfig */,
-				3B78100E1B4236510052F741 /* Debug-OSX.xcconfig */,
-				3B78100F1B4236510052F741 /* Debug.xcconfig */,
-				3B7810101B4236510052F741 /* Framework.xcconfig */,
-				3B7810111B4236510052F741 /* iOS.xcconfig */,
-				3B7810121B4236510052F741 /* OSX.xcconfig */,
-				3B7810131B4236510052F741 /* Project.xcconfig */,
-				3B7810141B4236510052F741 /* Release-iOS.xcconfig */,
-				3B7810151B4236510052F741 /* Release-OSX.xcconfig */,
-				3B7810161B4236510052F741 /* Release.xcconfig */,
-				3B7810171B4236510052F741 /* Tests.xcconfig */,
+				3B4532391BA14386009BCC3F /* Debug-iOS.xcconfig */,
+				3B45323A1BA14386009BCC3F /* Debug-OSX.xcconfig */,
+				3B45323B1BA14386009BCC3F /* Debug-tvOS.xcconfig */,
+				3B45323C1BA14386009BCC3F /* Debug.xcconfig */,
+				3B45323D1BA14386009BCC3F /* Framework.xcconfig */,
+				3B45323E1BA14386009BCC3F /* iOS.xcconfig */,
+				3B45323F1BA14386009BCC3F /* OSX.xcconfig */,
+				3B4532401BA14386009BCC3F /* Project.xcconfig */,
+				3B4532411BA14386009BCC3F /* Release-iOS.xcconfig */,
+				3B4532421BA14386009BCC3F /* Release-OSX.xcconfig */,
+				3B4532431BA14386009BCC3F /* Release-tvOS.xcconfig */,
+				3B4532441BA14386009BCC3F /* Release.xcconfig */,
+				3B4532451BA14386009BCC3F /* Tests.xcconfig */,
+				3B4532461BA14386009BCC3F /* tvOS.xcconfig */,
 			);
 			path = config;
+			sourceTree = "<group>";
+		};
+		3B4532481BA14454009BCC3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B45324E1BA14454009BCC3F /* CleanroomASL.framework */,
+				3B4532501BA14454009BCC3F /* CleanroomASL.framework */,
+				3B4532521BA14454009BCC3F /* CleanroomASLTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3B45969C1AE195900049A743 = {
@@ -197,6 +230,7 @@
 				3B4596A61AE195900049A743 /* CleanroomLogger.framework */,
 				3B4596B11AE195900049A743 /* CleanroomLoggerTests.xctest */,
 				3B5542501B423542001D6BE7 /* CleanroomLogger.framework */,
+				3B6940E91B54940A00DECA01 /* CleanroomLogger.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,20 +265,10 @@
 		3B4596B61AE195900049A743 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */,
+				3B4532471BA14454009BCC3F /* CleanroomASL.xcodeproj */,
 			);
 			name = Libraries;
 			path = CleanroomLoggerTests;
-			sourceTree = "<group>";
-		};
-		3B4596C31AE196730049A743 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3B4596C91AE196730049A743 /* CleanroomASL.framework */,
-				3B55424A1B4234DB001D6BE7 /* CleanroomASL.framework */,
-				3B4596CB1AE196730049A743 /* CleanroomASLTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		3B4596CC1AE196E50049A743 /* Implementation */ = {
@@ -278,12 +302,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3B6940E61B54940A00DECA01 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3B4596A51AE195900049A743 /* CleanroomLogger iOS */ = {
+		3B4596A51AE195900049A743 /* CleanroomLogger-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B4596BC1AE195900049A743 /* Build configuration list for PBXNativeTarget "CleanroomLogger iOS" */;
+			buildConfigurationList = 3B4596BC1AE195900049A743 /* Build configuration list for PBXNativeTarget "CleanroomLogger-iOS" */;
 			buildPhases = (
 				3B4596A11AE195900049A743 /* Sources */,
 				3B4596A21AE195900049A743 /* Frameworks */,
@@ -293,9 +324,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				3B99DEA11B0CED04007BD39E /* PBXTargetDependency */,
 			);
-			name = "CleanroomLogger iOS";
+			name = "CleanroomLogger-iOS";
 			productName = CleanroomLogger;
 			productReference = 3B4596A61AE195900049A743 /* CleanroomLogger.framework */;
 			productType = "com.apple.product-type.framework";
@@ -318,9 +348,9 @@
 			productReference = 3B4596B11AE195900049A743 /* CleanroomLoggerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3B55424F1B423542001D6BE7 /* CleanroomLogger OSX */ = {
+		3B55424F1B423542001D6BE7 /* CleanroomLogger-OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B5542611B423542001D6BE7 /* Build configuration list for PBXNativeTarget "CleanroomLogger OSX" */;
+			buildConfigurationList = 3B5542611B423542001D6BE7 /* Build configuration list for PBXNativeTarget "CleanroomLogger-OSX" */;
 			buildPhases = (
 				3B55424B1B423542001D6BE7 /* Sources */,
 				3B55424C1B423542001D6BE7 /* Frameworks */,
@@ -330,11 +360,29 @@
 			buildRules = (
 			);
 			dependencies = (
-				3B7810281B423A110052F741 /* PBXTargetDependency */,
 			);
-			name = "CleanroomLogger OSX";
+			name = "CleanroomLogger-OSX";
 			productName = CleanroomLogger;
 			productReference = 3B5542501B423542001D6BE7 /* CleanroomLogger.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B6940E81B54940A00DECA01 /* CleanroomLogger-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B6940EE1B54940B00DECA01 /* Build configuration list for PBXNativeTarget "CleanroomLogger-tvOS" */;
+			buildPhases = (
+				3B6940E41B54940A00DECA01 /* Sources */,
+				3B6940E51B54940A00DECA01 /* Frameworks */,
+				3B6940E61B54940A00DECA01 /* Headers */,
+				3B6940E71B54940A00DECA01 /* Resources */,
+				00D5B0261B59750A00679539 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CleanroomLogger-tvOS";
+			productName = "CleanroomLogger-TVOS";
+			productReference = 3B6940E91B54940A00DECA01 /* CleanroomLogger.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -356,6 +404,9 @@
 					3B55424F1B423542001D6BE7 = {
 						CreatedOnToolsVersion = 7.0;
 					};
+					3B6940E81B54940A00DECA01 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = 3B4596A01AE195900049A743 /* Build configuration list for PBXProject "CleanroomLogger" */;
@@ -370,39 +421,40 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 3B4596C31AE196730049A743 /* Products */;
-					ProjectRef = 3B4596C21AE196730049A743 /* CleanroomASL.xcodeproj */;
+					ProductGroup = 3B4532481BA14454009BCC3F /* Products */;
+					ProjectRef = 3B4532471BA14454009BCC3F /* CleanroomASL.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				3B4596A51AE195900049A743 /* CleanroomLogger iOS */,
-				3B55424F1B423542001D6BE7 /* CleanroomLogger OSX */,
+				3B4596A51AE195900049A743 /* CleanroomLogger-iOS */,
+				3B55424F1B423542001D6BE7 /* CleanroomLogger-OSX */,
+				3B6940E81B54940A00DECA01 /* CleanroomLogger-tvOS */,
 				3B4596B01AE195900049A743 /* CleanroomLoggerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		3B4596C91AE196730049A743 /* CleanroomASL.framework */ = {
+		3B45324E1BA14454009BCC3F /* CleanroomASL.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CleanroomASL.framework;
-			remoteRef = 3B4596C81AE196730049A743 /* PBXContainerItemProxy */;
+			remoteRef = 3B45324D1BA14454009BCC3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3B4596CB1AE196730049A743 /* CleanroomASLTests.xctest */ = {
+		3B4532501BA14454009BCC3F /* CleanroomASL.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CleanroomASL.framework;
+			remoteRef = 3B45324F1BA14454009BCC3F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3B4532521BA14454009BCC3F /* CleanroomASLTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CleanroomASLTests.xctest;
-			remoteRef = 3B4596CA1AE196730049A743 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3B55424A1B4234DB001D6BE7 /* CleanroomASL.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CleanroomASL.framework;
-			remoteRef = 3B5542491B4234DB001D6BE7 /* PBXContainerItemProxy */;
+			remoteRef = 3B4532511BA14454009BCC3F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -423,6 +475,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3B55424E1B423542001D6BE7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B6940E71B54940A00DECA01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -484,30 +543,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3B6940E41B54940A00DECA01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B6941091B54952800DECA01 /* LogFilter.swift in Sources */,
+				3B6941011B54952800DECA01 /* DefaultLogConfiguration.swift in Sources */,
+				3B6941051B54952800DECA01 /* Log.swift in Sources */,
+				3B69410D1B54952800DECA01 /* LogSeverity.swift in Sources */,
+				3B6941001B54952800DECA01 /* DailyRotatingLogFileRecorder.swift in Sources */,
+				3B6941031B54952800DECA01 /* FileLogRecorder.swift in Sources */,
+				3B6941071B54952800DECA01 /* LogConfiguration.swift in Sources */,
+				3B6941041B54952800DECA01 /* LogRecorderBase.swift in Sources */,
+				3B6940FF1B54952800DECA01 /* ASLLogRecorder.swift in Sources */,
+				3B6941081B54952800DECA01 /* LogEntry.swift in Sources */,
+				3B6941061B54952800DECA01 /* LogChannel.swift in Sources */,
+				3B69410C1B54952800DECA01 /* LogRecorder.swift in Sources */,
+				3B69410B1B54952800DECA01 /* LogReceptacle.swift in Sources */,
+				3B6941021B54952800DECA01 /* DefaultLogFormatter.swift in Sources */,
+				3B69410A1B54952800DECA01 /* LogFormatter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		3B4596B41AE195900049A743 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3B4596A51AE195900049A743 /* CleanroomLogger iOS */;
+			target = 3B4596A51AE195900049A743 /* CleanroomLogger-iOS */;
 			targetProxy = 3B4596B31AE195900049A743 /* PBXContainerItemProxy */;
-		};
-		3B7810281B423A110052F741 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CleanroomASL OSX";
-			targetProxy = 3B7810271B423A110052F741 /* PBXContainerItemProxy */;
-		};
-		3B99DEA11B0CED04007BD39E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CleanroomASL;
-			targetProxy = 3B99DEA01B0CED04007BD39E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3B4596BA1AE195900049A743 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B7810131B4236510052F741 /* Project.xcconfig */;
+			baseConfigurationReference = 3B4532401BA14386009BCC3F /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -525,10 +596,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 21;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 22;
+				DYLIB_CURRENT_VERSION = 21;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -558,7 +629,7 @@
 		};
 		3B4596BB1AE195900049A743 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B7810131B4236510052F741 /* Project.xcconfig */;
+			baseConfigurationReference = 3B4532401BA14386009BCC3F /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -576,10 +647,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 21;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 22;
+				DYLIB_CURRENT_VERSION = 21;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -601,15 +672,13 @@
 		};
 		3B4596BD1AE195900049A743 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B78100D1B4236510052F741 /* Debug-iOS.xcconfig */;
+			baseConfigurationReference = 3B4532391BA14386009BCC3F /* Debug-iOS.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = CleanroomLogger;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -617,22 +686,20 @@
 		};
 		3B4596BE1AE195900049A743 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B7810141B4236510052F741 /* Release-iOS.xcconfig */;
+			baseConfigurationReference = 3B4532411BA14386009BCC3F /* Release-iOS.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = CleanroomLogger;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		3B4596C01AE195900049A743 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B7810171B4236510052F741 /* Tests.xcconfig */;
+			baseConfigurationReference = 3B4532451BA14386009BCC3F /* Tests.xcconfig */;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -646,7 +713,7 @@
 		};
 		3B4596C11AE195900049A743 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B7810171B4236510052F741 /* Tests.xcconfig */;
+			baseConfigurationReference = 3B4532451BA14386009BCC3F /* Tests.xcconfig */;
 			buildSettings = {
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)";
@@ -656,7 +723,7 @@
 		};
 		3B5542621B423542001D6BE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B78100E1B4236510052F741 /* Debug-OSX.xcconfig */;
+			baseConfigurationReference = 3B45323A1BA14386009BCC3F /* Debug-OSX.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -664,8 +731,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gilt.cleanroom.CleanroomLogger;
-				PRODUCT_NAME = CleanroomLogger;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -673,17 +738,44 @@
 		};
 		3B5542631B423542001D6BE7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B7810151B4236510052F741 /* Release-OSX.xcconfig */;
+			baseConfigurationReference = 3B4532421BA14386009BCC3F /* Release-OSX.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gilt.cleanroom.CleanroomLogger;
-				PRODUCT_NAME = CleanroomLogger;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3B6940EF1B54940B00DECA01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B45323B1BA14386009BCC3F /* Debug-tvOS.xcconfig */;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		3B6940F01B54940B00DECA01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4532431BA14386009BCC3F /* Release-tvOS.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
 		};
@@ -699,7 +791,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B4596BC1AE195900049A743 /* Build configuration list for PBXNativeTarget "CleanroomLogger iOS" */ = {
+		3B4596BC1AE195900049A743 /* Build configuration list for PBXNativeTarget "CleanroomLogger-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B4596BD1AE195900049A743 /* Debug */,
@@ -717,11 +809,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B5542611B423542001D6BE7 /* Build configuration list for PBXNativeTarget "CleanroomLogger OSX" */ = {
+		3B5542611B423542001D6BE7 /* Build configuration list for PBXNativeTarget "CleanroomLogger-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B5542621B423542001D6BE7 /* Debug */,
 				3B5542631B423542001D6BE7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B6940EE1B54940B00DECA01 /* Build configuration list for PBXNativeTarget "CleanroomLogger-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B6940EF1B54940B00DECA01 /* Debug */,
+				3B6940F01B54940B00DECA01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
