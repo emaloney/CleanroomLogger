@@ -80,6 +80,12 @@
         <section>
           <section class="section">
             <h1>ASLQueryObject</h1>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ASLQueryObject</span><span class="p">:</span> <span class="kt">ASLObject</span></code></pre>
+
+                </div>
+              </div>
             <p>Represents an ASL query object.</p>
 
 <p>Message objects represent an <code>asl_object_t</code> having a type of <code>ASL_TYPE_QUERY</code>.</p>
@@ -264,6 +270,17 @@ query, a <code>ResultRecord</code> representing that message is passed to the
 <p>When a search query is executed, the result set will be constrained
 according to the query key(s) that have been set on the receiver.</p>
 
+<p>:param:     key An <code>ASLAttributeKey</code> specifying the key whose value will
+            be queried.</p>
+
+<p>:param:     value The string value to find.</p>
+
+<p>:param:     operation Specifies the query <code>Operation</code> to be performed. This
+            governs how values will be matched by the search.</p>
+
+<p>:param:     modifiers The <code>OperationModifiers</code> bit flags that modify the
+            behavior of the search operation.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -272,68 +289,6 @@ according to the query key(s) that have been set on the receiver.</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setQueryKey</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">ASLAttributeKey</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">operation</span><span class="p">:</span> <span class="kt">Operation</span><span class="p">,</span> <span class="nv">modifiers</span><span class="p">:</span> <span class="kt">OperationModifiers</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>key</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An <code>ASLAttributeKey</code> specifying the key whose value will
-be queried.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>value</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The string value to find.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>operation</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Specifies the query <code>Operation</code> to be performed. This
-governs how values will be matched by the search.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>modifiers</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>OperationModifiers</code> bit flags that modify the
-behavior of the search operation.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -356,6 +311,19 @@ behavior of the search operation.</p>
 <p>When a search query is executed, the result set will be constrained
 according to the query key(s) that have been set on the receiver.</p>
 
+<p>:param:     key An <code>ASLAttributeKey</code> specifying the key whose value will
+            be queried.</p>
+
+<p>:param:     value The integer value to find.</p>
+
+<p>:param:     operation Specifies the query <code>Operation</code> to be performed. This
+            governs how values will be matched by the search.</p>
+
+<p>:param:     modifiers The <code>OperationModifiers</code> bit flags that modify the
+            behavior of the search operation. Note that using this method
+            variant automatically causes the <code>.MatchNumeric</code> bit flag to
+            be set.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -365,70 +333,6 @@ according to the query key(s) that have been set on the receiver.</p>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>key</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An <code>ASLAttributeKey</code> specifying the key whose value will
-be queried.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>value</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The integer value to find.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>operation</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Specifies the query <code>Operation</code> to be performed. This
-governs how values will be matched by the search.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>modifiers</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>OperationModifiers</code> bit flags that modify the
-behavior of the search operation. Note that using this method
-variant automatically causes the <code>.MatchNumeric</code> bit flag to
-be set.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -437,8 +341,8 @@ be set.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

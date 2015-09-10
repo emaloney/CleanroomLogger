@@ -80,11 +80,116 @@
         <section>
           <section class="section">
             <h1>Operation</h1>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Operation</span><span class="p">:</span> <span class="kt">UInt32</span></code></pre>
+
+                </div>
+              </div>
             <p>Represents an ASL query operation. Query operations are used for comparing
 values when searches are being performed.</p>
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC12CleanroomASL14ASLQueryObject9Operation7EqualToFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/EqualTo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC12CleanroomASL14ASLQueryObject9Operation7EqualToFMS1_S1_">EqualTo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies that the query should match records whose value for the
+given key is equal to the one provided. Equivalent to 
+<code>ASL_QUERY_OP_EQUAL</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">EqualTo</span>                <span class="o">=</span> <span class="mh">0x0001</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC12CleanroomASL14ASLQueryObject9Operation11GreaterThanFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/GreaterThan" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC12CleanroomASL14ASLQueryObject9Operation11GreaterThanFMS1_S1_">GreaterThan</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies that the query should match records whose value for the
+given key is greater than the one provided. Equivalent to
+<code>ASL_QUERY_OP_GREATER</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">GreaterThan</span>            <span class="o">=</span> <span class="mh">0x0002</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC12CleanroomASL14ASLQueryObject9Operation20GreaterThanOrEqualToFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/GreaterThanOrEqualTo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC12CleanroomASL14ASLQueryObject9Operation20GreaterThanOrEqualToFMS1_S1_">GreaterThanOrEqualTo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies that the query should match records whose value for the
+given key is greater than or equal to the one provided. Equivalent to
+<code>ASL_QUERY_OP_GREATER_EQUAL</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">GreaterThanOrEqualTo</span>   <span class="o">=</span> <span class="mh">0x0003</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -116,35 +221,10 @@ given key is less than the one provided. Equivalent to
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FOC12CleanroomASL14ASLQueryObject9Operation7EqualToFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/EqualTo" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC12CleanroomASL14ASLQueryObject9Operation7EqualToFMS1_S1_">EqualTo</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies that the query should match records whose value for the
-given key is equal to the one provided. Equivalent to 
-<code>ASL_QUERY_OP_EQUAL</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">EqualTo</span>                <span class="o">=</span> <span class="mh">0x0001</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -174,92 +254,10 @@ given key is less than or equal to the one provided. Equivalent to
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FOC12CleanroomASL14ASLQueryObject9Operation9KeyExistsFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/KeyExists" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC12CleanroomASL14ASLQueryObject9Operation9KeyExistsFMS1_S1_">KeyExists</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies that the query should match records having values for the
-given key. Equivalent to <code>ASL_QUERY_OP_TRUE</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">KeyExists</span>              <span class="o">=</span> <span class="mh">0x0007</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FOC12CleanroomASL14ASLQueryObject9Operation11GreaterThanFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/GreaterThan" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC12CleanroomASL14ASLQueryObject9Operation11GreaterThanFMS1_S1_">GreaterThan</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies that the query should match records whose value for the
-given key is greater than the one provided. Equivalent to
-<code>ASL_QUERY_OP_GREATER</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">GreaterThan</span>            <span class="o">=</span> <span class="mh">0x0002</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FOC12CleanroomASL14ASLQueryObject9Operation20GreaterThanOrEqualToFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/GreaterThanOrEqualTo" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC12CleanroomASL14ASLQueryObject9Operation20GreaterThanOrEqualToFMS1_S1_">GreaterThanOrEqualTo</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies that the query should match records whose value for the
-given key is greater than or equal to the one provided. Equivalent to
-<code>ASL_QUERY_OP_GREATER_EQUAL</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">GreaterThanOrEqualTo</span>   <span class="o">=</span> <span class="mh">0x0003</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -291,11 +289,43 @@ given key is not equal to the one provided. Equivalent to
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC12CleanroomASL14ASLQueryObject9Operation9KeyExistsFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/KeyExists" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC12CleanroomASL14ASLQueryObject9Operation9KeyExistsFMS1_S1_">KeyExists</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies that the query should match records having values for the
+given key. Equivalent to <code>ASL_QUERY_OP_TRUE</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">KeyExists</span>              <span class="o">=</span> <span class="mh">0x0007</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

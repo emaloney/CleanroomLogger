@@ -80,6 +80,12 @@
         <section>
           <section class="section">
             <h1>ASLPriorityLevel</h1>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ASLPriorityLevel</span><span class="p">:</span> <span class="kt">Int32</span> <span class="c1">// EnumerableEnum</span></code></pre>
+
+                </div>
+              </div>
             <p>The <code>ASLPriorityLevel</code> enum represents the documented <code>ASL_LEVEL_*</code> constant
 values.</p>
 
@@ -87,60 +93,6 @@ values.</p>
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vO12CleanroomASL16ASLPriorityLevel14priorityStringSS"></a>
-                    <a name="//apple_ref/swift/Property/priorityString" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vO12CleanroomASL16ASLPriorityLevel14priorityStringSS">priorityString</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns the <code>ASL_STRING_*</code> equivalent of the receiver.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">priorityString</span><span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO12CleanroomASL16ASLPriorityLevel5ErrorFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Error" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO12CleanroomASL16ASLPriorityLevel5ErrorFMS0_S0_">Error</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents the <code>ASL_LEVEL_ERR</code> constant.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Error</span>      <span class="o">=</span> <span class="mi">3</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -168,87 +120,10 @@ values.</p>
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO12CleanroomASL16ASLPriorityLevel8CriticalFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Critical" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO12CleanroomASL16ASLPriorityLevel8CriticalFMS0_S0_">Critical</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents the <code>ASL_LEVEL_CRIT</code> constant.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Critical</span>   <span class="o">=</span> <span class="mi">2</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO12CleanroomASL16ASLPriorityLevel5DebugFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Debug" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO12CleanroomASL16ASLPriorityLevel5DebugFMS0_S0_">Debug</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents the <code>ASL_LEVEL_DEBUG</code> constant.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Debug</span>      <span class="o">=</span> <span class="mi">7</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO12CleanroomASL16ASLPriorityLevel7WarningFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/Warning" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO12CleanroomASL16ASLPriorityLevel7WarningFMS0_S0_">Warning</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Represents the <code>ASL_LEVEL_WARNING</code> constant.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Warning</span>    <span class="o">=</span> <span class="mi">4</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -276,6 +151,103 @@ values.</p>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO12CleanroomASL16ASLPriorityLevel8CriticalFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Critical" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO12CleanroomASL16ASLPriorityLevel8CriticalFMS0_S0_">Critical</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the <code>ASL_LEVEL_CRIT</code> constant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Critical</span>   <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO12CleanroomASL16ASLPriorityLevel5ErrorFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Error" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO12CleanroomASL16ASLPriorityLevel5ErrorFMS0_S0_">Error</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the <code>ASL_LEVEL_ERR</code> constant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Error</span>      <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO12CleanroomASL16ASLPriorityLevel7WarningFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Warning" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO12CleanroomASL16ASLPriorityLevel7WarningFMS0_S0_">Warning</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the <code>ASL_LEVEL_WARNING</code> constant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Warning</span>    <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -303,6 +275,10 @@ values.</p>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -324,6 +300,68 @@ values.</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="k">case</span> <span class="kt">Info</span>       <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO12CleanroomASL16ASLPriorityLevel5DebugFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/Debug" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO12CleanroomASL16ASLPriorityLevel5DebugFMS0_S0_">Debug</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the <code>ASL_LEVEL_DEBUG</code> constant.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="kt">Debug</span>      <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO12CleanroomASL16ASLPriorityLevel14priorityStringSS"></a>
+                    <a name="//apple_ref/swift/Property/priorityString" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO12CleanroomASL16ASLPriorityLevel14priorityStringSS">priorityString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the <code>ASL_STRING_*</code> equivalent of the receiver.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">priorityString</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -420,8 +458,8 @@ whose priority is the same as or more severe than the receiver.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

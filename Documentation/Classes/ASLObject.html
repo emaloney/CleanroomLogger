@@ -80,6 +80,12 @@
         <section>
           <section class="section">
             <h1>ASLObject</h1>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ASLObject</span></code></pre>
+
+                </div>
+              </div>
             <p>Instances of the <code>ASLObject</code> class provide type-safe to an underlying
 <code>asl_object_t</code> of a given <code>ASL_TYPE</code>.</p>
 
@@ -140,6 +146,11 @@ property.</p>
                         <p>Allows the keys of ASL object attributes to retrieved using the attribute&rsquo;s
 index.</p>
 
+<p>:param:     index The (zero-based) attribute index.</p>
+
+<p>:returns:   The key associated with the attribute at <code>index</code>, or <code>nil</code> if
+            <code>index</code> is greater than the number of attributes.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -148,32 +159,6 @@ index.</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>index</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The (zero-based) attribute index.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The key associated with the attribute at <code>index</code>, or <code>nil</code> if
-<code>index</code> is greater than the number of attributes.</p>
-
                       </div>
                     </section>
                   </div>
@@ -194,6 +179,10 @@ index.</p>
                         <p>Allows ASL object attributes to be retrieved and set via the subscripting
 notation.</p>
 
+<p>:param:     key The attribute key.</p>
+
+<p>:returns:   The value associated with <code>key</code>, or <code>nil</code> if there isn&rsquo;t one.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -202,31 +191,6 @@ notation.</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">ASLAttributeKey</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>key</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The attribute key.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The value associated with <code>key</code>, or <code>nil</code> if there isn&rsquo;t one.</p>
-
                       </div>
                     </section>
                   </div>
@@ -280,7 +244,7 @@ API.</p>
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">aslObject</span><span class="p">:</span> <span class="n">asl_object_t</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">aslObject</span><span class="p">:</span> <span class="k">as</span><span class="n">l_object_t</span></code></pre>
 
                         </div>
                       </div>
@@ -302,6 +266,8 @@ API.</p>
                       <div class="abstract">
                         <p>Counts the number of ASL object attributes contained by the receiver.</p>
 
+<p>:returns:   The number of attributes.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -312,11 +278,6 @@ API.</p>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The number of attributes.</p>
-
-                      </div>
                     </section>
                   </div>
                 </li>
@@ -325,8 +286,8 @@ API.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

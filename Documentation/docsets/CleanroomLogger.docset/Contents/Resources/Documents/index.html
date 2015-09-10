@@ -30,16 +30,16 @@
           <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
+                <a href="Classes/ASLClient.html">ASLClient</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/FileLogRecorder.html">FileLogRecorder</a>
+                <a href="Classes/ASLMessageObject.html">ASLMessageObject</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/LogReceptacle.html">LogReceptacle</a>
+                <a href="Classes/ASLObject.html">ASLObject</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/LogRecorderBase.html">LogRecorderBase</a>
+                <a href="Classes/ASLQueryObject.html">ASLQueryObject</a>
               </li>
             </ul>
           </li>
@@ -47,7 +47,10 @@
           <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/LogSeverity.html">LogSeverity</a>
+                <a href="Enums/ASLAttributeKey.html">ASLAttributeKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/ASLPriorityLevel.html">ASLPriorityLevel</a>
               </li>
             </ul>
           </li>
@@ -55,50 +58,18 @@
           <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
+                <a href="Extensions/asl_object_t.html">asl_object_t</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Protocols.html">Protocols</a>
+          <a href="Subscripts.html">Subscripts</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/LogConfiguration.html">LogConfiguration</a>
+                <a href="Subscripts.html#/s:sE12CleanroomASLVSs14COpaquePointer9subscriptFVSs6UInt32GSqSS_">subscript(_:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="Protocols/LogFilter.html">LogFilter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/LogFormatter.html">LogFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/LogRecorder.html">LogRecorder</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-          <a href="Structs.html">Structs</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/Log.html">Log</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/LogChannel.html">LogChannel</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/LogEntry.html">LogEntry</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+                <a href="Subscripts.html#/s:sE12CleanroomASLVSs14COpaquePointer9subscriptFOS_15ASLAttributeKeyGSqSS_">subscript(_:)</a>
               </li>
             </ul>
           </li>
@@ -108,16 +79,96 @@
         <section>
           <section class="section">
             
-            <a href='#cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='cleanroomlogger'>CleanroomLogger</h1>
-<a href='#authors' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='authors'>Authors</h3>
+            <p>The main public API for CleanroomLogger is provided by <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html"><code>Log</code></a>.</p>
 
-<p>Evan Maloney, Gilt Groupe</p>
+<p><code>Log</code> maintains five static read-only <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html"><code>LogChannel</code></a> properties that correspond to one of five <em>severity levels</em> indicating the importance of messages sent through that channel. When sending a message, you would select a severity appropriate for that message, and use the corresponding channel:</p>
+
+<ul>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_"><code>Log.error</code></a> — The highest severity; something has gone wrong and a fatal error may be imminent</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_"><code>Log.warning</code></a> — Something appears amiss and might bear looking into before a larger problem arises</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_"><code>Log.info</code></a> — Something notable happened, but it isn&rsquo;t anything to worry about</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_"><code>Log.debug</code></a> — Used for debugging and diagnostic information (not intended for use in production code)</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_"><code>Log.verbose</code></a> - The lowest severity; used for detailed or frequently occurring debugging and diagnostic information (not intended for use in production code)</li>
+</ul>
+
+<p>Each of these <code>LogChannel</code>s provide three functions to record log messages:</p>
+
+<ul>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5traceFS0_FT8functionSS8filePathSS8fileLineSi_T_"><code>trace()</code></a> — This function records a log message with program executing trace information including the filename, line number and name of the calling function.</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel7messageFS0_FTSS8functionSS8filePathSS8fileLineSi_T_"><code>message(String)</code></a> — This function records the log message passed to it.</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5valueFS0_FTGSqP__8functionSS8filePathSS8fileLineSi_T_"><code>value(Any?)</code></a> — This function attempts to record a log message containing a string representation of the optional <code>Any</code> value passed to it.</li>
+</ul>
+<a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3>
+
+<p>By default, logging is disabled, meaning that none of the <code>Log</code>&rsquo;s channels have been populated. As a result, they have <code>nil</code> values and any attempts to perform logging will silently fail.</p>
+
+<p>It is the responsibility of the <em>application developer</em> to enable logging, which is done by calling the appropriate <code>Log.enable()</code> function.</p>
+
+<blockquote>
+<p>The reason we specifically say that the application developer is responsible for enabling logging is to give the developer the power to control the use of logging process-wide. As with any code that executes, there&rsquo;s an expense to logging, and the application developer should get to decide how to handle the tradeoff between the utility of collecting logs and the expense of collecting them at a given level of detail.</p>
+
+<p>CleanroomLogger is built to be used from within frameworks, shared libraries, Cocoapods, etc., as well as at the application level. However, any code designed to be embedded in other applications <strong>must</strong> interact with CleanroomLogger via the <code>Log</code> API <strong>only</strong>. Also, embedded code <strong>must never</strong> call <code>Log.enable()</code>, because by doing so, control is taken away from the application developer.</p>
+
+<p><em>The general rule is, if you didn&rsquo;t write the <code>UIApplicationDelegate</code> for the app in which the code will execute, don&rsquo;t ever call <code>Log.enable()</code>.</em></p>
+</blockquote>
+
+<p>Ideally, logging is enabled at the first possible point in the application&rsquo;s launch cycle. Otherwise, critical log messages may be missed during launch because the logger wasn&rsquo;t yet initialized.</p>
+
+<p>The best place to put the call to <code>Log.enable()</code> is at the first line of your app delegate&rsquo;s <code>init()</code>.</p>
+
+<p>If you&rsquo;d rather not do that for some reason, the next best place to put it is in the <code>application(_:willFinishLaunchingWithOptions:)</code> function of your app delegate. You&rsquo;ll notice that we&rsquo;re specifically recommending the <code>will</code> function, not the typical <code>did</code>, because the former is called earlier in the application&rsquo;s launch cycle.</p>
+
+<blockquote>
+<p><strong>Note:</strong> During the running lifetime of an application process, only the <em>first</em> call to <code>Log.enable()</code> function will have any effect. All subsequent calls are ignored silently.</p>
+</blockquote>
+<a href='#logging_examples' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='logging_examples'>Logging examples</h3>
+
+<p>To send record items in the log, simply select the appropriate channel and call the appropriate function.</p>
+
+<p>Here are a few examples:</p>
+<a href='#logging_an_arbitrary_text_message' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging_an_arbitrary_text_message'>Logging an arbitrary text message</h4>
+
+<p>Let&rsquo;s say your application just finished launching. This is a significant event, but it isn&rsquo;t an error. You also might want to see this information in production app logs. Therefore, you decide the appropriate <code>LogSeverity</code> is <code>.Info</code> and you select the corresponding <code>LogChannel</code>, which is <code>Log.info</code>:</p>
+<pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="n">info</span><span class="p">?</span><span class="o">.</span><span class="nf">message</span><span class="p">(</span><span class="s">"The application has finished launching."</span><span class="p">)</span>
+</code></pre>
+<a href='#logging_a_trace_message' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging_a_trace_message'>Logging a trace message</h4>
+
+<p>If you&rsquo;re working on some code and you&rsquo;re curious about the order of execution, you can sprinkle some <code>trace()</code> calls around.</p>
+
+<p>This function outputs the filename, line number and name of the calling function.</p>
+
+<p>For example, if you put the following code on line 364 of a file called ModularTable.swift in a function with the signature <code>tableView(_:cellForRowAtIndexPath:)</code>:</p>
+<pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="n">debug</span><span class="p">?</span><span class="o">.</span><span class="nf">trace</span><span class="p">()</span>
+</code></pre>
+
+<p>The following message would be logged when that line gets executed:</p>
+<pre class="highlight plaintext"><code>ModularTable.swift:364 — tableView(_:cellForRowAtIndexPath:)
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> Because trace information is typically not desired in production code, you would generally only perform tracing at the <code>.Debug</code> or <code>.Verbose</code> severity levels.</p>
+</blockquote>
+<a href='#logging_an_arbitrary_value' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging_an_arbitrary_value'>Logging an arbitrary value</h4>
+
+<p>The <code>value()</code> function can be used for outputting information about a specific value. The function takes an argument of type <code>Any?</code> and is intended to accept any valid runtime value.</p>
+
+<p>For example, you might want to output the <code>NSIndexPath</code> value passed to your <code>UITableViewDataSource</code>&rsquo;s <code>tableView(_: cellForRowAtIndexPath:)</code> function:</p>
+<pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="n">verbose</span><span class="p">?</span><span class="o">.</span><span class="nf">value</span><span class="p">(</span><span class="n">indexPath</span><span class="p">)</span>
+</code></pre>
+
+<p>This would result in output looking like:</p>
+<pre class="highlight plaintext"><code>&lt;NSIndexPath: 0xc0000000000180d6&gt; {length = 2, path = 3 - 3}
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> Although every attempt is made to create a string representation of the value passed to the function, there is no guarantee that a given log implementation will support values of a given type.</p>
+</blockquote>
 
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
