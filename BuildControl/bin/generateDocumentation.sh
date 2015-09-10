@@ -12,15 +12,22 @@ fi
 
 pushd "`dirname $0`/../.." > /dev/null
 
+PUBLIC_GITHUB_URL=$(git remote -v | grep fetch | awk '{ print $2 }' | sed s/.git\$// | sed s/^ssh/https/)
+MODULE_NAME=`basename $PUBLIC_GITHUB_URL`
+AUTHOR_GITHUB_URL=`dirname $PUBLIC_GITHUB_URL`
+CURRENT_YEAR=`date +"%Y"`
+COPYRIGHT_YEAR=`git log --pretty=%ad $(git rev-list --max-parents=0 HEAD) | awk '{print $5}'`
+if [[ "$COPYRIGHT_YEAR" != "$CURRENT_YEAR" ]]; then
+	COPYRIGHT_YEAR="${COPYRIGHT_YEAR}-${CURRENT_YEAR}"
+fi
+
 "$JAZZY_EXECUTABLE" -o Documentation \
-	-m "CleanroomLogger" \
+	-m "$MODULE_NAME" \
 	--readme Code/README.md \
-	--github_url "https://github.com/emaloney/CleanroomLogger.git" \
+	--github_url "$PUBLIC_GITHUB_URL" \
 	--author "Evan Maloney, Gilt Groupe" \
-	--author_url "http://github.com/emaloney" \
-	--copyright_holder "Gilt Groupe" \
-	--copyright_year "2014-2015" \
-	--copyright_url "http://tech.gilt.com/"
+	--author_url "$AUTHOR_GITHUB_URL" \
+	--copyright "© $COPYRIGHT_YEAR [Gilt Groupe](http://tech.gilt.com/)"
 JAZZY_EXIT_CODE=$?
 if [[ $JAZZY_EXIT_CODE != 0 ]]; then
 	echo "error: $JAZZY_EXECUTABLE failed with an exit code of $JAZZY_EXIT_CODE; check any output above for additional details."
