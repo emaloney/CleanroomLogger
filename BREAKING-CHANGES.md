@@ -24,4 +24,12 @@ This system assigns version numbers with three independent integer values separa
 
 ## 1.4.0
 
-**This release uses version 2.0 of the Swift language, and therefore requires Xcode 7 or higher.**
+This release uses a pre-release version 2.0 of the Swift language, and therefore requires specific _beta_ versions of Xcode 7 that are no longer supplied by Apple.
+
+As a result, the 1.4.x release line is no longer supported.
+
+## 1.5.0
+
+This release uses Swift 2.0 and requires a release version of Xcode 7.
+
+This release also adds support for tvOS.
