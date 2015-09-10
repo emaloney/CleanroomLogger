@@ -3,7 +3,7 @@
 //  Cleanroom Project
 //
 //  Created by Claudio Romandini on 5/19/15.
-//  Copyright (c) 2015 Gilt Groupe. All rights reserved.
+//  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
 import XCTest

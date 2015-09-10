@@ -3,7 +3,7 @@
 //  Cleanroom
 //
 //  Created by Evan Maloney on 3/30/15.
-//  Copyright (c) 2015 Gilt Groupe. All rights reserved.
+//  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
 import Foundation
