@@ -8,34 +8,35 @@ This document describes how to integrate CleanroomLogger into your application.
 
 CleanroomLogger is built as a *Swift framework*, and as such, it has the following base platform requirements:
 
-Platform|Minimum version
+Platform|Minimum OS version
 --------|------------------------
-iOS|iOS 8.0
+Apple TV|tvOS 9.0
+Apple Watch|watchOS 2.0
+iPhone/iPad|iOS 8.0
 Mac|OS X 10.10
 
-CleanroomLogger is **Swift 2.0**-compliant and requires **Xcode 7 beta 6 or higher** to be built.
+CleanroomLogger is **Swift 2.0**-compliant and requires **Xcode 7.0 or higher** to be built.
 
 ### Contents
 
 - **[Options for integration](#options-for-integration)**
-- **[Instructions for manual integration](#manual-integration)**
 - **[Instructions for integration using Carthage](#carthage-integration)**
+- **[Instructions for manual integration](#manual-integration)**
 
 ### Prerequisites
 
 Some familiarity with the Terminal application, the bash command line, and the `git` command is assumed.
 
-The steps below have been tested with **git 2.3.7 (Apple Git-57)**, although they should be compatible with a wide range of git versions.
+The steps below have been tested with **git 2.3.8 (Apple Git-58)**, although they should be compatible with a wide range of git versions.
 
-### About Frameworks on iOS
 
-Official support for third-party iOS frameworks was introduced with Xcode 6 and iOS 8. Prior to that, developers had been using frameworks in an unsupported fashion by placing shared libraries and resources inside a filesystem structure that mimicked that of the frameworks published by Apple.
+### Of Frameworks and Simulators
 
-Given that *real* third-party iOS framework support is still in its infancy, it should be no surprise that there are still kinks in the development process when using them:
+When developing for a platform with a simulator, there are some kinks in the process:
 
-- The iOS Simulator uses a different processor architecture than real devices. As a result, **frameworks compiled for device won’t work in the simulator, and vice-versa**. Sure, you *could* use `lipo` to stitch together a universal binary and use that instead, but...
+- Simulators use a different processor architecture than real devices. As a result, **frameworks compiled only for device won’t work in the simulator, and vice-versa**. Sure, you *could* use `lipo` to stitch together a universal binary and use that instead, but...
 
-- **Apple will not accept App Store binaries containing iOS Simulator code.** That means if you go the universal binary route, now you need a custom build step to make the universal binary, and you need another step to un-make the universal binary when you’re building for submission. Okay, well, why not just build *two* frameworks: one for the iOS Simulator and one for devices?
+- **Apple will not accept App Store binaries containing simulator code.** That means if you go the universal binary route, you now need a custom build step to make the universal binary, and another step to un-make the universal binary when you’re building for submission. Okay, well, why not just build *two* frameworks: one specifically for the simulator and the other for devices?
 
 - **Xcode won’t be happy if you import two separate frameworks with the same symbols.** Xcode won’t notice that there really is no conflict because the frameworks are compiled for different processor architectures. All Xcode will care about is that you’re importing two separate frameworks that both claim to have the same module name.
 
@@ -45,11 +46,130 @@ For these reasons, we do not release Cleanroom projects as framework binaries. I
 
 There are two supported options for integration:
 
-- **[Manual integration](#manual-integration)** — The `CleanroomLogger.xcodeproj` Xcode project file is embedded directly within your project. You then add `CleanroomLogger.framework` and `CleanroomASL.framework` to the *Embedded Binaries* and *Linked Frameworks and Libraries* sections under the *General* tab for your application target.
+- **[Carthage integration](#carthage-integration)** — Explains how to use the [Carthage](https://github.com/Carthage/Carthage) dependency manager for adding CleanroomLogger to your project.
 
-- **[Carthage integration](#carthage-integration)** — [Carthage](https://github.com/Carthage/Carthage) is a dependency package manager designed to build frameworks. Once Carthage is installed, to add CleanroomLogger to your project using Carthage, you would put the line `github "emaloney/CleanroomLogger"` in your `Cartfile` and then issue the command `carthage update`.
+- **[Manual integration](#manual-integration)** — Demonstrates the steps for adding CleanroomLogger by embedding `CleanroomLogger.xcodeproj` within your own Xcode project. (**Note:** Manual integration is a bit more involved than using Carthage).
 
 Whether you choose one over the other largely depends on your preferences and—in the case of Carthage—whether you’re already using that solution for other dependencies.
+
+## Carthage Integration
+
+Carthage is a third-party package dependency manager for iOS and Mac OS X. Carthage works by building frameworks for each of a project’s dependencies.
+
+### Verifying Carthage availability
+
+Before attempting any of the steps below, you should verify that Carthage is available on your system. To do that, open Terminal and execute the command:
+
+```bash
+carthage version
+```
+
+If Carthage is available, the version you have installed will be shown.
+
+> As of this writing, the current version of Carthage is 0.9.1.
+
+If Carthage is not present, you will see an error that looks like:
+
+```
+-bash: carthage: command not found
+```
+
+Installing Carthage is beyond the scope of this document. If you do not have Carthage installed but would like to use it, [you can find installation instructions on the project page](https://github.com/Carthage/Carthage#installing-carthage).
+
+### How Carthage builds frameworks
+
+When building a framework for a platform with a simulator, Carthage creates a *universal binary*, allowing `CleanroomLogger.framework` to work in the simulator as well as on actual devices.
+
+However, because Apple will not accept App Store submissions containing universal binary code, Carthage requires the addition of a build step that strips all unused architectures out of the universal binaries. That way, when building for the simulator, device code is removed; conversely, when creating a device build, simulator code is removed. This keeps Apple happy, while also making it easy to switch back and forth between running on the device and in the simulator.
+
+### An Overview of the Process
+
+Carthage integration is a little simpler than manual integration:
+
+1. Update the `Cartfile` with an entry for CleanroomLogger
+2. Download and build CleanroomLogger
+3. Add `CleanroomLogger.framework` and `CleanroomASL.framework` to your application target
+4. Create a build phase to strip the extra processor architectures from the Carthage frameworks (not necessary for Mac OS X builds)
+
+### Getting Started
+
+We’ll start in the Terminal, by `cd`ing into to your project’s root directory. The commands you’ll need to issue below can all be done from this location.
+
+### 1. Update the Cartfile
+
+In your project’s root directory, edit the file named `Cartfile`—creating it if necessary—to add the following line:
+
+```
+github "emaloney/CleanroomLogger"
+```
+
+### 2. Download & Build using Carthage
+
+The command `carthage update` causes Carthage to download and build CleanroomLogger.
+
+By default, `carthage update` builds all platform targets in a project. Normally, this is _not_ what you want; you’ll usually use CleanroomLogger on just one platform at a time.
+
+To speed up the build process—and to avoid trying to build for a platform that might not be supported by the version of Xcode you have—it is _strongly recommended_ that you pass the `--platform` argument to `carthage update`:
+
+To build for|Run the command
+--------|------------------------
+Apple TV|`carthage update --platform tvos`
+Apple Watch|`carthage update --platform watchos`
+iPhone/iPad|`carthage update --platform ios`
+Mac|`carthage update --platform mac`
+
+#### Where Carthage stores files
+
+Carthage puts its files within a top-level directory called `Carthage` at the root of your project’s directory structure (i.e., the `Carthage` directory is a sibling of the `Cartfile`). Within this directory are two more directories: `Build`, which contains any frameworks built by Carthage; and `Checkouts`, which contains fully populated directory structures for each repository specified in the `Cartfile`.
+
+> **Note:** By default, Carthage builds a framework for each platform supported by the project. You can limit the build to a specific platform by specifying a value for the `--platform` argument when invoking the `carthage` command.
+
+Once Carthage is done building CleanroomLogger and its dependencies, you can use the `open` command to locate the framework binaries in Finder:
+
+```bash
+open Carthage/Build/iOS
+```
+
+The command above opens the directory containing the iOS framework binaries; to locate the Mac OS X binaries, execute:
+
+```bash
+open Carthage/Build/Mac
+```
+
+If all went well, the Carthage build directories should contain the files:
+
+- `CleanroomLogger.framework`
+- `CleanroomASL.framework`
+
+If those files aren’t present, something went wrong with the build.
+
+### 3. Add the necessary frameworks to your app target
+
+In Xcode, select the *General* tab in the build settings for your application target. Scroll to the bottom of the screen to reveal the section entitled *Embedded Binaries* (the second-to-last section).
+
+Go back to Finder, select the files `CleanroomLogger.framework` and `CleanroomASL.framework`, and then drag them into the list area directly below *Embedded Binaries*.
+
+If successful, you should see `CleanroomLogger.framework` and `CleanroomASL.framework` listed under both the *Embedded Binaries* and *Linked Frameworks and Libraries* sections.
+
+### 4. Create a build phase to strip the Carthage frameworks
+
+> **Note:** You do *not* need to perform this step when building for Mac OS X. This step is only necessary when building for targets that can be run in a simulator.
+
+In Xcode, select the *Build Phases* tab in the build settings for your application target.
+
+At the top-left corner of the list of build phases, you will see a “`+`” icon. Click that icon and add a “New Run Script Phase”.
+
+Then, in the script editor area just below the *Shell* line, add the following text:
+
+```
+$PROJECT_DIR/Carthage/Checkouts/CleanroomLogger/BuildControl/bin/stripCarthageFrameworks.sh
+```
+
+This script will ensure that any frameworks built by Carthage are stripped of unnecessary processor architectures. Without this step, Apple would reject your app submission because the frameworks would be included as universal binaries, which [isn’t allowed in App Store submissions](http://www.openradar.me/radar?id=6409498411401216).
+
+Once you’ve done this, try building your application. If you don’t see any errors, **_you’re all done integrating CleanroomLogger!_**
+
+But before you start coding, skip to the [Adding the Swift import](#adding-the-swift-import) section to see how you can import CleanroomLogger for use in your Swift code.
 
 ## Manual Integration
 
@@ -126,7 +246,7 @@ Before we can add `CleanroomLogger.framework` to your app, we have to build it, 
 
 **Important:** The next step will only work when the framework is built for a **device-based run destination**. That means that you must either select the “My Mac” or “iOS Device” run destination before building, or you must select an actual external device (an option that’s only available when such a device is connected to your development machine).
 
-Once a device-based run destination has been selected, select the appropriate build scheme for the target platform: “CleanroomLogger iOS” or “CleanroomLogger OSX”.
+Once a device-based run destination has been selected, select the appropriate build scheme for the target platform: “CleanroomLogger-iOS”, “CleanroomLogger-OSX”, “CleanroomLogger-tvOS” or “CleanroomLogger-watchOS”.
 
 Then, select *Build* (⌘B) from the *Product* menu.
 
@@ -163,118 +283,6 @@ To do this, repeat the following steps for each framework:
 6. If the *Location* dropdown does not show “Relative to Build Products” as the setting, select “Relative to Build Products”
 
 Once you’ve done this for each framework, **_you’re all done integrating CleanroomLogger!_**
-
-Skip to the [Adding the Swift import](#adding-the-swift-import) section to see how you can import CleanroomLogger for use in your Swift code.
-
-## Carthage Integration
-
-Carthage is a third-party package dependency manager for iOS and Mac OS X. Carthage works by building frameworks for each of a project’s dependencies.
-
-### Verifying Carthage availability
-
-Before attempting any of the steps below, you should verify that Carthage is available on your system. To do that, open Terminal and execute the command:
-
-```bash
-carthage version
-```
-
-If Carthage is available, the version you have installed will be shown.
-
-> As of this writing, the current version of Carthage is 0.7.5.
-
-If Carthage is not present, you will see an error that looks like:
-
-```
--bash: carthage: command not found
-```
-
-Installing Carthage is beyond the scope of this document. If you do not have Carthage installed but would like to use it, [you can find installation instructions on the project page](https://github.com/Carthage/Carthage#installing-carthage).
-
-### How Carthage builds iOS frameworks
-
-When building iOS frameworks, Carthage creates *universal binaries*, meaning that they will work in the iOS Simulator as well as on actual devices. However, because Apple will not accept App Store submissions containing universal binary code, Carthage requires the addition of a build step that strips all unused architectures out of the universal binaries. That way, when building for the simulator, device code is removed; conversely, when creating a device build, simulator code is removed. This keeps Apple happy, while also making it easy to switch back and forth between running on the device and in the simulator.
-
-### An Overview of the Process
-
-Carthage integration is a little simpler than manual integration:
-
-1. Update the `Cartfile` with an entry for CleanroomLogger
-2. Download and build CleanroomLogger
-3. Add `CleanroomLogger.framework` and `CleanroomASL.framework` to your application target
-4. Create a build phase to strip the extra processor architectures from the Carthage frameworks (not necessary for Mac OS X builds)
-
-### Getting Started
-
-We’ll start in the Terminal, by `cd`ing into to your project’s root directory. The commands you’ll need to issue below can all be done from this location.
-
-### 1. Update the Cartfile
-
-In your project’s root directory, edit the file named `Cartfile`—creating it if necessary—to add the following line:
-
-```
-github "emaloney/CleanroomLogger"
-```
-
-### 2. Download & Build using Carthage
-
-In Terminal, issue the command:
-
-```bash
-carthage update
-```
-
-This will cause Carthage to download and build CleanroomLogger.
-
-#### Where Carthage stores files
-
-Carthage puts its files within a top-level directory called `Carthage` at the root of your project’s directory structure (i.e., the `Carthage` directory is a sibling of the `Cartfile`). Within this directory are two more directories: `Build`, which contains any frameworks built by Carthage; and `Checkouts`, which contains fully populated directory structures for each repository specified in the `Cartfile`.
-
-> **Note:** By default, Carthage builds a framework for each platform supported by the project. You can limit the build to a specific platform by specifying a value for the `--platform` argument when invoking the `carthage` command.
-
-Once Carthage is done building CleanroomLogger and its dependencies, you can use the `open` command to locate the framework binaries in Finder:
-
-```bash
-open Carthage/Build/iOS
-```
-
-The command above opens the directory containing the iOS framework binaries; to locate the Mac OS X binaries, execute:
-
-```bash
-open Carthage/Build/Mac
-```
-
-If all went well, the Carthage build directories should contain the files:
-
-- `CleanroomLogger.framework`
-- `CleanroomASL.framework`
-
-If those files aren’t present, something went wrong with the build.
-
-### 3. Add the necessary frameworks to your app target
-
-In Xcode, select the *General* tab in the build settings for your application target. Scroll to the bottom of the screen to reveal the section entitled *Embedded Binaries* (the second-to-last section).
-
-Go back to Finder, select the files `CleanroomLogger.framework` and `CleanroomASL.framework`, and then drag them into the list area directly below *Embedded Binaries*.
-
-If successful, you should see `CleanroomLogger.framework` and `CleanroomASL.framework` listed under both the *Embedded Binaries* and *Linked Frameworks and Libraries* sections.
-
-### 4. Create a build phase to strip the Carthage frameworks
-
-> **Note:** You do *not* need to perform this step when building for Mac OS X. This step is only necessary when building for targets that can be run in a simulator.
-
-In Xcode, select the *Build Phases* tab in the build settings for your application target.
-
-At the top-left corner of the list of build phases, you will see a “`+`” icon. Click that icon and add a “New Run Script Phase”.
-
-Then, in the script editor area just below the *Shell* line, add the following text:
-
-```
-$PROJECT_DIR/Carthage/Checkouts/CleanroomLogger/BuildControl/bin/stripCarthageFrameworks.sh
-```
-
-This script will ensure that any frameworks built by Carthage are stripped of unnecessary processor architectures. Without this step, Apple would reject your app submission because the frameworks would be included as universal binaries, which [isn’t allowed in App Store submissions](http://www.openradar.me/radar?id=6409498411401216).
-
-Once you’ve done this, try building your application. If you don’t see any errors, **_you’re all done integrating CleanroomLogger!_**
 
 ## Adding the Swift import
 

@@ -28,6 +28,7 @@ fi
 	--author "Evan Maloney, Gilt Groupe" \
 	--author_url "$AUTHOR_GITHUB_URL" \
 	--copyright "© $COPYRIGHT_YEAR [Gilt Groupe](http://tech.gilt.com/)"
+
 JAZZY_EXIT_CODE=$?
 if [[ $JAZZY_EXIT_CODE != 0 ]]; then
 	echo "error: $JAZZY_EXECUTABLE failed with an exit code of $JAZZY_EXIT_CODE; check any output above for additional details."

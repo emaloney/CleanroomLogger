@@ -6,8 +6,8 @@
 # by emaloney, 7 June 2015
 #
 
-SCRIPT_NAME=`basename $0`
-SCRIPT_DIR=`dirname "$PWD/$0"`
+SCRIPT_NAME=$(basename "$0")
+SCRIPT_DIR=$(cd $PWD ; cd `dirname "$0"` ; echo $PWD)
 
 showHelp()
 {
@@ -314,11 +314,7 @@ while [[ $1 ]]; do
 done
 
 if [[ $SHOW_HELP ]]; then
-	if [[ -z $AUTOMATED_MODE ]]; then
-		showHelp | less
-	else
-		showHelp
-	fi
+	showHelp
 	exit 1
 fi
 
@@ -442,12 +438,19 @@ if [[ ! -x "$XCODEBUILD" ]]; then
 fi
 
 #
-# build each scheme to try
+# build each scheme we can find
 #
 xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" | while read SCHEME
 do
-	updateStatus "Building $SCHEME..."
+	updateStatus "Building: $SCHEME..."
 	executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean build"
+done
+
+xcodebuild -list | grep "\s${REPO_NAME}" | grep UnitTests | sort | uniq | sed "s/^[ \t]*//" | while read TARGET
+do
+	SCHEME=$(echo "$TARGET" | sed sqUnitTestsqq)
+	updateStatus "Executing unit tests: $TARGET for $SCHEME..."
+	executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean test"
 done
 
 updateStatus "Adjusting version numbers"
@@ -476,4 +479,3 @@ if [[ $PUSH_WHEN_DONE ]]; then
 	executeCommand "git push"
 	executeCommand "git push --tags"
 fi
-

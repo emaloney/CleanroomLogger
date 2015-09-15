@@ -37,9 +37,9 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 8. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.
 
 
-### Build Requirements
+### Swift 2.0 compatibility
 
-This branch is Swift 2.0 compliant. **Xcode 7 beta 6 or higher to is required to build**.
+The `master` branch of this project is Swift 2.0 compliant and therefore **requires Xcode 7.0 or higher to compile**.
 
 
 ### License
@@ -53,9 +53,9 @@ CleanroomLogger is provided for your use—free-of-charge—on an as-is basis. W
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-You'll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html) it provides. You can choose:
+You’ll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html) it provides. You can choose:
 
-- [Manual integration](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md#manual-integration), wherein you embed CleanroomLogger's Xcode project within your own, **_or_**
+- [Manual integration](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md#manual-integration), wherein you embed CleanroomLogger’s Xcode project within your own, **_or_**
 - [Using the Carthage dependency manager](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md#carthage-integration) to build a framework that you then embed in your application.
  
 Once integrated, just add the following `import` statement to any Swift file where you want to use CleanroomLogger:
@@ -63,8 +63,6 @@ Once integrated, just add the following `import` statement to any Swift file whe
 ```swift
 import CleanroomLogger
 ```
-
-## Using CleanroomLogger
 
 The main public API for CleanroomLogger is provided by [`Log`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html).
 
@@ -203,9 +201,9 @@ Although there are many good reasons why global state is to be generally avoided
 
 ## About
 
-The Cleanroom Project is an experiment in re-imagining Gilt's iOS codebase in a legacy-free incarnation that embraces the latest Apple technology.
+The Cleanroom Project began as an experiment to re-imagine Gilt’s iOS codebase in a legacy-free incarnation that embraced the latest Apple technology. Since then, Cleanroom Project code has served as the basis of Gilt’s tvOS app, [featured by Apple during the keynote](http://www.apple.com/apple-events/september-2015/) introducing the App Store for Apple TV.
 
-We'll be tracking the most up-to-date releases of Swift, iOS and Xcode, and we'll be [open-sourcing major portions of our code](https://github.com/gilt/Cleanroom#open-source-by-default) as we go.
+We’ll be tracking the latest releases of Swift and Xcode, and we’ll be [open-sourcing major portions of our code](https://github.com/gilt/Cleanroom#open-source-by-default) as we go.
 
 
 ### Contributing
@@ -217,5 +215,5 @@ If you’d like to contribute to this or any other Cleanroom Project repo, pleas
 
 ### Acknowledgements
 
-[API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html) is generated using [Realm](http://realm.io)'s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
+[API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
 
