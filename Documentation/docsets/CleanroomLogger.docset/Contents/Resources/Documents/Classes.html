@@ -88,6 +88,44 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C12CleanroomASL9ASLClient"></a>
+                    <a name="//apple_ref/swift/Class/ASLClient" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C12CleanroomASL9ASLClient">ASLClient</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>ASLClient</code> instances maintain a client connection to the ASL daemon, and can
+used to perform logging and to execute log search queries.</p>
+
+<p><strong>Note:</strong> Because the underlying client connection is not intended to be shared
+across threads, each <code>ASLClient</code> has an associated GCD serial queue used to
+ensure that the underlying ASL client connection is only ever used from a single
+thread.</p>
+
+                        <a href="Classes/ASLClient.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ASLClient</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C12CleanroomASL9ASLObject"></a>
                     <a name="//apple_ref/swift/Class/ASLObject" class="dashAnchor"></a>
                     <a class="token" href="#/s:C12CleanroomASL9ASLObject">ASLObject</a>
@@ -177,44 +215,6 @@ property.</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ASLQueryObject</span><span class="p">:</span> <span class="kt">ASLObject</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:C12CleanroomASL9ASLClient"></a>
-                    <a name="//apple_ref/swift/Class/ASLClient" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C12CleanroomASL9ASLClient">ASLClient</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>ASLClient</code> instances maintain a client connection to the ASL daemon, and can
-used to perform logging and to execute log search queries.</p>
-
-<p><strong>Note:</strong> Because the underlying client connection is not intended to be shared
-across threads, each <code>ASLClient</code> has an associated GCD serial queue used to
-ensure that the underlying ASL client connection is only ever used from a single
-thread.</p>
-
-                        <a href="Classes/ASLClient.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ASLClient</span></code></pre>
 
                         </div>
                       </div>
