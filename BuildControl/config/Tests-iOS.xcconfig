@@ -1,0 +1,2 @@
+#include "Tests.xcconfig"
+#include "iOS.xcconfig"

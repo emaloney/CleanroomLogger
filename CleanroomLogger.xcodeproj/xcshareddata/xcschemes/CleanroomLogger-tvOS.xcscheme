@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3B6940E81B54940A00DECA01"
+               BlueprintIdentifier = "3B00E5991BA37A420011486D"
                BuildableName = "CleanroomLogger.framework"
                BlueprintName = "CleanroomLogger-tvOS"
                ReferencedContainer = "container:CleanroomLogger.xcodeproj">
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3B00E5A21BA37A420011486D"
+               BuildableName = "CleanroomLoggerUnitTests.xctest"
+               BlueprintName = "CleanroomLoggerUnitTests-tvOS"
+               ReferencedContainer = "container:CleanroomLogger.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "3B00E5991BA37A420011486D"
+            BuildableName = "CleanroomLogger.framework"
+            BlueprintName = "CleanroomLogger-tvOS"
+            ReferencedContainer = "container:CleanroomLogger.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -45,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B6940E81B54940A00DECA01"
+            BlueprintIdentifier = "3B00E5991BA37A420011486D"
             BuildableName = "CleanroomLogger.framework"
             BlueprintName = "CleanroomLogger-tvOS"
             ReferencedContainer = "container:CleanroomLogger.xcodeproj">
@@ -63,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B6940E81B54940A00DECA01"
+            BlueprintIdentifier = "3B00E5991BA37A420011486D"
             BuildableName = "CleanroomLogger.framework"
             BlueprintName = "CleanroomLogger-tvOS"
             ReferencedContainer = "container:CleanroomLogger.xcodeproj">

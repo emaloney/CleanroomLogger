@@ -1,1 +1,2 @@
+SDKROOT = appletvos
 TVOS_DEPLOYMENT_TARGET = 9.0
