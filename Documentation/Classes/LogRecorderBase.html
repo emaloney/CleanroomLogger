@@ -28,7 +28,7 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="../Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
@@ -45,7 +45,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Enums.html">Enums</a>
+            <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
@@ -53,15 +53,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-          <a href="../Protocols.html">Protocols</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -78,7 +70,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Structs.html">Structs</a>
+            <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
@@ -109,7 +101,13 @@
         <section>
           <section class="section">
             <h1>LogRecorderBase</h1>
-            <p>A partial implementation of the <code>LogRecorder</code> protocol.</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LogRecorderBase</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+
+                </div>
+              </div>
+            <p>A partial implementation of the <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code> protocol.</p>
 
 <p>Note that this implementation provides no mechanism for log file rotation
 or log pruning. It is the responsibility of the developer to keep the log
@@ -132,13 +130,13 @@ file at a reasonable size.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the <code>LogRecorder</code>, which is constructed automatically
+                        <p>The name of the <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code>, which is constructed automatically
 based on the <code>filePath</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
@@ -160,13 +158,13 @@ based on the <code>filePath</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogFormatter</code>s that will be used to format messages for
-the <code>LogEntry</code>s to be logged.</p>
+                        <p>The <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s that will be used to format messages for
+the <code><a href="../Structs/LogEntry.html">LogEntry</a></code>s to be logged.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span></code></pre>
 
@@ -178,9 +176,9 @@ the <code>LogEntry</code>s to be logged.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger15LogRecorderBase5queueCSo8NSObject"></a>
+                    <a name="/s:vC15CleanroomLogger15LogRecorderBase5queuePSo17OS_dispatch_queue_"></a>
                     <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger15LogRecorderBase5queueCSo8NSObject">queue</a>
+                    <a class="token" href="#/s:vC15CleanroomLogger15LogRecorderBase5queuePSo17OS_dispatch_queue_">queue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -194,7 +192,7 @@ the receiver.</p>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span></code></pre>
 
@@ -216,49 +214,20 @@ the receiver.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize a new <code>LogRecorderBase</code> instance to use the given parameters.</p>
+                        <p>Initialize a new <code><a href="../Classes/LogRecorderBase.html">LogRecorderBase</a></code> instance to use the given parameters.</p>
+
+<p>:param:     name The name of the log recorder, which must be unique.</p>
+
+<p>:param:     formatters The <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s to use for the recorder.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">DefaultLogFormatter</span><span class="p">()])</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>name</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The name of the log recorder, which must be unique.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>formatters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogFormatter</code>s to use for the recorder.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -266,9 +235,9 @@ the receiver.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger15LogRecorderBase22recordFormattedMessageFS0_FTSS11forLogEntryVS_8LogEntry12currentQueueCSo8NSObject15synchronousModeSb_T_"></a>
+                    <a name="/s:FC15CleanroomLogger15LogRecorderBase22recordFormattedMessageFS0_FTSS11forLogEntryVS_8LogEntry12currentQueuePSo17OS_dispatch_queue_15synchronousModeSb_T_"></a>
                     <a name="//apple_ref/swift/Method/recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger15LogRecorderBase22recordFormattedMessageFS0_FTSS11forLogEntryVS_8LogEntry12currentQueueCSo8NSObject15synchronousModeSb_T_">recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)</a>
+                    <a class="token" href="#/s:FC15CleanroomLogger15LogRecorderBase22recordFormattedMessageFS0_FTSS11forLogEntryVS_8LogEntry12currentQueuePSo17OS_dispatch_queue_15synchronousModeSb_T_">recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -279,81 +248,30 @@ the receiver.</p>
                         <p>This implementation does nothing. Subclasses must override this function
 to provide actual log recording functionality.</p>
 
-<p><strong>Note:</strong> This function is only called if one of the <code>formatters</code> 
+<p><strong>Note:</strong> This function is only called if one of the <code><a href="../Classes/LogRecorderBase.html#/s:vC15CleanroomLogger15LogRecorderBase10formattersGSaPS_12LogFormatter__">formatters</a></code> 
 associated with the receiver returned a non-<code>nil</code> string.</p>
+
+<p>:param:     message The message to record.</p>
+
+<p>:param:     entry The <code><a href="../Structs/LogEntry.html">LogEntry</a></code> for which <code>message</code> was created.</p>
+
+<p>:param:     currentQueue The GCD queue on which the function is being 
+            executed.</p>
+
+<p>:param:     synchronousMode If <code>true</code>, the receiver should record the
+            log entry synchronously. Synchronous mode is used during
+            debugging to help ensure that logs reflect the latest state
+            when debug breakpoints are hit. It is not recommended for
+            production code.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>message</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The message to record.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>entry</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>currentQueue</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The GCD queue on which the function is being 
-executed.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>synchronousMode</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>true</code>, the receiver should record the
-log entry synchronously. Synchronous mode is used during
-debugging to help ensure that logs reflect the latest state
-when debug breakpoints are hit. It is not recommended for
-production code.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -363,8 +281,8 @@ production code.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

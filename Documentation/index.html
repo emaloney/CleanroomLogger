@@ -27,49 +27,70 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="Classes.html">Classes</a>
+            <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/ASLClient.html">ASLClient</a>
+                <a href="Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ASLMessageObject.html">ASLMessageObject</a>
+                <a href="Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ASLObject.html">ASLObject</a>
+                <a href="Classes/LogReceptacle.html">LogReceptacle</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ASLQueryObject.html">ASLQueryObject</a>
+                <a href="Classes/LogRecorderBase.html">LogRecorderBase</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Enums.html">Enums</a>
+            <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Enums/ASLAttributeKey.html">ASLAttributeKey</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/ASLPriorityLevel.html">ASLPriorityLevel</a>
+                <a href="Enums/LogSeverity.html">LogSeverity</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Extensions.html">Extensions</a>
+            <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Extensions/asl_object_t.html">asl_object_t</a>
+                <a href="Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LogFilter.html">LogFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LogFormatter.html">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/LogRecorder.html">LogRecorder</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="Subscripts.html">Subscripts</a>
+            <a href="Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Subscripts.html#/s:sE12CleanroomASLVSs14COpaquePointer9subscriptFVSs6UInt32GSqSS_">subscript(_:)</a>
+                <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
-                <a href="Subscripts.html#/s:sE12CleanroomASLVSs14COpaquePointer9subscriptFOS_15ASLAttributeKeyGSqSS_">subscript(_:)</a>
+                <a href="Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogChannel.html">LogChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogEntry.html">LogEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
             </ul>
           </li>
@@ -79,7 +100,9 @@
         <section>
           <section class="section">
             
-            <p>The main public API for CleanroomLogger is provided by <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html"><code>Log</code></a>.</p>
+            <a href='#using_cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='using_cleanroomlogger'>Using CleanroomLogger</h2>
+
+<p>The main public API for CleanroomLogger is provided by <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html"><code>Log</code></a>.</p>
 
 <p><code>Log</code> maintains five static read-only <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html"><code>LogChannel</code></a> properties that correspond to one of five <em>severity levels</em> indicating the importance of messages sent through that channel. When sending a message, you would select a severity appropriate for that message, and use the corresponding channel:</p>
 
@@ -168,7 +191,7 @@
         </section>
         <section id="footer">
           <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

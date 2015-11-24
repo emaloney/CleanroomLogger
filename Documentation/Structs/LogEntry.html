@@ -28,7 +28,7 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="../Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
@@ -45,7 +45,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Enums.html">Enums</a>
+            <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
@@ -53,15 +53,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-          <a href="../Protocols.html">Protocols</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -78,7 +70,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Structs.html">Structs</a>
+            <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
@@ -109,6 +101,12 @@
         <section>
           <section class="section">
             <h1>LogEntry</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogEntry</span></code></pre>
+
+                </div>
+              </div>
             <p>Represents an entry to be written to the log.</p>
 
           </section>
@@ -134,7 +132,7 @@
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Payload</span></code></pre>
 
@@ -161,7 +159,7 @@
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">payload</span><span class="p">:</span> <span class="kt">Payload</span></code></pre>
 
@@ -188,7 +186,7 @@
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span></code></pre>
 
@@ -215,7 +213,7 @@
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callingFunction</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
@@ -243,7 +241,7 @@ the log request.</p>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callingFilePath</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
@@ -270,7 +268,7 @@ the log request.</p>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callingFileLine</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
@@ -298,7 +296,7 @@ recycled over time.</p>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callingThreadID</span><span class="p">:</span> <span class="kt">UInt64</span></code></pre>
 
@@ -320,12 +318,12 @@ recycled over time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The time at which the <code>LogEntry</code> was created.</p>
+                        <p>The time at which the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> was created.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">timestamp</span><span class="p">:</span> <span class="kt">NSDate</span></code></pre>
 
@@ -347,119 +345,35 @@ recycled over time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>LogEntry</code> initializer.</p>
+                        <p><code><a href="../Structs/LogEntry.html">LogEntry</a></code> initializer.</p>
+
+<p>:param:     payload The payload of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> being constructed.</p>
+
+<p>:param:     severity The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> of the message being logged.</p>
+
+<p>:param:     callingFunction The signature of the function that issued the 
+            log request.</p>
+
+<p>:param:     callingFilePath The path of the source file containing the 
+            calling function that issued the log request.</p>
+
+<p>:param:     callingFileLine The line within the source file at which the log
+            request was issued.</p>
+
+<p>:param:     callingThreadID A numeric identifier for the calling thread. 
+            Note that thread IDs are recycled over time.</p>
+
+<p>:param:     timestamp The time at which the log entry was created. Defaults
+            to the current time if not specified.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">payload</span><span class="p">:</span> <span class="kt">Payload</span><span class="p">,</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">,</span> <span class="nv">callingFunction</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">callingFilePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">callingFileLine</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">callingThreadID</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">timestamp</span><span class="p">:</span> <span class="kt">NSDate</span> <span class="o">=</span> <span class="kt">NSDate</span><span class="p">())</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>payload</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The payload of the <code>LogEntry</code> being constructed.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>severity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> of the message being logged.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>callingFunction</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The signature of the function that issued the 
-log request.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>callingFilePath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The path of the source file containing the 
-calling function that issued the log request.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>callingFileLine</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The line within the source file at which the log
-request was issued.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>callingThreadID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A numeric identifier for the calling thread. 
-Note that thread IDs are recycled over time.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>timestamp</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The time at which the log entry was created. Defaults
-to the current time if not specified.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -469,8 +383,8 @@ to the current time if not specified.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

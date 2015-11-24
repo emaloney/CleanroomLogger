@@ -28,7 +28,7 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="../Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
@@ -45,7 +45,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Enums.html">Enums</a>
+            <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
@@ -53,15 +53,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-          <a href="../Protocols.html">Protocols</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -78,7 +70,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Structs.html">Structs</a>
+            <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
@@ -109,27 +101,33 @@
         <section>
           <section class="section">
             <h1>Log</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Log</span></code></pre>
+
+                </div>
+              </div>
             <p><code>Log</code> is the primary public API for CleanroomLogger.</p>
 
 <p>If you wish to send a message to the log, you do so by calling the appropriae
-function provided by the appropriate <code>LogChannel</code> given the importance of your
+function provided by the appropriate <code><a href="../Structs/LogChannel.html">LogChannel</a></code> given the importance of your
 message.</p>
 
 <p>There are five levels of severity at which log messages can be recorded. Each
 level is represented by a read-only static variable maintained by the <code>Log</code>:</p>
 
 <ul>
-<li><p><code>Log.error</code> — The highest severity; something has gone wrong and a fatal error
+<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">Log.error</a></code> — The highest severity; something has gone wrong and a fatal error
 may be imminent</p></li>
-<li><p><code>Log.warning</code> — Something appears amiss and might bear looking into before a
+<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">Log.warning</a></code> — Something appears amiss and might bear looking into before a
 larger problem arises</p></li>
-<li><p><code>Log.info</code> — Something notable happened, but it isn&rsquo;t anything to worry about</p></li>
-<li><p><code>Log.debug</code> — Used for debugging and diagnostic information</p></li>
-<li><p><code>Log.verbose</code> - The lowest severity; used for detailed or frequently occurring
+<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">Log.info</a></code> — Something notable happened, but it isn&rsquo;t anything to worry about</p></li>
+<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">Log.debug</a></code> — Used for debugging and diagnostic information</p></li>
+<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">Log.verbose</a></code> - The lowest severity; used for detailed or frequently occurring
 debugging and diagnostic information</p></li>
 </ul>
 
-<p>Each <code>LogChannel</code> can be used in one of three ways:</p>
+<p>Each <code><a href="../Structs/LogChannel.html">LogChannel</a></code> can be used in one of three ways:</p>
 
 <ul>
 <li>The <code>trace()</code> function records a short log message detailing the source
@@ -195,14 +193,14 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogChannel</code> that can be used to perform logging at the <code>.Error</code>
-    log severity level. Will be <code>nil</code> if the <code>Log</code> has not been enabled with
+                        <p>The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> that can be used to perform logging at the <code>.Error</code>
+    log severity level. Will be <code>nil</code> if the <code><a href="../Structs/Log.html">Log</a></code> has not been enabled with
     a minimum severity of <code>.Error</code> or greater.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_error</span> <span class="p">}</span></code></pre>
 
@@ -224,14 +222,14 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogChannel</code> that can be used to perform logging at the <code>.Warning</code>
-log severity level. Will be <code>nil</code> if the <code>Log</code> has not been enabled with
+                        <p>The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> that can be used to perform logging at the <code>.Warning</code>
+log severity level. Will be <code>nil</code> if the <code><a href="../Structs/Log.html">Log</a></code> has not been enabled with
 a minimum severity of <code>.Warning</code> or greater.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">warning</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_warning</span> <span class="p">}</span></code></pre>
 
@@ -253,14 +251,14 @@ a minimum severity of <code>.Warning</code> or greater.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogChannel</code> that can be used to perform logging at the <code>.Info</code>
-log severity level. Will be <code>nil</code> if the <code>Log</code> has not been enabled with
+                        <p>The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> that can be used to perform logging at the <code>.Info</code>
+log severity level. Will be <code>nil</code> if the <code><a href="../Structs/Log.html">Log</a></code> has not been enabled with
 a minimum severity of <code>.Info</code> or greater.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">info</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_info</span> <span class="p">}</span></code></pre>
 
@@ -282,14 +280,14 @@ a minimum severity of <code>.Info</code> or greater.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogChannel</code> that can be used to perform logging at the <code>.Debug</code>
-log severity level. Will be <code>nil</code> if the <code>Log</code> has not been enabled with
+                        <p>The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> that can be used to perform logging at the <code>.Debug</code>
+log severity level. Will be <code>nil</code> if the <code><a href="../Structs/Log.html">Log</a></code> has not been enabled with
 a minimum severity of <code>.Debug</code> or greater.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">debug</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_debug</span> <span class="p">}</span></code></pre>
 
@@ -311,14 +309,14 @@ a minimum severity of <code>.Debug</code> or greater.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogChannel</code> that can be used to perform logging at the <code>.Verbose</code>
-log severity level. Will be <code>nil</code> if the <code>Log</code> has not been enabled with
+                        <p>The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> that can be used to perform logging at the <code>.Verbose</code>
+log severity level. Will be <code>nil</code> if the <code><a href="../Structs/Log.html">Log</a></code> has not been enabled with
 a minimum severity of <code>.Verbose</code> or greater.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">verbose</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_verbose</span> <span class="p">}</span></code></pre>
 
@@ -330,9 +328,9 @@ a minimum severity of <code>.Verbose</code> or greater.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity15synchronousModeSb_T_"></a>
-                    <a name="//apple_ref/swift/Method/enable(minimumSeverity:synchronousMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity15synchronousModeSb_T_">enable(minimumSeverity:synchronousMode:)</a>
+                    <a name="/s:ZFV15CleanroomLogger3Log6enableFMS0_FTOS_11LogSeverity15synchronousModeSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/enable(_:synchronousMode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFMS0_FTOS_11LogSeverity15synchronousModeSb_T_">enable(_:synchronousMode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -340,60 +338,31 @@ a minimum severity of <code>.Verbose</code> or greater.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables logging with the specified minimum <code>LogSeverity</code> using the
-<code>DefaultLogConfiguration</code>.</p>
+                        <p>Enables logging with the specified minimum <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> using the
+<code><a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a></code>.</p>
 
 <p>This variant logs to the Apple System Log and to the <code>stderr</code> output
 stream of the application process. In Xcode, log messages will appear in
 the console.</p>
 
+<p>:param:     minimumSeverity The minimum <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> for which log messages
+            will be accepted. Attempts to log messages less severe than
+            <code>minimumSeverity</code> will be silently ignored.</p>
+
+<p>:param:     synchronousMode Determines whether synchronous mode logging
+            will be used. <strong>Use of synchronous mode is not recommended in
+            production code</strong>; it is provided for use during debugging, to
+            help ensure that messages send prior to hitting a breakpoint
+            will appear in the console when the breakpoint is hit.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>minimumSeverity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The minimum <code>LogSeverity</code> for which log messages
-will be accepted. Attempts to log messages less severe than
-<code>minimumSeverity</code> will be silently ignored.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>synchronousMode</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Determines whether synchronous mode logging
-will be used. <strong>Use of synchronous mode is not recommended in
-production code</strong>; it is provided for use during debugging, to
-help ensure that messages send prior to hitting a breakpoint
-will appear in the console when the breakpoint is hit.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -411,37 +380,19 @@ will appear in the console when the breakpoint is hit.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables logging using the specified <code>LogConfiguration</code>.</p>
+                        <p>Enables logging using the specified <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>.</p>
+
+<p>:param:     configuration The <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> to use for controlling
+            the behavior of logging.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt">LogConfiguration</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>configuration</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogConfiguration</code> to use for controlling
-the behavior of logging.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -459,52 +410,23 @@ the behavior of logging.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables logging using the specified list of <code>LogConfiguration</code>s.</p>
+                        <p>Enables logging using the specified list of <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>s.</p>
+
+<p>:param:     configuration The list of <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>s to use for controlling
+            the behavior of logging.</p>
+
+<p>:param:     minimumSeverity The minimum <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> for which log messages
+            will be accepted. Attempts to log messages less severe than
+            <code>minimumSeverity</code> will be silently ignored.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogConfiguration</span><span class="p">],</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>configuration</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The list of <code>LogConfiguration</code>s to use for controlling
-the behavior of logging.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>minimumSeverity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The minimum <code>LogSeverity</code> for which log messages
-will be accepted. Attempts to log messages less severe than
-<code>minimumSeverity</code> will be silently ignored.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -522,56 +444,27 @@ will be accepted. Attempts to log messages less severe than
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables logging using the specified <code>LogReceptacle</code>.</p>
+                        <p>Enables logging using the specified <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code>.</p>
 
-<p>Individual <code>LogChannel</code>s for <code>error</code>, <code>warning</code>, <code>info</code>, <code>debug</code>, and 
-<code>verbose</code> will be constructed based on the specified <code>minimumSeverity</code>.
-Each channel will use <code>receptacle</code> as the underlying <code>LogReceptacle</code>.</p>
+<p>Individual <code><a href="../Structs/LogChannel.html">LogChannel</a></code>s for <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">error</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">warning</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">info</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">debug</a></code>, and 
+<code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">verbose</a></code> will be constructed based on the specified <code>minimumSeverity</code>.
+Each channel will use <code>receptacle</code> as the underlying <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code>.</p>
+
+<p>:param:     receptacle The list of <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>s to use for controlling
+            the behavior of logging.</p>
+
+<p>:param:     minimumSeverity The minimum <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> for which log messages
+            will be accepted. Attempts to log messages less severe than
+            <code>minimumSeverity</code> will be silently ignored.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="nv">receptacle</span><span class="p">:</span> <span class="kt">LogReceptacle</span><span class="p">,</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>receptacle</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The list of <code>LogConfiguration</code>s to use for controlling
-the behavior of logging.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>minimumSeverity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The minimum <code>LogSeverity</code> for which log messages
-will be accepted. Attempts to log messages less severe than
-<code>minimumSeverity</code> will be silently ignored.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -589,100 +482,38 @@ will be accepted. Attempts to log messages less severe than
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enables logging using the specified <code>LogChannel</code>s.</p>
+                        <p>Enables logging using the specified <code><a href="../Structs/LogChannel.html">LogChannel</a></code>s.</p>
 
-<p>The static <code>error</code>, <code>warning</code>, <code>info</code>, <code>debug</code>, and <code>verbose</code> properties of
-<code>Log</code> will be set using the specified values.</p>
+<p>The static <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">error</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">warning</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">info</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">debug</a></code>, and <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">verbose</a></code> properties of
+<code><a href="../Structs/Log.html">Log</a></code> will be set using the specified values.</p>
 
-<p>If you know that the configuration of a given <code>LogChannel</code> guarantees that
+<p>If you know that the configuration of a given <code><a href="../Structs/LogChannel.html">LogChannel</a></code> guarantees that
 it will never perform logging, it is best to pass <code>nil</code> instead. Otherwise,
 needless overhead will be added to the application.</p>
+
+<p>:param:     errorChannel The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> to use for logging messages with
+            a <code>severity</code> of <code>.Error</code>.</p>
+
+<p>:param:     warningChannel The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> to use for logging messages with
+            a <code>severity</code> of <code>.Warning</code>.</p>
+
+<p>:param:     infoChannel The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> to use for logging messages with
+            a <code>severity</code> of <code>.Info</code>.</p>
+
+<p>:param:     debugChannel The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> to use for logging messages with
+            a <code>severity</code> of <code>.Debug</code>.</p>
+
+<p>:param:     verboseChannel The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> to use for logging messages with
+            a <code>severity</code> of <code>.Verbose</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="n">errorChannel</span> <span class="nv">errorChannel</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?,</span> <span class="nv">warningChannel</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?,</span> <span class="nv">infoChannel</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?,</span> <span class="nv">debugChannel</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?,</span> <span class="nv">verboseChannel</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>errorChannel</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with
-a <code>severity</code> of <code>.Error</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>warningChannel</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with
-a <code>severity</code> of <code>.Warning</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>infoChannel</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with
-a <code>severity</code> of <code>.Info</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>debugChannel</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with
-a <code>severity</code> of <code>.Debug</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>verboseChannel</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with
-a <code>severity</code> of <code>.Verbose</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -700,45 +531,24 @@ a <code>severity</code> of <code>.Verbose</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the <code>LogChannel</code> responsible for logging at the given severity.</p>
+                        <p>Returns the <code><a href="../Structs/LogChannel.html">LogChannel</a></code> responsible for logging at the given severity.</p>
+
+<p>:param:     severity The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> level of the <code><a href="../Structs/LogChannel.html">LogChannel</a></code> to
+            return.</p>
+
+<p>:returns:   The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> used by <code><a href="../Structs/Log.html">Log</a></code> to perform logging at the given
+            severity; will be <code>nil</code> if <code><a href="../Structs/Log.html">Log</a></code> is not configured to
+            perform logging at that severity.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">channelForSeverity</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">)</span>
         <span class="o">-&gt;</span> <span class="kt">LogChannel</span><span class="p">?</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>severity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> level of the <code>LogChannel</code> to
-return.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The <code>LogChannel</code> used by <code>Log</code> to perform logging at the given
-severity; will be <code>nil</code> if <code>Log</code> is not configured to
-perform logging at that severity.</p>
-
                       </div>
                     </section>
                   </div>
@@ -761,79 +571,28 @@ severity. This information includes the signature of the calling function,
 as well as the source file and line at which the call to <code>trace()</code> was
 issued.</p>
 
+<p>:param:     severity The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> for the message being recorded.</p>
+
+<p>:param:     function The default value provided for this parameter captures
+            the signature of the calling function. <strong>You should not provide
+            a value for this parameter.</strong></p>
+
+<p>:param:     filePath The default value provided for this parameter captures
+            the file path of the code issuing the call to this function. 
+            <strong>You should not provide a value for this parameter.</strong></p>
+
+<p>:param:     fileLine The default value provided for this parameter captures
+            the line number issuing the call to this function. <strong>You should
+            not provide a value for this parameter.</strong></p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">trace</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>severity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> for the message being recorded.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>function</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the signature of the calling function. <strong>You should not provide
-a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>filePath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the file path of the code issuing the call to this function. 
-<strong>You should not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>fileLine</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the line number issuing the call to this function. <strong>You should
-not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -853,92 +612,30 @@ not provide a value for this parameter.</strong></p>
                       <div class="abstract">
                         <p>Writes a string-based message to the log using the specified severity.</p>
 
+<p>:param:     severity The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> for the message being recorded.</p>
+
+<p>:param:     msg The message to log.</p>
+
+<p>:param:     function The default value provided for this parameter captures
+            the signature of the calling function. <strong>You should not provide
+            a value for this parameter.</strong></p>
+
+<p>:param:     filePath The default value provided for this parameter captures
+            the file path of the code issuing the call to this function. 
+            <strong>You should not provide a value for this parameter.</strong></p>
+
+<p>:param:     fileLine The default value provided for this parameter captures
+            the line number issuing the call to this function. <strong>You should
+            not provide a value for this parameter.</strong></p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">message</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>severity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> for the message being recorded.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>msg</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The message to log.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>function</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the signature of the calling function. <strong>You should not provide
-a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>filePath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the file path of the code issuing the call to this function. 
-<strong>You should not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>fileLine</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the line number issuing the call to this function. <strong>You should
-not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -958,95 +655,33 @@ not provide a value for this parameter.</strong></p>
                       <div class="abstract">
                         <p>Writes an arbitrary value to the log using the specified severity.</p>
 
+<p>:param:     severity The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> for the message being recorded.</p>
+
+<p>:param:     value The value to write to the log. The underlying logging
+            implementation is responsible for converting <code>value</code> into a
+            text representation. If that is not possible, the log request
+            may be silently ignored.</p>
+
+<p>:param:     function The default value provided for this parameter captures
+            the signature of the calling function. <strong>You should not provide
+            a value for this parameter.</strong></p>
+
+<p>:param:     filePath The default value provided for this parameter captures
+            the file path of the code issuing the call to this function. 
+            <strong>You should not provide a value for this parameter.</strong></p>
+
+<p>:param:     fileLine The default value provided for this parameter captures
+            the line number issuing the call to this function. <strong>You should
+            not provide a value for this parameter.</strong></p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>severity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> for the message being recorded.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>value</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The value to write to the log. The underlying logging
-implementation is responsible for converting <code>value</code> into a
-text representation. If that is not possible, the log request
-may be silently ignored.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>function</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the signature of the calling function. <strong>You should not provide
-a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>filePath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the file path of the code issuing the call to this function. 
-<strong>You should not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>fileLine</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the line number issuing the call to this function. <strong>You should
-not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -1056,8 +691,8 @@ not provide a value for this parameter.</strong></p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

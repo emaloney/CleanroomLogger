@@ -28,7 +28,7 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="../Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
@@ -45,7 +45,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Enums.html">Enums</a>
+            <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
@@ -53,15 +53,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-          <a href="../Protocols.html">Protocols</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -78,7 +70,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Structs.html">Structs</a>
+            <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
@@ -109,17 +101,23 @@
         <section>
           <section class="section">
             <h1>LogChannel</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogChannel</span></code></pre>
+
+                </div>
+              </div>
             <p><code>LogChannel</code> instances provide the high-level interface for accepting log
 messages.</p>
 
-<p>They are responsible for converting log requests into <code>LogEntry</code> instances
-that they then pass along to their associated <code>LogReceptacle</code>s to perform the
+<p>They are responsible for converting log requests into <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances
+that they then pass along to their associated <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code>s to perform the
 actual logging.</p>
 
 <p><code>LogChannel</code>s are provided as a convenience, exposed as static properties
-through <code>Log</code>. Use of <code>LogChannel</code>s and the <code>Log</code> is not required for logging;
-you can also perform logging by creating <code>LogEntry</code> instances manually and 
-passing them along to a <code>LogReceptacle</code>.</p>
+through <code><a href="../Structs/Log.html">Log</a></code>. Use of <code>LogChannel</code>s and the <code><a href="../Structs/Log.html">Log</a></code> is not required for logging;
+you can also perform logging by creating <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances manually and 
+passing them along to a <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -138,13 +136,13 @@ passing them along to a <code>LogReceptacle</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogSeverity</code> of this <code>LogChannel</code>, which determines the severity
-of the <code>LogEntry</code> instances it creates.</p>
+                        <p>The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> of this <code><a href="../Structs/LogChannel.html">LogChannel</a></code>, which determines the severity
+of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it creates.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span></code></pre>
 
@@ -166,13 +164,13 @@ of the <code>LogEntry</code> instances it creates.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogReceptacle</code> into which this <code>LogChannel</code> will deposit
-the <code>LogEntry</code> instances it creates.</p>
+                        <p>The <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> into which this <code><a href="../Structs/LogChannel.html">LogChannel</a></code> will deposit
+the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it creates.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">receptacle</span><span class="p">:</span> <span class="kt">LogReceptacle</span></code></pre>
 
@@ -194,51 +192,22 @@ the <code>LogEntry</code> instances it creates.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>LogChannel</code> instance using the specified parameters.</p>
+                        <p>Initializes a new <code><a href="../Structs/LogChannel.html">LogChannel</a></code> instance using the specified parameters.</p>
+
+<p>:param:     severity The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> to use for log entries written to the
+            receiving channel.</p>
+
+<p>:param:     receptacle A <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> instance to use for formatting log
+            entries.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">,</span> <span class="nv">receptacle</span><span class="p">:</span> <span class="kt">LogReceptacle</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>severity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> to use for log entries written to the
-receiving channel.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>receptacle</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A <code>LogFormatter</code> instance to use for formatting log
-entries.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -246,9 +215,9 @@ entries.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger10LogChannel5traceFS0_FT8functionSS8filePathSS8fileLineSi_T_"></a>
-                    <a name="//apple_ref/swift/Method/trace(function:filePath:fileLine:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger10LogChannel5traceFS0_FT8functionSS8filePathSS8fileLineSi_T_">trace(function:filePath:fileLine:)</a>
+                    <a name="/s:FV15CleanroomLogger10LogChannel5traceFS0_FTSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/trace(_:filePath:fileLine:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger10LogChannel5traceFS0_FTSS8filePathSS8fileLineSi_T_">trace(_:filePath:fileLine:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -260,66 +229,26 @@ entries.</p>
 includes the signature of the calling function, as well as the source file
 and line at which the call to <code>trace()</code> was issued.</p>
 
+<p>:param:     function The default value provided for this parameter captures
+            the signature of the calling function. <strong>You should not provide
+            a value for this parameter.</strong></p>
+
+<p>:param:     filePath The default value provided for this parameter captures
+            the file path of the code issuing the call to this function. 
+            <strong>You should not provide a value for this parameter.</strong></p>
+
+<p>:param:     fileLine The default value provided for this parameter captures
+            the line number issuing the call to this function. <strong>You should
+            not provide a value for this parameter.</strong></p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">trace</span><span class="p">(</span><span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>function</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the signature of the calling function. <strong>You should not provide
-a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>filePath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the file path of the code issuing the call to this function. 
-<strong>You should not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>fileLine</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the line number issuing the call to this function. <strong>You should
-not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -339,79 +268,28 @@ not provide a value for this parameter.</strong></p>
                       <div class="abstract">
                         <p>Writes a string-based message to the log.</p>
 
+<p>:param:     msg The message to log.</p>
+
+<p>:param:     function The default value provided for this parameter captures
+            the signature of the calling function. <strong>You should not provide
+            a value for this parameter.</strong></p>
+
+<p>:param:     filePath The default value provided for this parameter captures
+            the file path of the code issuing the call to this function. 
+            <strong>You should not provide a value for this parameter.</strong></p>
+
+<p>:param:     fileLine The default value provided for this parameter captures
+            the line number issuing the call to this function. <strong>You should
+            not provide a value for this parameter.</strong></p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">message</span><span class="p">(</span><span class="nv">msg</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>msg</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The message to log.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>function</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the signature of the calling function. <strong>You should not provide
-a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>filePath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the file path of the code issuing the call to this function. 
-<strong>You should not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>fileLine</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the line number issuing the call to this function. <strong>You should
-not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -431,82 +309,31 @@ not provide a value for this parameter.</strong></p>
                       <div class="abstract">
                         <p>Writes an arbitrary value to the log.</p>
 
+<p>:param:     value The value to write to the log. The underlying logging
+            implementation is responsible for converting <code>value</code> into a
+            text representation. If that is not possible, the log request
+            may be silently ignored.</p>
+
+<p>:param:     function The default value provided for this parameter captures
+            the signature of the calling function. <strong>You should not provide
+            a value for this parameter.</strong></p>
+
+<p>:param:     filePath The default value provided for this parameter captures
+            the file path of the code issuing the call to this function. 
+            <strong>You should not provide a value for this parameter.</strong></p>
+
+<p>:param:     fileLine The default value provided for this parameter captures
+            the line number issuing the call to this function. <strong>You should
+            not provide a value for this parameter.</strong></p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">function</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FUNCTION__</span><span class="p">,</span> <span class="nv">filePath</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">__FILE__</span><span class="p">,</span> <span class="nv">fileLine</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="k">__LINE__</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>value</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The value to write to the log. The underlying logging
-implementation is responsible for converting <code>value</code> into a
-text representation. If that is not possible, the log request
-may be silently ignored.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>function</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the signature of the calling function. <strong>You should not provide
-a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>filePath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the file path of the code issuing the call to this function. 
-<strong>You should not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>fileLine</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The default value provided for this parameter captures
-the line number issuing the call to this function. <strong>You should
-not provide a value for this parameter.</strong></p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -516,8 +343,8 @@ not provide a value for this parameter.</strong></p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -28,7 +28,7 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="../Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
@@ -45,7 +45,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Enums.html">Enums</a>
+            <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
@@ -53,15 +53,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-          <a href="../Protocols.html">Protocols</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -78,7 +70,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Structs.html">Structs</a>
+            <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
@@ -109,8 +101,14 @@
         <section>
           <section class="section">
             <h1>LogFilter</h1>
-            <p>Before a <code>LogEntry</code> is recorded, any <code>LogFilter</code>s specified in the active
-<code>LogConfiguration</code> are given a chance to prevent the entry from being recorded
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogFilter</span></code></pre>
+
+                </div>
+              </div>
+            <p>Before a <code><a href="../Structs/LogEntry.html">LogEntry</a></code> is recorded, any <code>LogFilter</code>s specified in the active
+<code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> are given a chance to prevent the entry from being recorded
 by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> function.</p>
 
           </section>
@@ -120,9 +118,9 @@ by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> fun
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP15CleanroomLogger9LogFilter20shouldRecordLogEntryUS0___FQPS0_FVS_8LogEntrySb"></a>
+                    <a name="/s:FP15CleanroomLogger9LogFilter20shouldRecordLogEntryuRq_S0__Fq_FVS_8LogEntrySb"></a>
                     <a name="//apple_ref/swift/Method/shouldRecordLogEntry(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP15CleanroomLogger9LogFilter20shouldRecordLogEntryUS0___FQPS0_FVS_8LogEntrySb">shouldRecordLogEntry(_:)</a>
+                    <a class="token" href="#/s:FP15CleanroomLogger9LogFilter20shouldRecordLogEntryuRq_S0__Fq_FVS_8LogEntrySb">shouldRecordLogEntry(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -130,41 +128,20 @@ by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> fun
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Called to determine whether the given <code>LogEntry</code> should be recorded.</p>
+                        <p>Called to determine whether the given <code><a href="../Structs/LogEntry.html">LogEntry</a></code> should be recorded.</p>
+
+<p>:param:     entry The <code><a href="../Structs/LogEntry.html">LogEntry</a></code> to be evaluated by the filter.</p>
+
+<p>:returns:   <code>true</code> if <code>entry</code> should be recorded, <code>false</code> if not.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">func</span> <span class="nf">shouldRecordLogEntry</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>entry</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogEntry</code> to be evaluated by the filter.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p><code>true</code> if <code>entry</code> should be recorded, <code>false</code> if not.</p>
-
                       </div>
                     </section>
                   </div>
@@ -174,8 +151,8 @@ by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> fun
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

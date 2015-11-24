@@ -28,7 +28,7 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="../Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
@@ -45,7 +45,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Enums.html">Enums</a>
+            <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
@@ -53,15 +53,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-          <a href="../Protocols.html">Protocols</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -78,7 +70,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Structs.html">Structs</a>
+            <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
@@ -109,10 +101,16 @@
         <section>
           <section class="section">
             <h1>LogReceptacle</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">LogReceptacle</span></code></pre>
+
+                </div>
+              </div>
             <p><code>LogReceptacle</code>s provide the low-level interface for accepting log messages.</p>
 
 <p>Although you could use a <code>LogReceptacle</code> directly to perform all logging
-functions, the <code>Log</code> implementation provides a higher-level interface that&rsquo;s
+functions, the <code><a href="../Structs/Log.html">Log</a></code> implementation provides a higher-level interface that&rsquo;s
 more convenient to use within your code.</p>
 
           </section>
@@ -132,12 +130,12 @@ more convenient to use within your code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>LogConfiguration</code> instances used to construct the receiver.</p>
+                        <p>The <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> instances used to construct the receiver.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogConfiguration</span><span class="p">]</span></code></pre>
 
@@ -159,51 +157,33 @@ more convenient to use within your code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Constructs a new <code>LogReceptacle</code> that will use the specified configurations.</p>
+                        <p>Constructs a new <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> that will use the specified configurations.</p>
 
-<p>When a <code>LogEntry</code> is passed to the receiver&rsquo;s <code>log()</code> function, the
-<code>LogConfiguration</code>s passed to this initializer will be evaluated in order
+<p>When a <code><a href="../Structs/LogEntry.html">LogEntry</a></code> is passed to the receiver&rsquo;s <code>log()</code> function, the
+<code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>s passed to this initializer will be evaluated in order
 until the first one is found where the entry&rsquo;s <code>severity</code> property is as
-severe or more severe than the <code>minimumSeverity</code> of the <code>LogConfiguration</code>.</p>
+severe or more severe than the <code>minimumSeverity</code> of the <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>.</p>
 
-<p>The first <code>LogConfiguration</code> matching that criteria is then used to perform
-logging. If no matching <code>LogConfiguration</code> exists, then the log request
+<p>The first <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> matching that criteria is then used to perform
+logging. If no matching <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> exists, then the log request
 is silently ignored.</p>
 
-<p>This mechanism can be used to allow different <code>LogConfiguration</code>s to be
-used for each individual <code>LogSeverity</code> (or for a range of contiguous
-<code>LogSeverity</code> values).</p>
+<p>This mechanism can be used to allow different <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>s to be
+used for each individual <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> (or for a range of contiguous
+<code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> values).</p>
+
+<p>:param:     configuration An array of <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> instances that 
+            specify how the logging system will behave when messages
+            are added.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogConfiguration</span><span class="p">])</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>configuration</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An array of <code>LogConfiguration</code> instances that 
-specify how the logging system will behave when messages
-are added.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -221,37 +201,19 @@ are added.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function accepts a <code>LogEntry</code> instance and attempts to record it
+                        <p>This function accepts a <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instance and attempts to record it
 to the underlying log storage facility.</p>
+
+<p>:param:     entry The <code><a href="../Structs/LogEntry.html">LogEntry</a></code> being logged.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">log</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>entry</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogEntry</code> being logged.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -261,8 +223,8 @@ to the underlying log storage facility.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

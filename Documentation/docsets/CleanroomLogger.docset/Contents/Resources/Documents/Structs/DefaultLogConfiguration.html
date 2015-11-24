@@ -28,7 +28,7 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="../Classes.html">Classes</a>
+            <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
@@ -45,7 +45,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Enums.html">Enums</a>
+            <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
@@ -53,15 +53,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions.html#/s:O15CleanroomLogger11LogSeverity">LogSeverity</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-          <a href="../Protocols.html">Protocols</a>
+            <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -78,7 +70,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-          <a href="../Structs.html">Structs</a>
+            <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
@@ -109,10 +101,16 @@
         <section>
           <section class="section">
             <h1>DefaultLogConfiguration</h1>
-            <p><code>DefaultLogConfiguration</code> is the implementation of the <code>LogConfiguration</code>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogConfiguration</span><span class="p">:</span> <span class="kt">LogConfiguration</span></code></pre>
+
+                </div>
+              </div>
+            <p><code>DefaultLogConfiguration</code> is the implementation of the <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>
 protocol used by default if no other is provided.</p>
 
-<p>The <code>DefaultLogConfiguration</code> uses the <code>ASLLogRecorder</code> to write to the Apple
+<p>The <code>DefaultLogConfiguration</code> uses the <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> to write to the Apple
 System Log as well as the <code>stderr</code> console.</p>
 
 <p>Additional optional <code>LogRecorders</code> may be specified to record messages to
@@ -135,12 +133,12 @@ other arbitrary types of data stores, such as files or HTTP endpoints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The minimum <code>LogSeverity</code> supported by the configuration.</p>
+                        <p>The minimum <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> supported by the configuration.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span></code></pre>
 
@@ -162,12 +160,12 @@ other arbitrary types of data stores, such as files or HTTP endpoints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The list of <code>LogFilter</code>s to be used for filtering log messages.</p>
+                        <p>The list of <code><a href="../Protocols/LogFilter.html">LogFilter</a></code>s to be used for filtering log messages.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span></code></pre>
 
@@ -189,13 +187,13 @@ other arbitrary types of data stores, such as files or HTTP endpoints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The list of <code>LogRecorder</code>s to be used for recording messages to the 
+                        <p>The list of <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code>s to be used for recording messages to the 
 underlying logging facility.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">recorders</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogRecorder</span><span class="p">]</span></code></pre>
 
@@ -223,7 +221,7 @@ configuration.</p>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
 
@@ -245,98 +243,36 @@ configuration.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code>DefaultLogConfiguration</code> that uses the <code>ASLLogRecorder</code> for logging
+                        <p>A <code><a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a></code> that uses the <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> for logging
 messages to the Apple System Log and the application&rsquo;s <code>stderr</code> output
 stream.</p>
+
+<p>:param:     minimumSeverity The minimum <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> supported by the
+            configuration.</p>
+
+<p>:param:     filters A list of <code><a href="../Protocols/LogFilter.html">LogFilter</a></code>s to be used for filtering log
+            messages.</p>
+
+<p>:param:     formatters A list of <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s to be used for formatting
+            log messages.</p>
+
+<p>:param:     additionalRecorders A list of <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code>s to be used in
+            addition to the <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code>.</p>
+
+<p>:param:     synchronousMode Determines whether synchronous mode logging
+            will be used. <strong>Use of synchronous mode is not recommended in
+            production code</strong>; it is provided for use during debugging, to
+            help ensure that messages send prior to hitting a breakpoint
+            will appear in the console when the breakpoint is hit.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">DefaultLogFormatter</span><span class="p">()],</span> <span class="nv">additionalRecorders</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogRecorder</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>minimumSeverity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The minimum <code>LogSeverity</code> supported by the
-configuration.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>filters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A list of <code>LogFilter</code>s to be used for filtering log
-messages.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>formatters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A list of <code>LogFormatter</code>s to be used for formatting
-log messages.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>additionalRecorders</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A list of <code>LogRecorder<code>s to be used in
-addition to the</code>ASLLogRecorder</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>synchronousMode</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Determines whether synchronous mode logging
-will be used. <strong>Use of synchronous mode is not recommended in
-production code</strong>; it is provided for use during debugging, to
-help ensure that messages send prior to hitting a breakpoint
-will appear in the console when the breakpoint is hit.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -354,98 +290,36 @@ will appear in the console when the breakpoint is hit.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code>DefaultLogConfiguration</code> initializer that uses the specified 
-<code>LogRecorder</code>s (and <em>does not</em> include the use of the <code>ASLLogRecorder</code> 
+                        <p>A <code><a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a></code> initializer that uses the specified 
+<code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code>s (and <em>does not</em> include the use of the <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> 
 unless explicitly specified).</p>
+
+<p>:param:     recorders A list of <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code>s to be used for recording
+            log messages.</p>
+
+<p>:param:     minimumSeverity The minimum <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> supported by the
+            configuration.</p>
+
+<p>:param:     filters A list of <code><a href="../Protocols/LogFilter.html">LogFilter</a></code>s to be used for filtering log
+            messages.</p>
+
+<p>:param:     formatters A list of <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s to be used for formatting
+            log messages.</p>
+
+<p>:param:     synchronousMode Determines whether synchronous mode logging
+            will be used. <strong>Use of synchronous mode is not recommended in
+            production code</strong>; it is provided for use during debugging, to
+            help ensure that messages send prior to hitting a breakpoint
+            will appear in the console when the breakpoint is hit.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
-                        <div class="Swift">
+                        <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">recorders</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogRecorder</span><span class="p">],</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">DefaultLogFormatter</span><span class="p">()],</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>recorders</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A list of <code>LogRecorder</code>s to be used for recording
-log messages.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>minimumSeverity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The minimum <code>LogSeverity</code> supported by the
-configuration.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>filters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A list of <code>LogFilter</code>s to be used for filtering log
-messages.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>formatters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A list of <code>LogFormatter</code>s to be used for formatting
-log messages.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>synchronousMode</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Determines whether synchronous mode logging
-will be used. <strong>Use of synchronous mode is not recommended in
-production code</strong>; it is provided for use during debugging, to
-help ensure that messages send prior to hitting a breakpoint
-will appear in the console when the breakpoint is hit.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -455,8 +329,8 @@ will appear in the console when the breakpoint is hit.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2014-2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a>. All rights reserved. (Last updated: 2015-06-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
