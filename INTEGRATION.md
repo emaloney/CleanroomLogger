@@ -218,7 +218,7 @@ If you’re using some other form of version control of if you’re not using ve
 From within the `Libraries` directory, issue the following commands to download CleanroomLogger:
 
 ```bash
-git submodule add https://github.com/emaloney/CleanroomLogger.git
+git submodule add https://github.com/emaloney/CleanroomLogger
 git submodule update --init --recursive
 ```
 
@@ -231,7 +231,7 @@ Next, you’re ready to [embed the `CleanroomLogger.xcodeproj` project file in y
 From within the `Libraries` directory, issue the following command to clone the CleanroomLogger repository:
 
 ```bash
-git clone --recursive https://github.com/emaloney/CleanroomLogger.git
+git clone --recursive https://github.com/emaloney/CleanroomLogger
 ```
 
 ### 2. Embed CleanroomLogger in your project
