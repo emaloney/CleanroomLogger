@@ -12,7 +12,10 @@ fi
 
 pushd "`dirname $0`/../.." > /dev/null
 
-PUBLIC_GITHUB_URL=$(git remote -v | grep fetch | awk '{ print $2 }' | sed s/.git\$// | sed s/^ssh/https/)
+PUBLIC_GITHUB_URL="https://github.com/emaloney/CleanroomLogger"
+if [[ -z "$PUBLIC_GITHUB_URL" ]]; then
+	PUBLIC_GITHUB_URL=$(git remote -v | grep fetch | awk '{ print $2 }' | sed s/.git\$// | sed s/^ssh/https/ | sed s#git@github.com:#https://github.com/# )
+fi
 MODULE_NAME=`basename $PUBLIC_GITHUB_URL`
 AUTHOR_GITHUB_URL=`dirname $PUBLIC_GITHUB_URL`
 CURRENT_YEAR=`date +"%Y"`
