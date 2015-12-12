@@ -1,6 +1,6 @@
 //
 //  LogRecorderBase.swift
-//  Cleanroom Project
+//  CleanroomLogger
 //
 //  Created by Evan Maloney on 5/12/15.
 //  Copyright © 2015 Gilt Groupe. All rights reserved.

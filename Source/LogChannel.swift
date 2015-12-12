@@ -1,6 +1,6 @@
 //
 //  LogChannel.swift
-//  Cleanroom Project
+//  CleanroomLogger
 //
 //  Created by Evan Maloney on 3/20/15.
 //  Copyright © 2015 Gilt Groupe. All rights reserved.

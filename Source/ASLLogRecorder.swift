@@ -1,6 +1,6 @@
 //
 //  ASLLogRecorder.swift
-//  Cleanroom Project
+//  CleanroomLogger
 //
 //  Created by Evan Maloney on 4/1/15.
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
