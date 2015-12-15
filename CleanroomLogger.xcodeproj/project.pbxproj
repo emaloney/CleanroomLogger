@@ -227,6 +227,7 @@
 		3BA4380C1C1B7F4500780448 /* LogRecorderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorderBase.swift; sourceTree = "<group>"; };
 		3BA4380D1C1B7F4500780448 /* LogSeverity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverity.swift; sourceTree = "<group>"; };
 		3BACAC031BA9BB88009E7A3E /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverityTests.swift; sourceTree = "<group>"; };
+		3BF8B2861C1FCB8000CFE0DF /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +396,7 @@
 		3BCBACE11BA369AD007F1C90 = {
 			isa = PBXGroup;
 			children = (
+				3BF8B2861C1FCB8000CFE0DF /* Package.swift */,
 				3BA437FE1C1B7F4500780448 /* Source */,
 				3B09A4D71BA9BC6A007406D1 /* Libraries */,
 				3BACAC021BA9BB88009E7A3E /* Tests */,
