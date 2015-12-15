@@ -28,6 +28,7 @@ fi
 # jazzy	-x "FRAMEWORK_SEARCH_PATHS=\"\$(inherited) Libraries/CleanroomASL/build/\$(CONFIGURATION)\$(EFFECTIVE_PLATFORM_NAME)\"" \
 "$JAZZY_EXECUTABLE" -o Documentation \
 	-m "$MODULE_NAME" \
+	--swift-version 2.1.1 \
 	--readme Code/README.md \
 	--github_url "$PUBLIC_GITHUB_URL" \
 	--author "Evan Maloney, Gilt Groupe" \
