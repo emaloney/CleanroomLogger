@@ -24,6 +24,8 @@ if [[ "$COPYRIGHT_YEAR" != "$CURRENT_YEAR" ]]; then
 	COPYRIGHT_YEAR="${COPYRIGHT_YEAR}-${CURRENT_YEAR}"
 fi
 
+#export FRAMEWORK_SEARCH_PATHS="\$(inherited) Libraries/CleanroomASL/build/\$(CONFIGURATION)\$(EFFECTIVE_PLATFORM_NAME)"
+# jazzy	-x "FRAMEWORK_SEARCH_PATHS=\"\$(inherited) Libraries/CleanroomASL/build/\$(CONFIGURATION)\$(EFFECTIVE_PLATFORM_NAME)\"" \
 "$JAZZY_EXECUTABLE" -o Documentation \
 	-m "$MODULE_NAME" \
 	--readme Code/README.md \
