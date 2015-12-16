@@ -14,6 +14,18 @@
 		3B09A4F11BA9BCCE007406D1 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B09A4E51BA9BCB7007406D1 /* CleanroomASL.framework */; };
 		3B09A4F21BA9BCD7007406D1 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B09A4E71BA9BCB7007406D1 /* CleanroomASL.framework */; };
 		3B09A4F31BA9BCE4007406D1 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B09A4E91BA9BCB7007406D1 /* CleanroomASL.framework */; };
+		3B2FD52C1C21F758001CF415 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD52B1C21F758001CF415 /* Color.swift */; };
+		3B2FD52D1C21F758001CF415 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD52B1C21F758001CF415 /* Color.swift */; };
+		3B2FD52E1C21F758001CF415 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD52B1C21F758001CF415 /* Color.swift */; };
+		3B2FD52F1C21F758001CF415 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD52B1C21F758001CF415 /* Color.swift */; };
+		3B2FD5341C21F853001CF415 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5331C21F853001CF415 /* DefaultColorTable.swift */; };
+		3B2FD5351C21F853001CF415 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5331C21F853001CF415 /* DefaultColorTable.swift */; };
+		3B2FD5361C21F853001CF415 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5331C21F853001CF415 /* DefaultColorTable.swift */; };
+		3B2FD5371C21F853001CF415 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FD5331C21F853001CF415 /* DefaultColorTable.swift */; };
+		3B35BC821C21FA3000E40BB8 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BC811C21FA3000E40BB8 /* ColorTable.swift */; };
+		3B35BC831C21FA3000E40BB8 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BC811C21FA3000E40BB8 /* ColorTable.swift */; };
+		3B35BC841C21FA3000E40BB8 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BC811C21FA3000E40BB8 /* ColorTable.swift */; };
+		3B35BC851C21FA3000E40BB8 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35BC811C21FA3000E40BB8 /* ColorTable.swift */; };
 		3BA4380F1C1B7F4500780448 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA437FF1C1B7F4500780448 /* ASLLogRecorder.swift */; };
 		3BA438101C1B7F4500780448 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA437FF1C1B7F4500780448 /* ASLLogRecorder.swift */; };
 		3BA438111C1B7F4500780448 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA437FF1C1B7F4500780448 /* ASLLogRecorder.swift */; };
@@ -190,6 +202,9 @@
 		3B00E59A1BA37A420011486D /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B00E5A31BA37A420011486D /* CleanroomLoggerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B09A4D81BA9BCB7007406D1 /* CleanroomASL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanroomASL.xcodeproj; path = Libraries/CleanroomASL/CleanroomASL.xcodeproj; sourceTree = "<group>"; };
+		3B2FD52B1C21F758001CF415 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		3B2FD5331C21F853001CF415 /* DefaultColorTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultColorTable.swift; sourceTree = "<group>"; };
+		3B35BC811C21FA3000E40BB8 /* ColorTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTable.swift; sourceTree = "<group>"; };
 		3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-OSX.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-tvOS.xcconfig"; sourceTree = "<group>"; };
@@ -368,6 +383,7 @@
 			children = (
 				3BA437FF1C1B7F4500780448 /* ASLLogRecorder.swift */,
 				3BA438001C1B7F4500780448 /* DailyRotatingLogFileRecorder.swift */,
+				3B2FD5331C21F853001CF415 /* DefaultColorTable.swift */,
 				3BA438011C1B7F4500780448 /* DefaultLogConfiguration.swift */,
 				3BA438021C1B7F4500780448 /* DefaultLogFormatter.swift */,
 				3BA438031C1B7F4500780448 /* FileLogRecorder.swift */,
@@ -381,6 +397,8 @@
 				3BA4380B1C1B7F4500780448 /* LogRecorder.swift */,
 				3BA4380C1C1B7F4500780448 /* LogRecorderBase.swift */,
 				3BA4380D1C1B7F4500780448 /* LogSeverity.swift */,
+				3B35BC811C21FA3000E40BB8 /* ColorTable.swift */,
+				3B2FD52B1C21F758001CF415 /* Color.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -740,6 +758,7 @@
 			files = (
 				3BA4383B1C1B7F4500780448 /* LogReceptacle.swift in Sources */,
 				3BA438331C1B7F4500780448 /* LogFilter.swift in Sources */,
+				3B2FD52C1C21F758001CF415 /* Color.swift in Sources */,
 				3BA438371C1B7F4500780448 /* LogFormatter.swift in Sources */,
 				3BA438471C1B7F4500780448 /* LogSeverity.swift in Sources */,
 				3BA4383F1C1B7F4500780448 /* LogRecorder.swift in Sources */,
@@ -748,11 +767,13 @@
 				3BA4382F1C1B7F4500780448 /* LogEntry.swift in Sources */,
 				3BA438231C1B7F4500780448 /* Log.swift in Sources */,
 				3BA4382B1C1B7F4500780448 /* LogConfiguration.swift in Sources */,
+				3B2FD5341C21F853001CF415 /* DefaultColorTable.swift in Sources */,
 				3BA438271C1B7F4500780448 /* LogChannel.swift in Sources */,
 				3BA4381F1C1B7F4500780448 /* FileLogRecorder.swift in Sources */,
 				3BA438431C1B7F4500780448 /* LogRecorderBase.swift in Sources */,
 				3BA4380F1C1B7F4500780448 /* ASLLogRecorder.swift in Sources */,
 				3BA4381B1C1B7F4500780448 /* DefaultLogFormatter.swift in Sources */,
+				3B35BC821C21FA3000E40BB8 /* ColorTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,6 +791,7 @@
 			files = (
 				3BA4383C1C1B7F4500780448 /* LogReceptacle.swift in Sources */,
 				3BA438341C1B7F4500780448 /* LogFilter.swift in Sources */,
+				3B2FD52D1C21F758001CF415 /* Color.swift in Sources */,
 				3BA438381C1B7F4500780448 /* LogFormatter.swift in Sources */,
 				3BA438481C1B7F4500780448 /* LogSeverity.swift in Sources */,
 				3BA438401C1B7F4500780448 /* LogRecorder.swift in Sources */,
@@ -778,11 +800,13 @@
 				3BA438301C1B7F4500780448 /* LogEntry.swift in Sources */,
 				3BA438241C1B7F4500780448 /* Log.swift in Sources */,
 				3BA4382C1C1B7F4500780448 /* LogConfiguration.swift in Sources */,
+				3B2FD5351C21F853001CF415 /* DefaultColorTable.swift in Sources */,
 				3BA438281C1B7F4500780448 /* LogChannel.swift in Sources */,
 				3BA438201C1B7F4500780448 /* FileLogRecorder.swift in Sources */,
 				3BA438441C1B7F4500780448 /* LogRecorderBase.swift in Sources */,
 				3BA438101C1B7F4500780448 /* ASLLogRecorder.swift in Sources */,
 				3BA4381C1C1B7F4500780448 /* DefaultLogFormatter.swift in Sources */,
+				3B35BC831C21FA3000E40BB8 /* ColorTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,6 +824,7 @@
 			files = (
 				3BA4383D1C1B7F4500780448 /* LogReceptacle.swift in Sources */,
 				3BA438351C1B7F4500780448 /* LogFilter.swift in Sources */,
+				3B2FD52E1C21F758001CF415 /* Color.swift in Sources */,
 				3BA438391C1B7F4500780448 /* LogFormatter.swift in Sources */,
 				3BA438491C1B7F4500780448 /* LogSeverity.swift in Sources */,
 				3BA438411C1B7F4500780448 /* LogRecorder.swift in Sources */,
@@ -808,11 +833,13 @@
 				3BA438311C1B7F4500780448 /* LogEntry.swift in Sources */,
 				3BA438251C1B7F4500780448 /* Log.swift in Sources */,
 				3BA4382D1C1B7F4500780448 /* LogConfiguration.swift in Sources */,
+				3B2FD5361C21F853001CF415 /* DefaultColorTable.swift in Sources */,
 				3BA438291C1B7F4500780448 /* LogChannel.swift in Sources */,
 				3BA438211C1B7F4500780448 /* FileLogRecorder.swift in Sources */,
 				3BA438451C1B7F4500780448 /* LogRecorderBase.swift in Sources */,
 				3BA438111C1B7F4500780448 /* ASLLogRecorder.swift in Sources */,
 				3BA4381D1C1B7F4500780448 /* DefaultLogFormatter.swift in Sources */,
+				3B35BC841C21FA3000E40BB8 /* ColorTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,6 +857,7 @@
 			files = (
 				3BA4383E1C1B7F4500780448 /* LogReceptacle.swift in Sources */,
 				3BA438361C1B7F4500780448 /* LogFilter.swift in Sources */,
+				3B2FD52F1C21F758001CF415 /* Color.swift in Sources */,
 				3BA4383A1C1B7F4500780448 /* LogFormatter.swift in Sources */,
 				3BA4384A1C1B7F4500780448 /* LogSeverity.swift in Sources */,
 				3BA438421C1B7F4500780448 /* LogRecorder.swift in Sources */,
@@ -838,11 +866,13 @@
 				3BA438321C1B7F4500780448 /* LogEntry.swift in Sources */,
 				3BA438261C1B7F4500780448 /* Log.swift in Sources */,
 				3BA4382E1C1B7F4500780448 /* LogConfiguration.swift in Sources */,
+				3B2FD5371C21F853001CF415 /* DefaultColorTable.swift in Sources */,
 				3BA4382A1C1B7F4500780448 /* LogChannel.swift in Sources */,
 				3BA438221C1B7F4500780448 /* FileLogRecorder.swift in Sources */,
 				3BA438461C1B7F4500780448 /* LogRecorderBase.swift in Sources */,
 				3BA438121C1B7F4500780448 /* ASLLogRecorder.swift in Sources */,
 				3BA4381E1C1B7F4500780448 /* DefaultLogFormatter.swift in Sources */,
+				3B35BC851C21FA3000E40BB8 /* ColorTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
