@@ -4,7 +4,7 @@ SCRIPT_NAME=`basename "$0"`
 SCRIPT_DIR=`dirname "$PWD/$0"`
 
 INHERIT_DIRNAME="inherit"
-INHERIT_FILE_INCLUDE_PATH="../../../../BuildControl/config/inherit"
+INHERIT_FILE_INCLUDE_PATH="../../../../BuildControl/config/$INHERIT_DIRNAME"
 
 showHelp()
 {
@@ -107,7 +107,7 @@ if [[ $SHOW_HELP ]]; then
 	exit
 fi
 
-mkdir -p inherit "$INHERIT_DIRNAME"
+mkdir -p "$INHERIT_DIRNAME"
 
 for CONFIG_FILENAME in *.xcconfig; do
 	INHERIT_FILE="${INHERIT_DIRNAME}/${CONFIG_FILENAME}"
