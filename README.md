@@ -37,10 +37,11 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 8. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.
 
 
-### Swift 2.0 compatibility
+### Swift 2.1 compatibility
 
-The `master` branch of this project is Swift 2.0 compliant and therefore **requires Xcode 7.0 or higher to compile**.
+The `master` branch of this project is **Swift 2.1 compliant** and therefore **requires Xcode 7.1 or higher** to compile.
 
+It is also known to work with Swift 2.1.1 in Xcode 7.2.
 
 ### License
 

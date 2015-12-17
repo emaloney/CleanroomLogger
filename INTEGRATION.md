@@ -15,7 +15,9 @@ Apple Watch|watchOS 2.0
 iPhone/iPad|iOS 8.0
 Mac|OS X 10.10
 
-CleanroomLogger is **Swift 2.0**-compliant and requires **Xcode 7.0 or higher** to be built.
+CleanroomLogger is **Swift 2.1 compliant** and therefore **requires Xcode 7.1 or higher** to compile.
+
+It is also known to work with Swift 2.1.1 in Xcode 7.2.
 
 ### Contents
 
@@ -27,7 +29,7 @@ CleanroomLogger is **Swift 2.0**-compliant and requires **Xcode 7.0 or higher** 
 
 Some familiarity with the Terminal application, the bash command line, and the `git` command is assumed.
 
-The steps below have been tested with **git 2.3.8 (Apple Git-58)**, although they should be compatible with a wide range of git versions.
+The steps below have been tested with **git 2.5.4 (Apple Git-61)**, although they should be compatible with a wide range of recent git versions.
 
 
 ### Of Frameworks and Simulators
@@ -66,7 +68,7 @@ carthage version
 
 If Carthage is available, the version you have installed will be shown.
 
-> As of this writing, the current version of Carthage is 0.9.1.
+> As of this writing, the current version of Carthage is 0.11.
 
 If Carthage is not present, you will see an error that looks like:
 
@@ -162,7 +164,7 @@ At the top-left corner of the list of build phases, you will see a “`+`” ico
 Then, in the script editor area just below the *Shell* line, add the following text:
 
 ```
-$PROJECT_DIR/Carthage/Checkouts/CleanroomLogger/BuildControl/bin/stripCarthageFrameworks.sh
+"$PROJECT_DIR"/Carthage/Checkouts/CleanroomLogger/BuildControl/bin/stripCarthageFrameworks.sh
 ```
 
 This script will ensure that any frameworks built by Carthage are stripped of unnecessary processor architectures. Without this step, Apple would reject your app submission because the frameworks would be included as universal binaries, which [isn’t allowed in App Store submissions](http://www.openradar.me/radar?id=6409498411401216).
