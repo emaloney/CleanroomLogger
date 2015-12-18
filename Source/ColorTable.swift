@@ -8,43 +8,52 @@
 
 import Foundation
 
+/**
+ `ColorTable`s are used to supply foreground and background `Color` values
+ for a given `LogSeverity`.
+ */
 public protocol ColorTable
 {
+    /**
+     Returns the foreground color to use (if any) for colorizing messages
+     at the given `LogSeverity`.
+     
+     - parameter severity: The `LogSeverity` whose color information is
+                 being retrieved.
+
+     - returns: The foreground `Color` to use for `severity`, or `nil` if no
+                color is specified.
+    */
     func foregroundColorForSeverity(severity: LogSeverity) -> Color?
 
+    /**
+     Returns the background color to use (if any) for colorizing messages
+     at the given `LogSeverity`.
+     
+     - parameter severity: The `LogSeverity` whose color information is
+                 being retrieved.
+     
+     - returns: The background `Color` to use for `severity`, or `nil` if no
+                color is specified.
+    */
     func backgroundColorForSeverity(severity: LogSeverity) -> Color?
-
-    func colorizeString(str: String, forSeverity severity: LogSeverity) -> String
 }
 
 extension ColorTable
 {
+    /**
+     A default function implementation to always return `nil` indicating
+     that no background color information is specified. By default, 
+     `ColorTable` implementations only supply foreground color information.
+     
+     - parameter severity: The `LogSeverity` whose color information is
+                 being retrieved.
+     
+     - returns: Always `nil`.
+    */
     public func backgroundColorForSeverity(severity: LogSeverity)
         -> Color?
     {
-        // by default, color tables only set a foreground color
         return nil
-    }
-}
-
-extension ColorTable
-{
-    public func colorizeString(str: String, forSeverity severity: LogSeverity)
-        -> String
-    {
-        let esc = "\u{001b}["
-
-        var prefix = ""
-        var suffix = ""
-        if let fgColor = foregroundColorForSeverity(severity) {
-            prefix += "\(esc)\(fgColor.foregroundColorDeclaration);"
-            suffix = "\(esc);"
-        }
-        if let bgColor = backgroundColorForSeverity(severity) {
-            prefix += "\(esc)\(bgColor.backgroundColorDeclaration);"
-            suffix = "\(esc);"
-        }
-
-        return "\(prefix)\(str)\(suffix)"
     }
 }
