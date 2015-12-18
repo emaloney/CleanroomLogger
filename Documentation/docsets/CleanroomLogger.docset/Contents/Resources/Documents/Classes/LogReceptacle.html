@@ -56,6 +56,12 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols/ColorTable.html">ColorTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Colorizer.html">Colorizer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -76,6 +82,12 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultColorTable.html">DefaultColorTable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -92,6 +104,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/XcodeColorsColorizer.html">XcodeColorsColorizer</a>
               </li>
             </ul>
           </li>
@@ -172,10 +187,6 @@ is silently ignored.</p>
 used for each individual <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> (or for a range of contiguous
 <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> values).</p>
 
-<p>:param:     configuration An array of <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> instances that 
-            specify how the logging system will behave when messages
-            are added.</p>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -184,6 +195,26 @@ used for each individual <code><a href="../Enums/LogSeverity.html">LogSeverity</
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogConfiguration</span><span class="p">])</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of <code>LogConfiguration</code> instances that specify how the logging system will behave when messages are added.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -204,8 +235,6 @@ used for each individual <code><a href="../Enums/LogSeverity.html">LogSeverity</
                         <p>This function accepts a <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instance and attempts to record it
 to the underlying log storage facility.</p>
 
-<p>:param:     entry The <code><a href="../Structs/LogEntry.html">LogEntry</a></code> being logged.</p>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -214,6 +243,26 @@ to the underlying log storage facility.</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">log</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> being logged.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

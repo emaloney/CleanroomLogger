@@ -55,6 +55,12 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols/ColorTable.html">ColorTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/Colorizer.html">Colorizer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/LogConfiguration.html">LogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -75,6 +81,12 @@
                 <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/DefaultColorTable.html">DefaultColorTable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -91,6 +103,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/XcodeColorsColorizer.html">XcodeColorsColorizer</a>
               </li>
             </ul>
           </li>
@@ -109,9 +124,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger17LogSeverityFilter"></a>
-                    <a name="//apple_ref/swift/Struct/LogSeverityFilter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger17LogSeverityFilter">LogSeverityFilter</a>
+                    <a name="/s:V15CleanroomLogger19DefaultLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/DefaultLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger19DefaultLogFormatter">DefaultLogFormatter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -119,55 +134,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code><a href="Protocols/LogFilter.html">LogFilter</a></code> implementation that filters out any <code><a href="Structs/LogEntry.html">LogEntry</a></code> with a 
-<code><a href="Enums/LogSeverity.html">LogSeverity</a></code> less than a specified value.</p>
+                        <p>The <code>DefaultLogFormatter</code> is a basic implementation of the <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> 
+protocol.</p>
 
-                        <a href="Structs/LogSeverityFilter.html" class="slightly-smaller">See more</a>
+<p>This implementation is used by default if no other log formatters are specified.</p>
+
+                        <a href="Structs/DefaultLogFormatter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogSeverityFilter</span><span class="p">:</span> <span class="kt">LogFilter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger23DefaultLogConfiguration"></a>
-                    <a name="//apple_ref/swift/Struct/DefaultLogConfiguration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger23DefaultLogConfiguration">DefaultLogConfiguration</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>DefaultLogConfiguration</code> is the implementation of the <code><a href="Protocols/LogConfiguration.html">LogConfiguration</a></code>
-protocol used by default if no other is provided.</p>
-
-<p>The <code>DefaultLogConfiguration</code> uses the <code><a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> to write to the Apple
-System Log as well as the <code>stderr</code> console.</p>
-
-<p>Additional optional <code>LogRecorders</code> may be specified to record messages to
-other arbitrary types of data stores, such as files or HTTP endpoints.</p>
-
-                        <a href="Structs/DefaultLogConfiguration.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogConfiguration</span><span class="p">:</span> <span class="kt">LogConfiguration</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
 
                         </div>
                       </div>
@@ -317,6 +295,40 @@ is consistent with the behavior of <code>NSLog()</code>.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:V15CleanroomLogger20XcodeColorsColorizer"></a>
+                    <a name="//apple_ref/swift/Struct/XcodeColorsColorizer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger20XcodeColorsColorizer">XcodeColorsColorizer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/Colorizer.html">Colorizer</a></code> implementation that applies 
+<a href="https://github.com/robbiehanson/XcodeColors/">XcodeColors</a>-compatible 
+formatting to log messages.</p>
+
+                        <a href="Structs/XcodeColorsColorizer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XcodeColorsColorizer</span><span class="p">:</span> <span class="kt">Colorizer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:V15CleanroomLogger8LogEntry"></a>
                     <a name="//apple_ref/swift/Struct/LogEntry" class="dashAnchor"></a>
                     <a class="token" href="#/s:V15CleanroomLogger8LogEntry">LogEntry</a>
@@ -336,6 +348,39 @@ is consistent with the behavior of <code>NSLog()</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogEntry</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger5Color"></a>
+                    <a name="//apple_ref/swift/Struct/Color" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger5Color">Color</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a 3-component RGB color where each component is 8 bits.
+Used for specifying log output colors.</p>
+
+                        <a href="Structs/Color.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Color</span></code></pre>
 
                         </div>
                       </div>
@@ -391,9 +436,9 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger19DefaultLogFormatter"></a>
-                    <a name="//apple_ref/swift/Struct/DefaultLogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger19DefaultLogFormatter">DefaultLogFormatter</a>
+                    <a name="/s:V15CleanroomLogger23DefaultLogConfiguration"></a>
+                    <a name="//apple_ref/swift/Struct/DefaultLogConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger23DefaultLogConfiguration">DefaultLogConfiguration</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -401,18 +446,87 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>DefaultLogFormatter</code> is a basic implementation of the <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> 
-protocol.</p>
+                        <p><code>DefaultLogConfiguration</code> is the implementation of the <code><a href="Protocols/LogConfiguration.html">LogConfiguration</a></code>
+protocol used by default if no other is provided.</p>
 
-<p>This implementation is used by default if no other log formatters are specified.</p>
+<p>The <code>DefaultLogConfiguration</code> uses the <code><a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> to write to the Apple
+System Log as well as the <code>stderr</code> console.</p>
 
-                        <a href="Structs/DefaultLogFormatter.html" class="slightly-smaller">See more</a>
+<p>Additional optional <code>LogRecorders</code> may be specified to record messages to
+other arbitrary types of data stores, such as files or HTTP endpoints.</p>
+
+                        <a href="Structs/DefaultLogConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogConfiguration</span><span class="p">:</span> <span class="kt">LogConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger17DefaultColorTable"></a>
+                    <a name="//apple_ref/swift/Struct/DefaultColorTable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger17DefaultColorTable">DefaultColorTable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A default implementation of the <code><a href="Protocols/ColorTable.html">ColorTable</a></code> protocol.</p>
+
+                        <a href="Structs/DefaultColorTable.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultColorTable</span><span class="p">:</span> <span class="kt">ColorTable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger17LogSeverityFilter"></a>
+                    <a name="//apple_ref/swift/Struct/LogSeverityFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger17LogSeverityFilter">LogSeverityFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFilter.html">LogFilter</a></code> implementation that filters out any <code><a href="Structs/LogEntry.html">LogEntry</a></code> with a 
+<code><a href="Enums/LogSeverity.html">LogSeverity</a></code> less than a specified value.</p>
+
+                        <a href="Structs/LogSeverityFilter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogSeverityFilter</span><span class="p">:</span> <span class="kt">LogFilter</span></code></pre>
 
                         </div>
                       </div>

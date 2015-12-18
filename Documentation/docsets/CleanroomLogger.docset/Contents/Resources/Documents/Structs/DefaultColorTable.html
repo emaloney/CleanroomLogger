@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LogRecorderBase Class Reference</title>
+    <title>DefaultColorTable Struct Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/LogRecorderBase" class="dashAnchor"></a>
-    <a title="LogRecorderBase Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/DefaultColorTable" class="dashAnchor"></a>
+    <a title="DefaultColorTable Struct Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomLogger Reference</a>
         <img id="carat" src="../img/carat.png" />
-        LogRecorderBase Class Reference
+        DefaultColorTable Struct Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -115,18 +115,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>LogRecorderBase</h1>
+            <h1>DefaultColorTable</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LogRecorderBase</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultColorTable</span><span class="p">:</span> <span class="kt">ColorTable</span></code></pre>
 
                 </div>
               </div>
-            <p>A partial implementation of the <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code> protocol.</p>
-
-<p>Note that this implementation provides no mechanism for log file rotation
-or log pruning. It is the responsibility of the developer to keep the log
-file at a reasonable size.</p>
+            <p>A default implementation of the <code><a href="../Protocols/ColorTable.html">ColorTable</a></code> protocol.</p>
 
           </section>
           <section class="section task-group-section">
@@ -135,9 +131,9 @@ file at a reasonable size.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger15LogRecorderBase4nameSS"></a>
-                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger15LogRecorderBase4nameSS">name</a>
+                    <a name="/s:ZvV15CleanroomLogger17DefaultColorTable12VerboseColorVS_5Color"></a>
+                    <a name="//apple_ref/swift/Variable/VerboseColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvV15CleanroomLogger17DefaultColorTable12VerboseColorVS_5Color">VerboseColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -145,15 +141,15 @@ file at a reasonable size.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code>, which is constructed automatically
-based on the <code>filePath</code>.</p>
+                        <p>A light gray <code><a href="../Structs/Color.html">Color</a></code> (<code>#999999</code>) used as the foreground color
+for the <code>.Verbose</code> severity.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">VerboseColor</span>  <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="nv">r</span><span class="p">:</span> <span class="mh">0x99</span><span class="p">,</span> <span class="nv">g</span><span class="p">:</span> <span class="mh">0x99</span><span class="p">,</span> <span class="nv">b</span><span class="p">:</span> <span class="mh">0x99</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -163,9 +159,9 @@ based on the <code>filePath</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger15LogRecorderBase10formattersGSaPS_12LogFormatter__"></a>
-                    <a name="//apple_ref/swift/Property/formatters" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger15LogRecorderBase10formattersGSaPS_12LogFormatter__">formatters</a>
+                    <a name="/s:ZvV15CleanroomLogger17DefaultColorTable10DebugColorVS_5Color"></a>
+                    <a name="//apple_ref/swift/Variable/DebugColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvV15CleanroomLogger17DefaultColorTable10DebugColorVS_5Color">DebugColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -173,15 +169,15 @@ based on the <code>filePath</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s that will be used to format messages for
-the <code><a href="../Structs/LogEntry.html">LogEntry</a></code>s to be logged.</p>
+                        <p>A dark gray <code><a href="../Structs/Color.html">Color</a></code> (<code>#666666</code>) used as the foreground color
+for the <code>.Debug</code> severity.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">DebugColor</span>    <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="nv">r</span><span class="p">:</span> <span class="mh">0x66</span><span class="p">,</span> <span class="nv">g</span><span class="p">:</span> <span class="mh">0x66</span><span class="p">,</span> <span class="nv">b</span><span class="p">:</span> <span class="mh">0x66</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -191,9 +187,9 @@ the <code><a href="../Structs/LogEntry.html">LogEntry</a></code>s to be logged.<
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger15LogRecorderBase5queuePSo17OS_dispatch_queue_"></a>
-                    <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger15LogRecorderBase5queuePSo17OS_dispatch_queue_">queue</a>
+                    <a name="/s:ZvV15CleanroomLogger17DefaultColorTable9InfoColorVS_5Color"></a>
+                    <a name="//apple_ref/swift/Variable/InfoColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvV15CleanroomLogger17DefaultColorTable9InfoColorVS_5Color">InfoColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -201,15 +197,15 @@ the <code><a href="../Structs/LogEntry.html">LogEntry</a></code>s to be logged.<
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The GCD queue that should be used for logging actions related to
-the receiver.</p>
+                        <p>A blue <code><a href="../Structs/Color.html">Color</a></code> (<code>#0000CC</code>) used as the foreground color
+for the <code>.Info</code> severity.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">InfoColor</span>     <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="nv">r</span><span class="p">:</span> <span class="mh">0x00</span><span class="p">,</span> <span class="nv">g</span><span class="p">:</span> <span class="mh">0x00</span><span class="p">,</span> <span class="nv">b</span><span class="p">:</span> <span class="mh">0xCC</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -219,9 +215,9 @@ the receiver.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger15LogRecorderBasecFMS0_FT4nameSS10formattersGSaPS_12LogFormatter___S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(name:formatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger15LogRecorderBasecFMS0_FT4nameSS10formattersGSaPS_12LogFormatter___S0_">init(name:formatters:)</a>
+                    <a name="/s:ZvV15CleanroomLogger17DefaultColorTable12WarningColorVS_5Color"></a>
+                    <a name="//apple_ref/swift/Variable/WarningColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvV15CleanroomLogger17DefaultColorTable12WarningColorVS_5Color">WarningColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -229,14 +225,72 @@ the receiver.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize a new <code><a href="../Classes/LogRecorderBase.html">LogRecorderBase</a></code> instance to use the given parameters.</p>
+                        <p>An orange <code><a href="../Structs/Color.html">Color</a></code> (<code>#DD7722</code>) used as the foreground color
+for the <code>.Warning</code> severity.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">DefaultLogFormatter</span><span class="p">()])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">WarningColor</span>  <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="nv">r</span><span class="p">:</span> <span class="mh">0xDD</span><span class="p">,</span> <span class="nv">g</span><span class="p">:</span> <span class="mh">0x77</span><span class="p">,</span> <span class="nv">b</span><span class="p">:</span> <span class="mh">0x22</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvV15CleanroomLogger17DefaultColorTable10ErrorColorVS_5Color"></a>
+                    <a name="//apple_ref/swift/Variable/ErrorColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvV15CleanroomLogger17DefaultColorTable10ErrorColorVS_5Color">ErrorColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A red <code><a href="../Structs/Color.html">Color</a></code> (<code>#CC0000</code>) used as the foreground color
+for the <code>.Error</code> severity.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">ErrorColor</span>    <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="nv">r</span><span class="p">:</span> <span class="mh">0xCC</span><span class="p">,</span> <span class="nv">g</span><span class="p">:</span> <span class="mh">0x00</span><span class="p">,</span> <span class="nv">b</span><span class="p">:</span> <span class="mh">0x00</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger17DefaultColorTable26foregroundColorForSeverityFS0_FOS_11LogSeverityGSqVS_5Color_"></a>
+                    <a name="//apple_ref/swift/Method/foregroundColorForSeverity(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger17DefaultColorTable26foregroundColorForSeverityFS0_FOS_11LogSeverityGSqVS_5Color_">foregroundColorForSeverity(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the foreground color to use (if any) for colorizing messages
+at the given <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">foregroundColorForSeverity</span><span class="p">(</span><span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">Color</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -247,121 +301,23 @@ the receiver.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>name</em>
+                                <em>severity</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The name of the log recorder, which must be unique.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>formatters</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogFormatter</code>s to use for the recorder.</p>
+                                  <p>The <code>LogSeverity</code> whose color information is being retrieved.</p>
 
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC15CleanroomLogger15LogRecorderBase22recordFormattedMessageFS0_FTSS11forLogEntryVS_8LogEntry12currentQueuePSo17OS_dispatch_queue_15synchronousModeSb_T_"></a>
-                    <a name="//apple_ref/swift/Method/recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger15LogRecorderBase22recordFormattedMessageFS0_FTSS11forLogEntryVS_8LogEntry12currentQueuePSo17OS_dispatch_queue_15synchronousModeSb_T_">recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>This implementation does nothing. Subclasses must override this function
-to provide actual log recording functionality.</p>
-
-<p><strong>Note:</strong> This function is only called if one of the <code><a href="../Classes/LogRecorderBase.html#/s:vC15CleanroomLogger15LogRecorderBase10formattersGSaPS_12LogFormatter__">formatters</a></code> 
-associated with the receiver returned a non-<code>nil</code> string.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
-
-                        </div>
                       </div>
                       <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>message</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The message to record.</p>
+                        <h4>Return Value</h4>
+                        <p>The foreground <code><a href="../Structs/Color.html">Color</a></code> to use for <code>severity</code>, or <code>nil</code> if no color is specified.</p>
 
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>entry</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>currentQueue</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The GCD queue on which the function is being executed.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>synchronousMode</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>true</code>, the receiver should record the log entry synchronously. Synchronous mode is used during debugging to help ensure that logs reflect the latest state when debug breakpoints are hit. It is not recommended for production code.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>

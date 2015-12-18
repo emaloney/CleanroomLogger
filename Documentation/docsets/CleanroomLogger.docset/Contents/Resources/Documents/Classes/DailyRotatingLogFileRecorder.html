@@ -56,6 +56,12 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols/ColorTable.html">ColorTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Colorizer.html">Colorizer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -76,6 +82,12 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultColorTable.html">DefaultColorTable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -92,6 +104,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/XcodeColorsColorizer.html">XcodeColorsColorizer</a>
               </li>
             </ul>
           </li>
@@ -199,14 +214,6 @@ of the automatic pruning process, any file not explicitly known to be an
 active log file may be removed. Be careful not to put anything in this
 directory you might not want deleted when pruning occurs.</p>
 
-<p>:param:     daysToKeep The number of days for which log files should be
-            retained.</p>
-
-<p>:param:     directoryPath The filesystem path of the directory where the
-            log files will be stores.</p>
-
-<p>:param:     formatters The <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s to use for the recorder.</p>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -215,6 +222,52 @@ directory you might not want deleted when pruning occurs.</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">daysToKeep</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">directoryPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">DefaultLogFormatter</span><span class="p">()])</span> <span class="n">throws</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>daysToKeep</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of days for which log files should be retained.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>directoryPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The filesystem path of the directory where the log files will be stores.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogFormatter</code>s to use for the recorder.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -235,10 +288,6 @@ directory you might not want deleted when pruning occurs.</p>
                         <p>Returns a string representing the filename that will be used to store logs
 recorded on the given date.</p>
 
-<p>:param:     date The <code>NSDate</code> for which the log file name is desired.</p>
-
-<p>:returns:   The filename.</p>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -248,6 +297,31 @@ recorded on the given date.</p>
         <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>NSDate</code> for which the log file name is desired.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The filename.</p>
+
                       </div>
                     </section>
                   </div>
@@ -270,19 +344,6 @@ recorded on the given date.</p>
 <p><strong>Note:</strong> This function is only called if one of the <code>formatters</code> 
 associated with the receiver returned a non-<code>nil</code> string.</p>
 
-<p>:param:     message The message to record.</p>
-
-<p>:param:     entry The <code><a href="../Structs/LogEntry.html">LogEntry</a></code> for which <code>message</code> was created.</p>
-
-<p>:param:     currentQueue The GCD queue on which the function is being 
-            executed.</p>
-
-<p>:param:     synchronousMode If <code>true</code>, the receiver should record the
-            log entry synchronously. Synchronous mode is used during
-            debugging to help ensure that logs reflect the latest state
-            when debug breakpoints are hit. It is not recommended for
-            production code.</p>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -291,6 +352,65 @@ associated with the receiver returned a non-<code>nil</code> string.</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message to record.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currentQueue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The GCD queue on which the function is being executed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>synchronousMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, the receiver should record the log entry synchronously. Synchronous mode is used during debugging to help ensure that logs reflect the latest state when debug breakpoints are hit. It is not recommended for production code.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

@@ -56,6 +56,12 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols/ColorTable.html">ColorTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Colorizer.html">Colorizer</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -76,6 +82,12 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultColorTable.html">DefaultColorTable</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -92,6 +104,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/XcodeColorsColorizer.html">XcodeColorsColorizer</a>
               </li>
             </ul>
           </li>
@@ -347,25 +362,6 @@ recycled over time.</p>
                       <div class="abstract">
                         <p><code><a href="../Structs/LogEntry.html">LogEntry</a></code> initializer.</p>
 
-<p>:param:     payload The payload of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> being constructed.</p>
-
-<p>:param:     severity The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> of the message being logged.</p>
-
-<p>:param:     callingFunction The signature of the function that issued the 
-            log request.</p>
-
-<p>:param:     callingFilePath The path of the source file containing the 
-            calling function that issued the log request.</p>
-
-<p>:param:     callingFileLine The line within the source file at which the log
-            request was issued.</p>
-
-<p>:param:     callingThreadID A numeric identifier for the calling thread. 
-            Note that thread IDs are recycled over time.</p>
-
-<p>:param:     timestamp The time at which the log entry was created. Defaults
-            to the current time if not specified.</p>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -374,6 +370,104 @@ recycled over time.</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">payload</span><span class="p">:</span> <span class="kt">Payload</span><span class="p">,</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt">LogSeverity</span><span class="p">,</span> <span class="nv">callingFunction</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">callingFilePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">callingFileLine</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">callingThreadID</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">timestamp</span><span class="p">:</span> <span class="kt">NSDate</span> <span class="o">=</span> <span class="kt">NSDate</span><span class="p">())</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>payload</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The payload of the <code>LogEntry</code> being constructed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>severity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogSeverity</code> of the message being logged.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callingFunction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The signature of the function that issued the log request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callingFilePath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The path of the source file containing the calling function that issued the log request.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callingFileLine</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The line within the source file at which the log request was issued.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callingThreadID</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A numeric identifier for the calling thread. Note that thread IDs are recycled over time.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timestamp</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The time at which the log entry was created. Defaults to the current time if not specified.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
