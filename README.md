@@ -204,9 +204,13 @@ Although there are many good reasons why global state is to be generally avoided
 
 ## About
 
-The Cleanroom Project began as an experiment to re-imagine Gilt’s iOS codebase in a legacy-free incarnation that embraced the latest Apple technology. Since then, Cleanroom Project code has served as the basis of Gilt’s tvOS app, [featured by Apple during the keynote](http://www.apple.com/apple-events/september-2015/) introducing the App Store for Apple TV.
+The Cleanroom Project began as an experiment to re-imagine Gilt’s iOS codebase in a legacy-free, Swift-based incarnation. 
 
-We’ll be tracking the latest releases of Swift and Xcode, and we’ll be [open-sourcing major portions of our code](https://github.com/gilt/Cleanroom#open-source-by-default) as we go.
+Since then, we’ve expanded the Cleanroom Project to include multi-platform support. Much of our codebase now supports tvOS in addition to iOS, and our lower-level code is usable on Mac OS X and watchOS as well.
+
+Cleanroom Project code serves as the foundation of Gilt on TV, our tvOS app [featured by Apple during the launch of the new Apple TV](http://www.apple.com/apple-events/september-2015/). And as time goes on, we'll be replacing more and more of our existing Objective-C codebase with Cleanroom implementations.
+
+In the meantime, we’ll be tracking the latest releases of Swift & Xcode, and [open-sourcing major portions of our codebase](https://github.com/gilt/Cleanroom#open-source-by-default) along the way.
 
 
 ### Contributing
