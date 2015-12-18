@@ -124,39 +124,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P15CleanroomLogger12LogFormatter"></a>
-                    <a name="//apple_ref/swift/Protocol/LogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P15CleanroomLogger12LogFormatter">LogFormatter</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>LogFormatter</code>s are used to attempt to create string representations of
-<code><a href="Structs/LogEntry.html">LogEntry</a></code> instances.</p>
-
-                        <a href="Protocols/LogFormatter.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogFormatter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:P15CleanroomLogger11LogRecorder"></a>
                     <a name="//apple_ref/swift/Protocol/LogRecorder" class="dashAnchor"></a>
                     <a class="token" href="#/s:P15CleanroomLogger11LogRecorder">LogRecorder</a>
@@ -190,6 +157,38 @@ to an underlying log data store.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:P15CleanroomLogger16LogConfiguration"></a>
+                    <a name="//apple_ref/swift/Protocol/LogConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P15CleanroomLogger16LogConfiguration">LogConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defines an interface for specifying the configuration of the logging system.</p>
+
+                        <a href="Protocols/LogConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:P15CleanroomLogger10ColorTable"></a>
                     <a name="//apple_ref/swift/Protocol/ColorTable" class="dashAnchor"></a>
                     <a class="token" href="#/s:P15CleanroomLogger10ColorTable">ColorTable</a>
@@ -210,6 +209,39 @@ for a given <code><a href="Enums/LogSeverity.html">LogSeverity</a></code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ColorTable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P15CleanroomLogger12LogFormatter"></a>
+                    <a name="//apple_ref/swift/Protocol/LogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P15CleanroomLogger12LogFormatter">LogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>LogFormatter</code>s are used to attempt to create string representations of
+<code><a href="Structs/LogEntry.html">LogEntry</a></code> instances.</p>
+
+                        <a href="Protocols/LogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogFormatter</span></code></pre>
 
                         </div>
                       </div>
@@ -276,38 +308,6 @@ by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> fun
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogFilter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:P15CleanroomLogger16LogConfiguration"></a>
-                    <a name="//apple_ref/swift/Protocol/LogConfiguration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P15CleanroomLogger16LogConfiguration">LogConfiguration</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Defines an interface for specifying the configuration of the logging system.</p>
-
-                        <a href="Protocols/LogConfiguration.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogConfiguration</span></code></pre>
 
                         </div>
                       </div>
