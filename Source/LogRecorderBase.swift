@@ -17,24 +17,24 @@ file at a reasonable size.
 */
 public class LogRecorderBase: LogRecorder
 {
-    /** The name of the `LogRecorder`, which is constructed automatically
-    based on the `filePath`. */
+    /// The name of the `LogRecorder`, which is constructed automatically
+    /// based on the `filePath`.
     public let name: String
 
-    /** The `LogFormatter`s that will be used to format messages for
-    the `LogEntry`s to be logged. */
+    /// The `LogFormatter`s that will be used to format messages for
+    /// the `LogEntry`s to be logged.
     public let formatters: [LogFormatter]
 
-    /** The GCD queue that should be used for logging actions related to
-    the receiver. */
+    /// The GCD queue that should be used for logging actions related to
+    /// the receiver.
     public let queue: dispatch_queue_t
 
     /**
     Initialize a new `LogRecorderBase` instance to use the given parameters.
 
-    :param:     name The name of the log recorder, which must be unique.
+    - parameter name: The name of the log recorder, which must be unique.
 
-    :param:     formatters The `LogFormatter`s to use for the recorder.
+    - parameter formatters: The `LogFormatter`s to use for the recorder.
     */
     public init(name: String, formatters: [LogFormatter] = [DefaultLogFormatter()])
     {
@@ -50,14 +50,14 @@ public class LogRecorderBase: LogRecorder
     **Note:** This function is only called if one of the `formatters` 
     associated with the receiver returned a non-`nil` string.
     
-    :param:     message The message to record.
+    - parameter message: The message to record.
 
-    :param:     entry The `LogEntry` for which `message` was created.
+    - parameter entry: The `LogEntry` for which `message` was created.
 
-    :param:     currentQueue The GCD queue on which the function is being 
+    - parameter currentQueue: The GCD queue on which the function is being
                 executed.
 
-    :param:     synchronousMode If `true`, the receiver should record the
+    - parameter synchronousMode: If `true`, the receiver should record the
                 log entry synchronously. Synchronous mode is used during
                 debugging to help ensure that logs reflect the latest state
                 when debug breakpoints are hit. It is not recommended for

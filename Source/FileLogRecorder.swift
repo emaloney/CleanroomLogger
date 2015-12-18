@@ -18,7 +18,7 @@ rather not have to think about such details.
 */
 public class FileLogRecorder: LogRecorderBase
 {
-    /** The path of the file to which log messages will be written. */
+    /// The path of the file to which log messages will be written.
     public let filePath: String
 
     private let file: UnsafeMutablePointer<FILE>
@@ -29,12 +29,12 @@ public class FileLogRecorder: LogRecorderBase
     given file path and log formatters. This will fail if `filePath` could
     not be opened for writing.
     
-    :param:     filePath The path of the file to be written. The containing
+    - parameter filePath: The path of the file to be written. The containing
                 directory must exist and be writable by the process. If the
                 file does not yet exist, it will be created; if it does exist,
                 new log messages will be appended to the end.
     
-    :param:     formatters The `LogFormatter`s to use for the recorder.
+    - parameter formatters: The `LogFormatter`s to use for the recorder.
     */
     public init?(filePath: String, formatters: [LogFormatter] = [DefaultLogFormatter()])
     {
@@ -68,14 +68,14 @@ public class FileLogRecorder: LogRecorderBase
     **Note:** This function is only called if one of the `formatters`
     associated with the receiver returned a non-`nil` string.
 
-    :param:     message The message to record.
+    - parameter message: The message to record.
 
-    :param:     entry The `LogEntry` for which `message` was created.
+    - parameter entry: The `LogEntry` for which `message` was created.
 
-    :param:     currentQueue The GCD queue on which the function is being
+    - parameter currentQueue: The GCD queue on which the function is being
                 executed.
 
-    :param:     synchronousMode If `true`, the receiver should record the
+    - parameter synchronousMode: If `true`, the receiver should record the
                 log entry synchronously. Synchronous mode is used during
                 debugging to help ensure that logs reflect the latest state
                 when debug breakpoints are hit. It is not recommended for

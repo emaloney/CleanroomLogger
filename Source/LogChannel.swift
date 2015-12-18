@@ -34,10 +34,10 @@ public struct LogChannel
     /**
     Initializes a new `LogChannel` instance using the specified parameters.
     
-    :param:     severity The `LogSeverity` to use for log entries written to the
-                receiving channel.
+    - parameter severity: The `LogSeverity` to use for log entries written to
+                the receiving channel.
     
-    :param:     receptacle A `LogFormatter` instance to use for formatting log
+    - parameter receptacle: A `LogFormatter` instance to use for formatting log
                 entries.
     */
     public init(severity: LogSeverity, receptacle: LogReceptacle)
@@ -51,15 +51,15 @@ public struct LogChannel
     includes the signature of the calling function, as well as the source file
     and line at which the call to `trace()` was issued.
     
-    :param:     function The default value provided for this parameter captures
+    - parameter function: The default value provided for this parameter captures
                 the signature of the calling function. **You should not provide
                 a value for this parameter.**
     
-    :param:     filePath The default value provided for this parameter captures
+    - parameter filePath: The default value provided for this parameter captures
                 the file path of the code issuing the call to this function. 
                 **You should not provide a value for this parameter.**
 
-    :param:     fileLine The default value provided for this parameter captures
+    - parameter fileLine: The default value provided for this parameter captures
                 the line number issuing the call to this function. **You should
                 not provide a value for this parameter.**
     */
@@ -76,17 +76,17 @@ public struct LogChannel
     /**
     Writes a string-based message to the log.
     
-    :param:     msg The message to log.
+    - parameter msg: The message to log.
     
-    :param:     function The default value provided for this parameter captures
+    - parameter function: The default value provided for this parameter captures
                 the signature of the calling function. **You should not provide
                 a value for this parameter.**
     
-    :param:     filePath The default value provided for this parameter captures
+    - parameter filePath: The default value provided for this parameter captures
                 the file path of the code issuing the call to this function. 
                 **You should not provide a value for this parameter.**
 
-    :param:     fileLine The default value provided for this parameter captures
+    - parameter fileLine: The default value provided for this parameter captures
                 the line number issuing the call to this function. **You should
                 not provide a value for this parameter.**
     */
@@ -103,20 +103,20 @@ public struct LogChannel
     /**
     Writes an arbitrary value to the log.
 
-    :param:     value The value to write to the log. The underlying logging
+    - parameter value: The value to write to the log. The underlying logging
                 implementation is responsible for converting `value` into a
                 text representation. If that is not possible, the log request
                 may be silently ignored.
     
-    :param:     function The default value provided for this parameter captures
+    - parameter function: The default value provided for this parameter captures
                 the signature of the calling function. **You should not provide
                 a value for this parameter.**
     
-    :param:     filePath The default value provided for this parameter captures
+    - parameter filePath: The default value provided for this parameter captures
                 the file path of the code issuing the call to this function. 
                 **You should not provide a value for this parameter.**
 
-    :param:     fileLine The default value provided for this parameter captures
+    - parameter fileLine: The default value provided for this parameter captures
                 the line number issuing the call to this function. **You should
                 not provide a value for this parameter.**
     */

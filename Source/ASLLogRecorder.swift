@@ -53,7 +53,7 @@ public struct ASLLogRecorder: LogRecorder
     Within ASL, log messages will be recorded at the `.Warning` priority
     level, which is consistent with the behavior of `NSLog()`.
 
-    :param:     name The name of the log recorder, which must be unique.
+    - parameter name: The name of the log recorder, which must be unique.
                 Defaults to `ASLLogRecorder.DefaultName` if the parameter
                 is not specified.
     */
@@ -72,10 +72,10 @@ public struct ASLLogRecorder: LogRecorder
     Within ASL, log messages will be recorded at the `.Warning` priority
     level, which is consistent with the behavior of `NSLog()`.
 
-    :param:     formatter The `LogFormatter` to use for formatting log messages
+    - parameter formatter: The `LogFormatter` to use for formatting log messages
                 recorded by the receiver.
 
-    :param:     name The name of the log recorder, which must be unique. 
+    - parameter name: The name of the log recorder, which must be unique.
                 Defaults to `ASLLogRecorder.DefaultName` if the parameter
                 is not specified.
     */
@@ -94,12 +94,12 @@ public struct ASLLogRecorder: LogRecorder
     Within ASL, log messages will be recorded at the `.Warning` priority
     level, which is consistent with the behavior of `NSLog()`.
 
-    :param:     formatters An array of `LogFormatter`s to use for formatting log
-                messages recorded by the receiver. Each formatter will be
+    - parameter formatters: An array of `LogFormatter`s to use for formatting
+                log messages recorded by the receiver. Each formatter will be
                 consulted in sequence, and the formatted string returned by the
                 first formatter to yield a non-`nil` value will be recorded.
 
-    :param:     name The name of the log recorder, which must be unique. 
+    - parameter name: The name of the log recorder, which must be unique.
                 Defaults to `ASLLogRecorder.DefaultName` if the parameter 
                 is not specified.
     */
@@ -115,15 +115,15 @@ public struct ASLLogRecorder: LogRecorder
     Initializes an `ASLLogRecorder` instance to use the specified `LogFormatter`
     for formatting log messages.
 
-    :param:     translator A `LogLevelTranslator` function that is used to
+    - parameter translator: A `LogLevelTranslator` function that is used to
                 convert `LogSeverity` values to `ASLPriorityLevel` values.
 
-    :param:     formatters An array of `LogFormatter`s to use for formatting log
+    - parameter formatters: An array of `LogFormatter`s to use for formatting log
                 messages recorded by the receiver. Each formatter will be
                 consulted in sequence, and the formatted string returned by the
                 first formatter to yield a non-`nil` value will be recorded.
 
-    :param:     name The name of the log recorder, which must be unique. 
+    - parameter name: The name of the log recorder, which must be unique.
                 Defaults to `ASLLogRecorder.DefaultName` if the parameter 
                 is not specified.
     */
@@ -141,14 +141,14 @@ public struct ASLLogRecorder: LogRecorder
     **Note:** This function is only called if one of the `formatters` 
     associated with the receiver returned a non-`nil` string.
     
-    :param:     message The message to record.
+    - parameter message: The message to record.
 
-    :param:     entry The `LogEntry` for which `message` was created.
+    - parameter entry: The `LogEntry` for which `message` was created.
 
-    :param:     currentQueue The GCD queue on which the function is being 
+    - parameter currentQueue: The GCD queue on which the function is being
                 executed.
 
-    :param:     synchronousMode If `true`, the receiver should record the
+    - parameter synchronousMode: If `true`, the receiver should record the
                 log entry synchronously. Synchronous mode is used during
                 debugging to help ensure that logs reflect the latest state
                 when debug breakpoints are hit. It is not recommended for

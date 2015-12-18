@@ -112,11 +112,11 @@ public struct Log
     stream of the application process. In Xcode, log messages will appear in
     the console.
 
-    :param:     minimumSeverity The minimum `LogSeverity` for which log messages
+    - parameter minimumSeverity: The minimum `LogSeverity` for which messages
                 will be accepted. Attempts to log messages less severe than
                 `minimumSeverity` will be silently ignored.
     
-    :param:     synchronousMode Determines whether synchronous mode logging
+    - parameter synchronousMode: Determines whether synchronous mode logging
                 will be used. **Use of synchronous mode is not recommended in
                 production code**; it is provided for use during debugging, to
                 help ensure that messages send prior to hitting a breakpoint
@@ -131,7 +131,7 @@ public struct Log
     /**
     Enables logging using the specified `LogConfiguration`.
 
-    :param:     configuration The `LogConfiguration` to use for controlling
+    - parameter configuration: The `LogConfiguration` to use for controlling
                 the behavior of logging.
     */
     public static func enable(configuration: LogConfiguration)
@@ -142,10 +142,10 @@ public struct Log
     /**
     Enables logging using the specified list of `LogConfiguration`s.
 
-    :param:     configuration The list of `LogConfiguration`s to use for controlling
-                the behavior of logging.
+    - parameter configuration: The list of `LogConfiguration`s to use for
+                controlling the behavior of logging.
 
-    :param:     minimumSeverity The minimum `LogSeverity` for which log messages
+    - parameter minimumSeverity: The minimum `LogSeverity` for which messages
                 will be accepted. Attempts to log messages less severe than
                 `minimumSeverity` will be silently ignored.
     */
@@ -162,10 +162,10 @@ public struct Log
     `verbose` will be constructed based on the specified `minimumSeverity`.
     Each channel will use `receptacle` as the underlying `LogReceptacle`.
 
-    :param:     receptacle The list of `LogConfiguration`s to use for controlling
-                the behavior of logging.
+    - parameter receptacle: The list of `LogConfiguration`s to use for
+                controlling the behavior of logging.
 
-    :param:     minimumSeverity The minimum `LogSeverity` for which log messages
+    - parameter minimumSeverity: The minimum `LogSeverity` for which messages
                 will be accepted. Attempts to log messages less severe than
                 `minimumSeverity` will be silently ignored.
     */
@@ -190,20 +190,20 @@ public struct Log
     it will never perform logging, it is best to pass `nil` instead. Otherwise,
     needless overhead will be added to the application.
 
-    :param:     errorChannel The `LogChannel` to use for logging messages with
+    - parameter errorChannel: The `LogChannel` to use for logging messages with
                 a `severity` of `.Error`.
 
-    :param:     warningChannel The `LogChannel` to use for logging messages with
-                a `severity` of `.Warning`.
+    - parameter warningChannel: The `LogChannel` to use for logging messages
+                with a `severity` of `.Warning`.
 
-    :param:     infoChannel The `LogChannel` to use for logging messages with
+    - parameter infoChannel: The `LogChannel` to use for logging messages with
                 a `severity` of `.Info`.
 
-    :param:     debugChannel The `LogChannel` to use for logging messages with
+    - parameter debugChannel: The `LogChannel` to use for logging messages with
                 a `severity` of `.Debug`.
 
-    :param:     verboseChannel The `LogChannel` to use for logging messages with
-                a `severity` of `.Verbose`.
+    - parameter verboseChannel: The `LogChannel` to use for logging messages
+                with a `severity` of `.Verbose`.
     */
     public static func enable(errorChannel errorChannel: LogChannel?, warningChannel: LogChannel?, infoChannel: LogChannel?, debugChannel: LogChannel?, verboseChannel: LogChannel?)
     {
@@ -227,10 +227,10 @@ public struct Log
     /**
     Returns the `LogChannel` responsible for logging at the given severity.
     
-    :param:     severity The `LogSeverity` level of the `LogChannel` to
+    - parameter severity: The `LogSeverity` level of the `LogChannel` to
                 return.
     
-    :returns:   The `LogChannel` used by `Log` to perform logging at the given
+    - returns:  The `LogChannel` used by `Log` to perform logging at the given
                 severity; will be `nil` if `Log` is not configured to
                 perform logging at that severity.
     */
@@ -252,17 +252,17 @@ public struct Log
     as well as the source file and line at which the call to `trace()` was
     issued.
     
-    :param:     severity The `LogSeverity` for the message being recorded.
+    - parameter severity: The `LogSeverity` for the message being recorded.
 
-    :param:     function The default value provided for this parameter captures
+    - parameter function: The default value provided for this parameter captures
                 the signature of the calling function. **You should not provide
                 a value for this parameter.**
     
-    :param:     filePath The default value provided for this parameter captures
+    - parameter filePath: The default value provided for this parameter captures
                 the file path of the code issuing the call to this function. 
                 **You should not provide a value for this parameter.**
 
-    :param:     fileLine The default value provided for this parameter captures
+    - parameter fileLine: The default value provided for this parameter captures
                 the line number issuing the call to this function. **You should
                 not provide a value for this parameter.**
     */
@@ -274,19 +274,19 @@ public struct Log
     /**
     Writes a string-based message to the log using the specified severity.
     
-    :param:     severity The `LogSeverity` for the message being recorded.
+    - parameter severity: The `LogSeverity` for the message being recorded.
 
-    :param:     msg The message to log.
+    - parameter msg: The message to log.
     
-    :param:     function The default value provided for this parameter captures
+    - parameter function: The default value provided for this parameter captures
                 the signature of the calling function. **You should not provide
                 a value for this parameter.**
     
-    :param:     filePath The default value provided for this parameter captures
+    - parameter filePath: The default value provided for this parameter captures
                 the file path of the code issuing the call to this function. 
                 **You should not provide a value for this parameter.**
 
-    :param:     fileLine The default value provided for this parameter captures
+    - parameter fileLine: The default value provided for this parameter captures
                 the line number issuing the call to this function. **You should
                 not provide a value for this parameter.**
     */
@@ -298,22 +298,22 @@ public struct Log
     /**
     Writes an arbitrary value to the log using the specified severity.
 
-    :param:     severity The `LogSeverity` for the message being recorded.
+    - parameter severity: The `LogSeverity` for the message being recorded.
 
-    :param:     value The value to write to the log. The underlying logging
+    - parameter value: The value to write to the log. The underlying logging
                 implementation is responsible for converting `value` into a
                 text representation. If that is not possible, the log request
                 may be silently ignored.
     
-    :param:     function The default value provided for this parameter captures
+    - parameter function: The default value provided for this parameter captures
                 the signature of the calling function. **You should not provide
                 a value for this parameter.**
     
-    :param:     filePath The default value provided for this parameter captures
+    - parameter filePath: The default value provided for this parameter captures
                 the file path of the code issuing the call to this function. 
                 **You should not provide a value for this parameter.**
 
-    :param:     fileLine The default value provided for this parameter captures
+    - parameter fileLine: The default value provided for this parameter captures
                 the line number issuing the call to this function. **You should
                 not provide a value for this parameter.**
     */

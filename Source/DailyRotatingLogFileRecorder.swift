@@ -48,13 +48,13 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
     active log file may be removed. Be careful not to put anything in this
     directory you might not want deleted when pruning occurs.
 
-    :param:     daysToKeep The number of days for which log files should be
+    - parameter daysToKeep: The number of days for which log files should be
                 retained.
     
-    :param:     directoryPath The filesystem path of the directory where the
+    - parameter directoryPath: The filesystem path of the directory where the
                 log files will be stores.
 
-    :param:     formatters The `LogFormatter`s to use for the recorder.
+    - parameter formatters: The `LogFormatter`s to use for the recorder.
     */
     public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [DefaultLogFormatter()]) throws
     {
@@ -73,9 +73,9 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
     Returns a string representing the filename that will be used to store logs
     recorded on the given date.
     
-    :param:     date The `NSDate` for which the log file name is desired.
+    - parameter date: The `NSDate` for which the log file name is desired.
     
-    :returns:   The filename.
+    - returns:  The filename.
     */
     public class func logFilenameForDate(date: NSDate)
         -> String
@@ -111,14 +111,14 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
     **Note:** This function is only called if one of the `formatters` 
     associated with the receiver returned a non-`nil` string.
     
-    :param:     message The message to record.
+    - parameter message: The message to record.
 
-    :param:     entry The `LogEntry` for which `message` was created.
+    - parameter entry: The `LogEntry` for which `message` was created.
 
-    :param:     currentQueue The GCD queue on which the function is being 
+    - parameter currentQueue: The GCD queue on which the function is being
                 executed.
 
-    :param:     synchronousMode If `true`, the receiver should record the
+    - parameter synchronousMode: If `true`, the receiver should record the
                 log entry synchronously. Synchronous mode is used during
                 debugging to help ensure that logs reflect the latest state
                 when debug breakpoints are hit. It is not recommended for

@@ -43,11 +43,10 @@ public enum LogSeverity: Int
     use by default, based on whether or not the application was compiled
     with debugging turned on.
     
-    :param:     minimumForDebugMode The `LogSeverity` value to return when
+    - parameter minimumForDebugMode: The `LogSeverity` value to return when
                 `isInDebugMode` is `true`.
     
-    :param:     isInDebugMode Defaults to `false`. Pass the value `(DEBUG != 0)`
-                to ensure the correct value for your build.
+    - parameter isInDebugMode: Defaults to `false`.
     */
     public static func defaultMinimumSeverity(minimumForDebugMode: LogSeverity = .Debug, isInDebugMode: Bool = false)
         -> LogSeverity

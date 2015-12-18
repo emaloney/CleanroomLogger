@@ -17,9 +17,9 @@ public protocol LogFormatter
     /**
     Called to create a string representation of the passed-in `LogEntry`.
     
-    :param:     entry The `LogEntry` to attempt to convert into a string.
+    - parameter entry: The `LogEntry` to attempt to convert into a string.
     
-    :returns:   A `String` representation of `entry`, or `nil` if the
+    - returns:  A `String` representation of `entry`, or `nil` if the
                 receiver could not format the `LogEntry`.
     */
     func formatLogEntry(entry: LogEntry)

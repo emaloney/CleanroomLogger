@@ -45,14 +45,14 @@ public protocol LogRecorder
     **Note:** This function is only called if one of the `formatters` 
     associated with the receiver returned a non-`nil` string.
     
-    :param:     message The message to record.
+    - parameter message: The message to record.
 
-    :param:     entry The `LogEntry` for which `message` was created.
+    - parameter entry: The `LogEntry` for which `message` was created.
 
-    :param:     currentQueue The GCD queue on which the function is being 
+    - parameter currentQueue: The GCD queue on which the function is being
                 executed.
 
-    :param:     synchronousMode If `true`, the receiver should record the
+    - parameter synchronousMode: If `true`, the receiver should record the
                 log entry synchronously. Synchronous mode is used during
                 debugging to help ensure that logs reflect the latest state
                 when debug breakpoints are hit. It is not recommended for
