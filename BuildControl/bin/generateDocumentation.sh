@@ -24,7 +24,7 @@ if [[ "$COPYRIGHT_YEAR" != "$CURRENT_YEAR" ]]; then
 	COPYRIGHT_YEAR="${COPYRIGHT_YEAR}-${CURRENT_YEAR}"
 fi
 
-"$JAZZY_EXECUTABLE" -o Documentation \
+"$JAZZY_EXECUTABLE" -o Documentation/API \
 	-m "$MODULE_NAME" \
 	--swift-version 2.1.1 \
 	--readme Sources/README.md \
