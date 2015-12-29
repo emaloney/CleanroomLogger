@@ -97,7 +97,7 @@ When XcodeColors is installed and configured, CleanroomLogger will colorize text
 
 The default color scheme—which you can override by supplying your own [`ColorTable`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you're not focused on them:
 
-<img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-sample.png" width="695" height="120"/>
+<img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/>
 
 When XcodeColors is installed, it sets the value of the environment variable `XcodeColors` to the string `YES`. CleanroomLogger checks this environment variable to determine whether XcodeColors escape sequences should be used. When the value is `YES`, CleanroomLogger uses XcodeColors. 
 
@@ -117,7 +117,7 @@ Ensure that the **Environment Variables** section is expanded below, and click t
 
 This will allow you to add a new environment variable within the runtime environment. Enter `XcodeColors` for the name and `YES` for the value, as shown in this example:
 
-<img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-build-scheme.png" width="880" height="487"/>
+<img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-build-scheme.png" width="650" height="360"/>
 
 When done, select the **Close** button. 
 
@@ -129,7 +129,7 @@ If the `XcodeColors` environment variable is set to `YES` but is being run in wi
 
 Those escape sequences will appear in your output instead of color:
 
-<img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-escape-sequences.png" width="800" height="105"/>
+<img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-escape-sequences.png" width="650" height="85"/>
 
 If this happens, it means the XcodeColors plug-in is either not installed, or Xcode is not loading it upon launch.
 
