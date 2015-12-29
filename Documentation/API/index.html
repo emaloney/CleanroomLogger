@@ -117,24 +117,24 @@
             
             <a href='#using_cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='using_cleanroomlogger'>Using CleanroomLogger</h2>
 
-<p>The main public API for CleanroomLogger is provided by <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html"><code>Log</code></a>.</p>
+<p>The main public API for CleanroomLogger is provided by <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html"><code>Log</code></a>.</p>
 
-<p><code>Log</code> maintains five static read-only <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html"><code>LogChannel</code></a> properties that correspond to one of five <em>severity levels</em> indicating the importance of messages sent through that channel. When sending a message, you would select a severity appropriate for that message, and use the corresponding channel:</p>
+<p><code>Log</code> maintains five static read-only <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html"><code>LogChannel</code></a> properties that correspond to one of five <em>severity levels</em> indicating the importance of messages sent through that channel. When sending a message, you would select a severity appropriate for that message, and use the corresponding channel:</p>
 
 <ul>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_"><code>Log.error</code></a> — The highest severity; something has gone wrong and a fatal error may be imminent</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_"><code>Log.warning</code></a> — Something appears amiss and might bear looking into before a larger problem arises</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_"><code>Log.info</code></a> — Something notable happened, but it isn&rsquo;t anything to worry about</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_"><code>Log.debug</code></a> — Used for debugging and diagnostic information (not intended for use in production code)</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_"><code>Log.verbose</code></a> - The lowest severity; used for detailed or frequently occurring debugging and diagnostic information (not intended for use in production code)</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_"><code>Log.error</code></a> — The highest severity; something has gone wrong and a fatal error may be imminent</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_"><code>Log.warning</code></a> — Something appears amiss and might bear looking into before a larger problem arises</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_"><code>Log.info</code></a> — Something notable happened, but it isn&rsquo;t anything to worry about</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_"><code>Log.debug</code></a> — Used for debugging and diagnostic information (not intended for use in production code)</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_"><code>Log.verbose</code></a> - The lowest severity; used for detailed or frequently occurring debugging and diagnostic information (not intended for use in production code)</li>
 </ul>
 
 <p>Each of these <code>LogChannel</code>s provide three functions to record log messages:</p>
 
 <ul>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5traceFS0_FT8functionSS8filePathSS8fileLineSi_T_"><code>trace()</code></a> — This function records a log message with program executing trace information including the filename, line number and name of the calling function.</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel7messageFS0_FTSS8functionSS8filePathSS8fileLineSi_T_"><code>message(String)</code></a> — This function records the log message passed to it.</li>
-<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5valueFS0_FTGSqP__8functionSS8filePathSS8fileLineSi_T_"><code>value(Any?)</code></a> — This function attempts to record a log message containing a string representation of the optional <code>Any</code> value passed to it.</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5traceFS0_FT8functionSS8filePathSS8fileLineSi_T_"><code>trace()</code></a> — This function records a log message with program executing trace information including the filename, line number and name of the calling function.</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel7messageFS0_FTSS8functionSS8filePathSS8fileLineSi_T_"><code>message(String)</code></a> — This function records the log message passed to it.</li>
+<li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5valueFS0_FTGSqP__8functionSS8filePathSS8fileLineSi_T_"><code>value(Any?)</code></a> — This function attempts to record a log message containing a string representation of the optional <code>Any</code> value passed to it.</li>
 </ul>
 <a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3>
 
@@ -201,7 +201,51 @@
 <blockquote>
 <p><strong>Note:</strong> Although every attempt is made to create a string representation of the value passed to the function, there is no guarantee that a given log implementation will support values of a given type.</p>
 </blockquote>
-<a href='#configuring_cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='configuring_cleanroomlogger'>Configuring CleanroomLogger</h3>
+<a href='#xcodecolors_support' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='xcodecolors_support'>XcodeColors Support</h3>
+
+<p>CleanroomLogger contains built-in support for <a href="https://github.com/robbiehanson/XcodeColors">XcodeColors</a>, a third-party Xcode plug-in that allows using special escape sequences to colorize text output within the Xcode console.</p>
+
+<p>When XcodeColors is installed and configured, CleanroomLogger will colorize text according to the <code>LogSeverity</code> of the message.</p>
+
+<p>The default color scheme—which you can override by supplying your own <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/ColorTable.html"><code>ColorTable</code></a>—emphasizes important information while seeking to make less important messages fade into the background when you&rsquo;re not focused on them:</p>
+
+<p><img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/></p>
+
+<p>When XcodeColors is installed, it sets the value of the environment variable <code>XcodeColors</code> to the string <code>YES</code>. CleanroomLogger checks this environment variable to determine whether XcodeColors escape sequences should be used. When the value is <code>YES</code>, CleanroomLogger uses XcodeColors. </p>
+
+<blockquote>
+<p><strong>Note:</strong> This behavior is implemented by the <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/DefaultLogFormatter.html"><code>DefaultLogFormatter</code></a>. If you use a custom log formatter, you can use an <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/XcodeColorsColorizer.html"><code>XcodeColorsColorizer</code></a> instance to manually apply XcodeColors escape sequences to your log output.</p>
+</blockquote>
+<a href='#enabling_xcodecolors_for_ios_tvos_amp_watchos' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='enabling_xcodecolors_for_ios_tvos_amp_watchos'>Enabling XcodeColors for iOS, tvOS &amp; watchOS</h4>
+
+<p>When your code runs in a simulator or on an external device, it is actually running in an entirely separate operating system that <em>does not</em> inherit the environment variables that XcodeColors modifies when it is enabled.</p>
+
+<p>XcodeColors <em>only</em> modifies the environment of the local Mac user running Xcode. Therefore, XcodeColors can only automatically enable support for Mac OS X code itself.</p>
+
+<p>If your code is running on iOS, tvOS or watchOS, you will need to change your Xcode settings to pass the <code>XcodeColors</code> variable your code&rsquo;s runtime environment. This can be done by editing any Build Schemes you want to use with XcodeColors.</p>
+
+<p>To edit the current build scheme, press <code>⌘&lt;</code> (<em>command</em>-<em>shift</em>-comma on a US English keyboard). In the editor that appears, select <strong>Run</strong> in the left-hand pane. Then, select the <strong>Arguments</strong> option at the top.</p>
+
+<p>Ensure that the <strong>Environment Variables</strong> section is expanded below, and click the <strong>+</strong> button within that section.</p>
+
+<p>This will allow you to add a new environment variable within the runtime environment. Enter <code>XcodeColors</code> for the name and <code>YES</code> for the value, as shown in this example:</p>
+
+<p><img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-build-scheme.png" width="650" height="360"/></p>
+
+<p>When done, select the <strong>Close</strong> button. </p>
+
+<p>The next time you run your code, assuming both XcodeColors and CleanroomLogger are installed and configured correctly, you should see colorized log output within your Xcode console.</p>
+<a href='#troubleshooting_xcodecolors' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='troubleshooting_xcodecolors'>Troubleshooting XcodeColors</h4>
+
+<p>If the <code>XcodeColors</code> environment variable is set to <code>YES</code> but is being run in within a copy of Xcode where XcodeColors is not installed and loaded, CleanroomLogger will (incorrectly) assume that XcodeColors <em>is</em> installed and will dutifully output the escape sequences needed to drive message colorization.</p>
+
+<p>Those escape sequences will appear in your output instead of color:</p>
+
+<p><img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-escape-sequences.png" width="650" height="85"/></p>
+
+<p>If this happens, it means the XcodeColors plug-in is either not installed, or Xcode is not loading it upon launch.</p>
+
+<p>If you see no color <em>and</em> no escape codes, it means CleanroomLogger did not detect an <code>XcodeColors</code> variable set to <code>YES</code> in its runtime environment.</p>
 
           </section>
         </section>
