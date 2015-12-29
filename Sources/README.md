@@ -87,3 +87,50 @@ This would result in output looking like:
 ```
 
 > **Note:** Although every attempt is made to create a string representation of the value passed to the function, there is no guarantee that a given log implementation will support values of a given type.
+
+
+### XcodeColors Support
+
+CleanroomLogger contains built-in support for [XcodeColors](https://github.com/robbiehanson/XcodeColors), a third-party Xcode plug-in that allows using special escape sequences to colorize text output within the Xcode console.
+
+When XcodeColors is installed and configured, CleanroomLogger will colorize text according to the `LogSeverity` of the message.
+
+The default color scheme—which you can override by supplying your own [`ColorTable`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you're not focused on them:
+
+<img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-sample.png" width="695" height="120"/>
+
+When XcodeColors is installed, it sets the value of the environment variable `XcodeColors` to the string `YES`. CleanroomLogger checks this environment variable to determine whether XcodeColors escape sequences should be used. When the value is `YES`, CleanroomLogger uses XcodeColors. 
+
+> **Note:** This behavior is implemented by the [`DefaultLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/DefaultLogFormatter.html). If you use a custom log formatter, you can use an [`XcodeColorsColorizer`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/XcodeColorsColorizer.html) instance to manually apply XcodeColors escape sequences to your log output.
+
+#### Enabling XcodeColors for iOS, tvOS & watchOS
+
+When your code runs in a simulator or on an external device, it is actually running in an entirely separate operating system that *does not* inherit the environment variables that XcodeColors modifies when it is enabled.
+
+XcodeColors *only* modifies the environment of the local Mac user running Xcode. Therefore, XcodeColors can only automatically enable support for Mac OS X code itself.
+
+If your code is running on iOS, tvOS or watchOS, you will need to change your Xcode settings to pass the `XcodeColors` variable your code's runtime environment. This can be done by editing any Build Schemes you want to use with XcodeColors.
+
+To edit the current build scheme, press `⌘<` (*command*-*shift*-comma on a US English keyboard). In the editor that appears, select **Run** in the left-hand pane. Then, select the **Arguments** option at the top.
+
+Ensure that the **Environment Variables** section is expanded below, and click the **+** button within that section.
+
+This will allow you to add a new environment variable within the runtime environment. Enter `XcodeColors` for the name and `YES` for the value, as shown in this example:
+
+<img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-build-scheme.png" width="880" height="487"/>
+
+When done, select the **Close** button. 
+
+The next time you run your code, assuming both XcodeColors and CleanroomLogger are installed and configured correctly, you should see colorized log output within your Xcode console.
+
+#### Troubleshooting XcodeColors
+
+If the `XcodeColors` environment variable is set to `YES` but is being run in within a copy of Xcode where XcodeColors is not installed and loaded, CleanroomLogger will (incorrectly) assume that XcodeColors *is* installed and will dutifully output the escape sequences needed to drive message colorization.
+
+Those escape sequences will appear in your output instead of color:
+
+<img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-escape-sequences.png" width="800" height="105"/>
+
+If this happens, it means the XcodeColors plug-in is either not installed, or Xcode is not loading it upon launch.
+
+If you see no color *and* no escape codes, it means CleanroomLogger did not detect an `XcodeColors` variable set to `YES` in its runtime environment.
