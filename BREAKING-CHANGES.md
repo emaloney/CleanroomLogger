@@ -33,3 +33,11 @@ As a result, the 1.4.x release line is no longer supported.
 This release uses Swift 2.0 and requires a release version of Xcode 7.
 
 This release also adds support for tvOS.
+
+## 1.6.0
+
+This release added support for [XcodeColors](https://github.com/emaloney/CleanroomLogger#xcodecolors-support).
+
+When XcodeColors is installed and enabled, the [`DefaultLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/DefaultLogFormatter.html) will apply automatic log colorization based on the `LogSeverity` of what's being logged.
+
+Adding colorization functionality required breaking API changes to the `DefaultLogFormatter`.
