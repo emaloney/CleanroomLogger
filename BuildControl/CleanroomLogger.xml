@@ -38,7 +38,7 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 1. **Each log message is associated with a [`LogSeverity`](${docs:api:root}/Enums/LogSeverity.html) value indicating the importance of that message.** This enables you to very easily do things like squelch out low-priority messages—such as those logged with `.Debug` and `.Verbose` severity values—in production binaries, thereby lessening the amount of work your App Store build does at runtime.
 
-2. **CleanroomLogger makes it easy to find the _where_ your code is issuing log messages.** With `NSLog()` and `println()`, it can sometimes be difficult to figure out what code is responsible for generating log messages. When a message is constructed programmatically, for example, it may not be possible to find its source. CleanroomLogger outputs the file and line responsible for each log message, so you can literally *go straight to the source*.
+2. **CleanroomLogger makes it easy to find the _where_ your code is issuing log messages.** With `NSLog()` and `print()`, it can sometimes be difficult to figure out what code is responsible for generating log messages. When a message is constructed programmatically, for example, it may not be possible to find its source. CleanroomLogger outputs the file and line responsible for each log message, so you can literally *go straight to the source*.
 
 3. **CleanroomLogger provides code execution tracing functionality through the `trace()` function.** A simple no-argument function call is all that's needed to log the source filename, line number and function name of the caller. This makes it easy to understand the path your code is taking as it executes.
 
