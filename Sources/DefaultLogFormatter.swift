@@ -144,15 +144,16 @@ public struct DefaultLogFormatter: LogFormatter
         }
         fmt += "\(severityStr) | "
 
-        let applyColors = (colorizer != nil && colorTable != nil)
-        if applyColors && colorizePrefixOnly {
-            fmt = colorizer!.colorizeString(fmt, forSeverity: severity, usingColorTable: colorTable!)
+        let fgColor = colorTable?.foregroundColorForSeverity(severity)
+        let bgColor = colorTable?.backgroundColorForSeverity(severity)
+        if let colorizer = colorizer where colorizePrefixOnly {
+            fmt = colorizer.colorizeString(fmt, foreground: fgColor, background: bgColor)
         }
 
         fmt += "\(caller) — \(message)"
 
-        if applyColors && !colorizePrefixOnly {
-            fmt = colorizer!.colorizeString(fmt, forSeverity: severity, usingColorTable: colorTable!)
+        if let colorizer = colorizer where !colorizePrefixOnly {
+            fmt = colorizer.colorizeString(fmt, foreground: fgColor, background: bgColor)
         }
 
         return fmt

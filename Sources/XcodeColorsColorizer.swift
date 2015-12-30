@@ -52,18 +52,18 @@ public struct XcodeColorsColorizer: Colorizer
      - returns:  A version of `str` with the appropriate color formatting
                  applied.
      */
-    public func colorizeString(str: String, forSeverity severity: LogSeverity, usingColorTable colorTable: ColorTable)
+    public func colorizeString(str: String, foreground: Color?, background: Color?)
         -> String
     {
         let esc = "\u{001b}["
 
         var prefix = ""
         var suffix = ""
-        if let fgColor = colorTable.foregroundColorForSeverity(severity) {
+        if let fgColor = foreground {
             prefix += "\(esc)\(fgColor.asXcodeColorsForegroundString);"
             suffix = "\(esc);"
         }
-        if let bgColor = colorTable.backgroundColorForSeverity(severity) {
+        if let bgColor = background {
             prefix += "\(esc)\(bgColor.asXcodeColorsbackgroundString);"
             suffix = "\(esc);"
         }

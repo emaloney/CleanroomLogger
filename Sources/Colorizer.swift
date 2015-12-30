@@ -14,19 +14,18 @@ import Foundation
 public protocol Colorizer
 {
     /**
-     Applies the color formatting appropriate for the given `LogSeverity` to
-     the passed-in string.
-     
-     - parameter str: The string to be formatted
-     
-     - parameter severity: The log severity
-     
-     - parameter colorTable: A `ColorTable` whose color settings will be used
-                 to format the message
-     
+     Applies the specified foreground and background `Color`s to the passed-in
+     string.
+
+     - parameter str: The string to be colorized
+
+     - parameter foreground: An optional foreground color to apply `str`.
+
+     - parameter background: An optional background color to apply `str`.
+
      - returns:  A version of `str` with the appropriate color formatting
                  applied.
-    */
-    func colorizeString(str: String, forSeverity severity: LogSeverity, usingColorTable colorTable: ColorTable)
+     */
+    func colorizeString(str: String, foreground: Color?, background: Color?)
         -> String
 }
