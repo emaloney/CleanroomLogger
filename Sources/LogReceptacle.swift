@@ -20,29 +20,29 @@ public final class LogReceptacle
     /** The `LogConfiguration` instances used to construct the receiver. */
     public let configuration: [LogConfiguration]
 
+    public let minimumSeverity: LogSeverity
+
     /**
     Constructs a new `LogReceptacle` that will use the specified configurations.
 
-    When a `LogEntry` is passed to the receiver's `log()` function, the
-    `LogConfiguration`s passed to this initializer will be evaluated in order
-    until the first one is found where the entry's `severity` property is as
-    severe or more severe than the `minimumSeverity` of the `LogConfiguration`.
-    
-    The first `LogConfiguration` matching that criteria is then used to perform
-    logging. If no matching `LogConfiguration` exists, then the log request
-    is silently ignored.
-    
-    This mechanism can be used to allow different `LogConfiguration`s to be
-    used for each individual `LogSeverity` (or for a range of contiguous
-    `LogSeverity` values).
+    When a `LogEntry` is passed to the receiver's `log()` function, logging
+    will proceed using **all** `LogConfiguration`s having a `minimumSeverity`
+    that's less or as severe as the passed-in `LogEntry`'s `severity` property.
+
+    If no matching `LogConfiguration`s are found, then the log request is
+    silently ignored.
 
     - parameter configuration: An array of `LogConfiguration` instances that 
                 specify how the logging system will behave when messages
-                are added.
+                are logged.
     */
     public init(configuration: [LogConfiguration])
     {
-        self.configuration = configuration
+        let configs = configuration.flatMap{ $0.flatten() }
+
+        self.minimumSeverity = configs.map{ $0.minimumSeverity }.reduce(.Error, combine: { $0 < $1 ? $0 : $1 })
+
+        self.configuration = configs
     }
 
     /**
@@ -53,19 +53,32 @@ public final class LogReceptacle
     */
     public func log(entry: LogEntry)
     {
-        if let config = configurationForLogEntry(entry) {
-            let synchronous = config.synchronousMode
-            let acceptDispatcher = dispatcherForQueue(acceptQueue, synchronous: synchronous)
-            acceptDispatcher {
-                if self.logEntry(entry, passesFilters: config.filters) {
-                    for recorder in config.recorders {
-                        let recordDispatcher = self.dispatcherForQueue(recorder.queue, synchronous: synchronous)
-                        recordDispatcher {
-                            for formatter in recorder.formatters {
-                                if let formatted = formatter.formatLogEntry(entry) {
-                                    recorder.recordFormattedMessage(formatted, forLogEntry: entry, currentQueue: recorder.queue, synchronousMode: synchronous)
-                                    break
-                                }
+        let matchingConfigs = configuration.filter{ entry.severity >= $0.minimumSeverity }
+
+        // pass off to the asynchronous configurations first...
+        let asyncConfigs = matchingConfigs.filter{ !$0.synchronousMode }
+        asyncConfigs.forEach{ logEntry(entry, usingConfiguration: $0) }
+
+        // ...then log using the synchronous configurations
+        let syncConfigs = matchingConfigs.filter{ $0.synchronousMode }
+        syncConfigs.forEach{ logEntry(entry, usingConfiguration: $0) }
+    }
+
+    private lazy var acceptQueue: dispatch_queue_t = dispatch_queue_create("LogReceptacle.acceptQueue", DISPATCH_QUEUE_SERIAL)
+
+    private func logEntry(entry: LogEntry, usingConfiguration config: LogConfiguration)
+    {
+        let synchronous = config.synchronousMode
+        let acceptDispatcher = dispatcherForQueue(acceptQueue, synchronous: synchronous)
+        acceptDispatcher {
+            if self.doesLogEntry(entry, passFilters: config.filters) {
+                for recorder in config.recorders {
+                    let recordDispatcher = self.dispatcherForQueue(recorder.queue, synchronous: synchronous)
+                    recordDispatcher {
+                        for formatter in recorder.formatters {
+                            if let formatted = formatter.formatLogEntry(entry) {
+                                recorder.recordFormattedMessage(formatted, forLogEntry: entry, currentQueue: recorder.queue, synchronousMode: synchronous)
+                                break
                             }
                         }
                     }
@@ -74,20 +87,7 @@ public final class LogReceptacle
         }
     }
 
-    private lazy var acceptQueue: dispatch_queue_t = dispatch_queue_create("LogReceptacle.acceptQueue", DISPATCH_QUEUE_SERIAL)
-
-    private func configurationForLogEntry(entry: LogEntry)
-        -> LogConfiguration?
-    {
-        for config in configuration {
-            if entry.severity >= config.minimumSeverity {
-                return config
-            }
-        }
-        return nil
-    }
-
-    private func logEntry(entry: LogEntry, passesFilters filters: [LogFilter])
+    private func doesLogEntry(entry: LogEntry, passFilters filters: [LogFilter])
         -> Bool
     {
         for filter in filters {

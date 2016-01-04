@@ -1,5 +1,5 @@
 //
-//  DailyRotatingLogFileRecorder.swift
+//  RotatingLogFileRecorder.swift
 //  CleanroomLogger
 //
 //  Created by Evan Maloney on 5/14/15.
@@ -12,13 +12,13 @@ import Foundation
 A `LogRecorder` implementation that maintains a set of daily rotating log
 files, kept for a user-specified number of days.
 
-**Important:** The `DailyRotatingLogFileRecorder` is expected to have full
+**Important:** The `RotatingLogFileRecorder` is expected to have full
 control over the `directoryPath` with which it was instantiated. Any file not
 explicitly known to be an active log file may be removed during the pruning
 process. Therefore, be careful not to store anything in the `directoryPath`
 that you wouldn't mind being deleted when pruning occurs.
 */
-public class DailyRotatingLogFileRecorder: LogRecorderBase
+public class RotatingLogFileRecorder: LogRecorderBase
 {
     /** The number of days for which the receiver will retain log files
     before they're eligible for pruning. */
@@ -38,11 +38,11 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
     private var currentFileRecorder: FileLogRecorder?
 
     /**
-    Attempts to initialize a new `DailyRotatingLogFileRecorder` instance. This
+    Attempts to initialize a new `RotatingLogFileRecorder` instance. This
     may fail if the `directoryPath` doesn't already exist as a directory and
     could not be created.
     
-    **Important:** The new `DailyRotatingLogFileRecorder` will take 
+    **Important:** The new `RotatingLogFileRecorder` will take 
     responsibility for managing the contents of the `directoryPath`. As part
     of the automatic pruning process, any file not explicitly known to be an
     active log file may be removed. Be careful not to put anything in this
@@ -56,17 +56,22 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
 
     - parameter formatters: The `LogFormatter`s to use for the recorder.
     */
-    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [DefaultLogFormatter()]) throws
+    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [FileLogFormatter()])
     {
         self.daysToKeep = daysToKeep
         self.directoryPath = directoryPath
 
-        super.init(name: "DailyRotatingLogFileRecorder[\(directoryPath)]", formatters: formatters)
+        super.init(formatters: formatters)
 
         // try to create the directory that will contain the log files
         let url = NSURL(fileURLWithPath: directoryPath, isDirectory: true)
 
-        try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+        do {
+            try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+        }
+        catch {
+            print("Error attempting to create directory at path <\(directoryPath)>: \(error)")
+        }
     }
 
     /**
@@ -125,7 +130,6 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
                 production code.
     */
     public override func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
-
     {
         if mostRecentLogTime == nil || !self.isDate(entry.timestamp, onSameDayAs: mostRecentLogTime!) {
             prune()
@@ -140,7 +144,7 @@ public class DailyRotatingLogFileRecorder: LogRecorderBase
     Deletes any expired log files (and any other detritus that may be hanging
     around inside our `directoryPath`).
     
-    **Important:** The `DailyRotatingLogFileRecorder` is expected to have full
+    **Important:** The `RotatingLogFileRecorder` is expected to have full
     ownership over its `directoryPath`. Any file not explicitly known to be an
     active log file may be removed during the pruning process. Therefore, be
     careful not to store anything in this directory that you wouldn't mind

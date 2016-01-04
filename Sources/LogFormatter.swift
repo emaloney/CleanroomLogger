@@ -1,5 +1,5 @@
 //
-//  Log.swift
+//  LogFormatter.swift
 //  CleanroomLogger
 //
 //  Created by Evan Maloney on 3/18/15.

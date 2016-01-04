@@ -41,3 +41,25 @@ This release added support for [XcodeColors](https://github.com/emaloney/Cleanro
 When XcodeColors is installed and enabled, the [`DefaultLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/DefaultLogFormatter.html) will apply automatic log colorization based on the `LogSeverity` of what's being logged.
 
 Adding colorization functionality required breaking API changes to the `DefaultLogFormatter`.
+
+## 2.0.0
+
+1. Instead of selecting and using only the *first* appropriate `LogConfiguration` for recording a given message, CleanroomLogger now records messages using *all* appropriate `LogConfiguration`s for a given message. This is a breaking change for users expecting the old functionality.
+
+2. The design of the `Colorizer` protocol is now more basic. Rather than taking a `LogSeverity` and a `ColorTable` and colorizing the passed-in text as per those parameters, `Colorizer`s now simply take optional foreground and background `Color` parameters. This makes it friendlier to uses beyond severity-based colorization.
+
+3. The output of the `DefaultLogFormatter` has changed slightly to look better in `Console.app`. Instead of using an em-dash to separate the source code line from the log output, now a hyphen is used. This avoids problematic display of non-ASCII characters.
+
+4. `LogRecorder`s no longer need to supply a `name` property.
+
+5. The `DefaultLogConfiguration` has been removed. For equivalent behavior, use the new `XcodeLogConfiguration` or the `BasicLogConfiguration`.
+
+6. The function `defaultMinimumSeverity(_:isInDebugMode:)` has been removed from the `LogSeverity` enumeration.
+
+7. The `LogEntry` struct's `callingFunction` property has been renamed `callingStackFrame` to reflect the fact that the caller may not be a function. (This can be true in the Swift REPL and Xcode Playgrounds, for example.)
+
+8. The `DailyRotatingLogFileRecorder` class has been renamed `RotatingLogFileRecorder`.
+
+9. The `enable()` functions now require parameter labels for all parameters, including the first one.
+
+10. The `DefaultLogFormatter` has been removed. The `StandardLogFormatter` provides equivalent functionality.

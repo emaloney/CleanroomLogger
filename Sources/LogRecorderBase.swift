@@ -17,10 +17,6 @@ file at a reasonable size.
 */
 public class LogRecorderBase: LogRecorder
 {
-    /// The name of the `LogRecorder`, which is constructed automatically
-    /// based on the `filePath`.
-    public let name: String
-
     /// The `LogFormatter`s that will be used to format messages for
     /// the `LogEntry`s to be logged.
     public let formatters: [LogFormatter]
@@ -32,15 +28,12 @@ public class LogRecorderBase: LogRecorder
     /**
     Initialize a new `LogRecorderBase` instance to use the given parameters.
 
-    - parameter name: The name of the log recorder, which must be unique.
-
     - parameter formatters: The `LogFormatter`s to use for the recorder.
     */
-    public init(name: String, formatters: [LogFormatter] = [DefaultLogFormatter()])
+    public init(formatters: [LogFormatter] = [XcodeLogFormatter()])
     {
-        self.name = name
         self.formatters = formatters
-        self.queue = dispatch_queue_create(name, DISPATCH_QUEUE_SERIAL)
+        self.queue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
     }
 
     /**

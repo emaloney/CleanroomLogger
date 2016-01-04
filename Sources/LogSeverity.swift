@@ -37,26 +37,6 @@ public enum LogSeverity: Int
     /** The highest severity, used to indicate that something has gone wrong;
     a fatal error may be imminent. */
     case Error      = 5
-    
-    /**
-    A convenience function to determine the minimum `LogSeverity` value to
-    use by default, based on whether or not the application was compiled
-    with debugging turned on.
-    
-    - parameter minimumForDebugMode: The `LogSeverity` value to return when
-                `isInDebugMode` is `true`.
-    
-    - parameter isInDebugMode: Defaults to `false`.
-    */
-    public static func defaultMinimumSeverity(minimumForDebugMode: LogSeverity = .Debug, isInDebugMode: Bool = false)
-        -> LogSeverity
-    {
-        if isInDebugMode {
-            return minimumForDebugMode
-        } else {
-            return .Info
-        }
-    }
 }
 
 /// :nodoc:
@@ -70,12 +50,6 @@ public func <(lhs: LogSeverity, rhs: LogSeverity) -> Bool {
 /// :nodoc:
 extension LogSeverity // DebugPrintableEnum
 {
-//    /// :nodoc:
-//    public var description: String { return EnumPrinter.description(self) }
-//
-//    /// :nodoc:
-//    public var debugDescription: String { return EnumPrinter.debugDescription(self) }
-
     /// :nodoc:
     public var printableEnumName: String { return "LogSeverity" }
 

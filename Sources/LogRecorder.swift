@@ -1,5 +1,5 @@
 //
-//  Log.swift
+//  LogRecorder.swift
 //  CleanroomLogger
 //
 //  Created by Evan Maloney on 3/18/15.
@@ -14,11 +14,6 @@ to an underlying log data store.
 */
 public protocol LogRecorder
 {
-    /**
-    The name of the `LogRecorder`, which must be unique.
-    */
-    var name: String { get }
-
     /**
     The `LogFormatter`s that should be used to create a formatted log string
     for passing to the receiver's `recordFormattedString(_: forLogEntry:)`

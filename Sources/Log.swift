@@ -122,10 +122,11 @@ public struct Log
                 help ensure that messages send prior to hitting a breakpoint
                 will appear in the console when the breakpoint is hit.
     */
-    public static func enable(minimumSeverity: LogSeverity = .Info, synchronousMode: Bool = false)
+    public static func enable(showTimestamp showTimestamp: Bool = true, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, debugMode: Bool = false, verboseDebugMode: Bool = false, suppressColors: Bool = false, filters: [LogFilter] = [])
     {
-        let config = DefaultLogConfiguration(minimumSeverity: minimumSeverity, synchronousMode: synchronousMode)
-        enable(config)
+        let config = XcodeLogConfiguration(showTimestamp: showTimestamp, showCallSite: showCallSite, showCallingThread: showCallingThread, showSeverity: showSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, suppressColors: suppressColors, filters: filters)
+
+        enable(configuration: config)
     }
 
     /**
@@ -134,9 +135,9 @@ public struct Log
     - parameter configuration: The `LogConfiguration` to use for controlling
                 the behavior of logging.
     */
-    public static func enable(configuration: LogConfiguration)
+    public static func enable(configuration configuration: LogConfiguration)
     {
-        enable([configuration], minimumSeverity: configuration.minimumSeverity)
+        enable(configuration: [configuration])
     }
 
     /**
@@ -149,10 +150,9 @@ public struct Log
                 will be accepted. Attempts to log messages less severe than
                 `minimumSeverity` will be silently ignored.
     */
-    public static func enable(configuration: [LogConfiguration], minimumSeverity: LogSeverity = .Info)
+    public static func enable(configuration configuration: [LogConfiguration])
     {
-        let recept = LogReceptacle(configuration: configuration)
-        enable(recept, minimumSeverity: minimumSeverity)
+        enable(receptacle: LogReceptacle(configuration: configuration))
     }
 
     /**
@@ -164,19 +164,15 @@ public struct Log
 
     - parameter receptacle: The list of `LogConfiguration`s to use for
                 controlling the behavior of logging.
-
-    - parameter minimumSeverity: The minimum `LogSeverity` for which messages
-                will be accepted. Attempts to log messages less severe than
-                `minimumSeverity` will be silently ignored.
     */
-    public static func enable(receptacle: LogReceptacle, minimumSeverity: LogSeverity = .Info)
+    public static func enable(receptacle receptacle: LogReceptacle)
     {
         enable(
-            errorChannel: self.createLogChannelWithSeverity(.Error, receptacle: receptacle, minimumSeverity: minimumSeverity),
-            warningChannel: self.createLogChannelWithSeverity(.Warning, receptacle: receptacle, minimumSeverity: minimumSeverity),
-            infoChannel: self.createLogChannelWithSeverity(.Info, receptacle: receptacle, minimumSeverity: minimumSeverity),
-            debugChannel: self.createLogChannelWithSeverity(.Debug, receptacle: receptacle, minimumSeverity: minimumSeverity),
-            verboseChannel: self.createLogChannelWithSeverity(.Verbose, receptacle: receptacle, minimumSeverity: minimumSeverity)
+            errorChannel: self.createLogChannelWithSeverity(.Error, forReceptacle: receptacle),
+            warningChannel: self.createLogChannelWithSeverity(.Warning, forReceptacle: receptacle),
+            infoChannel: self.createLogChannelWithSeverity(.Info, forReceptacle: receptacle),
+            debugChannel: self.createLogChannelWithSeverity(.Debug, forReceptacle: receptacle),
+            verboseChannel: self.createLogChannelWithSeverity(.Verbose, forReceptacle: receptacle)
         )
     }
 
@@ -322,12 +318,13 @@ public struct Log
         channelForSeverity(severity)?.value(value, function: function, filePath: filePath, fileLine: fileLine)
     }
 
-    private static func createLogChannelWithSeverity(severity: LogSeverity, receptacle: LogReceptacle, minimumSeverity: LogSeverity)
+    private static func createLogChannelWithSeverity(severity: LogSeverity, forReceptacle receptacle: LogReceptacle)
         -> LogChannel?
     {
-        if severity >= minimumSeverity {
-            return LogChannel(severity: severity, receptacle: receptacle)
+        guard severity >= receptacle.minimumSeverity else {
+            return nil
         }
-        return nil
+
+        return LogChannel(severity: severity, receptacle: receptacle)
     }
 }

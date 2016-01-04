@@ -24,13 +24,6 @@ public struct ASLLogRecorder: LogRecorder
     the `ASLPriorityLevel` used for a given `LogEntry`. */
     public typealias LogLevelTranslator = (LogSeverity) -> ASLPriorityLevel
 
-    /** The default value used when a `name` is not specified during
-    instantiation of `ASLLogRecorder`s. */
-    public static let DefaultName = "CleanroomLogger.ASLLogRecorder"
-
-    /** The name of the `ASLLogRecorder`. */
-    public let name: String
-
     /** The `LogFormatter`s to be used in conjunction with the receiver. */
     public let formatters: [LogFormatter]
 
@@ -53,15 +46,13 @@ public struct ASLLogRecorder: LogRecorder
     Within ASL, log messages will be recorded at the `.Warning` priority
     level, which is consistent with the behavior of `NSLog()`.
 
-    - parameter name: The name of the log recorder, which must be unique.
-                Defaults to `ASLLogRecorder.DefaultName` if the parameter
-                is not specified.
+    - parameter echoToStdErr: If `true`, ASL will also echo log messages to
+                the calling process's `stderr` output stream.
     */
-    public init(name: String = ASLLogRecorder.DefaultName)
+    public init(echoToStdErr: Bool = true)
     {
-        self.client = ASLClient()
-        self.name = name
-        self.formatters = [DefaultLogFormatter()]
+        self.client = ASLClient(useRawStdErr: echoToStdErr)
+        self.formatters = [XcodeLogFormatter()]
         self.logLevelTranslator = { _ in return .Warning }
     }
 
@@ -75,14 +66,12 @@ public struct ASLLogRecorder: LogRecorder
     - parameter formatter: The `LogFormatter` to use for formatting log messages
                 recorded by the receiver.
 
-    - parameter name: The name of the log recorder, which must be unique.
-                Defaults to `ASLLogRecorder.DefaultName` if the parameter
-                is not specified.
+    - parameter echoToStdErr: If `true`, ASL will also echo log messages to
+                the calling process's `stderr` output stream.
     */
-    public init(formatter: LogFormatter, name: String = ASLLogRecorder.DefaultName)
+    public init(formatter: LogFormatter, echoToStdErr: Bool = true)
     {
-        self.client = ASLClient()
-        self.name = name
+        self.client = ASLClient(useRawStdErr: echoToStdErr)
         self.formatters = [formatter]
         self.logLevelTranslator = { _ in return .Warning }
     }
@@ -99,14 +88,12 @@ public struct ASLLogRecorder: LogRecorder
                 consulted in sequence, and the formatted string returned by the
                 first formatter to yield a non-`nil` value will be recorded.
 
-    - parameter name: The name of the log recorder, which must be unique.
-                Defaults to `ASLLogRecorder.DefaultName` if the parameter 
-                is not specified.
+    - parameter echoToStdErr: If `true`, ASL will also echo log messages to
+                the calling process's `stderr` output stream.
     */
-    public init(formatters: [LogFormatter], name: String = ASLLogRecorder.DefaultName)
+    public init(formatters: [LogFormatter], echoToStdErr: Bool = true)
     {
-        self.client = ASLClient()
-        self.name = name
+        self.client = ASLClient(useRawStdErr: echoToStdErr)
         self.formatters = formatters
         self.logLevelTranslator = { _ in return .Warning }
     }
@@ -123,14 +110,12 @@ public struct ASLLogRecorder: LogRecorder
                 consulted in sequence, and the formatted string returned by the
                 first formatter to yield a non-`nil` value will be recorded.
 
-    - parameter name: The name of the log recorder, which must be unique.
-                Defaults to `ASLLogRecorder.DefaultName` if the parameter 
-                is not specified.
+    - parameter echoToStdErr: If `true`, ASL will also echo log messages to
+                the calling process's `stderr` output stream.
     */
-    public init(logLevelTranslator translator: LogLevelTranslator, formatters: [LogFormatter], name: String = ASLLogRecorder.DefaultName)
+    public init(logLevelTranslator translator: LogLevelTranslator, formatters: [LogFormatter], echoToStdErr: Bool = true)
     {
-        self.client = ASLClient()
-        self.name = name
+        self.client = ASLClient(useRawStdErr: echoToStdErr)
         self.formatters = formatters
         self.logLevelTranslator = translator
     }

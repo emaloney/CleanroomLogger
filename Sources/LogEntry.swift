@@ -32,15 +32,15 @@ public struct LogEntry
     /// The severity of the log entry.
     public let severity: LogSeverity
 
-    /// The signature of the function that issued the log request.
-    public let callingFunction: String
-
     /// The path of the source file containing the calling function that issued
     /// the log request.
     public let callingFilePath: String
 
     /// The line within the source file at which the log request was issued.
     public let callingFileLine: Int
+
+    /// The stack frame signature of the caller that issued the log request.
+    public let callingStackFrame: String
 
     /// A numeric identifier for the calling thread. Note that thread IDs are
     /// recycled over time.
@@ -55,15 +55,15 @@ public struct LogEntry
     - parameter payload: The payload of the `LogEntry` being constructed.
     
     - parameter severity: The `LogSeverity` of the message being logged.
-    
-    - parameter callingFunction: The signature of the function that issued the
-                log request.
-    
+
     - parameter callingFilePath: The path of the source file containing the
                 calling function that issued the log request.
-    
+
     - parameter callingFileLine: The line within the source file at which the
                 log request was issued.
+    
+    - parameter callingStackFrame: The stack frame signature of the caller
+                that issued the log request.
 
     - parameter callingThreadID: A numeric identifier for the calling thread.
                 Note that thread IDs are recycled over time.
@@ -71,13 +71,13 @@ public struct LogEntry
     - parameter timestamp: The time at which the log entry was created. Defaults
                 to the current time if not specified.
     */
-    public init(payload: Payload, severity: LogSeverity, callingFunction: String, callingFilePath: String, callingFileLine: Int, callingThreadID: UInt64, timestamp: NSDate = NSDate())
+    public init(payload: Payload, severity: LogSeverity, callingFilePath: String, callingFileLine: Int, callingStackFrame: String, callingThreadID: UInt64, timestamp: NSDate = NSDate())
     {
         self.payload = payload
         self.severity = severity
-        self.callingFunction = callingFunction
         self.callingFilePath = callingFilePath
         self.callingFileLine = callingFileLine
+        self.callingStackFrame = callingStackFrame
         self.callingThreadID = callingThreadID
         self.timestamp = timestamp
     }

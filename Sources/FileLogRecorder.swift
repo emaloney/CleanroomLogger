@@ -13,7 +13,7 @@ A `LogRecorder` implementation that stores log messages in a file.
 
 **Note:** This implementation provides no mechanism for log file rotation
 or log pruning. It is the responsibility of the developer to keep the log
-file at a reasonable size. Use `DailyRotatingLogFileRecorder` instead if you'd 
+file at a reasonable size. Use `RotatingLogFileRecorder` instead if you'd 
 rather not have to think about such details.
 */
 public class FileLogRecorder: LogRecorderBase
@@ -36,7 +36,7 @@ public class FileLogRecorder: LogRecorderBase
     
     - parameter formatters: The `LogFormatter`s to use for the recorder.
     */
-    public init?(filePath: String, formatters: [LogFormatter] = [DefaultLogFormatter()])
+    public init?(filePath: String, formatters: [LogFormatter] = [FileLogFormatter()])
     {
         let f = fopen(filePath, "a")
 
@@ -44,7 +44,7 @@ public class FileLogRecorder: LogRecorderBase
         self.file = f
         self.newlineCharset = NSCharacterSet.newlineCharacterSet()
 
-        super.init(name: "FileLogRecorder[\(filePath)]", formatters: formatters)
+        super.init(formatters: formatters)
 
         // we really should do this right after fopen() so we can avoid
         // creating the queue, etc., but Swift requires that failable
