@@ -46,7 +46,9 @@ Adding colorization functionality required breaking API changes to the `DefaultL
 
 1. Instead of selecting and using only the *first* appropriate `LogConfiguration` for recording a given message, CleanroomLogger now records messages using *all* appropriate `LogConfiguration`s for a given message. This is a breaking change for users expecting the old functionality.
 
-2. The design of the `Colorizer` protocol is now more basic. Rather than taking a `LogSeverity` and a `ColorTable` and colorizing the passed-in text as per those parameters, `Colorizer`s now simply take optional foreground and background `Color` parameters. This makes it friendlier to uses beyond severity-based colorization.
+2. The `Colorizer` protocol has been renamed `TextColorizer` and `XcodeColorsColorizer` has been renamed `XcodeColorsTextColorizer`.
+
+2. The design of the new `TextColorizer` protocol is now more basic. Rather than taking a `LogSeverity` and a `ColorTable` and colorizing the passed-in text as per those parameters as the old `Colorizer` did, `TextColorizer`s simply take optional foreground and background `Color` parameters. This makes it friendlier to uses beyond severity-based colorization.
 
 3. The output of the `DefaultLogFormatter` has changed slightly to look better in `Console.app`. Instead of using an em-dash to separate the source code line from the log output, now a hyphen is used. This avoids problematic display of non-ASCII characters.
 
@@ -58,8 +60,10 @@ Adding colorization functionality required breaking API changes to the `DefaultL
 
 7. The `LogEntry` struct's `callingFunction` property has been renamed `callingStackFrame` to reflect the fact that the caller may not be a function. (This can be true in the Swift REPL and Xcode Playgrounds, for example.)
 
-8. The `DailyRotatingLogFileRecorder` class has been renamed `RotatingLogFileRecorder`.
+8. The `DailyRotatingLogFileRecorder` class has been renamed `RotatingLogFileRecorder`. Also, the class no longer creates the log directory; it is now expected that the caller will ensure that the directory exists prior to use, or that the `RotatingLogFileRecorder`'s `createLogDirectory()` function will be called. This was to avoid some ugly design side-effects resulting from the old `DailyRotatingLogFileRecorder`'s having a failable initializer.
 
 9. The `enable()` functions now require parameter labels for all parameters, including the first one.
 
 10. The `DefaultLogFormatter` has been removed. The `StandardLogFormatter` provides equivalent functionality.
+
+11. 

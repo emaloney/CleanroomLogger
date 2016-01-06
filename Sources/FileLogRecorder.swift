@@ -9,33 +9,38 @@
 import Foundation
 
 /**
-A `LogRecorder` implementation that stores log messages in a file.
+ A `LogRecorder` implementation that appends log entries to a file.
 
-**Note:** This implementation provides no mechanism for log file rotation
-or log pruning. It is the responsibility of the developer to keep the log
-file at a reasonable size. Use `RotatingLogFileRecorder` instead if you'd 
-rather not have to think about such details.
-*/
+ - note: `FileLogRecorder` is a simple log appender that provides no mechanism
+ for file rotation or truncation. Unless you manually manage the log file when
+ a `FileLogRecorder` doesn't have it open, you will end up with an ever-growing
+ file. Use a `RotatingLogFileRecorder` instead if you'd rather not have to
+ concern yourself with such details.
+ */
 public class FileLogRecorder: LogRecorderBase
 {
-    /// The path of the file to which log messages will be written.
+    /** The path of the file to which log entries will be written. */
     public let filePath: String
 
     private let file: UnsafeMutablePointer<FILE>
     private let newlineCharset: NSCharacterSet
 
     /**
-    Attempts to initialize a new `FileLogRecorder` instance to use the
-    given file path and log formatters. This will fail if `filePath` could
-    not be opened for writing.
-    
-    - parameter filePath: The path of the file to be written. The containing
-                directory must exist and be writable by the process. If the
-                file does not yet exist, it will be created; if it does exist,
-                new log messages will be appended to the end.
-    
-    - parameter formatters: The `LogFormatter`s to use for the recorder.
-    */
+     Attempts to initialize a new `FileLogRecorder` instance to use the
+     given file path and log formatters. This will fail if `filePath` could
+     not be opened for writing.
+
+     - parameter filePath: The path of the file to be written. The containing
+     directory must exist and be writable by the process. If the file does not
+     yet exist, it will be created; if it does exist, new log messages will be
+     appended to the end of the file.
+
+     - parameter formatters: An array of `LogFormatter`s to use for formatting
+     log entries to be recorded by the receiver. Each formatter is consulted in
+     sequence, and the formatted string returned by the first formatter to
+     yield a non-`nil` value will be recorded. If every formatter returns `nil`,
+     the log entry is silently ignored and not recorded.
+     */
     public init?(filePath: String, formatters: [LogFormatter] = [FileLogFormatter()])
     {
         let f = fopen(filePath, "a")
@@ -63,23 +68,20 @@ public class FileLogRecorder: LogRecorderBase
     }
 
     /**
-    Called by the `LogReceptacle` to record the specified log message.
+     Called by the `LogReceptacle` to record the specified log message.
     
-    **Note:** This function is only called if one of the `formatters`
-    associated with the receiver returned a non-`nil` string.
+     - note: This function is only called if one of the `formatters` associated
+     with the receiver returned a non-`nil` string for the given `LogEntry`.
 
-    - parameter message: The message to record.
+     - parameter message: The message to record.
 
-    - parameter entry: The `LogEntry` for which `message` was created.
+     - parameter entry: The `LogEntry` for which `message` was created.
 
-    - parameter currentQueue: The GCD queue on which the function is being
-                executed.
+     - parameter currentQueue: The GCD queue on which the function is being
+     executed.
 
-    - parameter synchronousMode: If `true`, the receiver should record the
-                log entry synchronously. Synchronous mode is used during
-                debugging to help ensure that logs reflect the latest state
-                when debug breakpoints are hit. It is not recommended for
-                production code.
+     - parameter synchronousMode: If `true`, the receiver should record the log
+     entry synchronously and flush any buffers before returning.
     */
     public override func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
     {

@@ -9,33 +9,33 @@
 import Foundation
 
 /**
-`LogReceptacle`s provide the low-level interface for accepting log messages.
+ `LogReceptacle`s provide the low-level interface for accepting log messages.
 
-Although you could use a `LogReceptacle` directly to perform all logging
-functions, the `Log` implementation provides a higher-level interface that's
-more convenient to use within your code.
-*/
+ Although you could use a `LogReceptacle` directly to perform all logging
+ functions, the `Log` implementation provides a higher-level interface that's
+ more convenient to use within your code.
+ */
 public final class LogReceptacle
 {
     /** The `LogConfiguration` instances used to construct the receiver. */
     public let configuration: [LogConfiguration]
 
+    /** The minimum `LogSeverity` amongst the receiver's `LogConfiguration`s. */
     public let minimumSeverity: LogSeverity
 
     /**
-    Constructs a new `LogReceptacle` that will use the specified configurations.
+     Constructs a new `LogReceptacle` that will use the specified configurations.
 
-    When a `LogEntry` is passed to the receiver's `log()` function, logging
-    will proceed using **all** `LogConfiguration`s having a `minimumSeverity`
-    that's less or as severe as the passed-in `LogEntry`'s `severity` property.
+     When a `LogEntry` is passed to the receiver's `log()` function, logging
+     will proceed using **all** `LogConfiguration`s having a `minimumSeverity`
+     that's less or as severe as the passed-in `LogEntry`'s `severity` property.
 
-    If no matching `LogConfiguration`s are found, then the log request is
-    silently ignored.
+     If no matching `LogConfiguration`s are found, then the log request is
+     silently ignored.
 
-    - parameter configuration: An array of `LogConfiguration` instances that 
-                specify how the logging system will behave when messages
-                are logged.
-    */
+     - parameter configuration: An array of `LogConfiguration` instances that
+     specify how the logging system will behave when messages are logged.
+     */
     public init(configuration: [LogConfiguration])
     {
         let configs = configuration.flatMap{ $0.flatten() }
@@ -46,11 +46,11 @@ public final class LogReceptacle
     }
 
     /**
-    This function accepts a `LogEntry` instance and attempts to record it
-    to the underlying log storage facility.
-    
-    - parameter entry: The `LogEntry` being logged.
-    */
+     This function accepts a `LogEntry` instance and attempts to record it
+     to the underlying log storage facility.
+
+     - parameter entry: The `LogEntry` being logged.
+     */
     public func log(entry: LogEntry)
     {
         let matchingConfigs = configuration.filter{ entry.severity >= $0.minimumSeverity }

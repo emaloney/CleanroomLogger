@@ -57,18 +57,19 @@ public struct ASLLogRecorder: LogRecorder
     }
 
     /**
-    Initializes an `ASLLogRecorder` instance to use the specified `LogFormatter`
-    for formatting log messages.
+     Initializes an `ASLLogRecorder` instance to use the specified `LogFormatter`
+     for formatting log messages.
 
-    Within ASL, log messages will be recorded at the `.Warning` priority
-    level, which is consistent with the behavior of `NSLog()`.
+     Within ASL, log messages will be recorded at the `.Warning` priority
+     level, which is consistent with the behavior of `NSLog()`.
 
-    - parameter formatter: The `LogFormatter` to use for formatting log messages
-                recorded by the receiver.
+     - parameter formatter: A `LogFormatter` to use for formatting log entries
+     to be recorded by the receiver. If the formatter returns `nil` for a given
+     log entry, it is silently ignored and not recorded.
 
-    - parameter echoToStdErr: If `true`, ASL will also echo log messages to
-                the calling process's `stderr` output stream.
-    */
+     - parameter echoToStdErr: If `true`, ASL will also echo log messages to
+     the calling process's `stderr` output stream.
+     */
     public init(formatter: LogFormatter, echoToStdErr: Bool = true)
     {
         self.client = ASLClient(useRawStdErr: echoToStdErr)
@@ -77,20 +78,21 @@ public struct ASLLogRecorder: LogRecorder
     }
 
     /**
-    Initializes an `ASLLogRecorder` instance to use the specified `LogFormatter`
-    for formatting log messages.
-    
-    Within ASL, log messages will be recorded at the `.Warning` priority
-    level, which is consistent with the behavior of `NSLog()`.
+     Initializes an `ASLLogRecorder` instance to use the specified `LogFormatter`
+     for formatting log messages.
 
-    - parameter formatters: An array of `LogFormatter`s to use for formatting
-                log messages recorded by the receiver. Each formatter will be
-                consulted in sequence, and the formatted string returned by the
-                first formatter to yield a non-`nil` value will be recorded.
+     Within ASL, log messages will be recorded at the `.Warning` priority
+     level, which is consistent with the behavior of `NSLog()`.
 
-    - parameter echoToStdErr: If `true`, ASL will also echo log messages to
-                the calling process's `stderr` output stream.
-    */
+     - parameter formatters: An array of `LogFormatter`s to use for formatting
+     log entries to be recorded by the receiver. Each formatter is consulted in
+     sequence, and the formatted string returned by the first formatter to
+     yield a non-`nil` value will be recorded. If every formatter returns `nil`,
+     the log entry is silently ignored and not recorded.
+
+     - parameter echoToStdErr: If `true`, ASL will also echo log messages to
+     the `stderr` output stream of the running process.
+     */
     public init(formatters: [LogFormatter], echoToStdErr: Bool = true)
     {
         self.client = ASLClient(useRawStdErr: echoToStdErr)
@@ -99,20 +101,21 @@ public struct ASLLogRecorder: LogRecorder
     }
 
     /**
-    Initializes an `ASLLogRecorder` instance to use the specified `LogFormatter`
-    for formatting log messages.
+     Initializes a new `ASLLogRecorder` instance to use the specified
+     `LogFormatter` for formatting log entries.
 
-    - parameter translator: A `LogLevelTranslator` function that is used to
-                convert `LogSeverity` values to `ASLPriorityLevel` values.
+     - parameter translator: A `LogLevelTranslator` function that is used to
+     convert `LogSeverity` values to `ASLPriorityLevel` values.
 
-    - parameter formatters: An array of `LogFormatter`s to use for formatting log
-                messages recorded by the receiver. Each formatter will be
-                consulted in sequence, and the formatted string returned by the
-                first formatter to yield a non-`nil` value will be recorded.
+     - parameter formatters: An array of `LogFormatter`s to use for formatting
+     log entries to be recorded by the receiver. Each formatter is consulted in
+     sequence, and the formatted string returned by the first formatter to
+     yield a non-`nil` value will be recorded. If every formatter returns `nil`,
+     the log entry is silently ignored and not recorded.
 
-    - parameter echoToStdErr: If `true`, ASL will also echo log messages to
-                the calling process's `stderr` output stream.
-    */
+     - parameter echoToStdErr: If `true`, ASL will also echo log messages to
+     the calling process's `stderr` output stream.
+     */
     public init(logLevelTranslator translator: LogLevelTranslator, formatters: [LogFormatter], echoToStdErr: Bool = true)
     {
         self.client = ASLClient(useRawStdErr: echoToStdErr)
@@ -121,23 +124,20 @@ public struct ASLLogRecorder: LogRecorder
     }
 
     /**
-    Called to record the specified message to the Apple System Log.
+     Called to record the specified message to the Apple System Log.
 
-    **Note:** This function is only called if one of the `formatters` 
-    associated with the receiver returned a non-`nil` string.
-    
-    - parameter message: The message to record.
+     - note: This function is only called if one of the `formatters` associated
+     with the receiver returned a non-`nil` string for the given `LogEntry`.
 
-    - parameter entry: The `LogEntry` for which `message` was created.
+     - parameter message: The message to record.
 
-    - parameter currentQueue: The GCD queue on which the function is being
-                executed.
+     - parameter entry: The `LogEntry` for which `message` was created.
 
-    - parameter synchronousMode: If `true`, the receiver should record the
-                log entry synchronously. Synchronous mode is used during
-                debugging to help ensure that logs reflect the latest state
-                when debug breakpoints are hit. It is not recommended for
-                production code.
+     - parameter currentQueue: The GCD queue on which the function is being
+     executed.
+
+     - parameter synchronousMode: If `true`, the receiver should record the log
+     entry synchronously and flush any buffers before returning.
     */
     public func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
     {

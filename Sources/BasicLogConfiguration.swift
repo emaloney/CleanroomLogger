@@ -9,40 +9,44 @@
 import Foundation
 
 /**
-`BasicLogConfiguration` is a basic implementation of the `LogConfiguration`
-protocol.
-*/
+ In case the name didn't give it away, the `BasicLogConfiguration` class 
+ provides a basic implementation of the `LogConfiguration` protocol.
+ */
 public class BasicLogConfiguration: LogConfiguration
 {
-    /// The minimum `LogSeverity` supported by the configuration.
+    /** The minimum `LogSeverity` supported by the configuration. */
     public let minimumSeverity: LogSeverity
 
-    /// The `LogFilter`s to use when deciding whether a given `LogEntry`
-    /// should be passed along to the receiver's `recorders`. If any filter
-    /// returns `false` from `shouldRecordLogEntry(_:)`, the `LogEntry` will
-    /// be silently ignored when being processed for this configuration.
+    /** The `LogFilter`s to use when deciding whether a given `LogEntry` should
+     be passed along to the receiver's `recorders`. If any filter returns
+     `false` from `shouldRecordLogEntry(_:)`, the `LogEntry` will be silently
+     ignored when being processed for this `LogConfiguration`. */
     public let filters: [LogFilter]
 
-    /// The `LogRecorder`s to use for recording any `LogEntry` that has
-    /// passed the filtering process.
+    /** The `LogRecorder`s to use for recording any `LogEntry` that has passed
+     the filtering process. */
     public let recorders: [LogRecorder]
 
-    /// A flag indicating when synchronous mode should be used for the
-    /// configuration. Synchronous mode is intended for use only when
-    /// debugging; it should not be used in production code.
+    /** A flag indicating whether synchronous mode will be used when passing
+     `LogEntry` instances to the receiver's `recorders`. Synchronous mode is
+     helpful while debugging, as it ensures that logs are always up-to-date
+     when debug breakpoints are hit. However, synchronous mode can have a
+     negative influence on performance and is therefore not recommended for use 
+     in production code. */
     public let synchronousMode: Bool
 
-    /// For organizational purposes, a given `LogConfiguration` may in turn
-    /// contain one or more additional `LogConfiguration`s. Note that these
-    /// are handled as entirely separate entities; the receiver's state does
-    /// not affect the behavior of the contained configurations in any way.
+    /** For organizational purposes, a given `LogConfiguration` may in turn
+     contain one or more additional `LogConfiguration`s. Each contained
+     `LogConfiguration` is an entirely separate entity; children do not inherit
+     any state from parent containers. */
     public let configurations: [LogConfiguration]?
 
     /**
-     Constructs a new `BasicLogConfiguration` instance.
+     Initializes a new `BasicLogConfiguration` instance.
 
      - parameter minimumSeverity: The minimum `LogSeverity` supported by the
-     configuration.
+     configuration. Log entries having a `severity` less than `minimumSeverity`
+     will not be passed to the receiver's `recorders`.
 
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along to the receiver's `LogRecorder`s.
@@ -50,12 +54,13 @@ public class BasicLogConfiguration: LogConfiguration
      - parameter recorders: The `LogRecorder`s to use for recording any 
      `LogEntry` that has passed the filtering process.
 
-     - parameter synchronousMode: Determines whether synchronous mode logging
-     will be used. **Use of synchronous mode is not recommended in production
-     code**; it is provided for use during debugging, to help ensure that
-     messages send prior to hitting a breakpoint will appear in the console
-     when the breakpoint is hit.
-
+     - parameter synchronousMode: Determines whether synchronous mode will be
+     used when passing `LogEntry` instances to the receiver's `recorders`.
+     Synchronous mode is helpful while debugging, as it ensures that logs are
+     always up-to-date when debug breakpoints are hit. However, synchronous 
+     mode can have a negative influence on performance and is therefore not
+     recommended for use in production code.
+     
      - parameter configurations: Optional `LogConfiguration`s. For
      organizational purposes, a given `LogConfiguration` may in turn contain
      one or more additional `LogConfiguration`s. Note that these are handled

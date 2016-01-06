@@ -10,8 +10,8 @@ import Foundation
 
 public class FileLogFormatter: StandardLogFormatter
 {
-    public override init(showTimestamp: Bool = true, showCallSite: Bool = true, showCallingThread: Bool = true, showSeverity: Bool = true, customFieldSeparator: String? = nil, colorizer: Colorizer? = nil, colorTable: ColorTable? = nil)
+    public override init(timestampStyle: TimestampStyle? = .UNIX, severityStyle: SeverityStyle? = .Numeric, delimiterStyle: DelimiterStyle? = .Tab, showCallSite: Bool = true, showCallingThread: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
     {
-        super.init(showTimestamp: showTimestamp, showCallSite: showCallSite, showCallingThread: showCallingThread, showSeverity: showSeverity, customFieldSeparator: customFieldSeparator, colorizer: colorizer, colorTable: colorTable)
+        super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, showCallSite: showCallSite, showCallingThread: showCallingThread, colorizer: colorizer, colorTable: colorTable)
     }
 }

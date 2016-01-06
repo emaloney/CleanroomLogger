@@ -8,15 +8,36 @@
 
 import Foundation
 
+/**
+ A `LogFormatter` that returns always returns a given literal string
+ regardless of input.
+
+ This is typically combined with other `LogFormatter`s within a
+ `ConcatenatingLogFormatter`.
+ */
 public struct LiteralLogFormatter: LogFormatter
 {
-    private let literal: String
+    /** The literal string used as the return value of the receiver's 
+     `formatLogEntry()` function. */
+    public let literal: String
 
+    /**
+     Initializes a new `LiteralLogFormatter` to contain the given string.
+     
+     - parameter string: The literal string.
+     */
     public init(_ string: String)
     {
         literal = string
     }
 
+    /**
+     Returns the value of the receiver's `literal` property.
+
+     - parameter entry: Ignored by this implementation.
+
+     - returns: The value of the receiver's `literal` property; never `nil`.
+     */
     public func formatLogEntry(entry: LogEntry)
         -> String?
     {

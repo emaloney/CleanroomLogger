@@ -24,22 +24,22 @@ passing them along to a `LogReceptacle`.
 public struct LogChannel
 {
     /** The `LogSeverity` of this `LogChannel`, which determines the severity
-    of the `LogEntry` instances it creates. */
+     of the `LogEntry` instances it creates. */
     public let severity: LogSeverity
 
-    /** The `LogReceptacle` into which this `LogChannel` will deposit
-    the `LogEntry` instances it creates. */
+    /** The `LogReceptacle` into which this `LogChannel` will deposit the
+     `LogEntry` instances it creates. */
     public let receptacle: LogReceptacle
 
     /**
-    Initializes a new `LogChannel` instance using the specified parameters.
-    
-    - parameter severity: The `LogSeverity` to use for log entries written to
-                the receiving channel.
-    
-    - parameter receptacle: A `LogFormatter` instance to use for formatting log
-                entries.
-    */
+     Initializes a new `LogChannel` instance.
+
+     - parameter severity: The `LogSeverity` to use for each `LogEntry` created
+     by the channel.
+
+     - parameter receptacle: The `LogReceptacle` to be used for depositing the
+     `LogEntry` instances created by the channel.
+     */
     public init(severity: LogSeverity, receptacle: LogReceptacle)
     {
         self.severity = severity
@@ -47,22 +47,22 @@ public struct LogChannel
     }
 
     /**
-    Writes program execution trace information to the log. This information
-    includes the signature of the calling function, as well as the source file
-    and line at which the call to `trace()` was issued.
-    
-    - parameter function: The default value provided for this parameter captures
-                the signature of the calling function. **You should not provide
-                a value for this parameter.**
-    
-    - parameter filePath: The default value provided for this parameter captures
-                the file path of the code issuing the call to this function. 
-                **You should not provide a value for this parameter.**
+     Sends program execution trace information to the log using the receiver's
+     severity. This information includes source-level call site information as
+     well as the stack frame signature of the caller.
 
-    - parameter fileLine: The default value provided for this parameter captures
-                the line number issuing the call to this function. **You should
-                not provide a value for this parameter.**
-    */
+     - parameter function: The default value provided for this parameter 
+     captures the signature of the calling function. You should not provide a 
+     value for this parameter.
+
+     - parameter filePath: The default value provided for this parameter 
+     captures the file path of the code issuing the call to this function.
+     You should not provide a value for this parameter.
+
+     - parameter fileLine: The default value provided for this parameter 
+     captures the line number issuing the call to this function. You should
+     not provide a value for this parameter.
+     */
     public func trace(function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
     {
         var threadID: UInt64 = 0
@@ -74,21 +74,21 @@ public struct LogChannel
     }
 
     /**
-    Writes a string-based message to the log.
-    
-    - parameter msg: The message to log.
-    
-    - parameter function: The default value provided for this parameter captures
-                the signature of the calling function. **You should not provide
-                a value for this parameter.**
-    
-    - parameter filePath: The default value provided for this parameter captures
-                the file path of the code issuing the call to this function. 
-                **You should not provide a value for this parameter.**
+     Sends a message string to the log using the receiver's severity.
 
-    - parameter fileLine: The default value provided for this parameter captures
-                the line number issuing the call to this function. **You should
-                not provide a value for this parameter.**
+     - parameter msg: The message to send to the log.
+
+     - parameter function: The default value provided for this parameter
+     captures the signature of the calling function. You should not provide a
+     value for this parameter.
+
+     - parameter filePath: The default value provided for this parameter
+     captures the file path of the code issuing the call to this function.
+     You should not provide a value for this parameter.
+
+     - parameter fileLine: The default value provided for this parameter
+     captures the line number issuing the call to this function. You should
+     not provide a value for this parameter.
     */
     public func message(msg: String, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
     {
@@ -101,24 +101,24 @@ public struct LogChannel
     }
 
     /**
-    Writes an arbitrary value to the log.
+     Sends an arbitrary value to the log using the receiver's severity.
 
-    - parameter value: The value to write to the log. The underlying logging
-                implementation is responsible for converting `value` into a
-                text representation. If that is not possible, the log request
-                may be silently ignored.
-    
-    - parameter function: The default value provided for this parameter captures
-                the signature of the calling function. **You should not provide
-                a value for this parameter.**
-    
-    - parameter filePath: The default value provided for this parameter captures
-                the file path of the code issuing the call to this function. 
-                **You should not provide a value for this parameter.**
+     - parameter value: The value to send to the log. Determining how (and
+     whether) arbitrary values are captured and represented will be handled by
+     the `LogRecorder` implementation(s) that are ultimately called upon to
+     record the log entry.
 
-    - parameter fileLine: The default value provided for this parameter captures
-                the line number issuing the call to this function. **You should
-                not provide a value for this parameter.**
+     - parameter function: The default value provided for this parameter
+     captures the signature of the calling function. You should not provide a
+     value for this parameter.
+
+     - parameter filePath: The default value provided for this parameter
+     captures the file path of the code issuing the call to this function.
+     You should not provide a value for this parameter.
+
+     - parameter fileLine: The default value provided for this parameter
+     captures the line number issuing the call to this function. You should
+     not provide a value for this parameter.
     */
     public func value(value: Any?, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
     {

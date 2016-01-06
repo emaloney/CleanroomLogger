@@ -11,29 +11,27 @@ import Foundation
 public class FieldBasedLogFormatter: ConcatenatingLogFormatter
 {
     public enum Field {
+        case Timestamp(TimestampStyle)
+        case Severity(SeverityStyle)
         case CallSite
-        case CallingThread
-        case Literal(String)
-        case Payload
-        case Timestamp
-        case TimestampWithFormat(String)
         case StackFrame
-        case Separator
-        case Severity
+        case CallingThread
+        case Payload
+        case Delimiter(DelimiterStyle)
+        case Literal(String)
 
-        private func createLogFormatter(customFieldSeparator: String?)
+        private func createLogFormatter()
             -> LogFormatter
         {
             switch self {
+            case .Timestamp(let style):             return TimestampLogFormatter(style: style)
+            case .Severity(let style):              return SeverityLogFormatter(style: style)
             case .CallSite:                         return CallSiteLogFormatter()
-            case .CallingThread:                    return CallingThreadLogFormatter()
-            case .Separator:                        return FieldSeparatorLogFormatter(customFieldSeparator)
-            case .Literal(let literal):             return LiteralLogFormatter(literal)
-            case .Payload:                          return PayloadLogFormatter()
-            case .Timestamp:                        return TimestampLogFormatter()
-            case .TimestampWithFormat(let format):  return TimestampLogFormatter(dateFormat: format)
             case .StackFrame:                       return StackFrameLogFormatter()
-            case .Severity:                         return SeverityLogFormatter()
+            case .CallingThread:                    return CallingThreadLogFormatter()
+            case .Payload:                          return PayloadLogFormatter()
+            case .Delimiter(let style):             return DelimiterLogFormatter(style: style)
+            case .Literal(let literal):             return LiteralLogFormatter(literal)
             }
         }
     }
@@ -43,8 +41,8 @@ public class FieldBasedLogFormatter: ConcatenatingLogFormatter
         super.init(formatters: formatters)
     }
 
-    public init(fields: [Field], customFieldSeparator: String? = nil)
+    public init(fields: [Field])
     {
-        super.init(formatters: fields.map{ $0.createLogFormatter(customFieldSeparator) })
+        super.init(formatters: fields.map{ $0.createLogFormatter() })
     }
 }

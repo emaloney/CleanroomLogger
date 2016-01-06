@@ -9,52 +9,50 @@
 import Foundation
 
 /**
-A partial implementation of the `LogRecorder` protocol.
-
-Note that this implementation provides no mechanism for log file rotation
-or log pruning. It is the responsibility of the developer to keep the log
-file at a reasonable size.
-*/
+ A partial implementation of the `LogRecorder` protocol.
+ */
 public class LogRecorderBase: LogRecorder
 {
-    /// The `LogFormatter`s that will be used to format messages for
-    /// the `LogEntry`s to be logged.
+    /** The `LogFormatter`s that will be used to format messages for the
+     `LogEntry`s to be logged. */
     public let formatters: [LogFormatter]
 
-    /// The GCD queue that should be used for logging actions related to
-    /// the receiver.
+    /** The GCD queue that should be used for logging actions related to the
+     receiver. */
     public let queue: dispatch_queue_t
 
     /**
-    Initialize a new `LogRecorderBase` instance to use the given parameters.
+     Initialize a new `LogRecorderBase` instance.
 
-    - parameter formatters: The `LogFormatter`s to use for the recorder.
-    */
-    public init(formatters: [LogFormatter] = [XcodeLogFormatter()])
+     - parameter formatters: An array of `LogFormatter`s to use for formatting
+     log entries to be recorded by the receiver. Each formatter is consulted in
+     sequence, and the formatted string returned by the first formatter to
+     yield a non-`nil` value will be recorded. If every formatter returns `nil`,
+     the log entry is silently ignored and not recorded.
+     */
+    public init(formatters: [LogFormatter])
     {
         self.formatters = formatters
-        self.queue = dispatch_queue_create(nil, DISPATCH_QUEUE_SERIAL)
+        self.queue = dispatch_queue_create("\(self.dynamicType)", DISPATCH_QUEUE_SERIAL)
     }
 
     /**
-    This implementation does nothing. Subclasses must override this function
-    to provide actual log recording functionality.
+     This implementation, which does nothing, is present to satisfy the
+     `LogRecorder` protocol. Subclasses must override this function to provide
+     actual log recording functionality.
 
-    **Note:** This function is only called if one of the `formatters` 
-    associated with the receiver returned a non-`nil` string.
-    
-    - parameter message: The message to record.
+     - note: This function is only called if one of the `formatters` associated
+     with the receiver returned a non-`nil` string for the given `LogEntry`.
 
-    - parameter entry: The `LogEntry` for which `message` was created.
+     - parameter message: The message to record.
 
-    - parameter currentQueue: The GCD queue on which the function is being
-                executed.
+     - parameter entry: The `LogEntry` for which `message` was created.
 
-    - parameter synchronousMode: If `true`, the receiver should record the
-                log entry synchronously. Synchronous mode is used during
-                debugging to help ensure that logs reflect the latest state
-                when debug breakpoints are hit. It is not recommended for
-                production code.
+     - parameter currentQueue: The GCD queue on which the function is being
+     executed.
+
+     - parameter synchronousMode: If `true`, the receiver should record the log
+     entry synchronously and flush any buffers before returning.
     */
     public func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
     {

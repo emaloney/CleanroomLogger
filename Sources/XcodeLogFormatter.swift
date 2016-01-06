@@ -10,8 +10,8 @@ import Foundation
 
 public class XcodeLogFormatter: StandardLogFormatter
 {
-    public override init(showTimestamp: Bool = true, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, customFieldSeparator: String? = nil, colorizer: Colorizer? = XcodeColorsColorizer(), colorTable: ColorTable? = nil)
+    public override init(timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Xcode, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false, colorizer: TextColorizer? = XcodeColorsTextColorizer(), colorTable: ColorTable? = nil)
     {
-        super.init(showTimestamp: showTimestamp, showCallSite: showCallSite, showCallingThread: showCallingThread, showSeverity: showSeverity, customFieldSeparator: customFieldSeparator, colorizer: colorizer, colorTable: colorTable)
+        super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, showCallSite: showCallSite, showCallingThread: showCallingThread, colorizer: colorizer, colorTable: colorTable)
     }
 }

@@ -9,23 +9,21 @@
 import Foundation
 
 /**
-A `LogRecorder` implementation that maintains a set of daily rotating log
-files, kept for a user-specified number of days.
+ A `LogRecorder` implementation that maintains a set of daily rotating log
+ files, kept for a user-specified number of days.
 
-**Important:** The `RotatingLogFileRecorder` is expected to have full
-control over the `directoryPath` with which it was instantiated. Any file not
-explicitly known to be an active log file may be removed during the pruning
-process. Therefore, be careful not to store anything in the `directoryPath`
-that you wouldn't mind being deleted when pruning occurs.
+ - important: A `RotatingLogFileRecorder` instance assumes full control over
+ the log directory specified by its `directoryPath` property. Please see the
+ initializer documentation for details.
 */
 public class RotatingLogFileRecorder: LogRecorderBase
 {
     /** The number of days for which the receiver will retain log files
-    before they're eligible for pruning. */
+     before they're eligible for pruning. */
     public let daysToKeep: Int
 
     /** The filesystem path to a directory where the log files will be
-    stored. */
+     stored. */
     public let directoryPath: String
 
     private static let filenameFormatter: NSDateFormatter = {
@@ -38,23 +36,26 @@ public class RotatingLogFileRecorder: LogRecorderBase
     private var currentFileRecorder: FileLogRecorder?
 
     /**
-    Attempts to initialize a new `RotatingLogFileRecorder` instance. This
-    may fail if the `directoryPath` doesn't already exist as a directory and
-    could not be created.
-    
-    **Important:** The new `RotatingLogFileRecorder` will take 
-    responsibility for managing the contents of the `directoryPath`. As part
-    of the automatic pruning process, any file not explicitly known to be an
-    active log file may be removed. Be careful not to put anything in this
-    directory you might not want deleted when pruning occurs.
+     Initializes a new `RotatingLogFileRecorder` instance.
 
-    - parameter daysToKeep: The number of days for which log files should be
-                retained.
-    
-    - parameter directoryPath: The filesystem path of the directory where the
-                log files will be stores.
+     - warning: The `RotatingLogFileRecorder` expects to have full control over
+     the contents of its `directoryPath`. Any file not recognized as an active 
+     log file will be deleted during the automatic pruning process, which may
+     occur at any time. Therefore, be __extremely careful__ when constructing
+     the value passed in as the `directoryPath`.
 
-    - parameter formatters: The `LogFormatter`s to use for the recorder.
+     - parameter daysToKeep: The number of days for which log files should be
+     retained.
+
+     - parameter directoryPath: The filesystem path of the directory where the
+     log files will be stored. Please note the warning above regarding the
+     `directoryPath`.
+
+     - parameter formatters: An array of `LogFormatter`s to use for formatting
+     log entries to be recorded by the receiver. Each formatter is consulted in
+     sequence, and the formatted string returned by the first formatter to
+     yield a non-`nil` value will be recorded. If every formatter returns `nil`,
+     the log entry is silently ignored and not recorded.
     */
     public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [FileLogFormatter()])
     {
@@ -62,25 +63,15 @@ public class RotatingLogFileRecorder: LogRecorderBase
         self.directoryPath = directoryPath
 
         super.init(formatters: formatters)
-
-        // try to create the directory that will contain the log files
-        let url = NSURL(fileURLWithPath: directoryPath, isDirectory: true)
-
-        do {
-            try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
-        }
-        catch {
-            print("Error attempting to create directory at path <\(directoryPath)>: \(error)")
-        }
     }
 
     /**
-    Returns a string representing the filename that will be used to store logs
-    recorded on the given date.
-    
-    - parameter date: The `NSDate` for which the log file name is desired.
-    
-    - returns:  The filename.
+     Returns a string representing the filename that will be used to store logs
+     recorded on the given date.
+
+     - parameter date: The `NSDate` for which the log file name is desired.
+
+     - returns: The filename.
     */
     public class func logFilenameForDate(date: NSDate)
         -> String
@@ -111,23 +102,34 @@ public class RotatingLogFileRecorder: LogRecorderBase
     }
 
     /**
-    Called by the `LogReceptacle` to record the specified log message.
+     Attempts to create—if it does not already exist—the directory indicated
+     by the `directoryPath` property.
+     
+     - throws: If the function fails to create a directory at `directoryPath`.
+     */
+    public func createLogDirectory()
+        throws
+    {
+        let url = NSURL(fileURLWithPath: directoryPath, isDirectory: true)
 
-    **Note:** This function is only called if one of the `formatters` 
-    associated with the receiver returned a non-`nil` string.
-    
-    - parameter message: The message to record.
+        try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+    }
 
-    - parameter entry: The `LogEntry` for which `message` was created.
+    /**
+     Called by the `LogReceptacle` to record the specified log message.
 
-    - parameter currentQueue: The GCD queue on which the function is being
-                executed.
+     - note: This function is only called if one of the `formatters` associated
+     with the receiver returned a non-`nil` string for the given `LogEntry`.
 
-    - parameter synchronousMode: If `true`, the receiver should record the
-                log entry synchronously. Synchronous mode is used during
-                debugging to help ensure that logs reflect the latest state
-                when debug breakpoints are hit. It is not recommended for
-                production code.
+     - parameter message: The message to record.
+
+     - parameter entry: The `LogEntry` for which `message` was created.
+
+     - parameter currentQueue: The GCD queue on which the function is being
+     executed.
+
+     - parameter synchronousMode: If `true`, the receiver should record the log
+     entry synchronously and flush any buffers before returning.
     */
     public override func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
     {
@@ -141,14 +143,11 @@ public class RotatingLogFileRecorder: LogRecorderBase
     }
 
     /**
-    Deletes any expired log files (and any other detritus that may be hanging
-    around inside our `directoryPath`).
-    
-    **Important:** The `RotatingLogFileRecorder` is expected to have full
-    ownership over its `directoryPath`. Any file not explicitly known to be an
-    active log file may be removed during the pruning process. Therefore, be
-    careful not to store anything in this directory that you wouldn't mind
-    being deleted when pruning occurs.
+     Deletes any expired log files (and any other detritus that may be hanging
+     around inside our `directoryPath`).
+
+     - warning: Any file within the `directoryPath` not recognized as an active
+     log file will be deleted during pruning.
     */
     public func prune()
     {

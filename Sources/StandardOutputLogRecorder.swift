@@ -48,23 +48,20 @@ public class StandardOutputLogRecorder: LogRecorderBase
     }
 
     /**
-    Called to record the specified message to standard output.
+     Called to record the specified message to standard output.
 
-    **Note:** This function is only called if one of the `formatters` 
-    associated with the receiver returned a non-`nil` string.
-    
-    - parameter message: The message to record.
+     - note: This function is only called if one of the `formatters` associated
+     with the receiver returned a non-`nil` string for the given `LogEntry`.
 
-    - parameter entry: The `LogEntry` for which `message` was created.
+     - parameter message: The message to record.
 
-    - parameter currentQueue: The GCD queue on which the function is being
-                executed.
+     - parameter entry: The `LogEntry` for which `message` was created.
 
-    - parameter synchronousMode: If `true`, the receiver should record the
-                log entry synchronously. Synchronous mode is used during
-                debugging to help ensure that logs reflect the latest state
-                when debug breakpoints are hit. It is not recommended for
-                production code.
+     - parameter currentQueue: The GCD queue on which the function is being
+     executed.
+
+     - parameter synchronousMode: If `true`, the receiver should record the log
+     entry synchronously and flush any buffers before returning.
     */
     public override func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
     {

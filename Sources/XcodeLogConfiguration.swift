@@ -14,39 +14,39 @@ public class XcodeLogConfiguration: BasicLogConfiguration
 {
     /**
     */
-    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, showTimestamp: Bool = true, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, suppressColors: Bool = false, filters: [LogFilter] = [])
+    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Xcode, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, suppressColors: Bool = false, filters: [LogFilter] = [])
     {
         var minimumSeverity = minimumSeverity
         if verboseDebugMode {
             minimumSeverity = .Verbose
         }
-        else if debugMode {
+        else if debugMode && minimumSeverity > .Debug {
             minimumSeverity = .Debug
         }
 
-        var colorizer: Colorizer?
+        var colorizer: TextColorizer?
         if !suppressColors {
-            colorizer = XcodeColorsColorizer()
+            colorizer = XcodeColorsTextColorizer()
         }
 
-        let formatter = XcodeLogFormatter(showTimestamp: showTimestamp, showCallSite: showCallSite, showCallingThread: showCallingThread, showSeverity: showSeverity, colorizer: nil)
+        let formatter = XcodeLogFormatter(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: nil, showCallSite: showCallSite, showCallingThread: showCallingThread, colorizer: nil)
 
         self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, colorizer: colorizer, formatter: formatter, filters: filters)
     }
 
-    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, colorizer: Colorizer? = nil, colorTable: ColorTable? = nil, formatter: LogFormatter, filters: [LogFilter] = [])
+    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatter: LogFormatter, filters: [LogFilter] = [])
     {
         self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, colorizer: colorizer, formatters: [formatter], filters: filters)
     }
 
-    public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, colorizer: Colorizer? = nil, colorTable: ColorTable? = nil, formatters: [LogFormatter], filters: [LogFilter] = [])
+    public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatters: [LogFormatter], filters: [LogFilter] = [])
     {
         let recorders: [LogRecorder]
         if let colorizer = colorizer {
             let colorFormatters: [LogFormatter] = formatters.map{ ColorizingLogFormatter(formatter: $0, colorizer: colorizer, colorTable: colorTable) }
 
             recorders = [
-                ASLLogRecorder(formatters: colorFormatters, echoToStdErr: false),
+                ASLLogRecorder(formatters: formatters, echoToStdErr: false),
                 StandardOutputLogRecorder(formatters: colorFormatters)
             ]
         }

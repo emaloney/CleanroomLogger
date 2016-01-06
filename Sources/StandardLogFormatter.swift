@@ -10,25 +10,25 @@ import Foundation
 
 public class StandardLogFormatter: FieldBasedLogFormatter
 {
-    public init(showTimestamp: Bool, showCallSite: Bool, showCallingThread: Bool, showSeverity: Bool, customFieldSeparator: String? = nil, colorizer: Colorizer? = nil, colorTable: ColorTable? = nil)
+    public init(timestampStyle: TimestampStyle?, severityStyle: SeverityStyle?, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool, showCallingThread: Bool, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
     {
         var fields: [Field] = []
         var addSeparator = false
 
-        if showTimestamp {
-            fields += [.Timestamp]
+        if let timestampStyle = timestampStyle {
+            fields += [.Timestamp(timestampStyle)]
             addSeparator = true
         }
         if addSeparator {
-            fields += [.Separator]
+            fields += [.Delimiter(delimiterStyle ?? .Pipe)]
             addSeparator = false
         }
-        if showSeverity {
-            fields += [.Severity]
+        if let severityStyle = severityStyle {
+            fields += [.Severity(severityStyle)]
             addSeparator = true
         }
         if addSeparator {
-            fields += [.Separator]
+            fields += [.Delimiter(delimiterStyle ?? .Pipe)]
             addSeparator = false
         }
         if showCallingThread {
@@ -36,7 +36,7 @@ public class StandardLogFormatter: FieldBasedLogFormatter
             addSeparator = true
         }
         if addSeparator {
-            fields += [.Separator]
+            fields += [.Delimiter(delimiterStyle ?? .Pipe)]
             addSeparator = false
         }
         if showCallSite {
@@ -44,26 +44,26 @@ public class StandardLogFormatter: FieldBasedLogFormatter
             addSeparator = true
         }
         if addSeparator {
-            fields += [customFieldSeparator != nil ? .Separator : .Literal(" - ")]
+            fields += [.Delimiter(delimiterStyle ?? .Hyphen)]
             addSeparator = false
         }
         fields += [.Payload]
 
         if colorizer == nil {
-            super.init(fields: fields, customFieldSeparator: customFieldSeparator)
+            super.init(fields: fields)
         }
         else {
-            super.init(formatters: [ColorizingLogFormatter(formatter: FieldBasedLogFormatter(fields: fields, customFieldSeparator: customFieldSeparator), colorizer: colorizer!, colorTable: colorTable ?? DefaultColorTable())])
+            super.init(formatters: [ColorizingLogFormatter(formatter: FieldBasedLogFormatter(fields: fields), colorizer: colorizer!, colorTable: colorTable ?? DefaultColorTable())])
         }
     }
 
-    public init(fields: [Field], customFieldSeparator: String? = nil, colorizer: Colorizer? = nil, colorTable: ColorTable? = nil)
+    public init(fields: [Field], colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
     {
         if colorizer == nil {
-            super.init(fields: fields, customFieldSeparator: customFieldSeparator)
+            super.init(fields: fields)
         }
         else {
-            super.init(formatters: [ColorizingLogFormatter(formatter: FieldBasedLogFormatter(fields: fields, customFieldSeparator: customFieldSeparator), colorizer: colorizer!, colorTable: colorTable ?? DefaultColorTable())])
+            super.init(formatters: [ColorizingLogFormatter(formatter: FieldBasedLogFormatter(fields: fields), colorizer: colorizer!, colorTable: colorTable ?? DefaultColorTable())])
         }
     }
 }

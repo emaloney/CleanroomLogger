@@ -16,37 +16,37 @@ public struct LogEntry
     /** Represents the payload contained within a log entry. */
     public enum Payload
     {
-        /// The log entry is a trace call and contains no explicit payload.
+        /** The log entry is a trace call and contains no explicit payload. */
         case Trace
 
-        /// The payload contains a text message.
+        /** The payload contains a text message. */
         case Message(String)
 
-        /// The payload contains an arbitrary value, or `nil`.
+        /** The payload contains an arbitrary value, or `nil`. */
         case Value(Any?)
     }
 
-    /// The payload of the log entry.
+    /** The payload of the log entry. */
     public let payload: Payload
 
-    /// The severity of the log entry.
+    /** The severity of the log entry. */
     public let severity: LogSeverity
 
-    /// The path of the source file containing the calling function that issued
-    /// the log request.
+    /** The path of the source file containing the calling function that issued
+     the log request. */
     public let callingFilePath: String
 
-    /// The line within the source file at which the log request was issued.
+    /** The line within the source file at which the log request was issued. */
     public let callingFileLine: Int
 
-    /// The stack frame signature of the caller that issued the log request.
+    /** The stack frame signature of the caller that issued the log request. */
     public let callingStackFrame: String
 
-    /// A numeric identifier for the calling thread. Note that thread IDs are
-    /// recycled over time.
+    /** A numeric identifier for the calling thread. Note that thread IDs are
+     recycled over time. */
     public let callingThreadID: UInt64
 
-    /// The time at which the `LogEntry` was created.
+    /** The time at which the `LogEntry` was created. */
     public let timestamp: NSDate
 
     /**

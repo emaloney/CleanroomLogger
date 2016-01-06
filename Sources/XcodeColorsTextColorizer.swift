@@ -1,5 +1,5 @@
 //
-//  XcodeColorsColorizer.swift
+//  XcodeColorsTextColorizer.swift
 //  CleanroomLogger
 //
 //  Created by Evan Maloney on 12/18/15.
@@ -9,11 +9,11 @@
 import Foundation
 
 /**
- A `Colorizer` implementation that applies 
+ A `TextColorizer` implementation that applies 
  [XcodeColors](https://github.com/robbiehanson/XcodeColors/)-compatible 
  formatting to log messages.
  */
-public struct XcodeColorsColorizer: Colorizer
+public struct XcodeColorsTextColorizer: TextColorizer
 {
     /**
      Initializes a new instance if and only if XcodeColors is installed and
@@ -42,15 +42,14 @@ public struct XcodeColorsColorizer: Colorizer
      Applies XcodeColors-style formatting appropriate for the given
      `LogSeverity` to the passed-in string.
 
-     - parameter str: The string to be formatted
+     - parameter string: The string to be colorized.
 
-     - parameter severity: The log severity
+     - parameter foreground: An optional foreground color to apply to `string`.
 
-     - parameter colorTable: A `ColorTable` whose color settings will be used
-                 to format the message
+     - parameter background: An optional background color to apply to `string`.
 
-     - returns:  A version of `str` with the appropriate color formatting
-                 applied.
+     - returns: A version of `string` with the appropriate color formatting
+     applied.
      */
     public func colorizeString(str: String, foreground: Color?, background: Color?)
         -> String

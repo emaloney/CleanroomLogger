@@ -8,10 +8,24 @@
 
 import Foundation
 
+/**
+ A `LogFormatter` that returns a hexadecimal string representation of a
+ `LogEntry`'s `callingThreadID`.
+ 
+ This is typically combined with other `LogFormatter`s within a
+ `ConcatenatingLogFormatter`.
+ */
 public struct CallingThreadLogFormatter: LogFormatter
 {
+    /** Class initializer. */
     public init() {}
 
+    /**
+     Formats the passed-in `LogEntry` by returning a hexadecimal string
+     representation of its `callingThreadID`.
+     
+     - returns: The formatted result; never `nil`.
+     */
     public func formatLogEntry(entry: LogEntry)
         -> String?
     {

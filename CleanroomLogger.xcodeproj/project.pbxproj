@@ -34,10 +34,10 @@
 		3B60149A1C24C073002652B3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014811C24C073002652B3 /* Color.swift */; };
 		3B60149B1C24C073002652B3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014811C24C073002652B3 /* Color.swift */; };
 		3B60149C1C24C073002652B3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014811C24C073002652B3 /* Color.swift */; };
-		3B60149D1C24C073002652B3 /* Colorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* Colorizer.swift */; };
-		3B60149E1C24C073002652B3 /* Colorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* Colorizer.swift */; };
-		3B60149F1C24C073002652B3 /* Colorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* Colorizer.swift */; };
-		3B6014A01C24C073002652B3 /* Colorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* Colorizer.swift */; };
+		3B60149D1C24C073002652B3 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* TextColorizer.swift */; };
+		3B60149E1C24C073002652B3 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* TextColorizer.swift */; };
+		3B60149F1C24C073002652B3 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* TextColorizer.swift */; };
+		3B6014A01C24C073002652B3 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* TextColorizer.swift */; };
 		3B6014A11C24C073002652B3 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014831C24C073002652B3 /* ColorTable.swift */; };
 		3B6014A21C24C073002652B3 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014831C24C073002652B3 /* ColorTable.swift */; };
 		3B6014A31C24C073002652B3 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014831C24C073002652B3 /* ColorTable.swift */; };
@@ -98,10 +98,10 @@
 		3B6014DE1C24C073002652B3 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014921C24C073002652B3 /* LogSeverity.swift */; };
 		3B6014DF1C24C073002652B3 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014921C24C073002652B3 /* LogSeverity.swift */; };
 		3B6014E01C24C073002652B3 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014921C24C073002652B3 /* LogSeverity.swift */; };
-		3B6014E51C24C073002652B3 /* XcodeColorsColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsColorizer.swift */; };
-		3B6014E61C24C073002652B3 /* XcodeColorsColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsColorizer.swift */; };
-		3B6014E71C24C073002652B3 /* XcodeColorsColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsColorizer.swift */; };
-		3B6014E81C24C073002652B3 /* XcodeColorsColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsColorizer.swift */; };
+		3B6014E51C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */; };
+		3B6014E61C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */; };
+		3B6014E71C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */; };
+		3B6014E81C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */; };
 		3B698C4D1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */; };
 		3B698C4E1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */; };
 		3B698C4F1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */; };
@@ -145,10 +145,10 @@
 		3BB043CF1C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */; };
 		3BB043D01C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */; };
 		3BB043D11C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */; };
-		3BCAFEC61C3B2884006D706B /* FieldSeparatorLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* FieldSeparatorLogFormatter.swift */; };
-		3BCAFEC71C3B2884006D706B /* FieldSeparatorLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* FieldSeparatorLogFormatter.swift */; };
-		3BCAFEC81C3B2884006D706B /* FieldSeparatorLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* FieldSeparatorLogFormatter.swift */; };
-		3BCAFEC91C3B2884006D706B /* FieldSeparatorLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* FieldSeparatorLogFormatter.swift */; };
+		3BCAFEC61C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */; };
+		3BCAFEC71C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */; };
+		3BCAFEC81C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */; };
+		3BCAFEC91C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */; };
 		3BD91A3A1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */; };
 		3BD91A3B1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */; };
 		3BD91A3C1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */; };
@@ -299,7 +299,7 @@
 		3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLogFileConfiguration.swift; sourceTree = "<group>"; };
 		3B6014801C24C073002652B3 /* ASLLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLLogRecorder.swift; sourceTree = "<group>"; };
 		3B6014811C24C073002652B3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		3B6014821C24C073002652B3 /* Colorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colorizer.swift; sourceTree = "<group>"; };
+		3B6014821C24C073002652B3 /* TextColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextColorizer.swift; sourceTree = "<group>"; };
 		3B6014831C24C073002652B3 /* ColorTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTable.swift; sourceTree = "<group>"; };
 		3B6014841C24C073002652B3 /* RotatingLogFileRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLogFileRecorder.swift; sourceTree = "<group>"; };
 		3B6014851C24C073002652B3 /* DefaultColorTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultColorTable.swift; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 		3B6014901C24C073002652B3 /* LogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorder.swift; sourceTree = "<group>"; };
 		3B6014911C24C073002652B3 /* LogRecorderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorderBase.swift; sourceTree = "<group>"; };
 		3B6014921C24C073002652B3 /* LogSeverity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverity.swift; sourceTree = "<group>"; };
-		3B6014941C24C073002652B3 /* XcodeColorsColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsColorizer.swift; sourceTree = "<group>"; };
+		3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsTextColorizer.swift; sourceTree = "<group>"; };
 		3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiteralLogFormatter.swift; sourceTree = "<group>"; };
 		3B71B3161C3B2FB600C23333 /* SeverityLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeverityLogFormatter.swift; sourceTree = "<group>"; };
 		3B78C6CE1BA7634E00173EAC /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,7 +328,7 @@
 		3BACAC031BA9BB88009E7A3E /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverityTests.swift; sourceTree = "<group>"; };
 		3BB043C81C3B27FF005C940A /* TimestampLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampLogFormatter.swift; sourceTree = "<group>"; };
 		3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSiteLogFormatter.swift; sourceTree = "<group>"; };
-		3BCAFEC51C3B2884006D706B /* FieldSeparatorLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldSeparatorLogFormatter.swift; sourceTree = "<group>"; };
+		3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelimiterLogFormatter.swift; sourceTree = "<group>"; };
 		3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardLogFormatter.swift; sourceTree = "<group>"; };
 		3BF4CF751C3B306100B3D0A8 /* ColorizingLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorizingLogFormatter.swift; sourceTree = "<group>"; };
 		3BF4CF7D1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcatenatingLogFormatter.swift; sourceTree = "<group>"; };
@@ -470,10 +470,10 @@
 		3B60147F1C24C073002652B3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3BB043C71C3B2783005C940A /* Colorization */,
 				3BB043C61C3B2776005C940A /* Configurations */,
-				3BB043C51C3B276F005C940A /* Recorders */,
 				3BB043C11C3B275C005C940A /* Formatters */,
+				3BB043C51C3B276F005C940A /* Recorders */,
+				3BB043C71C3B2783005C940A /* TextColorization */,
 				3B6014891C24C073002652B3 /* Log.swift */,
 				3B60148A1C24C073002652B3 /* LogChannel.swift */,
 				3B60148B1C24C073002652B3 /* LogConfiguration.swift */,
@@ -502,8 +502,8 @@
 				3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */,
 				3BF4CF751C3B306100B3D0A8 /* ColorizingLogFormatter.swift */,
 				3BF4CF7D1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift */,
+				3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */,
 				3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */,
-				3BCAFEC51C3B2884006D706B /* FieldSeparatorLogFormatter.swift */,
 				3BA735851C3B322A008D8833 /* FileLogFormatter.swift */,
 				3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */,
 				3B7C1AB91C3B2F2600DE72C4 /* PayloadLogFormatter.swift */,
@@ -538,16 +538,16 @@
 			name = Configurations;
 			sourceTree = "<group>";
 		};
-		3BB043C71C3B2783005C940A /* Colorization */ = {
+		3BB043C71C3B2783005C940A /* TextColorization */ = {
 			isa = PBXGroup;
 			children = (
 				3B6014811C24C073002652B3 /* Color.swift */,
-				3B6014821C24C073002652B3 /* Colorizer.swift */,
 				3B6014831C24C073002652B3 /* ColorTable.swift */,
 				3B6014851C24C073002652B3 /* DefaultColorTable.swift */,
-				3B6014941C24C073002652B3 /* XcodeColorsColorizer.swift */,
+				3B6014821C24C073002652B3 /* TextColorizer.swift */,
+				3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */,
 			);
-			name = Colorization;
+			name = TextColorization;
 			sourceTree = "<group>";
 		};
 		3BCBACE11BA369AD007F1C90 = {
@@ -902,7 +902,7 @@
 				3BB043CE1C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */,
 				3B6014A51C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */,
 				3B525E421C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */,
-				3BCAFEC61C3B2884006D706B /* FieldSeparatorLogFormatter.swift in Sources */,
+				3BCAFEC61C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */,
 				3B45ADB01C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */,
 				3B6014D91C24C073002652B3 /* LogRecorderBase.swift in Sources */,
 				3B7C1ABA1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */,
@@ -925,8 +925,8 @@
 				3B6014CD1C24C073002652B3 /* LogFormatter.swift in Sources */,
 				3B1F36671C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */,
 				3B6014DD1C24C073002652B3 /* LogSeverity.swift in Sources */,
-				3B6014E51C24C073002652B3 /* XcodeColorsColorizer.swift in Sources */,
-				3B60149D1C24C073002652B3 /* Colorizer.swift in Sources */,
+				3B6014E51C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */,
+				3B60149D1C24C073002652B3 /* TextColorizer.swift in Sources */,
 				3B698C4D1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */,
 				3B6014C91C24C073002652B3 /* LogFilter.swift in Sources */,
 				3B8C42161C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */,
@@ -953,7 +953,7 @@
 				3BB043CF1C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */,
 				3B6014A61C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */,
 				3B525E431C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */,
-				3BCAFEC71C3B2884006D706B /* FieldSeparatorLogFormatter.swift in Sources */,
+				3BCAFEC71C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */,
 				3B45ADB11C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */,
 				3B6014DA1C24C073002652B3 /* LogRecorderBase.swift in Sources */,
 				3B7C1ABB1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */,
@@ -976,8 +976,8 @@
 				3B6014CE1C24C073002652B3 /* LogFormatter.swift in Sources */,
 				3B1F36681C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */,
 				3B6014DE1C24C073002652B3 /* LogSeverity.swift in Sources */,
-				3B6014E61C24C073002652B3 /* XcodeColorsColorizer.swift in Sources */,
-				3B60149E1C24C073002652B3 /* Colorizer.swift in Sources */,
+				3B6014E61C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */,
+				3B60149E1C24C073002652B3 /* TextColorizer.swift in Sources */,
 				3B698C4E1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */,
 				3B6014CA1C24C073002652B3 /* LogFilter.swift in Sources */,
 				3B8C42171C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */,
@@ -1004,7 +1004,7 @@
 				3BB043D01C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */,
 				3B6014A71C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */,
 				3B525E441C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */,
-				3BCAFEC81C3B2884006D706B /* FieldSeparatorLogFormatter.swift in Sources */,
+				3BCAFEC81C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */,
 				3B45ADB21C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */,
 				3B6014DB1C24C073002652B3 /* LogRecorderBase.swift in Sources */,
 				3B7C1ABC1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */,
@@ -1027,8 +1027,8 @@
 				3B6014CF1C24C073002652B3 /* LogFormatter.swift in Sources */,
 				3B1F36691C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */,
 				3B6014DF1C24C073002652B3 /* LogSeverity.swift in Sources */,
-				3B6014E71C24C073002652B3 /* XcodeColorsColorizer.swift in Sources */,
-				3B60149F1C24C073002652B3 /* Colorizer.swift in Sources */,
+				3B6014E71C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */,
+				3B60149F1C24C073002652B3 /* TextColorizer.swift in Sources */,
 				3B698C4F1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */,
 				3B6014CB1C24C073002652B3 /* LogFilter.swift in Sources */,
 				3B8C42181C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */,
@@ -1055,7 +1055,7 @@
 				3BB043D11C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */,
 				3B6014A81C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */,
 				3B525E451C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */,
-				3BCAFEC91C3B2884006D706B /* FieldSeparatorLogFormatter.swift in Sources */,
+				3BCAFEC91C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */,
 				3B45ADB31C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */,
 				3B6014DC1C24C073002652B3 /* LogRecorderBase.swift in Sources */,
 				3B7C1ABD1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */,
@@ -1078,8 +1078,8 @@
 				3B6014D01C24C073002652B3 /* LogFormatter.swift in Sources */,
 				3B1F366A1C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */,
 				3B6014E01C24C073002652B3 /* LogSeverity.swift in Sources */,
-				3B6014E81C24C073002652B3 /* XcodeColorsColorizer.swift in Sources */,
-				3B6014A01C24C073002652B3 /* Colorizer.swift in Sources */,
+				3B6014E81C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */,
+				3B6014A01C24C073002652B3 /* TextColorizer.swift in Sources */,
 				3B698C501C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */,
 				3B6014CC1C24C073002652B3 /* LogFilter.swift in Sources */,
 				3B8C42191C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */,

@@ -39,22 +39,10 @@ public enum LogSeverity: Int
     case Error      = 5
 }
 
-/// :nodoc:
-extension LogSeverity: Comparable {}
-
-/// :nodoc:
-public func <(lhs: LogSeverity, rhs: LogSeverity) -> Bool {
-    return lhs.rawValue < rhs.rawValue
-}
-
-/// :nodoc:
-extension LogSeverity // DebugPrintableEnum
+extension LogSeverity: CustomStringConvertible
 {
-    /// :nodoc:
-    public var printableEnumName: String { return "LogSeverity" }
-
-    /// :nodoc:
-    public var printableValueName: String {
+    /** Returns a human-readable textual representation of the receiver. */
+    public var description: String {
         switch self {
         case Verbose:   return "Verbose"
         case Debug:     return "Debug"
@@ -63,5 +51,13 @@ extension LogSeverity // DebugPrintableEnum
         case Error:     return "Error"
         }
     }
+}
+
+/// :nodoc:
+extension LogSeverity: Comparable {}
+
+/// :nodoc:
+public func <(lhs: LogSeverity, rhs: LogSeverity) -> Bool {
+    return lhs.rawValue < rhs.rawValue
 }
 
