@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>RotatingLogFileRecorder Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/RotatingLogFileRecorder" class="dashAnchor"></a>
+    <a title="RotatingLogFileRecorder Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomLogger"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CleanroomLogger Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        RotatingLogFileRecorder Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BasicLogConfiguration.html">BasicLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LogReceptacle.html">LogReceptacle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LogRecorderBase.html">LogRecorderBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ParsableLogFileFormatter.html">ParsableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReadableLogFileFormatter.html">ReadableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileConfiguration.html">RotatingLogFileConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardLogFormatter.html">StandardLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LogSeverity.html">LogSeverity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ColorTable.html">ColorTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFilter.html">LogFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFormatter.html">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogRecorder.html">LogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TextColorizer.html">TextColorizer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CallingThreadLogFormatter.html">CallingThreadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ColorizingLogFormatter.html">ColorizingLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultColorTable.html">DefaultColorTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DelimiterLogFormatter.html">DelimiterLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LiteralLogFormatter.html">LiteralLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogChannel.html">LogChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogEntry.html">LogEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StackFrameLogFormatter.html">StackFrameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimestampLogFormatter.html">TimestampLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>RotatingLogFileRecorder</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RotatingLogFileRecorder</span><span class="p">:</span> <span class="kt">LogRecorderBase</span></code></pre>
+
+                </div>
+              </div>
+            <p>A <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code> implementation that maintains a set of daily rotating log
+files, kept for a user-specified number of days.</p>
+
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    A <code>RotatingLogFileRecorder</code> instance assumes full control over
+the log directory specified by its <code>directoryPath</code> property. Please see the
+initializer documentation for details.
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC15CleanroomLogger23RotatingLogFileRecorder10daysToKeepSi"></a>
+                    <a name="//apple_ref/swift/Property/daysToKeep" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC15CleanroomLogger23RotatingLogFileRecorder10daysToKeepSi">daysToKeep</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of days for which the receiver will retain log files
+ before they&rsquo;re eligible for pruning.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">daysToKeep</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS"></a>
+                    <a name="//apple_ref/swift/Property/directoryPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The filesystem path to a directory where the log files will be
+ stored.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">directoryPath</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger23RotatingLogFileRecordercFMS0_FT10daysToKeepSi13directoryPathSS10formattersGSaPS_12LogFormatter___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(daysToKeep:directoryPath:formatters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger23RotatingLogFileRecordercFMS0_FT10daysToKeepSi13directoryPathSS10formattersGSaPS_12LogFormatter___S0_">init(daysToKeep:directoryPath:formatters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code><a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a></code> instance.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The <code><a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a></code> expects to have full control over
+the contents of its <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>. Any file not recognized as an active 
+log file will be deleted during the automatic pruning process, which may
+occur at any time. Therefore, be <strong>extremely careful</strong> when constructing
+the value passed in as the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">daysToKeep</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">directoryPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">ReadableLogFileFormatter</span><span class="p">()])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>daysToKeep</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The number of days for which log files should be retained.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>directoryPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The filesystem path of the directory where the log files will be stored. Please note the warning above regarding the <code>directoryPath</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of <code>LogFormatter</code>s to use for formatting log entries to be recorded by the receiver. Each formatter is consulted in sequence, and the formatted string returned by the first formatter to yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>, the log entry is silently ignored and not recorded.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC15CleanroomLogger23RotatingLogFileRecorder18logFilenameForDateFMS0_FCSo6NSDateSS"></a>
+                    <a name="//apple_ref/swift/Method/logFilenameForDate(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC15CleanroomLogger23RotatingLogFileRecorder18logFilenameForDateFMS0_FCSo6NSDateSS">logFilenameForDate(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a string representing the filename that will be used to store logs
+recorded on the given date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">logFilenameForDate</span><span class="p">(</span><span class="nv">date</span><span class="p">:</span> <span class="kt">NSDate</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>NSDate</code> for which the log file name is desired.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The filename.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger23RotatingLogFileRecorder18createLogDirectoryFS0_FzT_T_"></a>
+                    <a name="//apple_ref/swift/Method/createLogDirectory()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger23RotatingLogFileRecorder18createLogDirectoryFS0_FzT_T_">createLogDirectory()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to create—if it does not already exist—the directory indicated
+by the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code> property.</p>
+
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    If the function fails to create a directory at <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createLogDirectory</span><span class="p">()</span>
+        <span class="n">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger23RotatingLogFileRecorder22recordFormattedMessageFS0_FTSS11forLogEntryVS_8LogEntry12currentQueuePSo17OS_dispatch_queue_15synchronousModeSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger23RotatingLogFileRecorder22recordFormattedMessageFS0_FTSS11forLogEntryVS_8LogEntry12currentQueuePSo17OS_dispatch_queue_15synchronousModeSb_T_">recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called by the <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> to record the specified log message.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This function is only called if one of the <code>formatters</code> associated
+with the receiver returned a non-<code>nil</code> string for the given <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message to record.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currentQueue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The GCD queue on which the function is being executed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>synchronousMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, the receiver should record the log entry synchronously and flush any buffers before returning.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger23RotatingLogFileRecorder5pruneFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/prune()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger23RotatingLogFileRecorder5pruneFS0_FT_T_">prune()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes any expired log files (and any other detritus that may be hanging
+around inside our <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>).</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Any file within the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code> not recognized as an active
+log file will be deleted during pruning.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">prune</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

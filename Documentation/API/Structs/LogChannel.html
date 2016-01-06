@@ -7,6 +7,7 @@
     <meta charset='utf-8'>
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
+    
   </head>
   <body>
     <a name="//apple_ref/swift/Struct/LogChannel" class="dashAnchor"></a>
@@ -31,7 +32,13 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
+                <a href="../Classes/BasicLogConfiguration.html">BasicLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
@@ -42,13 +49,46 @@
               <li class="nav-group-task">
                 <a href="../Classes/LogRecorderBase.html">LogRecorderBase</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ParsableLogFileFormatter.html">ParsableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReadableLogFileFormatter.html">ReadableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileConfiguration.html">RotatingLogFileConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardLogFormatter.html">StandardLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
               </li>
             </ul>
           </li>
@@ -57,9 +97,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/ColorTable.html">ColorTable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/Colorizer.html">Colorizer</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -73,6 +110,9 @@
               <li class="nav-group-task">
                 <a href="../Protocols/LogRecorder.html">LogRecorder</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TextColorizer.html">TextColorizer</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -82,16 +122,25 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CallingThreadLogFormatter.html">CallingThreadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ColorizingLogFormatter.html">ColorizingLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/DefaultColorTable.html">DefaultColorTable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+                <a href="../Structs/DelimiterLogFormatter.html">DelimiterLogFormatter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
+                <a href="../Structs/LiteralLogFormatter.html">LiteralLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Log.html">Log</a>
@@ -106,7 +155,19 @@
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/XcodeColorsColorizer.html">XcodeColorsColorizer</a>
+                <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StackFrameLogFormatter.html">StackFrameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimestampLogFormatter.html">TimestampLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a>
               </li>
             </ul>
           </li>
@@ -152,7 +213,7 @@ passing them along to a <code><a href="../Classes/LogReceptacle.html">LogRecepta
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> of this <code><a href="../Structs/LogChannel.html">LogChannel</a></code>, which determines the severity
-of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it creates.</p>
+ of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it creates.</p>
 
                       </div>
                       <div class="declaration">
@@ -179,8 +240,8 @@ of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> into which this <code><a href="../Structs/LogChannel.html">LogChannel</a></code> will deposit
-the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it creates.</p>
+                        <p>The <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> into which this <code><a href="../Structs/LogChannel.html">LogChannel</a></code> will deposit the
+ <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it creates.</p>
 
                       </div>
                       <div class="declaration">
@@ -207,7 +268,7 @@ the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it cr
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code><a href="../Structs/LogChannel.html">LogChannel</a></code> instance using the specified parameters.</p>
+                        <p>Initializes a new <code><a href="../Structs/LogChannel.html">LogChannel</a></code> instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -230,7 +291,7 @@ the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it cr
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogSeverity</code> to use for log entries written to the receiving channel.</p>
+                                  <p>The <code>LogSeverity</code> to use for each <code>LogEntry</code> created by the channel.</p>
 
                                 </div>
                               </td>
@@ -243,7 +304,7 @@ the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it cr
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code>LogFormatter</code> instance to use for formatting log entries.</p>
+                                  <p>The <code>LogReceptacle</code> to be used for depositing the <code>LogEntry</code> instances created by the channel.</p>
 
                                 </div>
                               </td>
@@ -267,9 +328,9 @@ the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances it cr
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Writes program execution trace information to the log. This information
-includes the signature of the calling function, as well as the source file
-and line at which the call to <code>trace()</code> was issued.</p>
+                        <p>Sends program execution trace information to the log using the receiver&rsquo;s
+severity. This information includes source-level call site information as
+well as the stack frame signature of the caller.</p>
 
                       </div>
                       <div class="declaration">
@@ -292,7 +353,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the signature of the calling function. </p>
+                                  <p>The default value provided for this parameter captures the signature of the calling function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -305,7 +366,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. </p>
+                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -318,7 +379,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. </p>
+                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -342,7 +403,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Writes a string-based message to the log.</p>
+                        <p>Sends a message string to the log using the receiver&rsquo;s severity.</p>
 
                       </div>
                       <div class="declaration">
@@ -365,7 +426,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The message to log.</p>
+                                  <p>The message to send to the log.</p>
 
                                 </div>
                               </td>
@@ -378,7 +439,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the signature of the calling function. </p>
+                                  <p>The default value provided for this parameter captures the signature of the calling function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -391,7 +452,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. </p>
+                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -404,7 +465,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. </p>
+                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -428,7 +489,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Writes an arbitrary value to the log.</p>
+                        <p>Sends an arbitrary value to the log using the receiver&rsquo;s severity.</p>
 
                       </div>
                       <div class="declaration">
@@ -451,7 +512,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The value to write to the log. The underlying logging implementation is responsible for converting <code>value</code> into a text representation. If that is not possible, the log request may be silently ignored.</p>
+                                  <p>The value to send to the log. Determining how (and whether) arbitrary values are captured and represented will be handled by the <code>LogRecorder</code> implementation(s) that are ultimately called upon to record the log entry.</p>
 
                                 </div>
                               </td>
@@ -464,7 +525,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the signature of the calling function. </p>
+                                  <p>The default value provided for this parameter captures the signature of the calling function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -477,7 +538,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. </p>
+                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -490,7 +551,7 @@ and line at which the call to <code>trace()</code> was issued.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. </p>
+                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. You should not provide a value for this parameter.</p>
 
                                 </div>
                               </td>
@@ -506,8 +567,8 @@ and line at which the call to <code>trace()</code> was issued.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

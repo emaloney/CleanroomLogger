@@ -7,6 +7,7 @@
     <meta charset='utf-8'>
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
+    
   </head>
   <body>
     <a title="Structs  Reference"></a>
@@ -30,7 +31,13 @@
             <a href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
+                <a href="Classes/BasicLogConfiguration.html">BasicLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/FileLogRecorder.html">FileLogRecorder</a>
@@ -41,13 +48,46 @@
               <li class="nav-group-task">
                 <a href="Classes/LogRecorderBase.html">LogRecorderBase</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/ParsableLogFileFormatter.html">ParsableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ReadableLogFileFormatter.html">ReadableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RotatingLogFileConfiguration.html">RotatingLogFileConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/StandardLogFormatter.html">StandardLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Enums/DelimiterStyle.html">DelimiterStyle</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/LogSeverity.html">LogSeverity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/TimestampStyle.html">TimestampStyle</a>
               </li>
             </ul>
           </li>
@@ -56,9 +96,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Protocols/ColorTable.html">ColorTable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/Colorizer.html">Colorizer</a>
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -72,6 +109,9 @@
               <li class="nav-group-task">
                 <a href="Protocols/LogRecorder.html">LogRecorder</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Protocols/TextColorizer.html">TextColorizer</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -81,16 +121,25 @@
                 <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/CallingThreadLogFormatter.html">CallingThreadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/ColorizingLogFormatter.html">ColorizingLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/DefaultColorTable.html">DefaultColorTable</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+                <a href="Structs/DelimiterLogFormatter.html">DelimiterLogFormatter</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
+                <a href="Structs/LiteralLogFormatter.html">LiteralLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/Log.html">Log</a>
@@ -105,7 +154,19 @@
                 <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
-                <a href="Structs/XcodeColorsColorizer.html">XcodeColorsColorizer</a>
+                <a href="Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/StackFrameLogFormatter.html">StackFrameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/TimestampLogFormatter.html">TimestampLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a>
               </li>
             </ul>
           </li>
@@ -119,6 +180,78 @@
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger20SeverityLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/SeverityLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger20SeverityLogFormatter">SeverityLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a string representation of the passed-in
+<code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code>.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/SeverityLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SeverityLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger21TimestampLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/TimestampLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger21TimestampLogFormatter">TimestampLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a string representation of a <code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s
+<code>timestamp</code> property.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/TimestampLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TimestampLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <ul>
                 <li class="item">
@@ -148,6 +281,114 @@ is consistent with the behavior of <code>NSLog()</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger20CallSiteLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/CallSiteLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger20CallSiteLogFormatter">CallSiteLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a string representation of the <code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s
+<em>call site</em>, consisting of the last path component of the <code>callingFilePath</code>
+followed by the <code>callingFileLine</code> within that file.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/CallSiteLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallSiteLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger21DelimiterLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/DelimiterLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger21DelimiterLogFormatter">DelimiterLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> used to output field separator strings.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/DelimiterLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DelimiterLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger19PayloadLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/PayloadLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger19PayloadLogFormatter">PayloadLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a string representation of a <code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s
+<code>payload</code> property.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/PayloadLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PayloadLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
 
                         </div>
                       </div>
@@ -209,13 +450,82 @@ with no arguments, as follows:</li>
 <pre class="highlight plaintext"><code>Log.info?.message("The application has finished launching.")
 </code></pre>
 
-<p><code>message()</code> is intended to be called with a single parameter, the message 
+<p><code>message()</code> is intended to be called with a single parameter, the message
 string, as shown above. Unlike <code>NSLog()</code>, no <code>printf</code>-like functionality
 is provided; instead, use Swift string interpolation to construct parameterized
 messages.</p>
 
 <ul>
-<li>Finally, the <code>value()</code> function records a string representation of an 
+<li>Finally, the <code>value()</code> function records a string representation of an
+arbitrary <code>Any</code> value:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.verbose?.value(delegate)
+</code></pre>
+
+<p>The <code>value()</code> function is intended to be called with a single parameter, of
+type <code>Any?</code>.</p>
+
+<p>The underlying logging implementation is responsible for converting this value
+into a string representation.</p>
+
+<p>Note that some implementations may not be able to convert certain values into
+strings; in those cases, log requests may be silently ignored.</p>
+
+<p><a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3></p>
+
+<p>By default, logging is disabled, meaning that none of the <code>Log</code>&rsquo;s <em>log channels</em>
+have been populated. As a result, attempts to perform any logging will silently
+fail.</p>
+
+<p>It is the responsibility of the <em>application developer</em> to enable logging, which
+is done by calling the appropriate <code>Log.enable()</code> function.</p>
+
+<p><code>Log</code> is the primary public API for CleanroomLogger.</p>
+
+<p>If you wish to send a message to the log, you do so by calling the appropriae
+function provided by the appropriate <code><a href="Structs/LogChannel.html">LogChannel</a></code> given the importance of your
+message.</p>
+
+<p>There are five levels of severity at which log messages can be recorded. Each
+level is represented by a read-only static variable maintained by the <code>Log</code>:</p>
+
+<ul>
+<li><p><code><a href="Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">Log.error</a></code> — The highest severity; something has gone wrong and a fatal error
+may be imminent</p></li>
+<li><p><code><a href="Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">Log.warning</a></code> — Something appears amiss and might bear looking into before a
+larger problem arises</p></li>
+<li><p><code><a href="Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">Log.info</a></code> — Something notable happened, but it isn&rsquo;t anything to worry about</p></li>
+<li><p><code><a href="Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">Log.debug</a></code> — Used for debugging and diagnostic information</p></li>
+<li><p><code><a href="Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">Log.verbose</a></code> - The lowest severity; used for detailed or frequently occurring
+debugging and diagnostic information</p></li>
+</ul>
+
+<p>Each <code><a href="Structs/LogChannel.html">LogChannel</a></code> can be used in one of three ways:</p>
+
+<ul>
+<li>The <code>trace()</code> function records a short log message detailing the source
+file, source line, and function name of the caller. It is intended to be called
+with no arguments, as follows:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.debug?.trace()
+</code></pre>
+
+<ul>
+<li>The <code>message()</code> function records a message specified by the caller:</li>
+</ul>
+
+<pre class="highlight plaintext"><code>Log.info?.message("The application has finished launching.")
+</code></pre>
+
+<p><code>message()</code> is intended to be called with a single parameter, the message
+string, as shown above. Unlike <code>NSLog()</code>, no <code>printf</code>-like functionality
+is provided; instead, use Swift string interpolation to construct parameterized
+messages.</p>
+
+<ul>
+<li>Finally, the <code>value()</code> function records a string representation of an
 arbitrary <code>Any</code> value:</li>
 </ul>
 
@@ -302,6 +612,75 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:V15CleanroomLogger25CallingThreadLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/CallingThreadLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger25CallingThreadLogFormatter">CallingThreadLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a hexadecimal string representation of a
+<code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>callingThreadID</code>.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/CallingThreadLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallingThreadLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger22ColorizingLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/ColorizingLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger22ColorizingLogFormatter">ColorizingLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Wraps another <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> and colorizes its output according to the
+<code><a href="Enums/LogSeverity.html">LogSeverity</a></code> of the <code><a href="Structs/LogEntry.html">LogEntry</a></code> being recorded.</p>
+
+                        <a href="Structs/ColorizingLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ColorizingLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:V15CleanroomLogger17DefaultColorTable"></a>
                     <a name="//apple_ref/swift/Struct/DefaultColorTable" class="dashAnchor"></a>
                     <a class="token" href="#/s:V15CleanroomLogger17DefaultColorTable">DefaultColorTable</a>
@@ -321,45 +700,6 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultColorTable</span><span class="p">:</span> <span class="kt">ColorTable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger23DefaultLogConfiguration"></a>
-                    <a name="//apple_ref/swift/Struct/DefaultLogConfiguration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger23DefaultLogConfiguration">DefaultLogConfiguration</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>DefaultLogConfiguration</code> is the implementation of the <code><a href="Protocols/LogConfiguration.html">LogConfiguration</a></code>
-protocol used by default if no other is provided.</p>
-
-<p>The <code>DefaultLogConfiguration</code> uses the <code><a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> to write to the Apple
-System Log as well as the <code>stderr</code> console.</p>
-
-<p>Additional optional <code>LogRecorders</code> may be specified to record messages to
-other arbitrary types of data stores, such as files or HTTP endpoints.</p>
-
-                        <a href="Structs/DefaultLogConfiguration.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogConfiguration</span><span class="p">:</span> <span class="kt">LogConfiguration</span></code></pre>
 
                         </div>
                       </div>
@@ -438,9 +778,9 @@ Used for specifying log output colors.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger20XcodeColorsColorizer"></a>
-                    <a name="//apple_ref/swift/Struct/XcodeColorsColorizer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger20XcodeColorsColorizer">XcodeColorsColorizer</a>
+                    <a name="/s:V15CleanroomLogger22StackFrameLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/StackFrameLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger22StackFrameLogFormatter">StackFrameLogFormatter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -448,17 +788,88 @@ Used for specifying log output colors.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code><a href="Protocols/Colorizer.html">Colorizer</a></code> implementation that applies 
-<a href="https://github.com/robbiehanson/XcodeColors/">XcodeColors</a>-compatible 
-formatting to log messages.</p>
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns the <code>callingStackFrame</code> property of a <code><a href="Structs/LogEntry.html">LogEntry</a></code>.</p>
 
-                        <a href="Structs/XcodeColorsColorizer.html" class="slightly-smaller">See more</a>
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/StackFrameLogFormatter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XcodeColorsColorizer</span><span class="p">:</span> <span class="kt">Colorizer</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StackFrameLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger24XcodeColorsTextColorizer"></a>
+                    <a name="//apple_ref/swift/Struct/XcodeColorsTextColorizer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger24XcodeColorsTextColorizer">XcodeColorsTextColorizer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/TextColorizer.html">TextColorizer</a></code> implementation that applies 
+<a href="https://github.com/robbiehanson/XcodeColors/">XcodeColors</a>-compatible 
+formatting to log messages.</p>
+
+                        <a href="Structs/XcodeColorsTextColorizer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XcodeColorsTextColorizer</span><span class="p">:</span> <span class="kt">TextColorizer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger19LiteralLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/LiteralLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger19LiteralLogFormatter">LiteralLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns always returns a given literal string
+regardless of input.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/LiteralLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LiteralLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
 
                         </div>
                       </div>
@@ -500,46 +911,11 @@ formatting to log messages.</p>
                 </li>
               </ul>
             </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger19DefaultLogFormatter"></a>
-                    <a name="//apple_ref/swift/Struct/DefaultLogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger19DefaultLogFormatter">DefaultLogFormatter</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>DefaultLogFormatter</code> is a basic implementation of the <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> 
-protocol.</p>
-
-<p>This implementation is used by default if no other log formatters are specified.</p>
-
-                        <a href="Structs/DefaultLogFormatter.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </section>
         </section>
         <section id="footer">
-          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

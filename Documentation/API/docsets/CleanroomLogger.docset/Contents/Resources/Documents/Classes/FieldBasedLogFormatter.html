@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FieldBasedLogFormatter Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FieldBasedLogFormatter" class="dashAnchor"></a>
+    <a title="FieldBasedLogFormatter Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomLogger"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CleanroomLogger Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FieldBasedLogFormatter Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BasicLogConfiguration.html">BasicLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LogReceptacle.html">LogReceptacle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LogRecorderBase.html">LogRecorderBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ParsableLogFileFormatter.html">ParsableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReadableLogFileFormatter.html">ReadableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileConfiguration.html">RotatingLogFileConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardLogFormatter.html">StandardLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LogSeverity.html">LogSeverity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/ColorTable.html">ColorTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFilter.html">LogFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFormatter.html">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogRecorder.html">LogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TextColorizer.html">TextColorizer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CallingThreadLogFormatter.html">CallingThreadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ColorizingLogFormatter.html">ColorizingLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DefaultColorTable.html">DefaultColorTable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DelimiterLogFormatter.html">DelimiterLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LiteralLogFormatter.html">LiteralLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogChannel.html">LogChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogEntry.html">LogEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StackFrameLogFormatter.html">StackFrameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimestampLogFormatter.html">TimestampLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FieldBasedLogFormatter</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FieldBasedLogFormatter</span><span class="p">:</span> <span class="kt">ConcatenatingLogFormatter</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>FieldBasedLogFormatter</code> provides a simple interface for constructing
+a customized <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> by specifying different <em>fields</em>.</p>
+
+<p>Let&rsquo;s say you wanted to construct a <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> that outputs the following
+fields separated by tabs:</p>
+
+<ul>
+<li>The <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>timestamp</code> property as a UNIX time value</li>
+<li>The <code>severity</code> of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> as a numeric value</li>
+<li>The <code>Payload</code> of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code></li>
+</ul>
+
+<p>You could do this by constructing a <code>FieldBasedLogFormatter</code> as follows:</p>
+
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">formatter</span> <span class="o">=</span> <span class="kt">FieldBasedLogFormatter</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="kt">Timestamp</span><span class="p">(</span><span class="o">.</span><span class="kt">UNIX</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="kt">Delimiter</span><span class="p">(</span><span class="o">.</span><span class="kt">Tab</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="kt">Severity</span><span class="p">(</span><span class="o">.</span><span class="kt">Numeric</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="kt">Delimiter</span><span class="p">(</span><span class="o">.</span><span class="kt">Tab</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="kt">Payload</span><span class="p">])</span>
+</code></pre>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC15CleanroomLogger22FieldBasedLogFormatter5Field"></a>
+                    <a name="//apple_ref/swift/Enum/Field" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC15CleanroomLogger22FieldBasedLogFormatter5Field">Field</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The individual <code>Field</code> declarations for the <code><a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a></code>.</p>
+
+                        <a href="../Classes/FieldBasedLogFormatter/Field.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Field</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger22FieldBasedLogFormattercFMS0_FT6fieldsGSaOS0_5Field__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(fields:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger22FieldBasedLogFormattercFMS0_FT6fieldsGSaOS0_5Field__S0_">init(fields:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the <code><a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a></code> to use the specified fields.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt">Field</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fields</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>Field</code>s that will be used by the receiver.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger22FieldBasedLogFormattercFMS0_FT10formattersGSaPS_12LogFormatter___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(formatters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger22FieldBasedLogFormattercFMS0_FT10formattersGSaPS_12LogFormatter___S0_">init(formatters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the <code><a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a></code> to use the specified formatters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogFormatter</code>s that will be used by the receiver.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

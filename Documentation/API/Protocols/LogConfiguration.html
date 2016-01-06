@@ -7,6 +7,7 @@
     <meta charset='utf-8'>
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
+    
   </head>
   <body>
     <a name="//apple_ref/swift/Protocol/LogConfiguration" class="dashAnchor"></a>
@@ -31,7 +32,13 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/DailyRotatingLogFileRecorder.html">DailyRotatingLogFileRecorder</a>
+                <a href="../Classes/BasicLogConfiguration.html">BasicLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
@@ -42,13 +49,46 @@
               <li class="nav-group-task">
                 <a href="../Classes/LogRecorderBase.html">LogRecorderBase</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ParsableLogFileFormatter.html">ParsableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReadableLogFileFormatter.html">ReadableLogFileFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileConfiguration.html">RotatingLogFileConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardLogFormatter.html">StandardLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
               </li>
             </ul>
           </li>
@@ -57,9 +97,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/ColorTable.html">ColorTable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/Colorizer.html">Colorizer</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
@@ -73,6 +110,9 @@
               <li class="nav-group-task">
                 <a href="../Protocols/LogRecorder.html">LogRecorder</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/TextColorizer.html">TextColorizer</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -82,16 +122,25 @@
                 <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CallingThreadLogFormatter.html">CallingThreadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/Color.html">Color</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ColorizingLogFormatter.html">ColorizingLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/DefaultColorTable.html">DefaultColorTable</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultLogConfiguration.html">DefaultLogConfiguration</a>
+                <a href="../Structs/DelimiterLogFormatter.html">DelimiterLogFormatter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/DefaultLogFormatter.html">DefaultLogFormatter</a>
+                <a href="../Structs/LiteralLogFormatter.html">LiteralLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Log.html">Log</a>
@@ -106,7 +155,19 @@
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/XcodeColorsColorizer.html">XcodeColorsColorizer</a>
+                <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StackFrameLogFormatter.html">StackFrameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimestampLogFormatter.html">TimestampLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a>
               </li>
             </ul>
           </li>
@@ -168,7 +229,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The list of <code><a href="../Protocols/LogFilter.html">LogFilter</a></code>s to be used.</p>
+                        <p>The <code><a href="../Protocols/LogFilter.html">LogFilter</a></code>s to use when deciding whether a given <code><a href="../Structs/LogEntry.html">LogEntry</a></code> should
+ be passed along to the receiver&rsquo;s <code><a href="../Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration9recordersGSaPS_11LogRecorder__">recorders</a></code>. If any filter returns
+ <code>false</code> from <code>shouldRecordLogEntry(_:)</code>, the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> will be silently
+ ignored when being processed for this <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -195,7 +259,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The list of <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code>s to be used.</p>
+                        <p>The <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code>s to use for recording any <code><a href="../Structs/LogEntry.html">LogEntry</a></code> that has passed
+ the filtering process.</p>
 
                       </div>
                       <div class="declaration">
@@ -222,8 +287,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A flag indicating when synchronous mode should be used for the
-configuration.</p>
+                        <p>A flag indicating whether synchronous mode will be used when passing
+ <code><a href="../Structs/LogEntry.html">LogEntry</a></code> instances to the receiver&rsquo;s <code><a href="../Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration9recordersGSaPS_11LogRecorder__">recorders</a></code>. Synchronous mode is
+ helpful while debugging, as it ensures that logs are always up-to-date
+ when debug breakpoints are hit. However, synchronous mode can have a
+ negative influence on performance and is therefore not recommended for use 
+ in production code.</p>
 
                       </div>
                       <div class="declaration">
@@ -237,13 +306,52 @@ configuration.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP15CleanroomLogger16LogConfiguration14configurationsGSqGSaPS0____"></a>
+                    <a name="//apple_ref/swift/Property/configurations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP15CleanroomLogger16LogConfiguration14configurationsGSqGSaPS0____">configurations</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For organizational purposes, a given <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> may in turn
+ contain one or more additional <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>s. Each contained 
+ <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> is an entirely separate entity; children do not inherit
+ any state from parent containers.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>A default implementation returning <code>nil</code>, indicating that the receiver
+ contains no <code>LogConfiguration</code>s.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">configurations</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogConfiguration</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>© 2015 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
