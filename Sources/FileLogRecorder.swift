@@ -41,7 +41,7 @@ public class FileLogRecorder: LogRecorderBase
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
      */
-    public init?(filePath: String, formatters: [LogFormatter] = [FileLogFormatter()])
+    public init?(filePath: String, formatters: [LogFormatter])
     {
         let f = fopen(filePath, "a")
 

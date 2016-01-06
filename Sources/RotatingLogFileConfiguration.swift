@@ -52,7 +52,7 @@ public class RotatingLogFileConfiguration: BasicLogConfiguration
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
      */
-    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, formatters: [LogFormatter] = [FileLogFormatter()], filters: [LogFilter] = [])
+    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, formatters: [LogFormatter] = [ReadableLogFileFormatter()], filters: [LogFilter] = [])
     {
         logFileRecorder = RotatingLogFileRecorder(daysToKeep: daysToKeep, directoryPath: directoryPath)
 

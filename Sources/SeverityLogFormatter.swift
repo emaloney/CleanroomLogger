@@ -9,20 +9,54 @@
 import Foundation
 
 /**
+ Specifies the manner in which `LogSeverity` values should be rendered by
+ the `SeverityLogFormatter`.
  */
 public enum SeverityStyle
 {
+    /** Specifies how a `LogSeverity` value should be represented in text. */
     public enum TextRepresentation {
+        /** Specifies that the `LogSeverity` should be output as a
+         human-readable word with the initial capitalization. */
         case Capitalized
+
+        /** Specifies that the `LogSeverity` should be output as a 
+         human-readable word in all lowercase characters. */
         case Lowercase
+
+        /** Specifies that the `LogSeverity` should be output as a 
+         human-readable word in all uppercase characters. */
         case Uppercase
+
+        /** Specifies that the `rawValue` of the `LogSeverity` should be output
+         as an integer within a string. */
         case Numeric
     }
 
+    /** Indicates that the `LogSeverity` will be output as a human-readable
+     string with initial capitalization. No padding, truncation or alignment
+     will occur. */
     case Simple
+
+    /** Indicates that the `LogSeverity` will be output as a human-readable
+     string in all uppercase. The string will be padded with spaces to be the
+     maximum length of any possible `LogSeverity` value, and the text will be
+     right-aligned within that field. No truncation will occur. */
     case Xcode
+
+    /** Indicates that the `LogSeverity` will be output as an integer contained
+     in a string. No padding, truncation or alignment will occur. */
     case Numeric
-    case Custom(textRepresentation: TextRepresentation, padToWidth: Int?, truncateAtWidth: Int?, rightAlign: Bool)
+
+
+    /** Allows customization of the `SeverityStyle`. The `LogSeverity` value
+     will be converted to text as specified by the `TextRepresentation` value.
+     If a value is provided for `truncateAtWidth`, fields longer than that will
+     be truncated. Finally, if `padToWidth` is supplied, the field will be
+     padded with spaces as appropriate. The value of `rightAlign` determines
+     how padding occurs.
+     */
+    case Custom(textRepresentation: TextRepresentation, truncateAtWidth: Int?, padToWidth: Int?, rightAlign: Bool)
 }
 
 extension SeverityStyle
@@ -36,17 +70,17 @@ extension SeverityStyle
         }
     }
 
-    private var padToWidth: Int? {
+    private var truncateAtWidth: Int? {
         switch self {
-        case .Xcode:                        return 7
-        case .Custom(_, let pad, _, _):     return pad
+        case .Custom(_, let trunc, _, _):   return trunc
         default:                            return nil
         }
     }
 
-    private var truncateAtWidth: Int? {
+    private var padToWidth: Int? {
         switch self {
-        case .Custom(_, _, let trunc, _):   return trunc
+        case .Xcode:                        return 7
+        case .Custom(_, _, let pad, _):     return pad
         default:                            return nil
         }
     }
@@ -83,8 +117,16 @@ extension SeverityStyle.TextRepresentation
  */
 public struct SeverityLogFormatter: LogFormatter
 {
-    let style: SeverityStyle
+    /** The `SeverityStyle` that determines the return value of the
+     receiver's `formatLogEntry()` function. */
+    public let style: SeverityStyle
 
+    /**
+     Initializes a new `SeverityLogFormatter` to use the specified
+     `SeverityStyle` when formatting output.
+     
+     - parameter style: The `SeverityStyle` to use.
+     */
     public init(style: SeverityStyle = .Simple)
     {
         self.style = style

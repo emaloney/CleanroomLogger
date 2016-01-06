@@ -14,8 +14,15 @@ import Foundation
  */
 public enum TimestampStyle
 {
+    /** Specifies a timestamp style that uses the date format string
+     "yyyy-MM-dd HH:mm:ss.SSS zzz". */
     case Default
+
+    /** Specifies a UNIX timestamp indicating the number of seconds elapsed
+    since January 1, 1970. */
     case UNIX
+
+    /** Specifies a custom date format. */
     case Custom(String)
 }
 

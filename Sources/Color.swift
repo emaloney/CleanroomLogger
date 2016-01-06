@@ -14,18 +14,18 @@ import Foundation
 */
 public struct Color
 {
-    /// A type representing a single color component. A value of `0x00`
-    /// represents absense of the color, while `0xFF` indicates color at
-    /// full brightness.
+    /** A type representing a single color component. A value of `0x00`
+     represents absense of the color, while `0xFF` indicates color at
+     full brightness. */
     public typealias Component = UInt8
 
-    /// The red component of the color
+    /** The red component of the color. */
     public private(set) var r: Component
 
-    /// The green component of the color
+    /** The green component of the color. */
     public private(set) var g: Component
 
-    /// The blue component of the color
+    /** The blue component of the color. */
     public private(set) var b: Component
 
     /**

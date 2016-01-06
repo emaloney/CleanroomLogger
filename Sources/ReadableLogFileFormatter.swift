@@ -1,31 +1,30 @@
 //
-//  XcodeLogFormatter.swift
+//  ReadableLogFileFormatter.swift
 //  CleanroomLogger
 //
-//  Created by Evan Maloney on 1/4/16.
+//  Created by Evan Maloney on 1/6/16.
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
 import Foundation
 
 /**
- A `LogFormatter` ideal for use within Xcode.
+ A `LogFormatter` configured to be ideal for writing human-readable log files.
 
  By default, this formatter:
 
  - Uses `.Default` as the default `TimestampStyle`
- - Uses `.Xcode` as the default `SeverityStyle`
+ - Uses `.Simple` as the default `SeverityStyle`
  - Uses default field separator delimiters
- - Outputs the call site 
- - Does not output the calling thread
- - Performs text colorization if XcodeColors is installed and enabled
+ - Outputs the call site and calling thread
+ - Does not perform text colorization
 
  These defaults can be overridden during instantiation.
  */
-public class XcodeLogFormatter: StandardLogFormatter
+public class ReadableLogFileFormatter: StandardLogFormatter
 {
     /**
-     Initializes a new `XcodeLogFormatter` instance.
+     Initializes a new `ReadableLogFileFormatter` instance.
 
      - parameter timestampStyle: Governs the formatting of the timestamp in the
      log output. Pass `nil` to suppress output of the timestamp.
@@ -50,7 +49,7 @@ public class XcodeLogFormatter: StandardLogFormatter
      `ColorTable` may also be provided to supply color information. If `nil`,
      `DefaultColorTable` will be used for colorization.
      */
-    public override init(timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Xcode, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false, colorizer: TextColorizer? = XcodeColorsTextColorizer(), colorTable: ColorTable? = nil)
+    public override init(timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Simple, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
     {
         super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, showCallSite: showCallSite, showCallingThread: showCallingThread, colorizer: colorizer, colorTable: colorTable)
     }

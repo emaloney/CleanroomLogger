@@ -9,8 +9,8 @@
 import Foundation
 
 /**
- A `LogFormatter` that wraps another `LogFormatter` and colorizes its output
- based on a given `TextColorizer` and `ColorTable`.
+ Wraps another `LogFormatter` and colorizes its output according to the
+ `LogSeverity` of the `LogEntry` being recorded.
  */
 public struct ColorizingLogFormatter: LogFormatter
 {
@@ -31,7 +31,11 @@ public struct ColorizingLogFormatter: LogFormatter
      - parameter formatter: The `LogFormatter` whose output will be colorized
      by the receiver.
      
-     - parameter colorizer: The `TextColorizer`
+     - parameter colorizer: The `TextColorizer` that will be used to colorize
+     the output of `formatter`.
+     
+     - parameter colorTable: The `ColorTable` to use for supplying color
+     information to the `TextColorizer`.
      */
     public init(formatter: LogFormatter, colorizer: TextColorizer, colorTable: ColorTable? = nil)
     {

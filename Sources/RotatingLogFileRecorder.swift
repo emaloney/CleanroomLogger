@@ -57,7 +57,7 @@ public class RotatingLogFileRecorder: LogRecorderBase
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
     */
-    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [FileLogFormatter()])
+    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [ReadableLogFileFormatter()])
     {
         self.daysToKeep = daysToKeep
         self.directoryPath = directoryPath

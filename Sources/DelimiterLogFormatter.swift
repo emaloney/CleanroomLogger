@@ -13,11 +13,11 @@ import Foundation
  */
 public enum DelimiterStyle
 {
-    /** Specifies a pipe character with a space character on either side. */
-    case Pipe
+    /** Specifies a pipe character with a space character on each side. */
+    case SpacedPipe
 
-    /** Specifies a hyphen character with a space character on either side. */
-    case Hyphen
+    /** Specifies a hyphen character with a space character on each side. */
+    case SpacedHyphen
 
     /** Specifies the tab character: ASCII 0x09. */
     case Tab
@@ -33,8 +33,8 @@ public extension DelimiterStyle
      */
     public var delimiter: String {
         switch self {
-        case .Pipe:             return " | "
-        case .Hyphen:           return " - "
+        case .SpacedPipe:       return " | "
+        case .SpacedHyphen:     return " - "
         case .Tab:              return "\t"
         case .Custom(let sep):  return sep
         }
@@ -59,7 +59,7 @@ public struct DelimiterLogFormatter: LogFormatter
      
      - parameter style: The field separator style.
      */
-    public init(style: DelimiterStyle = .Pipe)
+    public init(style: DelimiterStyle = .SpacedPipe)
     {
         self.style = style
     }

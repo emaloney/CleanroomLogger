@@ -9,21 +9,69 @@
 import Foundation
 
 /**
+ A `LogConfiguration` optimized for use when running within Xcode.
+ 
+ By default, this configuration will attempt to detect the presence of
+ the XcodeColors plug-in, and—if it is present—will enable text colorization.
+ 
+ If text colorization is used, the `XcodeLogConfiguration` will enable two
+ separate `LogRecorder`s: a `StandardOutputLogRecorder`, which will be
+ configured to perform colorization of the logs within the Xcode console,
+ and an `ASLLogRecorder` which will not use colorization. This ensures that
+ the colorization escape sequences used within Xcode do not end up in the
+ Apple System Log (ASL), where they will look like garbage characters.
+ 
+ If no colorization is used, then the `XcodeLogConfiguration` will configure
+ only a single recorder: an `ASLLogRecorder` configured to echo output to
+ `stdout` as well as capturing to the ASL.
 */
 public class XcodeLogConfiguration: BasicLogConfiguration
 {
     /**
+     Initializes a new `XcodeLogConfiguration` instance.
+     
+     - warning: Setting either `debugMode` or `verboseDebugMode` to `true` will
+     result in `synchronousMode` being used when recording log entries.
+     Synchronous mode is helpful while debugging, as it ensures that logs are
+     always up-to-date when debug breakpoints are hit. However, synchronous
+     mode can have a negative influence on performance and is therefore not
+     recommended for use in production code.
+
+     - parameter minimumSeverity: The minimum supported `LogSeverity`. Any
+     `LogEntry` having a `severity` less than `minimumSeverity` will be silently
+     ignored.
+
+     - parameter debugMode: If `true`, the value of `minimumSeverity` will
+     be lowered (if necessary) to `.Debug` and `synchronousMode` will be used
+     when recording log entries.
+
+     - parameter verboseDebugMode: If `true`, the value of `minimumSeverity`
+     will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
+     used when recording log entries.
+
+     - parameter timestampStyle: Governs the formatting of the timestamp in the
+     log output. Pass `nil` to suppress output of the timestamp.
+
+     - parameter severityStyle: Governs the formatting of the `LogSeverity` in
+     the log output. Pass `nil` to suppress output of the severity.
+
+     - parameter showCallSite: If `true`, the source file and line indicating
+     the call site of the log request will be added to formatted log messages.
+
+     - parameter showCallingThread: If `true`, a hexadecimal string containing
+     an opaque identifier for the calling thread will be added to formatted log
+     messages.
+
+     - parameter suppressColors: If `true`, log message colorization will be
+     disabled. By default, if the third-party XcodeColors plug-in for Xcode
+     is installed, and if CleanroomLogger detects that it is enabled, log
+     messages are colorized automatically.
+
+     - parameter filters: The `LogFilter`s to use when deciding whether a given
+     `LogEntry` should be passed along for recording.
     */
     public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Xcode, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, suppressColors: Bool = false, filters: [LogFilter] = [])
     {
-        var minimumSeverity = minimumSeverity
-        if verboseDebugMode {
-            minimumSeverity = .Verbose
-        }
-        else if debugMode && minimumSeverity > .Debug {
-            minimumSeverity = .Debug
-        }
-
         var colorizer: TextColorizer?
         if !suppressColors {
             colorizer = XcodeColorsTextColorizer()
@@ -34,13 +82,91 @@ public class XcodeLogConfiguration: BasicLogConfiguration
         self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, colorizer: colorizer, formatter: formatter, filters: filters)
     }
 
+    /**
+     Initializes a new `XcodeLogConfiguration` instance.
+
+     - warning: Setting either `debugMode` or `verboseDebugMode` to `true` will
+     result in `synchronousMode` being used when recording log entries.
+     Synchronous mode is helpful while debugging, as it ensures that logs are
+     always up-to-date when debug breakpoints are hit. However, synchronous
+     mode can have a negative influence on performance and is therefore not
+     recommended for use in production code.
+
+     - parameter minimumSeverity: The minimum supported `LogSeverity`. Any
+     `LogEntry` having a `severity` less than `minimumSeverity` will be silently
+     ignored.
+
+     - parameter debugMode: If `true`, the value of `minimumSeverity` will
+     be lowered (if necessary) to `.Debug` and `synchronousMode` will be used
+     when recording log entries.
+
+     - parameter verboseDebugMode: If `true`, the value of `minimumSeverity`
+     will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
+     used when recording log entries.
+
+     - parameter colorizer: The `TextColorizer` that will be used to colorize
+     the output of the receiver. If `nil`, no colorization will occur.
+
+     - parameter colorTable: If a `colorizer` is provided, an optional
+     `ColorTable` may also be provided to supply color information. If `nil`,
+     `DefaultColorTable` will be used for colorization.
+
+     - parameter formatter: A `LogFormatter` to use for formatting log entries
+     to be recorded.
+
+     - parameter filters: The `LogFilter`s to use when deciding whether a given
+     `LogEntry` should be passed along for recording.
+     */
     public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatter: LogFormatter, filters: [LogFilter] = [])
     {
         self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, colorizer: colorizer, formatters: [formatter], filters: filters)
     }
 
+    /**
+     Initializes a new `XcodeLogConfiguration` instance.
+
+     - warning: Setting either `debugMode` or `verboseDebugMode` to `true` will
+     result in `synchronousMode` being used when recording log entries.
+     Synchronous mode is helpful while debugging, as it ensures that logs are
+     always up-to-date when debug breakpoints are hit. However, synchronous
+     mode can have a negative influence on performance and is therefore not
+     recommended for use in production code.
+
+     - parameter minimumSeverity: The minimum supported `LogSeverity`. Any
+     `LogEntry` having a `severity` less than `minimumSeverity` will be silently
+     ignored.
+
+     - parameter debugMode: If `true`, the value of `minimumSeverity` will
+     be lowered (if necessary) to `.Debug` and `synchronousMode` will be used
+     when recording log entries.
+
+     - parameter verboseDebugMode: If `true`, the value of `minimumSeverity`
+     will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
+     used when recording log entries.
+
+     - parameter colorizer: The `TextColorizer` that will be used to colorize
+     the output of the receiver. If `nil`, no colorization will occur.
+
+     - parameter colorTable: If a `colorizer` is provided, an optional
+     `ColorTable` may also be provided to supply color information. If `nil`,
+     `DefaultColorTable` will be used for colorization.
+
+     - parameter formatters: An array of `LogFormatter`s to use for formatting
+     log entries to be recorded.
+
+     - parameter filters: The `LogFilter`s to use when deciding whether a given
+     `LogEntry` should be passed along for recording.
+     */
     public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatters: [LogFormatter], filters: [LogFilter] = [])
     {
+        var minimumSeverity = minimumSeverity
+        if verboseDebugMode {
+            minimumSeverity = .Verbose
+        }
+        else if debugMode && minimumSeverity > .Debug {
+            minimumSeverity = .Debug
+        }
+
         let recorders: [LogRecorder]
         if let colorizer = colorizer {
             let colorFormatters: [LogFormatter] = formatters.map{ ColorizingLogFormatter(formatter: $0, colorizer: colorizer, colorTable: colorTable) }
