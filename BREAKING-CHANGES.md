@@ -65,5 +65,3 @@ Adding colorization functionality required breaking API changes to the `DefaultL
 9. The `enable()` functions now require parameter labels for all parameters, including the first one.
 
 10. The `DefaultLogFormatter` has been removed. The `StandardLogFormatter` provides equivalent functionality.
-
-11. 
