@@ -49,6 +49,10 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
      used when recording log entries.
 
+     - parameter logToASL: If `true`, messages sent to the Xcode console will
+     also be sent to the Apple System Log (ASL) facility, minus any 
+     colorization codes, which look like corrupted characters in the ASL.
+
      - parameter timestampStyle: Governs the formatting of the timestamp in the
      log output. Pass `nil` to suppress output of the timestamp.
 
@@ -70,7 +74,7 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
     */
-    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Xcode, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, suppressColors: Bool = false, filters: [LogFilter] = [])
+    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Xcode, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, suppressColors: Bool = false, filters: [LogFilter] = [])
     {
         var colorizer: TextColorizer?
         if !suppressColors {
@@ -79,7 +83,7 @@ public class XcodeLogConfiguration: BasicLogConfiguration
 
         let formatter = XcodeLogFormatter(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: nil, showCallSite: showCallSite, showCallingThread: showCallingThread, colorizer: nil)
 
-        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, colorizer: colorizer, formatter: formatter, filters: filters)
+        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, formatter: formatter, filters: filters)
     }
 
     /**
@@ -104,6 +108,10 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
      used when recording log entries.
 
+     - parameter logToASL: If `true`, messages sent to the Xcode console will
+     also be sent to the Apple System Log (ASL) facility, minus any
+     colorization codes, which look like corrupted characters in the ASL.
+     
      - parameter colorizer: The `TextColorizer` that will be used to colorize
      the output of the receiver. If `nil`, no colorization will occur.
 
@@ -117,9 +125,9 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
      */
-    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatter: LogFormatter, filters: [LogFilter] = [])
+    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatter: LogFormatter, filters: [LogFilter] = [])
     {
-        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, colorizer: colorizer, formatters: [formatter], filters: filters)
+        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, formatters: [formatter], filters: filters)
     }
 
     /**
@@ -144,6 +152,10 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
      used when recording log entries.
 
+     - parameter logToASL: If `true`, messages sent to the Xcode console will
+     also be sent to the Apple System Log (ASL) facility, minus any
+     colorization codes, which look like corrupted characters in the ASL.
+     
      - parameter colorizer: The `TextColorizer` that will be used to colorize
      the output of the receiver. If `nil`, no colorization will occur.
 
@@ -157,7 +169,7 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
      */
-    public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatters: [LogFormatter], filters: [LogFilter] = [])
+    public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatters: [LogFormatter], filters: [LogFilter] = [])
     {
         var minimumSeverity = minimumSeverity
         if verboseDebugMode {
@@ -171,13 +183,21 @@ public class XcodeLogConfiguration: BasicLogConfiguration
         if let colorizer = colorizer {
             let colorFormatters: [LogFormatter] = formatters.map{ ColorizingLogFormatter(formatter: $0, colorizer: colorizer, colorTable: colorTable) }
 
-            recorders = [
-                ASLLogRecorder(formatters: formatters, echoToStdErr: false),
-                StandardOutputLogRecorder(formatters: colorFormatters)
-            ]
+            if logToASL {
+                recorders = [
+                    ASLLogRecorder(formatters: formatters, echoToStdErr: false),
+                    StandardOutputLogRecorder(formatters: colorFormatters)
+                ]
+            }
+            else {
+                recorders = [StandardOutputLogRecorder(formatters: colorFormatters)]
+            }
+        }
+        else if logToASL {
+            recorders = [ASLLogRecorder(formatters: formatters)]    // automatically echoes to stdout
         }
         else {
-            recorders = [ASLLogRecorder(formatters: formatters)]
+            recorders = [StandardOutputLogRecorder(formatters: formatters)]
         }
 
         let synchronous = debugMode || verboseDebugMode
