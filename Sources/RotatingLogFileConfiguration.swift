@@ -54,7 +54,7 @@ public class RotatingLogFileConfiguration: BasicLogConfiguration
      */
     public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, formatters: [LogFormatter] = [ReadableLogFormatter()], filters: [LogFilter] = [])
     {
-        logFileRecorder = RotatingLogFileRecorder(daysToKeep: daysToKeep, directoryPath: directoryPath)
+        logFileRecorder = RotatingLogFileRecorder(daysToKeep: daysToKeep, directoryPath: directoryPath, formatters: formatters)
 
         super.init(minimumSeverity: minimumSeverity, filters: filters, recorders: [logFileRecorder], synchronousMode: synchronousMode)
     }
