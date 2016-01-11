@@ -1,5 +1,5 @@
 //
-//  ReadableLogFileFormatter.swift
+//  ReadableLogFormatter.swift
 //  CleanroomLogger
 //
 //  Created by Evan Maloney on 1/6/16.
@@ -21,10 +21,10 @@ import Foundation
 
  These defaults can be overridden during instantiation.
  */
-public class ReadableLogFileFormatter: StandardLogFormatter
+public class ReadableLogFormatter: StandardLogFormatter
 {
     /**
-     Initializes a new `ReadableLogFileFormatter` instance.
+     Initializes a new `ReadableLogFormatter` instance.
 
      - parameter timestampStyle: Governs the formatting of the timestamp in the
      log output. Pass `nil` to suppress output of the timestamp.

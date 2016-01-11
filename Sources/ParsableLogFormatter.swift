@@ -1,5 +1,5 @@
 //
-//  ParsableLogFileFormatter.swift
+//  ParsableLogFormatter.swift
 //  CleanroomLogger
 //
 //  Created by Evan Maloney on 1/6/16.
@@ -21,10 +21,10 @@ import Foundation
  
  These defaults can be overridden during instantiation.
  */
-public class ParsableLogFileFormatter: StandardLogFormatter
+public class ParsableLogFormatter: StandardLogFormatter
 {
     /**
-     Initializes a new `ParsableLogFileFormatter` instance.
+     Initializes a new `ParsableLogFormatter` instance.
 
      - parameter timestampStyle: Governs the formatting of the timestamp in the
      log output. Pass `nil` to suppress output of the timestamp.
