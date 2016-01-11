@@ -20,6 +20,10 @@ public struct DefaultLogFormatter: LogFormatter
     /// when formatting the log message.
     public let includeTimestamp: Bool
 
+    /// If 'true' and `includeTimestamp` is enabled the timestamp will use a
+    /// seconds past midnight 1970 style timestamp (UTC/EPOCH)
+    public let useUnixTimestamp : Bool
+    
     /// If `true`, the receiver will include an identifier for the calling 
     /// thread when formatting the log message. This makes it possible to 
     /// distinguish between distinct paths of execution when analyzing logs
@@ -62,14 +66,19 @@ public struct DefaultLogFormatter: LogFormatter
     - parameter colorizePrefixOnly: If `true` and `colors` is non-`nil`, colors
                 will be applied only to the metadata prefix of the log message
                 as opposed to colorizing the entire prefix.
+     
+    - parameter unixTimestamp: If 'true' and 'includeTimestamp' is also 'true'
+                timestamps will be displayed in epoch time (seconds past midnight
+                1970)
     */
-    public init(includeTimestamp: Bool = false, includeThreadID: Bool = false, colorTable: ColorTable? = DefaultColorTable(), colorizer: Colorizer? = XcodeColorsColorizer(), colorizePrefixOnly: Bool = false)
+    public init(includeTimestamp: Bool = false, includeThreadID: Bool = false, colorTable: ColorTable? = DefaultColorTable(), colorizer: Colorizer? = XcodeColorsColorizer(), colorizePrefixOnly: Bool = false, unixTimestamp : Bool = false)
     {
         self.includeTimestamp = includeTimestamp
         self.includeThreadID = includeThreadID
         self.colorizer = colorizer
         self.colorTable = colorTable
         self.colorizePrefixOnly = colorizePrefixOnly
+        self.useUnixTimestamp = unixTimestamp
     }
 
     /**
@@ -288,6 +297,9 @@ public struct DefaultLogFormatter: LogFormatter
     public static func stringRepresentationOfTimestamp(timestamp: NSDate)
         -> String
     {
+        if (useUnixTimestamp) {
+            return "\(timestamp.timeIntervalSince1970)"
+        }
         return timestampFormatter.stringFromDate(timestamp)
     }
 
