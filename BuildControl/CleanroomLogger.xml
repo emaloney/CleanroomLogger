@@ -30,7 +30,7 @@ The API provided by CleanroomLogger is designed to be readily understood by anyo
 	
 	<Var name="project:readme:preamble">^q(####) Why CleanroomLogger?
 
-If you're familiar with [`NSLog()`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog), then you'll understand the purpose of CleanroomLogger.
+If you’re familiar with [`NSLog()`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog), then you’ll understand the purpose of CleanroomLogger.
 
 As with `NSLog()`, CleanroomLogger messages are (by default) directed to the Apple System Log and to the `stderr` output stream of the running process.
 
@@ -40,22 +40,75 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 2. **CleanroomLogger makes it easy to find the _where_ your code is issuing log messages.** With `NSLog()` and `print()`, it can sometimes be difficult to figure out what code is responsible for generating log messages. When a message is constructed programmatically, for example, it may not be possible to find its source. CleanroomLogger outputs the file and line responsible for each log message, so you can literally *go straight to the source*.
 
-3. **CleanroomLogger provides code execution tracing functionality through the `trace()` function.** A simple no-argument function call is all that's needed to log the source filename, line number and function name of the caller. This makes it easy to understand the path your code is taking as it executes.
+3. **CleanroomLogger provides code execution tracing functionality through the `trace()` function.** A simple no-argument function call is all that’s needed to log the source filename, line number and function name of the caller. This makes it easy to understand the path your code is taking as it executes.
 
-4. **CleanroomLogger is _configurable_**; its behavior can be modified by through different configuration options specified when logging is activated. You can configure the logging engine through the parameter values specified when constructing a new [`DefaultLogConfiguration`](${docs:api:root}/Structs/DefaultLogConfiguration.html) instance, or you can provide your own implementation of the [`LogConfiguration`](${docs:api:root}/Protocols/LogConfiguration.html) protocol if that doesn't suit your needs.
+4. **CleanroomLogger is _configurable_**; its behavior can be modified by through different configuration options specified when logging is activated. You can configure the logging engine through the parameter values specified when constructing a new [`DefaultLogConfiguration`](${docs:api:root}/Structs/DefaultLogConfiguration.html) instance, or you can provide your own implementation of the [`LogConfiguration`](${docs:api:root}/Protocols/LogConfiguration.html) protocol if that doesn’t suit your needs.
 
 5. **CleanroomLogger is _extensible_**. Several extension points are available, allowing you to provide custom implementations for specific functionality within the logging process:
   - A [`LogFilter`](${docs:api:root}/Protocols/LogFilter.html) implementation can inspect--and potentially block--any log message before it is recorded.
   - A custom [`LogFormatter`](${docs:api:root}/Protocols/LogFormatter.html) implementation can be used to generate string representations in a specific format for each `LogEntry` that gets recorded  
   - The [`LogRecorder`](${docs:api:root}/Protocols/LogRecorder.html) protocol makes it possible to create custom log message storage implementations. This is where to start if you want to provide a custom solution to write log messages to a database table, a local file, or a remote HTTP endpoint, for example.
 
-6. **CleanroomLogger puts the application developer in control.** The behavior of logging is set once, early in the application within the `UIApplicationDelegate` implementation; after that, the configuration is immutable for the remainder of the application's life. Any code using CleanroomLogger through [the `Log` API](${docs:api:root}/Structs/Log.html), including embedded frameworks, shared libraries, Cocoapods, etc. will automatically adhere to the policy established by the application developer. Embedded code that uses CleanroomLogger is inherently *well behaved*, whereas code using plain old `NSLog()` is not; third-party code using `NSLog()` give no control to the application developer.
+6. **CleanroomLogger puts the application developer in control.** The behavior of logging is set once, early in the application within the `UIApplicationDelegate` implementation; after that, the configuration is immutable for the remainder of the application’s life. Any code using CleanroomLogger through [the `Log` API](${docs:api:root}/Structs/Log.html), including embedded frameworks, shared libraries, Cocoapods, etc. will automatically adhere to the policy established by the application developer. Embedded code that uses CleanroomLogger is inherently *well behaved*, whereas code using plain old `NSLog()` is not; third-party code using `NSLog()` give no control to the application developer.
 
-7. **CleanroomLogger is respectful of the calling thread.** `NSLog()` does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each `LogRecorder` also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won't prevent the processing of log messages by other recorders.
+7. **CleanroomLogger is respectful of the calling thread.** `NSLog()` does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each `LogRecorder` also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won’t prevent the processing of log messages by other recorders.
 
 8. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.</Var>
 
-	<Var name="project:readme:summation">^q(##) Architectural Overview
+	<Var name="project:readme:summation">^q(####) XcodeColors Support
+
+CleanroomLogger contains built-in support for [XcodeColors](https://github.com/robbiehanson/XcodeColors), a third-party Xcode plug-in that uses special escape sequences to colorize text output within the Xcode console.
+
+When it is in use, XcodeColors sets the value of the environment variable `XcodeColors` to the string `YES`. And when configured with an `XcodeLogConfiguration`, CleanroomLogger will automatically enable log colorization if it detects XcodeColors is present. This will result in log messages being color-coded according to their `LogSeverity` in the Xcode console.
+
+> If you have XcodeColors installed but would *not* like to enable CleanroomLogger support for it, pass `true` for `suppressColors` or `nil` for `colorizer` when instantiating your `XcodeLogConfiguration`.
+
+The built-in color scheme—which you can override by supplying your own [`ColorTable`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you’re not focused on them:
+
+&lt;img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/&gt;
+
+^q(####) Enabling XcodeColors for iOS, tvOS &amp; watchOS
+
+When your code runs in a simulator or on an external device, it is actually running in an entirely separate operating system that *does not* inherit the environment variables that XcodeColors modifies when it is enabled.
+
+XcodeColors *only* modifies the environment of the local Mac user running Xcode. Therefore, XcodeColors can only automatically enable support for Mac OS X code itself.
+
+If your code is running on iOS, tvOS or watchOS, you will need to change your Xcode settings to pass the `XcodeColors` variable your code’s runtime environment. This can be done by editing any Build Schemes you want to use with XcodeColors.
+
+To edit the current build scheme, press `⌘&lt;` (*command*-*shift*-comma on a US English keyboard). In the editor that appears, select **Run** in the left-hand pane. Then, select the **Arguments** option at the top.
+
+Ensure that the **Environment Variables** section is expanded below, and click the **+** button within that section.
+
+This will allow you to add a new environment variable within the runtime environment. Enter `XcodeColors` for the name and `YES` for the value, as shown in this example:
+
+&lt;img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-build-scheme.png" width="650" height="360"/&gt;
+
+When done, select the **Close** button. 
+
+The next time you run your code, assuming both XcodeColors and CleanroomLogger are installed and configured correctly, you should see colorized log output within your Xcode console.
+
+^q(####) Troubleshooting XcodeColors
+
+^q(#####) Colors are not showing up!
+
+If the `XcodeColors` environment variable is set to `YES` but is being run in within a copy of Xcode where XcodeColors is not installed and loaded, CleanroomLogger will (incorrectly) assume that XcodeColors *is* installed and will dutifully output the escape sequences needed to drive message colorization.
+
+Those escape sequences will appear in your output instead of color:
+
+&lt;img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-escape-sequences.png" width="650" height="85"/&gt;
+
+If this happens, it means the XcodeColors plug-in is either not installed, or Xcode is not loading it upon launch.
+
+If you see no color *and* no escape codes, it means CleanroomLogger did not detect an `XcodeColors` variable set to `YES` in its runtime environment.
+
+^q(#####) It stopped working after I updated Xcode!
+
+If you recently updated Xcode, and a previously-working installation of XcodeColors no longer works, your XcodeColors plug-in likely needs to be updated to work with the latest version of Xcode.
+
+See the [documentation for XcodeColors](https://github.com/robbiehanson/XcodeColors/wiki/XcodeUpdates) for details on how to do this.
+
+
+^q(##) Architectural Overview
 
 CleanroomLogger is designed to do avoid doing formatting or logging work on the calling thread, making use of Grand Central Dispatch (GCD) queues for efficient processing.
 
@@ -63,10 +116,10 @@ In terms of threads of execution, each request to log *anything* can go through 
 
 1. On the calling thread:
   1. Caller attempts to issue a log request by calling a logging function (eg., `message()`, `trace()` or `value()`) of the appropriate `LogChannel` maintained by `Log`.
-    - If there is no `LogChannel` for the given *severity* of the log message (because CleanroomLogger hasn't yet been `enabled()` or it is not configured to log at that severity), Swift short-circuiting prevents further execution. This makes it possible to leave debug logging calls in place when shipping production code without affecting performance. 
+    - If there is no `LogChannel` for the given *severity* of the log message (because CleanroomLogger hasn’t yet been `enabled()` or it is not configured to log at that severity), Swift short-circuiting prevents further execution. This makes it possible to leave debug logging calls in place when shipping production code without affecting performance. 
   2. If a `LogChannel` does exist, it creates an immutable `LogEntry` struct to represent the *thing* being logged.
   3. The `LogEntry` is then passed to the `LogReceptacle` associated with the `LogChannel`. 
-  4. Based on the severity of the `LogEntry`, the `LogReceptacle` determines the appropriate `LogConfiguration` to use for recording the message. Among other things, this configuration determines whether further processing proceeds synchronously or asynchronously when passed to the `LogReceptacle`'s GCD queue. (Synchronous processing is useful during debugging, but is not recommended for general production code.)
+  4. Based on the severity of the `LogEntry`, the `LogReceptacle` selects one or more `LogConfiguration`s to use for recording the message. Among other things, these configurations determine whether further processing proceeds synchronously or asynchronously when passed to the underlying `LogReceptacle`’s GCD queue. (Synchronous processing is useful during debugging, but is not recommended for general production code.)
 
 2. On the `LogReceptacle` queue:
   1. The `LogEntry` is passed through zero or more `LogFilter`s that are given a chance to prevent further processing of the `LogEntry`. If *any* filter indicates that `LogEntry` should not be recorded, processing stops.
@@ -80,7 +133,7 @@ In terms of threads of execution, each request to log *anything* can go through 
 
 ^q(###) Full Disclosure: A Note about Global State
 
-If you've been reading the op-ed pages lately, you know that Global State is the enemy of civilization. You may also have noticed that `Log`'s static variables constitute global state.
+If you’ve been reading the op-ed pages lately, you know that Global State is the enemy of civilization. You may also have noticed that `Log`’s static variables constitute global state.
 
 Before you pick up your phone and demand that Thought Control activates its network of Twitter shamebots because a heretic has been detected, consider:
 
@@ -88,7 +141,7 @@ Before you pick up your phone and demand that Thought Control activates its netw
 
 - The state represented by `Log` is effectively immutable. The public interface is read-only, and the values are guaranteed to only ever be set once: at app launch, when `Log.enable()` is called from within the app delegate. The design of this gives full control to the application developer over the logging performed within the application; even third-party libraries using CleanroomLogger will use the logging configuration specified by the app developer.
 
-- `Log` designed to be *convenient* to encourage the judicious use of logging. During debugging, you might want to quickly add some debug tracing to some already-existing code; you can simply add `Log.debug?.trace()` to the appropriate places without refactoring your codebase to pass around `LogChannel`s or `LogReceptacle`s everywhere. Given that every single function in your code is a candidate for logging, it's impractical to use logging extensively *without* the convenience of `Log`.
+- `Log` designed to be *convenient* to encourage the judicious use of logging. During debugging, you might want to quickly add some debug tracing to some already-existing code; you can simply add `Log.debug?.trace()` to the appropriate places without refactoring your codebase to pass around `LogChannel`s or `LogReceptacle`s everywhere. Given that every single function in your code is a candidate for logging, it’s impractical to use logging extensively *without* the convenience of `Log`.
 
 - If you have a compelling reason to avoid using `Log`, but you still wish to use the functionality provided by CleanroomLogger, you can always construct and manage your own `LogChannel`s and `LogReceptacle`s directly. The only global state within the CleanroomLogger project is contained in `Log` itself. Note, however, that this should **only** be done by the app developer; **vendors of embedded code should only ever interact with CleanroomLogger through the public API provided by `Log`** to ensure that the app developer is always in control of logging.
  
