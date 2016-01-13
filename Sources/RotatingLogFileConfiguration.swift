@@ -25,6 +25,13 @@ public class RotatingLogFileConfiguration: BasicLogConfiguration
     /**
      Initializes a new `RotatingLogFileConfiguration` instance.
 
+     - warning: The `RotatingLogFileRecorder` created by this configuration
+     assumes full control over the log directory specified as `directoryPath`.
+     Any file not recognized as an active log file will be deleted during the
+     automatic pruning process, which may occur at any time. Therefore, be
+     __extremely careful__ when constructing the value passed in as the
+     `directoryPath`.
+
      - parameter minimumSeverity: The minimum supported `LogSeverity`. Any
      `LogEntry` having a `severity` less than `minimumSeverity` will be silently
      ignored by the configuration.
@@ -43,16 +50,16 @@ public class RotatingLogFileConfiguration: BasicLogConfiguration
      negative influence on performance and is therefore not recommended for
      use in production code.
 
+     - parameter filters: The `LogFilter`s to use when deciding whether a given
+     `LogEntry` should be passed along for recording.
+
      - parameter formatters: An array of `LogFormatter`s to use for formatting
      log entries to be recorded by the receiver. Each formatter is consulted in
      sequence, and the formatted string returned by the first formatter to
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
-
-     - parameter filters: The `LogFilter`s to use when deciding whether a given
-     `LogEntry` should be passed along for recording.
      */
-    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, formatters: [LogFormatter] = [ReadableLogFormatter()], filters: [LogFilter] = [])
+    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, filters: [LogFilter] = [], formatters: [LogFormatter] = [ReadableLogFormatter()])
     {
         logFileRecorder = RotatingLogFileRecorder(daysToKeep: daysToKeep, directoryPath: directoryPath, formatters: formatters)
 
