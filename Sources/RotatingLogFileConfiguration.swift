@@ -25,6 +25,13 @@ public class RotatingLogFileConfiguration: BasicLogConfiguration
     /**
      Initializes a new `RotatingLogFileConfiguration` instance.
 
+     - warning: The `RotatingLogFileRecorder` created by this configuration
+     assumes full control over the log directory specified as `directoryPath`.
+     Any file not recognized as an active log file will be deleted during the
+     automatic pruning process, which may occur at any time. Therefore, be
+     __extremely careful__ when constructing the value passed in as the
+     `directoryPath`.
+
      - parameter minimumSeverity: The minimum supported `LogSeverity`. Any
      `LogEntry` having a `severity` less than `minimumSeverity` will be silently
      ignored by the configuration.
