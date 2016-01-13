@@ -43,16 +43,16 @@ public class RotatingLogFileConfiguration: BasicLogConfiguration
      negative influence on performance and is therefore not recommended for
      use in production code.
 
+     - parameter filters: The `LogFilter`s to use when deciding whether a given
+     `LogEntry` should be passed along for recording.
+
      - parameter formatters: An array of `LogFormatter`s to use for formatting
      log entries to be recorded by the receiver. Each formatter is consulted in
      sequence, and the formatted string returned by the first formatter to
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
-
-     - parameter filters: The `LogFilter`s to use when deciding whether a given
-     `LogEntry` should be passed along for recording.
      */
-    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, formatters: [LogFormatter] = [ReadableLogFormatter()], filters: [LogFilter] = [])
+    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, filters: [LogFilter] = [], formatters: [LogFormatter] = [ReadableLogFormatter()])
     {
         logFileRecorder = RotatingLogFileRecorder(daysToKeep: daysToKeep, directoryPath: directoryPath, formatters: formatters)
 

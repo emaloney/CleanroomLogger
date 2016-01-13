@@ -83,7 +83,7 @@ public class XcodeLogConfiguration: BasicLogConfiguration
 
         let formatter = XcodeLogFormatter(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: nil, showCallSite: showCallSite, showCallingThread: showCallingThread, colorizer: nil)
 
-        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, formatter: formatter, filters: filters)
+        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, filters: filters, formatter: formatter)
     }
 
     /**
@@ -118,16 +118,16 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      - parameter colorTable: If a `colorizer` is provided, an optional
      `ColorTable` may also be provided to supply color information. If `nil`,
      `DefaultColorTable` will be used for colorization.
+
+     - parameter filters: The `LogFilter`s to use when deciding whether a given
+     `LogEntry` should be passed along for recording.
 
      - parameter formatter: A `LogFormatter` to use for formatting log entries
      to be recorded.
-
-     - parameter filters: The `LogFilter`s to use when deciding whether a given
-     `LogEntry` should be passed along for recording.
      */
-    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatter: LogFormatter, filters: [LogFilter] = [])
+    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, filters: [LogFilter] = [], formatter: LogFormatter)
     {
-        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, formatters: [formatter], filters: filters)
+        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, filters: filters, formatters: [formatter])
     }
 
     /**
@@ -163,13 +163,13 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      `ColorTable` may also be provided to supply color information. If `nil`,
      `DefaultColorTable` will be used for colorization.
 
-     - parameter formatters: An array of `LogFormatter`s to use for formatting
-     log entries to be recorded.
-
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
+
+     - parameter formatters: An array of `LogFormatter`s to use for formatting
+     log entries to be recorded.
      */
-    public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, formatters: [LogFormatter], filters: [LogFilter] = [])
+    public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, filters: [LogFilter] = [], formatters: [LogFormatter])
     {
         var minimumSeverity = minimumSeverity
         if verboseDebugMode {
