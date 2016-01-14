@@ -63,7 +63,7 @@ When it is in use, XcodeColors sets the value of the environment variable `Xcode
 
 > If you have XcodeColors installed but would *not* like to enable CleanroomLogger support for it, pass `true` for `suppressColors` or `nil` for `colorizer` when instantiating your `XcodeLogConfiguration`.
 
-The built-in color scheme—which you can override by supplying your own [`ColorTable`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you’re not focused on them:
+The built-in color scheme—which you can override by supplying your own [`ColorTable`](${docs:api:root}/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you’re not focused on them:
 
 &lt;img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/&gt;
 
