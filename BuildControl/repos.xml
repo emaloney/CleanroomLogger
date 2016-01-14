@@ -1,0 +1,62 @@
+<MBML>
+	<Var name="repo:host" literal="github"/>
+	<Var name="repo:name" type="dynamic" expression="$project:name"/>
+	<Var name="repo:url:home" type="dynamic" expression="https://github.com/${repo:owner}/${repo:name}"/>
+	<Var name="repo:url:http" type="dynamic" expression="${repo:url:home}"/>
+	<Var name="repo:url:ssh" type="dynamic" expression="git@github.com:${repo:owner}/${repo:name}"/>
+
+	<Var name="versions" type="map">
+		<Var name="current" type="map">
+			<Var name="Swift" literal="2.1.1"/> 
+			<Var name="Xcode" literal="7.2"/> 
+
+			<Var name="Carthage" literal="0.11"/>
+			<Var name="git" literal="2.5.4 (Apple Git-61)"/> 
+			
+		</Var>
+		<Var name="minimum" type="map">
+			<Var name="Swift" literal="2.1"/> 
+			<Var name="Xcode" literal="7.1"/> 
+
+			<Var name="iOS" literal="8.0"/> 
+			<Var name="OSX" literal="10.10"/> 
+			<Var name="tvOS" literal="9.0"/> 
+			<Var name="watchOS" literal="2.0"/> 
+		</Var>
+	</Var>
+
+	<Var name="project:isIOS" type="dynamic" expression="^containsValue($project:platforms|iOS)"/>
+	<Var name="project:isOSX" type="dynamic" expression="^containsValue($project:platforms|OSX)"/>
+	<Var name="project:isTVOS" type="dynamic" expression="^containsValue($project:platforms|tvOS)"/>
+	<Var name="project:isWATCHOS" type="dynamic" expression="^containsValue($project:platforms|watchOS)"/>
+
+	<Var name="project:file" type="dynamic" expression="${project:name}.xcodeproj"/>
+	<Var name="project:framework" type="dynamic" expression="${project:name}.framework"/>
+	<Var name="project:import" type="dynamic" expression="import ${project:name}"/>
+	
+	<Var name="project:readme:description" type="dynamic" expression="^selectFirstValue($project:description:formats[markdown]|$project:description:formats[text]|$project:description)"/>
+	<Var name="project:readme:examples:file" type="dynamic" expression="../../${repo:name}/Sources/README.md"/>
+	<Var name="project:readme:examples" type="dynamic" expression="^if(^fileExists($project:readme:examples:file)|^fileContents($project:readme:examples:file))"/>
+	
+	<Var name="docs:root" type="dynamic" expression="https://rawgit.com/${repo:owner}/${repo:name}/master/Documentation"/>
+	<Var name="docs:api:root" type="dynamic" expression="${docs:root}/API"/>
+	<Var name="docs:api:index" type="dynamic" expression="${docs:api:root}/index.html"/>
+	<Var name="docs:images:root" type="dynamic" expression="${docs:root}/Images"/>
+
+	<Var name="docs:buildSchemeOrList" type="dynamic" expression="^if($project:platforms.count -LT 2|“$project:name”)^if($project:platforms.count -EQ 2|“$project:name $project:platforms[0]” or “$project:name $project:platforms[1]”)^if($project:platforms.count -GT 2|^join(^list(^groupArrayElements($project:platforms|#($project:platforms.count - 1))[0]|“${project:name}-$item”)|, ) or “${project:name}-$project:platforms[#($project:platforms.count - 1)]”)"/>
+	<Var name="docs:dependencyAndList" type="dynamic" expression="^if($project:dependencies|^if($project:dependencies.count -LT 2|`$project:dependencies[0]^q(.framework)`)^if($project:dependencies.count -EQ 2|`$project:dependencies[0]^q(.framework)` and $project:dependencies[1]^q(.framework)`)^if($project:dependencies.count -GT 2|^join(^list(^groupArrayElements($project:dependencies|#($project:dependencies.count - 1))[0]|`$(item).framework`)|, ) and `$project:dependencies[#($project:dependencies.count - 1)]^q(.framework)`))"/>
+	<Var name="docs:frameworkAndList" type="dynamic" expression="`${project:framework}`^if($project:dependencies|^if($project:dependencies.count == 1| and|,) $docs:dependencyAndList)"/>
+	<Var name="docs:projectFrameworksTerm" type="dynamic" expression="framework^if($project:dependencies -OR $project:platforms.count -GT 0|s)"/>
+	<Var name="docs:targetFrameworksTerm" type="dynamic" expression="framework^if($project:dependencies|s)"/>
+	<Var name="docs:projectBinariesTerm" type="dynamic" expression="binar^if($project:dependencies -OR $project:platforms.count -GT 0|ies|y)"/>
+	<Var name="docs:targetBinariesTerm" type="dynamic" expression="binar^if($project:dependencies|ies|y)"/>
+	<Var name="docs:dependenciesTerm" type="dynamic" expression="dependenc^if($project:dependencies -AND $project:dependencies.count -GT 1|ies|y)"/>
+	<Var name="docs:cloneCommand" type="dynamic" expression="git clone ^if($project:dependencies|--recursive )${repo:url:http}"/>
+	<Var name="docs:carthageSpec" type="dynamic" expression='$repo:host "${repo:owner}/${repo:name}"'/>
+
+	<Var name="repo:ownersToNames" type="map">
+		<Var name="gilt" literal="Gilt Groupe"/>
+		<Var name="emaloney" literal="Evan Maloney"/>
+	</Var>
+</MBML>
+
