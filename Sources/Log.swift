@@ -240,6 +240,30 @@ public struct Log
     private static var enableOnce = dispatch_once_t()
 
     /**
+     Assuming CleanroomLogger has not yet been enabled, calling this function
+     prevents any other caller from enabling CleanroomLogger for the remainder
+     of the lifetime of the running executable.
+     
+     The ability to prevent CleanroomLogger from being enabled may be useful
+     in applications that link against libraries requiring CleanroomLogger.
+     Application developers who did not choose to use CleanroomLogger can
+     ensure that embedded third-party libraries don't use it, either.
+     
+     - important: If `Log.enable()` has already been called, calling 
+     `Log.neverEnable()` will have no effect.
+     */
+    public static func neverEnable()
+    {
+        dispatch_once(&enableOnce) {
+            self.error = nil
+            self.warning = nil
+            self.info = nil
+            self.debug = nil
+            self.verbose = nil
+        }
+    }
+
+    /**
      Returns the `LogChannel` responsible for logging at the given severity.
 
      - parameter severity: The `LogSeverity` level of the `LogChannel` to
