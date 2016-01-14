@@ -82,27 +82,27 @@ public struct Log
     /** The `LogChannel` that can be used to perform logging at the `.Error`
      log severity level. Will be `nil` if logging hasn't yet been enabled, or
      if logging for the `.Error` severity has not been configured. */
-    public static var error: LogChannel? { return _error }
+    public private(set) static var error: LogChannel?
 
     /** The `LogChannel` that can be used to perform logging at the `.Warning`
      log severity level. Will be `nil` if logging hasn't yet been enabled, or
      if logging for the `.Warning` severity has not been configured. */
-    public static var warning: LogChannel? { return _warning }
+    public private(set) static var warning: LogChannel?
 
     /** The `LogChannel` that can be used to perform logging at the `.Info`
      log severity level. Will be `nil` if logging hasn't yet been enabled, or
      if logging for the `.Info` severity has not been configured. */
-    public static var info: LogChannel? { return _info }
+    public private(set) static var info: LogChannel?
 
     /** The `LogChannel` that can be used to perform logging at the `.Debug`
      log severity level. Will be `nil` if logging hasn't yet been enabled, or
      if logging for the `.Debug` severity has not been configured. */
-    public static var debug: LogChannel? { return _debug }
+    public private(set) static var debug: LogChannel?
 
     /** The `LogChannel` that can be used to perform logging at the `.Verbose`
      log severity level. Will be `nil` if logging hasn't yet been enabled, or
      if logging for the `.Verbose` severity has not been configured. */
-    public static var verbose: LogChannel? { return _verbose }
+    public private(set) static var verbose: LogChannel?
 
     /**
      Enables logging using an `XcodeLogConfiguration`.
@@ -229,19 +229,13 @@ public struct Log
     public static func enable(errorChannel errorChannel: LogChannel?, warningChannel: LogChannel?, infoChannel: LogChannel?, debugChannel: LogChannel?, verboseChannel: LogChannel?)
     {
         dispatch_once(&enableOnce) {
-            self._error = errorChannel
-            self._warning = warningChannel
-            self._info = infoChannel
-            self._debug = debugChannel
-            self._verbose = verboseChannel
+            self.error = errorChannel
+            self.warning = warningChannel
+            self.info = infoChannel
+            self.debug = debugChannel
+            self.verbose = verboseChannel
         }
     }
-
-    private static var _error: LogChannel?
-    private static var _warning: LogChannel?
-    private static var _info: LogChannel?
-    private static var _debug: LogChannel?
-    private static var _verbose: LogChannel?
 
     private static var enableOnce = dispatch_once_t()
 
@@ -259,11 +253,11 @@ public struct Log
         -> LogChannel?
     {
         switch severity {
-        case .Verbose:  return _verbose
-        case .Debug:    return _debug
-        case .Info:     return _info
-        case .Warning:  return _warning
-        case .Error:    return _error
+        case .Verbose:  return verbose
+        case .Debug:    return debug
+        case .Info:     return info
+        case .Warning:  return warning
+        case .Error:    return error
         }
     }
 
