@@ -26,7 +26,7 @@ It is the responsibility of the *application developer* to enable logging, which
 >
 > CleanroomLogger is built to be used from within frameworks, shared libraries, etc., as well as at the application level. However, any code designed to be embedded in other applications **must** interact with CleanroomLogger via the [`Log`](${docs:api:root}/Structs/Log.html) API **only**.
 >
-> We believe so strongly that the application developer should be in full control of logging policy application-wide, that we even provide a way to ensure that CleanroomLogger is *never* enabled. That way, if you need to include a third-party library that uses CleanroomLogger, you can decide to turn it off entirely, thereby ensuring that you pay no performance penalty for logging. Just call [`Log.neverEnable()`]().
+> We believe so strongly that the application developer should be in full control of logging policy application-wide, that we even provide a way to ensure that CleanroomLogger is *never* enabled. That way, if you need to include a third-party library that uses CleanroomLogger, you can decide to turn it off entirely, thereby ensuring that you pay no performance penalty for logging. Just call `Log.neverEnable()`.
 
 Ideally, logging is enabled at the first possible point in the application’s launch cycle. Otherwise, critical log messages may be missed during launch because the logger wasn’t yet initialized.
 
