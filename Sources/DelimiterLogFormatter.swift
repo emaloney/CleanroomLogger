@@ -19,8 +19,11 @@ public enum DelimiterStyle
     /** Specifies a hyphen character with a space character on each side. */
     case SpacedHyphen
 
-    /** Specifies the tab character: ASCII 0x09. */
+    /** Specifies the tab character: ASCII `0x09`. */
     case Tab
+
+    /** Specifies the space character: ASCII `0x20`. */
+    case Space
 
     /** Specifies a custom field delimiters. */
     case Custom(String)
@@ -36,6 +39,7 @@ public extension DelimiterStyle
         case .SpacedPipe:       return " | "
         case .SpacedHyphen:     return " - "
         case .Tab:              return "\t"
+        case .Space:            return " "
         case .Custom(let sep):  return sep
         }
     }
