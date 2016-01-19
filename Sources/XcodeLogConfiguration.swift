@@ -125,7 +125,7 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      - parameter formatter: A `LogFormatter` to use for formatting log entries
      to be recorded.
      */
-    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, filters: [LogFilter] = [], formatter: LogFormatter)
+    public convenience init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = XcodeColorsTextColorizer(), colorTable: ColorTable? = nil, filters: [LogFilter] = [], formatter: LogFormatter)
     {
         self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, filters: filters, formatters: [formatter])
     }
@@ -169,7 +169,7 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      - parameter formatters: An array of `LogFormatter`s to use for formatting
      log entries to be recorded.
      */
-    public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil, filters: [LogFilter] = [], formatters: [LogFormatter])
+    public init(minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = XcodeColorsTextColorizer(), colorTable: ColorTable? = nil, filters: [LogFilter] = [], formatters: [LogFormatter])
     {
         var minimumSeverity = minimumSeverity
         if verboseDebugMode {
