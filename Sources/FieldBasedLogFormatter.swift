@@ -67,18 +67,23 @@ public class FieldBasedLogFormatter: ConcatenatingLogFormatter
         /** Represents a string literal. */ 
         case Literal(String)
 
+        /** Represents a field containing the output of the given 
+         `LogFormatter`. */
+        case Custom(LogFormatter)
+
         private func createLogFormatter()
             -> LogFormatter
         {
             switch self {
-            case .Timestamp(let style): return TimestampLogFormatter(style: style)
-            case .Severity(let style):  return SeverityLogFormatter(style: style)
-            case .CallSite:             return CallSiteLogFormatter()
-            case .StackFrame:           return StackFrameLogFormatter()
-            case .CallingThread:        return CallingThreadLogFormatter()
-            case .Payload:              return PayloadLogFormatter()
-            case .Delimiter(let style): return DelimiterLogFormatter(style: style)
-            case .Literal(let literal): return LiteralLogFormatter(literal)
+            case .Timestamp(let style):     return TimestampLogFormatter(style: style)
+            case .Severity(let style):      return SeverityLogFormatter(style: style)
+            case .CallSite:                 return CallSiteLogFormatter()
+            case .StackFrame:               return StackFrameLogFormatter()
+            case .CallingThread:            return CallingThreadLogFormatter()
+            case .Payload:                  return PayloadLogFormatter()
+            case .Delimiter(let style):     return DelimiterLogFormatter(style: style)
+            case .Literal(let literal):     return LiteralLogFormatter(literal)
+            case .Custom(let formatter):    return formatter
             }
         }
     }
