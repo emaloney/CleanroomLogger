@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  A standard `LogFormatter` that provides some common customization points.
  */

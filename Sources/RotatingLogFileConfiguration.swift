@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  A `LogConfiguration` that uses an underlying `RotatingLogFileRecorder` to
  maintain a directory of log files that are rotated on a daily basis.

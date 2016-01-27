@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  A default implementation of the `ColorTable` protocol.
  */

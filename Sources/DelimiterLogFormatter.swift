@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  Allows the specification of different field delimiters.
  */

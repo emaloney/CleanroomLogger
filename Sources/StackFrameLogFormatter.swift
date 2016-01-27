@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  A `LogFormatter` that returns the `callingStackFrame` property of a `LogEntry`.
 

@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  Specifies the manner in which `LogSeverity` values should be rendered by
  the `SeverityLogFormatter`.

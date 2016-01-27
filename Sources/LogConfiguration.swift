@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
 Defines an interface for specifying the configuration of the logging system.
 */

@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  The `FieldBasedLogFormatter` provides a simple interface for constructing
  a customized `LogFormatter` by specifying different *fields*.

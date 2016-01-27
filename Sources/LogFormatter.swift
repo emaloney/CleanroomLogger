@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
 `LogFormatter`s are used to attempt to create string representations of
 `LogEntry` instances.

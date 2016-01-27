@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  A `LogFormatter` that returns a hexadecimal string representation of a
  `LogEntry`'s `callingThreadID`.
@@ -29,6 +27,6 @@ public struct CallingThreadLogFormatter: LogFormatter
     public func formatLogEntry(entry: LogEntry)
         -> String?
     {
-        return NSString(format: "%08X", entry.callingThreadID) as String
+        return String(format: "%08X", entry.callingThreadID)
     }
 }

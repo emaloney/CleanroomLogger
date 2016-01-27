@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  Wraps another `LogFormatter` and colorizes its output according to the
  `LogSeverity` of the `LogEntry` being recorded.

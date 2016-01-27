@@ -6,8 +6,6 @@
 //  Copyright © 2016 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  The `ConcatenatingLogFormatter` lets you combine the output of multiple
  `LogFormatter`s by contatenating their output and returning the result.

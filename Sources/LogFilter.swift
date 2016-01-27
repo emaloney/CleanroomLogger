@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
 Before a `LogEntry` is recorded, any `LogFilter`s specified in the active
 `LogConfiguration` are given a chance to prevent the entry from being recorded

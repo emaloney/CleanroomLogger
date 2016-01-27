@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  `TextColorizer`s are used to apply color formatting to log messages.
  */

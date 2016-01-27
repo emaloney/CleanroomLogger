@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  Represents a 3-component RGB color where each component is 8 bits.
  Used for specifying log output colors.

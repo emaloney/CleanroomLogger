@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  `ColorTable`s are used to supply foreground and background `Color` values
  for a given `LogSeverity`.

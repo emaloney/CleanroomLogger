@@ -6,8 +6,6 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
-
 /**
  In case the name didn't give it away, the `BasicLogConfiguration` class 
  provides a basic implementation of the `LogConfiguration` protocol.
