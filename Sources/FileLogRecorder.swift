@@ -86,10 +86,12 @@ public class FileLogRecorder: LogRecorderBase
     public override func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
     {
         var addNewline = true
-        let uniStr = message.unicodeScalars
-        if uniStr.count > 0 {
-            let c = unichar(uniStr[uniStr.endIndex.predecessor()].value)
-            addNewline = !newlineCharset.characterIsMember(c)
+        let chars = message.characters
+        if chars.count > 0 {
+            let index = chars.endIndex.predecessor()
+            if let lastChar = String(chars[index]).utf16.first?.value {
+                addNewline = !newlineCharset.characterIsMember(unichar(lastChar))
+            }
         }
 
         var writeStr = message
