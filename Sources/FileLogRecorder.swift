@@ -6,7 +6,9 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
+import Foundation.NSCharacterSet
+import Darwin.C.stdio
+import Dispatch
 
 /**
  A `LogRecorder` implementation that appends log entries to a file.

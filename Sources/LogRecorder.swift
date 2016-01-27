@@ -6,7 +6,7 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
+import Dispatch
 
 /**
  Each `LogRecorder` instance is responsible recording formatted log messages

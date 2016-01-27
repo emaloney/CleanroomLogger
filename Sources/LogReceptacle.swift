@@ -6,7 +6,7 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
+import Dispatch
 
 /**
  `LogReceptacle`s provide the low-level interface for accepting log messages.
