@@ -252,75 +252,6 @@ fail.</p>
 <p>It is the responsibility of the <em>application developer</em> to enable logging, which
 is done by calling the appropriate <code>Log.enable()</code> function.</p>
 
-<p><code>Log</code> is the primary public API for CleanroomLogger.</p>
-
-<p>If you wish to send a message to the log, you do so by calling the appropriae
-function provided by the appropriate <code><a href="../Structs/LogChannel.html">LogChannel</a></code> given the importance of your
-message.</p>
-
-<p>There are five levels of severity at which log messages can be recorded. Each
-level is represented by a read-only static variable maintained by the <code>Log</code>:</p>
-
-<ul>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">Log.error</a></code> — The highest severity; something has gone wrong and a fatal error
-may be imminent</p></li>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">Log.warning</a></code> — Something appears amiss and might bear looking into before a
-larger problem arises</p></li>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">Log.info</a></code> — Something notable happened, but it isn&rsquo;t anything to worry about</p></li>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">Log.debug</a></code> — Used for debugging and diagnostic information</p></li>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">Log.verbose</a></code> - The lowest severity; used for detailed or frequently occurring
-debugging and diagnostic information</p></li>
-</ul>
-
-<p>Each <code><a href="../Structs/LogChannel.html">LogChannel</a></code> can be used in one of three ways:</p>
-
-<ul>
-<li>The <code>trace()</code> function records a short log message detailing the source
-file, source line, and function name of the caller. It is intended to be called
-with no arguments, as follows:</li>
-</ul>
-
-<pre class="highlight plaintext"><code>Log.debug?.trace()
-</code></pre>
-
-<ul>
-<li>The <code>message()</code> function records a message specified by the caller:</li>
-</ul>
-
-<pre class="highlight plaintext"><code>Log.info?.message("The application has finished launching.")
-</code></pre>
-
-<p><code>message()</code> is intended to be called with a single parameter, the message
-string, as shown above. Unlike <code>NSLog()</code>, no <code>printf</code>-like functionality
-is provided; instead, use Swift string interpolation to construct parameterized
-messages.</p>
-
-<ul>
-<li>Finally, the <code>value()</code> function records a string representation of an
-arbitrary <code>Any</code> value:</li>
-</ul>
-
-<pre class="highlight plaintext"><code>Log.verbose?.value(delegate)
-</code></pre>
-
-<p>The <code>value()</code> function is intended to be called with a single parameter, of
-type <code>Any?</code>.</p>
-
-<p>The underlying logging implementation is responsible for converting this value
-into a string representation.</p>
-
-<p>Note that some implementations may not be able to convert certain values into
-strings; in those cases, log requests may be silently ignored.</p>
-
-<p><a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3></p>
-
-<p>By default, logging is disabled, meaning that none of the <code>Log</code>&rsquo;s <em>log channels</em>
-have been populated. As a result, attempts to perform any logging will silently
-fail.</p>
-
-<p>It is the responsibility of the <em>application developer</em> to enable logging, which
-is done by calling the appropriate <code>Log.enable()</code> function.</p>
-
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -347,7 +278,7 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_error</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -376,7 +307,7 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">warning</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_warning</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">warning</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -405,7 +336,7 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">info</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_info</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">info</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -434,7 +365,7 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">debug</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_debug</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">debug</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -463,7 +394,7 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">verbose</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span> <span class="p">{</span> <span class="k">return</span> <span class="n">_verbose</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">verbose</span><span class="p">:</span> <span class="kt">LogChannel</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -473,9 +404,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_"></a>
                     <a name="//apple_ref/swift/Method/enable(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:suppressColors:filters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_">enable(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:suppressColors:filters:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_">enable(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:suppressColors:filters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -639,9 +570,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFMS0_FT13configurationPS_16LogConfiguration__T_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT13configurationPS_16LogConfiguration__T_"></a>
                     <a name="//apple_ref/swift/Method/enable(configuration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT13configurationPS_16LogConfiguration__T_">enable(configuration:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT13configurationPS_16LogConfiguration__T_">enable(configuration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -686,9 +617,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFMS0_FT13configurationGSaPS_16LogConfiguration___T_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT13configurationGSaPS_16LogConfiguration___T_"></a>
                     <a name="//apple_ref/swift/Method/enable(configuration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT13configurationGSaPS_16LogConfiguration___T_">enable(configuration:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT13configurationGSaPS_16LogConfiguration___T_">enable(configuration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -733,9 +664,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFMS0_FT10receptacleCS_13LogReceptacle_T_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT10receptacleCS_13LogReceptacle_T_"></a>
                     <a name="//apple_ref/swift/Method/enable(receptacle:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT10receptacleCS_13LogReceptacle_T_">enable(receptacle:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT10receptacleCS_13LogReceptacle_T_">enable(receptacle:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -784,9 +715,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFMS0_FT12errorChannelGSqVS_10LogChannel_14warningChannelGSqS1__11infoChannelGSqS1__12debugChannelGSqS1__14verboseChannelGSqS1___T_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT12errorChannelGSqVS_10LogChannel_14warningChannelGSqS1__11infoChannelGSqS1__12debugChannelGSqS1__14verboseChannelGSqS1___T_"></a>
                     <a name="//apple_ref/swift/Method/enable(errorChannel:warningChannel:infoChannel:debugChannel:verboseChannel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT12errorChannelGSqVS_10LogChannel_14warningChannelGSqS1__11infoChannelGSqS1__12debugChannelGSqS1__14verboseChannelGSqS1___T_">enable(errorChannel:warningChannel:infoChannel:debugChannel:verboseChannel:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT12errorChannelGSqVS_10LogChannel_14warningChannelGSqS1__11infoChannelGSqS1__12debugChannelGSqS1__14verboseChannelGSqS1___T_">enable(errorChannel:warningChannel:infoChannel:debugChannel:verboseChannel:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -890,9 +821,50 @@ needless overhead will be added to the application.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log18channelForSeverityFMS0_FOS_11LogSeverityGSqVS_10LogChannel_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log11neverEnableFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/neverEnable()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log11neverEnableFT_T_">neverEnable()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Assuming CleanroomLogger has not yet been enabled, calling this function
+prevents any other caller from enabling CleanroomLogger for the remainder
+of the lifetime of the running executable.</p>
+
+<p>The ability to prevent CleanroomLogger from being enabled may be useful
+in applications that link against libraries requiring CleanroomLogger.
+Application developers who did not choose to use CleanroomLogger can
+ensure that embedded third-party libraries don&rsquo;t use it, either.</p>
+
+<div class="aside aside-important">
+    <p class="aside-title">Important</p>
+    If <code>Log.enable()</code> has already been called, calling 
+<code>Log.neverEnable()</code> will have no effect.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">neverEnable</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFV15CleanroomLogger3Log18channelForSeverityFOS_11LogSeverityGSqVS_10LogChannel_"></a>
                     <a name="//apple_ref/swift/Method/channelForSeverity(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log18channelForSeverityFMS0_FOS_11LogSeverityGSqVS_10LogChannel_">channelForSeverity(_:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log18channelForSeverityFOS_11LogSeverityGSqVS_10LogChannel_">channelForSeverity(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -943,9 +915,9 @@ needless overhead will be added to the application.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log5traceFMS0_FTOS_11LogSeverity8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log5traceFTOS_11LogSeverity8functionSS8filePathSS8fileLineSi_T_"></a>
                     <a name="//apple_ref/swift/Method/trace(_:function:filePath:fileLine:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log5traceFMS0_FTOS_11LogSeverity8functionSS8filePathSS8fileLineSi_T_">trace(_:function:filePath:fileLine:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log5traceFTOS_11LogSeverity8functionSS8filePathSS8fileLineSi_T_">trace(_:function:filePath:fileLine:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1031,9 +1003,9 @@ well as the stack frame signature of the caller.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log7messageFMS0_FTOS_11LogSeverity7messageSS8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log7messageFTOS_11LogSeverity7messageSS8functionSS8filePathSS8fileLineSi_T_"></a>
                     <a name="//apple_ref/swift/Method/message(_:message:function:filePath:fileLine:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log7messageFMS0_FTOS_11LogSeverity7messageSS8functionSS8filePathSS8fileLineSi_T_">message(_:message:function:filePath:fileLine:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log7messageFTOS_11LogSeverity7messageSS8functionSS8filePathSS8fileLineSi_T_">message(_:message:function:filePath:fileLine:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1130,9 +1102,9 @@ well as the stack frame signature of the caller.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log5valueFMS0_FTOS_11LogSeverity5valueGSqP__8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="/s:ZFV15CleanroomLogger3Log5valueFTOS_11LogSeverity5valueGSqP__8functionSS8filePathSS8fileLineSi_T_"></a>
                     <a name="//apple_ref/swift/Method/value(_:value:function:filePath:fileLine:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log5valueFMS0_FTOS_11LogSeverity5valueGSqP__8functionSS8filePathSS8fileLineSi_T_">value(_:value:function:filePath:fileLine:)</a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log5valueFTOS_11LogSeverity5valueGSqP__8functionSS8filePathSS8fileLineSi_T_">value(_:value:function:filePath:fileLine:)</a>
                     </code>
                   </div>
                   <div class="height-container">
