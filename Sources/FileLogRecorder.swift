@@ -45,18 +45,14 @@ public class FileLogRecorder: LogRecorderBase
     public init?(filePath: String, formatters: [LogFormatter])
     {
         let f = fopen(filePath, "a")
+        guard f != nil else {
+            return nil
+        }
 
         self.filePath = filePath
         self.file = f
 
         super.init(formatters: formatters)
-
-        // we really should do this right after fopen() so we can avoid
-        // creating the queue, etc., but Swift requires that failable
-        // initializers populate *all* properties before returning nil
-        if f == nil {
-            return nil
-        }
     }
 
     deinit {
