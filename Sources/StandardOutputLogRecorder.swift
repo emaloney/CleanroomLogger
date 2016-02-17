@@ -6,7 +6,7 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
+import Dispatch
 
 /**
 The `StandardOutputLogRecorder` logs messages by writing to the standard output

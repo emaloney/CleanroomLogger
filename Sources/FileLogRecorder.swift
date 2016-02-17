@@ -6,7 +6,8 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
+import Darwin.C.stdio
+import Dispatch
 
 /**
  A `LogRecorder` implementation that appends log entries to a file.
@@ -23,7 +24,7 @@ public class FileLogRecorder: LogRecorderBase
     public let filePath: String
 
     private let file: UnsafeMutablePointer<FILE>
-    private let newlineCharset: NSCharacterSet
+    private let newlines: [Character] = ["\n", "\r"]
 
     /**
      Attempts to initialize a new `FileLogRecorder` instance to use the
@@ -47,7 +48,6 @@ public class FileLogRecorder: LogRecorderBase
 
         self.filePath = filePath
         self.file = f
-        self.newlineCharset = NSCharacterSet.newlineCharacterSet()
 
         super.init(formatters: formatters)
 
@@ -88,10 +88,8 @@ public class FileLogRecorder: LogRecorderBase
         var addNewline = true
         let chars = message.characters
         if chars.count > 0 {
-            let index = chars.endIndex.predecessor()
-            if let lastChar = String(chars[index]).utf16.first?.value {
-                addNewline = !newlineCharset.characterIsMember(unichar(lastChar))
-            }
+            let lastChar = chars[chars.endIndex.predecessor()]
+            addNewline = !newlines.contains(lastChar)
         }
 
         var writeStr = message

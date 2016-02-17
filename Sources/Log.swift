@@ -6,7 +6,7 @@
 //  Copyright © 2015 Gilt Groupe. All rights reserved.
 //
 
-import Foundation
+import Dispatch
 
 /**
  `Log` is the primary public API for CleanroomLogger.
