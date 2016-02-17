@@ -50,7 +50,8 @@ while [[ $1 ]]; do
 		if [[ -z $BRANCH ]]; then
 			BRANCH=$1		
 		else
-			ARGS="$ARGS $1"
+			echo "error: Branch already specified: $BRANCH"
+			exit 2
 		fi
 	esac
 	shift
