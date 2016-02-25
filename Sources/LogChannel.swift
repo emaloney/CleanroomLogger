@@ -63,7 +63,7 @@ public struct LogChannel
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
      */
-    public func trace(function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    public func trace(function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         var threadID: UInt64 = 0
         pthread_threadid_np(nil, &threadID)
@@ -90,7 +90,7 @@ public struct LogChannel
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
     */
-    public func message(msg: String, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    public func message(msg: String, function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         var threadID: UInt64 = 0
         pthread_threadid_np(nil, &threadID)
@@ -120,7 +120,7 @@ public struct LogChannel
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
     */
-    public func value(value: Any?, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    public func value(value: Any?, function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         var threadID: UInt64 = 0
         pthread_threadid_np(nil, &threadID)
