@@ -26,7 +26,7 @@ fi
 
 "$JAZZY_EXECUTABLE" -o Documentation/API \
 	-m "$MODULE_NAME" \
-	--swift-version 2.1.1 \
+	--swift-version 2.2 \
 	--readme Sources/README.md \
 	--github_url "$PUBLIC_GITHUB_URL" \
 	--author "Evan Maloney, Gilt Groupe" \

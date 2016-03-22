@@ -459,7 +459,7 @@ executeCommand "agvtool bump"
 
 if [[ ! $SKIP_DOCUMENTATION ]]; then
 	updateStatus "Rebuilding documentation"
-	executeCommand "$SCRIPT_DIR/generateDocumentation.sh"
+	executeCommand "$SCRIPT_DIR/generateDocumentationForAPI.sh"
 	executeCommand "git add Documentation/."
 fi
 

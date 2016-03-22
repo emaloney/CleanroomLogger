@@ -7,16 +7,15 @@
 
 	<Var name="versions" type="map">
 		<Var name="current" type="map">
-			<Var name="Swift" literal="2.1.1"/> 
-			<Var name="Xcode" literal="7.2"/> 
+			<Var name="Swift" literal="2.2"/> 
+			<Var name="Xcode" literal="7.3"/> 
 
-			<Var name="Carthage" literal="0.11"/>
-			<Var name="git" literal="2.5.4 (Apple Git-61)"/> 
-			
+			<Var name="Carthage" literal="0.15.2"/>
+			<Var name="git" literal="2.6.4 (Apple Git-63)"/> 
 		</Var>
 		<Var name="minimum" type="map">
-			<Var name="Swift" literal="2.1"/> 
-			<Var name="Xcode" literal="7.1"/> 
+			<Var name="Swift" literal="2.2"/> 
+			<Var name="Xcode" literal="7.3"/> 
 
 			<Var name="iOS" literal="8.0"/> 
 			<Var name="OSX" literal="10.10"/> 

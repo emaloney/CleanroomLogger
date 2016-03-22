@@ -37,11 +37,9 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 8. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.
 
 
-### Swift 2.1 compatibility
+### Swift 2.2 compatibility
 
-The `master` branch of this project is **Swift 2.1 compliant** and therefore **requires Xcode 7.1 or higher** to compile.
-
-It is also known to work with Swift 2.1.1 in Xcode 7.2.
+The `master` branch of this project is **Swift 2.2 compliant** and therefore **requires Xcode 7.3 or higher** to compile.
 
 ### License
 
@@ -58,7 +56,7 @@ You’ll need to [integrate CleanroomLogger into your project](https://github.co
 
 - [Manual integration](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md#manual-integration), wherein you embed CleanroomLogger’s Xcode project within your own, **_or_**
 - [Using the Carthage dependency manager](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md#carthage-integration) to build a framework that you then embed in your application.
- 
+
 Once integrated, just add the following `import` statement to any Swift file where you want to use CleanroomLogger:
 
 ```swift
@@ -433,7 +431,7 @@ Although there are many good reasons why global state is to be generally avoided
 
 ## About
 
-The Cleanroom Project began as an experiment to re-imagine Gilt’s iOS codebase in a legacy-free, Swift-based incarnation. 
+The Cleanroom Project began as an experiment to re-imagine Gilt’s iOS codebase in a legacy-free, Swift-based incarnation.
 
 Since then, we’ve expanded the Cleanroom Project to include multi-platform support. Much of our codebase now supports tvOS in addition to iOS, and our lower-level code is usable on Mac OS X and watchOS as well.
 
