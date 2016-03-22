@@ -304,7 +304,7 @@ public struct Log
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
      */
-    public static func trace(severity: LogSeverity, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    public static func trace(severity: LogSeverity, function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         channelForSeverity(severity)?.trace(function, filePath: filePath, fileLine: fileLine)
     }
@@ -328,7 +328,7 @@ public struct Log
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
     */
-    public static func message(severity: LogSeverity, message: String, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    public static func message(severity: LogSeverity, message: String, function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         channelForSeverity(severity)?.message(message, function: function, filePath: filePath, fileLine: fileLine)
     }
@@ -355,7 +355,7 @@ public struct Log
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
     */
-    public static func value(severity: LogSeverity, value: Any?, function: String = __FUNCTION__, filePath: String = __FILE__, fileLine: Int = __LINE__)
+    public static func value(severity: LogSeverity, value: Any?, function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         channelForSeverity(severity)?.value(value, function: function, filePath: filePath, fileLine: fileLine)
     }
