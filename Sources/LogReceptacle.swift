@@ -40,7 +40,7 @@ public final class LogReceptacle
     {
         let configs = configuration.flatMap{ $0.flatten() }
 
-        self.minimumSeverity = configs.map{ $0.minimumSeverity }.reduce(.Error, combine: { $0 < $1 ? $0 : $1 })
+        self.minimumSeverity = configs.map{ $0.minimumSeverity }.reduce(.error, combine: { $0 < $1 ? $0 : $1 })
 
         self.configuration = configs
     }

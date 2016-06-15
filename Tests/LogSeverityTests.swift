@@ -12,14 +12,14 @@ import CleanroomLogger
 class LogSeverityTests: XCTestCase {
 
     func testLogSeverityEquality() {
-        XCTAssertTrue(LogSeverity.Debug == LogSeverity.Debug, "Debug should be equal to itself.")
-        XCTAssertTrue(LogSeverity.Info != LogSeverity.Warning, "Info should be not equal to Warning.")
+        XCTAssertTrue(LogSeverity.debug == LogSeverity.debug, "Debug should be equal to itself.")
+        XCTAssertTrue(LogSeverity.info != LogSeverity.warning, "Info should be not equal to Warning.")
     }
     
     func testLogSeverityComparableImplementation() {
-        XCTAssertTrue(LogSeverity.Verbose < LogSeverity.Debug, "Verbose should be less than Debug.")
-        XCTAssertTrue(LogSeverity.Info >= LogSeverity.Debug, "Info should be greater than or equal to Debug.")
-        XCTAssertTrue(LogSeverity.Warning > LogSeverity.Info, "Warning should be greater than Info.")
-        XCTAssertTrue(LogSeverity.Warning <= LogSeverity.Error, "Warning should be less than or equal to Error.")
+        XCTAssertTrue(LogSeverity.verbose < LogSeverity.debug, "Verbose should be less than Debug.")
+        XCTAssertTrue(LogSeverity.info >= LogSeverity.debug, "Info should be greater than or equal to Debug.")
+        XCTAssertTrue(LogSeverity.warning > LogSeverity.info, "Warning should be greater than Info.")
+        XCTAssertTrue(LogSeverity.warning <= LogSeverity.error, "Warning should be less than or equal to Error.")
     }
 }

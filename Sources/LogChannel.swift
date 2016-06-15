@@ -68,7 +68,7 @@ public struct LogChannel
         var threadID: UInt64 = 0
         pthread_threadid_np(nil, &threadID)
 
-        let entry = LogEntry(payload: .Trace, severity: severity, callingFilePath: filePath, callingFileLine: fileLine, callingStackFrame: function, callingThreadID: threadID)
+        let entry = LogEntry(payload: .trace, severity: severity, callingFilePath: filePath, callingFileLine: fileLine, callingStackFrame: function, callingThreadID: threadID)
 
         receptacle.log(entry)
     }
@@ -95,7 +95,7 @@ public struct LogChannel
         var threadID: UInt64 = 0
         pthread_threadid_np(nil, &threadID)
 
-        let entry = LogEntry(payload: .Message(msg), severity: severity, callingFilePath: filePath, callingFileLine: fileLine, callingStackFrame: function, callingThreadID: threadID)
+        let entry = LogEntry(payload: .message(msg), severity: severity, callingFilePath: filePath, callingFileLine: fileLine, callingStackFrame: function, callingThreadID: threadID)
 
         receptacle.log(entry)
     }
@@ -125,7 +125,7 @@ public struct LogChannel
         var threadID: UInt64 = 0
         pthread_threadid_np(nil, &threadID)
 
-        let entry = LogEntry(payload: .Value(value), severity: severity, callingFilePath: filePath, callingFileLine: fileLine, callingStackFrame: function, callingThreadID: threadID)
+        let entry = LogEntry(payload: .value(value), severity: severity, callingFilePath: filePath, callingFileLine: fileLine, callingStackFrame: function, callingThreadID: threadID)
 
         receptacle.log(entry)
     }
