@@ -74,7 +74,7 @@ public struct DelimiterLogFormatter: LogFormatter
 
      - returns: The value of `style.delimiter` property; never `nil`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func formatLogEntry(_ entry: LogEntry)
         -> String?
     {
         return style.delimiter

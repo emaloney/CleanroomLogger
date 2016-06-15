@@ -36,22 +36,22 @@ extension TimestampStyle
         }
     }
 
-    private var formatter: NSDateFormatter? {
+    private var formatter: DateFormatter? {
         guard let format = dateFormat else {
             return nil
         }
 
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter
     }
 
-    private func stringFromDate(date: NSDate, usingFormatter formatter: NSDateFormatter?)
+    private func stringFromDate(_ date: Date, usingFormatter formatter: DateFormatter?)
         -> String
     {
         switch self {
         case .unix:     return "\(date.timeIntervalSince1970)"
-        default:        return formatter!.stringFromDate(date)
+        default:        return formatter!.string(from: date)
         }
     }
 }
@@ -69,7 +69,7 @@ public struct TimestampLogFormatter: LogFormatter
      its output. */
     public let style: TimestampStyle
 
-    private let formatter: NSDateFormatter?
+    private let formatter: DateFormatter?
 
     /**
      Initializes a new `TimestampLogFormatter` that will use the specified
@@ -92,9 +92,9 @@ public struct TimestampLogFormatter: LogFormatter
 
      - returns: The formatted result; never `nil`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func formatLogEntry(_ entry: LogEntry)
         -> String?
     {
-        return style.stringFromDate(entry.timestamp, usingFormatter: formatter)
+        return style.stringFromDate(entry.timestamp as Date, usingFormatter: formatter)
     }
 }

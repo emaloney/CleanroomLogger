@@ -94,13 +94,13 @@ extension SeverityStyle
 
 extension SeverityStyle.TextRepresentation
 {
-    private func formatSeverity(severity: LogSeverity)
+    private func formatSeverity(_ severity: LogSeverity)
         -> String
     {
         switch self {
-        case .capitalized:  return severity.description.capitalizedString
-        case .lowercase:    return severity.description.lowercaseString
-        case .uppercase:    return severity.description.uppercaseString
+        case .capitalized:  return severity.description.capitalized
+        case .lowercase:    return severity.description.lowercased()
+        case .uppercase:    return severity.description.uppercased()
         case .numeric:      return "\(severity.rawValue)"
         }
     }

@@ -41,7 +41,7 @@ public struct DefaultColorTable: ColorTable
      - returns:  The foreground `Color` to use for `severity`, or `nil` if no
                  color is specified.
     */
-    public func foregroundColorForSeverity(severity: LogSeverity)
+    public func foregroundColorForSeverity(_ severity: LogSeverity)
         -> Color?
     {
         switch severity {

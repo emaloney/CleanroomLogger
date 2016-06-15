@@ -51,7 +51,7 @@ public final class LogReceptacle
 
      - parameter entry: The `LogEntry` being logged.
      */
-    public func log(entry: LogEntry)
+    public func log(_ entry: LogEntry)
     {
         let matchingConfigs = configuration.filter{ entry.severity >= $0.minimumSeverity }
 
@@ -64,9 +64,9 @@ public final class LogReceptacle
         syncConfigs.forEach{ logEntry(entry, usingConfiguration: $0) }
     }
 
-    private lazy var acceptQueue: dispatch_queue_t = dispatch_queue_create("LogReceptacle.acceptQueue", DISPATCH_QUEUE_SERIAL)
+    private lazy var acceptQueue: DispatchQueue = DispatchQueue(label: "LogReceptacle.acceptQueue", attributes: DispatchQueueAttributes.serial)
 
-    private func logEntry(entry: LogEntry, usingConfiguration config: LogConfiguration)
+    private func logEntry(_ entry: LogEntry, usingConfiguration config: LogConfiguration)
     {
         let synchronous = config.synchronousMode
         let acceptDispatcher = dispatcherForQueue(acceptQueue, synchronous: synchronous)

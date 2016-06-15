@@ -47,7 +47,7 @@ public struct LogEntry
     public let callingThreadID: UInt64
 
     /** The time at which the `LogEntry` was created. */
-    public let timestamp: NSDate
+    public let timestamp: Date
 
     /**
     `LogEntry` initializer.
@@ -71,7 +71,7 @@ public struct LogEntry
     - parameter timestamp: The time at which the log entry was created. Defaults
                 to the current time if not specified.
     */
-    public init(payload: Payload, severity: LogSeverity, callingFilePath: String, callingFileLine: Int, callingStackFrame: String, callingThreadID: UInt64, timestamp: NSDate = NSDate())
+    public init(payload: Payload, severity: LogSeverity, callingFilePath: String, callingFileLine: Int, callingStackFrame: String, callingThreadID: UInt64, timestamp: Date = Date())
     {
         self.payload = payload
         self.severity = severity

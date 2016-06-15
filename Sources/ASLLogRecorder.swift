@@ -31,7 +31,7 @@ public struct ASLLogRecorder: LogRecorder
     public let client: ASLClient
 
     /** The GCD queue used by the receiver to record messages. */
-    public var queue: dispatch_queue_t { return client.queue }
+    public var queue: DispatchQueue { return client.queue }
 
     /** The `LogLevelTranslator` function used by the receiver to convert
     `LogSeverity` values to `ASLPriorityLevel` values. If one was not
@@ -139,7 +139,7 @@ public struct ASLLogRecorder: LogRecorder
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
+    public func recordFormattedMessage(_ message: String, forLogEntry entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         let msgObj = ASLMessageObject(priorityLevel: logLevelTranslator(entry.severity), message: message)
         client.log(msgObj, logSynchronously: synchronousMode, currentQueue: currentQueue)

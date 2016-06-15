@@ -26,7 +26,7 @@ public struct PayloadLogFormatter: LogFormatter
 
      - returns: The formatted result; never `nil`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func formatLogEntry(_ entry: LogEntry)
         -> String?
     {
         switch entry.payload {

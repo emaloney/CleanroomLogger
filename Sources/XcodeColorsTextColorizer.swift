@@ -51,7 +51,7 @@ public struct XcodeColorsTextColorizer: TextColorizer
      - returns: A version of `string` with the appropriate color formatting
      applied.
      */
-    public func colorizeString(str: String, foreground: Color?, background: Color?)
+    public func colorizeString(_ str: String, foreground: Color?, background: Color?)
         -> String
     {
         let esc = "\u{001b}["

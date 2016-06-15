@@ -164,7 +164,7 @@ public struct Log
      - parameter configuration: The `LogConfiguration` to use for controlling
      the behavior of logging.
      */
-    public static func enable(configuration configuration: LogConfiguration)
+    public static func enable(configuration: LogConfiguration)
     {
         enable(configuration: [configuration])
     }
@@ -175,7 +175,7 @@ public struct Log
      - parameter configuration: An array of `LogConfiguration`s specifying
      the behavior of logging.
      */
-    public static func enable(configuration configuration: [LogConfiguration])
+    public static func enable(configuration: [LogConfiguration])
     {
         enable(receptacle: LogReceptacle(configuration: configuration))
     }
@@ -190,7 +190,7 @@ public struct Log
      - parameter receptacle: The `LogReceptacle` to use when creating the
      `LogChannel`s for the five severity levels.
      */
-    public static func enable(receptacle receptacle: LogReceptacle)
+    public static func enable(receptacle: LogReceptacle)
     {
         enable(
             errorChannel: createLogChannelWithSeverity(.error, forReceptacle: receptacle),
@@ -273,7 +273,7 @@ public struct Log
      severity; will be `nil` if `Log` is not configured to perform logging at
      that severity.
      */
-    public static func channelForSeverity(severity: LogSeverity)
+    public static func channelForSeverity(_ severity: LogSeverity)
         -> LogChannel?
     {
         switch severity {
@@ -304,7 +304,7 @@ public struct Log
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
      */
-    public static func trace(severity: LogSeverity, function: String = #function, filePath: String = #file, fileLine: Int = #line)
+    public static func trace(_ severity: LogSeverity, function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         channelForSeverity(severity)?.trace(function, filePath: filePath, fileLine: fileLine)
     }
@@ -328,7 +328,7 @@ public struct Log
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
     */
-    public static func message(severity: LogSeverity, message: String, function: String = #function, filePath: String = #file, fileLine: Int = #line)
+    public static func message(_ severity: LogSeverity, message: String, function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         channelForSeverity(severity)?.message(message, function: function, filePath: filePath, fileLine: fileLine)
     }
@@ -355,12 +355,12 @@ public struct Log
      captures the line number issuing the call to this function. You should
      not provide a value for this parameter.
     */
-    public static func value(severity: LogSeverity, value: Any?, function: String = #function, filePath: String = #file, fileLine: Int = #line)
+    public static func value(_ severity: LogSeverity, value: Any?, function: String = #function, filePath: String = #file, fileLine: Int = #line)
     {
         channelForSeverity(severity)?.value(value, function: function, filePath: filePath, fileLine: fileLine)
     }
 
-    private static func createLogChannelWithSeverity(severity: LogSeverity, forReceptacle receptacle: LogReceptacle)
+    private static func createLogChannelWithSeverity(_ severity: LogSeverity, forReceptacle receptacle: LogReceptacle)
         -> LogChannel?
     {
         guard severity >= receptacle.minimumSeverity else {

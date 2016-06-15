@@ -53,7 +53,7 @@ public struct ColorizingLogFormatter: LogFormatter
      - returns: The formatted result, or `nil` if the receiver's
      `formatter` returns `nil` when attempting to format `entry`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func formatLogEntry(_ entry: LogEntry)
         -> String?
     {
         guard let str = formatter.formatLogEntry(entry) else {

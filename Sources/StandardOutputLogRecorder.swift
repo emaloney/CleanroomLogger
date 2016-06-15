@@ -63,7 +63,7 @@ public class StandardOutputLogRecorder: LogRecorderBase
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public override func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
+    public override func recordFormattedMessage(_ message: String, forLogEntry entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         print(message)
     }

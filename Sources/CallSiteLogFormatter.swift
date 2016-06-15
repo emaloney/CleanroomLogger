@@ -28,7 +28,7 @@ public struct CallSiteLogFormatter: LogFormatter
      
      - returns: The formatted result; never `nil`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func formatLogEntry(_ entry: LogEntry)
         -> String?
     {
         let file = (entry.callingFilePath as NSString).pathComponents.last ?? "(unknown)"

@@ -24,7 +24,7 @@ public struct CallingThreadLogFormatter: LogFormatter
      
      - returns: The formatted result; never `nil`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func formatLogEntry(_ entry: LogEntry)
         -> String?
     {
         return String(format: "%08X", entry.callingThreadID)

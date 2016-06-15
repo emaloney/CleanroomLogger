@@ -35,7 +35,7 @@ public class ConcatenatingLogFormatter: LogFormatter
      - returns: The formatted result, or `nil` if none of the receiver's
      `formatters` returned a non-`nil` value when formatting `entry`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func formatLogEntry(_ entry: LogEntry)
         -> String?
     {
         let formatted = formatters.flatMap{ $0.formatLogEntry(entry) }
@@ -44,7 +44,7 @@ public class ConcatenatingLogFormatter: LogFormatter
             return nil
         }
 
-        return formatted.joinWithSeparator("")
+        return formatted.joined(separator: "")
     }
 }
 

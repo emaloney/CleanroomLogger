@@ -36,7 +36,7 @@ public struct LiteralLogFormatter: LogFormatter
 
      - returns: The value of the receiver's `literal` property; never `nil`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func formatLogEntry(_ entry: LogEntry)
         -> String?
     {
         return literal

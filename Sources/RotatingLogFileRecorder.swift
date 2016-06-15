@@ -26,13 +26,13 @@ public class RotatingLogFileRecorder: LogRecorderBase
      stored. */
     public let directoryPath: String
 
-    private static let filenameFormatter: NSDateFormatter = {
-        let fmt = NSDateFormatter()
+    private static let filenameFormatter: DateFormatter = {
+        let fmt = DateFormatter()
         fmt.dateFormat = "yyyy-MM-dd'.log'"
         return fmt
     }()
 
-    private var mostRecentLogTime: NSDate?
+    private var mostRecentLogTime: Date?
     private var currentFileRecorder: FileLogRecorder?
 
     /**

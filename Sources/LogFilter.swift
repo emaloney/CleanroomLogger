@@ -20,7 +20,7 @@ public protocol LogFilter
     
     - returns:  `true` if `entry` should be recorded, `false` if not.
     */
-    func shouldRecordLogEntry(entry: LogEntry)
+    func shouldRecordLogEntry(_ entry: LogEntry)
         -> Bool
 }
 
@@ -54,7 +54,7 @@ public struct LogSeverityFilter: LogFilter
     - returns:  `true` if `entry.severity` is as or more severe than the
                 receiver's `severity` property; `false` otherwise.
     */
-    public func shouldRecordLogEntry(entry: LogEntry)
+    public func shouldRecordLogEntry(_ entry: LogEntry)
         -> Bool
     {
         return entry.severity >= severity

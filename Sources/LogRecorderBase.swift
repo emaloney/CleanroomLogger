@@ -19,7 +19,7 @@ public class LogRecorderBase: LogRecorder
 
     /** The GCD queue that should be used for logging actions related to the
      receiver. */
-    public let queue: dispatch_queue_t
+    public let queue: DispatchQueue
 
     /**
      Initialize a new `LogRecorderBase` instance.
@@ -33,7 +33,7 @@ public class LogRecorderBase: LogRecorder
     public init(formatters: [LogFormatter])
     {
         self.formatters = formatters
-        self.queue = dispatch_queue_create("\(self.dynamicType)", DISPATCH_QUEUE_SERIAL)
+        self.queue = DispatchQueue(label: "\(self.dynamicType)", attributes: DispatchQueueAttributes.serial)
     }
 
     /**
@@ -54,7 +54,7 @@ public class LogRecorderBase: LogRecorder
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
+    public func recordFormattedMessage(_ message: String, forLogEntry entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
     }
 }
