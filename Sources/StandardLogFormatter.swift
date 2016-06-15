@@ -37,44 +37,44 @@ public class StandardLogFormatter: FieldBasedLogFormatter
      `ColorTable` may also be provided to supply color information. If `nil`,
      `DefaultColorTable` will be used for colorization.
      */
-    public init(timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Simple, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
+    public init(timestampStyle: TimestampStyle? = .`default`, severityStyle: SeverityStyle? = .simple, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
     {
         var fields: [Field] = []
         var addSeparator = false
 
         if let timestampStyle = timestampStyle {
-            fields += [.Timestamp(timestampStyle)]
+            fields += [.timestamp(timestampStyle)]
             addSeparator = true
         }
         if addSeparator {
-            fields += [.Delimiter(delimiterStyle ?? .SpacedPipe)]
+            fields += [.delimiter(delimiterStyle ?? .spacedPipe)]
             addSeparator = false
         }
         if let severityStyle = severityStyle {
-            fields += [.Severity(severityStyle)]
+            fields += [.severity(severityStyle)]
             addSeparator = true
         }
         if addSeparator {
-            fields += [.Delimiter(delimiterStyle ?? .SpacedPipe)]
+            fields += [.delimiter(delimiterStyle ?? .spacedPipe)]
             addSeparator = false
         }
         if showCallingThread {
-            fields += [.CallingThread]
+            fields += [.callingThread]
             addSeparator = true
         }
         if addSeparator {
-            fields += [.Delimiter(delimiterStyle ?? .SpacedPipe)]
+            fields += [.delimiter(delimiterStyle ?? .spacedPipe)]
             addSeparator = false
         }
         if showCallSite {
-            fields += [.CallSite]
+            fields += [.callSite]
             addSeparator = true
         }
         if addSeparator {
-            fields += [.Delimiter(delimiterStyle ?? .SpacedHyphen)]
+            fields += [.delimiter(delimiterStyle ?? .spacedHyphen)]
             addSeparator = false
         }
-        fields += [.Payload]
+        fields += [.payload]
 
         if colorizer == nil {
             super.init(fields: fields)

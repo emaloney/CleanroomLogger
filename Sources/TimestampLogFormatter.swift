@@ -16,23 +16,23 @@ public enum TimestampStyle
 {
     /** Specifies a timestamp style that uses the date format string
      "yyyy-MM-dd HH:mm:ss.SSS zzz". */
-    case Default
+    case `default`
 
     /** Specifies a UNIX timestamp indicating the number of seconds elapsed
     since January 1, 1970. */
-    case UNIX
+    case unix
 
     /** Specifies a custom date format. */
-    case Custom(String)
+    case custom(String)
 }
 
 extension TimestampStyle
 {
     private var dateFormat: String? {
         switch self {
-        case .Default:          return "yyyy-MM-dd HH:mm:ss.SSS zzz"
-        case .UNIX:             return nil
-        case .Custom(let fmt):  return fmt
+        case .`default`:        return "yyyy-MM-dd HH:mm:ss.SSS zzz"
+        case .unix:             return nil
+        case .custom(let fmt):  return fmt
         }
     }
 
@@ -50,7 +50,7 @@ extension TimestampStyle
         -> String
     {
         switch self {
-        case .UNIX:     return "\(date.timeIntervalSince1970)"
+        case .unix:     return "\(date.timeIntervalSince1970)"
         default:        return formatter!.stringFromDate(date)
         }
     }
@@ -78,7 +78,7 @@ public struct TimestampLogFormatter: LogFormatter
      - parameter style: A `TimestampStyle` value that will govern the output
      of the `formatLogEntry()` function.
      */
-    public init(style: TimestampStyle = .Default)
+    public init(style: TimestampStyle = .`default`)
     {
         self.style = style
         self.formatter = style.formatter

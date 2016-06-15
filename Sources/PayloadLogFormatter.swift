@@ -30,9 +30,9 @@ public struct PayloadLogFormatter: LogFormatter
         -> String?
     {
         switch entry.payload {
-        case .Trace:                return entry.callingStackFrame
-        case .Message(let msg):     return msg
-        case .Value(let value):     return "\(value)"
+        case .trace:                return entry.callingStackFrame
+        case .message(let msg):     return msg
+        case .value(let value):     return "\(value)"
         }
     }
 }

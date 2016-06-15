@@ -35,53 +35,53 @@ public class FieldBasedLogFormatter: ConcatenatingLogFormatter
     public enum Field {
         /** Represents the timestamp field rendered in a specific
          `TimestampStyle`. */
-        case Timestamp(TimestampStyle)
+        case timestamp(TimestampStyle)
 
         /** Represents the `LogSeverity` field rendered in a specific
          `SeverityStyle`. */
-        case Severity(SeverityStyle)
+        case severity(SeverityStyle)
 
         /** Represents the call site field. The call site includes the
          filename and line number corresponding to the call site's source. */
-        case CallSite
+        case callSite
 
         /** Represents the stack frame of the caller. Assuming the call site
          is within a function, this field will contain the signature of the
          function. */
-        case StackFrame
+        case stackFrame
 
         /** Represents the ID of the thread on which the call was executed. 
          You should treat thread IDs as opaque strings whose values may be
          recycled over time. */
-        case CallingThread
+        case callingThread
 
         /** Represents the `Payload` of a `LogEntry. */
-        case Payload
+        case payload
 
         /** Represents a text delimiter. The `DelimiterStyle` specifies the
          content of the delimiter string. */
-        case Delimiter(DelimiterStyle)
+        case delimiter(DelimiterStyle)
 
         /** Represents a string literal. */ 
-        case Literal(String)
+        case literal(String)
 
         /** Represents a field containing the output of the given 
          `LogFormatter`. */
-        case Custom(LogFormatter)
+        case custom(LogFormatter)
 
         private func createLogFormatter()
             -> LogFormatter
         {
             switch self {
-            case .Timestamp(let style):     return TimestampLogFormatter(style: style)
-            case .Severity(let style):      return SeverityLogFormatter(style: style)
-            case .CallSite:                 return CallSiteLogFormatter()
-            case .StackFrame:               return StackFrameLogFormatter()
-            case .CallingThread:            return CallingThreadLogFormatter()
-            case .Payload:                  return PayloadLogFormatter()
-            case .Delimiter(let style):     return DelimiterLogFormatter(style: style)
-            case .Literal(let literal):     return LiteralLogFormatter(literal)
-            case .Custom(let formatter):    return formatter
+            case .timestamp(let style):     return TimestampLogFormatter(style: style)
+            case .severity(let style):      return SeverityLogFormatter(style: style)
+            case .callSite:                 return CallSiteLogFormatter()
+            case .stackFrame:               return StackFrameLogFormatter()
+            case .callingThread:            return CallingThreadLogFormatter()
+            case .payload:                  return PayloadLogFormatter()
+            case .delimiter(let style):     return DelimiterLogFormatter(style: style)
+            case .literal(let literal):     return LiteralLogFormatter(literal)
+            case .custom(let formatter):    return formatter
             }
         }
     }

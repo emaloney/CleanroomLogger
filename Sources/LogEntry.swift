@@ -17,13 +17,13 @@ public struct LogEntry
     public enum Payload
     {
         /** The log entry is a trace call and contains no explicit payload. */
-        case Trace
+        case trace
 
         /** The payload contains a text message. */
-        case Message(String)
+        case message(String)
 
         /** The payload contains an arbitrary value, or `nil`. */
-        case Value(Any?)
+        case value(Any?)
     }
 
     /** The payload of the log entry. */

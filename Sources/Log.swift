@@ -151,7 +151,7 @@ public struct Log
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
      */
-    public static func enable(minimumSeverity minimumSeverity: LogSeverity = .Info, debugMode: Bool = false, verboseDebugMode: Bool = false, timestampStyle: TimestampStyle? = .Default, severityStyle: SeverityStyle? = .Xcode, showCallSite: Bool = true, showCallingThread: Bool = false, suppressColors: Bool = false, filters: [LogFilter] = [])
+    public static func enable(minimumSeverity minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, timestampStyle: TimestampStyle? = .`default`, severityStyle: SeverityStyle? = .xcode, showCallSite: Bool = true, showCallingThread: Bool = false, suppressColors: Bool = false, filters: [LogFilter] = [])
     {
         let config = XcodeLogConfiguration(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, timestampStyle: timestampStyle, severityStyle: severityStyle, showCallSite: showCallSite, showCallingThread: showCallingThread, suppressColors: suppressColors, filters: filters)
 
@@ -193,11 +193,11 @@ public struct Log
     public static func enable(receptacle receptacle: LogReceptacle)
     {
         enable(
-            errorChannel: createLogChannelWithSeverity(.Error, forReceptacle: receptacle),
-            warningChannel: createLogChannelWithSeverity(.Warning, forReceptacle: receptacle),
-            infoChannel: createLogChannelWithSeverity(.Info, forReceptacle: receptacle),
-            debugChannel: createLogChannelWithSeverity(.Debug, forReceptacle: receptacle),
-            verboseChannel: createLogChannelWithSeverity(.Verbose, forReceptacle: receptacle)
+            errorChannel: createLogChannelWithSeverity(.error, forReceptacle: receptacle),
+            warningChannel: createLogChannelWithSeverity(.warning, forReceptacle: receptacle),
+            infoChannel: createLogChannelWithSeverity(.info, forReceptacle: receptacle),
+            debugChannel: createLogChannelWithSeverity(.debug, forReceptacle: receptacle),
+            verboseChannel: createLogChannelWithSeverity(.verbose, forReceptacle: receptacle)
         )
     }
 
@@ -277,11 +277,11 @@ public struct Log
         -> LogChannel?
     {
         switch severity {
-        case .Verbose:  return verbose
-        case .Debug:    return debug
-        case .Info:     return info
-        case .Warning:  return warning
-        case .Error:    return error
+        case .verbose:  return verbose
+        case .debug:    return debug
+        case .info:     return info
+        case .warning:  return warning
+        case .error:    return error
         }
     }
 
