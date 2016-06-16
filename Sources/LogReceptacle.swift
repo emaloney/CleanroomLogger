@@ -76,8 +76,8 @@ public final class LogReceptacle
                     let recordDispatcher = self.dispatcherForQueue(recorder.queue, synchronous: synchronous)
                     recordDispatcher {
                         for formatter in recorder.formatters {
-                            if let formatted = formatter.formatLogEntry(entry) {
-                                recorder.recordFormattedMessage(formatted, forLogEntry: entry, currentQueue: recorder.queue, synchronousMode: synchronous)
+                            if let formatted = formatter.format(entry) {
+                                recorder.record(message: formatted, for: entry, currentQueue: recorder.queue, synchronousMode: synchronous)
                                 break
                             }
                         }
@@ -87,7 +87,7 @@ public final class LogReceptacle
         }
     }
 
-    private func doesLogEntry(entry: LogEntry, passFilters filters: [LogFilter])
+    private func doesLogEntry(_ entry: LogEntry, passFilters filters: [LogFilter])
         -> Bool
     {
         for filter in filters {
@@ -98,13 +98,14 @@ public final class LogReceptacle
         return true
     }
 
-    private func dispatcherForQueue(queue: dispatch_queue_t, synchronous: Bool) -> (dispatch_block_t) -> Void
+    private func dispatcherForQueue(_ queue: DispatchQueue, synchronous: Bool)
+        -> (() -> Void) -> Void
     {
-        let dispatcher: (dispatch_block_t) -> Void = { block in
+        let dispatcher: (() -> Void) -> Void = { block in
             if synchronous {
-                return dispatch_sync(queue, block)
+                return queue.sync(execute: block)
             } else {
-                return dispatch_async(queue, block)
+                return queue.async(execute: block)
             }
         }
         return dispatcher

@@ -35,10 +35,10 @@ public class ConcatenatingLogFormatter: LogFormatter
      - returns: The formatted result, or `nil` if none of the receiver's
      `formatters` returned a non-`nil` value when formatting `entry`.
      */
-    public func formatLogEntry(_ entry: LogEntry)
+    public func format(_ entry: LogEntry)
         -> String?
     {
-        let formatted = formatters.flatMap{ $0.formatLogEntry(entry) }
+        let formatted = formatters.flatMap{ $0.format(entry) }
 
         guard formatted.count > 0 else {
             return nil

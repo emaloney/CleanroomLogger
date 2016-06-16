@@ -92,7 +92,7 @@ public struct TimestampLogFormatter: LogFormatter
 
      - returns: The formatted result; never `nil`.
      */
-    public func formatLogEntry(_ entry: LogEntry)
+    public func format(_ entry: LogEntry)
         -> String?
     {
         return style.stringFromDate(entry.timestamp as Date, usingFormatter: formatter)

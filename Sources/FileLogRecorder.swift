@@ -79,7 +79,7 @@ public class FileLogRecorder: LogRecorderBase
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public override func recordFormattedMessage(_ message: String, forLogEntry entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
+    public override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         var addNewline = true
         let chars = message.characters

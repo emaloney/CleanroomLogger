@@ -22,7 +22,7 @@ public protocol ColorTable
      - returns: The foreground `Color` to use for `severity`, or `nil` if no
                 color is specified.
     */
-    func foregroundColorForSeverity(_ severity: LogSeverity) -> Color?
+    func foreground(forSeverity severity: LogSeverity) -> Color?
 
     /**
      Returns the background color to use (if any) for colorizing messages
@@ -34,7 +34,7 @@ public protocol ColorTable
      - returns: The background `Color` to use for `severity`, or `nil` if no
                 color is specified.
     */
-    func backgroundColorForSeverity(_ severity: LogSeverity) -> Color?
+    func background(forSeverity severity: LogSeverity) -> Color?
 }
 
 extension ColorTable
@@ -49,7 +49,7 @@ extension ColorTable
      
      - returns: Always `nil`.
     */
-    public func backgroundColorForSeverity(_ severity: LogSeverity)
+    public func background(forSeverity severity: LogSeverity)
         -> Color?
     {
         return nil

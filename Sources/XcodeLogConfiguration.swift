@@ -40,11 +40,11 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      ignored.
 
      - parameter debugMode: If `true`, the value of `minimumSeverity` will
-     be lowered (if necessary) to `.Debug` and `synchronousMode` will be used
+     be lowered (if necessary) to `.debug` and `synchronousMode` will be used
      when recording log entries.
 
      - parameter verboseDebugMode: If `true`, the value of `minimumSeverity`
-     will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
+     will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
 
      - parameter logToASL: If `true`, messages sent to the Xcode console will
@@ -99,11 +99,11 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      ignored.
 
      - parameter debugMode: If `true`, the value of `minimumSeverity` will
-     be lowered (if necessary) to `.Debug` and `synchronousMode` will be used
+     be lowered (if necessary) to `.debug` and `synchronousMode` will be used
      when recording log entries.
 
      - parameter verboseDebugMode: If `true`, the value of `minimumSeverity`
-     will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
+     will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
 
      - parameter logToASL: If `true`, messages sent to the Xcode console will
@@ -143,11 +143,11 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      ignored.
 
      - parameter debugMode: If `true`, the value of `minimumSeverity` will
-     be lowered (if necessary) to `.Debug` and `synchronousMode` will be used
+     be lowered (if necessary) to `.debug` and `synchronousMode` will be used
      when recording log entries.
 
      - parameter verboseDebugMode: If `true`, the value of `minimumSeverity`
-     will be lowered (if necessary) to `.Verbose` and `synchronousMode` will be
+     will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
 
      - parameter logToASL: If `true`, messages sent to the Xcode console will

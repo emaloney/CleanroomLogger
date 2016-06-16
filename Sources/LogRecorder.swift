@@ -54,5 +54,5 @@ public protocol LogRecorder
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    func recordFormattedMessage(_ message: String, forLogEntry entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
+    func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
 }

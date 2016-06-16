@@ -138,7 +138,7 @@ public struct SeverityLogFormatter: LogFormatter
 
      - returns: The formatted result; never `nil`.
      */
-    public func formatLogEntry(entry: LogEntry)
+    public func format(_ entry: LogEntry)
         -> String?
     {
         var severityTag = style.textRepresentation.formatSeverity(entry.severity)
@@ -146,8 +146,8 @@ public struct SeverityLogFormatter: LogFormatter
         if let trunc = style.truncateAtWidth {
             if severityTag.characters.count > trunc {
                 let startIndex = severityTag.characters.startIndex
-                let endIndex = startIndex.advancedBy(trunc)
-                severityTag = severityTag.substringToIndex(endIndex)
+                let endIndex = severityTag.characters.index(startIndex, offsetBy: trunc)
+                severityTag = severityTag.substring(to: endIndex)
             }
         }
 

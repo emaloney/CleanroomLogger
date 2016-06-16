@@ -24,6 +24,5 @@ public protocol TextColorizer
      - returns: A version of `string` with the appropriate color formatting
      applied.
      */
-    func colorizeString(_ str: String, foreground: Color?, background: Color?)
-        -> String
+    func colorize(_ str: String, foreground: Color?, background: Color?) -> String
 }

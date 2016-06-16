@@ -43,7 +43,7 @@ public struct ASLLogRecorder: LogRecorder
     Initializes an `ASLLogRecorder` instance to use the `DefaultLogFormatter`
     implementation for formatting log messages.
     
-    Within ASL, log messages will be recorded at the `.Warning` priority
+    Within ASL, log messages will be recorded at the `.warning` priority
     level, which is consistent with the behavior of `NSLog()`.
 
     - parameter echoToStdErr: If `true`, ASL will also echo log messages to
@@ -60,7 +60,7 @@ public struct ASLLogRecorder: LogRecorder
      Initializes an `ASLLogRecorder` instance to use the specified `LogFormatter`
      for formatting log messages.
 
-     Within ASL, log messages will be recorded at the `.Warning` priority
+     Within ASL, log messages will be recorded at the `.warning` priority
      level, which is consistent with the behavior of `NSLog()`.
 
      - parameter formatter: A `LogFormatter` to use for formatting log entries
@@ -81,7 +81,7 @@ public struct ASLLogRecorder: LogRecorder
      Initializes an `ASLLogRecorder` instance to use the specified `LogFormatter`
      for formatting log messages.
 
-     Within ASL, log messages will be recorded at the `.Warning` priority
+     Within ASL, log messages will be recorded at the `.warning` priority
      level, which is consistent with the behavior of `NSLog()`.
 
      - parameter formatters: An array of `LogFormatter`s to use for formatting
@@ -139,7 +139,7 @@ public struct ASLLogRecorder: LogRecorder
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public func recordFormattedMessage(_ message: String, forLogEntry entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
+    public func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         let msgObj = ASLMessageObject(priorityLevel: logLevelTranslator(entry.severity), message: message)
         client.log(msgObj, logSynchronously: synchronousMode, currentQueue: currentQueue)

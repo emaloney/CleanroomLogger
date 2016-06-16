@@ -23,13 +23,11 @@ public struct XcodeColorsTextColorizer: TextColorizer
     */
     public init?()
     {
-        let env = getenv("XcodeColors")
-
-        guard env != nil else {
+        guard let env = getenv("XcodeColors") else {
             return nil
         }
 
-        guard let str = String.fromCString(env) else {
+        guard let str = String(validatingUTF8: env) else {
             return nil
         }
 
@@ -51,7 +49,7 @@ public struct XcodeColorsTextColorizer: TextColorizer
      - returns: A version of `string` with the appropriate color formatting
      applied.
      */
-    public func colorizeString(_ str: String, foreground: Color?, background: Color?)
+    public func colorize(_ str: String, foreground: Color?, background: Color?)
         -> String
     {
         let esc = "\u{001b}["
@@ -59,11 +57,11 @@ public struct XcodeColorsTextColorizer: TextColorizer
         var prefix = ""
         var suffix = ""
         if let fgColor = foreground {
-            prefix += "\(esc)\(fgColor.asXcodeColorsForegroundString);"
+            prefix += "\(esc)\(fgColor.xcodeColorsForegroundString);"
             suffix = "\(esc);"
         }
         if let bgColor = background {
-            prefix += "\(esc)\(bgColor.asXcodeColorsbackgroundString);"
+            prefix += "\(esc)\(bgColor.xcodeColorsBackgroundString);"
             suffix = "\(esc);"
         }
 
@@ -75,18 +73,18 @@ extension Color
 {
     /// A comma-separated string representation of the red, green and blue
     /// components of the color in base-10 integers.
-    private var asXcodeColorsString: String {
+    private var xcodeColorsString: String {
         return "\(r),\(g),\(b)"
     }
 
     /// An XcodeColors-style string representation usable as a foreground color.
-    private var asXcodeColorsForegroundString: String {
-        return "fg\(asXcodeColorsString)"
+    private var xcodeColorsForegroundString: String {
+        return "fg\(xcodeColorsString)"
     }
 
     /// An XcodeColors-style string representation usable as a background color.
-    private var asXcodeColorsbackgroundString: String {
-        return "bg\(asXcodeColorsString)"
+    private var xcodeColorsBackgroundString: String {
+        return "bg\(xcodeColorsString)"
     }
 }
 

@@ -69,35 +69,35 @@ public class RotatingLogFileRecorder: LogRecorderBase
      Returns a string representing the filename that will be used to store logs
      recorded on the given date.
 
-     - parameter date: The `NSDate` for which the log file name is desired.
+     - parameter date: The `Date` for which the log file name is desired.
 
      - returns: The filename.
     */
-    public class func logFilenameForDate(date: NSDate)
+    public class func logFilename(forDate date: Date)
         -> String
     {
-        return filenameFormatter.stringFromDate(date)
+        return filenameFormatter.string(from: date)
     }
 
-    private class func fileLogRecorderForDate(date: NSDate, directoryPath: String, formatters: [LogFormatter])
+    private class func fileLogRecorder(date: Date, directoryPath: String, formatters: [LogFormatter])
         -> FileLogRecorder?
     {
-        let fileName = self.logFilenameForDate(date)
-        let filePath = (directoryPath as NSString).stringByAppendingPathComponent(fileName)
+        let fileName = logFilename(forDate: date)
+        let filePath = (directoryPath as NSString).appendingPathComponent(fileName)
         return FileLogRecorder(filePath: filePath, formatters: formatters)
     }
 
-    private func fileLogRecorderForDate(date: NSDate)
+    private func fileLogRecorder(date: Date)
         -> FileLogRecorder?
     {
-        return self.dynamicType.fileLogRecorderForDate(date, directoryPath: directoryPath, formatters: formatters)
+        return self.dynamicType.fileLogRecorder(date: date, directoryPath: directoryPath, formatters: formatters)
     }
 
-    private func isDate(firstDate: NSDate, onSameDayAs secondDate: NSDate)
+    private func isDate(_ firstDate: Date, onSameDayAs secondDate: Date)
         -> Bool
     {
-        let firstDateStr = self.dynamicType.logFilenameForDate(firstDate)
-        let secondDateStr = self.dynamicType.logFilenameForDate(secondDate)
+        let firstDateStr = self.dynamicType.logFilename(forDate: firstDate)
+        let secondDateStr = self.dynamicType.logFilename(forDate: secondDate)
         return firstDateStr == secondDateStr
     }
 
@@ -110,9 +110,9 @@ public class RotatingLogFileRecorder: LogRecorderBase
     public func createLogDirectory()
         throws
     {
-        let url = NSURL(fileURLWithPath: directoryPath, isDirectory: true)
+        let url = URL(fileURLWithPath: directoryPath, isDirectory: true)
 
-        try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+        try FileManager.default().createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
     }
 
     /**
@@ -131,15 +131,15 @@ public class RotatingLogFileRecorder: LogRecorderBase
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public override func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
+    public override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
-        if mostRecentLogTime == nil || !self.isDate(entry.timestamp, onSameDayAs: mostRecentLogTime!) {
+        if mostRecentLogTime == nil || !self.isDate(entry.timestamp as Date, onSameDayAs: mostRecentLogTime!) {
             prune()
-            currentFileRecorder = fileLogRecorderForDate(entry.timestamp)
+            currentFileRecorder = fileLogRecorder(date: entry.timestamp)
         }
-        mostRecentLogTime = entry.timestamp
+        mostRecentLogTime = entry.timestamp as Date
 
-        currentFileRecorder?.recordFormattedMessage(message, forLogEntry: entry, currentQueue: queue, synchronousMode: synchronousMode)
+        currentFileRecorder?.record(message: message, for: entry, currentQueue: queue, synchronousMode: synchronousMode)
     }
 
     /**
@@ -152,27 +152,27 @@ public class RotatingLogFileRecorder: LogRecorderBase
     public func prune()
     {
         // figure out what files we'd want to keep, then nuke everything else
-        let cal = NSCalendar.currentCalendar()
-        var date = NSDate()
+        let cal = Calendar.current()
+        var date = Date()
         var filesToKeep = Set<String>()
         for _ in 0..<daysToKeep {
-            let filename = self.dynamicType.logFilenameForDate(date)
+            let filename = self.dynamicType.logFilename(forDate: date)
             filesToKeep.insert(filename)
-            date = cal.dateByAddingUnit(.Day, value: -1, toDate: date, options: .WrapComponents)!
+            date = cal.date(byAdding: .day, value: -1, to: date, options: .wrapComponents)!
         }
 
         do {
-            let fileMgr = NSFileManager.defaultManager()
-            let filenames = try fileMgr.contentsOfDirectoryAtPath(directoryPath)
+            let fileMgr = FileManager.default()
+            let filenames = try fileMgr.contentsOfDirectory(atPath: directoryPath)
 
             let pathsToRemove = filenames
                 .filter { return !$0.hasPrefix(".") }
                 .filter { return !filesToKeep.contains($0) }
-                .map { return (self.directoryPath as NSString).stringByAppendingPathComponent($0) }
+                .map { return (self.directoryPath as NSString).appendingPathComponent($0) }
 
             for path in pathsToRemove {
                 do {
-                    try fileMgr.removeItemAtPath(path)
+                    try fileMgr.removeItem(atPath: path)
                 }
                 catch {
                     print("Error attempting to delete the unneeded file <\(path)>: \(error)")

@@ -12,24 +12,24 @@
 public struct DefaultColorTable: ColorTable
 {
     /** A light gray `Color` (`#999999`) used as the foreground color
-     for the `.Verbose` severity. */
-    public static let VerboseColor  = Color(r: 0x99, g: 0x99, b: 0x99)
+     for the `.verbose` severity. */
+    public static let verboseColor  = Color(r: 0x99, g: 0x99, b: 0x99)
 
     /** A dark gray `Color` (`#666666`) used as the foreground color
-     for the `.Debug` severity. */
-    public static let DebugColor    = Color(r: 0x66, g: 0x66, b: 0x66)
+     for the `.debug` severity. */
+    public static let debugColor    = Color(r: 0x66, g: 0x66, b: 0x66)
 
     /** A blue `Color` (`#0000CC`) used as the foreground color
-     for the `.Info` severity. */
-    public static let InfoColor     = Color(r: 0x00, g: 0x00, b: 0xCC)
+     for the `.info` severity. */
+    public static let infoColor     = Color(r: 0x00, g: 0x00, b: 0xCC)
 
     /** An orange `Color` (`#DD7722`) used as the foreground color
-     for the `.Warning` severity. */
-    public static let WarningColor  = Color(r: 0xDD, g: 0x77, b: 0x22)
+     for the `.warning` severity. */
+    public static let warningColor  = Color(r: 0xDD, g: 0x77, b: 0x22)
 
     /** A red `Color` (`#CC0000`) used as the foreground color
-     for the `.Error` severity. */
-    public static let ErrorColor    = Color(r: 0xCC, g: 0x00, b: 0x00)
+     for the `.error` severity. */
+    public static let errorColor    = Color(r: 0xCC, g: 0x00, b: 0x00)
 
     /**
      Returns the foreground color to use (if any) for colorizing messages
@@ -41,15 +41,15 @@ public struct DefaultColorTable: ColorTable
      - returns:  The foreground `Color` to use for `severity`, or `nil` if no
                  color is specified.
     */
-    public func foregroundColorForSeverity(_ severity: LogSeverity)
+    public func foreground(forSeverity severity: LogSeverity)
         -> Color?
     {
         switch severity {
-        case .verbose:      return self.dynamicType.VerboseColor
-        case .debug:        return self.dynamicType.DebugColor
-        case .info:         return self.dynamicType.InfoColor
-        case .warning:      return self.dynamicType.WarningColor
-        case .error:        return self.dynamicType.ErrorColor
+        case .verbose:      return self.dynamicType.verboseColor
+        case .debug:        return self.dynamicType.debugColor
+        case .info:         return self.dynamicType.infoColor
+        case .warning:      return self.dynamicType.warningColor
+        case .error:        return self.dynamicType.errorColor
         }
     }
 }

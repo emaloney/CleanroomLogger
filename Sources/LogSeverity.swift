@@ -9,7 +9,7 @@
 /**
 Used to indicate the *severity*, or importance, of a log message.
 
-Severity is a continuum, from `.Verbose` being least severe to `.Error` being
+Severity is a continuum, from `.verbose` being least severe to `.error` being
 most severe.
 
 The logging system may be configured so that messages lower than a given

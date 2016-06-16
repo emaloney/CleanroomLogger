@@ -53,16 +53,16 @@ public struct ColorizingLogFormatter: LogFormatter
      - returns: The formatted result, or `nil` if the receiver's
      `formatter` returns `nil` when attempting to format `entry`.
      */
-    public func formatLogEntry(_ entry: LogEntry)
+    public func format(_ entry: LogEntry)
         -> String?
     {
-        guard let str = formatter.formatLogEntry(entry) else {
+        guard let str = formatter.format(entry) else {
             return nil
         }
 
-        let fg = colorTable.foregroundColorForSeverity(entry.severity)
-        let bg = colorTable.backgroundColorForSeverity(entry.severity)
+        let fg = colorTable.foreground(forSeverity: entry.severity)
+        let bg = colorTable.background(forSeverity: entry.severity)
 
-        return colorizer.colorizeString(str, foreground: fg, background: bg)
+        return colorizer.colorize(str, foreground: fg, background: bg)
     }
 }

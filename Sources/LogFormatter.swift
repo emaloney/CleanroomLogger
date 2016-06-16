@@ -20,6 +20,5 @@ public protocol LogFormatter
     - returns:  A `String` representation of `entry`, or `nil` if the
                 receiver could not format the `LogEntry`.
     */
-    func formatLogEntry(_ entry: LogEntry)
-        -> String?
+    func format(_ entry: LogEntry) -> String?
 }

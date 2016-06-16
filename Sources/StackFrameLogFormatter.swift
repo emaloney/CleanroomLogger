@@ -25,7 +25,7 @@ public struct StackFrameLogFormatter: LogFormatter
 
      - returns: The formatted result; never `nil`.
      */
-    public func formatLogEntry(_ entry: LogEntry)
+    public func format(_ entry: LogEntry)
         -> String?
     {
         return entry.callingStackFrame
