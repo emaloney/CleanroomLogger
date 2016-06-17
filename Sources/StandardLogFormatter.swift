@@ -37,7 +37,7 @@ public class StandardLogFormatter: FieldBasedLogFormatter
      `ColorTable` may also be provided to supply color information. If `nil`,
      `DefaultColorTable` will be used for colorization.
      */
-    public init(timestampStyle: TimestampStyle? = .`default`, severityStyle: SeverityStyle? = .simple, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
+    public init(timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .simple, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
     {
         var fields: [Field] = []
         var addSeparator = false

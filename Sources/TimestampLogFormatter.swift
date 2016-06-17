@@ -30,7 +30,7 @@ extension TimestampStyle
 {
     private var dateFormat: String? {
         switch self {
-        case .`default`:        return "yyyy-MM-dd HH:mm:ss.SSS zzz"
+        case .default:          return "yyyy-MM-dd HH:mm:ss.SSS zzz"
         case .unix:             return nil
         case .custom(let fmt):  return fmt
         }
@@ -78,7 +78,7 @@ public struct TimestampLogFormatter: LogFormatter
      - parameter style: A `TimestampStyle` value that will govern the output
      of the `formatLogEntry()` function.
      */
-    public init(style: TimestampStyle = .`default`)
+    public init(style: TimestampStyle = .default)
     {
         self.style = style
         self.formatter = style.formatter
