@@ -112,7 +112,7 @@ public class RotatingLogFileRecorder: LogRecorderBase
     {
         let url = URL(fileURLWithPath: directoryPath, isDirectory: true)
 
-        try FileManager.default().createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+        try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
     }
 
     /**
@@ -152,7 +152,7 @@ public class RotatingLogFileRecorder: LogRecorderBase
     public func prune()
     {
         // figure out what files we'd want to keep, then nuke everything else
-        let cal = Calendar.current()
+        let cal = Calendar.current
         var date = Date()
         var filesToKeep = Set<String>()
         for _ in 0..<daysToKeep {
@@ -162,7 +162,7 @@ public class RotatingLogFileRecorder: LogRecorderBase
         }
 
         do {
-            let fileMgr = FileManager.default()
+            let fileMgr = FileManager.default
             let filenames = try fileMgr.contentsOfDirectory(atPath: directoryPath)
 
             let pathsToRemove = filenames
