@@ -1,0 +1,7 @@
+#
+# we're not building via Travis yet except for Xcode 8
+#
+
+branches:
+  except:
+    - master
