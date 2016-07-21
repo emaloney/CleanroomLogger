@@ -1,7 +1,23 @@
+language: objective-c
+xcode_project: CleanroomLogger.xcodeproj
+osx_image: xcode8
+
 #
-# we're not building via Travis yet except for Xcode 8
+# Note: Unit test scripts commented out due to a problem reliably launching the
+#       simulator from the command line. See:
+#
+#       https://github.com/travis-ci/travis-ci/issues/3040
+#
+# A possible work-around; not yet tested:
+#
+#       before_install: open -b com.apple.iphonesimulator
 #
 
-branches:
-  except:
-    - master
+script:
+ - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+# - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+ - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-OSX -destination 'platform=macOS' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+# - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-OSX -destination 'platform=macOS' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+ - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+# - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+ - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
