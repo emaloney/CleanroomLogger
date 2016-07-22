@@ -23,9 +23,9 @@ The [`master`](https://github.com/emaloney/CleanroomLogger) branch of this proje
 
 Branch|Build status
 --------|------------------------
-`master`|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
-`swift2.3`|[![Build status: swift2.3 branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=swift2.3)](https://travis-ci.org/emaloney/CleanroomLogger)
-`swift3`|[![Build status: swift3 branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=swift3)](https://travis-ci.org/emaloney/CleanroomLogger)
+[`master`](https://github.com/emaloney/CleanroomLogger)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
+[`swift2.3`](https://github.com/emaloney/CleanroomLogger/tree/swift2.3)|[![Build status: swift2.3 branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=swift2.3)](https://travis-ci.org/emaloney/CleanroomLogger)
+[`swift3`](https://github.com/emaloney/CleanroomLogger/tree/swift3)|[![Build status: swift3 branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=swift3)](https://travis-ci.org/emaloney/CleanroomLogger)
 #### Why CleanroomLogger?
 
 If you’re familiar with [`NSLog()`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog), then you’ll understand the purpose of CleanroomLogger.
