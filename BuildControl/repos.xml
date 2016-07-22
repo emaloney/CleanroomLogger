@@ -2,6 +2,7 @@
 	<Var name="repo:host" literal="github"/>
 	<Var name="repo:name" type="dynamic" expression="$project:name"/>
 	<Var name="repo:url:home" type="dynamic" expression="https://github.com/${repo:owner}/${repo:name}"/>
+	<Var name="repo:url:branch" type="dynamic" expression="${repo:url:home}/tree"/>
 	<Var name="repo:url:http" type="dynamic" expression="${repo:url:home}"/>
 	<Var name="repo:url:ssh" type="dynamic" expression="git@github.com:${repo:owner}/${repo:name}"/>
 
@@ -21,6 +22,29 @@
 			<Var name="OSX" literal="10.10"/> 
 			<Var name="tvOS" literal="9.0"/> 
 			<Var name="watchOS" literal="2.0"/> 
+		</Var>
+	</Var>
+
+	<Var name="branches" type="list">
+		<Var literal="master"/>
+		<Var literal="swift2.3"/>
+		<Var literal="swift3"/>
+	</Var>
+
+	<Var name="branches:nonmaster" type="dynamic" expression="^sort(^filter($branches|$item != master))"/>
+	
+	<Var name="branch" type="map">
+		<Var name="master" type="map">
+			<Var name="Swift" value="$versions[current][Swift]"/>
+			<Var name="Xcode" value="$versions[current][Xcode]"/>
+		</Var>
+		<Var name="swift2.3" type="map">
+			<Var name="Swift" literal="2.3"/>
+			<Var name="Xcode" literal="8.0"/>
+		</Var>
+		<Var name="swift3" type="map">
+			<Var name="Swift" literal="3.0"/>
+			<Var name="Xcode" literal="8.0"/>
 		</Var>
 	</Var>
 
