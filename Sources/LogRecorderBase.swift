@@ -33,7 +33,7 @@ public class LogRecorderBase: LogRecorder
     public init(formatters: [LogFormatter])
     {
         self.formatters = formatters
-        self.queue = DispatchQueue(label: "\(self.dynamicType)", attributes: DispatchQueueAttributes.serial)
+        self.queue = DispatchQueue(label: "\(self.dynamicType)", attributes: [])
     }
 
     /**

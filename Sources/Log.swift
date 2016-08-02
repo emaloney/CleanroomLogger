@@ -241,7 +241,7 @@ public struct Log
         logLock.unlock()
     }
 
-    private static let logLock = Lock()
+    private static let logLock = NSLock()
     private static var didEnable = false
 
     /**
