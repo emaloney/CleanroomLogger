@@ -9,6 +9,25 @@ The API provided by CleanroomLogger is designed to be readily understood by anyo
 CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Cleanroom) from [Gilt Tech](http://tech.gilt.com).
 
 
+### Swift compatibility
+
+**Important:** This is the `swift3` branch. It is **Swift 3.0 compliant** and therefore **requires Xcode 8.0** to compile.
+
+2 other branches are also available:
+
+ - The [`master`](https://github.com/emaloney/CleanroomLogger) branch uses **Swift 2.2**, requiring Xcode 7.3
+ - The [`swift2.3`](https://github.com/emaloney/CleanroomLogger/tree/swift2.3) branch uses **Swift 2.3**, requiring Xcode 8.0
+
+
+#### Current status
+
+Branch|Build status
+--------|------------------------
+[`master`](https://github.com/emaloney/CleanroomLogger)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
+[`swift2.3`](https://github.com/emaloney/CleanroomLogger/tree/swift2.3)|[![Build status: swift2.3 branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=swift2.3)](https://travis-ci.org/emaloney/CleanroomLogger)
+[`swift3`](https://github.com/emaloney/CleanroomLogger/tree/swift3)|[![Build status: swift3 branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=swift3)](https://travis-ci.org/emaloney/CleanroomLogger)
+
+
 #### Why CleanroomLogger?
 
 If you’re familiar with [`NSLog()`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog), then you’ll understand the purpose of CleanroomLogger.
@@ -36,10 +55,6 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 8. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.
 
-
-### Swift 2.2 compatibility
-
-The `master` branch of this project is **Swift 2.2 compliant** and therefore **requires Xcode 7.3 or higher** to compile.
 
 ### License
 
