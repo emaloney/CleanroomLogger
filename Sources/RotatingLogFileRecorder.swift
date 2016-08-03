@@ -158,7 +158,7 @@ public class RotatingLogFileRecorder: LogRecorderBase
         for _ in 0..<daysToKeep {
             let filename = self.dynamicType.logFilename(forDate: date)
             filesToKeep.insert(filename)
-            date = cal.date(byAdding: .day, value: -1, to: date, options: .wrapComponents)!
+            date = cal.date(byAdding: .day, value: -1, to: date)!
         }
 
         do {
