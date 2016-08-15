@@ -1,0 +1,1297 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B00E5681BA3782D0011486D /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00E55D1BA3782D0011486D /* CleanroomASL.framework */; };
+		3B00E5861BA379830011486D /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00E57C1BA379830011486D /* CleanroomASL.framework */; };
+		3B00E5A41BA37A420011486D /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00E59A1BA37A420011486D /* CleanroomASL.framework */; };
+		3B557B481BA7B528000D469A /* CleanroomASLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B557B471BA7B528000D469A /* CleanroomASLTests.swift */; };
+		3B557B491BA7B528000D469A /* CleanroomASLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B557B471BA7B528000D469A /* CleanroomASLTests.swift */; };
+		3B557B4A1BA7B528000D469A /* CleanroomASLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B557B471BA7B528000D469A /* CleanroomASLTests.swift */; };
+		3BC727321C24B52D003BC28A /* ASLAttributeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272D1C24B52D003BC28A /* ASLAttributeKey.swift */; };
+		3BC727331C24B52D003BC28A /* ASLAttributeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272D1C24B52D003BC28A /* ASLAttributeKey.swift */; };
+		3BC727341C24B52D003BC28A /* ASLAttributeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272D1C24B52D003BC28A /* ASLAttributeKey.swift */; };
+		3BC727351C24B52D003BC28A /* ASLAttributeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272D1C24B52D003BC28A /* ASLAttributeKey.swift */; };
+		3BC727361C24B52D003BC28A /* ASLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272E1C24B52D003BC28A /* ASLClient.swift */; };
+		3BC727371C24B52D003BC28A /* ASLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272E1C24B52D003BC28A /* ASLClient.swift */; };
+		3BC727381C24B52D003BC28A /* ASLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272E1C24B52D003BC28A /* ASLClient.swift */; };
+		3BC727391C24B52D003BC28A /* ASLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272E1C24B52D003BC28A /* ASLClient.swift */; };
+		3BC7273A1C24B52D003BC28A /* ASLObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272F1C24B52D003BC28A /* ASLObject.swift */; };
+		3BC7273B1C24B52D003BC28A /* ASLObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272F1C24B52D003BC28A /* ASLObject.swift */; };
+		3BC7273C1C24B52D003BC28A /* ASLObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272F1C24B52D003BC28A /* ASLObject.swift */; };
+		3BC7273D1C24B52D003BC28A /* ASLObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7272F1C24B52D003BC28A /* ASLObject.swift */; };
+		3BC7273E1C24B52D003BC28A /* ASLPriorityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC727301C24B52D003BC28A /* ASLPriorityLevel.swift */; };
+		3BC7273F1C24B52D003BC28A /* ASLPriorityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC727301C24B52D003BC28A /* ASLPriorityLevel.swift */; };
+		3BC727401C24B52D003BC28A /* ASLPriorityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC727301C24B52D003BC28A /* ASLPriorityLevel.swift */; };
+		3BC727411C24B52D003BC28A /* ASLPriorityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC727301C24B52D003BC28A /* ASLPriorityLevel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B00E5691BA3782D0011486D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BCBACE21BA369AD007F1C90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B00E55C1BA3782D0011486D;
+			remoteInfo = "CleanroomASL-iOS";
+		};
+		3B00E5871BA379830011486D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BCBACE21BA369AD007F1C90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B00E57B1BA379830011486D;
+			remoteInfo = "CleanroomASL-OSX";
+		};
+		3B00E5A51BA37A420011486D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BCBACE21BA369AD007F1C90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B00E5991BA37A420011486D;
+			remoteInfo = "CleanroomASL-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B00E4D01BA36B840011486D /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
+		3B00E4D11BA36B840011486D /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
+		3B00E55D1BA3782D0011486D /* CleanroomASL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomASL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B00E5671BA3782D0011486D /* CleanroomASLUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomASLUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B00E57C1BA379830011486D /* CleanroomASL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomASL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B00E5851BA379830011486D /* CleanroomASLUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomASLUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B00E59A1BA37A420011486D /* CleanroomASL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomASL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B00E5A31BA37A420011486D /* CleanroomASLUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomASLUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
+		3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-OSX.xcconfig"; sourceTree = "<group>"; };
+		3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-tvOS.xcconfig"; sourceTree = "<group>"; };
+		3B38DBD31BA76428000986DF /* Debug-watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-watchOS.xcconfig"; sourceTree = "<group>"; };
+		3B38DBD41BA76428000986DF /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		3B38DBD51BA76428000986DF /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
+		3B38DBD61BA76428000986DF /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
+		3B38DBD71BA76428000986DF /* OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OSX.xcconfig; sourceTree = "<group>"; };
+		3B38DBD81BA76428000986DF /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		3B38DBD91BA76428000986DF /* Release-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-iOS.xcconfig"; sourceTree = "<group>"; };
+		3B38DBDA1BA76428000986DF /* Release-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-OSX.xcconfig"; sourceTree = "<group>"; };
+		3B38DBDB1BA76428000986DF /* Release-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-tvOS.xcconfig"; sourceTree = "<group>"; };
+		3B38DBDC1BA76428000986DF /* Release-watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-watchOS.xcconfig"; sourceTree = "<group>"; };
+		3B38DBDD1BA76428000986DF /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-iOS.xcconfig"; sourceTree = "<group>"; };
+		3B38DBDF1BA76428000986DF /* Tests-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-OSX.xcconfig"; sourceTree = "<group>"; };
+		3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-tvOS.xcconfig"; sourceTree = "<group>"; };
+		3B38DBE11BA76428000986DF /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		3B38DBE21BA76428000986DF /* tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
+		3B38DBE31BA76428000986DF /* watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = watchOS.xcconfig; sourceTree = "<group>"; };
+		3B557B471BA7B528000D469A /* CleanroomASLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanroomASLTests.swift; sourceTree = "<group>"; };
+		3B78C6CE1BA7634E00173EAC /* CleanroomASL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomASL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BC2CB2E1C1F217600BC77DC /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		3BC7272D1C24B52D003BC28A /* ASLAttributeKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLAttributeKey.swift; sourceTree = "<group>"; };
+		3BC7272E1C24B52D003BC28A /* ASLClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLClient.swift; sourceTree = "<group>"; };
+		3BC7272F1C24B52D003BC28A /* ASLObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLObject.swift; sourceTree = "<group>"; };
+		3BC727301C24B52D003BC28A /* ASLPriorityLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLPriorityLevel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B00E5591BA3782D0011486D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5641BA3782D0011486D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B00E5681BA3782D0011486D /* CleanroomASL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5781BA379830011486D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5821BA379830011486D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B00E5861BA379830011486D /* CleanroomASL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5961BA37A420011486D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5A01BA37A420011486D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B00E5A41BA37A420011486D /* CleanroomASL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B78C6CA1BA7634E00173EAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B00E4B91BA36B840011486D /* BuildControl */ = {
+			isa = PBXGroup;
+			children = (
+				3BC2CB2E1C1F217600BC77DC /* Bridging-Header.h */,
+				3B00E4BE1BA36B840011486D /* config */,
+				3B00E4D01BA36B840011486D /* Info-Framework.plist */,
+				3B00E4D11BA36B840011486D /* Info-Tests.plist */,
+			);
+			path = BuildControl;
+			sourceTree = "<group>";
+		};
+		3B00E4BE1BA36B840011486D /* config */ = {
+			isa = PBXGroup;
+			children = (
+				3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */,
+				3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */,
+				3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */,
+				3B38DBD31BA76428000986DF /* Debug-watchOS.xcconfig */,
+				3B38DBD41BA76428000986DF /* Debug.xcconfig */,
+				3B38DBD51BA76428000986DF /* Framework.xcconfig */,
+				3B38DBD61BA76428000986DF /* iOS.xcconfig */,
+				3B38DBD71BA76428000986DF /* OSX.xcconfig */,
+				3B38DBD81BA76428000986DF /* Project.xcconfig */,
+				3B38DBD91BA76428000986DF /* Release-iOS.xcconfig */,
+				3B38DBDA1BA76428000986DF /* Release-OSX.xcconfig */,
+				3B38DBDB1BA76428000986DF /* Release-tvOS.xcconfig */,
+				3B38DBDC1BA76428000986DF /* Release-watchOS.xcconfig */,
+				3B38DBDD1BA76428000986DF /* Release.xcconfig */,
+				3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */,
+				3B38DBDF1BA76428000986DF /* Tests-OSX.xcconfig */,
+				3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */,
+				3B38DBE11BA76428000986DF /* Tests.xcconfig */,
+				3B38DBE21BA76428000986DF /* tvOS.xcconfig */,
+				3B38DBE31BA76428000986DF /* watchOS.xcconfig */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		3B00E4D51BA36B840011486D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3B557B471BA7B528000D469A /* CleanroomASLTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		3B00E55E1BA3782D0011486D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B00E55D1BA3782D0011486D /* CleanroomASL.framework */,
+				3B00E5671BA3782D0011486D /* CleanroomASLUnitTests.xctest */,
+				3B00E57C1BA379830011486D /* CleanroomASL.framework */,
+				3B00E5851BA379830011486D /* CleanroomASLUnitTests.xctest */,
+				3B00E59A1BA37A420011486D /* CleanroomASL.framework */,
+				3B00E5A31BA37A420011486D /* CleanroomASLUnitTests.xctest */,
+				3B78C6CE1BA7634E00173EAC /* CleanroomASL.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BC7272C1C24B52D003BC28A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3BC7272D1C24B52D003BC28A /* ASLAttributeKey.swift */,
+				3BC7272E1C24B52D003BC28A /* ASLClient.swift */,
+				3BC7272F1C24B52D003BC28A /* ASLObject.swift */,
+				3BC727301C24B52D003BC28A /* ASLPriorityLevel.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3BCBACE11BA369AD007F1C90 = {
+			isa = PBXGroup;
+			children = (
+				3BC7272C1C24B52D003BC28A /* Sources */,
+				3B00E4D51BA36B840011486D /* Tests */,
+				3B00E4B91BA36B840011486D /* BuildControl */,
+				3B00E55E1BA3782D0011486D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3B00E55A1BA3782D0011486D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5791BA379830011486D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5971BA37A420011486D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B78C6CB1BA7634E00173EAC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3B00E55C1BA3782D0011486D /* CleanroomASL-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B00E5731BA3782D0011486D /* Build configuration list for PBXNativeTarget "CleanroomASL-iOS" */;
+			buildPhases = (
+				3B00E5581BA3782D0011486D /* Sources */,
+				3B00E5591BA3782D0011486D /* Frameworks */,
+				3B00E55A1BA3782D0011486D /* Headers */,
+				3B00E55B1BA3782D0011486D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CleanroomASL-iOS";
+			productName = "CleanroomASL-iOS";
+			productReference = 3B00E55D1BA3782D0011486D /* CleanroomASL.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B00E5661BA3782D0011486D /* CleanroomASLUnitTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B00E5741BA3782D0011486D /* Build configuration list for PBXNativeTarget "CleanroomASLUnitTests-iOS" */;
+			buildPhases = (
+				3B00E5631BA3782D0011486D /* Sources */,
+				3B00E5641BA3782D0011486D /* Frameworks */,
+				3B00E5651BA3782D0011486D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B00E56A1BA3782D0011486D /* PBXTargetDependency */,
+			);
+			name = "CleanroomASLUnitTests-iOS";
+			productName = "CleanroomASL-iOSTests";
+			productReference = 3B00E5671BA3782D0011486D /* CleanroomASLUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3B00E57B1BA379830011486D /* CleanroomASL-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B00E58D1BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomASL-OSX" */;
+			buildPhases = (
+				3B00E5771BA379830011486D /* Sources */,
+				3B00E5781BA379830011486D /* Frameworks */,
+				3B00E5791BA379830011486D /* Headers */,
+				3B00E57A1BA379830011486D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CleanroomASL-OSX";
+			productName = "CleanroomASL-OSX";
+			productReference = 3B00E57C1BA379830011486D /* CleanroomASL.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B00E5841BA379830011486D /* CleanroomASLUnitTests-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B00E5901BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomASLUnitTests-OSX" */;
+			buildPhases = (
+				3B00E5811BA379830011486D /* Sources */,
+				3B00E5821BA379830011486D /* Frameworks */,
+				3B00E5831BA379830011486D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B00E5881BA379830011486D /* PBXTargetDependency */,
+			);
+			name = "CleanroomASLUnitTests-OSX";
+			productName = "CleanroomASL-OSXTests";
+			productReference = 3B00E5851BA379830011486D /* CleanroomASLUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3B00E5991BA37A420011486D /* CleanroomASL-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B00E5AB1BA37A420011486D /* Build configuration list for PBXNativeTarget "CleanroomASL-tvOS" */;
+			buildPhases = (
+				3B00E5951BA37A420011486D /* Sources */,
+				3B00E5961BA37A420011486D /* Frameworks */,
+				3B00E5971BA37A420011486D /* Headers */,
+				3B00E5981BA37A420011486D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CleanroomASL-tvOS";
+			productName = "CleanroomASL-tvOS";
+			productReference = 3B00E59A1BA37A420011486D /* CleanroomASL.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B00E5A21BA37A420011486D /* CleanroomASLUnitTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B00E5AE1BA37A420011486D /* Build configuration list for PBXNativeTarget "CleanroomASLUnitTests-tvOS" */;
+			buildPhases = (
+				3B00E59F1BA37A420011486D /* Sources */,
+				3B00E5A01BA37A420011486D /* Frameworks */,
+				3B00E5A11BA37A420011486D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B00E5A61BA37A420011486D /* PBXTargetDependency */,
+			);
+			name = "CleanroomASLUnitTests-tvOS";
+			productName = "CleanroomASL-tvOSTests";
+			productReference = 3B00E5A31BA37A420011486D /* CleanroomASLUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3B78C6CD1BA7634E00173EAC /* CleanroomASL-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B78C6D31BA7634E00173EAC /* Build configuration list for PBXNativeTarget "CleanroomASL-watchOS" */;
+			buildPhases = (
+				3B78C6C91BA7634E00173EAC /* Sources */,
+				3B78C6CA1BA7634E00173EAC /* Frameworks */,
+				3B78C6CB1BA7634E00173EAC /* Headers */,
+				3B78C6CC1BA7634E00173EAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CleanroomASL-watchOS";
+			productName = "CleanroomASL-watchOS";
+			productReference = 3B78C6CE1BA7634E00173EAC /* CleanroomASL.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BCBACE21BA369AD007F1C90 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				TargetAttributes = {
+					3B00E55C1BA3782D0011486D = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					3B00E5661BA3782D0011486D = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					3B00E57B1BA379830011486D = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					3B00E5841BA379830011486D = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					3B00E5991BA37A420011486D = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					3B00E5A21BA37A420011486D = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					3B78C6CD1BA7634E00173EAC = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 3BCBACE51BA369AD007F1C90 /* Build configuration list for PBXProject "CleanroomASL" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3BCBACE11BA369AD007F1C90;
+			productRefGroup = 3B00E55E1BA3782D0011486D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B00E55C1BA3782D0011486D /* CleanroomASL-iOS */,
+				3B00E57B1BA379830011486D /* CleanroomASL-OSX */,
+				3B00E5991BA37A420011486D /* CleanroomASL-tvOS */,
+				3B78C6CD1BA7634E00173EAC /* CleanroomASL-watchOS */,
+				3B00E5661BA3782D0011486D /* CleanroomASLUnitTests-iOS */,
+				3B00E5841BA379830011486D /* CleanroomASLUnitTests-OSX */,
+				3B00E5A21BA37A420011486D /* CleanroomASLUnitTests-tvOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B00E55B1BA3782D0011486D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5651BA3782D0011486D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E57A1BA379830011486D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5831BA379830011486D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5981BA37A420011486D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5A11BA37A420011486D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B78C6CC1BA7634E00173EAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B00E5581BA3782D0011486D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC727321C24B52D003BC28A /* ASLAttributeKey.swift in Sources */,
+				3BC727361C24B52D003BC28A /* ASLClient.swift in Sources */,
+				3BC7273A1C24B52D003BC28A /* ASLObject.swift in Sources */,
+				3BC7273E1C24B52D003BC28A /* ASLPriorityLevel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5631BA3782D0011486D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B557B481BA7B528000D469A /* CleanroomASLTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5771BA379830011486D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC727331C24B52D003BC28A /* ASLAttributeKey.swift in Sources */,
+				3BC727371C24B52D003BC28A /* ASLClient.swift in Sources */,
+				3BC7273B1C24B52D003BC28A /* ASLObject.swift in Sources */,
+				3BC7273F1C24B52D003BC28A /* ASLPriorityLevel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5811BA379830011486D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B557B491BA7B528000D469A /* CleanroomASLTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E5951BA37A420011486D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC727341C24B52D003BC28A /* ASLAttributeKey.swift in Sources */,
+				3BC727381C24B52D003BC28A /* ASLClient.swift in Sources */,
+				3BC7273C1C24B52D003BC28A /* ASLObject.swift in Sources */,
+				3BC727401C24B52D003BC28A /* ASLPriorityLevel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B00E59F1BA37A420011486D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B557B4A1BA7B528000D469A /* CleanroomASLTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B78C6C91BA7634E00173EAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC727351C24B52D003BC28A /* ASLAttributeKey.swift in Sources */,
+				3BC727391C24B52D003BC28A /* ASLClient.swift in Sources */,
+				3BC7273D1C24B52D003BC28A /* ASLObject.swift in Sources */,
+				3BC727411C24B52D003BC28A /* ASLPriorityLevel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B00E56A1BA3782D0011486D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B00E55C1BA3782D0011486D /* CleanroomASL-iOS */;
+			targetProxy = 3B00E5691BA3782D0011486D /* PBXContainerItemProxy */;
+		};
+		3B00E5881BA379830011486D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B00E57B1BA379830011486D /* CleanroomASL-OSX */;
+			targetProxy = 3B00E5871BA379830011486D /* PBXContainerItemProxy */;
+		};
+		3B00E5A61BA37A420011486D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B00E5991BA37A420011486D /* CleanroomASL-tvOS */;
+			targetProxy = 3B00E5A51BA37A420011486D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3B00E56F1BA3782D0011486D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3B00E5701BA3782D0011486D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBD91BA76428000986DF /* Release-iOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3B00E5711BA3782D0011486D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B00E5721BA3782D0011486D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B00E58E1BA379830011486D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3B00E58F1BA379830011486D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBDA1BA76428000986DF /* Release-OSX.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3B00E5911BA379830011486D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBDF1BA76428000986DF /* Tests-OSX.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B00E5921BA379830011486D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBDF1BA76428000986DF /* Tests-OSX.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		3B00E5AC1BA37A420011486D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 25;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3B00E5AD1BA37A420011486D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBDB1BA76428000986DF /* Release-tvOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 25;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3B00E5AF1BA37A420011486D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B00E5B01BA37A420011486D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B78C6D41BA7634E00173EAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBD31BA76428000986DF /* Debug-watchOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3B78C6D51BA7634E00173EAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBDC1BA76428000986DF /* Release-watchOS.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3BCBACE61BA369AD007F1C90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBD81BA76428000986DF /* Project.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 25;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXCODE_BUILD";
+			};
+			name = Debug;
+		};
+		3BCBACE71BA369AD007F1C90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B38DBD81BA76428000986DF /* Project.xcconfig */;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 25;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXCODE_BUILD";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B00E5731BA3782D0011486D /* Build configuration list for PBXNativeTarget "CleanroomASL-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B00E56F1BA3782D0011486D /* Debug */,
+				3B00E5701BA3782D0011486D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B00E5741BA3782D0011486D /* Build configuration list for PBXNativeTarget "CleanroomASLUnitTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B00E5711BA3782D0011486D /* Debug */,
+				3B00E5721BA3782D0011486D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B00E58D1BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomASL-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B00E58E1BA379830011486D /* Debug */,
+				3B00E58F1BA379830011486D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B00E5901BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomASLUnitTests-OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B00E5911BA379830011486D /* Debug */,
+				3B00E5921BA379830011486D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B00E5AB1BA37A420011486D /* Build configuration list for PBXNativeTarget "CleanroomASL-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B00E5AC1BA37A420011486D /* Debug */,
+				3B00E5AD1BA37A420011486D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B00E5AE1BA37A420011486D /* Build configuration list for PBXNativeTarget "CleanroomASLUnitTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B00E5AF1BA37A420011486D /* Debug */,
+				3B00E5B01BA37A420011486D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B78C6D31BA7634E00173EAC /* Build configuration list for PBXNativeTarget "CleanroomASL-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B78C6D41BA7634E00173EAC /* Debug */,
+				3B78C6D51BA7634E00173EAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BCBACE51BA369AD007F1C90 /* Build configuration list for PBXProject "CleanroomASL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BCBACE61BA369AD007F1C90 /* Debug */,
+				3BCBACE71BA369AD007F1C90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BCBACE21BA369AD007F1C90 /* Project object */;
+}

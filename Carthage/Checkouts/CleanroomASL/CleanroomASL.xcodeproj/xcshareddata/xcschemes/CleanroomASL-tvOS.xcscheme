@@ -11,13 +11,14 @@
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForAnalyzing = "YES"
+            hideIssues = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3B00E55C1BA3782D0011486D"
-               BuildableName = "CleanroomLogger.framework"
-               BlueprintName = "CleanroomLogger-iOS"
-               ReferencedContainer = "container:CleanroomLogger.xcodeproj">
+               BlueprintIdentifier = "3B00E5991BA37A420011486D"
+               BuildableName = "CleanroomASL.framework"
+               BlueprintName = "CleanroomASL-tvOS"
+               ReferencedContainer = "container:CleanroomASL.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +33,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3B00E5661BA3782D0011486D"
-               BuildableName = "CleanroomLoggerUnitTests.xctest"
-               BlueprintName = "CleanroomLoggerUnitTests-iOS"
-               ReferencedContainer = "container:CleanroomLogger.xcodeproj">
+               BlueprintIdentifier = "3B00E5A21BA37A420011486D"
+               BuildableName = "CleanroomASLUnitTests.xctest"
+               BlueprintName = "CleanroomASLUnitTests-tvOS"
+               ReferencedContainer = "container:CleanroomASL.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B00E55C1BA3782D0011486D"
-            BuildableName = "CleanroomLogger.framework"
-            BlueprintName = "CleanroomLogger-iOS"
-            ReferencedContainer = "container:CleanroomLogger.xcodeproj">
+            BlueprintIdentifier = "3B00E5991BA37A420011486D"
+            BuildableName = "CleanroomASL.framework"
+            BlueprintName = "CleanroomASL-tvOS"
+            ReferencedContainer = "container:CleanroomASL.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,10 +65,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B00E55C1BA3782D0011486D"
-            BuildableName = "CleanroomLogger.framework"
-            BlueprintName = "CleanroomLogger-iOS"
-            ReferencedContainer = "container:CleanroomLogger.xcodeproj">
+            BlueprintIdentifier = "3B00E5991BA37A420011486D"
+            BuildableName = "CleanroomASL.framework"
+            BlueprintName = "CleanroomASL-tvOS"
+            ReferencedContainer = "container:CleanroomASL.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,10 +83,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3B00E55C1BA3782D0011486D"
-            BuildableName = "CleanroomLogger.framework"
-            BlueprintName = "CleanroomLogger-iOS"
-            ReferencedContainer = "container:CleanroomLogger.xcodeproj">
+            BlueprintIdentifier = "3B00E5991BA37A420011486D"
+            BuildableName = "CleanroomASL.framework"
+            BlueprintName = "CleanroomASL-tvOS"
+            ReferencedContainer = "container:CleanroomASL.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

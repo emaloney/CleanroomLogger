@@ -1,0 +1,76 @@
+<MBML>
+	<Var name="project:name" literal="CleanroomASL"/>
+	<Var name="project:license" literal="MIT"/>
+
+	<Var name="project:description:formats" type="map">
+		<Var name="text">CleanroomASL is an iOS framework providing a Swift-based API for writing to and reading from the Apple System Log (ASL) facility.
+
+CleanroomASL is designed as a thin wrapper around ASL’s native C API that makes use of Swift concepts where appropriate to make coding easier-to-understand and less error-prone.</Var>
+		<Var name="markdown">CleanroomASL is an iOS framework providing a Swift-based API for writing to and reading from [the Apple System Log (ASL) facility](#about-the-apple-system-log).
+
+CleanroomASL is designed as a thin wrapper around ASL’s native C API that makes use of Swift concepts where appropriate to make coding easier-to-understand and less error-prone.</Var>
+	</Var>
+	
+	<Var name="project:readme:preamble">^q(####) Who It’s For
+
+If you need to read from your application’s log on the device, CleanroomASL is for you. CleanroomASL is also useful if you need low-level access to writing to the Apple System Log.
+
+^q(####) Who It’s Not For
+
+Because CleanroomASL is a low-level API, it may be cumbersome to use for common logging tasks.
+
+If you’d like to use a simple, high-level Swift API for logging within your iOS application, consider using [the CleanroomLogger project](https://github.com/emaloney/CleanroomLogger).
+
+CleanroomLogger uses CleanroomASL under the hood, but provides a simpler API that will be more familiar to developers who’ve used other logging systems such as CocoaLumberjack or log4j.
+
+CleanroomLogger is also extensible, allowing you to multiplex log output to multiple destinations and to add your own logger implementations.</Var>
+	
+	<Var name="project:readme:summation">^q(##) About the Apple System Log
+
+ASL may be most familiar to Mac and iOS developers as the subsystem that underlies the [`NSLog()`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog) function.
+
+When running within Xcode, `NSLog()` output shows up in the Console view.
+
+On the Mac, messages written to ASL are available in the Console application.
+
+For these reasons, people sometimes think of ASL as “the console,” even though that’s a bit of a misnomer:
+
+- Xcode’s Console view shows the  `stdout` and `stderr` streams of the running process. Because `NSLog()` uses ASL configured in such a way that log messages are echoed to `stderr`, those messages show up in Xcode’s Console view. But the Console view can also show messages that *weren’t* sent through ASL.
+
+- The Console application on the Mac can be thought of as a *viewer* for ASL log messages, but it only shows a subset of the information that can be sent along with an ASL message. Further, Console is not limited to ASL; it can also be used to follow the content of standard text log files.
+
+^q(####) Differences between the device and simulator
+
+On iOS, the Apple System Log behaves differently depending on whether it is running on a device or in the iOS Simulator.
+
+|Behavior|Simulator|Device|
+|---|---------|------|
+|Visibility|By default, log entries are visible to root and to the UID of the process that recorded them|By default, log entries are visible only to root|
+|Searching|Searches can return log entries recorded by any process|Searches will only return log entries recorded by the calling process|
+
+On the device, in order for an ASL log entry to be visible to the process that recorded it, the `.ReadUID` attribute of the `ASLMessageObject` must be explicitly set to `-1`. Otherwise, the log entry will be visible only to root, and if the process is trying to search for its own log entries, they won't be returned.
+
+To avoid this causing confusion, the CleanroomASL framework automatically sets a message's `.ReadUID` attribute to `-1` if no value is explicitly specified.
+
+> If you do in fact want your messages visible only to root, you can ensure that your log entries are recorded as you intend by specifying a `.ReadUID` attribute value of `0`. This will prevent CleanroomASL from automatically setting that attribute value to `-1`.
+
+^q(####) Learning more about ASL
+
+Apple’s native API for ASL is written in C. The definitive documentation for ASL can be found in the manpage that can be accessed using the [`man 3 asl`](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man3/asl.3.html) Terminal command.
+
+Peter Hosey’s *Idle Time* blog also has [a number of informative posts on ASL](http://boredzo.org/blog/archives/category/programming/apple-system-logger) helpful to anyone who wants to understand how it works.</Var>
+
+	<Var name="project:platforms" type="list">
+		<Var literal="iOS"/>
+		<Var literal="OSX"/>
+        <Var literal="tvOS"/>
+        <Var literal="watchOS"/>
+	</Var>
+
+	<Var name="project:settings" type="map">
+		<Var name="app-extension-only" boolean="T"/>
+		<Var name="bridging-header" literal="BuildControl/Bridging-Header.h"/>
+	</Var>
+
+	<Var name="repo:owner" literal="emaloney"/>
+</MBML>

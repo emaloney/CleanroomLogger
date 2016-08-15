@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ASLObject Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ASLObject" class="dashAnchor"></a>
+    <a title="ASLObject Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CleanroomASL Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomASL"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CleanroomASL Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ASLObject Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ASLClient.html">ASLClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ASLMessageObject.html">ASLMessageObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ASLObject.html">ASLObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ASLQueryObject.html">ASLQueryObject</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ASLAttributeKey.html">ASLAttributeKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ASLPriorityLevel.html">ASLPriorityLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/asl_object_t.html">asl_object_t</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Subscripts.html">Subscripts</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Subscripts.html#/s:iE12CleanroomASLVs14COpaquePointer9subscriptFOS_15ASLAttributeKeyGSqSS_">subscript(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Subscripts.html#/s:iE12CleanroomASLVs14COpaquePointer9subscriptFVs6UInt32GSqSS_">subscript(_:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ASLObject</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">ASLObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Instances of the <code>ASLObject</code> class provide type-safe to an underlying
+<code><a href="../Extensions/asl_object_t.html">asl_object_t</a></code> of a given <code>ASL_TYPE</code>.</p>
+
+<p>Typically, you would interact one of the <code>ASLObject</code> subclasses: 
+<code><a href="../Classes/ASLMessageObject.html">ASLMessageObject</a></code> or <code><a href="../Classes/ASLQueryObject.html">ASLQueryObject</a></code>. However, you can also use low-level
+ASL functionality using the <code><a href="../Extensions/asl_object_t.html">asl_object_t</a></code> exposed by the <code>aslObject</code>
+property.</p>
+
+<p><strong>Note:</strong> <code>ASLObject</code> subclass implementations are only provided for
+<code>ASL_TYPE_MSG</code> (the <code><a href="../Classes/ASLMessageObject.html">ASLMessageObject</a></code> class) and <code>ASL_TYPE_QUERY</code> 
+(the <code><a href="../Classes/ASLQueryObject.html">ASLQueryObject</a></code> class).</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC12CleanroomASL9ASLObject7ASLType"></a>
+                    <a name="//apple_ref/swift/Enum/ASLType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC12CleanroomASL9ASLObject7ASLType">ASLType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the various <code>ASL_TYPE</code> values.</p>
+
+                        <a href="../Classes/ASLObject/ASLType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ASLType</span><span class="p">:</span> <span class="kt">UInt32</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:iC12CleanroomASL9ASLObject9subscriptFOS_15ASLAttributeKeyGSqSS_"></a>
+                    <a name="//apple_ref/swift/Method/subscript(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:iC12CleanroomASL9ASLObject9subscriptFOS_15ASLAttributeKeyGSqSS_">subscript(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows ASL object attributes to be retrieved and set via the subscripting
+notation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">ASLAttributeKey</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The attribute key.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The value associated with <code>key</code>, or <code>nil</code> if there isn&rsquo;t one.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:iC12CleanroomASL9ASLObject9subscriptFVs6UInt32GSqSS_"></a>
+                    <a name="//apple_ref/swift/Method/subscript(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:iC12CleanroomASL9ASLObject9subscriptFVs6UInt32GSqSS_">subscript(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows the keys of ASL object attributes to retrieved using the attribute&rsquo;s
+index.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">subscript</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The (zero-based) attribute index.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The key associated with the attribute at <code>index</code>, or <code>nil</code> if <code>index</code> is greater than the number of attributes.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12CleanroomASL9ASLObject4typeOS0_7ASLType"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12CleanroomASL9ASLObject4typeOS0_7ASLType">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates the <code><a href="../Classes/ASLObject/ASLType.html">ASLType</a></code> represented by the receiver.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">ASLType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12CleanroomASL9ASLObject9aslObjectVs14COpaquePointer"></a>
+                    <a name="//apple_ref/swift/Property/aslObject" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12CleanroomASL9ASLObject9aslObjectVs14COpaquePointer">aslObject</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the underlying <code><a href="../Extensions/asl_object_t.html">asl_object_t</a></code> represented by the receiver. 
+You can use this for direct, low-level access to the Apple System Log
+API.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">aslObject</span><span class="p">:</span> <span class="k">as</span><span class="n">l_object_t</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12CleanroomASL9ASLObject15countAttributesFT_Vs6UInt32"></a>
+                    <a name="//apple_ref/swift/Method/countAttributes()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12CleanroomASL9ASLObject15countAttributesFT_Vs6UInt32">countAttributes()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Counts the number of ASL object attributes contained by the receiver.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">countAttributes</span><span class="p">()</span>
+        <span class="o">-&gt;</span> <span class="kt">UInt32</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The number of attributes.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
