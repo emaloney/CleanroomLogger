@@ -53,7 +53,7 @@ public struct ASLLogRecorder: LogRecorder
     {
         self.client = ASLClient(useRawStdErr: echoToStdErr)
         self.formatters = [XcodeLogFormatter()]
-        self.logLevelTranslator = { _ in return .warning }
+        self.logLevelTranslator = { _ in return .Warning }
     }
 
     /**
@@ -74,7 +74,7 @@ public struct ASLLogRecorder: LogRecorder
     {
         self.client = ASLClient(useRawStdErr: echoToStdErr)
         self.formatters = [formatter]
-        self.logLevelTranslator = { _ in return .warning }
+        self.logLevelTranslator = { _ in return .Warning }
     }
 
     /**
@@ -97,7 +97,7 @@ public struct ASLLogRecorder: LogRecorder
     {
         self.client = ASLClient(useRawStdErr: echoToStdErr)
         self.formatters = formatters
-        self.logLevelTranslator = { _ in return .warning }
+        self.logLevelTranslator = { _ in return .Warning }
     }
 
     /**
