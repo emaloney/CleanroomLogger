@@ -5,6 +5,7 @@
 # Xcode
 #
 build/
+Carthage/Checkout
 *.pbxuser
 !default.pbxuser
 *.mode1v3
