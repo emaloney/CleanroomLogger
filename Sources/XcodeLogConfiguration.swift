@@ -125,7 +125,7 @@ public class XcodeLogConfiguration: BasicLogConfiguration
      */
     public convenience init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, colorizer: TextColorizer? = XcodeColorsTextColorizer(), colorTable: ColorTable? = nil, filters: [LogFilter] = [], formatter: LogFormatter)
     {
-        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, filters: filters, formatters: [formatter])
+        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, colorizer: colorizer, colorTable: colorTable, filters: filters, formatters: [formatter])
     }
 
     /**
