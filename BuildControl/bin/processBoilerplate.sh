@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SCRIPT_NAME=$(basename "$0")
-SCRIPT_DIR=$(cd $PWD ; cd `dirname "$0"` ; echo $PWD)
+SCRIPT_DIR=$(cd "$PWD" ; cd `dirname "$0"` ; echo "$PWD")
 
 PLATE_EXECUTABLE=$( which plate )
 if [[ $? != 0 ]]; then
