@@ -41,6 +41,9 @@
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter/Field.html">– Field</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
@@ -86,6 +89,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
@@ -152,6 +158,9 @@
                 <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/LogEntry/Payload.html">– Payload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
@@ -179,7 +188,7 @@
             <h1>ASLLogRecorder</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogRecorder.html">LogRecorder</a></span></code></pre>
 
                 </div>
               </div>
@@ -214,7 +223,7 @@ is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -243,7 +252,7 @@ the <code>ASLPriorityLevel</code> used for a given <code><a href="../Structs/Log
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">LogLevelTranslator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">LogSeverity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ASLPriorityLevel</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">LogLevelTranslator</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ASLPriorityLevel</span></code></pre>
 
                         </div>
                       </div>
@@ -297,7 +306,7 @@ the <code>ASLPriorityLevel</code> used for a given <code><a href="../Structs/Log
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span> <span class="p">{</span> <span class="k">return</span> <span class="n">client</span><span class="o">.</span><span class="n">queue</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span></code></pre>
 
                         </div>
                       </div>
@@ -327,7 +336,7 @@ be used.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">logLevelTranslator</span><span class="p">:</span> <span class="kt">LogLevelTranslator</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">logLevelTranslator</span><span class="p">:</span> <span class="kt"><a href="../Structs/ASLLogRecorder.html#/s:V15CleanroomLogger14ASLLogRecorder18LogLevelTranslator">LogLevelTranslator</a></span></code></pre>
 
                         </div>
                       </div>
@@ -347,7 +356,7 @@ be used.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes an <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> instance to use the <code>DefaultLogFormatter</code>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the <code>DefaultLogFormatter</code>
 implementation for formatting log messages.</p>
 
 <p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
@@ -398,7 +407,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes an <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> instance to use the specified <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the specified <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>
 for formatting log messages.</p>
 
 <p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
@@ -409,7 +418,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt">LogFormatter</span><span class="p">,</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">,</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -462,7 +471,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes an <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> instance to use the specified <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the specified <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>
 for formatting log messages.</p>
 
 <p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
@@ -473,7 +482,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">],</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">],</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -526,7 +535,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> instance to use the specified
+                        <p>Initializes a new <code>ASLLogRecorder</code> instance to use the specified
 <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> for formatting log entries.</p>
 
                       </div>
@@ -534,7 +543,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">logLevelTranslator</span> <span class="nv">translator</span><span class="p">:</span> <span class="kt">LogLevelTranslator</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">],</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n"><a href="../Structs/ASLLogRecorder.html#/s:vV15CleanroomLogger14ASLLogRecorder18logLevelTranslatorERR">logLevelTranslator</a></span> <span class="nv">translator</span><span class="p">:</span> <span class="kt"><a href="../Structs/ASLLogRecorder.html#/s:V15CleanroomLogger14ASLLogRecorder18LogLevelTranslator">LogLevelTranslator</a></span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">],</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -614,7 +623,7 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -686,7 +695,7 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
         </section>
         <section id="footer">
           <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
