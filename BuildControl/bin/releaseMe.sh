@@ -6,6 +6,8 @@
 # by emaloney, 7 June 2015
 #
 
+set -o pipefail		# to ensure xcodebuild pipeline errors are propagated correctly
+
 SCRIPT_NAME=$(basename "$0")
 SCRIPT_DIR=$(cd "$PWD" ; cd `dirname "$0"` ; echo "$PWD")
 
@@ -45,6 +47,9 @@ showHelp()
 	echo
 	printf "\t\t--skip-docs\n"
 	printf "\t\t\tSkips generating the documentation\n"
+	echo
+	printf "\t\t--skip-tests\n"
+	printf "\t\t\tSkips running the unit tests :-(\n"
 	echo
 	printf "\t\t--untag <version>\n"
 	printf "\t\t\tRemove the repo tags for <version>\n"
@@ -287,6 +292,10 @@ while [[ $1 ]]; do
 		SKIP_DOCUMENTATION=1
 		;;
 		
+	--skip-tests)
+		SKIP_TESTS=1
+		;;
+		
 	--dry-run)
 		DRY_RUN_MODE=1
 		;;
@@ -438,20 +447,31 @@ if [[ ! -x "$XCODEBUILD" ]]; then
 fi
 
 #
+# use xcpretty if it is available
+#
+XCODEBUILD_PIPETO=""
+XCPRETTY=`which xcpretty`
+if [[ $? == 0 ]]; then
+	XCODEBUILD_PIPETO="| $XCPRETTY"
+fi
+
+#
 # build each scheme we can find
 #
 xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" | while read SCHEME
 do
 	updateStatus "Building: $SCHEME..."
-	executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean build"
+	executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean build $XCODEBUILD_PIPETO"
 done
 
-xcodebuild -list | grep "\s${REPO_NAME}" | grep UnitTests | sort | uniq | sed "s/^[ \t]*//" | while read TARGET
-do
-	SCHEME=$(echo "$TARGET" | sed sqUnitTestsqq)
-	updateStatus "Executing unit tests: $TARGET for $SCHEME..."
-	executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean test"
-done
+if [[ ! $SKIP_TESTS ]]; then
+	xcodebuild -list | grep "\s${REPO_NAME}" | grep UnitTests | sort | uniq | sed "s/^[ \t]*//" | while read TARGET
+	do
+		SCHEME=$(echo "$TARGET" | sed sqUnitTestsqq)
+		updateStatus "Executing unit tests: $TARGET for $SCHEME..."
+		executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean test $XCODEBUILD_PIPETO"
+	done
+fi
 
 updateStatus "Adjusting version numbers"
 executeCommand "$PLIST_BUDDY \"$FRAMEWORK_PLIST_PATH\" -c \"Set :CFBundleShortVersionString $VERSION\""

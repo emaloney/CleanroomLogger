@@ -21,3 +21,4 @@ DerivedData
 *.ipa
 *.xcuserstate
 *.xcscmblueprint
+Carthage/
