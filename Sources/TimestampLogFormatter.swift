@@ -28,7 +28,7 @@ public enum TimestampStyle
 
 extension TimestampStyle
 {
-    private var dateFormat: String? {
+    fileprivate var dateFormat: String? {
         switch self {
         case .default:          return "yyyy-MM-dd HH:mm:ss.SSS zzz"
         case .unix:             return nil
@@ -36,7 +36,7 @@ extension TimestampStyle
         }
     }
 
-    private var formatter: DateFormatter? {
+    fileprivate var formatter: DateFormatter? {
         guard let format = dateFormat else {
             return nil
         }
@@ -46,7 +46,7 @@ extension TimestampStyle
         return formatter
     }
 
-    private func stringFromDate(_ date: Date, usingFormatter formatter: DateFormatter?)
+    fileprivate func stringFromDate(_ date: Date, usingFormatter formatter: DateFormatter?)
         -> String
     {
         switch self {

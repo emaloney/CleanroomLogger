@@ -16,15 +16,15 @@ import Foundation
  the log directory specified by its `directoryPath` property. Please see the
  initializer documentation for details.
 */
-public class RotatingLogFileRecorder: LogRecorderBase
+open class RotatingLogFileRecorder: LogRecorderBase
 {
     /** The number of days for which the receiver will retain log files
      before they're eligible for pruning. */
-    public let daysToKeep: Int
+    open let daysToKeep: Int
 
     /** The filesystem path to a directory where the log files will be
      stored. */
-    public let directoryPath: String
+    open let directoryPath: String
 
     private static let filenameFormatter: DateFormatter = {
         let fmt = DateFormatter()
@@ -73,13 +73,13 @@ public class RotatingLogFileRecorder: LogRecorderBase
 
      - returns: The filename.
     */
-    public class func logFilename(forDate date: Date)
+    open class func logFilename(forDate date: Date)
         -> String
     {
         return filenameFormatter.string(from: date)
     }
 
-    private class func fileLogRecorder(date: Date, directoryPath: String, formatters: [LogFormatter])
+    private class func fileLogRecorder(_ date: Date, directoryPath: String, formatters: [LogFormatter])
         -> FileLogRecorder?
     {
         let fileName = logFilename(forDate: date)
@@ -87,17 +87,17 @@ public class RotatingLogFileRecorder: LogRecorderBase
         return FileLogRecorder(filePath: filePath, formatters: formatters)
     }
 
-    private func fileLogRecorder(date: Date)
+    private func fileLogRecorder(_ date: Date)
         -> FileLogRecorder?
     {
-        return self.dynamicType.fileLogRecorder(date: date, directoryPath: directoryPath, formatters: formatters)
+        return type(of: self).fileLogRecorder(date, directoryPath: directoryPath, formatters: formatters)
     }
 
     private func isDate(_ firstDate: Date, onSameDayAs secondDate: Date)
         -> Bool
     {
-        let firstDateStr = self.dynamicType.logFilename(forDate: firstDate)
-        let secondDateStr = self.dynamicType.logFilename(forDate: secondDate)
+        let firstDateStr = type(of: self).logFilename(forDate: firstDate)
+        let secondDateStr = type(of: self).logFilename(forDate: secondDate)
         return firstDateStr == secondDateStr
     }
 
@@ -107,7 +107,7 @@ public class RotatingLogFileRecorder: LogRecorderBase
      
      - throws: If the function fails to create a directory at `directoryPath`.
      */
-    public func createLogDirectory()
+    open func createLogDirectory()
         throws
     {
         let url = URL(fileURLWithPath: directoryPath, isDirectory: true)
@@ -131,11 +131,11 @@ public class RotatingLogFileRecorder: LogRecorderBase
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
+    open override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         if mostRecentLogTime == nil || !self.isDate(entry.timestamp as Date, onSameDayAs: mostRecentLogTime!) {
             prune()
-            currentFileRecorder = fileLogRecorder(date: entry.timestamp)
+            currentFileRecorder = fileLogRecorder(entry.timestamp)
         }
         mostRecentLogTime = entry.timestamp as Date
 
@@ -149,16 +149,16 @@ public class RotatingLogFileRecorder: LogRecorderBase
      - warning: Any file within the `directoryPath` not recognized as an active
      log file will be deleted during pruning.
     */
-    public func prune()
+    open func prune()
     {
         // figure out what files we'd want to keep, then nuke everything else
         let cal = Calendar.current
         var date = Date()
         var filesToKeep = Set<String>()
         for _ in 0..<daysToKeep {
-            let filename = self.dynamicType.logFilename(forDate: date)
+            let filename = type(of: self).logFilename(forDate: date)
             filesToKeep.insert(filename)
-            date = cal.date(byAdding: .day, value: -1, to: date, options: .wrapComponents)!
+            date = cal.date(byAdding: .day, value: -1, to: date, wrappingComponents: true)!
         }
 
         do {

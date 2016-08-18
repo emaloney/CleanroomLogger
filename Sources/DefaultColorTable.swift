@@ -45,11 +45,11 @@ public struct DefaultColorTable: ColorTable
         -> Color?
     {
         switch severity {
-        case .verbose:      return self.dynamicType.verboseColor
-        case .debug:        return self.dynamicType.debugColor
-        case .info:         return self.dynamicType.infoColor
-        case .warning:      return self.dynamicType.warningColor
-        case .error:        return self.dynamicType.errorColor
+        case .verbose:      return type(of: self).verboseColor
+        case .debug:        return type(of: self).debugColor
+        case .info:         return type(of: self).infoColor
+        case .warning:      return type(of: self).warningColor
+        case .error:        return type(of: self).errorColor
         }
     }
 }

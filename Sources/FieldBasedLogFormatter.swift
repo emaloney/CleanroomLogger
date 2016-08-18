@@ -27,7 +27,7 @@
                                                  .Payload])
  ```
  */
-public class FieldBasedLogFormatter: ConcatenatingLogFormatter
+open class FieldBasedLogFormatter: ConcatenatingLogFormatter
 {
     /**
      The individual `Field` declarations for the `FieldBasedLogFormatter`.
@@ -69,7 +69,7 @@ public class FieldBasedLogFormatter: ConcatenatingLogFormatter
          `LogFormatter`. */
         case custom(LogFormatter)
 
-        private func createLogFormatter()
+        fileprivate func createLogFormatter()
             -> LogFormatter
         {
             switch self {

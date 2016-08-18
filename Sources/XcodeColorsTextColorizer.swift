@@ -69,21 +69,21 @@ public struct XcodeColorsTextColorizer: TextColorizer
     }
 }
 
-extension Color
+fileprivate extension Color
 {
     /// A comma-separated string representation of the red, green and blue
     /// components of the color in base-10 integers.
-    private var xcodeColorsString: String {
+    var xcodeColorsString: String {
         return "\(r),\(g),\(b)"
     }
 
     /// An XcodeColors-style string representation usable as a foreground color.
-    private var xcodeColorsForegroundString: String {
+    var xcodeColorsForegroundString: String {
         return "fg\(xcodeColorsString)"
     }
 
     /// An XcodeColors-style string representation usable as a background color.
-    private var xcodeColorsBackgroundString: String {
+    var xcodeColorsBackgroundString: String {
         return "bg\(xcodeColorsString)"
     }
 }

@@ -19,7 +19,7 @@
  
  These defaults can be overridden during instantiation.
  */
-public class ParsableLogFormatter: StandardLogFormatter
+open class ParsableLogFormatter: StandardLogFormatter
 {
     /**
      Initializes a new `ParsableLogFormatter` instance.

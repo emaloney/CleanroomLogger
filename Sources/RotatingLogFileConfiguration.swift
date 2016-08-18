@@ -10,11 +10,11 @@
  A `LogConfiguration` that uses an underlying `RotatingLogFileRecorder` to
  maintain a directory of log files that are rotated on a daily basis.
  */
-public class RotatingLogFileConfiguration: BasicLogConfiguration
+open class RotatingLogFileConfiguration: BasicLogConfiguration
 {
     /** The filesystem path to a directory where the log files will be
      stored. */
-    public var directoryPath: String {
+    open var directoryPath: String {
         return logFileRecorder.directoryPath
     }
 
@@ -70,7 +70,7 @@ public class RotatingLogFileConfiguration: BasicLogConfiguration
 
      - throws: If the function fails to create a directory at `directoryPath`.
      */
-    public func createLogDirectory()
+    open func createLogDirectory()
         throws
     {
         try logFileRecorder.createLogDirectory()

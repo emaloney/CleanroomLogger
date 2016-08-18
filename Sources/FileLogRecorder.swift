@@ -18,10 +18,10 @@ import Dispatch
  file. Use a `RotatingLogFileRecorder` instead if you'd rather not have to
  concern yourself with such details.
  */
-public class FileLogRecorder: LogRecorderBase
+open class FileLogRecorder: LogRecorderBase
 {
     /** The path of the file to which log entries will be written. */
-    public let filePath: String
+    open let filePath: String
 
     private let file: UnsafeMutablePointer<FILE>?
     private let newlines: [Character] = ["\n", "\r"]
@@ -79,7 +79,7 @@ public class FileLogRecorder: LogRecorderBase
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
+    open override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         var addNewline = true
         let chars = message.characters

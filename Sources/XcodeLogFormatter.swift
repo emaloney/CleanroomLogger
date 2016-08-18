@@ -20,7 +20,7 @@
 
  These defaults can be overridden during instantiation.
  */
-public class XcodeLogFormatter: StandardLogFormatter
+open class XcodeLogFormatter: StandardLogFormatter
 {
     /**
      Initializes a new `XcodeLogFormatter` instance.

@@ -57,9 +57,9 @@ public enum SeverityStyle
     case custom(textRepresentation: TextRepresentation, truncateAtWidth: Int?, padToWidth: Int?, rightAlign: Bool)
 }
 
-extension SeverityStyle
+fileprivate extension SeverityStyle
 {
-    private var textRepresentation: TextRepresentation {
+    var textRepresentation: TextRepresentation {
         switch self {
         case .simple:                       return .capitalized
         case .xcode:                        return .uppercase
@@ -68,14 +68,14 @@ extension SeverityStyle
         }
     }
 
-    private var truncateAtWidth: Int? {
+    var truncateAtWidth: Int? {
         switch self {
         case .custom(_, let trunc, _, _):   return trunc
         default:                            return nil
         }
     }
 
-    private var padToWidth: Int? {
+    var padToWidth: Int? {
         switch self {
         case .xcode:                        return 7
         case .custom(_, _, let pad, _):     return pad
@@ -83,7 +83,7 @@ extension SeverityStyle
         }
     }
 
-    private var rightAlign: Bool {
+    var rightAlign: Bool {
         switch self {
         case .xcode:                        return true
         case .custom(_, _, _, let right):   return right
@@ -92,9 +92,9 @@ extension SeverityStyle
     }
 }
 
-extension SeverityStyle.TextRepresentation
+fileprivate extension SeverityStyle.TextRepresentation
 {
-    private func formatSeverity(_ severity: LogSeverity)
+    func formatSeverity(_ severity: LogSeverity)
         -> String
     {
         switch self {

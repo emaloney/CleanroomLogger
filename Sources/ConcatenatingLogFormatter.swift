@@ -10,10 +10,10 @@
  The `ConcatenatingLogFormatter` lets you combine the output of multiple
  `LogFormatter`s by contatenating their output and returning the result.
  */
-public class ConcatenatingLogFormatter: LogFormatter
+open class ConcatenatingLogFormatter: LogFormatter
 {
     /** The `LogFormatter`s whose output will be concatenated. */
-    public let formatters: [LogFormatter]
+    open let formatters: [LogFormatter]
 
     /**
      Initializes a new `ConcatenatingLogFormatter` instance.
@@ -35,7 +35,7 @@ public class ConcatenatingLogFormatter: LogFormatter
      - returns: The formatted result, or `nil` if none of the receiver's
      `formatters` returned a non-`nil` value when formatting `entry`.
      */
-    public func format(_ entry: LogEntry)
+    open func format(_ entry: LogEntry)
         -> String?
     {
         let formatted = formatters.flatMap{ $0.format(entry) }

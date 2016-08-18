@@ -40,7 +40,7 @@ public final class LogReceptacle
     {
         let configs = configuration.flatMap{ $0.flatten() }
 
-        self.minimumSeverity = configs.map{ $0.minimumSeverity }.reduce(.error, combine: { $0 < $1 ? $0 : $1 })
+        self.minimumSeverity = configs.map{ $0.minimumSeverity }.reduce(.error, { $0 < $1 ? $0 : $1 })
 
         self.configuration = configs
     }
@@ -64,7 +64,7 @@ public final class LogReceptacle
         syncConfigs.forEach{ logEntry(entry, usingConfiguration: $0) }
     }
 
-    private lazy var acceptQueue: DispatchQueue = DispatchQueue(label: "LogReceptacle.acceptQueue", attributes: DispatchQueueAttributes.serial)
+    private lazy var acceptQueue: DispatchQueue = DispatchQueue(label: "LogReceptacle.acceptQueue", attributes: [])
 
     private func logEntry(_ entry: LogEntry, usingConfiguration config: LogConfiguration)
     {
@@ -99,9 +99,9 @@ public final class LogReceptacle
     }
 
     private func dispatcherForQueue(_ queue: DispatchQueue, synchronous: Bool)
-        -> (() -> Void) -> Void
+        -> (@escaping () -> Void) -> Void
     {
-        let dispatcher: (() -> Void) -> Void = { block in
+        let dispatcher: (@escaping () -> Void) -> Void = { block in
             if synchronous {
                 return queue.sync(execute: block)
             } else {

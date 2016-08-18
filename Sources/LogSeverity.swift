@@ -44,11 +44,11 @@ extension LogSeverity: CustomStringConvertible
     /** Returns a human-readable textual representation of the receiver. */
     public var description: String {
         switch self {
-        case verbose:   return "Verbose"
-        case debug:     return "Debug"
-        case info:      return "Info"
-        case warning:   return "Warning"
-        case error:     return "Error"
+        case .verbose:   return "Verbose"
+        case .debug:     return "Debug"
+        case .info:      return "Info"
+        case .warning:   return "Warning"
+        case .error:     return "Error"
         }
     }
 }

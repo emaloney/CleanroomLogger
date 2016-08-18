@@ -12,7 +12,7 @@ import Dispatch
 The `StandardOutputLogRecorder` logs messages by writing to the standard output
 stream of the running process.
 */
-public class StandardOutputLogRecorder: LogRecorderBase
+open class StandardOutputLogRecorder: LogRecorderBase
 {
     /**
     Initializes a `StandardOutputLogRecorder` instance to use the
@@ -63,7 +63,7 @@ public class StandardOutputLogRecorder: LogRecorderBase
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
+    open override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         print(message)
     }

@@ -9,7 +9,7 @@
 /**
  A standard `LogFormatter` that provides some common customization points.
  */
-public class StandardLogFormatter: FieldBasedLogFormatter
+open class StandardLogFormatter: FieldBasedLogFormatter
 {
     /**
      Initializes a new `StandardLogFormatter` instance.

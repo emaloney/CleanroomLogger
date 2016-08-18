@@ -11,15 +11,15 @@ import Dispatch
 /**
  A partial implementation of the `LogRecorder` protocol.
  */
-public class LogRecorderBase: LogRecorder
+open class LogRecorderBase: LogRecorder
 {
     /** The `LogFormatter`s that will be used to format messages for the
      `LogEntry`s to be logged. */
-    public let formatters: [LogFormatter]
+    open let formatters: [LogFormatter]
 
     /** The GCD queue that should be used for logging actions related to the
      receiver. */
-    public let queue: DispatchQueue
+    open let queue: DispatchQueue
 
     /**
      Initialize a new `LogRecorderBase` instance.
@@ -33,7 +33,7 @@ public class LogRecorderBase: LogRecorder
     public init(formatters: [LogFormatter])
     {
         self.formatters = formatters
-        self.queue = DispatchQueue(label: "\(self.dynamicType)", attributes: DispatchQueueAttributes.serial)
+        self.queue = DispatchQueue(label: "\(type(of: self))", attributes: [])
     }
 
     /**
@@ -54,7 +54,7 @@ public class LogRecorderBase: LogRecorder
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
     */
-    public func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
+    open func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
     }
 }
