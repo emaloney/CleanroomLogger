@@ -11,12 +11,12 @@ CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Clean
 
 ### Swift compatibility
 
-The [`master`](https://github.com/emaloney/CleanroomLogger) branch of this project is **Swift 2.2 compliant** and therefore **requires Xcode 7.3 or higher** to compile.
+This is the `master` branch. It uses **Swift 2.2** and **requires Xcode 7.3** (or higher) to compile.
 
 2 other branches are also available:
 
- - The [`swift2.3`](https://github.com/emaloney/CleanroomLogger/tree/swift2.3) branch uses **Swift 2.3**, requiring Xcode 8.0
- - The [`swift3`](https://github.com/emaloney/CleanroomLogger/tree/swift3) branch uses **Swift 3.0**, requiring Xcode 8.0
+- The [`swift2.3`](https://github.com/emaloney/CleanroomLogger/tree/swift2.3) branch uses **Swift 2.3**, requiring Xcode 8.0 beta 6
+- The [`swift3`](https://github.com/emaloney/CleanroomLogger/tree/swift3) branch uses **Swift 3.0**, requiring Xcode 8.0 beta 6
 
 
 #### Current status
@@ -447,7 +447,7 @@ Although there are many good reasons why global state is to be generally avoided
 
 The Cleanroom Project began as an experiment to re-imagine Gilt’s iOS codebase in a legacy-free, Swift-based incarnation.
 
-Since then, we’ve expanded the Cleanroom Project to include multi-platform support. Much of our codebase now supports tvOS in addition to iOS, and our lower-level code is usable on Mac OS X and watchOS as well.
+Since then, we’ve expanded the Cleanroom Project to include multi-platform support. Much of our codebase now supports tvOS in addition to iOS, and our lower-level code is usable on macOS and watchOS as well.
 
 Cleanroom Project code serves as the foundation of Gilt on TV, our tvOS app [featured by Apple during the launch of the new Apple TV](http://www.apple.com/apple-events/september-2015/). And as time goes on, we'll be replacing more and more of our existing Objective-C codebase with Cleanroom implementations.
 

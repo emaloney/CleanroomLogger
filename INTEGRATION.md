@@ -8,14 +8,14 @@ This document describes how to integrate CleanroomLogger into your application.
 
 CleanroomLogger is built as a *Swift framework*, and as such, it has the following base platform requirements:
 
-Platform|Minimum OS version
---------|------------------------
-Apple TV|tvOS 9.0
-Apple Watch|watchOS 2.0
-iPhone/iPad|iOS 8.0
-Mac|OS X 10.10
+Platform|Latest supported OS|Oldest supported OS
+--------|-------------------|-------------------
+iPhone/iPad|iOS 9.3|iOS 8.0
+Macintosh|macOS 10.11|macOS 10.10
+Apple TV|tvOS 9.2|tvOS 9.0
+Apple Watch|watchOS 2.2|watchOS 2.0
 
-CleanroomLogger is **Swift 2.2 compliant** and therefore **requires Xcode 7.3 or higher** to compile.
+CleanroomLogger uses **Swift 2.2** and **requires Xcode 7.3** (or higher) to compile.
 
 ### Contents
 
@@ -27,7 +27,7 @@ CleanroomLogger is **Swift 2.2 compliant** and therefore **requires Xcode 7.3 or
 
 Some familiarity with the Terminal application, the bash command line, and the `git` command is assumed.
 
-The steps below have been tested with **git 2.6.4 (Apple Git-63)**, although they should be compatible with a wide range of recent git versions.
+The steps below have been tested with **git 2.7.4 (Apple Git-66)**, although they should be compatible with a wide range of recent git versions.
 
 
 ### Of Frameworks and Simulators
@@ -54,7 +54,7 @@ Whether you choose one over the other largely depends on your preferences and—
 
 ## Carthage Integration
 
-Carthage is a third-party package dependency manager for iOS and Mac OS X. Carthage works by building frameworks for each of a project’s dependencies.
+Carthage is a third-party package dependency manager for Apple platforms. Carthage works by building frameworks for each of a project’s dependencies.
 
 ### Verifying Carthage availability
 
@@ -66,7 +66,7 @@ carthage version
 
 If Carthage is available, the version you have installed will be shown.
 
-> As of this writing, the current version of Carthage is 0.15.2.
+> As of this writing, the current version of Carthage is 0.17.2.
 
 If Carthage is not present, you will see an error that looks like:
 
@@ -89,7 +89,7 @@ Carthage integration is a little simpler than manual integration:
 1. Update the `Cartfile` with an entry for CleanroomLogger
 2. Download and build CleanroomLogger
 3. Add `CleanroomLogger.framework` and `CleanroomASL.framework` to your application target
-4. Create a build phase to strip the extra processor architectures from the Carthage frameworks (not necessary for Mac OS X builds)
+4. Create a build phase to strip the extra processor architectures from the Carthage frameworks (not necessary for macOS builds)
 
 ### Getting Started
 
@@ -113,10 +113,10 @@ To speed up the build process—and to avoid trying to build for a platform that
 
 To build for|Run the command
 --------|------------------------
+iPhone/iPad|`carthage update --platform ios`
+Macintosh|`carthage update --platform mac`
 Apple TV|`carthage update --platform tvos`
 Apple Watch|`carthage update --platform watchos`
-iPhone/iPad|`carthage update --platform ios`
-Mac|`carthage update --platform mac`
 
 #### Where Carthage stores files
 
@@ -130,7 +130,7 @@ Once Carthage is done building CleanroomLogger and its dependencies, you can use
 open Carthage/Build/iOS
 ```
 
-The command above opens the directory containing the iOS framework binaries; to locate the Mac OS X binaries, execute:
+The command above opens the directory containing the iOS framework binaries; to locate the macOS binaries, execute:
 
 ```bash
 open Carthage/Build/Mac
@@ -153,7 +153,7 @@ If successful, you should see `CleanroomLogger.framework` and `CleanroomASL.fram
 
 ### 4. Create a build phase to strip the Carthage frameworks
 
-> **Note:** You do *not* need to perform this step when building for Mac OS X. This step is only necessary when building for targets that can be run in a simulator.
+> **Note:** You do *not* need to perform this step when building for macOS. This step is only necessary when building for targets that can be run in a simulator.
 
 In Xcode, select the *Build Phases* tab in the build settings for your application target.
 
