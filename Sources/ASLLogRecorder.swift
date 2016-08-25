@@ -10,18 +10,18 @@ import Dispatch
 import CleanroomASL
 
 /**
-The `ASLLogRecorder` is an implemention of the `LogRecorder` protocol that
-records log entries to the Apple System Log (ASL) facility.
+ The `ASLLogRecorder` is an implemention of the `LogRecorder` protocol that
+ records log entries to the Apple System Log (ASL) facility.
 
-Unless a `LogLevelTranslator` is specified during construction, the
-`ASLLogRecorder` will record log messages using `ASL_LEVEL_WARNING`. This
-is consistent with the behavior of `NSLog()`.
-*/
+ Unless a `LogLevelTranslator` is specified during construction, the
+ `ASLLogRecorder` will record log messages using `ASL_LEVEL_WARNING`. This
+ is consistent with the behavior of `NSLog()`.
+ */
 public struct ASLLogRecorder: LogRecorder
 {
     /** Defines the interface of a function that translates `LogSeverity`
-    values into `ASLPriorityLevel` values. This function is used to determine
-    the `ASLPriorityLevel` used for a given `LogEntry`. */
+     values into `ASLPriorityLevel` values. This function is used to determine
+     the `ASLPriorityLevel` used for a given `LogEntry`. */
     public typealias LogLevelTranslator = (LogSeverity) -> ASLPriorityLevel
 
     /** The `LogFormatter`s to be used in conjunction with the receiver. */
@@ -34,21 +34,21 @@ public struct ASLLogRecorder: LogRecorder
     public var queue: dispatch_queue_t { return client.queue }
 
     /** The `LogLevelTranslator` function used by the receiver to convert
-    `LogSeverity` values to `ASLPriorityLevel` values. If one was not
-    explicitly provided at instantiation, a default implementation will
-    be used. */
+     `LogSeverity` values to `ASLPriorityLevel` values. If one was not
+     explicitly provided at instantiation, a default implementation will
+     be used. */
     public let logLevelTranslator: LogLevelTranslator
 
     /**
-    Initializes an `ASLLogRecorder` instance to use the `DefaultLogFormatter`
-    implementation for formatting log messages.
-    
-    Within ASL, log messages will be recorded at the `.Warning` priority
-    level, which is consistent with the behavior of `NSLog()`.
+     Initializes an `ASLLogRecorder` instance to use the `DefaultLogFormatter`
+     implementation for formatting log messages.
 
-    - parameter echoToStdErr: If `true`, ASL will also echo log messages to
-                the calling process's `stderr` output stream.
-    */
+     Within ASL, log messages will be recorded at the `.Warning` priority
+     level, which is consistent with the behavior of `NSLog()`.
+
+     - parameter echoToStdErr: If `true`, ASL will also echo log messages to
+     the calling process's `stderr` output stream.
+     */
     public init(echoToStdErr: Bool = true)
     {
         self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
