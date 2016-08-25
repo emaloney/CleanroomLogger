@@ -41,11 +41,11 @@ class LoggingTests: XCTestCase
         var gotFinalResult = false
 
         var remainingToFind = Set<String>([
-            "|   ERROR | LoggingTests.swift:23 - Logging an error message",
-            "| WARNING | LoggingTests.swift:24 - Logging a warning message",
-            "|    INFO | LoggingTests.swift:25 - Logging an info message",
-            "|   DEBUG | LoggingTests.swift:26 - Logging a debug message",
-            "| VERBOSE | LoggingTests.swift:27 - Logging a verbose message"])
+            "|   ERROR | LoggingTests.swift:22 - Logging an error message",
+            "| WARNING | LoggingTests.swift:23 - Logging a warning message",
+            "|    INFO | LoggingTests.swift:24 - Logging an info message",
+            "|   DEBUG | LoggingTests.swift:25 - Logging a debug message",
+            "| VERBOSE | LoggingTests.swift:26 - Logging a verbose message"])
 
         client.search(query) { result in
 
