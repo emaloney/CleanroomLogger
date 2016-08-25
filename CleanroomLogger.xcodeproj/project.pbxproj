@@ -22,6 +22,9 @@
 		3B45ADB11C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */; };
 		3B45ADB21C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */; };
 		3B45ADB31C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */; };
+		3B515C041D6E745F0068A72B /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B515C031D6E745F0068A72B /* LoggingTests.swift */; };
+		3B515C051D6E745F0068A72B /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B515C031D6E745F0068A72B /* LoggingTests.swift */; };
+		3B515C061D6E745F0068A72B /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B515C031D6E745F0068A72B /* LoggingTests.swift */; };
 		3B525E421C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */; };
 		3B525E431C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */; };
 		3B525E441C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */; };
@@ -300,6 +303,7 @@
 		3B38DBE21BA76428000986DF /* tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
 		3B38DBE31BA76428000986DF /* watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = watchOS.xcconfig; sourceTree = "<group>"; };
 		3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldBasedLogFormatter.swift; sourceTree = "<group>"; };
+		3B515C031D6E745F0068A72B /* LoggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTests.swift; sourceTree = "<group>"; };
 		3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLogFileConfiguration.swift; sourceTree = "<group>"; };
 		3B6014801C24C073002652B3 /* ASLLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLLogRecorder.swift; sourceTree = "<group>"; };
 		3B6014811C24C073002652B3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -495,6 +499,7 @@
 		3BACAC021BA9BB88009E7A3E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3B515C031D6E745F0068A72B /* LoggingTests.swift */,
 				3BACAC031BA9BB88009E7A3E /* LogSeverityTests.swift */,
 			);
 			path = Tests;
@@ -945,6 +950,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BACAC041BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */,
+				3B515C041D6E745F0068A72B /* LoggingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,6 +1003,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BACAC051BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */,
+				3B515C051D6E745F0068A72B /* LoggingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1049,6 +1056,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BACAC061BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */,
+				3B515C061D6E745F0068A72B /* LoggingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
