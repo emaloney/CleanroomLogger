@@ -51,7 +51,7 @@ public struct ASLLogRecorder: LogRecorder
     */
     public init(echoToStdErr: Bool = true)
     {
-        self.client = ASLClient(useRawStdErr: echoToStdErr)
+        self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = [XcodeLogFormatter()]
         self.logLevelTranslator = { _ in return .warning }
     }
@@ -72,7 +72,7 @@ public struct ASLLogRecorder: LogRecorder
      */
     public init(formatter: LogFormatter, echoToStdErr: Bool = true)
     {
-        self.client = ASLClient(useRawStdErr: echoToStdErr)
+        self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = [formatter]
         self.logLevelTranslator = { _ in return .warning }
     }
@@ -95,7 +95,7 @@ public struct ASLLogRecorder: LogRecorder
      */
     public init(formatters: [LogFormatter], echoToStdErr: Bool = true)
     {
-        self.client = ASLClient(useRawStdErr: echoToStdErr)
+        self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = formatters
         self.logLevelTranslator = { _ in return .warning }
     }
@@ -118,7 +118,7 @@ public struct ASLLogRecorder: LogRecorder
      */
     public init(logLevelTranslator translator: LogLevelTranslator, formatters: [LogFormatter], echoToStdErr: Bool = true)
     {
-        self.client = ASLClient(useRawStdErr: echoToStdErr)
+        self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = formatters
         self.logLevelTranslator = translator
     }
