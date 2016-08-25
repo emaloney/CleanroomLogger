@@ -28,14 +28,14 @@ class LoggingTests: XCTestCase
         let client = ASLClient()
 
         let query = ASLQueryObject()
-        query.setQueryKey(.facility, value: "com.gilt.CleanroomLogger", operation: .equalTo, modifiers: .none)
-        query.setQueryKey(.message, value: nil, operation: .keyExists, modifiers: .none)
-        query.setQueryKey(.time, value: Int(startTime.timeIntervalSince1970), operation: .greaterThanOrEqualTo, modifiers: .none)
+        query.setQuery(key: .facility, value: "com.gilt.CleanroomLogger", operation: .equalTo, modifiers: .none)
+        query.setQuery(key: .message, value: nil, operation: .keyExists, modifiers: .none)
+        query.setQuery(key: .time, value: Int(startTime.timeIntervalSince1970), operation: .greaterThanOrEqualTo, modifiers: .none)
 
         let signal = NSCondition()
 
         signal.lock()
-        signal.waitUntilDate(NSDate(timeIntervalSinceNow: 1))
+        signal.wait(until: Date(timeIntervalSinceNow: 1))
         signal.unlock()
 
         var gotFinalResult = false
@@ -51,11 +51,11 @@ class LoggingTests: XCTestCase
 
             if let result = result {
                 print("")
-                for key in result.attributes.keys.sort() {
+                for key in result.attributes.keys.sorted() {
                     print("\t\(key): \(result.attributes[key] ?? "(nil)")")
                 }
 
-                let find = (result.message as NSString).substringFromIndex(28)
+                let find = (result.message as NSString).substring(from: 28)
 
                 remainingToFind.remove(find)
             }
