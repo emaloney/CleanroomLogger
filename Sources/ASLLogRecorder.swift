@@ -39,6 +39,8 @@ public struct ASLLogRecorder: LogRecorder
      be used. */
     public let logLevelTranslator: LogLevelTranslator
 
+    private let addTraceAttributes: Bool
+
     /**
      Initializes an `ASLLogRecorder` instance to use the `DefaultLogFormatter`
      implementation for formatting log messages.
@@ -48,12 +50,19 @@ public struct ASLLogRecorder: LogRecorder
 
      - parameter echoToStdErr: If `true`, ASL will also echo log messages to
      the calling process's `stderr` output stream.
+
+     - parameter addTraceAttributes: If `true`, additional program trace
+     attributes will be included in each message logged to ASL. This will
+     include the filesystem path of the source code file, the source code
+     line of the call site, and the stack frame representing the caller.
+     You probably don't want this included in production code.
      */
-    public init(echoToStdErr: Bool = true)
+    public init(echoToStdErr: Bool = true, addTraceAttributes: Bool = false)
     {
         self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = [XcodeLogFormatter()]
         self.logLevelTranslator = { _ in return .warning }
+        self.addTraceAttributes = addTraceAttributes
     }
 
     /**
@@ -69,12 +78,19 @@ public struct ASLLogRecorder: LogRecorder
 
      - parameter echoToStdErr: If `true`, ASL will also echo log messages to
      the calling process's `stderr` output stream.
+
+     - parameter addTraceAttributes: If `true`, additional program trace
+     attributes will be included in each message logged to ASL. This will
+     include the filesystem path of the source code file, the source code
+     line of the call site, and the stack frame representing the caller.
+     You probably don't want this included in production code.
      */
-    public init(formatter: LogFormatter, echoToStdErr: Bool = true)
+    public init(formatter: LogFormatter, echoToStdErr: Bool = true, addTraceAttributes: Bool = false)
     {
         self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = [formatter]
         self.logLevelTranslator = { _ in return .warning }
+        self.addTraceAttributes = addTraceAttributes
     }
 
     /**
@@ -92,12 +108,19 @@ public struct ASLLogRecorder: LogRecorder
 
      - parameter echoToStdErr: If `true`, ASL will also echo log messages to
      the `stderr` output stream of the running process.
+
+     - parameter addTraceAttributes: If `true`, additional program trace
+     attributes will be included in each message logged to ASL. This will
+     include the filesystem path of the source code file, the source code
+     line of the call site, and the stack frame representing the caller.
+     You probably don't want this included in production code.
      */
-    public init(formatters: [LogFormatter], echoToStdErr: Bool = true)
+    public init(formatters: [LogFormatter], echoToStdErr: Bool = true, addTraceAttributes: Bool = false)
     {
         self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = formatters
         self.logLevelTranslator = { _ in return .warning }
+        self.addTraceAttributes = addTraceAttributes
     }
 
     /**
@@ -115,12 +138,19 @@ public struct ASLLogRecorder: LogRecorder
 
      - parameter echoToStdErr: If `true`, ASL will also echo log messages to
      the calling process's `stderr` output stream.
+     
+     - parameter addTraceAttributes: If `true`, additional program trace
+     attributes will be included in each message logged to ASL. This will
+     include the filesystem path of the source code file, the source code
+     line of the call site, and the stack frame representing the caller.
+     You probably don't want this included in production code.
      */
-    public init(logLevelTranslator translator: LogLevelTranslator, formatters: [LogFormatter], echoToStdErr: Bool = true)
+    public init(logLevelTranslator translator: LogLevelTranslator, formatters: [LogFormatter], echoToStdErr: Bool = true, addTraceAttributes: Bool = false)
     {
         self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = formatters
         self.logLevelTranslator = translator
+        self.addTraceAttributes = addTraceAttributes
     }
 
     /**
@@ -141,8 +171,20 @@ public struct ASLLogRecorder: LogRecorder
     */
     public func recordFormattedMessage(message: String, forLogEntry entry: LogEntry, currentQueue: dispatch_queue_t, synchronousMode: Bool)
     {
-        let msgObj = ASLMessageObject(priorityLevel: logLevelTranslator(entry.severity), message: message)
-        client.log(msgObj, logSynchronously: synchronousMode, currentQueue: currentQueue)
+        autoreleasepool {
+
+            let msgObj = ASLMessageObject(priorityLevel: logLevelTranslator(entry.severity), message: message)
+
+            msgObj["CleanroomLogger.severity"] = String(entry.severity.rawValue)
+            msgObj["CleanroomLogger.threadID"] = String(entry.callingThreadID)
+
+            if addTraceAttributes {
+                msgObj["CleanroomLogger.sourceFilePath"] = entry.callingFilePath
+                msgObj["CleanroomLogger.sourceFileLine"] = String(entry.callingFileLine)
+                msgObj["CleanroomLogger.callingStackFrame"] = entry.callingStackFrame
+            }
+
+            client.log(msgObj, logSynchronously: synchronousMode, currentQueue: currentQueue)
+        }
     }
 }
-
