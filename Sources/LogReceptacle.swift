@@ -76,8 +76,14 @@ public final class LogReceptacle
                     let recordDispatcher = self.dispatcherForQueue(recorder.queue, synchronous: synchronous)
                     recordDispatcher {
                         for formatter in recorder.formatters {
-                            if let formatted = formatter.format(entry) {
-                                recorder.record(message: formatted, for: entry, currentQueue: recorder.queue, synchronousMode: synchronous)
+                            var shouldBreak = false
+                            autoreleasepool {
+                                if let formatted = formatter.format(entry) {
+                                    recorder.record(message: formatted, for: entry, currentQueue: recorder.queue, synchronousMode: synchronous)
+                                    shouldBreak = true
+                                }
+                            }
+                            if shouldBreak {
                                 break
                             }
                         }
