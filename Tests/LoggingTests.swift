@@ -9,7 +9,6 @@
 import XCTest
 import Foundation
 import CleanroomASL
-import CleanroomASLUnitTests
 import CleanroomLogger
 
 class LoggingTests: XCTestCase
