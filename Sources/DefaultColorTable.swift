@@ -31,6 +31,9 @@ public struct DefaultColorTable: ColorTable
      for the `.Error` severity. */
     public static let ErrorColor    = Color(r: 0xCC, g: 0x00, b: 0x00)
 
+    /** The constructor. */
+    public init() {}
+
     /**
      Returns the foreground color to use (if any) for colorizing messages
      at the given `LogSeverity`.
