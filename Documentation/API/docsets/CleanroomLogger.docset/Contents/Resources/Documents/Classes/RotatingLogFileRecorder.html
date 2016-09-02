@@ -41,9 +41,6 @@
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/FieldBasedLogFormatter/Field.html">– Field</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
@@ -89,9 +86,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
@@ -158,9 +152,6 @@
                 <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/LogEntry/Payload.html">– Payload</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
@@ -188,7 +179,7 @@
             <h1>RotatingLogFileRecorder</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RotatingLogFileRecorder</span><span class="p">:</span> <span class="kt"><a href="../Classes/LogRecorderBase.html">LogRecorderBase</a></span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">RotatingLogFileRecorder</span><span class="p">:</span> <span class="kt">LogRecorderBase</span></code></pre>
 
                 </div>
               </div>
@@ -276,11 +267,11 @@ initializer documentation for details.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>RotatingLogFileRecorder</code> instance.</p>
+                        <p>Initializes a new <code><a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a></code> instance.</p>
 
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
-    <p>The <code>RotatingLogFileRecorder</code> expects to have full control over
+    <p>The <code><a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a></code> expects to have full control over
 the contents of its <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>. Any file not recognized as an active 
 log file will be deleted during the automatic pruning process, which may
 occur at any time. Therefore, be <strong>extremely careful</strong> when constructing
@@ -293,7 +284,7 @@ the value passed in as the <code><a href="../Classes/RotatingLogFileRecorder.htm
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">daysToKeep</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">directoryPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Classes/ReadableLogFormatter.html">ReadableLogFormatter</a></span><span class="p">()])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">daysToKeep</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">directoryPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">ReadableLogFormatter</span><span class="p">()])</span></code></pre>
 
                         </div>
                       </div>
@@ -428,7 +419,7 @@ by the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLo
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createLogDirectory</span><span class="p">()</span>
-        <span class="k">throws</span></code></pre>
+        <span class="n">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -462,7 +453,7 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -569,7 +560,7 @@ log file will be deleted during pruning.
         </section>
         <section id="footer">
           <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
