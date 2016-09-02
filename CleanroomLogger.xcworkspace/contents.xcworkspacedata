@@ -5,6 +5,6 @@
       location = "group:CleanroomLogger.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Libraries/CleanroomASL/CleanroomASL.xcodeproj">
+      location = "group:Carthage/Checkouts/CleanroomASL/CleanroomASL.xcodeproj">
    </FileRef>
 </Workspace>
