@@ -1,1 +1,1 @@
-github "emaloney/CleanroomASL" "alt-proj-struct-swift-2.3"
+github "emaloney/CleanroomASL" ~> 1.5.0
