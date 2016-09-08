@@ -139,8 +139,7 @@ header {
 
 .nav-group-task {
   font-size: 0.9em;
-  list-style-type: none;
-  white-space: nowrap; }
+  list-style-type: none; }
   .nav-group-task a {
     color: #888; }
 
