@@ -11,9 +11,9 @@ CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Clean
 
 ### Swift compatibility
 
-This is the `master` branch. It uses **Swift 2.3** and **requires Xcode 8.0** to compile.
+This is the `master` branch. It uses **Swift 2.3** and **requires Xcode 8** to compile.
 
-If you need Swift 3.0 compatibility, a [`swift3`](https://github.com/emaloney/CleanroomLogger/tree/swift3) branch is also available. It requires Xcode 8.0.
+If you need Swift 3.0 compatibility, use the [`swift3`](https://github.com/emaloney/CleanroomLogger/tree/swift3) branch, which requires Xcode 8.
 
 #### Current status
 
