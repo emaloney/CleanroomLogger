@@ -16,7 +16,7 @@
 		<!-- master branch declarations -->
 		<Var name="master" type="map">
 			<Var name="Swift" literal="2.3"/> 
-			<Var name="Xcode" literal="8.0"/>
+			<Var name="Xcode" literal="8"/>
 			
 			<Var name="Carthage" literal="0.17.2"/>
 			<Var name="git" literal="2.7.4 (Apple Git-73)"/>
@@ -38,8 +38,10 @@
 
 		<!-- swift3 branch declarations -->
 		<Var name="swift3" type="map">
+			<Var name="note" literal="The `swift3` branch is still under active development. Expect breaking changes to the API, the build system and/or the project structure at any time. **Be sure to lock against a specific commit if you simultaneously require Swift 3 and stability.**"/>
+			
 			<Var name="Swift" literal="3.0"/> 
-			<Var name="Xcode" literal="8.0"/>
+			<Var name="Xcode" literal="8"/>
 			
 			<Var name="Carthage" literal="0.17.2"/>
 			<Var name="git" literal="2.7.4 (Apple Git-73)"/>
