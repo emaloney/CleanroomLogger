@@ -1,3 +1,5 @@
 INFOPLIST_FILE = BuildControl/Info-Tests.plist
 PRODUCT_NAME = CleanroomLoggerUnitTests
 PRODUCT_BUNDLE_IDENTIFIER = com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)
+SWIFT_OPTIMIZATION_LEVEL = -Onone
+ONLY_ACTIVE_ARCH = YES

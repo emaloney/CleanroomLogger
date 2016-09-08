@@ -9,41 +9,17 @@
 
 	<Var name="branches" type="list">
 		<Var literal="master"/>
-		<Var literal="swift2.3"/>
 		<Var literal="swift3"/>
 	</Var>
 
 	<Var name="versions" type="map">
 		<!-- master branch declarations -->
 		<Var name="master" type="map">
-			<Var name="Swift" literal="2.2"/> 
-			<Var name="Xcode" literal="7.3"/>
-			
-			<Var name="Carthage" literal="0.17.2"/>
-			<Var name="git" literal="2.7.4 (Apple Git-66)"/>
-			
-			<Var name="current" type="map">
-				<Var name="iOS" literal="9.3"/> 
-				<Var name="OSX" literal="10.11"/> 
-				<Var name="tvOS" literal="9.2"/> 
-				<Var name="watchOS" literal="2.2"/> 
-			</Var>
-			
-			<Var name="minimum" type="map">
-				<Var name="iOS" literal="8.0"/> 
-				<Var name="OSX" literal="10.10"/> 
-				<Var name="tvOS" literal="9.0"/> 
-				<Var name="watchOS" literal="2.0"/> 
-			</Var>
-		</Var>
-		
-		<!-- swift2.3 branch declarations -->
-		<Var name="swift2.3" type="map">
 			<Var name="Swift" literal="2.3"/> 
-			<Var name="Xcode" literal="8.0 beta 6"/>
+			<Var name="Xcode" literal="8.0"/>
 			
 			<Var name="Carthage" literal="0.17.2"/>
-			<Var name="git" literal="2.7.4 (Apple Git-66)"/>
+			<Var name="git" literal="2.7.4 (Apple Git-73)"/>
 			
 			<Var name="current" type="map">
 				<Var name="iOS" literal="10.0"/> 
@@ -63,10 +39,10 @@
 		<!-- swift3 branch declarations -->
 		<Var name="swift3" type="map">
 			<Var name="Swift" literal="3.0"/> 
-			<Var name="Xcode" literal="8.0 beta 6"/>
+			<Var name="Xcode" literal="8.0"/>
 			
 			<Var name="Carthage" literal="0.17.2"/>
-			<Var name="git" literal="2.7.4 (Apple Git-66)"/>
+			<Var name="git" literal="2.7.4 (Apple Git-73)"/>
 			
 			<Var name="current" type="map">
 				<Var name="iOS" literal="10.0"/> 
