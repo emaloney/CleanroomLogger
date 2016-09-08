@@ -1,5 +1,7 @@
 <MBML>
 	<Var name="project:name" literal="CleanroomLogger"/>
+	<Var name="repo:owner" literal="emaloney"/>
+	<Var name="project:creator:name" literal="Evan Maloney"/>
 	<Var name="project:license" literal="MIT"/>
 
 	<Var name="project:description:formats" type="map">
@@ -25,8 +27,6 @@ The API provided by CleanroomLogger is designed to be readily understood by anyo
 	<Var name="project:settings" type="map">
 		<Var name="app-extension-only" boolean="T"/>
 	</Var>
-
-	<Var name="repo:owner" literal="emaloney"/>
 	
 	<Var name="project:readme:preamble">^q(####) Why CleanroomLogger?
 
@@ -65,7 +65,7 @@ When it is in use, XcodeColors sets the value of the environment variable `Xcode
 
 The built-in color scheme—which you can override by supplying your own [`ColorTable`](${docs:api:root}/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you’re not focused on them:
 
-&lt;img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/&gt;
+&lt;img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/${repo:branch}/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/&gt;
 
 ^q(####) Enabling XcodeColors for iOS, tvOS &amp; watchOS
 
@@ -81,7 +81,7 @@ Ensure that the **Environment Variables** section is expanded below, and click t
 
 This will allow you to add a new environment variable within the runtime environment. Enter `XcodeColors` for the name and `YES` for the value, as shown in this example:
 
-&lt;img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-build-scheme.png" width="650" height="360"/&gt;
+&lt;img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/${repo:branch}/Documentation/Images/XcodeColors-build-scheme.png" width="650" height="360"/&gt;
 
 When done, select the **Close** button. 
 
@@ -95,7 +95,7 @@ If the `XcodeColors` environment variable is set to `YES` but is being run in wi
 
 Those escape sequences will appear in your output instead of color:
 
-&lt;img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-escape-sequences.png" width="650" height="85"/&gt;
+&lt;img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/${repo:branch}/Documentation/Images/XcodeColors-escape-sequences.png" width="650" height="85"/&gt;
 
 If this happens, it means the XcodeColors plug-in is either not installed, or Xcode is not loading it upon launch.
 
