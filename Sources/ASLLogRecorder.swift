@@ -145,7 +145,7 @@ public struct ASLLogRecorder: LogRecorder
      line of the call site, and the stack frame representing the caller.
      You probably don't want this included in production code.
      */
-    public init(logLevelTranslator translator: LogLevelTranslator, formatters: [LogFormatter], echoToStdErr: Bool = true, addTraceAttributes: Bool = false)
+    public init(logLevelTranslator translator: @escaping LogLevelTranslator, formatters: [LogFormatter], echoToStdErr: Bool = true, addTraceAttributes: Bool = false)
     {
         self.client = ASLClient(facility: "com.gilt.CleanroomLogger", useRawStdErr: echoToStdErr)
         self.formatters = formatters
