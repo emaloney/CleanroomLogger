@@ -100,7 +100,7 @@
 	<Var name="project:readme:examples:file" type="dynamic" expression="../../${repo:name}/Sources/README.md"/>
 	<Var name="project:readme:examples" type="dynamic" expression="^if(^fileExists($project:readme:examples:file)|^fileContents($project:readme:examples:file))"/>
 	
-	<Var name="docs:root" type="dynamic" expression="https://rawgit.com/${repo:owner}/${repo:name}/master/Documentation"/>
+	<Var name="docs:root" type="dynamic" expression="https://rawgit.com/${repo:owner}/${repo:name}/${repo:branch}/Documentation"/>
 	<Var name="docs:api:root" type="dynamic" expression="${docs:root}/API"/>
 	<Var name="docs:api:index" type="dynamic" expression="${docs:api:root}/index.html"/>
 	<Var name="docs:images:root" type="dynamic" expression="${docs:root}/Images"/>
@@ -116,9 +116,5 @@
 	<Var name="docs:cloneCommand" type="dynamic" expression="git clone ^if($project:dependencies|--recursive )${repo:url:http}"/>
 	<Var name="docs:carthageSpec" type="dynamic" expression='$repo:host "${repo:owner}/${repo:name}"'/>
 
-	<Var name="repo:ownersToNames" type="map">
-		<Var name="gilt" literal="Gilt Groupe"/>
-		<Var name="emaloney" literal="Evan Maloney"/>
-	</Var>
+	<Var name="travis:url" type="dynamic" expression="https://travis-ci.^if(${travis:build-status-token}|com|org)/${repo:owner}/${repo:name}"/>
 </MBML>
-
