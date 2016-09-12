@@ -456,12 +456,24 @@ if [[ $? == 0 ]]; then
 fi
 
 #
+# determine whether to use .xcodeproj or .xcworkspace
+#
+if [[ -r "${REPO_NAME}.xcworkspace" ]]; then
+	PROJECT_CONTAINER="${REPO_NAME}.xcworkspace"
+	PROJECT_FLAG="-workspace"
+else
+	PROJECT_CONTAINER="${REPO_NAME}.xcodeproj"
+	PROJECT_FLAG="-project"
+fi
+PROJECT_SPECIFIER="$PROJECT_FLAG $PROJECT_CONTAINER"
+
+#
 # build each scheme we can find
 #
 xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" | while read SCHEME
 do
 	updateStatus "Building: $SCHEME..."
-	executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean build $XCODEBUILD_PIPETO"
+	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release clean build $XCODEBUILD_PIPETO"
 done
 
 if [[ ! $SKIP_TESTS ]]; then
@@ -469,7 +481,7 @@ if [[ ! $SKIP_TESTS ]]; then
 	do
 		SCHEME=$(echo "$TARGET" | sed sqUnitTestsqq)
 		updateStatus "Executing unit tests: $TARGET for $SCHEME..."
-		executeCommand "$XCODEBUILD -project ${REPO_NAME}.xcodeproj -scheme \"$SCHEME\" -configuration Release clean test $XCODEBUILD_PIPETO"
+		executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release clean test $XCODEBUILD_PIPETO"
 	done
 fi
 
