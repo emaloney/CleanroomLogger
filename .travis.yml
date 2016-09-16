@@ -12,17 +12,6 @@ before_install:
 install:
   gem install xcpretty
 
-#
-# Note: Unit test scripts commented out due to a problem reliably launching the
-#       simulator from the command line. See:
-#
-#       https://github.com/travis-ci/travis-ci/issues/3040
-#
-# A possible work-around; not yet tested:
-#
-#       before_install: open -b com.apple.iphonesimulator
-#
-
 script:
 - set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 7' clean test | xcpretty
 - set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-OSX -destination 'platform=macOS' clean test | xcpretty
