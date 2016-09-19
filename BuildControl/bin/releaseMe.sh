@@ -420,6 +420,13 @@ if [[ -z "$REPO_NAME" ]]; then
 fi
 
 #
+# output a warning if there are conflicting tag flags
+#
+if [[ $TAG_WHEN_DONE && $NO_TAG ]]; then
+	exitWithErrorSuggestHelp "--tag can't be specified with --no-tag, --no-commit or --ignore-dirty-files"
+fi
+
+#
 # see if we've got uncommitted changes
 #
 git diff-index --quiet HEAD -- ; REPO_IS_DIRTY=$?
@@ -429,7 +436,7 @@ fi
 
 confirmationPrompt "Releasing $REPO_NAME $VERSION (current is $CURRENT_VERSION)"
 
-if [[ $REPO_IS_DIRTY && $STASH_DIRTY_FILES ]]; then
+if [[ $REPO_IS_DIRTY && $STASH_DIRTY_FILES > 0 ]]; then
 	updateStatus "Stashing modified files"
 	executeCommand "git stash"
     trap cleanupDirtyStash EXIT
@@ -465,36 +472,76 @@ else
 fi
 PROJECT_SPECIFIER="$PROJECT_FLAG $PROJECT_CONTAINER"
 
-declare -A DESTINATIONS
-DESTINATIONS[iOS]="-destination 'platform=iOS Simulator,OS=10.0,name=iPhone 7'"
-DESTINATIONS[macOS]="-destination 'platform=macOS'"
-DESTINATIONS[tvOS]="-destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p'"
-DESTINATIONS[watchOS]="-destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm'"
+#
+# these two functions are to compensate for the fact that macOS is still on
+# bash 3.x and therefore a more sensible implementation using associative
+# arrays is not currently possible
+#
+destinationForPlatform()
+{
+	case $1 in 
+	iOS)
+		echo "-destination 'platform=iOS Simulator,OS=10.0,name=iPhone 7'";;
 
-declare -A BUILD_COMMANDS
-BUILD_COMMANDS[iOS]="clean test"
-BUILD_COMMANDS[macOS]="clean test"
-BUILD_COMMANDS[tvOS]="clean test"
-BUILD_COMMANDS[watchOS]="clean build"
+	macOS|OSX)
+		echo "-destination 'platform=macOS'";;
+
+	tvOS)
+		echo "-destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p'";;
+
+	watchOS)
+		echo "-destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm'";;
+	esac
+}
+
+buildActionsForPlatform()
+{
+	case $1 in 
+	iOS|macOS|OSX|tvOS)
+		echo "clean $2";;
+
+	watchOS)
+		echo "clean build";;
+	esac
+}
 
 #
-# build each scheme we can find
+# figure out what platform(s) we need to build for
 #
-xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" | while read SCHEME
+SCHEME_PIPE="/tmp/${SCRIPT_NAME}-$$-${RANDOM}-scheme.pipe"
+SCHEME_ROOT="${REPO_NAME}-"
+mkfifo "$SCHEME_PIPE" # use named pipe to work around pipe subshell issue
+xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" > "$SCHEME_PIPE" &
+while read SCHEME
 do
+	THIS_PLATFORM="${SCHEME##$SCHEME_ROOT}"
+	if [[ -z $COMPILE_PLATFORMS ]]; then
+		COMPILE_PLATFORMS="$THIS_PLATFORM"
+	else
+		COMPILE_PLATFORMS=$(printf "$COMPILE_PLATFORMS\n$THIS_PLATFORM")
+	fi
+done < "$SCHEME_PIPE"
+rm "$SCHEME_PIPE"
+
+#
+# build for each platform
+#
+if [[ $SKIP_TESTS ]]; then
+	BUILD_ACTION="build"
+else
+	BUILD_ACTION="test"
+fi
+for PLATFORM in $COMPILE_PLATFORMS; do
+	SCHEME="${SCHEME_ROOT}${PLATFORM}"
 	updateStatus "Building: $SCHEME..."
-	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release clean build $XCODEBUILD_PIPETO"
+	DESTINATION=$(destinationForPlatform $PLATFORM)
+	ACTIONS=$(buildActionsForPlatform $PLATFORM $BUILD_ACTION)
+	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release $DESTINATION $ACTIONS $XCODEBUILD_PIPETO"
 done
 
-if [[ ! $SKIP_TESTS ]]; then
-	xcodebuild -list | grep "\s${REPO_NAME}" | grep UnitTests | sort | uniq | sed "s/^[ \t]*//" | while read TARGET
-	do
-		SCHEME=$(echo "$TARGET" | sed sqUnitTestsqq)
-		updateStatus "Executing unit tests: $TARGET for $SCHEME..."
-		executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release clean test $XCODEBUILD_PIPETO"
-	done
-fi
-
+#
+# bump version numbers
+#
 updateStatus "Adjusting version numbers"
 executeCommand "$PLIST_BUDDY \"$FRAMEWORK_PLIST_PATH\" -c \"Set :CFBundleShortVersionString $VERSION\""
 executeCommand "agvtool bump"
@@ -505,22 +552,37 @@ if [[ ! $SKIP_DOCUMENTATION ]]; then
 	executeCommand "git add Documentation/."
 fi
 
-if [[ !$NO_COMMIT ]]; then
+#
+# commit changes
+#
+BUILD_NUMBER=`agvtool vers -terse`
+COMMIT_COMMENT="Release $VERSION (build $BUILD_NUMBER)"
+if [[ $REPO_IS_DIRTY && $COMMIT_DIRTY_FILES > 0 ]]; then
+	COMMIT_COMMENT="$COMMIT_COMMENT -- committed with other changes"
+fi
+if [[ -z $NO_COMMIT ]]; then
 	updateStatus "Committing changes"
-	BUILD_NUMBER=`agvtool vers -terse`
-	COMMIT_COMMENT="Release $VERSION (build $BUILD_NUMBER)"
-	if [[ $REPO_IS_DIRTY && $COMMIT_DIRTY_FILES ]]; then
-		COMMIT_COMMENT="$COMMIT_COMMENT -- committed with other changes"
-	fi
 	executeCommand "git commit -a -m '$COMMIT_COMMENT'"
+else
+	updateStatus "! Not committing changes; --no-commit or --ignore-dirty-files was specified"
+	printf "> To commit manually, use\n\n    git commit -a -m '$COMMIT_COMMENT'\n\n  and remember to 'git push' afterwards!\n"
 fi
 
-if [[ $TAG_WHEN_DONE && !$NO_COMMIT && !$NO_TAG ]]; then
+#
+# tag repo with new version number
+#
+if [[ $TAG_WHEN_DONE && -z $NO_COMMIT && -z $NO_TAG ]]; then
 	updateStatus "Tagging repo for $VERSION release"
 	executeCommand "git tag -a $VERSION -m 'Release $VERSION issued by $SCRIPT_NAME'"
+else
+	updateStatus "! Not tagging repo; --tag was not specified"
+	printf "> To tag manually, use\n\n    git tag -a $VERSION -m 'Release $VERSION issued by $SCRIPT_NAME'\n\n  and remember to 'git push --tags' afterwards!\n"
 fi
 
-if [[ $PUSH_WHEN_DONE && !$NO_COMMIT ]]; then
+#
+# push if we should
+#
+if [[ $PUSH_WHEN_DONE && -z $NO_COMMIT ]]; then
 	updateStatus "Pushing changes to origin"
 	executeCommand "git push"
 	if [[ $TAG_WHEN_DONE && !$NO_TAG ]]; then
