@@ -36,23 +36,32 @@ showHelp()
 	printf "\t\t--auto\n"
 	printf "\t\t\tRun automatically without awaiting user confirmation\n"
 	echo
+	printf "\t\t--tag\n"
+	printf "\t\t\tTags the repo with the version number upon success\n"
+	echo
 	printf "\t\t--push\n"
-	printf "\t\t\tPush all changes when finished\n"
+	printf "\t\t\tPush all changes upon success\n"
+	echo
+	printf "\t\t--no-commit\n"
+	printf "\t\t\tSkips committing any changes; implies --no-tag\n"
+	echo
+	printf "\t\t--no-tag\n"
+	printf "\t\t\tOverrides --tag if specified; --no-tag is the default\n"
 	echo
 	printf "\t\t--stash-dirty-files\n"
-	printf "\t\t\tStashes dirty files before attempting to release a repo\n"
+	printf "\t\t\tStashes dirty files before attempting to release\n"
 	echo
 	printf "\t\t--commit-dirty-files\n"
-	printf "\t\t\tReleases a dirty repo by committing dirty files\n"
+	printf "\t\t\tCommits dirty files before attempting to release\n"
+	echo
+	printf "\t\t--ignore-dirty-files\n"
+	printf "\t\t\tIgnores dirty files; implies --no-commit --no-tag\n"
 	echo
 	printf "\t\t--skip-docs\n"
 	printf "\t\t\tSkips generating the documentation\n"
 	echo
 	printf "\t\t--skip-tests\n"
 	printf "\t\t\tSkips running the unit tests :-(\n"
-	echo
-	printf "\t\t--untag <version>\n"
-	printf "\t\t\tRemove the repo tags for <version>\n"
 	echo
 	printf "\t\t--dry-run\n"
 	printf "\t\t\tShow commands to be executed instead of executing them\n"
@@ -106,18 +115,6 @@ showHelp()
 	printf "\t      argument does not need to be specified (and it will be ignored\n"
 	printf "\t      if it is).\n"
 	echo
-	echo "Untagging a release"
-	echo
-	printf "\tThe script can also take an --untag <version> argument where a\n"
-	printf "\tpreviously-applied tag will be deleted from the repo."
-	echo
-	printf "\tTo remove the tag for version 4.2.1, you would execute:\n"
-	echo
-	printf "\t\t$SCRIPT_NAME --untag 4.2.1\n"
-	echo
-	printf "\tNOTE: As with the --set-version argument, when --untag is used,\n"
-	printf "\t      specifying a release-type has no effect.\n"
-	echo
 	echo "User Confirmation"
 	echo
 	printf "\tBy default, this script requires user confirmation before making\n"
@@ -149,6 +146,11 @@ showHelp()
 	printf "\tThe --commit-dirty-files option causes the dirty files to be\n"
 	printf "\tcommitted along with the other changes that occur during the\n"
 	printf "\trelease process.\n"
+	echo	
+	printf "\tIn addition, an --ignore-dirty-files option is available, which\n"
+	printf "\tlets you go through the entire release process, but stops short\n"
+	printf "\tof committing and tagging. This allows you to run through the\n"
+	printf "\tentire release process without committing you to committing.\n"
 	echo
 	printf "\tNote that these options are mutually exclusive and may not be\n"
 	printf "\tused with each other.\n"
@@ -227,9 +229,11 @@ executeCommand()
 			echo
 			DID_DRY_RUN_MSG=1
 		fi
-		echo "> $1"
+		echo "> executing: "
+		echo
+		echo "	set -o pipefail && $1"
 	else
-		eval "$1"
+		eval "set -o pipefail && $1"
 		if [[ $? != 0 ]]; then
 			exitWithError "Command failed"
 		fi
@@ -254,18 +258,11 @@ fi
 #
 # parse the command-line arguments
 #
+STASH_DIRTY_FILES=0
+COMMIT_DIRTY_FILES=0
+IGNORE_DIRTY_FILES=0
 while [[ $1 ]]; do
 	case $1 in
-	--untag)
-		shift
-		if [[ -z $1 ]]; then
-			exitWithErrorSuggestHelp "The $1 argument expects a value"
-		else
-			validateVersion $1 "the version passed with the --untag argument"
-			UNTAG_VERSION=$1
-		fi
-		;;
-	
 	--set-version)
 		shift
 		if [[ -z $1 ]]; then
@@ -288,6 +285,29 @@ while [[ $1 ]]; do
 		COMMIT_DIRTY_FILES=1
 		;;
 		
+	--ignore-dirty-files)
+		IGNORE_DIRTY_FILES=1
+		NO_COMMIT=1
+		NO_TAG=1
+		;;
+	
+	--no-commit)
+		NO_COMMIT=1
+		NO_TAG=1
+		;;
+	
+	--no-tag)
+		NO_TAG=1
+		;;
+	
+	--tag)
+		TAG_WHEN_DONE=1
+		;;
+	
+	--push)
+		PUSH_WHEN_DONE=1
+		;;
+	
 	--skip-docs)
 		SKIP_DOCUMENTATION=1
 		;;
@@ -298,10 +318,6 @@ while [[ $1 ]]; do
 		
 	--dry-run)
 		DRY_RUN_MODE=1
-		;;
-	
-	--push)
-		PUSH_WHEN_DONE=1
 		;;
 	
 	--help|-h|-\?)
@@ -338,21 +354,16 @@ done
 #
 # validate the input
 #
-if [[ $STASH_DIRTY_FILES && $COMMIT_DIRTY_FILES ]]; then
-	exitWithErrorSuggestHelp "The --stash-dirty-files and --commit-dirty-files arguments are mutually exclusive and can't be used with each other"
-fi
-if [[ ! -z $UNTAG_VERSION && ! -z $SET_VERSION ]]; then
-	exitWithErrorSuggestHelp "The --untag and --set-version arguments are mutually exclusive and can't be used with each other"
+if [[ $(( $STASH_DIRTY_FILES + $COMMIT_DIRTY_FILES + $IGNORE_DIRTY_FILES )) > 1 ]]; then
+	exitWithErrorSuggestHelp "The --stash-dirty-files, --commit-dirty-files and --ignore-dirty-files arguments are mutually exclusive and can't be used with each other"
 fi
 if [[ ! -z $RELEASE_TYPE ]]; then
-	if [[ ! -z $UNTAG_VERSION ]]; then
-		exitWithErrorSuggestHelp "The release type can't be specified when --untag is used"
-	elif [[ ! -z $SET_VERSION ]]; then
+	if [[ ! -z $SET_VERSION ]]; then
 		exitWithErrorSuggestHelp "The release type can't be specified when --set-version is used"
 	elif [[ $RELEASE_TYPE != "major" && $RELEASE_TYPE != "minor" && $RELEASE_TYPE != "patch" ]]; then
 		exitWithErrorSuggestHelp "The release type argument must be one of: 'major', 'minor' or 'patch'"
 	fi
-elif [[ -z $UNTAG_VERSION && -z $SET_VERSION ]]; then
+elif [[ -z $SET_VERSION ]]; then
 	if [[ -z $RELEASE_TYPE ]]; then
 		exitWithErrorSuggestHelp "The release type ('major', 'minor' or 'patch') must be specified as an argument."
 	fi
@@ -373,20 +384,7 @@ validateVersion "$CURRENT_VERSION" "the CFBundleShortVersionString value in the 
 #
 # now, do the right thing depending on the command-line arguments
 #
-if [[ ! -z $UNTAG_VERSION ]]; then
-	confirmationPrompt "Removing repo tag for version $UNTAG_VERSION"
-
-	updateStatus "Deleting tag for $UNTAG_VERSION release"
-
-	#
-	# we're being asked to untag a previous version; easy peasy
-	#
-	executeCommand "git tag --delete $UNTAG_VERSION"
-	if [[ $PUSH_WHEN_DONE ]]; then
-		executeCommand "git push origin :$UNTAG_VERSION"
-	fi
-	exit 0
-elif [[ ! -z $SET_VERSION ]]; then
+if [[ ! -z $SET_VERSION ]]; then
 	VERSION=$SET_VERSION
 elif [[ ! -z $RELEASE_TYPE ]]; then
 	MAJOR_VERSION=`echo $CURRENT_VERSION | awk -F . '{print int($1)}'`
@@ -422,16 +420,23 @@ if [[ -z "$REPO_NAME" ]]; then
 fi
 
 #
+# output a warning if there are conflicting tag flags
+#
+if [[ $TAG_WHEN_DONE && $NO_TAG ]]; then
+	exitWithErrorSuggestHelp "--tag can't be specified with --no-tag, --no-commit or --ignore-dirty-files"
+fi
+
+#
 # see if we've got uncommitted changes
 #
 git diff-index --quiet HEAD -- ; REPO_IS_DIRTY=$?
-if [[ $REPO_IS_DIRTY != 0 && -z $STASH_DIRTY_FILES && -z $COMMIT_DIRTY_FILES ]]; then
-	exitWithErrorSuggestHelp "You have uncommitted changes in this repo; won't do anything" "(use --stash-dirty-files or --commit-dirty-files to bypass this error)"
+if [[ $REPO_IS_DIRTY != 0 && $(( $STASH_DIRTY_FILES + $COMMIT_DIRTY_FILES + $IGNORE_DIRTY_FILES )) == 0 ]]; then
+	exitWithErrorSuggestHelp "You have uncommitted changes in this repo; won't do anything" "(use --stash-dirty-files, --commit-dirty-files or\n\t--ignore-dirty-files to bypass this error)"
 fi
 
 confirmationPrompt "Releasing $REPO_NAME $VERSION (current is $CURRENT_VERSION)"
 
-if [[ $REPO_IS_DIRTY && $STASH_DIRTY_FILES ]]; then
+if [[ $REPO_IS_DIRTY && $STASH_DIRTY_FILES > 0 ]]; then
 	updateStatus "Stashing modified files"
 	executeCommand "git stash"
     trap cleanupDirtyStash EXIT
@@ -468,23 +473,75 @@ fi
 PROJECT_SPECIFIER="$PROJECT_FLAG $PROJECT_CONTAINER"
 
 #
-# build each scheme we can find
+# these two functions are to compensate for the fact that macOS is still on
+# bash 3.x and therefore a more sensible implementation using associative
+# arrays is not currently possible
 #
-xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" | while read SCHEME
+destinationForPlatform()
+{
+	case $1 in 
+	iOS)
+		echo "-destination 'platform=iOS Simulator,OS=10.0,name=iPhone 7'";;
+
+	macOS|OSX)
+		echo "-destination 'platform=macOS'";;
+
+	tvOS)
+		echo "-destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p'";;
+
+	watchOS)
+		echo "-destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm'";;
+	esac
+}
+
+buildActionsForPlatform()
+{
+	case $1 in 
+	iOS|macOS|OSX|tvOS)
+		echo "clean $2";;
+
+	watchOS)
+		echo "clean build";;
+	esac
+}
+
+#
+# figure out what platform(s) we need to build for
+#
+SCHEME_PIPE="/tmp/${SCRIPT_NAME}-$$-${RANDOM}-scheme.pipe"
+SCHEME_ROOT="${REPO_NAME}-"
+mkfifo "$SCHEME_PIPE" # use named pipe to work around pipe subshell issue
+xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" > "$SCHEME_PIPE" &
+while read SCHEME
 do
+	THIS_PLATFORM="${SCHEME##$SCHEME_ROOT}"
+	if [[ -z $COMPILE_PLATFORMS ]]; then
+		COMPILE_PLATFORMS="$THIS_PLATFORM"
+	else
+		COMPILE_PLATFORMS=$(printf "$COMPILE_PLATFORMS\n$THIS_PLATFORM")
+	fi
+done < "$SCHEME_PIPE"
+rm "$SCHEME_PIPE"
+
+#
+# build for each platform
+#
+if [[ $SKIP_TESTS ]]; then
+	BUILD_ACTION="build"
+else
+	BUILD_ACTION="test"
+fi
+for PLATFORM in $COMPILE_PLATFORMS; do
+	SCHEME="${SCHEME_ROOT}${PLATFORM}"
 	updateStatus "Building: $SCHEME..."
-	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release clean build $XCODEBUILD_PIPETO"
+	DESTINATION=$(destinationForPlatform $PLATFORM)
+	ACTIONS=$(buildActionsForPlatform $PLATFORM $BUILD_ACTION)
+	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release $DESTINATION $ACTIONS $XCODEBUILD_PIPETO"
 done
 
-if [[ ! $SKIP_TESTS ]]; then
-	xcodebuild -list | grep "\s${REPO_NAME}" | grep UnitTests | sort | uniq | sed "s/^[ \t]*//" | while read TARGET
-	do
-		SCHEME=$(echo "$TARGET" | sed sqUnitTestsqq)
-		updateStatus "Executing unit tests: $TARGET for $SCHEME..."
-		executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release clean test $XCODEBUILD_PIPETO"
-	done
-fi
-
+#
+# bump version numbers
+#
 updateStatus "Adjusting version numbers"
 executeCommand "$PLIST_BUDDY \"$FRAMEWORK_PLIST_PATH\" -c \"Set :CFBundleShortVersionString $VERSION\""
 executeCommand "agvtool bump"
@@ -495,19 +552,40 @@ if [[ ! $SKIP_DOCUMENTATION ]]; then
 	executeCommand "git add Documentation/."
 fi
 
-updateStatus "Committing changes"
+#
+# commit changes
+#
 BUILD_NUMBER=`agvtool vers -terse`
 COMMIT_COMMENT="Release $VERSION (build $BUILD_NUMBER)"
-if [[ $REPO_IS_DIRTY && $COMMIT_DIRTY_FILES ]]; then
+if [[ $REPO_IS_DIRTY && $COMMIT_DIRTY_FILES > 0 ]]; then
 	COMMIT_COMMENT="$COMMIT_COMMENT -- committed with other changes"
 fi
-executeCommand "git commit -a -m '$COMMIT_COMMENT'"
+if [[ -z $NO_COMMIT ]]; then
+	updateStatus "Committing changes"
+	executeCommand "git commit -a -m '$COMMIT_COMMENT'"
+else
+	updateStatus "! Not committing changes; --no-commit or --ignore-dirty-files was specified"
+	printf "> To commit manually, use\n\n    git commit -a -m '$COMMIT_COMMENT'\n\n  and remember to 'git push' afterwards!\n"
+fi
 
-updateStatus "Tagging repo for $VERSION release"
-executeCommand "git tag -a $VERSION -m 'Release $VERSION issued by $SCRIPT_NAME'"
+#
+# tag repo with new version number
+#
+if [[ $TAG_WHEN_DONE && -z $NO_COMMIT && -z $NO_TAG ]]; then
+	updateStatus "Tagging repo for $VERSION release"
+	executeCommand "git tag -a $VERSION -m 'Release $VERSION issued by $SCRIPT_NAME'"
+else
+	updateStatus "! Not tagging repo; --tag was not specified"
+	printf "> To tag manually, use\n\n    git tag -a $VERSION -m 'Release $VERSION issued by $SCRIPT_NAME'\n\n  and remember to 'git push --tags' afterwards!\n"
+fi
 
-if [[ $PUSH_WHEN_DONE ]]; then
+#
+# push if we should
+#
+if [[ $PUSH_WHEN_DONE && -z $NO_COMMIT ]]; then
 	updateStatus "Pushing changes to origin"
 	executeCommand "git push"
-	executeCommand "git push --tags"
+	if [[ $TAG_WHEN_DONE && !$NO_TAG ]]; then
+		executeCommand "git push --tags"
+	fi
 fi

@@ -1,26 +1,23 @@
 language: objective-c
-xcode_project: CleanroomLogger.xcodeproj
+xcode_workspace: CleanroomLogger.xcworkspace
 osx_image: xcode8
 
-install:
-  gem install xcpretty
+git:
+  depth: 1
+  submodules: false
 
-#
-# Note: Unit test scripts commented out due to a problem reliably launching the
-#       simulator from the command line. See:
-#
-#       https://github.com/travis-ci/travis-ci/issues/3040
-#
-# A possible work-around; not yet tested:
-#
-#       before_install: open -b com.apple.iphonesimulator
-#
+before_install:
+  - git submodule update --init
+
+install:
+  - gem install xcpretty
 
 script:
-  - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-#  - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-  - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-OSX -destination 'platform=macOS' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-#  - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-OSX -destination 'platform=macOS' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-  - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-#  - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
-  - xcodebuild -project CleanroomLogger.xcodeproj -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 120 clean build | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 120 test | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 120 clean build | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 120 test | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 120 clean build | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 120 test | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' -destination-timeout 120 clean build | xcpretty
+
