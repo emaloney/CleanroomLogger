@@ -13,11 +13,11 @@ install:
   - gem install xcpretty
 
 script:
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 clean build | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 test | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 clean build | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 test | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 clean build | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 test | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' -destination-timeout 300 clean build | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 clean build | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 test | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 clean build | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 test | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 clean build | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 test | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' -destination-timeout 300 clean build | xcpretty
 
