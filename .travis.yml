@@ -7,9 +7,9 @@ git:
   submodules: false
 
 before_install:
-  git submodule update --init
-  PHONE_SIM=
-  TV_SIM=
+  - git submodule update --init
+  - PHONE_SIM=
+  - TV_SIM=
 
 install:
   gem install xcpretty
