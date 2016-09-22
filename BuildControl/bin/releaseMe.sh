@@ -511,7 +511,7 @@ buildActionsForPlatform()
 SCHEME_PIPE="/tmp/${SCRIPT_NAME}-$$-${RANDOM}-scheme.pipe"
 SCHEME_ROOT="${REPO_NAME}-"
 mkfifo "$SCHEME_PIPE" # use named pipe to work around pipe subshell issue
-xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | sort | uniq | sed "s/^[ \t]*//" > "$SCHEME_PIPE" &
+xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | grep -v TestHarness | sort | uniq | sed "s/^[ \t]*//" > "$SCHEME_PIPE" &
 while read SCHEME
 do
 	THIS_PLATFORM="${SCHEME##$SCHEME_ROOT}"
@@ -536,7 +536,7 @@ for PLATFORM in $COMPILE_PLATFORMS; do
 	updateStatus "Building: $SCHEME..."
 	DESTINATION=$(destinationForPlatform $PLATFORM)
 	ACTIONS=$(buildActionsForPlatform $PLATFORM $BUILD_ACTION)
-	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release $DESTINATION $ACTIONS $XCODEBUILD_PIPETO"
+	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release ONLY_ACTIVE_ARCH=YES $DESTINATION $ACTIONS $XCODEBUILD_PIPETO"
 done
 
 #
@@ -565,7 +565,7 @@ if [[ -z $NO_COMMIT ]]; then
 	executeCommand "git commit -a -m '$COMMIT_COMMENT'"
 else
 	updateStatus "! Not committing changes; --no-commit or --ignore-dirty-files was specified"
-	printf "> To commit manually, use\n\n    git commit -a -m '$COMMIT_COMMENT'\n\n  and remember to 'git push' afterwards!\n"
+	printf "> To commit manually, use:\n\n    git commit -a -m '$COMMIT_COMMENT'\n"
 fi
 
 #
@@ -576,7 +576,7 @@ if [[ $TAG_WHEN_DONE && -z $NO_COMMIT && -z $NO_TAG ]]; then
 	executeCommand "git tag -a $VERSION -m 'Release $VERSION issued by $SCRIPT_NAME'"
 else
 	updateStatus "! Not tagging repo; --tag was not specified"
-	printf "> To tag manually, use\n\n    git tag -a $VERSION -m 'Release $VERSION issued by $SCRIPT_NAME'\n\n  and remember to 'git push --tags' afterwards!\n"
+	printf "> To tag manually, use:\n\n    git tag -a $VERSION -m 'Release $VERSION issued by $SCRIPT_NAME'\n"
 fi
 
 #
@@ -588,4 +588,6 @@ if [[ $PUSH_WHEN_DONE && -z $NO_COMMIT ]]; then
 	if [[ $TAG_WHEN_DONE && !$NO_TAG ]]; then
 		executeCommand "git push --tags"
 	fi
+else
+	printf "\n> REMEMBER: The release isn't done until you push the changes! Don't forget to:\n\n    git push && git push --tags\n"
 fi
