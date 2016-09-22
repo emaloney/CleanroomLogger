@@ -13,11 +13,27 @@ install:
   - gem install xcpretty
 
 script:
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 clean build | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 test | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 clean build | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 test | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 clean build | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 test | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' -destination-timeout 300 clean build | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 clean build | tee "CleanroomLogger-iOS-build.log" | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 test | tee "CleanroomLogger-iOS-test.log" | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 clean build | tee "CleanroomLogger-macOS-build.log" | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 test | tee "CleanroomLogger-macOS-test.log" | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 clean build | tee "CleanroomLogger-tvOS-build.log" | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 test | tee "CleanroomLogger-tvOS-test.log" | xcpretty
+- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' -destination-timeout 300 clean build | tee "CleanroomLogger-watchOS-build.log" | xcpretty
 
+after_failure:
+- echo "Travis test result is $TRAVIS_TEST_RESULT"
+- printf "\niOS build log:\n"
+- cat "CleanroomLogger-iOS-build.log"
+- printf "\niOS test log:\n"
+- cat "CleanroomLogger-iOS-test.log"
+- printf "\nmacOS build log:\n"
+- cat "CleanroomLogger-macOS-build.log"
+- printf "\nmacOS test log:\n"
+- cat "CleanroomLogger-macOS-test.log"
+- printf "\ntvOS build log:\n"
+- cat "CleanroomLogger-tvOS-build.log"
+- printf "\ntvOS test log:\n"
+- cat "CleanroomLogger-tvOS-test.log"
+- printf "\nwatchOS build log:\n"
+- cat "CleanroomLogger-watchOS-build.log"

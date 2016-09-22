@@ -27,8 +27,7 @@ fi
 rm -rf Documentation/API	# clear out any old docs; they may have remnant files
 
 "$JAZZY_EXECUTABLE" -o Documentation/API \
-	-m "$MODULE_NAME" \
-	--swift-version 2.3 \
+	--module "$MODULE_NAME" \
 	--readme Sources/README.md \
 	--github_url "$PUBLIC_GITHUB_URL" \
 	--author "Evan Maloney, Gilt Groupe" \
