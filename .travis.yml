@@ -10,30 +10,26 @@ before_install:
   - git submodule update --init
 
 install:
-  - gem install xcpretty
+  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 
 script:
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 clean build | tee "CleanroomLogger-iOS-build.log" | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 test | tee "CleanroomLogger-iOS-test.log" | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 clean build | tee "CleanroomLogger-macOS-build.log" | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 test | tee "CleanroomLogger-macOS-test.log" | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 clean build | tee "CleanroomLogger-tvOS-build.log" | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 test | tee "CleanroomLogger-tvOS-test.log" | xcpretty
-- set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' -destination-timeout 300 clean build | tee "CleanroomLogger-watchOS-build.log" | xcpretty
+  - ( set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 clean build 2>&1 | tee "CleanroomLogger-iOS-build.log" | xcpretty ) && rm "CleanroomLogger-iOS-build.log"
+  - ( set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-iOS -destination 'platform=iOS Simulator,OS=10.0,name=iPhone 6s Plus' -destination-timeout 300 test 2>&1 | tee "CleanroomLogger-iOS-test.log" | xcpretty ) && rm "CleanroomLogger-iOS-test.log"
+  - ( set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 clean build 2>&1 | tee "CleanroomLogger-macOS-build.log" | xcpretty ) && rm "CleanroomLogger-macOS-build.log"
+  - ( set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-OSX -destination 'platform=macOS' -destination-timeout 300 test 2>&1 | tee "CleanroomLogger-macOS-test.log" | xcpretty ) && rm "CleanroomLogger-macOS-test.log"
+  - ( set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 clean build 2>&1 | tee "CleanroomLogger-tvOS-build.log" | xcpretty ) && rm "CleanroomLogger-tvOS-build.log"
+  - ( set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-tvOS -destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p' -destination-timeout 300 test 2>&1 | tee "CleanroomLogger-tvOS-test.log" | xcpretty ) && rm "CleanroomLogger-tvOS-test.log"
+  - ( set -o pipefail && xcodebuild -workspace CleanroomLogger.xcworkspace -configuration Release ONLY_ACTIVE_ARCH=YES -scheme CleanroomLogger-watchOS -destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch - 42mm' -destination-timeout 300 clean build 2>&1 | tee "CleanroomLogger-watchOS-build.log" | xcpretty ) && rm "CleanroomLogger-watchOS-build.log"
 
 after_failure:
-- echo "Travis test result is $TRAVIS_TEST_RESULT"
-- printf "\niOS build log:\n"
-- cat "CleanroomLogger-iOS-build.log"
-- printf "\niOS test log:\n"
-- cat "CleanroomLogger-iOS-test.log"
-- printf "\nmacOS build log:\n"
-- cat "CleanroomLogger-macOS-build.log"
-- printf "\nmacOS test log:\n"
-- cat "CleanroomLogger-macOS-test.log"
-- printf "\ntvOS build log:\n"
-- cat "CleanroomLogger-tvOS-build.log"
-- printf "\ntvOS test log:\n"
-- cat "CleanroomLogger-tvOS-test.log"
-- printf "\nwatchOS build log:\n"
-- cat "CleanroomLogger-watchOS-build.log"
+  - test -f "CleanroomLogger-iOS-build.log" && tail -n 2500 "CleanroomLogger-iOS-build.log"
+  - test -f "CleanroomLogger-iOS-test.log" && tail -n 2500 "CleanroomLogger-iOS-test.log"
+  - test -f "CleanroomLogger-iOS-test.log" && LINE_BEFORE=`cat "CleanroomLogger-iOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}'` && LINE=`expr $LINE_BEFORE + 1` && LOG_FILE=`head -n $LINE "CleanroomLogger-iOS-test.log" | tail -n 1` && cat "$LOG_FILE"
+  - test -f "CleanroomLogger-macOS-build.log" && tail -n 2500 "CleanroomLogger-macOS-build.log"
+  - test -f "CleanroomLogger-macOS-test.log" && tail -n 2500 "CleanroomLogger-macOS-test.log"
+  - test -f "CleanroomLogger-macOS-test.log" && LINE_BEFORE=`cat "CleanroomLogger-macOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}'` && LINE=`expr $LINE_BEFORE + 1` && LOG_FILE=`head -n $LINE "CleanroomLogger-macOS-test.log" | tail -n 1` && cat "$LOG_FILE"
+  - test -f "CleanroomLogger-tvOS-build.log" && tail -n 2500 "CleanroomLogger-tvOS-build.log"
+  - test -f "CleanroomLogger-tvOS-test.log" && tail -n 2500 "CleanroomLogger-tvOS-test.log"
+  - test -f "CleanroomLogger-tvOS-test.log" && LINE_BEFORE=`cat "CleanroomLogger-tvOS-test.log" | grep -n "IDETestOperationsObserverDebug. Writing diagnostic log for test session to." | awk -F':' '{print $1}'` && LINE=`expr $LINE_BEFORE + 1` && LOG_FILE=`head -n $LINE "CleanroomLogger-tvOS-test.log" | tail -n 1` && cat "$LOG_FILE"
+  - test -f "CleanroomLogger-watchOS-build.log" && tail -n 2500 "CleanroomLogger-watchOS-build.log"
+
