@@ -8,6 +8,21 @@
 	<Var name="repo:url:ssh" type="dynamic" expression="git@github.com:${repo:owner}/${repo:name}"/>
 	<Var name="repo:dir" type="dynamic" expression="../../${repo:name}"/>
 
+	<Var name="platforms" type="map">
+		<Var name="iOS" type="map">
+			<Var name="runDestination" literal="platform=iOS Simulator,OS=10.0,name=iPhone 7"/> 
+		</Var>
+		<Var name="OSX" type="map">
+			<Var name="runDestination" literal="platform=macOS"/> 
+		</Var>
+		<Var name="tvOS" type="map">
+			<Var name="runDestination" literal="platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p"/> 
+		</Var>
+		<Var name="watchOS" type="map">
+			<Var name="runDestination" literal="platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm"/> 
+		</Var>
+	</Var>
+
 	<Var name="branches" type="list">
 		<Var literal="master"/>
 		<Var literal="swift3"/>
