@@ -1,2 +1,2 @@
 #include "Tests.xcconfig"
-#include "OSX.xcconfig"
+#include "macOS.xcconfig"

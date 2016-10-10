@@ -483,7 +483,7 @@ destinationForPlatform()
 	iOS)
 		echo "-destination 'platform=iOS Simulator,OS=10.0,name=iPhone 7'";;
 
-	macOS|OSX)
+	macOS)
 		echo "-destination 'platform=macOS'";;
 
 	tvOS)
@@ -497,7 +497,7 @@ destinationForPlatform()
 buildActionsForPlatform()
 {
 	case $1 in 
-	iOS|macOS|OSX|tvOS)
+	iOS|macOS|tvOS)
 		echo "clean $2";;
 
 	watchOS)

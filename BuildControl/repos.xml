@@ -8,6 +8,21 @@
 	<Var name="repo:url:ssh" type="dynamic" expression="git@github.com:${repo:owner}/${repo:name}"/>
 	<Var name="repo:dir" type="dynamic" expression="../../${repo:name}"/>
 
+	<Var name="platforms" type="map">
+		<Var name="iOS" type="map">
+			<Var name="runDestination" literal="platform=iOS Simulator,OS=10.0,name=iPhone 7"/> 
+		</Var>
+		<Var name="macOS" type="map">
+			<Var name="runDestination" literal="platform=macOS"/> 
+		</Var>
+		<Var name="tvOS" type="map">
+			<Var name="runDestination" literal="platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p"/> 
+		</Var>
+		<Var name="watchOS" type="map">
+			<Var name="runDestination" literal="platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm"/> 
+		</Var>
+	</Var>
+
 	<Var name="branches" type="list">
 		<Var literal="master"/>
 		<Var literal="swift3"/>
@@ -24,14 +39,14 @@
 			
 			<Var name="current" type="map">
 				<Var name="iOS" literal="10.0"/> 
-				<Var name="OSX" literal="10.12"/> 
+				<Var name="macOS" literal="10.12"/> 
 				<Var name="tvOS" literal="10.0"/> 
 				<Var name="watchOS" literal="3.0"/> 
 			</Var>
 			
 			<Var name="minimum" type="map">
 				<Var name="iOS" literal="8.0"/> 
-				<Var name="OSX" literal="10.10"/> 
+				<Var name="macOS" literal="10.10"/> 
 				<Var name="tvOS" literal="9.0"/> 
 				<Var name="watchOS" literal="2.0"/> 
 			</Var>
@@ -49,14 +64,14 @@
 			
 			<Var name="current" type="map">
 				<Var name="iOS" literal="10.0"/> 
-				<Var name="OSX" literal="10.12"/> 
+				<Var name="macOS" literal="10.12"/> 
 				<Var name="tvOS" literal="10.0"/> 
 				<Var name="watchOS" literal="3.0"/> 
 			</Var>
 			
 			<Var name="minimum" type="map">
 				<Var name="iOS" literal="8.0"/> 
-				<Var name="OSX" literal="10.10"/> 
+				<Var name="macOS" literal="10.10"/> 
 				<Var name="tvOS" literal="9.0"/> 
 				<Var name="watchOS" literal="2.0"/> 
 			</Var>
@@ -66,10 +81,10 @@
 	<Var name="branches:nonmaster" type="dynamic" expression="^sort(^filter($branches|$item != master))"/>
 	<Var name="branches:other" type="dynamic" expression="^sort(^filter($branches|$item != $repo:branch))"/>
 
-	<Var name="project:isIOS" type="dynamic" expression="^containsValue($project:platforms|iOS)"/>
-	<Var name="project:isOSX" type="dynamic" expression="^containsValue($project:platforms|OSX)"/>
-	<Var name="project:isTVOS" type="dynamic" expression="^containsValue($project:platforms|tvOS)"/>
-	<Var name="project:isWATCHOS" type="dynamic" expression="^containsValue($project:platforms|watchOS)"/>
+	<Var name="supports:iOS" type="dynamic" expression="^containsValue($project:platforms|iOS)"/>
+	<Var name="supports:macOS" type="dynamic" expression="^containsValue($project:platforms|macOS)"/>
+	<Var name="supports:tvOS" type="dynamic" expression="^containsValue($project:platforms|tvOS)"/>
+	<Var name="supports:watchOS" type="dynamic" expression="^containsValue($project:platforms|watchOS)"/>
 
 	<Var name="project:file" type="dynamic" expression="${project:name}.xcodeproj"/>
 	<Var name="project:workspace" type="dynamic" expression="${project:name}.xcworkspace"/>

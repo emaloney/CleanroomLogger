@@ -183,7 +183,7 @@
 			containerPortal = 3BCBACE21BA369AD007F1C90 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 3B00E57B1BA379830011486D;
-			remoteInfo = "CleanroomLogger-OSX";
+			remoteInfo = "CleanroomLogger-macOS";
 		};
 		3B00E5A51BA37A420011486D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -205,21 +205,21 @@
 		3B00E5A31BA37A420011486D /* CleanroomLoggerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1F36661C3B301B0059B9B0 /* StackFrameLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameLogFormatter.swift; sourceTree = "<group>"; };
 		3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-OSX.xcconfig"; sourceTree = "<group>"; };
+		3B38DBD11BA76428000986DF /* Debug-macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-macOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-tvOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD31BA76428000986DF /* Debug-watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-watchOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBD41BA76428000986DF /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		3B38DBD51BA76428000986DF /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
 		3B38DBD61BA76428000986DF /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
-		3B38DBD71BA76428000986DF /* OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = OSX.xcconfig; sourceTree = "<group>"; };
+		3B38DBD71BA76428000986DF /* macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = macOS.xcconfig; sourceTree = "<group>"; };
 		3B38DBD81BA76428000986DF /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		3B38DBD91BA76428000986DF /* Release-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-iOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBDA1BA76428000986DF /* Release-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-OSX.xcconfig"; sourceTree = "<group>"; };
+		3B38DBDA1BA76428000986DF /* Release-macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-macOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBDB1BA76428000986DF /* Release-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-tvOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBDC1BA76428000986DF /* Release-watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-watchOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBDD1BA76428000986DF /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-iOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBDF1BA76428000986DF /* Tests-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-OSX.xcconfig"; sourceTree = "<group>"; };
+		3B38DBDF1BA76428000986DF /* Tests-macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-macOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-tvOS.xcconfig"; sourceTree = "<group>"; };
 		3B38DBE11BA76428000986DF /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 		3B38DBE21BA76428000986DF /* tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
@@ -343,21 +343,21 @@
 			isa = PBXGroup;
 			children = (
 				3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */,
-				3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */,
+				3B38DBD11BA76428000986DF /* Debug-macOS.xcconfig */,
 				3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */,
 				3B38DBD31BA76428000986DF /* Debug-watchOS.xcconfig */,
 				3B38DBD41BA76428000986DF /* Debug.xcconfig */,
 				3B38DBD51BA76428000986DF /* Framework.xcconfig */,
 				3B38DBD61BA76428000986DF /* iOS.xcconfig */,
-				3B38DBD71BA76428000986DF /* OSX.xcconfig */,
+				3B38DBD71BA76428000986DF /* macOS.xcconfig */,
 				3B38DBD81BA76428000986DF /* Project.xcconfig */,
 				3B38DBD91BA76428000986DF /* Release-iOS.xcconfig */,
-				3B38DBDA1BA76428000986DF /* Release-OSX.xcconfig */,
+				3B38DBDA1BA76428000986DF /* Release-macOS.xcconfig */,
 				3B38DBDB1BA76428000986DF /* Release-tvOS.xcconfig */,
 				3B38DBDC1BA76428000986DF /* Release-watchOS.xcconfig */,
 				3B38DBDD1BA76428000986DF /* Release.xcconfig */,
 				3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */,
-				3B38DBDF1BA76428000986DF /* Tests-OSX.xcconfig */,
+				3B38DBDF1BA76428000986DF /* Tests-macOS.xcconfig */,
 				3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */,
 				3B38DBE11BA76428000986DF /* Tests.xcconfig */,
 				3B38DBE21BA76428000986DF /* tvOS.xcconfig */,
@@ -557,9 +557,9 @@
 			productReference = 3B00E5671BA3782D0011486D /* CleanroomLoggerUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3B00E57B1BA379830011486D /* CleanroomLogger-OSX */ = {
+		3B00E57B1BA379830011486D /* CleanroomLogger-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00E58D1BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-OSX" */;
+			buildConfigurationList = 3B00E58D1BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-macOS" */;
 			buildPhases = (
 				3B00E5771BA379830011486D /* Sources */,
 				3B00E5781BA379830011486D /* Frameworks */,
@@ -570,14 +570,14 @@
 			);
 			dependencies = (
 			);
-			name = "CleanroomLogger-OSX";
-			productName = "CleanroomLogger-OSX";
+			name = "CleanroomLogger-macOS";
+			productName = "CleanroomLogger-macOS";
 			productReference = 3B00E57C1BA379830011486D /* CleanroomLogger.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3B00E5841BA379830011486D /* CleanroomLoggerUnitTests-OSX */ = {
+		3B00E5841BA379830011486D /* CleanroomLoggerUnitTests-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00E5901BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-OSX" */;
+			buildConfigurationList = 3B00E5901BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-macOS" */;
 			buildPhases = (
 				3B00E5811BA379830011486D /* Sources */,
 				3B00E5821BA379830011486D /* Frameworks */,
@@ -588,8 +588,8 @@
 			dependencies = (
 				3B00E5881BA379830011486D /* PBXTargetDependency */,
 			);
-			name = "CleanroomLoggerUnitTests-OSX";
-			productName = "CleanroomLogger-OSXTests";
+			name = "CleanroomLoggerUnitTests-macOS";
+			productName = "CleanroomLogger-macOSTests";
 			productReference = 3B00E5851BA379830011486D /* CleanroomLoggerUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -698,11 +698,11 @@
 			projectRoot = "";
 			targets = (
 				3B00E55C1BA3782D0011486D /* CleanroomLogger-iOS */,
-				3B00E57B1BA379830011486D /* CleanroomLogger-OSX */,
+				3B00E57B1BA379830011486D /* CleanroomLogger-macOS */,
 				3B00E5991BA37A420011486D /* CleanroomLogger-tvOS */,
 				3B78C6CD1BA7634E00173EAC /* CleanroomLogger-watchOS */,
 				3B00E5661BA3782D0011486D /* CleanroomLoggerUnitTests-iOS */,
-				3B00E5841BA379830011486D /* CleanroomLoggerUnitTests-OSX */,
+				3B00E5841BA379830011486D /* CleanroomLoggerUnitTests-macOS */,
 				3B00E5A21BA37A420011486D /* CleanroomLoggerUnitTests-tvOS */,
 			);
 		};
@@ -974,7 +974,7 @@
 		};
 		3B00E5881BA379830011486D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3B00E57B1BA379830011486D /* CleanroomLogger-OSX */;
+			target = 3B00E57B1BA379830011486D /* CleanroomLogger-macOS */;
 			targetProxy = 3B00E5871BA379830011486D /* PBXContainerItemProxy */;
 		};
 		3B00E5A61BA37A420011486D /* PBXTargetDependency */ = {
@@ -1156,7 +1156,7 @@
 		};
 		3B00E58E1BA379830011486D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBD11BA76428000986DF /* Debug-OSX.xcconfig */;
+			baseConfigurationReference = 3B38DBD11BA76428000986DF /* Debug-macOS.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1204,7 +1204,7 @@
 		};
 		3B00E58F1BA379830011486D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDA1BA76428000986DF /* Release-OSX.xcconfig */;
+			baseConfigurationReference = 3B38DBDA1BA76428000986DF /* Release-macOS.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1246,7 +1246,7 @@
 		};
 		3B00E5911BA379830011486D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDF1BA76428000986DF /* Tests-OSX.xcconfig */;
+			baseConfigurationReference = 3B38DBDF1BA76428000986DF /* Tests-macOS.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1288,7 +1288,7 @@
 		};
 		3B00E5921BA379830011486D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDF1BA76428000986DF /* Tests-OSX.xcconfig */;
+			baseConfigurationReference = 3B38DBDF1BA76428000986DF /* Tests-macOS.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1659,7 +1659,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B00E58D1BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-OSX" */ = {
+		3B00E58D1BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B00E58E1BA379830011486D /* Debug */,
@@ -1668,7 +1668,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B00E5901BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-OSX" */ = {
+		3B00E5901BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B00E5911BA379830011486D /* Debug */,

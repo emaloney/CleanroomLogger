@@ -1,2 +1,2 @@
 #include "Release.xcconfig"
-#include "OSX.xcconfig"
+#include "macOS.xcconfig"

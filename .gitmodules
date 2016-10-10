@@ -1,3 +1,3 @@
 [submodule "Carthage/Checkouts/CleanroomASL"]
 	path = Carthage/Checkouts/CleanroomASL
-	url = https://github.com/emaloney/CleanroomASL.git
+	url = ssh://git@github.com/emaloney/CleanroomASL.git
