@@ -15,8 +15,8 @@ install:
 script:
   - ./BuildControl/bin/travisBuildHelper.sh build iOS
   - ./BuildControl/bin/travisBuildHelper.sh test iOS
-  - ./BuildControl/bin/travisBuildHelper.sh build OSX
-  - ./BuildControl/bin/travisBuildHelper.sh test OSX
+  - ./BuildControl/bin/travisBuildHelper.sh build macOS
+  - ./BuildControl/bin/travisBuildHelper.sh test macOS
   - ./BuildControl/bin/travisBuildHelper.sh build tvOS
   - ./BuildControl/bin/travisBuildHelper.sh test tvOS
   - ./BuildControl/bin/travisBuildHelper.sh build watchOS
