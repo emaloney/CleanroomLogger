@@ -41,6 +41,9 @@
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter/Field.html">– Field</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
@@ -86,6 +89,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
@@ -152,6 +158,9 @@
                 <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/LogEntry/Payload.html">– Payload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
@@ -213,7 +222,7 @@ more convenient to use within your code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogConfiguration</span><span class="p">]</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -240,7 +249,7 @@ more convenient to use within your code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span></code></pre>
 
                         </div>
                       </div>
@@ -260,7 +269,7 @@ more convenient to use within your code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Constructs a new <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> that will use the specified configurations.</p>
+                        <p>Constructs a new <code>LogReceptacle</code> that will use the specified configurations.</p>
 
 <p>When a <code><a href="../Structs/LogEntry.html">LogEntry</a></code> is passed to the receiver&rsquo;s <code>log()</code> function, logging
 will proceed using <strong>all</strong> <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code>s having a <code><a href="../Classes/LogReceptacle.html#/s:vC15CleanroomLogger13LogReceptacle15minimumSeverityOS_11LogSeverity">minimumSeverity</a></code>
@@ -274,7 +283,7 @@ silently ignored.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogConfiguration</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -304,9 +313,9 @@ silently ignored.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger13LogReceptacle3logFVS_8LogEntryT_"></a>
-                    <a name="//apple_ref/swift/Method/log(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger13LogReceptacle3logFVS_8LogEntryT_">log(_:)</a>
+                    <a name="/s:FC15CleanroomLogger13LogReceptacle3logFT5entryVS_8LogEntry_T_"></a>
+                    <a name="//apple_ref/swift/Method/log(entry:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger13LogReceptacle3logFT5entryVS_8LogEntry_T_">log(entry:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -322,7 +331,7 @@ to the underlying log storage facility.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">log</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">log</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -355,7 +364,7 @@ to the underlying log storage facility.</p>
         </section>
         <section id="footer">
           <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

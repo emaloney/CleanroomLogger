@@ -40,6 +40,9 @@
                 <a href="Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/FieldBasedLogFormatter/Field.html">– Field</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
@@ -85,6 +88,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/TimestampStyle.html">TimestampStyle</a>
@@ -151,6 +157,9 @@
                 <a href="Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/LogEntry/Payload.html">– Payload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
@@ -207,7 +216,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SeverityLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SeverityLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -243,7 +252,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TimestampLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TimestampLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -280,7 +289,7 @@ is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogRecorder.html">LogRecorder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -317,7 +326,7 @@ followed by the <code>callingFileLine</code> within that file.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallSiteLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallSiteLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -352,7 +361,7 @@ followed by the <code>callingFileLine</code> within that file.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DelimiterLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DelimiterLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -388,7 +397,7 @@ followed by the <code>callingFileLine</code> within that file.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PayloadLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PayloadLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -472,7 +481,7 @@ into a string representation.</p>
 <p>Note that some implementations may not be able to convert certain values into
 strings; in those cases, log requests may be silently ignored.</p>
 
-<p><a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3></p>
+<p><a href='#enabling-logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling-logging'>Enabling logging</h3></p>
 
 <p>By default, logging is disabled, meaning that none of the <code>Log</code>&rsquo;s <em>log channels</em>
 have been populated. As a result, attempts to perform any logging will silently
@@ -565,7 +574,7 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallingThreadLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallingThreadLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -598,7 +607,7 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ColorizingLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ColorizingLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -630,7 +639,7 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultColorTable</span><span class="p">:</span> <span class="kt">ColorTable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultColorTable</span><span class="p">:</span> <span class="kt"><a href="Protocols/ColorTable.html">ColorTable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -730,7 +739,7 @@ Used for specifying log output colors.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StackFrameLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StackFrameLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -764,7 +773,7 @@ formatting to log messages.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XcodeColorsTextColorizer</span><span class="p">:</span> <span class="kt">TextColorizer</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XcodeColorsTextColorizer</span><span class="p">:</span> <span class="kt"><a href="Protocols/TextColorizer.html">TextColorizer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -800,7 +809,7 @@ regardless of input.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LiteralLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LiteralLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -833,7 +842,7 @@ regardless of input.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogSeverityFilter</span><span class="p">:</span> <span class="kt">LogFilter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogSeverityFilter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFilter.html">LogFilter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -846,7 +855,7 @@ regardless of input.</p>
         </section>
         <section id="footer">
           <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
