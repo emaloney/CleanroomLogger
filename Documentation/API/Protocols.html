@@ -40,6 +40,9 @@
                 <a href="Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/FieldBasedLogFormatter/Field.html">– Field</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
@@ -85,6 +88,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/TimestampStyle.html">TimestampStyle</a>
@@ -151,6 +157,9 @@
                 <a href="Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/LogEntry/Payload.html">– Payload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
@@ -185,9 +194,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P15CleanroomLogger11LogRecorder"></a>
-                    <a name="//apple_ref/swift/Protocol/LogRecorder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P15CleanroomLogger11LogRecorder">LogRecorder</a>
+                    <a name="/s:P15CleanroomLogger9LogFilter"></a>
+                    <a name="//apple_ref/swift/Protocol/LogFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P15CleanroomLogger9LogFilter">LogFilter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -195,49 +204,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Each <code>LogRecorder</code> instance is responsible recording formatted log messages
-(along with their accompanying <code><a href="Structs/LogEntry.html">LogEntry</a></code> instances) to an underlying log
-facility or data store.</p>
+                        <p>Before a <code><a href="Structs/LogEntry.html">LogEntry</a></code> is recorded, any <code>LogFilter</code>s specified in the active
+<code><a href="Protocols/LogConfiguration.html">LogConfiguration</a></code> are given a chance to prevent the entry from being recorded
+by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> function.</p>
 
-                        <a href="Protocols/LogRecorder.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/LogFilter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogRecorder</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:P15CleanroomLogger16LogConfiguration"></a>
-                    <a name="//apple_ref/swift/Protocol/LogConfiguration" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P15CleanroomLogger16LogConfiguration">LogConfiguration</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Defines an interface for specifying the configuration of the logging system.</p>
-
-                        <a href="Protocols/LogConfiguration.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogConfiguration</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogFilter</span></code></pre>
 
                         </div>
                       </div>
@@ -284,9 +261,9 @@ for a given <code><a href="Enums/LogSeverity.html">LogSeverity</a></code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P15CleanroomLogger12LogFormatter"></a>
-                    <a name="//apple_ref/swift/Protocol/LogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P15CleanroomLogger12LogFormatter">LogFormatter</a>
+                    <a name="/s:P15CleanroomLogger16LogConfiguration"></a>
+                    <a name="//apple_ref/swift/Protocol/LogConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P15CleanroomLogger16LogConfiguration">LogConfiguration</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -294,16 +271,15 @@ for a given <code><a href="Enums/LogSeverity.html">LogSeverity</a></code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>LogFormatter</code>s are used to attempt to create string representations of
-<code><a href="Structs/LogEntry.html">LogEntry</a></code> instances.</p>
+                        <p>Defines an interface for specifying the configuration of the logging system.</p>
 
-                        <a href="Protocols/LogFormatter.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/LogConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogConfiguration</span></code></pre>
 
                         </div>
                       </div>
@@ -349,9 +325,9 @@ for a given <code><a href="Enums/LogSeverity.html">LogSeverity</a></code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P15CleanroomLogger9LogFilter"></a>
-                    <a name="//apple_ref/swift/Protocol/LogFilter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P15CleanroomLogger9LogFilter">LogFilter</a>
+                    <a name="/s:P15CleanroomLogger12LogFormatter"></a>
+                    <a name="//apple_ref/swift/Protocol/LogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P15CleanroomLogger12LogFormatter">LogFormatter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -359,17 +335,50 @@ for a given <code><a href="Enums/LogSeverity.html">LogSeverity</a></code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Before a <code><a href="Structs/LogEntry.html">LogEntry</a></code> is recorded, any <code>LogFilter</code>s specified in the active
-<code><a href="Protocols/LogConfiguration.html">LogConfiguration</a></code> are given a chance to prevent the entry from being recorded
-by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> function.</p>
+                        <p><code>LogFormatter</code>s are used to attempt to create string representations of
+<code><a href="Structs/LogEntry.html">LogEntry</a></code> instances.</p>
 
-                        <a href="Protocols/LogFilter.html" class="slightly-smaller">See more</a>
+                        <a href="Protocols/LogFormatter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogFilter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogFormatter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:P15CleanroomLogger11LogRecorder"></a>
+                    <a name="//apple_ref/swift/Protocol/LogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P15CleanroomLogger11LogRecorder">LogRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Each <code>LogRecorder</code> instance is responsible recording formatted log messages
+(along with their accompanying <code><a href="Structs/LogEntry.html">LogEntry</a></code> instances) to an underlying log
+facility or data store.</p>
+
+                        <a href="Protocols/LogRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">LogRecorder</span></code></pre>
 
                         </div>
                       </div>
@@ -382,7 +391,7 @@ by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> fun
         </section>
         <section id="footer">
           <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

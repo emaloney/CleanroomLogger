@@ -2,6 +2,7 @@
 	<Var name="repo:host" literal="github"/>
 	<Var name="repo:name" type="dynamic" expression="$project:name"/>
 	<Var name="repo:branch" value="$ENV[BRANCH]"/> <!-- expect calling script to set this environment variable -->
+	<Var name="repo:branch:settings" type="dynamic" expression="^if($repo:branch -AND ^containsValue(^keys($versions)|$repo:branch)|$repo:branch|^if($project:branch:settings|$project:branch:settings|master))"/>
 	<Var name="repo:url:home" type="dynamic" expression="https://github.com/${repo:owner}/${repo:name}"/>
 	<Var name="repo:url:branch" type="dynamic" expression="${repo:url:home}/tree"/>
 	<Var name="repo:url:http" type="dynamic" expression="${repo:url:home}"/>
@@ -11,15 +12,19 @@
 	<Var name="platforms" type="map">
 		<Var name="iOS" type="map">
 			<Var name="runDestination" literal="platform=iOS Simulator,OS=10.0,name=iPhone 7"/> 
+			<Var name="supportsUnitTests" boolean="T"/> 
 		</Var>
 		<Var name="macOS" type="map">
 			<Var name="runDestination" literal="platform=macOS"/> 
+			<Var name="supportsUnitTests" boolean="T"/> 
 		</Var>
 		<Var name="tvOS" type="map">
 			<Var name="runDestination" literal="platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p"/> 
+			<Var name="supportsUnitTests" boolean="T"/> 
 		</Var>
 		<Var name="watchOS" type="map">
 			<Var name="runDestination" literal="platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm"/> 
+			<Var name="supportsUnitTests" boolean="F"/> 
 		</Var>
 	</Var>
 
@@ -35,7 +40,6 @@
 			<Var name="Xcode" literal="8"/>
 			
 			<Var name="Carthage" literal="0.17.2"/>
-			<Var name="git" literal="2.7.4 (Apple Git-73)"/>
 			
 			<Var name="current" type="map">
 				<Var name="iOS" literal="10.0"/> 
@@ -54,7 +58,7 @@
 
 		<!-- swift3 branch declarations -->
 		<Var name="swift3" type="map">
-			<Var name="note" literal="The `swift3` branch is still under active development. Expect breaking changes to the API, the build system and/or the project structure at any time. **Be sure to lock against a specific commit if you simultaneously require Swift 3 and stability.**"/>
+			<Var name="note" literal="This branch is still under active development. Expect breaking changes to the API, the build system and/or the project structure at any time. **Be sure to lock against a specific commit if you simultaneously require Swift 3 and stability.**"/>
 			
 			<Var name="Swift" literal="3.0"/> 
 			<Var name="Xcode" literal="8"/>
@@ -86,6 +90,8 @@
 	<Var name="supports:tvOS" type="dynamic" expression="^containsValue($project:platforms|tvOS)"/>
 	<Var name="supports:watchOS" type="dynamic" expression="^containsValue($project:platforms|watchOS)"/>
 
+	<Var name="project:version" value="$ENV[FRAMEWORK_VERSION]"/> <!-- expect calling script to set this environment variable -->
+	<Var name="project:version:public" value="$ENV[FRAMEWORK_VERSION_PUBLIC]"/> <!-- expect calling script to set this environment variable -->
 	<Var name="project:file" type="dynamic" expression="${project:name}.xcodeproj"/>
 	<Var name="project:workspace" type="dynamic" expression="${project:name}.xcworkspace"/>
 	<Var name="project:hasWorkspace" type="dynamic" expression="^fileExists(${repo:dir}/${project:workspace})"/>
@@ -103,16 +109,15 @@
 	<Var name="docs:api:index" type="dynamic" expression="${docs:api:root}/index.html"/>
 	<Var name="docs:images:root" type="dynamic" expression="${docs:root}/Images"/>
 
-	<Var name="docs:buildSchemeOrList" type="dynamic" expression="^if($project:platforms.count -LT 2|“$project:name”)^if($project:platforms.count -EQ 2|“${project:name}-${project:platforms[0]}” or “${project:name}-${project:platforms[1]}”)^if($project:platforms.count -GT 2|^join(^list(^groupArrayElements($project:platforms|#($project:platforms.count - 1))[0]|“${project:name}-$item”)|, ) or “${project:name}-$project:platforms[#($project:platforms.count - 1)]”)"/>
-	<Var name="docs:dependencyAndList" type="dynamic" expression="^if($project:dependencies|^if($project:dependencies.count -LT 2|`$project:dependencies[0]^q(.framework)`)^if($project:dependencies.count -EQ 2|`$project:dependencies[0]^q(.framework)` and $project:dependencies[1]^q(.framework)`)^if($project:dependencies.count -GT 2|^join(^list(^groupArrayElements($project:dependencies|#($project:dependencies.count - 1))[0]|`$(item).framework`)|, ) and `$project:dependencies[#($project:dependencies.count - 1)]^q(.framework)`))"/>
-	<Var name="docs:frameworkAndList" type="dynamic" expression="`${project:framework}`^if($project:dependencies|^if($project:dependencies.count == 1| and|,) $docs:dependencyAndList)"/>
-	<Var name="docs:projectFrameworksTerm" type="dynamic" expression="framework^if($project:dependencies -OR $project:platforms.count -GT 0|s)"/>
-	<Var name="docs:targetFrameworksTerm" type="dynamic" expression="framework^if($project:dependencies|s)"/>
-	<Var name="docs:projectBinariesTerm" type="dynamic" expression="binar^if($project:dependencies -OR $project:platforms.count -GT 0|ies|y)"/>
-	<Var name="docs:targetBinariesTerm" type="dynamic" expression="binar^if($project:dependencies|ies|y)"/>
-	<Var name="docs:dependenciesTerm" type="dynamic" expression="dependenc^if($project:dependencies -AND $project:dependencies.count -GT 1|ies|y)"/>
+	<Var name="docs:integrationFilesCount" type="dynamic" expression="#(^count($project:dependencies) + 1)"/>
+
+	<Var name="docs:projectsDependenciesList" type="dynamic" expression="^if($project:dependencies|^if(^count($project:dependencies) -LT 2|`$project:dependencies[0]^q(.xcodeproj)`)^if(^count($project:dependencies) -EQ 2|`$project:dependencies[0]^q(.xcodeproj)` and $project:dependencies[1]^q(.xcodeproj)`)^if(^count($project:dependencies) -GT 2|^join(^list(^groupArrayElements($project:dependencies|#(^count($project:dependencies) - 1))[0]|`$(item).xcodeproj`)|, ) and `$project:dependencies[#(^count($project:dependencies) - 1)]^q(.xcodeproj)`))"/>
+	<Var name="docs:projectsAllList" type="dynamic" expression="`${project:file}`^if($project:dependencies|^if(^count($project:dependencies) == 1| and|,) $docs:projectsDependenciesList)"/>
+	<Var name="docs:frameworksDependenciesList" type="dynamic" expression="^if($project:dependencies|^if(^count($project:dependencies) -LT 2|`$project:dependencies[0]^q(.framework)`)^if(^count($project:dependencies) -EQ 2|`$project:dependencies[0]^q(.framework)` and $project:dependencies[1]^q(.framework)`)^if(^count($project:dependencies) -GT 2|^join(^list(^groupArrayElements($project:dependencies|#(^count($project:dependencies) - 1))[0]|`$(item).framework`)|, ) and `$project:dependencies[#(^count($project:dependencies) - 1)]^q(.framework)`))"/>
+	<Var name="docs:frameworksAllList" type="dynamic" expression="`${project:file}`^if($project:dependencies|^if(^count($project:dependencies) == 1| and|,) $docs:frameworksDependenciesList)"/>
+
 	<Var name="docs:cloneCommand" type="dynamic" expression="git clone ^if($project:dependencies|--recursive )${repo:url:http}"/>
-	<Var name="docs:carthageSpec" type="dynamic" expression='$repo:host "${repo:owner}/${repo:name}"'/>
+	<Var name="docs:carthageSpec" type="dynamic" expression='$repo:host "${repo:owner}/${repo:name}" ~> ${project:version:public}.0'/>
 
 	<Var name="travis:url" type="dynamic" expression="https://travis-ci.^if(${travis:build-status-token}|com|org)/${repo:owner}/${repo:name}"/>
 </MBML>

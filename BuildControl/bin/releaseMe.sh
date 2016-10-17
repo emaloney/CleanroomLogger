@@ -77,16 +77,16 @@ showHelp()
 	echo
 	printf "\tmajor — When the major release type is specified, the major version\n"
 	printf "\t\tcomponent is incremented, and both the minor and patch\n"
-	printf "\t\tcomponents are reset to zero. (eg., 2.1.3 becomes 3.0.0)\n"
+	printf "\t\tcomponents are reset to zero. 2.1.3 becomes 3.0.0.\n"
 	echo
 	printf "\tminor — When the minor release type is specified, the major version\n"
 	printf "\t\tcomponent is not changed, while the minor component is\n"
 	printf "\t\tincremented and patch component is reset to zero.\n"
-	printf "\t\t(eg., 2.1.3 becomes 2.2.0)\n"
+	printf "\t\t2.1.3 becomes 2.2.0.\n"
 	echo
 	printf "\tpatch — When the patch release type is specified, the major and minor\n"
 	printf "\t\tversion components remain unchanged, while the patch component\n"
-	printf "\t\tis incremented. (eg., 2.1.3 becomes 2.1.4)\n"
+	printf "\t\tis incremented. 2.1.3 becomes 2.1.4.\n"
 	echo
 	printf "\tThe script then updates all necessary references to the version\n"	
 	printf "\telsewhere in the project.\n"
@@ -461,82 +461,44 @@ if [[ $? == 0 ]]; then
 fi
 
 #
-# determine whether to use .xcodeproj or .xcworkspace
+# determine build settings
 #
-if [[ -r "${REPO_NAME}.xcworkspace" ]]; then
-	PROJECT_CONTAINER="${REPO_NAME}.xcworkspace"
-	PROJECT_FLAG="-workspace"
-else
-	PROJECT_CONTAINER="${REPO_NAME}.xcodeproj"
-	PROJECT_FLAG="-project"
-fi
-PROJECT_SPECIFIER="$PROJECT_FLAG $PROJECT_CONTAINER"
+PROJECT_SPECIFIER="-workspace CleanroomLogger.xcworkspace"
+COMPILE_PLATFORMS="iOS macOS tvOS watchOS"
+PROJECT_NAME="CleanroomLogger"
 
-#
-# these two functions are to compensate for the fact that macOS is still on
-# bash 3.x and therefore a more sensible implementation using associative
-# arrays is not currently possible
-#
-destinationForPlatform()
+testActionForPlatform()
 {
-	case $1 in 
-	iOS)
-		echo "-destination 'platform=iOS Simulator,OS=10.0,name=iPhone 7'";;
-
-	macOS)
-		echo "-destination 'platform=macOS'";;
-
-	tvOS)
-		echo "-destination 'platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p'";;
-
-	watchOS)
-		echo "-destination 'platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm'";;
+	case $1 in
+	iOS) 		echo "test";;
+	macOS) 		echo "test";;	
+	tvOS) 		echo "test";;
+	watchOS)	echo "build";;
 	esac
 }
 
-buildActionsForPlatform()
+runDestinationForPlatform()
 {
-	case $1 in 
-	iOS|macOS|tvOS)
-		echo "clean $2";;
-
-	watchOS)
-		echo "clean build";;
+	case $1 in
+	iOS) 		echo "platform=iOS Simulator,OS=10.0,name=iPhone 7";;
+	macOS) 		echo "platform=macOS";;	
+	tvOS) 		echo "platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p";;
+	watchOS)	echo "platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm";;
 	esac
 }
-
-#
-# figure out what platform(s) we need to build for
-#
-SCHEME_PIPE="/tmp/${SCRIPT_NAME}-$$-${RANDOM}-scheme.pipe"
-SCHEME_ROOT="${REPO_NAME}-"
-mkfifo "$SCHEME_PIPE" # use named pipe to work around pipe subshell issue
-xcodebuild -list | grep "\s${REPO_NAME}" | grep -v Tests | grep -v TestHarness | sort | uniq | sed "s/^[ \t]*//" > "$SCHEME_PIPE" &
-while read SCHEME
-do
-	THIS_PLATFORM="${SCHEME##$SCHEME_ROOT}"
-	if [[ -z $COMPILE_PLATFORMS ]]; then
-		COMPILE_PLATFORMS="$THIS_PLATFORM"
-	else
-		COMPILE_PLATFORMS=$(printf "$COMPILE_PLATFORMS\n$THIS_PLATFORM")
-	fi
-done < "$SCHEME_PIPE"
-rm "$SCHEME_PIPE"
 
 #
 # build for each platform
 #
-if [[ $SKIP_TESTS ]]; then
-	BUILD_ACTION="build"
-else
-	BUILD_ACTION="test"
-fi
 for PLATFORM in $COMPILE_PLATFORMS; do
-	SCHEME="${SCHEME_ROOT}${PLATFORM}"
-	updateStatus "Building: $SCHEME..."
-	DESTINATION=$(destinationForPlatform $PLATFORM)
-	ACTIONS=$(buildActionsForPlatform $PLATFORM $BUILD_ACTION)
-	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$SCHEME\" -configuration Release ONLY_ACTIVE_ARCH=YES $DESTINATION $ACTIONS $XCODEBUILD_PIPETO"
+	updateStatus "Building: $PROJECT_NAME for $PLATFORM..."
+	if [[ $SKIP_TESTS ]]; then
+		BUILD_ACTION="clean build"
+	else
+		BUILD_ACTION="clean $(testActionForPlatform $PLATFORM)"
+	fi
+	RUN_DESTINATION="$(runDestinationForPlatform $PLATFORM)"
+	executeCommand "$XCODEBUILD $PROJECT_SPECIFIER -scheme \"$REPO_NAME\" -configuration Debug -destination \"$RUN_DESTINATION\" $BUILD_ACTION $XCODEBUILD_PIPETO"
 done
 
 #

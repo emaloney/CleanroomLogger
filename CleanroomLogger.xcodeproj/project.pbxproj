@@ -7,511 +7,238 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B00E5681BA3782D0011486D /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00E55D1BA3782D0011486D /* CleanroomLogger.framework */; };
-		3B00E5861BA379830011486D /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00E57C1BA379830011486D /* CleanroomLogger.framework */; };
-		3B00E5A41BA37A420011486D /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00E59A1BA37A420011486D /* CleanroomLogger.framework */; };
-		3B1F36671C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F36661C3B301B0059B9B0 /* StackFrameLogFormatter.swift */; };
-		3B1F36681C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F36661C3B301B0059B9B0 /* StackFrameLogFormatter.swift */; };
-		3B1F36691C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F36661C3B301B0059B9B0 /* StackFrameLogFormatter.swift */; };
-		3B1F366A1C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F36661C3B301B0059B9B0 /* StackFrameLogFormatter.swift */; };
-		3B45ADB01C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */; };
-		3B45ADB11C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */; };
-		3B45ADB21C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */; };
-		3B45ADB31C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */; };
-		3B515C041D6E745F0068A72B /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B515C031D6E745F0068A72B /* LoggingTests.swift */; };
-		3B515C051D6E745F0068A72B /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B515C031D6E745F0068A72B /* LoggingTests.swift */; };
-		3B515C061D6E745F0068A72B /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B515C031D6E745F0068A72B /* LoggingTests.swift */; };
-		3B525E421C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */; };
-		3B525E431C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */; };
-		3B525E441C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */; };
-		3B525E451C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */; };
-		3B6014951C24C073002652B3 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014801C24C073002652B3 /* ASLLogRecorder.swift */; };
-		3B6014961C24C073002652B3 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014801C24C073002652B3 /* ASLLogRecorder.swift */; };
-		3B6014971C24C073002652B3 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014801C24C073002652B3 /* ASLLogRecorder.swift */; };
-		3B6014981C24C073002652B3 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014801C24C073002652B3 /* ASLLogRecorder.swift */; };
-		3B6014991C24C073002652B3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014811C24C073002652B3 /* Color.swift */; };
-		3B60149A1C24C073002652B3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014811C24C073002652B3 /* Color.swift */; };
-		3B60149B1C24C073002652B3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014811C24C073002652B3 /* Color.swift */; };
-		3B60149C1C24C073002652B3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014811C24C073002652B3 /* Color.swift */; };
-		3B60149D1C24C073002652B3 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* TextColorizer.swift */; };
-		3B60149E1C24C073002652B3 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* TextColorizer.swift */; };
-		3B60149F1C24C073002652B3 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* TextColorizer.swift */; };
-		3B6014A01C24C073002652B3 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014821C24C073002652B3 /* TextColorizer.swift */; };
-		3B6014A11C24C073002652B3 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014831C24C073002652B3 /* ColorTable.swift */; };
-		3B6014A21C24C073002652B3 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014831C24C073002652B3 /* ColorTable.swift */; };
-		3B6014A31C24C073002652B3 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014831C24C073002652B3 /* ColorTable.swift */; };
-		3B6014A41C24C073002652B3 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014831C24C073002652B3 /* ColorTable.swift */; };
-		3B6014A51C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014841C24C073002652B3 /* RotatingLogFileRecorder.swift */; };
-		3B6014A61C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014841C24C073002652B3 /* RotatingLogFileRecorder.swift */; };
-		3B6014A71C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014841C24C073002652B3 /* RotatingLogFileRecorder.swift */; };
-		3B6014A81C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014841C24C073002652B3 /* RotatingLogFileRecorder.swift */; };
-		3B6014A91C24C073002652B3 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014851C24C073002652B3 /* DefaultColorTable.swift */; };
-		3B6014AA1C24C073002652B3 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014851C24C073002652B3 /* DefaultColorTable.swift */; };
-		3B6014AB1C24C073002652B3 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014851C24C073002652B3 /* DefaultColorTable.swift */; };
-		3B6014AC1C24C073002652B3 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014851C24C073002652B3 /* DefaultColorTable.swift */; };
-		3B6014AD1C24C073002652B3 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014861C24C073002652B3 /* BasicLogConfiguration.swift */; };
-		3B6014AE1C24C073002652B3 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014861C24C073002652B3 /* BasicLogConfiguration.swift */; };
-		3B6014AF1C24C073002652B3 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014861C24C073002652B3 /* BasicLogConfiguration.swift */; };
-		3B6014B01C24C073002652B3 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014861C24C073002652B3 /* BasicLogConfiguration.swift */; };
-		3B6014B51C24C073002652B3 /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014881C24C073002652B3 /* FileLogRecorder.swift */; };
-		3B6014B61C24C073002652B3 /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014881C24C073002652B3 /* FileLogRecorder.swift */; };
-		3B6014B71C24C073002652B3 /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014881C24C073002652B3 /* FileLogRecorder.swift */; };
-		3B6014B81C24C073002652B3 /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014881C24C073002652B3 /* FileLogRecorder.swift */; };
-		3B6014B91C24C073002652B3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014891C24C073002652B3 /* Log.swift */; };
-		3B6014BA1C24C073002652B3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014891C24C073002652B3 /* Log.swift */; };
-		3B6014BB1C24C073002652B3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014891C24C073002652B3 /* Log.swift */; };
-		3B6014BC1C24C073002652B3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014891C24C073002652B3 /* Log.swift */; };
-		3B6014BD1C24C073002652B3 /* LogChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148A1C24C073002652B3 /* LogChannel.swift */; };
-		3B6014BE1C24C073002652B3 /* LogChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148A1C24C073002652B3 /* LogChannel.swift */; };
-		3B6014BF1C24C073002652B3 /* LogChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148A1C24C073002652B3 /* LogChannel.swift */; };
-		3B6014C01C24C073002652B3 /* LogChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148A1C24C073002652B3 /* LogChannel.swift */; };
-		3B6014C11C24C073002652B3 /* LogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148B1C24C073002652B3 /* LogConfiguration.swift */; };
-		3B6014C21C24C073002652B3 /* LogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148B1C24C073002652B3 /* LogConfiguration.swift */; };
-		3B6014C31C24C073002652B3 /* LogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148B1C24C073002652B3 /* LogConfiguration.swift */; };
-		3B6014C41C24C073002652B3 /* LogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148B1C24C073002652B3 /* LogConfiguration.swift */; };
-		3B6014C51C24C073002652B3 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148C1C24C073002652B3 /* LogEntry.swift */; };
-		3B6014C61C24C073002652B3 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148C1C24C073002652B3 /* LogEntry.swift */; };
-		3B6014C71C24C073002652B3 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148C1C24C073002652B3 /* LogEntry.swift */; };
-		3B6014C81C24C073002652B3 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148C1C24C073002652B3 /* LogEntry.swift */; };
-		3B6014C91C24C073002652B3 /* LogFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148D1C24C073002652B3 /* LogFilter.swift */; };
-		3B6014CA1C24C073002652B3 /* LogFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148D1C24C073002652B3 /* LogFilter.swift */; };
-		3B6014CB1C24C073002652B3 /* LogFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148D1C24C073002652B3 /* LogFilter.swift */; };
-		3B6014CC1C24C073002652B3 /* LogFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148D1C24C073002652B3 /* LogFilter.swift */; };
-		3B6014CD1C24C073002652B3 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148E1C24C073002652B3 /* LogFormatter.swift */; };
-		3B6014CE1C24C073002652B3 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148E1C24C073002652B3 /* LogFormatter.swift */; };
-		3B6014CF1C24C073002652B3 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148E1C24C073002652B3 /* LogFormatter.swift */; };
-		3B6014D01C24C073002652B3 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148E1C24C073002652B3 /* LogFormatter.swift */; };
-		3B6014D11C24C073002652B3 /* LogReceptacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148F1C24C073002652B3 /* LogReceptacle.swift */; };
-		3B6014D21C24C073002652B3 /* LogReceptacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148F1C24C073002652B3 /* LogReceptacle.swift */; };
-		3B6014D31C24C073002652B3 /* LogReceptacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148F1C24C073002652B3 /* LogReceptacle.swift */; };
-		3B6014D41C24C073002652B3 /* LogReceptacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60148F1C24C073002652B3 /* LogReceptacle.swift */; };
-		3B6014D51C24C073002652B3 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014901C24C073002652B3 /* LogRecorder.swift */; };
-		3B6014D61C24C073002652B3 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014901C24C073002652B3 /* LogRecorder.swift */; };
-		3B6014D71C24C073002652B3 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014901C24C073002652B3 /* LogRecorder.swift */; };
-		3B6014D81C24C073002652B3 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014901C24C073002652B3 /* LogRecorder.swift */; };
-		3B6014D91C24C073002652B3 /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014911C24C073002652B3 /* LogRecorderBase.swift */; };
-		3B6014DA1C24C073002652B3 /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014911C24C073002652B3 /* LogRecorderBase.swift */; };
-		3B6014DB1C24C073002652B3 /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014911C24C073002652B3 /* LogRecorderBase.swift */; };
-		3B6014DC1C24C073002652B3 /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014911C24C073002652B3 /* LogRecorderBase.swift */; };
-		3B6014DD1C24C073002652B3 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014921C24C073002652B3 /* LogSeverity.swift */; };
-		3B6014DE1C24C073002652B3 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014921C24C073002652B3 /* LogSeverity.swift */; };
-		3B6014DF1C24C073002652B3 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014921C24C073002652B3 /* LogSeverity.swift */; };
-		3B6014E01C24C073002652B3 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014921C24C073002652B3 /* LogSeverity.swift */; };
-		3B6014E51C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */; };
-		3B6014E61C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */; };
-		3B6014E71C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */; };
-		3B6014E81C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */; };
-		3B698C4D1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */; };
-		3B698C4E1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */; };
-		3B698C4F1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */; };
-		3B698C501C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */; };
-		3B71B3171C3B2FB600C23333 /* SeverityLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71B3161C3B2FB600C23333 /* SeverityLogFormatter.swift */; };
-		3B71B3181C3B2FB600C23333 /* SeverityLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71B3161C3B2FB600C23333 /* SeverityLogFormatter.swift */; };
-		3B71B3191C3B2FB600C23333 /* SeverityLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71B3161C3B2FB600C23333 /* SeverityLogFormatter.swift */; };
-		3B71B31A1C3B2FB600C23333 /* SeverityLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B71B3161C3B2FB600C23333 /* SeverityLogFormatter.swift */; };
-		3B7C1ABA1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C1AB91C3B2F2600DE72C4 /* PayloadLogFormatter.swift */; };
-		3B7C1ABB1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C1AB91C3B2F2600DE72C4 /* PayloadLogFormatter.swift */; };
-		3B7C1ABC1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C1AB91C3B2F2600DE72C4 /* PayloadLogFormatter.swift */; };
-		3B7C1ABD1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C1AB91C3B2F2600DE72C4 /* PayloadLogFormatter.swift */; };
-		3B7C1AC21C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C1AC11C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift */; };
-		3B7C1AC31C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C1AC11C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift */; };
-		3B7C1AC41C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C1AC11C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift */; };
-		3B7C1AC51C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7C1AC11C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift */; };
-		3B8A13991D79429200140849 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8A13981D79429200140849 /* CleanroomASL.framework */; };
-		3B8A139B1D79429700140849 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8A139A1D79429700140849 /* CleanroomASL.framework */; };
-		3B8A139D1D79429C00140849 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8A139C1D79429C00140849 /* CleanroomASL.framework */; };
-		3B8A139F1D7942A000140849 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8A139E1D7942A000140849 /* CleanroomASL.framework */; };
-		3B8C42161C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C42151C3591C3009D3C1E /* XcodeLogConfiguration.swift */; };
-		3B8C42171C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C42151C3591C3009D3C1E /* XcodeLogConfiguration.swift */; };
-		3B8C42181C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C42151C3591C3009D3C1E /* XcodeLogConfiguration.swift */; };
-		3B8C42191C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C42151C3591C3009D3C1E /* XcodeLogConfiguration.swift */; };
-		3B9C82141C348F3C00E2442E /* StandardOutputLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C82131C348F3C00E2442E /* StandardOutputLogRecorder.swift */; };
-		3B9C82151C348F3C00E2442E /* StandardOutputLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C82131C348F3C00E2442E /* StandardOutputLogRecorder.swift */; };
-		3B9C82161C348F3C00E2442E /* StandardOutputLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C82131C348F3C00E2442E /* StandardOutputLogRecorder.swift */; };
-		3B9C82171C348F3C00E2442E /* StandardOutputLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9C82131C348F3C00E2442E /* StandardOutputLogRecorder.swift */; };
-		3BA7358E1C3B3282008D8833 /* XcodeLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7358D1C3B3282008D8833 /* XcodeLogFormatter.swift */; };
-		3BA7358F1C3B3282008D8833 /* XcodeLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7358D1C3B3282008D8833 /* XcodeLogFormatter.swift */; };
-		3BA735901C3B3282008D8833 /* XcodeLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7358D1C3B3282008D8833 /* XcodeLogFormatter.swift */; };
-		3BA735911C3B3282008D8833 /* XcodeLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA7358D1C3B3282008D8833 /* XcodeLogFormatter.swift */; };
-		3BACAC041BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACAC031BA9BB88009E7A3E /* LogSeverityTests.swift */; };
-		3BACAC051BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACAC031BA9BB88009E7A3E /* LogSeverityTests.swift */; };
-		3BACAC061BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACAC031BA9BB88009E7A3E /* LogSeverityTests.swift */; };
-		3BB043C91C3B27FF005C940A /* TimestampLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043C81C3B27FF005C940A /* TimestampLogFormatter.swift */; };
-		3BB043CA1C3B27FF005C940A /* TimestampLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043C81C3B27FF005C940A /* TimestampLogFormatter.swift */; };
-		3BB043CB1C3B27FF005C940A /* TimestampLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043C81C3B27FF005C940A /* TimestampLogFormatter.swift */; };
-		3BB043CC1C3B27FF005C940A /* TimestampLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043C81C3B27FF005C940A /* TimestampLogFormatter.swift */; };
-		3BB043CE1C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */; };
-		3BB043CF1C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */; };
-		3BB043D01C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */; };
-		3BB043D11C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */; };
-		3BCAFEC61C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */; };
-		3BCAFEC71C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */; };
-		3BCAFEC81C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */; };
-		3BCAFEC91C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */; };
-		3BD91A3A1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */; };
-		3BD91A3B1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */; };
-		3BD91A3C1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */; };
-		3BD91A3D1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */; };
-		3BDD486E1C3D974300B382F0 /* ParsableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD486C1C3D974300B382F0 /* ParsableLogFormatter.swift */; };
-		3BDD486F1C3D974300B382F0 /* ParsableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD486C1C3D974300B382F0 /* ParsableLogFormatter.swift */; };
-		3BDD48701C3D974300B382F0 /* ParsableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD486C1C3D974300B382F0 /* ParsableLogFormatter.swift */; };
-		3BDD48711C3D974300B382F0 /* ParsableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD486C1C3D974300B382F0 /* ParsableLogFormatter.swift */; };
-		3BDD48721C3D974300B382F0 /* ReadableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD486D1C3D974300B382F0 /* ReadableLogFormatter.swift */; };
-		3BDD48731C3D974300B382F0 /* ReadableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD486D1C3D974300B382F0 /* ReadableLogFormatter.swift */; };
-		3BDD48741C3D974300B382F0 /* ReadableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD486D1C3D974300B382F0 /* ReadableLogFormatter.swift */; };
-		3BDD48751C3D974300B382F0 /* ReadableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDD486D1C3D974300B382F0 /* ReadableLogFormatter.swift */; };
-		3BF4CF761C3B306100B3D0A8 /* ColorizingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4CF751C3B306100B3D0A8 /* ColorizingLogFormatter.swift */; };
-		3BF4CF771C3B306100B3D0A8 /* ColorizingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4CF751C3B306100B3D0A8 /* ColorizingLogFormatter.swift */; };
-		3BF4CF781C3B306100B3D0A8 /* ColorizingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4CF751C3B306100B3D0A8 /* ColorizingLogFormatter.swift */; };
-		3BF4CF791C3B306100B3D0A8 /* ColorizingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4CF751C3B306100B3D0A8 /* ColorizingLogFormatter.swift */; };
-		3BF4CF7E1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4CF7D1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift */; };
-		3BF4CF7F1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4CF7D1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift */; };
-		3BF4CF801C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4CF7D1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift */; };
-		3BF4CF811C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF4CF7D1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift */; };
+		3B475D261DB47B8A0047D397 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475CFF1DB47B8A0047D397 /* ASLLogRecorder.swift */; };
+		3B475D271DB47B8A0047D397 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */; };
+		3B475D281DB47B8A0047D397 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */; };
+		3B475D291DB47B8A0047D397 /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */; };
+		3B475D2A1DB47B8A0047D397 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D031DB47B8A0047D397 /* Color.swift */; };
+		3B475D2B1DB47B8A0047D397 /* ColorizingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D041DB47B8A0047D397 /* ColorizingLogFormatter.swift */; };
+		3B475D2C1DB47B8A0047D397 /* ColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D051DB47B8A0047D397 /* ColorTable.swift */; };
+		3B475D2D1DB47B8A0047D397 /* ConcatenatingLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D061DB47B8A0047D397 /* ConcatenatingLogFormatter.swift */; };
+		3B475D2E1DB47B8A0047D397 /* DefaultColorTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D071DB47B8A0047D397 /* DefaultColorTable.swift */; };
+		3B475D2F1DB47B8A0047D397 /* DelimiterLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D081DB47B8A0047D397 /* DelimiterLogFormatter.swift */; };
+		3B475D301DB47B8A0047D397 /* FieldBasedLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D091DB47B8A0047D397 /* FieldBasedLogFormatter.swift */; };
+		3B475D311DB47B8A0047D397 /* FileLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D0A1DB47B8A0047D397 /* FileLogRecorder.swift */; };
+		3B475D321DB47B8A0047D397 /* LiteralLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D0B1DB47B8A0047D397 /* LiteralLogFormatter.swift */; };
+		3B475D331DB47B8A0047D397 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D0C1DB47B8A0047D397 /* Log.swift */; };
+		3B475D341DB47B8A0047D397 /* LogChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D0D1DB47B8A0047D397 /* LogChannel.swift */; };
+		3B475D351DB47B8A0047D397 /* LogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D0E1DB47B8A0047D397 /* LogConfiguration.swift */; };
+		3B475D361DB47B8A0047D397 /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D0F1DB47B8A0047D397 /* LogEntry.swift */; };
+		3B475D371DB47B8A0047D397 /* LogFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D101DB47B8A0047D397 /* LogFilter.swift */; };
+		3B475D381DB47B8A0047D397 /* LogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D111DB47B8A0047D397 /* LogFormatter.swift */; };
+		3B475D391DB47B8A0047D397 /* LogReceptacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D121DB47B8A0047D397 /* LogReceptacle.swift */; };
+		3B475D3A1DB47B8A0047D397 /* LogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D131DB47B8A0047D397 /* LogRecorder.swift */; };
+		3B475D3B1DB47B8A0047D397 /* LogRecorderBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D141DB47B8A0047D397 /* LogRecorderBase.swift */; };
+		3B475D3C1DB47B8A0047D397 /* LogSeverity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D151DB47B8A0047D397 /* LogSeverity.swift */; };
+		3B475D3D1DB47B8A0047D397 /* ParsableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D161DB47B8A0047D397 /* ParsableLogFormatter.swift */; };
+		3B475D3E1DB47B8A0047D397 /* PayloadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D171DB47B8A0047D397 /* PayloadLogFormatter.swift */; };
+		3B475D3F1DB47B8A0047D397 /* ReadableLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D181DB47B8A0047D397 /* ReadableLogFormatter.swift */; };
+		3B475D421DB47B8A0047D397 /* RotatingLogFileConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D1B1DB47B8A0047D397 /* RotatingLogFileConfiguration.swift */; };
+		3B475D431DB47B8A0047D397 /* RotatingLogFileRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D1C1DB47B8A0047D397 /* RotatingLogFileRecorder.swift */; };
+		3B475D441DB47B8A0047D397 /* SeverityLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D1D1DB47B8A0047D397 /* SeverityLogFormatter.swift */; };
+		3B475D451DB47B8A0047D397 /* StackFrameLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D1E1DB47B8A0047D397 /* StackFrameLogFormatter.swift */; };
+		3B475D461DB47B8A0047D397 /* StandardLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D1F1DB47B8A0047D397 /* StandardLogFormatter.swift */; };
+		3B475D471DB47B8A0047D397 /* StandardOutputLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D201DB47B8A0047D397 /* StandardOutputLogRecorder.swift */; };
+		3B475D481DB47B8A0047D397 /* TextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D211DB47B8A0047D397 /* TextColorizer.swift */; };
+		3B475D491DB47B8A0047D397 /* TimestampLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D221DB47B8A0047D397 /* TimestampLogFormatter.swift */; };
+		3B475D4A1DB47B8A0047D397 /* XcodeColorsTextColorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D231DB47B8A0047D397 /* XcodeColorsTextColorizer.swift */; };
+		3B475D4B1DB47B8A0047D397 /* XcodeLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D241DB47B8A0047D397 /* XcodeLogConfiguration.swift */; };
+		3B475D4C1DB47B8A0047D397 /* XcodeLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */; };
+		3B475D501DB47BD50047D397 /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D4E1DB47BD50047D397 /* LoggingTests.swift */; };
+		3B475D511DB47BD50047D397 /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */; };
+		3B475D541DB47BEA0047D397 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B475D531DB47BEA0047D397 /* CleanroomASL.framework */; };
+		3B90590D1DAECB5200B4EEC0 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9059031DAECB5200B4EEC0 /* CleanroomLogger.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3B00E5691BA3782D0011486D /* PBXContainerItemProxy */ = {
+		3B90590E1DAECB5200B4EEC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 3BCBACE21BA369AD007F1C90 /* Project object */;
+			containerPortal = 3B9058FA1DAECB5200B4EEC0 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3B00E55C1BA3782D0011486D;
-			remoteInfo = "CleanroomLogger-iOS";
-		};
-		3B00E5871BA379830011486D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3BCBACE21BA369AD007F1C90 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B00E57B1BA379830011486D;
-			remoteInfo = "CleanroomLogger-macOS";
-		};
-		3B00E5A51BA37A420011486D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3BCBACE21BA369AD007F1C90 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B00E5991BA37A420011486D;
-			remoteInfo = "CleanroomLogger-tvOS";
+			remoteGlobalIDString = 3B9059021DAECB5200B4EEC0;
+			remoteInfo = CleanroomLogger;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B00E4D01BA36B840011486D /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
-		3B00E4D11BA36B840011486D /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
-		3B00E55D1BA3782D0011486D /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B00E5671BA3782D0011486D /* CleanroomLoggerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B00E57C1BA379830011486D /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B00E5851BA379830011486D /* CleanroomLoggerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B00E59A1BA37A420011486D /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B00E5A31BA37A420011486D /* CleanroomLoggerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B1F36661C3B301B0059B9B0 /* StackFrameLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameLogFormatter.swift; sourceTree = "<group>"; };
-		3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-iOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBD11BA76428000986DF /* Debug-macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-macOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-tvOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBD31BA76428000986DF /* Debug-watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-watchOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBD41BA76428000986DF /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		3B38DBD51BA76428000986DF /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
-		3B38DBD61BA76428000986DF /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
-		3B38DBD71BA76428000986DF /* macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = macOS.xcconfig; sourceTree = "<group>"; };
-		3B38DBD81BA76428000986DF /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
-		3B38DBD91BA76428000986DF /* Release-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-iOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBDA1BA76428000986DF /* Release-macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-macOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBDB1BA76428000986DF /* Release-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-tvOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBDC1BA76428000986DF /* Release-watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-watchOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBDD1BA76428000986DF /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-iOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBDF1BA76428000986DF /* Tests-macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-macOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Tests-tvOS.xcconfig"; sourceTree = "<group>"; };
-		3B38DBE11BA76428000986DF /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
-		3B38DBE21BA76428000986DF /* tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
-		3B38DBE31BA76428000986DF /* watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = watchOS.xcconfig; sourceTree = "<group>"; };
-		3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldBasedLogFormatter.swift; sourceTree = "<group>"; };
-		3B515C031D6E745F0068A72B /* LoggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTests.swift; sourceTree = "<group>"; };
-		3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLogFileConfiguration.swift; sourceTree = "<group>"; };
-		3B6014801C24C073002652B3 /* ASLLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLLogRecorder.swift; sourceTree = "<group>"; };
-		3B6014811C24C073002652B3 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		3B6014821C24C073002652B3 /* TextColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextColorizer.swift; sourceTree = "<group>"; };
-		3B6014831C24C073002652B3 /* ColorTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTable.swift; sourceTree = "<group>"; };
-		3B6014841C24C073002652B3 /* RotatingLogFileRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLogFileRecorder.swift; sourceTree = "<group>"; };
-		3B6014851C24C073002652B3 /* DefaultColorTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultColorTable.swift; sourceTree = "<group>"; };
-		3B6014861C24C073002652B3 /* BasicLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicLogConfiguration.swift; sourceTree = "<group>"; };
-		3B6014881C24C073002652B3 /* FileLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogRecorder.swift; sourceTree = "<group>"; };
-		3B6014891C24C073002652B3 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		3B60148A1C24C073002652B3 /* LogChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogChannel.swift; sourceTree = "<group>"; };
-		3B60148B1C24C073002652B3 /* LogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogConfiguration.swift; sourceTree = "<group>"; };
-		3B60148C1C24C073002652B3 /* LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
-		3B60148D1C24C073002652B3 /* LogFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilter.swift; sourceTree = "<group>"; };
-		3B60148E1C24C073002652B3 /* LogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFormatter.swift; sourceTree = "<group>"; };
-		3B60148F1C24C073002652B3 /* LogReceptacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogReceptacle.swift; sourceTree = "<group>"; };
-		3B6014901C24C073002652B3 /* LogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorder.swift; sourceTree = "<group>"; };
-		3B6014911C24C073002652B3 /* LogRecorderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorderBase.swift; sourceTree = "<group>"; };
-		3B6014921C24C073002652B3 /* LogSeverity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverity.swift; sourceTree = "<group>"; };
-		3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsTextColorizer.swift; sourceTree = "<group>"; };
-		3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiteralLogFormatter.swift; sourceTree = "<group>"; };
-		3B71B3161C3B2FB600C23333 /* SeverityLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeverityLogFormatter.swift; sourceTree = "<group>"; };
-		3B78C6CE1BA7634E00173EAC /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B7C1AB91C3B2F2600DE72C4 /* PayloadLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadLogFormatter.swift; sourceTree = "<group>"; };
-		3B7C1AC11C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallingThreadLogFormatter.swift; sourceTree = "<group>"; };
-		3B8A13981D79429200140849 /* CleanroomASL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomASL.framework; path = "Carthage/Checkouts/CleanroomASL/build/Debug-iphoneos/CleanroomASL.framework"; sourceTree = "<group>"; };
-		3B8A139A1D79429700140849 /* CleanroomASL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomASL.framework; path = Carthage/Checkouts/CleanroomASL/build/Debug/CleanroomASL.framework; sourceTree = "<group>"; };
-		3B8A139C1D79429C00140849 /* CleanroomASL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomASL.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CleanroomLogger-emhvmgjdlbcylcanebymdhmlvwwt/Build/Products/Debug-appletvsimulator/CleanroomASL.framework"; sourceTree = "<group>"; };
-		3B8A139E1D7942A000140849 /* CleanroomASL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomASL.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CleanroomLogger-emhvmgjdlbcylcanebymdhmlvwwt/Build/Products/Debug-watchsimulator/CleanroomASL.framework"; sourceTree = "<group>"; };
-		3B8C42151C3591C3009D3C1E /* XcodeLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeLogConfiguration.swift; sourceTree = "<group>"; };
-		3B9C82131C348F3C00E2442E /* StandardOutputLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardOutputLogRecorder.swift; sourceTree = "<group>"; };
-		3BA7358D1C3B3282008D8833 /* XcodeLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeLogFormatter.swift; sourceTree = "<group>"; };
-		3BACAC031BA9BB88009E7A3E /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverityTests.swift; sourceTree = "<group>"; };
-		3BB043C81C3B27FF005C940A /* TimestampLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampLogFormatter.swift; sourceTree = "<group>"; };
-		3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSiteLogFormatter.swift; sourceTree = "<group>"; };
-		3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelimiterLogFormatter.swift; sourceTree = "<group>"; };
-		3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardLogFormatter.swift; sourceTree = "<group>"; };
-		3BDD486C1C3D974300B382F0 /* ParsableLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsableLogFormatter.swift; sourceTree = "<group>"; };
-		3BDD486D1C3D974300B382F0 /* ReadableLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadableLogFormatter.swift; sourceTree = "<group>"; };
-		3BF4CF751C3B306100B3D0A8 /* ColorizingLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorizingLogFormatter.swift; sourceTree = "<group>"; };
-		3BF4CF7D1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcatenatingLogFormatter.swift; sourceTree = "<group>"; };
+		3B475CFF1DB47B8A0047D397 /* ASLLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLLogRecorder.swift; sourceTree = "<group>"; };
+		3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicLogConfiguration.swift; sourceTree = "<group>"; };
+		3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallingThreadLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSiteLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D031DB47B8A0047D397 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		3B475D041DB47B8A0047D397 /* ColorizingLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorizingLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D051DB47B8A0047D397 /* ColorTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTable.swift; sourceTree = "<group>"; };
+		3B475D061DB47B8A0047D397 /* ConcatenatingLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcatenatingLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D071DB47B8A0047D397 /* DefaultColorTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultColorTable.swift; sourceTree = "<group>"; };
+		3B475D081DB47B8A0047D397 /* DelimiterLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelimiterLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D091DB47B8A0047D397 /* FieldBasedLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldBasedLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D0A1DB47B8A0047D397 /* FileLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLogRecorder.swift; sourceTree = "<group>"; };
+		3B475D0B1DB47B8A0047D397 /* LiteralLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiteralLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D0C1DB47B8A0047D397 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		3B475D0D1DB47B8A0047D397 /* LogChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogChannel.swift; sourceTree = "<group>"; };
+		3B475D0E1DB47B8A0047D397 /* LogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogConfiguration.swift; sourceTree = "<group>"; };
+		3B475D0F1DB47B8A0047D397 /* LogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
+		3B475D101DB47B8A0047D397 /* LogFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFilter.swift; sourceTree = "<group>"; };
+		3B475D111DB47B8A0047D397 /* LogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogFormatter.swift; sourceTree = "<group>"; };
+		3B475D121DB47B8A0047D397 /* LogReceptacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogReceptacle.swift; sourceTree = "<group>"; };
+		3B475D131DB47B8A0047D397 /* LogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorder.swift; sourceTree = "<group>"; };
+		3B475D141DB47B8A0047D397 /* LogRecorderBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogRecorderBase.swift; sourceTree = "<group>"; };
+		3B475D151DB47B8A0047D397 /* LogSeverity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverity.swift; sourceTree = "<group>"; };
+		3B475D161DB47B8A0047D397 /* ParsableLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsableLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D171DB47B8A0047D397 /* PayloadLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D181DB47B8A0047D397 /* ReadableLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadableLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D1B1DB47B8A0047D397 /* RotatingLogFileConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLogFileConfiguration.swift; sourceTree = "<group>"; };
+		3B475D1C1DB47B8A0047D397 /* RotatingLogFileRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatingLogFileRecorder.swift; sourceTree = "<group>"; };
+		3B475D1D1DB47B8A0047D397 /* SeverityLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeverityLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D1E1DB47B8A0047D397 /* StackFrameLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D1F1DB47B8A0047D397 /* StandardLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D201DB47B8A0047D397 /* StandardOutputLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardOutputLogRecorder.swift; sourceTree = "<group>"; };
+		3B475D211DB47B8A0047D397 /* TextColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextColorizer.swift; sourceTree = "<group>"; };
+		3B475D221DB47B8A0047D397 /* TimestampLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D231DB47B8A0047D397 /* XcodeColorsTextColorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeColorsTextColorizer.swift; sourceTree = "<group>"; };
+		3B475D241DB47B8A0047D397 /* XcodeLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeLogConfiguration.swift; sourceTree = "<group>"; };
+		3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeLogFormatter.swift; sourceTree = "<group>"; };
+		3B475D4E1DB47BD50047D397 /* LoggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTests.swift; sourceTree = "<group>"; };
+		3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverityTests.swift; sourceTree = "<group>"; };
+		3B475D531DB47BEA0047D397 /* CleanroomASL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomASL.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CleanroomLogger-emhvmgjdlbcylcanebymdhmlvwwt/Build/Products/Debug-watchsimulator/CleanroomASL.framework"; sourceTree = "<group>"; };
+		3B9059031DAECB5200B4EEC0 /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B90590C1DAECB5200B4EEC0 /* CleanroomLoggerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
+		3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+		3B90592B1DAECD9800B4EEC0 /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
+		3B90592C1DAECD9800B4EEC0 /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3B00E5591BA3782D0011486D /* Frameworks */ = {
+		3B9058FF1DAECB5200B4EEC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B8A13991D79429200140849 /* CleanroomASL.framework in Frameworks */,
+				3B475D541DB47BEA0047D397 /* CleanroomASL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B00E5641BA3782D0011486D /* Frameworks */ = {
+		3B9059091DAECB5200B4EEC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B00E5681BA3782D0011486D /* CleanroomLogger.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5781BA379830011486D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B8A139B1D79429700140849 /* CleanroomASL.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5821BA379830011486D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B00E5861BA379830011486D /* CleanroomLogger.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5961BA37A420011486D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B8A139D1D79429C00140849 /* CleanroomASL.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5A01BA37A420011486D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B00E5A41BA37A420011486D /* CleanroomLogger.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B78C6CA1BA7634E00173EAC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B8A139F1D7942A000140849 /* CleanroomASL.framework in Frameworks */,
+				3B90590D1DAECB5200B4EEC0 /* CleanroomLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B00E4B91BA36B840011486D /* BuildControl */ = {
+		3B475CFE1DB47B8A0047D397 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3B00E4BE1BA36B840011486D /* config */,
-				3B00E4D01BA36B840011486D /* Info-Framework.plist */,
-				3B00E4D11BA36B840011486D /* Info-Tests.plist */,
-			);
-			path = BuildControl;
-			sourceTree = "<group>";
-		};
-		3B00E4BE1BA36B840011486D /* config */ = {
-			isa = PBXGroup;
-			children = (
-				3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */,
-				3B38DBD11BA76428000986DF /* Debug-macOS.xcconfig */,
-				3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */,
-				3B38DBD31BA76428000986DF /* Debug-watchOS.xcconfig */,
-				3B38DBD41BA76428000986DF /* Debug.xcconfig */,
-				3B38DBD51BA76428000986DF /* Framework.xcconfig */,
-				3B38DBD61BA76428000986DF /* iOS.xcconfig */,
-				3B38DBD71BA76428000986DF /* macOS.xcconfig */,
-				3B38DBD81BA76428000986DF /* Project.xcconfig */,
-				3B38DBD91BA76428000986DF /* Release-iOS.xcconfig */,
-				3B38DBDA1BA76428000986DF /* Release-macOS.xcconfig */,
-				3B38DBDB1BA76428000986DF /* Release-tvOS.xcconfig */,
-				3B38DBDC1BA76428000986DF /* Release-watchOS.xcconfig */,
-				3B38DBDD1BA76428000986DF /* Release.xcconfig */,
-				3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */,
-				3B38DBDF1BA76428000986DF /* Tests-macOS.xcconfig */,
-				3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */,
-				3B38DBE11BA76428000986DF /* Tests.xcconfig */,
-				3B38DBE21BA76428000986DF /* tvOS.xcconfig */,
-				3B38DBE31BA76428000986DF /* watchOS.xcconfig */,
-			);
-			path = config;
-			sourceTree = "<group>";
-		};
-		3B00E55E1BA3782D0011486D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3B00E55D1BA3782D0011486D /* CleanroomLogger.framework */,
-				3B00E5671BA3782D0011486D /* CleanroomLoggerUnitTests.xctest */,
-				3B00E57C1BA379830011486D /* CleanroomLogger.framework */,
-				3B00E5851BA379830011486D /* CleanroomLoggerUnitTests.xctest */,
-				3B00E59A1BA37A420011486D /* CleanroomLogger.framework */,
-				3B00E5A31BA37A420011486D /* CleanroomLoggerUnitTests.xctest */,
-				3B78C6CE1BA7634E00173EAC /* CleanroomLogger.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3B60147F1C24C073002652B3 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				3BB043C61C3B2776005C940A /* Configurations */,
-				3BB043C11C3B275C005C940A /* Formatters */,
-				3BB043C51C3B276F005C940A /* Recorders */,
-				3BB043C71C3B2783005C940A /* TextColorization */,
-				3B6014891C24C073002652B3 /* Log.swift */,
-				3B60148A1C24C073002652B3 /* LogChannel.swift */,
-				3B60148B1C24C073002652B3 /* LogConfiguration.swift */,
-				3B60148C1C24C073002652B3 /* LogEntry.swift */,
-				3B60148D1C24C073002652B3 /* LogFilter.swift */,
-				3B60148E1C24C073002652B3 /* LogFormatter.swift */,
-				3B60148F1C24C073002652B3 /* LogReceptacle.swift */,
-				3B6014901C24C073002652B3 /* LogRecorder.swift */,
-				3B6014921C24C073002652B3 /* LogSeverity.swift */,
+				3B475CFF1DB47B8A0047D397 /* ASLLogRecorder.swift */,
+				3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */,
+				3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */,
+				3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */,
+				3B475D031DB47B8A0047D397 /* Color.swift */,
+				3B475D041DB47B8A0047D397 /* ColorizingLogFormatter.swift */,
+				3B475D051DB47B8A0047D397 /* ColorTable.swift */,
+				3B475D061DB47B8A0047D397 /* ConcatenatingLogFormatter.swift */,
+				3B475D071DB47B8A0047D397 /* DefaultColorTable.swift */,
+				3B475D081DB47B8A0047D397 /* DelimiterLogFormatter.swift */,
+				3B475D091DB47B8A0047D397 /* FieldBasedLogFormatter.swift */,
+				3B475D0A1DB47B8A0047D397 /* FileLogRecorder.swift */,
+				3B475D0B1DB47B8A0047D397 /* LiteralLogFormatter.swift */,
+				3B475D0C1DB47B8A0047D397 /* Log.swift */,
+				3B475D0D1DB47B8A0047D397 /* LogChannel.swift */,
+				3B475D0E1DB47B8A0047D397 /* LogConfiguration.swift */,
+				3B475D0F1DB47B8A0047D397 /* LogEntry.swift */,
+				3B475D101DB47B8A0047D397 /* LogFilter.swift */,
+				3B475D111DB47B8A0047D397 /* LogFormatter.swift */,
+				3B475D121DB47B8A0047D397 /* LogReceptacle.swift */,
+				3B475D131DB47B8A0047D397 /* LogRecorder.swift */,
+				3B475D141DB47B8A0047D397 /* LogRecorderBase.swift */,
+				3B475D151DB47B8A0047D397 /* LogSeverity.swift */,
+				3B475D161DB47B8A0047D397 /* ParsableLogFormatter.swift */,
+				3B475D171DB47B8A0047D397 /* PayloadLogFormatter.swift */,
+				3B475D181DB47B8A0047D397 /* ReadableLogFormatter.swift */,
+				3B475D1B1DB47B8A0047D397 /* RotatingLogFileConfiguration.swift */,
+				3B475D1C1DB47B8A0047D397 /* RotatingLogFileRecorder.swift */,
+				3B475D1D1DB47B8A0047D397 /* SeverityLogFormatter.swift */,
+				3B475D1E1DB47B8A0047D397 /* StackFrameLogFormatter.swift */,
+				3B475D1F1DB47B8A0047D397 /* StandardLogFormatter.swift */,
+				3B475D201DB47B8A0047D397 /* StandardOutputLogRecorder.swift */,
+				3B475D211DB47B8A0047D397 /* TextColorizer.swift */,
+				3B475D221DB47B8A0047D397 /* TimestampLogFormatter.swift */,
+				3B475D231DB47B8A0047D397 /* XcodeColorsTextColorizer.swift */,
+				3B475D241DB47B8A0047D397 /* XcodeLogConfiguration.swift */,
+				3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		3B8A13971D79429200140849 /* Frameworks */ = {
+		3B475D4D1DB47BD50047D397 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3B8A139E1D7942A000140849 /* CleanroomASL.framework */,
-				3B8A139C1D79429C00140849 /* CleanroomASL.framework */,
-				3B8A139A1D79429700140849 /* CleanroomASL.framework */,
-				3B8A13981D79429200140849 /* CleanroomASL.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3BACAC021BA9BB88009E7A3E /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				3B515C031D6E745F0068A72B /* LoggingTests.swift */,
-				3BACAC031BA9BB88009E7A3E /* LogSeverityTests.swift */,
+				3B475D4E1DB47BD50047D397 /* LoggingTests.swift */,
+				3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		3BB043C11C3B275C005C940A /* Formatters */ = {
+		3B475D521DB47BEA0047D397 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B7C1AC11C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift */,
-				3BB043CD1C3B282A005C940A /* CallSiteLogFormatter.swift */,
-				3BF4CF751C3B306100B3D0A8 /* ColorizingLogFormatter.swift */,
-				3BF4CF7D1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift */,
-				3BCAFEC51C3B2884006D706B /* DelimiterLogFormatter.swift */,
-				3B45ADAF1C3B315200C3856B /* FieldBasedLogFormatter.swift */,
-				3B698C4C1C3B291C0033B400 /* LiteralLogFormatter.swift */,
-				3BDD486C1C3D974300B382F0 /* ParsableLogFormatter.swift */,
-				3B7C1AB91C3B2F2600DE72C4 /* PayloadLogFormatter.swift */,
-				3BDD486D1C3D974300B382F0 /* ReadableLogFormatter.swift */,
-				3B71B3161C3B2FB600C23333 /* SeverityLogFormatter.swift */,
-				3B1F36661C3B301B0059B9B0 /* StackFrameLogFormatter.swift */,
-				3BD91A391C3B31A300E4B066 /* StandardLogFormatter.swift */,
-				3BB043C81C3B27FF005C940A /* TimestampLogFormatter.swift */,
-				3BA7358D1C3B3282008D8833 /* XcodeLogFormatter.swift */,
+				3B475D531DB47BEA0047D397 /* CleanroomASL.framework */,
 			);
-			name = Formatters;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3BB043C51C3B276F005C940A /* Recorders */ = {
+		3B9058F91DAECB5200B4EEC0 = {
 			isa = PBXGroup;
 			children = (
-				3B6014801C24C073002652B3 /* ASLLogRecorder.swift */,
-				3B6014881C24C073002652B3 /* FileLogRecorder.swift */,
-				3B6014911C24C073002652B3 /* LogRecorderBase.swift */,
-				3B6014841C24C073002652B3 /* RotatingLogFileRecorder.swift */,
-				3B9C82131C348F3C00E2442E /* StandardOutputLogRecorder.swift */,
+				3B475CFE1DB47B8A0047D397 /* Sources */,
+				3B90591D1DAECB9E00B4EEC0 /* BuildControl */,
+				3B475D4D1DB47BD50047D397 /* Tests */,
+				3B9059041DAECB5200B4EEC0 /* Products */,
+				3B475D521DB47BEA0047D397 /* Frameworks */,
 			);
-			name = Recorders;
 			sourceTree = "<group>";
 		};
-		3BB043C61C3B2776005C940A /* Configurations */ = {
+		3B9059041DAECB5200B4EEC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B6014861C24C073002652B3 /* BasicLogConfiguration.swift */,
-				3B525E411C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift */,
-				3B8C42151C3591C3009D3C1E /* XcodeLogConfiguration.swift */,
+				3B9059031DAECB5200B4EEC0 /* CleanroomLogger.framework */,
+				3B90590C1DAECB5200B4EEC0 /* CleanroomLoggerUnitTests.xctest */,
 			);
-			name = Configurations;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		3BB043C71C3B2783005C940A /* TextColorization */ = {
+		3B90591D1DAECB9E00B4EEC0 /* BuildControl */ = {
 			isa = PBXGroup;
 			children = (
-				3B6014811C24C073002652B3 /* Color.swift */,
-				3B6014831C24C073002652B3 /* ColorTable.swift */,
-				3B6014851C24C073002652B3 /* DefaultColorTable.swift */,
-				3B6014821C24C073002652B3 /* TextColorizer.swift */,
-				3B6014941C24C073002652B3 /* XcodeColorsTextColorizer.swift */,
+				3B9059241DAECB9E00B4EEC0 /* config */,
+				3B90592B1DAECD9800B4EEC0 /* Info-Framework.plist */,
+				3B90592C1DAECD9800B4EEC0 /* Info-Tests.plist */,
 			);
-			name = TextColorization;
+			path = BuildControl;
 			sourceTree = "<group>";
 		};
-		3BCBACE11BA369AD007F1C90 = {
+		3B9059241DAECB9E00B4EEC0 /* config */ = {
 			isa = PBXGroup;
 			children = (
-				3B60147F1C24C073002652B3 /* Sources */,
-				3BACAC021BA9BB88009E7A3E /* Tests */,
-				3B00E4B91BA36B840011486D /* BuildControl */,
-				3B00E55E1BA3782D0011486D /* Products */,
-				3B8A13971D79429200140849 /* Frameworks */,
+				3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */,
+				3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */,
+				3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */,
+				3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */,
+				3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */,
 			);
+			path = config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3B00E55A1BA3782D0011486D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5791BA379830011486D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5971BA37A420011486D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B78C6CB1BA7634E00173EAC /* Headers */ = {
+		3B9059001DAECB5200B4EEC0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -521,237 +248,91 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3B00E55C1BA3782D0011486D /* CleanroomLogger-iOS */ = {
+		3B9059021DAECB5200B4EEC0 /* CleanroomLogger */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00E5731BA3782D0011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-iOS" */;
+			buildConfigurationList = 3B9059171DAECB5200B4EEC0 /* Build configuration list for PBXNativeTarget "CleanroomLogger" */;
 			buildPhases = (
-				3B00E5581BA3782D0011486D /* Sources */,
-				3B00E5591BA3782D0011486D /* Frameworks */,
-				3B00E55A1BA3782D0011486D /* Headers */,
-				3B00E55B1BA3782D0011486D /* Resources */,
+				3B9058FE1DAECB5200B4EEC0 /* Sources */,
+				3B9058FF1DAECB5200B4EEC0 /* Frameworks */,
+				3B9059001DAECB5200B4EEC0 /* Headers */,
+				3B9059011DAECB5200B4EEC0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "CleanroomLogger-iOS";
-			productName = "CleanroomLogger-iOS";
-			productReference = 3B00E55D1BA3782D0011486D /* CleanroomLogger.framework */;
+			name = CleanroomLogger;
+			productName = CleanroomLogger;
+			productReference = 3B9059031DAECB5200B4EEC0 /* CleanroomLogger.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3B00E5661BA3782D0011486D /* CleanroomLoggerUnitTests-iOS */ = {
+		3B90590B1DAECB5200B4EEC0 /* CleanroomLoggerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00E5741BA3782D0011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-iOS" */;
+			buildConfigurationList = 3B90591A1DAECB5200B4EEC0 /* Build configuration list for PBXNativeTarget "CleanroomLoggerTests" */;
 			buildPhases = (
-				3B00E5631BA3782D0011486D /* Sources */,
-				3B00E5641BA3782D0011486D /* Frameworks */,
-				3B00E5651BA3782D0011486D /* Resources */,
+				3B9059081DAECB5200B4EEC0 /* Sources */,
+				3B9059091DAECB5200B4EEC0 /* Frameworks */,
+				3B90590A1DAECB5200B4EEC0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3B00E56A1BA3782D0011486D /* PBXTargetDependency */,
+				3B90590F1DAECB5200B4EEC0 /* PBXTargetDependency */,
 			);
-			name = "CleanroomLoggerUnitTests-iOS";
-			productName = "CleanroomLogger-iOSTests";
-			productReference = 3B00E5671BA3782D0011486D /* CleanroomLoggerUnitTests.xctest */;
+			name = CleanroomLoggerTests;
+			productName = CleanroomLoggerTests;
+			productReference = 3B90590C1DAECB5200B4EEC0 /* CleanroomLoggerUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3B00E57B1BA379830011486D /* CleanroomLogger-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00E58D1BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-macOS" */;
-			buildPhases = (
-				3B00E5771BA379830011486D /* Sources */,
-				3B00E5781BA379830011486D /* Frameworks */,
-				3B00E5791BA379830011486D /* Headers */,
-				3B00E57A1BA379830011486D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CleanroomLogger-macOS";
-			productName = "CleanroomLogger-macOS";
-			productReference = 3B00E57C1BA379830011486D /* CleanroomLogger.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3B00E5841BA379830011486D /* CleanroomLoggerUnitTests-macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00E5901BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-macOS" */;
-			buildPhases = (
-				3B00E5811BA379830011486D /* Sources */,
-				3B00E5821BA379830011486D /* Frameworks */,
-				3B00E5831BA379830011486D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3B00E5881BA379830011486D /* PBXTargetDependency */,
-			);
-			name = "CleanroomLoggerUnitTests-macOS";
-			productName = "CleanroomLogger-macOSTests";
-			productReference = 3B00E5851BA379830011486D /* CleanroomLoggerUnitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3B00E5991BA37A420011486D /* CleanroomLogger-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00E5AB1BA37A420011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-tvOS" */;
-			buildPhases = (
-				3B00E5951BA37A420011486D /* Sources */,
-				3B00E5961BA37A420011486D /* Frameworks */,
-				3B00E5971BA37A420011486D /* Headers */,
-				3B00E5981BA37A420011486D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CleanroomLogger-tvOS";
-			productName = "CleanroomLogger-tvOS";
-			productReference = 3B00E59A1BA37A420011486D /* CleanroomLogger.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3B00E5A21BA37A420011486D /* CleanroomLoggerUnitTests-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B00E5AE1BA37A420011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-tvOS" */;
-			buildPhases = (
-				3B00E59F1BA37A420011486D /* Sources */,
-				3B00E5A01BA37A420011486D /* Frameworks */,
-				3B00E5A11BA37A420011486D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3B00E5A61BA37A420011486D /* PBXTargetDependency */,
-			);
-			name = "CleanroomLoggerUnitTests-tvOS";
-			productName = "CleanroomLogger-tvOSTests";
-			productReference = 3B00E5A31BA37A420011486D /* CleanroomLoggerUnitTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		3B78C6CD1BA7634E00173EAC /* CleanroomLogger-watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B78C6D31BA7634E00173EAC /* Build configuration list for PBXNativeTarget "CleanroomLogger-watchOS" */;
-			buildPhases = (
-				3B78C6C91BA7634E00173EAC /* Sources */,
-				3B78C6CA1BA7634E00173EAC /* Frameworks */,
-				3B78C6CB1BA7634E00173EAC /* Headers */,
-				3B78C6CC1BA7634E00173EAC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CleanroomLogger-watchOS";
-			productName = "CleanroomLogger-watchOS";
-			productReference = 3B78C6CE1BA7634E00173EAC /* CleanroomLogger.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		3BCBACE21BA369AD007F1C90 /* Project object */ = {
+		3B9058FA1DAECB5200B4EEC0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Gilt Groupe";
 				TargetAttributes = {
-					3B00E55C1BA3782D0011486D = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+					3B9059021DAECB5200B4EEC0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = MTP6A36P8K;
+						ProvisioningStyle = Automatic;
 					};
-					3B00E5661BA3782D0011486D = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					3B00E57B1BA379830011486D = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					3B00E5841BA379830011486D = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					3B00E5991BA37A420011486D = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					3B00E5A21BA37A420011486D = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					3B78C6CD1BA7634E00173EAC = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+					3B90590B1DAECB5200B4EEC0 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = MTP6A36P8K;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 3BCBACE51BA369AD007F1C90 /* Build configuration list for PBXProject "CleanroomLogger" */;
+			buildConfigurationList = 3B9058FD1DAECB5200B4EEC0 /* Build configuration list for PBXProject "CleanroomLogger" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 3BCBACE11BA369AD007F1C90;
-			productRefGroup = 3B00E55E1BA3782D0011486D /* Products */;
+			mainGroup = 3B9058F91DAECB5200B4EEC0;
+			productRefGroup = 3B9059041DAECB5200B4EEC0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B00E55C1BA3782D0011486D /* CleanroomLogger-iOS */,
-				3B00E57B1BA379830011486D /* CleanroomLogger-macOS */,
-				3B00E5991BA37A420011486D /* CleanroomLogger-tvOS */,
-				3B78C6CD1BA7634E00173EAC /* CleanroomLogger-watchOS */,
-				3B00E5661BA3782D0011486D /* CleanroomLoggerUnitTests-iOS */,
-				3B00E5841BA379830011486D /* CleanroomLoggerUnitTests-macOS */,
-				3B00E5A21BA37A420011486D /* CleanroomLoggerUnitTests-tvOS */,
+				3B9059021DAECB5200B4EEC0 /* CleanroomLogger */,
+				3B90590B1DAECB5200B4EEC0 /* CleanroomLoggerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3B00E55B1BA3782D0011486D /* Resources */ = {
+		3B9059011DAECB5200B4EEC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B00E5651BA3782D0011486D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E57A1BA379830011486D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5831BA379830011486D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5981BA37A420011486D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5A11BA37A420011486D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B78C6CC1BA7634E00173EAC /* Resources */ = {
+		3B90590A1DAECB5200B4EEC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -761,235 +342,76 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3B00E5581BA3782D0011486D /* Sources */ = {
+		3B9058FE1DAECB5200B4EEC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BA7358E1C3B3282008D8833 /* XcodeLogFormatter.swift in Sources */,
-				3BDD486E1C3D974300B382F0 /* ParsableLogFormatter.swift in Sources */,
-				3B71B3171C3B2FB600C23333 /* SeverityLogFormatter.swift in Sources */,
-				3BB043C91C3B27FF005C940A /* TimestampLogFormatter.swift in Sources */,
-				3B6014951C24C073002652B3 /* ASLLogRecorder.swift in Sources */,
-				3B6014D51C24C073002652B3 /* LogRecorder.swift in Sources */,
-				3BB043CE1C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */,
-				3B6014A51C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */,
-				3B525E421C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */,
-				3BCAFEC61C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */,
-				3B45ADB01C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */,
-				3B6014D91C24C073002652B3 /* LogRecorderBase.swift in Sources */,
-				3B7C1ABA1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */,
-				3B6014B91C24C073002652B3 /* Log.swift in Sources */,
-				3B6014BD1C24C073002652B3 /* LogChannel.swift in Sources */,
-				3B7C1AC21C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift in Sources */,
-				3BF4CF761C3B306100B3D0A8 /* ColorizingLogFormatter.swift in Sources */,
-				3B6014A91C24C073002652B3 /* DefaultColorTable.swift in Sources */,
-				3B6014AD1C24C073002652B3 /* BasicLogConfiguration.swift in Sources */,
-				3BF4CF7E1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift in Sources */,
-				3B6014B51C24C073002652B3 /* FileLogRecorder.swift in Sources */,
-				3B6014C11C24C073002652B3 /* LogConfiguration.swift in Sources */,
-				3BD91A3A1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */,
-				3B9C82141C348F3C00E2442E /* StandardOutputLogRecorder.swift in Sources */,
-				3B6014D11C24C073002652B3 /* LogReceptacle.swift in Sources */,
-				3B6014991C24C073002652B3 /* Color.swift in Sources */,
-				3B6014C51C24C073002652B3 /* LogEntry.swift in Sources */,
-				3B6014A11C24C073002652B3 /* ColorTable.swift in Sources */,
-				3B6014CD1C24C073002652B3 /* LogFormatter.swift in Sources */,
-				3B1F36671C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */,
-				3B6014DD1C24C073002652B3 /* LogSeverity.swift in Sources */,
-				3B6014E51C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */,
-				3BDD48721C3D974300B382F0 /* ReadableLogFormatter.swift in Sources */,
-				3B60149D1C24C073002652B3 /* TextColorizer.swift in Sources */,
-				3B698C4D1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */,
-				3B6014C91C24C073002652B3 /* LogFilter.swift in Sources */,
-				3B8C42161C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */,
+				3B475D441DB47B8A0047D397 /* SeverityLogFormatter.swift in Sources */,
+				3B475D291DB47B8A0047D397 /* CallSiteLogFormatter.swift in Sources */,
+				3B475D341DB47B8A0047D397 /* LogChannel.swift in Sources */,
+				3B475D3C1DB47B8A0047D397 /* LogSeverity.swift in Sources */,
+				3B475D371DB47B8A0047D397 /* LogFilter.swift in Sources */,
+				3B475D281DB47B8A0047D397 /* CallingThreadLogFormatter.swift in Sources */,
+				3B475D491DB47B8A0047D397 /* TimestampLogFormatter.swift in Sources */,
+				3B475D3F1DB47B8A0047D397 /* ReadableLogFormatter.swift in Sources */,
+				3B475D2C1DB47B8A0047D397 /* ColorTable.swift in Sources */,
+				3B475D4B1DB47B8A0047D397 /* XcodeLogConfiguration.swift in Sources */,
+				3B475D431DB47B8A0047D397 /* RotatingLogFileRecorder.swift in Sources */,
+				3B475D471DB47B8A0047D397 /* StandardOutputLogRecorder.swift in Sources */,
+				3B475D421DB47B8A0047D397 /* RotatingLogFileConfiguration.swift in Sources */,
+				3B475D3E1DB47B8A0047D397 /* PayloadLogFormatter.swift in Sources */,
+				3B475D271DB47B8A0047D397 /* BasicLogConfiguration.swift in Sources */,
+				3B475D311DB47B8A0047D397 /* FileLogRecorder.swift in Sources */,
+				3B475D2B1DB47B8A0047D397 /* ColorizingLogFormatter.swift in Sources */,
+				3B475D2E1DB47B8A0047D397 /* DefaultColorTable.swift in Sources */,
+				3B475D2A1DB47B8A0047D397 /* Color.swift in Sources */,
+				3B475D331DB47B8A0047D397 /* Log.swift in Sources */,
+				3B475D301DB47B8A0047D397 /* FieldBasedLogFormatter.swift in Sources */,
+				3B475D391DB47B8A0047D397 /* LogReceptacle.swift in Sources */,
+				3B475D351DB47B8A0047D397 /* LogConfiguration.swift in Sources */,
+				3B475D481DB47B8A0047D397 /* TextColorizer.swift in Sources */,
+				3B475D381DB47B8A0047D397 /* LogFormatter.swift in Sources */,
+				3B475D2D1DB47B8A0047D397 /* ConcatenatingLogFormatter.swift in Sources */,
+				3B475D261DB47B8A0047D397 /* ASLLogRecorder.swift in Sources */,
+				3B475D451DB47B8A0047D397 /* StackFrameLogFormatter.swift in Sources */,
+				3B475D3A1DB47B8A0047D397 /* LogRecorder.swift in Sources */,
+				3B475D321DB47B8A0047D397 /* LiteralLogFormatter.swift in Sources */,
+				3B475D3B1DB47B8A0047D397 /* LogRecorderBase.swift in Sources */,
+				3B475D461DB47B8A0047D397 /* StandardLogFormatter.swift in Sources */,
+				3B475D4A1DB47B8A0047D397 /* XcodeColorsTextColorizer.swift in Sources */,
+				3B475D3D1DB47B8A0047D397 /* ParsableLogFormatter.swift in Sources */,
+				3B475D4C1DB47B8A0047D397 /* XcodeLogFormatter.swift in Sources */,
+				3B475D2F1DB47B8A0047D397 /* DelimiterLogFormatter.swift in Sources */,
+				3B475D361DB47B8A0047D397 /* LogEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B00E5631BA3782D0011486D /* Sources */ = {
+		3B9059081DAECB5200B4EEC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BACAC041BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */,
-				3B515C041D6E745F0068A72B /* LoggingTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5771BA379830011486D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3BA7358F1C3B3282008D8833 /* XcodeLogFormatter.swift in Sources */,
-				3BDD486F1C3D974300B382F0 /* ParsableLogFormatter.swift in Sources */,
-				3B71B3181C3B2FB600C23333 /* SeverityLogFormatter.swift in Sources */,
-				3BB043CA1C3B27FF005C940A /* TimestampLogFormatter.swift in Sources */,
-				3B6014961C24C073002652B3 /* ASLLogRecorder.swift in Sources */,
-				3B6014D61C24C073002652B3 /* LogRecorder.swift in Sources */,
-				3BB043CF1C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */,
-				3B6014A61C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */,
-				3B525E431C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */,
-				3BCAFEC71C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */,
-				3B45ADB11C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */,
-				3B6014DA1C24C073002652B3 /* LogRecorderBase.swift in Sources */,
-				3B7C1ABB1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */,
-				3B6014BA1C24C073002652B3 /* Log.swift in Sources */,
-				3B6014BE1C24C073002652B3 /* LogChannel.swift in Sources */,
-				3B7C1AC31C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift in Sources */,
-				3BF4CF771C3B306100B3D0A8 /* ColorizingLogFormatter.swift in Sources */,
-				3B6014AA1C24C073002652B3 /* DefaultColorTable.swift in Sources */,
-				3B6014AE1C24C073002652B3 /* BasicLogConfiguration.swift in Sources */,
-				3BF4CF7F1C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift in Sources */,
-				3B6014B61C24C073002652B3 /* FileLogRecorder.swift in Sources */,
-				3B6014C21C24C073002652B3 /* LogConfiguration.swift in Sources */,
-				3BD91A3B1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */,
-				3B9C82151C348F3C00E2442E /* StandardOutputLogRecorder.swift in Sources */,
-				3B6014D21C24C073002652B3 /* LogReceptacle.swift in Sources */,
-				3B60149A1C24C073002652B3 /* Color.swift in Sources */,
-				3B6014C61C24C073002652B3 /* LogEntry.swift in Sources */,
-				3B6014A21C24C073002652B3 /* ColorTable.swift in Sources */,
-				3B6014CE1C24C073002652B3 /* LogFormatter.swift in Sources */,
-				3B1F36681C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */,
-				3B6014DE1C24C073002652B3 /* LogSeverity.swift in Sources */,
-				3B6014E61C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */,
-				3BDD48731C3D974300B382F0 /* ReadableLogFormatter.swift in Sources */,
-				3B60149E1C24C073002652B3 /* TextColorizer.swift in Sources */,
-				3B698C4E1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */,
-				3B6014CA1C24C073002652B3 /* LogFilter.swift in Sources */,
-				3B8C42171C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5811BA379830011486D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3BACAC051BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */,
-				3B515C051D6E745F0068A72B /* LoggingTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E5951BA37A420011486D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3BA735901C3B3282008D8833 /* XcodeLogFormatter.swift in Sources */,
-				3BDD48701C3D974300B382F0 /* ParsableLogFormatter.swift in Sources */,
-				3B71B3191C3B2FB600C23333 /* SeverityLogFormatter.swift in Sources */,
-				3BB043CB1C3B27FF005C940A /* TimestampLogFormatter.swift in Sources */,
-				3B6014971C24C073002652B3 /* ASLLogRecorder.swift in Sources */,
-				3B6014D71C24C073002652B3 /* LogRecorder.swift in Sources */,
-				3BB043D01C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */,
-				3B6014A71C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */,
-				3B525E441C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */,
-				3BCAFEC81C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */,
-				3B45ADB21C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */,
-				3B6014DB1C24C073002652B3 /* LogRecorderBase.swift in Sources */,
-				3B7C1ABC1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */,
-				3B6014BB1C24C073002652B3 /* Log.swift in Sources */,
-				3B6014BF1C24C073002652B3 /* LogChannel.swift in Sources */,
-				3B7C1AC41C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift in Sources */,
-				3BF4CF781C3B306100B3D0A8 /* ColorizingLogFormatter.swift in Sources */,
-				3B6014AB1C24C073002652B3 /* DefaultColorTable.swift in Sources */,
-				3B6014AF1C24C073002652B3 /* BasicLogConfiguration.swift in Sources */,
-				3BF4CF801C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift in Sources */,
-				3B6014B71C24C073002652B3 /* FileLogRecorder.swift in Sources */,
-				3B6014C31C24C073002652B3 /* LogConfiguration.swift in Sources */,
-				3BD91A3C1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */,
-				3B9C82161C348F3C00E2442E /* StandardOutputLogRecorder.swift in Sources */,
-				3B6014D31C24C073002652B3 /* LogReceptacle.swift in Sources */,
-				3B60149B1C24C073002652B3 /* Color.swift in Sources */,
-				3B6014C71C24C073002652B3 /* LogEntry.swift in Sources */,
-				3B6014A31C24C073002652B3 /* ColorTable.swift in Sources */,
-				3B6014CF1C24C073002652B3 /* LogFormatter.swift in Sources */,
-				3B1F36691C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */,
-				3B6014DF1C24C073002652B3 /* LogSeverity.swift in Sources */,
-				3B6014E71C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */,
-				3BDD48741C3D974300B382F0 /* ReadableLogFormatter.swift in Sources */,
-				3B60149F1C24C073002652B3 /* TextColorizer.swift in Sources */,
-				3B698C4F1C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */,
-				3B6014CB1C24C073002652B3 /* LogFilter.swift in Sources */,
-				3B8C42181C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B00E59F1BA37A420011486D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3BACAC061BA9BB88009E7A3E /* LogSeverityTests.swift in Sources */,
-				3B515C061D6E745F0068A72B /* LoggingTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B78C6C91BA7634E00173EAC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3BA735911C3B3282008D8833 /* XcodeLogFormatter.swift in Sources */,
-				3BDD48711C3D974300B382F0 /* ParsableLogFormatter.swift in Sources */,
-				3B71B31A1C3B2FB600C23333 /* SeverityLogFormatter.swift in Sources */,
-				3BB043CC1C3B27FF005C940A /* TimestampLogFormatter.swift in Sources */,
-				3B6014981C24C073002652B3 /* ASLLogRecorder.swift in Sources */,
-				3B6014D81C24C073002652B3 /* LogRecorder.swift in Sources */,
-				3BB043D11C3B282A005C940A /* CallSiteLogFormatter.swift in Sources */,
-				3B6014A81C24C073002652B3 /* RotatingLogFileRecorder.swift in Sources */,
-				3B525E451C35CBC90078A4C6 /* RotatingLogFileConfiguration.swift in Sources */,
-				3BCAFEC91C3B2884006D706B /* DelimiterLogFormatter.swift in Sources */,
-				3B45ADB31C3B315200C3856B /* FieldBasedLogFormatter.swift in Sources */,
-				3B6014DC1C24C073002652B3 /* LogRecorderBase.swift in Sources */,
-				3B7C1ABD1C3B2F2600DE72C4 /* PayloadLogFormatter.swift in Sources */,
-				3B6014BC1C24C073002652B3 /* Log.swift in Sources */,
-				3B6014C01C24C073002652B3 /* LogChannel.swift in Sources */,
-				3B7C1AC51C3B2F6E00DE72C4 /* CallingThreadLogFormatter.swift in Sources */,
-				3BF4CF791C3B306100B3D0A8 /* ColorizingLogFormatter.swift in Sources */,
-				3B6014AC1C24C073002652B3 /* DefaultColorTable.swift in Sources */,
-				3B6014B01C24C073002652B3 /* BasicLogConfiguration.swift in Sources */,
-				3BF4CF811C3B307D00B3D0A8 /* ConcatenatingLogFormatter.swift in Sources */,
-				3B6014B81C24C073002652B3 /* FileLogRecorder.swift in Sources */,
-				3B6014C41C24C073002652B3 /* LogConfiguration.swift in Sources */,
-				3BD91A3D1C3B31A300E4B066 /* StandardLogFormatter.swift in Sources */,
-				3B9C82171C348F3C00E2442E /* StandardOutputLogRecorder.swift in Sources */,
-				3B6014D41C24C073002652B3 /* LogReceptacle.swift in Sources */,
-				3B60149C1C24C073002652B3 /* Color.swift in Sources */,
-				3B6014C81C24C073002652B3 /* LogEntry.swift in Sources */,
-				3B6014A41C24C073002652B3 /* ColorTable.swift in Sources */,
-				3B6014D01C24C073002652B3 /* LogFormatter.swift in Sources */,
-				3B1F366A1C3B301B0059B9B0 /* StackFrameLogFormatter.swift in Sources */,
-				3B6014E01C24C073002652B3 /* LogSeverity.swift in Sources */,
-				3B6014E81C24C073002652B3 /* XcodeColorsTextColorizer.swift in Sources */,
-				3BDD48751C3D974300B382F0 /* ReadableLogFormatter.swift in Sources */,
-				3B6014A01C24C073002652B3 /* TextColorizer.swift in Sources */,
-				3B698C501C3B291C0033B400 /* LiteralLogFormatter.swift in Sources */,
-				3B6014CC1C24C073002652B3 /* LogFilter.swift in Sources */,
-				3B8C42191C3591C3009D3C1E /* XcodeLogConfiguration.swift in Sources */,
+				3B475D501DB47BD50047D397 /* LoggingTests.swift in Sources */,
+				3B475D511DB47BD50047D397 /* LogSeverityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3B00E56A1BA3782D0011486D /* PBXTargetDependency */ = {
+		3B90590F1DAECB5200B4EEC0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3B00E55C1BA3782D0011486D /* CleanroomLogger-iOS */;
-			targetProxy = 3B00E5691BA3782D0011486D /* PBXContainerItemProxy */;
-		};
-		3B00E5881BA379830011486D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B00E57B1BA379830011486D /* CleanroomLogger-macOS */;
-			targetProxy = 3B00E5871BA379830011486D /* PBXContainerItemProxy */;
-		};
-		3B00E5A61BA37A420011486D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B00E5991BA37A420011486D /* CleanroomLogger-tvOS */;
-			targetProxy = 3B00E5A51BA37A420011486D /* PBXContainerItemProxy */;
+			target = 3B9059021DAECB5200B4EEC0 /* CleanroomLogger */;
+			targetProxy = 3B90590E1DAECB5200B4EEC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3B00E56F1BA3782D0011486D /* Debug */ = {
+		3B9059151DAECB5200B4EEC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBD01BA76428000986DF /* Debug-iOS.xcconfig */;
+			baseConfigurationReference = 3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -997,723 +419,158 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3B00E5701BA3782D0011486D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBD91BA76428000986DF /* Release-iOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3B00E5711BA3782D0011486D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-			};
-			name = Debug;
-		};
-		3B00E5721BA3782D0011486D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDE1BA76428000986DF /* Tests-iOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		3B00E58E1BA379830011486D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBD11BA76428000986DF /* Debug-macOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3B00E58F1BA379830011486D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDA1BA76428000986DF /* Release-macOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3B00E5911BA379830011486D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDF1BA76428000986DF /* Tests-macOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-			};
-			name = Debug;
-		};
-		3B00E5921BA379830011486D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDF1BA76428000986DF /* Tests-macOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-			};
-			name = Release;
-		};
-		3B00E5AC1BA37A420011486D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBD21BA76428000986DF /* Debug-tvOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 17;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3B00E5AD1BA37A420011486D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDB1BA76428000986DF /* Release-tvOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 17;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 3;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3B00E5AF1BA37A420011486D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-			};
-			name = Debug;
-		};
-		3B00E5B01BA37A420011486D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBE01BA76428000986DF /* Tests-tvOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		3B78C6D41BA7634E00173EAC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBD31BA76428000986DF /* Debug-watchOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3B78C6D51BA7634E00173EAC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBDC1BA76428000986DF /* Release-watchOS.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3BCBACE61BA369AD007F1C90 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBD81BA76428000986DF /* Project.xcconfig */;
-			buildSettings = {
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 17;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		3BCBACE71BA369AD007F1C90 /* Release */ = {
+		3B9059161DAECB5200B4EEC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B38DBD81BA76428000986DF /* Project.xcconfig */;
+			baseConfigurationReference = 3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 17;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3B9059181DAECB5200B4EEC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		3B9059191DAECB5200B4EEC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3B90591B1DAECB5200B4EEC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+			};
+			name = Debug;
+		};
+		3B90591C1DAECB5200B4EEC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3B00E5731BA3782D0011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-iOS" */ = {
+		3B9058FD1DAECB5200B4EEC0 /* Build configuration list for PBXProject "CleanroomLogger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B00E56F1BA3782D0011486D /* Debug */,
-				3B00E5701BA3782D0011486D /* Release */,
+				3B9059151DAECB5200B4EEC0 /* Debug */,
+				3B9059161DAECB5200B4EEC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B00E5741BA3782D0011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-iOS" */ = {
+		3B9059171DAECB5200B4EEC0 /* Build configuration list for PBXNativeTarget "CleanroomLogger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B00E5711BA3782D0011486D /* Debug */,
-				3B00E5721BA3782D0011486D /* Release */,
+				3B9059181DAECB5200B4EEC0 /* Debug */,
+				3B9059191DAECB5200B4EEC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B00E58D1BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-macOS" */ = {
+		3B90591A1DAECB5200B4EEC0 /* Build configuration list for PBXNativeTarget "CleanroomLoggerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B00E58E1BA379830011486D /* Debug */,
-				3B00E58F1BA379830011486D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B00E5901BA379830011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B00E5911BA379830011486D /* Debug */,
-				3B00E5921BA379830011486D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B00E5AB1BA37A420011486D /* Build configuration list for PBXNativeTarget "CleanroomLogger-tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B00E5AC1BA37A420011486D /* Debug */,
-				3B00E5AD1BA37A420011486D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B00E5AE1BA37A420011486D /* Build configuration list for PBXNativeTarget "CleanroomLoggerUnitTests-tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B00E5AF1BA37A420011486D /* Debug */,
-				3B00E5B01BA37A420011486D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B78C6D31BA7634E00173EAC /* Build configuration list for PBXNativeTarget "CleanroomLogger-watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B78C6D41BA7634E00173EAC /* Debug */,
-				3B78C6D51BA7634E00173EAC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3BCBACE51BA369AD007F1C90 /* Build configuration list for PBXProject "CleanroomLogger" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3BCBACE61BA369AD007F1C90 /* Debug */,
-				3BCBACE71BA369AD007F1C90 /* Release */,
+				3B90591B1DAECB5200B4EEC0 /* Debug */,
+				3B90591C1DAECB5200B4EEC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 3BCBACE21BA369AD007F1C90 /* Project object */;
+	rootObject = 3B9058FA1DAECB5200B4EEC0 /* Project object */;
 }

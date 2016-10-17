@@ -41,6 +41,9 @@
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter/Field.html">– Field</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
@@ -86,6 +89,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
@@ -152,6 +158,9 @@
                 <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/LogEntry/Payload.html">– Payload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
@@ -179,7 +188,7 @@
             <h1>ASLLogRecorder</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogRecorder.html">LogRecorder</a></span></code></pre>
 
                 </div>
               </div>
@@ -214,7 +223,7 @@ is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">]</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -235,15 +244,15 @@ is consistent with the behavior of <code>NSLog()</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Defines the interface of a function that translates <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code>
-values into <code>ASLPriorityLevel</code> values. This function is used to determine
-the <code>ASLPriorityLevel</code> used for a given <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
+ values into <code>ASLPriorityLevel</code> values. This function is used to determine
+ the <code>ASLPriorityLevel</code> used for a given <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">LogLevelTranslator</span> <span class="o">=</span> <span class="p">(</span><span class="kt">LogSeverity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ASLPriorityLevel</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">LogLevelTranslator</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ASLPriorityLevel</span></code></pre>
 
                         </div>
                       </div>
@@ -280,9 +289,9 @@ the <code>ASLPriorityLevel</code> used for a given <code><a href="../Structs/Log
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV15CleanroomLogger14ASLLogRecorder5queuePSo17OS_dispatch_queue_"></a>
+                    <a name="/s:vV15CleanroomLogger14ASLLogRecorder5queueCSo13DispatchQueue"></a>
                     <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV15CleanroomLogger14ASLLogRecorder5queuePSo17OS_dispatch_queue_">queue</a>
+                    <a class="token" href="#/s:vV15CleanroomLogger14ASLLogRecorder5queueCSo13DispatchQueue">queue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -297,7 +306,7 @@ the <code>ASLPriorityLevel</code> used for a given <code><a href="../Structs/Log
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span> <span class="p">{</span> <span class="k">return</span> <span class="n">client</span><span class="o">.</span><span class="n">queue</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">queue</span><span class="p">:</span> <span class="kt">DispatchQueue</span></code></pre>
 
                         </div>
                       </div>
@@ -318,16 +327,16 @@ the <code>ASLPriorityLevel</code> used for a given <code><a href="../Structs/Log
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The <code><a href="../Structs/ASLLogRecorder.html#/s:V15CleanroomLogger14ASLLogRecorder18LogLevelTranslator">LogLevelTranslator</a></code> function used by the receiver to convert
-<code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> values to <code>ASLPriorityLevel</code> values. If one was not
-explicitly provided at instantiation, a default implementation will
-be used.</p>
+ <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> values to <code>ASLPriorityLevel</code> values. If one was not
+ explicitly provided at instantiation, a default implementation will
+ be used.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">logLevelTranslator</span><span class="p">:</span> <span class="kt">LogLevelTranslator</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">logLevelTranslator</span><span class="p">:</span> <span class="kt"><a href="../Structs/ASLLogRecorder.html#/s:V15CleanroomLogger14ASLLogRecorder18LogLevelTranslator">LogLevelTranslator</a></span></code></pre>
 
                         </div>
                       </div>
@@ -337,9 +346,9 @@ be used.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFT12echoToStdErrSb_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(echoToStdErr:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFT12echoToStdErrSb_S0_">init(echoToStdErr:)</a>
+                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFT12echoToStdErrSb18addTraceAttributesSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(echoToStdErr:addTraceAttributes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFT12echoToStdErrSb18addTraceAttributesSb_S0_">init(echoToStdErr:addTraceAttributes:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -347,10 +356,10 @@ be used.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes an <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> instance to use the <code>DefaultLogFormatter</code>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the <code>DefaultLogFormatter</code>
 implementation for formatting log messages.</p>
 
-<p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
+<p>Within ASL, log messages will be recorded at the <code>.warning</code> priority
 level, which is consistent with the behavior of <code>NSLog()</code>.</p>
 
                       </div>
@@ -358,7 +367,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">addTraceAttributes</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -374,7 +383,20 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, ASL will also echo log messages to the calling process&rsquo;s <code>stderr</code> output stream.</p>
+                                  <p>If <code>true</code>, ASL will also echo log messages to the calling process’s <code>stderr</code> output stream.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addTraceAttributes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, additional program trace attributes will be included in each message logged to ASL. This will include the filesystem path of the source code file, the source code line of the call site, and the stack frame representing the caller. You probably don’t want this included in production code.</p>
 
                                 </div>
                               </td>
@@ -388,9 +410,9 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFT9formatterPS_12LogFormatter_12echoToStdErrSb_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(formatter:echoToStdErr:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFT9formatterPS_12LogFormatter_12echoToStdErrSb_S0_">init(formatter:echoToStdErr:)</a>
+                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFT9formatterPS_12LogFormatter_12echoToStdErrSb18addTraceAttributesSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(formatter:echoToStdErr:addTraceAttributes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFT9formatterPS_12LogFormatter_12echoToStdErrSb18addTraceAttributesSb_S0_">init(formatter:echoToStdErr:addTraceAttributes:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -398,10 +420,10 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes an <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> instance to use the specified <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the specified <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>
 for formatting log messages.</p>
 
-<p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
+<p>Within ASL, log messages will be recorded at the <code>.warning</code> priority
 level, which is consistent with the behavior of <code>NSLog()</code>.</p>
 
                       </div>
@@ -409,7 +431,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt">LogFormatter</span><span class="p">,</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">,</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">addTraceAttributes</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -438,7 +460,20 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, ASL will also echo log messages to the calling process&rsquo;s <code>stderr</code> output stream.</p>
+                                  <p>If <code>true</code>, ASL will also echo log messages to the calling process’s <code>stderr</code> output stream.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addTraceAttributes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, additional program trace attributes will be included in each message logged to ASL. This will include the filesystem path of the source code file, the source code line of the call site, and the stack frame representing the caller. You probably don’t want this included in production code.</p>
 
                                 </div>
                               </td>
@@ -452,9 +487,9 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFT10formattersGSaPS_12LogFormatter__12echoToStdErrSb_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(formatters:echoToStdErr:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFT10formattersGSaPS_12LogFormatter__12echoToStdErrSb_S0_">init(formatters:echoToStdErr:)</a>
+                    <a name="/s:FV15CleanroomLogger14ASLLogRecordercFT10formattersGSaPS_12LogFormatter__12echoToStdErrSb18addTraceAttributesSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(formatters:echoToStdErr:addTraceAttributes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercFT10formattersGSaPS_12LogFormatter__12echoToStdErrSb18addTraceAttributesSb_S0_">init(formatters:echoToStdErr:addTraceAttributes:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -462,10 +497,10 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes an <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> instance to use the specified <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>
+                        <p>Initializes an <code>ASLLogRecorder</code> instance to use the specified <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>
 for formatting log messages.</p>
 
-<p>Within ASL, log messages will be recorded at the <code>.Warning</code> priority
+<p>Within ASL, log messages will be recorded at the <code>.warning</code> priority
 level, which is consistent with the behavior of <code>NSLog()</code>.</p>
 
                       </div>
@@ -473,7 +508,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">],</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">],</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">addTraceAttributes</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -507,6 +542,19 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addTraceAttributes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, additional program trace attributes will be included in each message logged to ASL. This will include the filesystem path of the source code file, the source code line of the call site, and the stack frame representing the caller. You probably don’t want this included in production code.</p>
+
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -517,8 +565,8 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                   <div>
                     <code>
                     <a name="/s:FV15CleanroomLogger14ASLLogRecordercERR"></a>
-                    <a name="//apple_ref/swift/Method/init(logLevelTranslator:formatters:echoToStdErr:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercERR">init(logLevelTranslator:formatters:echoToStdErr:)</a>
+                    <a name="//apple_ref/swift/Method/init(logLevelTranslator:formatters:echoToStdErr:addTraceAttributes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecordercERR">init(logLevelTranslator:formatters:echoToStdErr:addTraceAttributes:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -526,7 +574,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code> instance to use the specified
+                        <p>Initializes a new <code>ASLLogRecorder</code> instance to use the specified
 <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> for formatting log entries.</p>
 
                       </div>
@@ -534,7 +582,7 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">logLevelTranslator</span> <span class="nv">translator</span><span class="p">:</span> <span class="kt">LogLevelTranslator</span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">],</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n"><a href="../Structs/ASLLogRecorder.html#/s:vV15CleanroomLogger14ASLLogRecorder18logLevelTranslatorERR">logLevelTranslator</a></span> <span class="nv">translator</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Structs/ASLLogRecorder.html#/s:V15CleanroomLogger14ASLLogRecorder18LogLevelTranslator">LogLevelTranslator</a></span><span class="p">,</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">],</span> <span class="nv">echoToStdErr</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">addTraceAttributes</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -576,7 +624,20 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, ASL will also echo log messages to the calling process&rsquo;s <code>stderr</code> output stream.</p>
+                                  <p>If <code>true</code>, ASL will also echo log messages to the calling process’s <code>stderr</code> output stream.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>addTraceAttributes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, additional program trace attributes will be included in each message logged to ASL. This will include the filesystem path of the source code file, the source code line of the call site, and the stack frame representing the caller. You probably don’t want this included in production code.</p>
 
                                 </div>
                               </td>
@@ -590,9 +651,9 @@ level, which is consistent with the behavior of <code>NSLog()</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger14ASLLogRecorder22recordFormattedMessageFTSS11forLogEntryVS_8LogEntry12currentQueuePSo17OS_dispatch_queue_15synchronousModeSb_T_"></a>
-                    <a name="//apple_ref/swift/Method/recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecorder22recordFormattedMessageFTSS11forLogEntryVS_8LogEntry12currentQueuePSo17OS_dispatch_queue_15synchronousModeSb_T_">recordFormattedMessage(_:forLogEntry:currentQueue:synchronousMode:)</a>
+                    <a name="/s:FV15CleanroomLogger14ASLLogRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/record(message:for:currentQueue:synchronousMode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger14ASLLogRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_">record(message:for:currentQueue:synchronousMode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -614,7 +675,7 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">recordFormattedMessage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forLogEntry</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt">LogEntry</span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="n">dispatch_queue_t</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">record</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="k">for</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="kt">DispatchQueue</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -686,7 +747,7 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
         </section>
         <section id="footer">
           <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

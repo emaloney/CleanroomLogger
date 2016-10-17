@@ -40,6 +40,9 @@
                 <a href="Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/FieldBasedLogFormatter/Field.html">– Field</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
@@ -85,6 +88,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/TimestampStyle.html">TimestampStyle</a>
@@ -151,6 +157,9 @@
                 <a href="Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/LogEntry/Payload.html">– Payload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
@@ -207,80 +216,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SeverityLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger21TimestampLogFormatter"></a>
-                    <a name="//apple_ref/swift/Struct/TimestampLogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger21TimestampLogFormatter">TimestampLogFormatter</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a string representation of a <code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s
-<code>timestamp</code> property.</p>
-
-<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
-<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
-
-                        <a href="Structs/TimestampLogFormatter.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TimestampLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger14ASLLogRecorder"></a>
-                    <a name="//apple_ref/swift/Struct/ASLLogRecorder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger14ASLLogRecorder">ASLLogRecorder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>ASLLogRecorder</code> is an implemention of the <code><a href="Protocols/LogRecorder.html">LogRecorder</a></code> protocol that
-records log entries to the Apple System Log (ASL) facility.</p>
-
-<p>Unless a <code>LogLevelTranslator</code> is specified during construction, the
-<code>ASLLogRecorder</code> will record log messages using <code>ASL_LEVEL_WARNING</code>. This
-is consistent with the behavior of <code>NSLog()</code>.</p>
-
-                        <a href="Structs/ASLLogRecorder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt">LogRecorder</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SeverityLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -317,7 +253,7 @@ followed by the <code>callingFileLine</code> within that file.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallSiteLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallSiteLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -331,9 +267,9 @@ followed by the <code>callingFileLine</code> within that file.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger21DelimiterLogFormatter"></a>
-                    <a name="//apple_ref/swift/Struct/DelimiterLogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger21DelimiterLogFormatter">DelimiterLogFormatter</a>
+                    <a name="/s:V15CleanroomLogger10LogChannel"></a>
+                    <a name="//apple_ref/swift/Struct/LogChannel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger10LogChannel">LogChannel</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -341,18 +277,130 @@ followed by the <code>callingFileLine</code> within that file.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> used to output field separator strings.</p>
+                        <p><code>LogChannel</code> instances provide the high-level interface for accepting log
+messages.</p>
 
-<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
-<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+<p>They are responsible for converting log requests into <code><a href="Structs/LogEntry.html">LogEntry</a></code> instances
+that they then pass along to their associated <code><a href="Classes/LogReceptacle.html">LogReceptacle</a></code>s to perform the
+actual logging.</p>
 
-                        <a href="Structs/DelimiterLogFormatter.html" class="slightly-smaller">See more</a>
+<p><code>LogChannel</code>s are provided as a convenience, exposed as static properties
+through <code><a href="Structs/Log.html">Log</a></code>. Use of <code>LogChannel</code>s and the <code><a href="Structs/Log.html">Log</a></code> is not required for logging;
+you can also perform logging by creating <code><a href="Structs/LogEntry.html">LogEntry</a></code> instances manually and 
+passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle</a></code>.</p>
+
+                        <a href="Structs/LogChannel.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DelimiterLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogChannel</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger17LogSeverityFilter"></a>
+                    <a name="//apple_ref/swift/Struct/LogSeverityFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger17LogSeverityFilter">LogSeverityFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFilter.html">LogFilter</a></code> implementation that filters out any <code><a href="Structs/LogEntry.html">LogEntry</a></code> with a 
+<code><a href="Enums/LogSeverity.html">LogSeverity</a></code> less than a specified value.</p>
+
+                        <a href="Structs/LogSeverityFilter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogSeverityFilter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFilter.html">LogFilter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger25CallingThreadLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/CallingThreadLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger25CallingThreadLogFormatter">CallingThreadLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a hexadecimal string representation of a
+<code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>callingThreadID</code>.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/CallingThreadLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallingThreadLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger21TimestampLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/TimestampLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger21TimestampLogFormatter">TimestampLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a string representation of a <code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s
+<code>timestamp</code> property.</p>
+
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/TimestampLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">TimestampLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -388,7 +436,105 @@ followed by the <code>callingFileLine</code> within that file.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PayloadLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PayloadLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger22ColorizingLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/ColorizingLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger22ColorizingLogFormatter">ColorizingLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Wraps another <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> and colorizes its output according to the
+<code><a href="Enums/LogSeverity.html">LogSeverity</a></code> of the <code><a href="Structs/LogEntry.html">LogEntry</a></code> being recorded.</p>
+
+                        <a href="Structs/ColorizingLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ColorizingLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger17DefaultColorTable"></a>
+                    <a name="//apple_ref/swift/Struct/DefaultColorTable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger17DefaultColorTable">DefaultColorTable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A default implementation of the <code><a href="Protocols/ColorTable.html">ColorTable</a></code> protocol.</p>
+
+                        <a href="Structs/DefaultColorTable.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultColorTable</span><span class="p">:</span> <span class="kt"><a href="Protocols/ColorTable.html">ColorTable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger5Color"></a>
+                    <a name="//apple_ref/swift/Struct/Color" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger5Color">Color</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a 3-component RGB color where each component is 8 bits.
+Used for specifying log output colors.</p>
+
+                        <a href="Structs/Color.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Color</span></code></pre>
 
                         </div>
                       </div>
@@ -472,7 +618,7 @@ into a string representation.</p>
 <p>Note that some implementations may not be able to convert certain values into
 strings; in those cases, log requests may be silently ignored.</p>
 
-<p><a href='#enabling_logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling_logging'>Enabling logging</h3></p>
+<p><a href='#enabling-logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling-logging'>Enabling logging</h3></p>
 
 <p>By default, logging is disabled, meaning that none of the <code>Log</code>&rsquo;s <em>log channels</em>
 have been populated. As a result, attempts to perform any logging will silently
@@ -501,9 +647,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger10LogChannel"></a>
-                    <a name="//apple_ref/swift/Struct/LogChannel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger10LogChannel">LogChannel</a>
+                    <a name="/s:V15CleanroomLogger14ASLLogRecorder"></a>
+                    <a name="//apple_ref/swift/Struct/ASLLogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger14ASLLogRecorder">ASLLogRecorder</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -511,25 +657,20 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>LogChannel</code> instances provide the high-level interface for accepting log
-messages.</p>
+                        <p>The <code>ASLLogRecorder</code> is an implemention of the <code><a href="Protocols/LogRecorder.html">LogRecorder</a></code> protocol that
+records log entries to the Apple System Log (ASL) facility.</p>
 
-<p>They are responsible for converting log requests into <code><a href="Structs/LogEntry.html">LogEntry</a></code> instances
-that they then pass along to their associated <code><a href="Classes/LogReceptacle.html">LogReceptacle</a></code>s to perform the
-actual logging.</p>
+<p>Unless a <code>LogLevelTranslator</code> is specified during construction, the
+<code>ASLLogRecorder</code> will record log messages using <code>ASL_LEVEL_WARNING</code>. This
+is consistent with the behavior of <code>NSLog()</code>.</p>
 
-<p><code>LogChannel</code>s are provided as a convenience, exposed as static properties
-through <code><a href="Structs/Log.html">Log</a></code>. Use of <code>LogChannel</code>s and the <code><a href="Structs/Log.html">Log</a></code> is not required for logging;
-you can also perform logging by creating <code><a href="Structs/LogEntry.html">LogEntry</a></code> instances manually and 
-passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle</a></code>.</p>
-
-                        <a href="Structs/LogChannel.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/ASLLogRecorder.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogChannel</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogRecorder.html">LogRecorder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -543,9 +684,9 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger25CallingThreadLogFormatter"></a>
-                    <a name="//apple_ref/swift/Struct/CallingThreadLogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger25CallingThreadLogFormatter">CallingThreadLogFormatter</a>
+                    <a name="/s:V15CleanroomLogger22StackFrameLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/StackFrameLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger22StackFrameLogFormatter">StackFrameLogFormatter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -553,19 +694,18 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns a hexadecimal string representation of a
-<code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>callingThreadID</code>.</p>
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns the <code>callingStackFrame</code> property of a <code><a href="Structs/LogEntry.html">LogEntry</a></code>.</p>
 
 <p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
 <code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
 
-                        <a href="Structs/CallingThreadLogFormatter.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/StackFrameLogFormatter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallingThreadLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StackFrameLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -579,9 +719,9 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger22ColorizingLogFormatter"></a>
-                    <a name="//apple_ref/swift/Struct/ColorizingLogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger22ColorizingLogFormatter">ColorizingLogFormatter</a>
+                    <a name="/s:V15CleanroomLogger19LiteralLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/LiteralLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger19LiteralLogFormatter">LiteralLogFormatter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -589,16 +729,19 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Wraps another <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> and colorizes its output according to the
-<code><a href="Enums/LogSeverity.html">LogSeverity</a></code> of the <code><a href="Structs/LogEntry.html">LogEntry</a></code> being recorded.</p>
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns always returns a given literal string
+regardless of input.</p>
 
-                        <a href="Structs/ColorizingLogFormatter.html" class="slightly-smaller">See more</a>
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/LiteralLogFormatter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ColorizingLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LiteralLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -612,9 +755,9 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger17DefaultColorTable"></a>
-                    <a name="//apple_ref/swift/Struct/DefaultColorTable" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger17DefaultColorTable">DefaultColorTable</a>
+                    <a name="/s:V15CleanroomLogger24XcodeColorsTextColorizer"></a>
+                    <a name="//apple_ref/swift/Struct/XcodeColorsTextColorizer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger24XcodeColorsTextColorizer">XcodeColorsTextColorizer</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -622,15 +765,17 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A default implementation of the <code><a href="Protocols/ColorTable.html">ColorTable</a></code> protocol.</p>
+                        <p>A <code><a href="Protocols/TextColorizer.html">TextColorizer</a></code> implementation that applies 
+<a href="https://github.com/robbiehanson/XcodeColors/">XcodeColors</a>-compatible 
+formatting to log messages.</p>
 
-                        <a href="Structs/DefaultColorTable.html" class="slightly-smaller">See more</a>
+                        <a href="Structs/XcodeColorsTextColorizer.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DefaultColorTable</span><span class="p">:</span> <span class="kt">ColorTable</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XcodeColorsTextColorizer</span><span class="p">:</span> <span class="kt"><a href="Protocols/TextColorizer.html">TextColorizer</a></span></code></pre>
 
                         </div>
                       </div>
@@ -644,9 +789,9 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V15CleanroomLogger5Color"></a>
-                    <a name="//apple_ref/swift/Struct/Color" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger5Color">Color</a>
+                    <a name="/s:V15CleanroomLogger21DelimiterLogFormatter"></a>
+                    <a name="//apple_ref/swift/Struct/DelimiterLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger21DelimiterLogFormatter">DelimiterLogFormatter</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -654,16 +799,18 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents a 3-component RGB color where each component is 8 bits.
-Used for specifying log output colors.</p>
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> used to output field separator strings.</p>
 
-                        <a href="Structs/Color.html" class="slightly-smaller">See more</a>
+<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+
+                        <a href="Structs/DelimiterLogFormatter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Color</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">DelimiterLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -704,149 +851,11 @@ Used for specifying log output colors.</p>
                 </li>
               </ul>
             </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger22StackFrameLogFormatter"></a>
-                    <a name="//apple_ref/swift/Struct/StackFrameLogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger22StackFrameLogFormatter">StackFrameLogFormatter</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns the <code>callingStackFrame</code> property of a <code><a href="Structs/LogEntry.html">LogEntry</a></code>.</p>
-
-<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
-<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
-
-                        <a href="Structs/StackFrameLogFormatter.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StackFrameLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger24XcodeColorsTextColorizer"></a>
-                    <a name="//apple_ref/swift/Struct/XcodeColorsTextColorizer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger24XcodeColorsTextColorizer">XcodeColorsTextColorizer</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code><a href="Protocols/TextColorizer.html">TextColorizer</a></code> implementation that applies 
-<a href="https://github.com/robbiehanson/XcodeColors/">XcodeColors</a>-compatible 
-formatting to log messages.</p>
-
-                        <a href="Structs/XcodeColorsTextColorizer.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">XcodeColorsTextColorizer</span><span class="p">:</span> <span class="kt">TextColorizer</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger19LiteralLogFormatter"></a>
-                    <a name="//apple_ref/swift/Struct/LiteralLogFormatter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger19LiteralLogFormatter">LiteralLogFormatter</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that returns always returns a given literal string
-regardless of input.</p>
-
-<p>This is typically combined with other <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>s within a
-<code><a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
-
-                        <a href="Structs/LiteralLogFormatter.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LiteralLogFormatter</span><span class="p">:</span> <span class="kt">LogFormatter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger17LogSeverityFilter"></a>
-                    <a name="//apple_ref/swift/Struct/LogSeverityFilter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger17LogSeverityFilter">LogSeverityFilter</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A <code><a href="Protocols/LogFilter.html">LogFilter</a></code> implementation that filters out any <code><a href="Structs/LogEntry.html">LogEntry</a></code> with a 
-<code><a href="Enums/LogSeverity.html">LogSeverity</a></code> less than a specified value.</p>
-
-                        <a href="Structs/LogSeverityFilter.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogSeverityFilter</span><span class="p">:</span> <span class="kt">LogFilter</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </section>
         </section>
         <section id="footer">
           <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

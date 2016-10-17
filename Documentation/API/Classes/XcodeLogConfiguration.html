@@ -41,6 +41,9 @@
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter/Field.html">– Field</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
               </li>
               <li class="nav-group-task">
@@ -86,6 +89,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
@@ -152,6 +158,9 @@
                 <a href="../Structs/LogEntry.html">LogEntry</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/LogEntry/Payload.html">– Payload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
               </li>
               <li class="nav-group-task">
@@ -179,7 +188,7 @@
             <h1>XcodeLogConfiguration</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">XcodeLogConfiguration</span><span class="p">:</span> <span class="kt">BasicLogConfiguration</span></code></pre>
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">XcodeLogConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Classes/BasicLogConfiguration.html">BasicLogConfiguration</a></span></code></pre>
 
                 </div>
               </div>
@@ -216,7 +225,7 @@ only a single recorder: an <code><a href="../Structs/ASLLogRecorder.html">ASLLog
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code><a href="../Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a></code> instance.</p>
+                        <p>Initializes a new <code>XcodeLogConfiguration</code> instance.</p>
 
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
@@ -234,7 +243,7 @@ recommended for use in production code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt">TimestampStyle</span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt">SeverityStyle</span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Xcode</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallingThread</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">showSeverity</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">suppressColors</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">xcode</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallingThread</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">showSeverity</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">suppressColors</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
 
                         </div>
                       </div>
@@ -263,7 +272,7 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.Debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
 
                                 </div>
                               </td>
@@ -276,7 +285,7 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.Verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
 
                                 </div>
                               </td>
@@ -391,7 +400,7 @@ recommended for use in production code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code><a href="../Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a></code> instance.</p>
+                        <p>Initializes a new <code>XcodeLogConfiguration</code> instance.</p>
 
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
@@ -409,7 +418,7 @@ recommended for use in production code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">colorizer</span><span class="p">:</span> <span class="kt">TextColorizer</span><span class="p">?</span> <span class="o">=</span> <span class="kt">XcodeColorsTextColorizer</span><span class="p">(),</span> <span class="nv">colorTable</span><span class="p">:</span> <span class="kt">ColorTable</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatter</span><span class="p">:</span> <span class="kt">LogFormatter</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">colorizer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TextColorizer.html">TextColorizer</a></span><span class="p">?</span> <span class="o">=</span> <span class="kt"><a href="../Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a></span><span class="p">(),</span> <span class="nv">colorTable</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ColorTable.html">ColorTable</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -438,7 +447,7 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.Debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
 
                                 </div>
                               </td>
@@ -451,7 +460,7 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.Verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
 
                                 </div>
                               </td>
@@ -540,7 +549,7 @@ recommended for use in production code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code><a href="../Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a></code> instance.</p>
+                        <p>Initializes a new <code>XcodeLogConfiguration</code> instance.</p>
 
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
@@ -558,7 +567,7 @@ recommended for use in production code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt">LogSeverity</span> <span class="o">=</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">colorizer</span><span class="p">:</span> <span class="kt">TextColorizer</span><span class="p">?</span> <span class="o">=</span> <span class="kt">XcodeColorsTextColorizer</span><span class="p">(),</span> <span class="nv">colorTable</span><span class="p">:</span> <span class="kt">ColorTable</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFilter</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt">LogFormatter</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">colorizer</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TextColorizer.html">TextColorizer</a></span><span class="p">?</span> <span class="o">=</span> <span class="kt"><a href="../Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a></span><span class="p">(),</span> <span class="nv">colorTable</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ColorTable.html">ColorTable</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -587,7 +596,7 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.Debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
 
                                 </div>
                               </td>
@@ -600,7 +609,7 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.Verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
 
                                 </div>
                               </td>
@@ -682,7 +691,7 @@ recommended for use in production code.</p>
         </section>
         <section id="footer">
           <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
