@@ -30,41 +30,15 @@
 
 	<Var name="branches" type="list">
 		<Var literal="master"/>
-		<Var literal="swift3"/>
 	</Var>
 
 	<Var name="versions" type="map">
 		<!-- master branch declarations -->
 		<Var name="master" type="map">
-			<Var name="Swift" literal="2.3"/> 
-			<Var name="Xcode" literal="8"/>
-			
-			<Var name="Carthage" literal="0.17.2"/>
-			
-			<Var name="current" type="map">
-				<Var name="iOS" literal="10.0"/> 
-				<Var name="macOS" literal="10.12"/> 
-				<Var name="tvOS" literal="10.0"/> 
-				<Var name="watchOS" literal="3.0"/> 
-			</Var>
-			
-			<Var name="minimum" type="map">
-				<Var name="iOS" literal="8.0"/> 
-				<Var name="macOS" literal="10.10"/> 
-				<Var name="tvOS" literal="9.0"/> 
-				<Var name="watchOS" literal="2.0"/> 
-			</Var>
-		</Var>
-
-		<!-- swift3 branch declarations -->
-		<Var name="swift3" type="map">
-			<Var name="note" literal="This branch is still under active development. Expect breaking changes to the API, the build system and/or the project structure at any time. **Be sure to lock against a specific commit if you simultaneously require Swift 3 and stability.**"/>
-			
 			<Var name="Swift" literal="3.0"/> 
 			<Var name="Xcode" literal="8"/>
 			
 			<Var name="Carthage" literal="0.17.2"/>
-			<Var name="git" literal="2.7.4 (Apple Git-73)"/>
 			
 			<Var name="current" type="map">
 				<Var name="iOS" literal="10.0"/> 
