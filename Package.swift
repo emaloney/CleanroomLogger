@@ -3,6 +3,6 @@ import PackageDescription
 let package = Package(
 	name: "CleanroomLogger",
 	dependencies: [
-		.Package(url: "https://github.com/emaloney/CleanroomASL", versions: Version(1,5,0) ..< Version(2,0,0))
+        .Package(url: "https://github.com/emaloney/CleanroomASL", majorVersion: 2, minor: 0)
 	]
 )
