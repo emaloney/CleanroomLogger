@@ -10,41 +10,113 @@
 	<Var name="repo:dir" type="dynamic" expression="../../${repo:name}"/>
 
 	<Var name="platforms" type="map">
-		<Var name="iOS" type="map">
-			<Var name="runDestination" literal="platform=iOS Simulator,OS=10.0,name=iPhone 7"/> 
-			<Var name="supportsUnitTests" boolean="T"/> 
+		<Var name="Xcode 8.1" type="map">
+			<Var name="iOS" type="map">
+				<Var name="runDestination" literal="platform=iOS Simulator,OS=10.1,name=iPhone 7"/> 
+				<Var name="supportsUnitTests" boolean="T"/> 
+			</Var>
+			<Var name="macOS" type="map">
+				<Var name="runDestination" literal="platform=macOS"/> 
+				<Var name="supportsUnitTests" boolean="T"/> 
+			</Var>
+			<Var name="tvOS" type="map">
+				<Var name="runDestination" literal="platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p"/> 
+				<Var name="supportsUnitTests" boolean="T"/> 
+			</Var>
+			<Var name="watchOS" type="map">
+				<Var name="runDestination" literal="platform=watchOS Simulator,OS=3.1,name=Apple Watch Series 2 - 42mm"/> 
+				<Var name="supportsUnitTests" boolean="F"/> 
+			</Var>
 		</Var>
-		<Var name="macOS" type="map">
-			<Var name="runDestination" literal="platform=macOS"/> 
-			<Var name="supportsUnitTests" boolean="T"/> 
-		</Var>
-		<Var name="tvOS" type="map">
-			<Var name="runDestination" literal="platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p"/> 
-			<Var name="supportsUnitTests" boolean="T"/> 
-		</Var>
-		<Var name="watchOS" type="map">
-			<Var name="runDestination" literal="platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm"/> 
-			<Var name="supportsUnitTests" boolean="F"/> 
+		<Var name="Xcode 8.2" type="map">
+			<Var name="iOS" type="map">
+				<Var name="runDestination" literal="platform=iOS Simulator,OS=10.2,name=iPhone 7"/> 
+				<Var name="supportsUnitTests" boolean="T"/> 
+			</Var>
+			<Var name="macOS" type="map">
+				<Var name="runDestination" literal="platform=macOS"/> 
+				<Var name="supportsUnitTests" boolean="T"/> 
+			</Var>
+			<Var name="tvOS" type="map">
+				<Var name="runDestination" literal="platform=tvOS Simulator,OS=10.1,name=Apple TV 1080p"/> 
+				<Var name="supportsUnitTests" boolean="T"/> 
+			</Var>
+			<Var name="watchOS" type="map">
+				<Var name="runDestination" literal="platform=watchOS Simulator,OS=3.1,name=Apple Watch Series 2 - 42mm"/> 
+				<Var name="supportsUnitTests" boolean="F"/> 
+			</Var>
 		</Var>
 	</Var>
 
+	<Var name="platforms:build" value="$platforms[Xcode 8.1]"/>
+	<Var name="platforms:ci" value="$platforms[Xcode 8.1]"/>
+
 	<Var name="branches" type="list">
 		<Var literal="master"/>
+		<Var literal="xcode-8.1"/>
+		<Var literal="xcode-8.2"/>
 	</Var>
+
+	<Var name="xcode:version" type="dynamic" expression="$versions[$repo:branch][Xcode]"/>
+	<Var name="swift:version" type="dynamic" expression="$versions[$repo:branch][Swift]"/>
+	<Var name="project:travisImage" type="dynamic" expression="$versions[$repo:branch][Travis]"/>
 
 	<Var name="versions" type="map">
 		<!-- master branch declarations -->
 		<Var name="master" type="map">
 			<Var name="Swift" literal="3.0"/> 
-			<Var name="Xcode" literal="8"/>
+			<Var name="Xcode" literal="8.0"/>
+			<Var name="Travis" literal="xcode8"/>
 			
-			<Var name="Carthage" literal="0.17.2"/>
+			<Var name="Carthage" literal="0.18.1"/>
 			
 			<Var name="current" type="map">
 				<Var name="iOS" literal="10.0"/> 
 				<Var name="macOS" literal="10.12"/> 
 				<Var name="tvOS" literal="10.0"/> 
 				<Var name="watchOS" literal="3.0"/> 
+			</Var>
+			
+			<Var name="minimum" type="map">
+				<Var name="iOS" literal="8.0"/> 
+				<Var name="macOS" literal="10.10"/> 
+				<Var name="tvOS" literal="9.0"/> 
+				<Var name="watchOS" literal="2.0"/> 
+			</Var>
+		</Var>
+		<Var name="xcode-8.1" type="map">
+			<Var name="Swift" literal="3.0.1"/> 
+			<Var name="Xcode" literal="8.1"/>
+			<Var name="Travis" literal="xcode8.1"/>
+			
+			<Var name="Carthage" literal="0.18.1"/>
+			
+			<Var name="current" type="map">
+				<Var name="iOS" literal="10.1"/> 
+				<Var name="macOS" literal="10.12"/> 
+				<Var name="tvOS" literal="10.0"/> 
+				<Var name="watchOS" literal="3.1"/> 
+			</Var>
+			
+			<Var name="minimum" type="map">
+				<Var name="iOS" literal="8.0"/> 
+				<Var name="macOS" literal="10.10"/> 
+				<Var name="tvOS" literal="9.0"/> 
+				<Var name="watchOS" literal="2.0"/> 
+			</Var>
+		</Var>
+		<Var name="xcode-8.2" type="map">
+			<Var name="Swift" literal="3.0.2"/> 
+			<Var name="Xcode" literal="8.2"/>
+			<Var name="Travis" literal="xcode8.2"/>
+
+			<Var name="Carthage" literal="0.18.1"/>
+			
+			<Var name="current" type="map">
+				<Var name="iOS" literal="10.2"/> 
+				<Var name="macOS" literal="10.12"/> 
+				<Var name="tvOS" literal="10.1"/> 
+				<Var name="watchOS" literal="3.1"/> 
 			</Var>
 			
 			<Var name="minimum" type="map">

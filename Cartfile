@@ -1,1 +1,1 @@
-github "emaloney/CleanroomASL" ~> 2.0.0
+github "emaloney/CleanroomASL" == 2.0.1

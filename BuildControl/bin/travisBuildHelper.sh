@@ -18,10 +18,10 @@ PLATFORM="$2"
 runDestinationForPlatform()
 {
 	case $1 in
-	iOS) 		echo "platform=iOS Simulator,OS=10.0,name=iPhone 7";;
+	iOS) 		echo "platform=iOS Simulator,OS=10.1,name=iPhone 7";;
 	macOS) 		echo "platform=macOS";;	
 	tvOS) 		echo "platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p";;
-	watchOS)	echo "platform=watchOS Simulator,OS=3.0,name=Apple Watch Series 2 - 42mm";;
+	watchOS)	echo "platform=watchOS Simulator,OS=3.1,name=Apple Watch Series 2 - 42mm";;
 	esac
 }
 
