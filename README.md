@@ -1,4 +1,4 @@
-![Gilt Tech logo](https://raw.githubusercontent.com/gilt/Cleanroom/xcode-8.1/Assets/gilt-tech-logo.png)
+![Gilt Tech logo](https://raw.githubusercontent.com/gilt/Cleanroom/xcode-8.2/Assets/gilt-tech-logo.png)
 
 # CleanroomLogger
 
@@ -11,12 +11,12 @@ CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Clean
 
 ### Swift compatibility
 
-**Important:** This is the `xcode-8.1` branch. It uses **Swift 3.0.1** and **requires Xcode 8.1** to compile.
+**Important:** This is the `xcode-8.2` branch. It uses **Swift 3.0.2** and **requires Xcode 8.2** to compile.
 
 2 other branches are also available:
 
 - The [`master`](https://github.com/emaloney/CleanroomLogger) branch uses **Swift 3.0**, requiring Xcode 8.0
-- The [`xcode-8.2`](https://github.com/emaloney/CleanroomLogger/tree/xcode-8.2) branch uses **Swift 3.0.2**, requiring Xcode 8.2
+- The [`xcode-8.1`](https://github.com/emaloney/CleanroomLogger/tree/xcode-8.1) branch uses **Swift 3.0.1**, requiring Xcode 8.1
 
 
 #### Current status
@@ -35,20 +35,20 @@ As with `NSLog()`, CleanroomLogger messages are (by default) directed to the App
 
 However, CleanroomLogger adds a number of important features not provided by `NSLog()`:
 
-1. **Each log message is associated with a [`LogSeverity`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/Enums/LogSeverity.html) value indicating the importance of that message.** This enables you to very easily do things like squelch out low-priority messages—such as those logged with `.Debug` and `.Verbose` severity values—in production binaries, thereby lessening the amount of work your App Store build does at runtime.
+1. **Each log message is associated with a [`LogSeverity`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/Enums/LogSeverity.html) value indicating the importance of that message.** This enables you to very easily do things like squelch out low-priority messages—such as those logged with `.Debug` and `.Verbose` severity values—in production binaries, thereby lessening the amount of work your App Store build does at runtime.
 
 2. **CleanroomLogger makes it easy to find the _where_ your code is issuing log messages.** With `NSLog()` and `print()`, it can sometimes be difficult to figure out what code is responsible for generating log messages. When a message is constructed programmatically, for example, it may not be possible to find its source. CleanroomLogger outputs the file and line responsible for each log message, so you can literally *go straight to the source*.
 
 3. **CleanroomLogger provides code execution tracing functionality through the `trace()` function.** A simple no-argument function call is all that’s needed to log the source filename, line number and function name of the caller. This makes it easy to understand the path your code is taking as it executes.
 
-4. **CleanroomLogger is _configurable_**; its behavior can be modified by through different configuration options specified when logging is activated. You can configure the logging engine through the parameter values specified when constructing a new [`DefaultLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/Structs/DefaultLogConfiguration.html) instance, or you can provide your own implementation of the [`LogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/Protocols/LogConfiguration.html) protocol if that doesn’t suit your needs.
+4. **CleanroomLogger is _configurable_**; its behavior can be modified by through different configuration options specified when logging is activated. You can configure the logging engine through the parameter values specified when constructing a new [`DefaultLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/Structs/DefaultLogConfiguration.html) instance, or you can provide your own implementation of the [`LogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/Protocols/LogConfiguration.html) protocol if that doesn’t suit your needs.
 
 5. **CleanroomLogger is _extensible_**. Several extension points are available, allowing you to provide custom implementations for specific functionality within the logging process:
-  - A [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/Protocols/LogFilter.html) implementation can inspect--and potentially block--any log message before it is recorded.
-  - A custom [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/Protocols/LogFormatter.html) implementation can be used to generate string representations in a specific format for each `LogEntry` that gets recorded  
-  - The [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/Protocols/LogRecorder.html) protocol makes it possible to create custom log message storage implementations. This is where to start if you want to provide a custom solution to write log messages to a database table, a local file, or a remote HTTP endpoint, for example.
+  - A [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/Protocols/LogFilter.html) implementation can inspect--and potentially block--any log message before it is recorded.
+  - A custom [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/Protocols/LogFormatter.html) implementation can be used to generate string representations in a specific format for each `LogEntry` that gets recorded  
+  - The [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/Protocols/LogRecorder.html) protocol makes it possible to create custom log message storage implementations. This is where to start if you want to provide a custom solution to write log messages to a database table, a local file, or a remote HTTP endpoint, for example.
 
-6. **CleanroomLogger puts the application developer in control.** The behavior of logging is set once, early in the application within the `UIApplicationDelegate` implementation; after that, the configuration is immutable for the remainder of the application’s life. Any code using CleanroomLogger through [the `Log` API](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/Structs/Log.html), including embedded frameworks, shared libraries, Cocoapods, etc. will automatically adhere to the policy established by the application developer. Embedded code that uses CleanroomLogger is inherently *well behaved*, whereas code using plain old `NSLog()` is not; third-party code using `NSLog()` give no control to the application developer.
+6. **CleanroomLogger puts the application developer in control.** The behavior of logging is set once, early in the application within the `UIApplicationDelegate` implementation; after that, the configuration is immutable for the remainder of the application’s life. Any code using CleanroomLogger through [the `Log` API](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/Structs/Log.html), including embedded frameworks, shared libraries, Cocoapods, etc. will automatically adhere to the policy established by the application developer. Embedded code that uses CleanroomLogger is inherently *well behaved*, whereas code using plain old `NSLog()` is not; third-party code using `NSLog()` give no control to the application developer.
 
 7. **CleanroomLogger is respectful of the calling thread.** `NSLog()` does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each `LogRecorder` also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won’t prevent the processing of log messages by other recorders.
 
@@ -57,7 +57,7 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 ### License
 
-CleanroomLogger is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/xcode-8.1/LICENSE).
+CleanroomLogger is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/xcode-8.2/LICENSE).
 
 CleanroomLogger is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
 
@@ -76,7 +76,7 @@ github "emaloney/CleanroomLogger" ~> 3.0.0
 
 Then, use the `carthage` command to [update your dependencies](https://github.com/Carthage/Carthage#upgrading-frameworks).
 
-Finally, you’ll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/xcode-8.1/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/index.html) it provides.
+Finally, you’ll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/xcode-8.2/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/index.html) it provides.
 
 Once successfully integrated, just add the following `import` statement to any Swift file where you want to use CleanroomLogger:
 
@@ -84,7 +84,7 @@ Once successfully integrated, just add the following `import` statement to any S
 import CleanroomLogger
 ```
 
-See [the Integration document](https://github.com/emaloney/CleanroomLogger/blob/xcode-8.1/INTEGRATION.md) for additional details on integrating CleanroomLogger into your project.
+See [the Integration document](https://github.com/emaloney/CleanroomLogger/blob/xcode-8.2/INTEGRATION.md) for additional details on integrating CleanroomLogger into your project.
 
 ## Using CleanroomLogger
 
@@ -356,7 +356,7 @@ let formatter = FieldBasedLogFormatter(fields: [.Timestamp(.UNIX),
 
 ### API documentation
 
-For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/index.html) is available.
+For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/index.html) is available.
 
 
 #### XcodeColors Support
@@ -367,9 +367,9 @@ When it is in use, XcodeColors sets the value of the environment variable `Xcode
 
 > If you have XcodeColors installed but would *not* like to enable CleanroomLogger support for it, pass `true` for `suppressColors` or `nil` for `colorizer` when instantiating your `XcodeLogConfiguration`.
 
-The built-in color scheme—which you can override by supplying your own [`ColorTable`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you’re not focused on them:
+The built-in color scheme—which you can override by supplying your own [`ColorTable`](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you’re not focused on them:
 
-<img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/>
+<img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/>
 
 #### Enabling XcodeColors for iOS, tvOS & watchOS
 
@@ -385,7 +385,7 @@ Ensure that the **Environment Variables** section is expanded below, and click t
 
 This will allow you to add a new environment variable within the runtime environment. Enter `XcodeColors` for the name and `YES` for the value, as shown in this example:
 
-<img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/Images/XcodeColors-build-scheme.png" width="650" height="360"/>
+<img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/Images/XcodeColors-build-scheme.png" width="650" height="360"/>
 
 When done, select the **Close** button. 
 
@@ -399,7 +399,7 @@ If the `XcodeColors` environment variable is set to `YES` but is being run in wi
 
 Those escape sequences will appear in your output instead of color:
 
-<img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/Images/XcodeColors-escape-sequences.png" width="650" height="85"/>
+<img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/Images/XcodeColors-escape-sequences.png" width="650" height="85"/>
 
 If this happens, it means the XcodeColors plug-in is either not installed, or Xcode is not loading it upon launch.
 
@@ -472,5 +472,5 @@ If you’d like to contribute to this or any other Cleanroom Project repo, pleas
 
 ### Acknowledgements
 
-[API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.1/Documentation/API/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
+[API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/xcode-8.2/Documentation/API/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
 

@@ -480,9 +480,9 @@ testActionForPlatform()
 runDestinationForPlatform()
 {
 	case $1 in
-	iOS) 		echo "platform=iOS Simulator,OS=10.1,name=iPhone 7";;
+	iOS) 		echo "platform=iOS Simulator,OS=10.2,name=iPad Pro (9.7 inch)";;
 	macOS) 		echo "platform=macOS";;	
-	tvOS) 		echo "platform=tvOS Simulator,OS=10.0,name=Apple TV 1080p";;
+	tvOS) 		echo "platform=tvOS Simulator,OS=10.1,name=Apple TV 1080p";;
 	watchOS)	echo "platform=watchOS Simulator,OS=3.1,name=Apple Watch Series 2 - 42mm";;
 	esac
 }

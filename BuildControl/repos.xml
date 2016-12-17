@@ -30,7 +30,7 @@
 		</Var>
 		<Var name="Xcode 8.2" type="map">
 			<Var name="iOS" type="map">
-				<Var name="runDestination" literal="platform=iOS Simulator,OS=10.2,name=iPhone 7"/> 
+				<Var name="runDestination" literal="platform=iOS Simulator,OS=10.2,name=iPad Pro (9.7 inch)"/> 
 				<Var name="supportsUnitTests" boolean="T"/> 
 			</Var>
 			<Var name="macOS" type="map">
@@ -48,8 +48,9 @@
 		</Var>
 	</Var>
 
-	<Var name="platforms:build" value="$platforms[Xcode 8.1]"/>
-	<Var name="platforms:ci" value="$platforms[Xcode 8.1]"/>
+	<Var name="platforms:active" value="Xcode 8.2"/>
+	<Var name="platforms:build" value="$platforms[$platforms:active]"/>
+	<Var name="platforms:ci" value="$platforms[$platforms:active]"/>
 
 	<Var name="branches" type="list">
 		<Var literal="master"/>
