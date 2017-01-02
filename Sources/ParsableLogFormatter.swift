@@ -11,11 +11,10 @@
  
  By default, this formatter:
  
- - Uses `.UNIX` as the default `TimestampStyle`
- - Uses `.Numeric` as the default `SeverityStyle`
- - Uses `.Tab` as the default `DelimiterStyle`
+ - Uses `.unix` as the default `TimestampStyle`
+ - Uses `.numeric` as the default `SeverityStyle`
+ - Uses `.tab` as the default `DelimiterStyle`
  - Outputs the call site and calling thread
- - Does not perform text colorization
  
  These defaults can be overridden during instantiation.
  */
@@ -39,16 +38,9 @@ open class ParsableLogFormatter: StandardLogFormatter
      - parameter showCallingThread: If `true`, a hexadecimal string containing
      an opaque identifier for the calling thread will be added to formatted log
      messages.
-
-     - parameter colorizer: The `TextColorizer` that will be used to colorize
-     the output of the receiver. If `nil`, no colorization will occur.
-
-     - parameter colorTable: If a `colorizer` is provided, an optional
-     `ColorTable` may also be provided to supply color information. If `nil`,
-     `DefaultColorTable` will be used for colorization.
      */
-    public override init(timestampStyle: TimestampStyle? = .unix, severityStyle: SeverityStyle? = .numeric, delimiterStyle: DelimiterStyle? = .tab, showCallSite: Bool = true, showCallingThread: Bool = true, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
+    public override init(timestampStyle: TimestampStyle? = .unix, severityStyle: SeverityStyle? = .numeric, delimiterStyle: DelimiterStyle? = .tab, showCallSite: Bool = true, showCallingThread: Bool = true)
     {
-        super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, showCallSite: showCallSite, showCallingThread: showCallingThread, colorizer: colorizer, colorTable: colorTable)
+        super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, showCallSite: showCallSite, showCallingThread: showCallingThread)
     }
 }
