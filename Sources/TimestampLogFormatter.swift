@@ -95,6 +95,6 @@ public struct TimestampLogFormatter: LogFormatter
     public func format(_ entry: LogEntry)
         -> String?
     {
-        return style.stringFromDate(entry.timestamp as Date, usingFormatter: formatter)
+        return style.stringFromDate(entry.timestamp, usingFormatter: formatter)
     }
 }
