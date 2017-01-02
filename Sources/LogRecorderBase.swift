@@ -33,7 +33,7 @@ open class LogRecorderBase: LogRecorder
     public init(formatters: [LogFormatter])
     {
         self.formatters = formatters
-        self.queue = DispatchQueue(label: "\(type(of: self))", attributes: [])
+        self.queue = DispatchQueue(label: String(describing: type(of: self)), attributes: [])
     }
 
     /**
