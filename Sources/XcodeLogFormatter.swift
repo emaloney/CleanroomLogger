@@ -11,14 +11,14 @@
 
  By default, this formatter:
 
- - Uses `.Default` as the default `TimestampStyle`
- - Uses `.Xcode` as the default `SeverityStyle`
+ - Uses `.default` as the default `TimestampStyle`
+ - Uses `.xcode` as the default `SeverityStyle`
  - Uses default field separator delimiters
  - Outputs the call site 
  - Does not output the calling thread
- - Performs text colorization if XcodeColors is installed and enabled
 
- These defaults can be overridden during instantiation.
+ These defaults can be overridden by providing alternate values to the 
+ initializer.
  */
 open class XcodeLogFormatter: StandardLogFormatter
 {
@@ -40,16 +40,9 @@ open class XcodeLogFormatter: StandardLogFormatter
      - parameter showCallingThread: If `true`, a hexadecimal string containing
      an opaque identifier for the calling thread will be added to formatted log
      messages.
-
-     - parameter colorizer: The `TextColorizer` that will be used to colorize
-     the output of the receiver. If `nil`, no colorization will occur.
-
-     - parameter colorTable: If a `colorizer` is provided, an optional
-     `ColorTable` may also be provided to supply color information. If `nil`,
-     `DefaultColorTable` will be used for colorization.
      */
-    public override init(timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .xcode, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false, colorizer: TextColorizer? = XcodeColorsTextColorizer(), colorTable: ColorTable? = nil)
+    public override init(timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .xcode, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false)
     {
-        super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, showCallSite: showCallSite, showCallingThread: showCallingThread, colorizer: colorizer, colorTable: colorTable)
+        super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, showCallSite: showCallSite, showCallingThread: showCallingThread)
     }
 }

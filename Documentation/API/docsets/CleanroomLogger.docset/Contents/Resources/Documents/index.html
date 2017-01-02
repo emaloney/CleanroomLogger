@@ -101,9 +101,6 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Protocols/ColorTable.html">ColorTable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Protocols/LogConfiguration.html">LogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -114,9 +111,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Protocols/LogRecorder.html">LogRecorder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Protocols/TextColorizer.html">TextColorizer</a>
               </li>
             </ul>
           </li>
@@ -131,15 +125,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/CallingThreadLogFormatter.html">CallingThreadLogFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/Color.html">Color</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/ColorizingLogFormatter.html">ColorizingLogFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/DefaultColorTable.html">DefaultColorTable</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/DelimiterLogFormatter.html">DelimiterLogFormatter</a>
@@ -173,9 +158,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/TimestampLogFormatter.html">TimestampLogFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a>
               </li>
             </ul>
           </li>
@@ -302,13 +284,11 @@
 
 <p>By default, this configuration writes log entries to the running process’s <code>stdout</code> stream (which appears within the Xcode console pane) as well as to the Apple System Log (ASL) facility.</p>
 
-<p>The <code>XcodeLogConfiguration</code> also attempts to detect whether XcodeColors is installed and enabled. If it is, the <code>XcodeLogConfiguration</code> will configure CleanroomLogger to <a href="#xcodecolors-support">use XcodeColors for color-coding log entries</a> by severity.</p>
-
 <p>The simplest way to enable CleanroomLogger using the <code>XcodeLogConfiguration</code> is by calling:</p>
 <pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="nf">enable</span><span class="p">()</span>
 </code></pre>
 
-<p>Thanks to the magic of default parameter values, this is equivalent to the following <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_"><code>Log.enable()</code></a> call:</p>
+<p>Thanks to the magic of default parameter values, this is equivalent to the following <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb7filtersGSaPS_9LogFilter___T_"><code>Log.enable()</code></a> call:</p>
 <pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="nf">enable</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="o">.</span><span class="kt">Info</span><span class="p">,</span>
                  <span class="nv">debugMode</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
           <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -316,11 +296,10 @@
              <span class="nv">severityStyle</span><span class="p">:</span> <span class="o">.</span><span class="kt">Xcode</span><span class="p">,</span>
               <span class="nv">showCallSite</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
          <span class="nv">showCallingThread</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="nv">suppressColors</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
                    <span class="nv">filters</span><span class="p">:</span> <span class="p">[])</span>
 </code></pre>
 
-<p>This configures CleanroomLogger using an <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html"><code>XcodeLogConfiguration</code></a> with <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html#/s:FC15CleanroomLogger21XcodeLogConfigurationcFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb14suppressColorsSb7filtersGSaPS_9LogFilter___S0_">default settings</a>.</p>
+<p>This configures CleanroomLogger using an <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html"><code>XcodeLogConfiguration</code></a> with <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html#/s:FC15CleanroomLogger21XcodeLogConfigurationcFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb7filtersGSaPS_9LogFilter___S0_">default settings</a>.</p>
 
 <blockquote>
 <p><strong>Note:</strong> If either <code>debugMode</code> or <code>verboseDebugMode</code> is <code>true</code>, the <code>XcodeLogConfiguration</code> will be used in <code>synchronousMode</code>, which is not recommended for production code.</p>
@@ -441,7 +420,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

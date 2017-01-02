@@ -29,15 +29,8 @@ open class StandardLogFormatter: FieldBasedLogFormatter
      - parameter showCallingThread: If `true`, a hexadecimal string containing
      an opaque identifier for the calling thread will be added to formatted log
      messages.
-
-     - parameter colorizer: The `TextColorizer` that will be used to colorize
-     the output of the receiver. If `nil`, no colorization will occur.
-
-     - parameter colorTable: If a `colorizer` is provided, an optional 
-     `ColorTable` may also be provided to supply color information. If `nil`,
-     `DefaultColorTable` will be used for colorization.
      */
-    public init(timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .simple, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false, colorizer: TextColorizer? = nil, colorTable: ColorTable? = nil)
+    public init(timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .simple, delimiterStyle: DelimiterStyle? = nil, showCallSite: Bool = true, showCallingThread: Bool = false)
     {
         var fields: [Field] = []
         var addSeparator = false
@@ -76,11 +69,6 @@ open class StandardLogFormatter: FieldBasedLogFormatter
         }
         fields += [.payload]
 
-        if colorizer == nil {
-            super.init(fields: fields)
-        }
-        else {
-            super.init(formatters: [ColorizingLogFormatter(formatter: FieldBasedLogFormatter(fields: fields), colorizer: colorizer!, colorTable: colorTable ?? DefaultColorTable())])
-        }
+        super.init(fields: fields)
     }
 }

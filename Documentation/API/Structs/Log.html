@@ -102,9 +102,6 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/ColorTable.html">ColorTable</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -115,9 +112,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols/LogRecorder.html">LogRecorder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols/TextColorizer.html">TextColorizer</a>
               </li>
             </ul>
           </li>
@@ -132,15 +126,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/CallingThreadLogFormatter.html">CallingThreadLogFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/Color.html">Color</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/ColorizingLogFormatter.html">ColorizingLogFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/DefaultColorTable.html">DefaultColorTable</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/DelimiterLogFormatter.html">DelimiterLogFormatter</a>
@@ -174,9 +159,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/TimestampLogFormatter.html">TimestampLogFormatter</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/XcodeColorsTextColorizer.html">XcodeColorsTextColorizer</a>
               </li>
             </ul>
           </li>
@@ -413,9 +395,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_"></a>
-                    <a name="//apple_ref/swift/Method/enable(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:suppressColors:filters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_">enable(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:suppressColors:filters:)</a>
+                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb7filtersGSaPS_9LogFilter___T_"></a>
+                    <a name="//apple_ref/swift/Method/enable(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:filters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb7filtersGSaPS_9LogFilter___T_">enable(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:filters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -445,7 +427,7 @@ recommended for use in production code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n"><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">info</a></span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">xcode</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallingThread</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">suppressColors</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n"><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">info</a></span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">xcode</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallingThread</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
 
                         </div>
                       </div>
@@ -540,19 +522,6 @@ recommended for use in production code.</p>
                               <td>
                                 <div>
                                   <p>If <code>true</code>, a hexadecimal string containing an opaque identifier for the calling thread will be added to formatted log messages.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>suppressColors</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>true</code>, log message colorization will be disabled. By default, if the third-party XcodeColors plug-in for Xcode is installed, and if CleanroomLogger detects that it is enabled, log messages are colorized automatically.</p>
 
                                 </div>
                               </td>
@@ -1212,7 +1181,7 @@ well as the stack frame signature of the caller.</p>
           </section>
         </section>
         <section id="footer">
-          <p>© 2015-2016 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
