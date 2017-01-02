@@ -200,15 +200,13 @@ The [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master
 
 By default, this configuration writes log entries to the running process’s `stdout` stream (which appears within the Xcode console pane) as well as to the Apple System Log (ASL) facility.
 
-The `XcodeLogConfiguration` also attempts to detect whether XcodeColors is installed and enabled. If it is, the `XcodeLogConfiguration` will configure CleanroomLogger to [use XcodeColors for color-coding log entries](#xcodecolors-support) by severity.
-
 The simplest way to enable CleanroomLogger using the `XcodeLogConfiguration` is by calling:
 
 ```swift
 Log.enable()
 ```
 
-Thanks to the magic of default parameter values, this is equivalent to the following [`Log.enable()`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_) call:
+Thanks to the magic of default parameter values, this is equivalent to the following [`Log.enable()`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb7filtersGSaPS_9LogFilter___T_) call:
 
 ```swift
 Log.enable(minimumSeverity: .Info,
@@ -218,11 +216,10 @@ Log.enable(minimumSeverity: .Info,
              severityStyle: .Xcode,
               showCallSite: true,
          showCallingThread: false,
-            suppressColors: false,
                    filters: [])
 ```
 
-This configures CleanroomLogger using an [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html) with [default settings](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html#/s:FC15CleanroomLogger21XcodeLogConfigurationcFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb14suppressColorsSb7filtersGSaPS_9LogFilter___S0_).
+This configures CleanroomLogger using an [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html) with [default settings](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html#/s:FC15CleanroomLogger21XcodeLogConfigurationcFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb7filtersGSaPS_9LogFilter___S0_).
 
 > **Note:** If either `debugMode` or `verboseDebugMode` is `true`, the `XcodeLogConfiguration` will be used in `synchronousMode`, which is not recommended for production code.
 
@@ -350,60 +347,7 @@ let formatter = FieldBasedLogFormatter(fields: [.Timestamp(.UNIX),
 
 ### API documentation
 
-For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) is available.
-
-
-#### XcodeColors Support
-
-CleanroomLogger contains built-in support for [XcodeColors](https://github.com/robbiehanson/XcodeColors), a third-party Xcode plug-in that uses special escape sequences to colorize text output within the Xcode console.
-
-When it is in use, XcodeColors sets the value of the environment variable `XcodeColors` to the string `YES`. And when configured with an `XcodeLogConfiguration`, CleanroomLogger will automatically enable log colorization if it detects XcodeColors is present. This will result in log messages being color-coded according to their `LogSeverity` in the Xcode console.
-
-> If you have XcodeColors installed but would *not* like to enable CleanroomLogger support for it, pass `true` for `suppressColors` or `nil` for `colorizer` when instantiating your `XcodeLogConfiguration`.
-
-The built-in color scheme—which you can override by supplying your own [`ColorTable`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/ColorTable.html)—emphasizes important information while seeking to make less important messages fade into the background when you’re not focused on them:
-
-<img alt="XcodeColors sample output" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-sample.png" width="565" height="98"/>
-
-#### Enabling XcodeColors for iOS, tvOS & watchOS
-
-When your code runs in a simulator or on an external device, it is actually running in an entirely separate operating system that *does not* inherit the environment variables that XcodeColors modifies when it is enabled.
-
-XcodeColors *only* modifies the environment of the local Mac user running Xcode. Therefore, XcodeColors can only automatically enable support for Mac OS X code itself.
-
-If your code is running on iOS, tvOS or watchOS, you will need to change your Xcode settings to pass the `XcodeColors` variable your code’s runtime environment. This can be done by editing any Build Schemes you want to use with XcodeColors.
-
-To edit the current build scheme, press `⌘<` (*command*-*shift*-comma on a US English keyboard). In the editor that appears, select **Run** in the left-hand pane. Then, select the **Arguments** option at the top.
-
-Ensure that the **Environment Variables** section is expanded below, and click the **+** button within that section.
-
-This will allow you to add a new environment variable within the runtime environment. Enter `XcodeColors` for the name and `YES` for the value, as shown in this example:
-
-<img alt="Enabling XcodeColors via an Xcode build scheme" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-build-scheme.png" width="650" height="360"/>
-
-When done, select the **Close** button. 
-
-The next time you run your code, assuming both XcodeColors and CleanroomLogger are installed and configured correctly, you should see colorized log output within your Xcode console.
-
-#### Troubleshooting XcodeColors
-
-##### Colors are not showing up!
-
-If the `XcodeColors` environment variable is set to `YES` but is being run in within a copy of Xcode where XcodeColors is not installed and loaded, CleanroomLogger will (incorrectly) assume that XcodeColors *is* installed and will dutifully output the escape sequences needed to drive message colorization.
-
-Those escape sequences will appear in your output instead of color:
-
-<img alt="Raw XcodeColors escape sequences" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/master/Documentation/Images/XcodeColors-escape-sequences.png" width="650" height="85"/>
-
-If this happens, it means the XcodeColors plug-in is either not installed, or Xcode is not loading it upon launch.
-
-If you see no color *and* no escape codes, it means CleanroomLogger did not detect an `XcodeColors` variable set to `YES` in its runtime environment.
-
-##### It stopped working after I updated Xcode!
-
-If you recently updated Xcode, and a previously-working installation of XcodeColors no longer works, your XcodeColors plug-in likely needs to be updated to work with the latest version of Xcode.
-
-See the [documentation for XcodeColors](https://github.com/robbiehanson/XcodeColors/wiki/XcodeUpdates) for details on how to do this.
+For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/color-free/Documentation/API/index.html) is available.
 
 
 ## Architectural Overview
