@@ -347,7 +347,7 @@ let formatter = FieldBasedLogFormatter(fields: [.Timestamp(.UNIX),
 
 ### API documentation
 
-For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/color-free/Documentation/API/index.html) is available.
+For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) is available.
 
 
 ## Architectural Overview
