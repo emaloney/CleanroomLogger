@@ -118,15 +118,13 @@ The [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master
 
 By default, this configuration writes log entries to the running process’s `stdout` stream (which appears within the Xcode console pane) as well as to the Apple System Log (ASL) facility.
 
-The `XcodeLogConfiguration` also attempts to detect whether XcodeColors is installed and enabled. If it is, the `XcodeLogConfiguration` will configure CleanroomLogger to [use XcodeColors for color-coding log entries](#xcodecolors-support) by severity.
-
 The simplest way to enable CleanroomLogger using the `XcodeLogConfiguration` is by calling:
 
 ```swift
 Log.enable()
 ```
 
-Thanks to the magic of default parameter values, this is equivalent to the following [`Log.enable()`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb14suppressColorsSb7filtersGSaPS_9LogFilter___T_) call:
+Thanks to the magic of default parameter values, this is equivalent to the following [`Log.enable()`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZFV15CleanroomLogger3Log6enableFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb7filtersGSaPS_9LogFilter___T_) call:
 
 ```swift
 Log.enable(minimumSeverity: .Info,
@@ -136,11 +134,10 @@ Log.enable(minimumSeverity: .Info,
              severityStyle: .Xcode,
               showCallSite: true,
          showCallingThread: false,
-            suppressColors: false,
                    filters: [])
 ```
 
-This configures CleanroomLogger using an [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html) with [default settings](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html#/s:FC15CleanroomLogger21XcodeLogConfigurationcFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb14suppressColorsSb7filtersGSaPS_9LogFilter___S0_).
+This configures CleanroomLogger using an [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html) with [default settings](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html#/s:FC15CleanroomLogger21XcodeLogConfigurationcFMS0_FT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb7filtersGSaPS_9LogFilter___S0_).
 
 > **Note:** If either `debugMode` or `verboseDebugMode` is `true`, the `XcodeLogConfiguration` will be used in `synchronousMode`, which is not recommended for production code.
 
