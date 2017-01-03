@@ -317,7 +317,7 @@ This is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">subsystem</span> <span class="o">=</span> <span class="s">"CleanroomLogger"</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">subsystem</span> <span class="o">=</span> <span class="s">""</span></code></pre>
 
                         </div>
                       </div>
@@ -344,7 +344,7 @@ This is consistent with the behavior of <code>NSLog()</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">category</span> <span class="o">=</span> <span class="s">""</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">category</span> <span class="o">=</span> <span class="s">"CleanroomLogger"</span></code></pre>
 
                         </div>
                       </div>
@@ -380,7 +380,7 @@ will fail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">,</span> <span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">logTypeTranslator</span><span class="p">:</span> <span class="kt"><a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">,</span> <span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">logTypeTranslator</span><span class="p">:</span> <span class="kt"><a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">strict</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -475,7 +475,7 @@ will fail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a></span><span class="p">()],</span> <span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">logTypeTranslator</span><span class="p">:</span> <span class="kt"><a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a></span><span class="p">()],</span> <span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">logTypeTranslator</span><span class="p">:</span> <span class="kt"><a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">strict</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

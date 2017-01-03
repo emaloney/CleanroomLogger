@@ -1,6 +1,6 @@
 language: objective-c
-xcode_workspace: CleanroomLogger.xcworkspace
 osx_image: xcode8.2
+xcode_project: CleanroomLogger.xcodeproj
 
 git:
   depth: 1

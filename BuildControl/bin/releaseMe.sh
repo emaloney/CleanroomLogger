@@ -463,7 +463,7 @@ fi
 #
 # determine build settings
 #
-PROJECT_SPECIFIER="-workspace CleanroomLogger.xcworkspace"
+PROJECT_SPECIFIER="-project CleanroomLogger.xcodeproj"
 COMPILE_PLATFORMS="iOS macOS tvOS watchOS"
 PROJECT_NAME="CleanroomLogger"
 

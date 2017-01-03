@@ -21,10 +21,6 @@ The API provided by CleanroomLogger is designed to be readily understood by anyo
         <Var literal="watchOS"/>
 	</Var>
 
-	<Var name="project:dependencies" type="list">
-		<Var literal="CleanroomASL"/>
-	</Var>
-
 	<Var name="project:settings" type="map">
 		<Var name="app-extension-only" boolean="T"/>
 	</Var>

@@ -195,9 +195,9 @@ deriving the appropriate <code>OSLogType</code> for a given <code><a href="../St
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/default" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">default</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator6strictFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/strict" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator6strictFMS0_S0_">strict</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -205,8 +205,68 @@ deriving the appropriate <code>OSLogType</code> for a given <code><a href="../St
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The default translation from a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code> to an
- <code>OSLogType</code> value:</p>
+                        <p>A strict translation from a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code> to an
+ <code>OSLogType</code> value. Warnings are treated as errors.</p>
+
+<table><thead>
+<tr>
+<th>LogSeverity</th>
+<th>OSLogType</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.verbose</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.debug</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.info</code></td>
+<td><code>.default</code></td>
+</tr>
+<tr>
+<td><code>.warning</code></td>
+<td><code>.error</code></td>
+</tr>
+<tr>
+<td><code>.error</code></td>
+<td><code>.fault</code></td>
+</tr>
+</tbody></table>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">strict</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator7relaxedFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/relaxed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator7relaxedFMS0_S0_">relaxed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A relaxed translation from a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code> to an
+ <code>OSLogType</code> value. Warnings are treated as informational log messages.</p>
 
 <table><thead>
 <tr>
@@ -241,128 +301,7 @@ deriving the appropriate <code>OSLogType</code> for a given <code><a href="../St
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator15promoteWarningsFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/promoteWarnings" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator15promoteWarningsFMS0_S0_">promoteWarnings</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Same as <code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code>, but with <code><a href="../Enums/LogSeverity.html#/s:FO15CleanroomLogger11LogSeverity7warningFMS0_S0_">LogSeverity.warning</a></code> promoted to
- <code>OSLogType.error</code>.</p>
-
-<table><thead>
-<tr>
-<th>LogSeverity</th>
-<th>OSLogType</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>.verbose</code></td>
-<td><code>.debug</code></td>
-</tr>
-<tr>
-<td><code>.debug</code></td>
-<td><code>.debug</code></td>
-</tr>
-<tr>
-<td><code>.info</code></td>
-<td><code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code></td>
-</tr>
-<tr>
-<td><code>.warning</code></td>
-<td><code>.error</code></td>
-</tr>
-<tr>
-<td><code>.error</code></td>
-<td><code>.error</code></td>
-</tr>
-</tbody></table>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">promoteWarnings</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator24promoteWarningsAndErrorsFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/promoteWarningsAndErrors" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator24promoteWarningsAndErrorsFMS0_S0_">promoteWarningsAndErrors</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Same as <code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code>, but with <code><a href="../Enums/LogSeverity.html#/s:FO15CleanroomLogger11LogSeverity7warningFMS0_S0_">LogSeverity.warning</a></code> and
- <code><a href="../Enums/LogSeverity.html#/s:FO15CleanroomLogger11LogSeverity5errorFMS0_S0_">LogSeverity.error</a></code> promoted to <code>OSLogType.error</code> and <code>OSLogType.fault</code>,
- respectively.</p>
-
-<table><thead>
-<tr>
-<th>LogSeverity</th>
-<th>OSLogType</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>.verbose</code></td>
-<td><code>.debug</code></td>
-</tr>
-<tr>
-<td><code>.debug</code></td>
-<td><code>.debug</code></td>
-</tr>
-<tr>
-<td><code>.info</code></td>
-<td><code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code></td>
-</tr>
-<tr>
-<td><code>.warning</code></td>
-<td><code>.error</code></td>
-</tr>
-<tr>
-<td><code>.error</code></td>
-<td><code>.error</code></td>
-</tr>
-</tbody></table>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">promoteWarningsAndErrors</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">relaxed</span></code></pre>
 
                         </div>
                       </div>
