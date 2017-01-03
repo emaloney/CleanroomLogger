@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B475D261DB47B8A0047D397 /* ASLLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475CFF1DB47B8A0047D397 /* ASLLogRecorder.swift */; };
 		3B475D271DB47B8A0047D397 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */; };
 		3B475D281DB47B8A0047D397 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */; };
 		3B475D291DB47B8A0047D397 /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */; };
@@ -40,7 +39,6 @@
 		3B475D4C1DB47B8A0047D397 /* XcodeLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */; };
 		3B475D501DB47BD50047D397 /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D4E1DB47BD50047D397 /* LoggingTests.swift */; };
 		3B475D511DB47BD50047D397 /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */; };
-		3B475D541DB47BEA0047D397 /* CleanroomASL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B475D531DB47BEA0047D397 /* CleanroomASL.framework */; };
 		3B90590D1DAECB5200B4EEC0 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9059031DAECB5200B4EEC0 /* CleanroomLogger.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B475CFF1DB47B8A0047D397 /* ASLLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLLogRecorder.swift; sourceTree = "<group>"; };
 		3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicLogConfiguration.swift; sourceTree = "<group>"; };
 		3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallingThreadLogFormatter.swift; sourceTree = "<group>"; };
 		3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSiteLogFormatter.swift; sourceTree = "<group>"; };
@@ -105,7 +102,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B475D541DB47BEA0047D397 /* CleanroomASL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +119,6 @@
 		3B475CFE1DB47B8A0047D397 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3B475CFF1DB47B8A0047D397 /* ASLLogRecorder.swift */,
 				3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */,
 				3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */,
 				3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */,
@@ -349,7 +344,6 @@
 				3B475D351DB47B8A0047D397 /* LogConfiguration.swift in Sources */,
 				3B475D381DB47B8A0047D397 /* LogFormatter.swift in Sources */,
 				3B475D2D1DB47B8A0047D397 /* ConcatenatingLogFormatter.swift in Sources */,
-				3B475D261DB47B8A0047D397 /* ASLLogRecorder.swift in Sources */,
 				3B475D451DB47B8A0047D397 /* StackFrameLogFormatter.swift in Sources */,
 				3B475D3A1DB47B8A0047D397 /* LogRecorder.swift in Sources */,
 				3B475D321DB47B8A0047D397 /* LiteralLogFormatter.swift in Sources */,
