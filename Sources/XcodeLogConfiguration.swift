@@ -36,9 +36,6 @@ open class XcodeLogConfiguration: BasicLogConfiguration
      will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
 
-     - parameter logToASL: If `true`, messages sent to the Xcode console will
-     also be sent to the Apple System Log (ASL) facility.
-
      - parameter timestampStyle: Governs the formatting of the timestamp in the
      log output. Pass `nil` to suppress output of the timestamp.
 
@@ -55,11 +52,11 @@ open class XcodeLogConfiguration: BasicLogConfiguration
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
     */
-    public convenience init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .xcode, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, filters: [LogFilter] = [])
+    public convenience init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .xcode, showCallSite: Bool = true, showCallingThread: Bool = false, showSeverity: Bool = true, filters: [LogFilter] = [])
     {
         let formatter = XcodeLogFormatter(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: nil, showCallSite: showCallSite, showCallingThread: showCallingThread)
 
-        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, filters: filters, formatter: formatter)
+        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, filters: filters, formatter: formatter)
     }
 
     /**
@@ -83,9 +80,6 @@ open class XcodeLogConfiguration: BasicLogConfiguration
      - parameter verboseDebugMode: If `true`, the value of `minimumSeverity`
      will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
-
-     - parameter logToASL: If `true`, messages sent to the Xcode console will
-     also be sent to the Apple System Log (ASL) facility.
 
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
@@ -93,9 +87,9 @@ open class XcodeLogConfiguration: BasicLogConfiguration
      - parameter formatter: A `LogFormatter` to use for formatting log entries
      to be recorded.
      */
-    public convenience init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, filters: [LogFilter] = [], formatter: LogFormatter)
+    public convenience init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, filters: [LogFilter] = [], formatter: LogFormatter)
     {
-        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, logToASL: logToASL, filters: filters, formatters: [formatter])
+        self.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, filters: filters, formatters: [formatter])
     }
 
     /**
@@ -120,16 +114,13 @@ open class XcodeLogConfiguration: BasicLogConfiguration
      will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
 
-     - parameter logToASL: If `true`, messages sent to the Xcode console will
-     also be sent to the Apple System Log (ASL) facility.
-
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
 
      - parameter formatters: An array of `LogFormatter`s to use for formatting
      log entries to be recorded.
      */
-    public init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, logToASL: Bool = true, filters: [LogFilter] = [], formatters: [LogFormatter])
+    public init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, filters: [LogFilter] = [], formatters: [LogFormatter])
     {
         var minimumSeverity = minimumSeverity
         if verboseDebugMode {
@@ -139,13 +130,13 @@ open class XcodeLogConfiguration: BasicLogConfiguration
             minimumSeverity = .debug
         }
 
-        let recorders: [LogRecorder]
-        if logToASL {
-            recorders = [ASLLogRecorder(formatters: formatters, echoToStdErr: true, addTraceAttributes: debugMode || verboseDebugMode)]
-        } else {
-            recorders = [StandardOutputLogRecorder(formatters: formatters)]
-        }
+        //
+        // OSLogRecorder is only available as of iOS 10.0, macOS 10.12, 
+        // tvOS 10.0, and watchOS 3.0; on other systems, the initializer
+        // will fail and output will fall back to StandardOutputLogRecorder
+        //
+        let recorder: LogRecorder = OSLogRecorder(formatters: formatters) ?? StandardOutputLogRecorder(formatters: formatters)
 
-        super.init(minimumSeverity: minimumSeverity, filters: filters, recorders: recorders, synchronousMode: (debugMode || verboseDebugMode))
+        super.init(minimumSeverity: minimumSeverity, filters: filters, recorders: [recorder], synchronousMode: (debugMode || verboseDebugMode))
     }
 }
