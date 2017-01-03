@@ -41,6 +41,7 @@
 		3B475D511DB47BD50047D397 /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */; };
 		3B4EE3501E1AEB3A002A92BC /* OSLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE34F1E1AEB3A002A92BC /* OSLogRecorder.swift */; };
 		3B4EE3521E1AEF49002A92BC /* OSLogTypeTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE3511E1AEF49002A92BC /* OSLogTypeTranslator.swift */; };
+		3B4EE3561E1BED6D002A92BC /* XcodeTraceLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE3551E1BED6D002A92BC /* XcodeTraceLogFormatter.swift */; };
 		3B90590D1DAECB5200B4EEC0 /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B9059031DAECB5200B4EEC0 /* CleanroomLogger.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		3B475D531DB47BEA0047D397 /* CleanroomASL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomASL.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CleanroomLogger-emhvmgjdlbcylcanebymdhmlvwwt/Build/Products/Debug-watchsimulator/CleanroomASL.framework"; sourceTree = "<group>"; };
 		3B4EE34F1E1AEB3A002A92BC /* OSLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogRecorder.swift; sourceTree = "<group>"; };
 		3B4EE3511E1AEF49002A92BC /* OSLogTypeTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogTypeTranslator.swift; sourceTree = "<group>"; };
+		3B4EE3551E1BED6D002A92BC /* XcodeTraceLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeTraceLogFormatter.swift; sourceTree = "<group>"; };
 		3B9059031DAECB5200B4EEC0 /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B90590C1DAECB5200B4EEC0 /* CleanroomLoggerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				3B475D221DB47B8A0047D397 /* TimestampLogFormatter.swift */,
 				3B475D241DB47B8A0047D397 /* XcodeLogConfiguration.swift */,
 				3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */,
+				3B4EE3551E1BED6D002A92BC /* XcodeTraceLogFormatter.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				3B475D281DB47B8A0047D397 /* CallingThreadLogFormatter.swift in Sources */,
 				3B475D491DB47B8A0047D397 /* TimestampLogFormatter.swift in Sources */,
 				3B475D3F1DB47B8A0047D397 /* ReadableLogFormatter.swift in Sources */,
+				3B4EE3561E1BED6D002A92BC /* XcodeTraceLogFormatter.swift in Sources */,
 				3B475D4B1DB47B8A0047D397 /* XcodeLogConfiguration.swift in Sources */,
 				3B4EE3521E1AEF49002A92BC /* OSLogTypeTranslator.swift in Sources */,
 				3B475D431DB47B8A0047D397 /* RotatingLogFileRecorder.swift in Sources */,

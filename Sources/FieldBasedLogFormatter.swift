@@ -20,11 +20,11 @@
  You could do this by constructing a `FieldBasedLogFormatter` as follows:
  
  ```swift
- let formatter = FieldBasedLogFormatter(fields: [.Timestamp(.UNIX),
-                                                 .Delimiter(.Tab),
-                                                 .Severity(.Numeric),
-                                                 .Delimiter(.Tab),
-                                                 .Payload])
+ let formatter = FieldBasedLogFormatter(fields: [.timestamp(.unix),
+                                                 .delimiter(.tab),
+                                                 .severity(.numeric),
+                                                 .delimiter(.tab),
+                                                 .payload])
  ```
  */
 open class FieldBasedLogFormatter: ConcatenatingLogFormatter

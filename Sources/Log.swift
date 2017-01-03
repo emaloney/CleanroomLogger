@@ -131,12 +131,6 @@ public struct Log
      will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
 
-     - parameter timestampStyle: Governs the formatting of the timestamp in the
-     log output. Pass `nil` to suppress output of the timestamp.
-
-     - parameter severityStyle: Governs the formatting of the `LogSeverity` in
-     the log output. Pass `nil` to suppress output of the severity.
-
      - parameter showCallSite: If `true`, the source file and line indicating
      the call site of the log request will be added to formatted log messages.
 
@@ -147,9 +141,9 @@ public struct Log
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
      */
-    public static func enable(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .xcode, showCallSite: Bool = true, showCallingThread: Bool = false, filters: [LogFilter] = [])
+    public static func enable(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, showCallSite: Bool = true, showCallingThread: Bool = false, filters: [LogFilter] = [])
     {
-        let config = XcodeLogConfiguration(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, timestampStyle: timestampStyle, severityStyle: severityStyle, showCallSite: showCallSite, filters: filters)
+        let config = XcodeLogConfiguration(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, showCallSite: showCallSite, filters: filters)
 
         enable(configuration: config)
     }
