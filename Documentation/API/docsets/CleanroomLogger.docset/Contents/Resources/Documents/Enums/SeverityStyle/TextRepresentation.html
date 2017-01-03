@@ -76,6 +76,9 @@
               <li class="nav-group-task">
                 <a href="../../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/XcodeTraceLogFormatter.html">XcodeTraceLogFormatter</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -314,9 +317,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation5emojiFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/emoji" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation5emojiFMS1_S1_">emoji</a>
+                    <a name="/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation10colorCodedFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/colorCoded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation10colorCodedFMS1_S1_">colorCoded</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -325,14 +328,17 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies that the <code>rawValue</code> of the <code><a href="../../Enums/LogSeverity.html">LogSeverity</a></code> should be output
- as emoji.</p>
+ as an emoji character whose color represents the level of severity. 
+ The specific characters used to represent each severity level may
+ change over time, so this representation is <em>not</em> suitable for 
+ parsing.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">emoji</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">colorCoded</span></code></pre>
 
                         </div>
                       </div>

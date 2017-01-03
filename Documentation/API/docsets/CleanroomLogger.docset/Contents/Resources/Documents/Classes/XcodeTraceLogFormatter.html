@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CallSiteLogFormatter Struct Reference</title>
+    <title>XcodeTraceLogFormatter Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/CallSiteLogFormatter" class="dashAnchor"></a>
-    <a title="CallSiteLogFormatter Struct Reference"></a>
+    <a name="//apple_ref/swift/Class/XcodeTraceLogFormatter" class="dashAnchor"></a>
+    <a title="XcodeTraceLogFormatter Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomLogger Reference</a>
         <img id="carat" src="../img/carat.png" />
-        CallSiteLogFormatter Struct Reference
+        XcodeTraceLogFormatter Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -173,19 +173,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>CallSiteLogFormatter</h1>
+            <h1>XcodeTraceLogFormatter</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">CallSiteLogFormatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">XcodeTraceLogFormatter</span><span class="p">:</span> <span class="kt"><a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a></span></code></pre>
 
                 </div>
               </div>
-            <p>A <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> that returns a string representation of the <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s
-<em>call site</em>, consisting of the last path component of the <code>callingFilePath</code>
-followed by the <code>callingFileLine</code> within that file.</p>
-
-<p>This is typically combined with other <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s within a
-<code><a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+            <p>A <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> that outputs Xcode-bound trace information for each
+<code><a href="../Structs/LogEntry.html">LogEntry</a></code> that has a <code>Payload</code> of <code>.trace</code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -194,9 +190,9 @@ followed by the <code>callingFileLine</code> within that file.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger20CallSiteLogFormattercFT_S0_"></a>
+                    <a name="/s:FC15CleanroomLogger22XcodeTraceLogFormattercFT_S0_"></a>
                     <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger20CallSiteLogFormattercFT_S0_">init()</a>
+                    <a class="token" href="#/s:FC15CleanroomLogger22XcodeTraceLogFormattercFT_S0_">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -204,7 +200,7 @@ followed by the <code>callingFileLine</code> within that file.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Class initializer.</p>
+                        <p>Initalizes a new <code>XcodeTraceLogFormatter</code> instance.</p>
 
                       </div>
                       <div class="declaration">
@@ -221,9 +217,9 @@ followed by the <code>callingFileLine</code> within that file.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger20CallSiteLogFormatter6formatFVS_8LogEntryGSqSS_"></a>
+                    <a name="/s:FC15CleanroomLogger22XcodeTraceLogFormatter6formatFVS_8LogEntryGSqSS_"></a>
                     <a name="//apple_ref/swift/Method/format(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger20CallSiteLogFormatter6formatFVS_8LogEntryGSqSS_">format(_:)</a>
+                    <a class="token" href="#/s:FC15CleanroomLogger22XcodeTraceLogFormatter6formatFVS_8LogEntryGSqSS_">format(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -231,23 +227,41 @@ followed by the <code>callingFileLine</code> within that file.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Formats the passed-in <code><a href="../Structs/LogEntry.html">LogEntry</a></code> by returning a string representation of
-the call site specified by its <code>callingFilePath</code> and <code>callingFileLine</code>
-properties.</p>
+                        <p>Called to create a string representation of the passed-in <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">format</span><span class="p">(</span><span class="n">_</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">)</span>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">format</span><span class="p">(</span><span class="n">_</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">)</span>
         <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> to attempt to convert into a string.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
                         <h4>Return Value</h4>
-                        <p>The formatted result; never <code>nil</code>.</p>
+                        <p>A <code>String</code> representation of <code>entry</code>, or <code>nil</code> if the receiver could not format the <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
 
                       </div>
                     </section>

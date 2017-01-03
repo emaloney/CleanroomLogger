@@ -76,6 +76,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeTraceLogFormatter.html">XcodeTraceLogFormatter</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -191,11 +194,11 @@ fields separated by tabs:</p>
 
 <p>You could do this by constructing a <code>FieldBasedLogFormatter</code> as follows:</p>
 
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">formatter</span> <span class="o">=</span> <span class="kt">FieldBasedLogFormatter</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="kt">Timestamp</span><span class="p">(</span><span class="o">.</span><span class="kt">UNIX</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="kt">Delimiter</span><span class="p">(</span><span class="o">.</span><span class="kt">Tab</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="kt">Severity</span><span class="p">(</span><span class="o">.</span><span class="kt">Numeric</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="kt">Delimiter</span><span class="p">(</span><span class="o">.</span><span class="kt">Tab</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="kt">Payload</span><span class="p">])</span>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">formatter</span> <span class="o">=</span> <span class="kt">FieldBasedLogFormatter</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="nf">timestamp</span><span class="p">(</span><span class="o">.</span><span class="n">unix</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="nf">delimiter</span><span class="p">(</span><span class="o">.</span><span class="n">tab</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="nf">severity</span><span class="p">(</span><span class="o">.</span><span class="n">numeric</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="nf">delimiter</span><span class="p">(</span><span class="o">.</span><span class="n">tab</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="n">payload</span><span class="p">])</span>
 </code></pre>
 
           </section>

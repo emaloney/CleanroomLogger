@@ -75,6 +75,9 @@
               <li class="nav-group-task">
                 <a href="Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/XcodeTraceLogFormatter.html">XcodeTraceLogFormatter</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -209,6 +212,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ReadableLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Classes/StandardLogFormatter.html">StandardLogFormatter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger22XcodeTraceLogFormatter"></a>
+                    <a name="//apple_ref/swift/Class/XcodeTraceLogFormatter" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger22XcodeTraceLogFormatter">XcodeTraceLogFormatter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> that outputs Xcode-bound trace information for each
+<code><a href="Structs/LogEntry.html">LogEntry</a></code> that has a <code>Payload</code> of <code>.trace</code>.</p>
+
+                        <a href="Classes/XcodeTraceLogFormatter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">XcodeTraceLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -463,11 +499,11 @@ fields separated by tabs:</p>
 
 <p>You could do this by constructing a <code>FieldBasedLogFormatter</code> as follows:</p>
 
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">formatter</span> <span class="o">=</span> <span class="kt">FieldBasedLogFormatter</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="kt">Timestamp</span><span class="p">(</span><span class="o">.</span><span class="kt">UNIX</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="kt">Delimiter</span><span class="p">(</span><span class="o">.</span><span class="kt">Tab</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="kt">Severity</span><span class="p">(</span><span class="o">.</span><span class="kt">Numeric</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="kt">Delimiter</span><span class="p">(</span><span class="o">.</span><span class="kt">Tab</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="kt">Payload</span><span class="p">])</span>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">formatter</span> <span class="o">=</span> <span class="kt">FieldBasedLogFormatter</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="nf">timestamp</span><span class="p">(</span><span class="o">.</span><span class="n">unix</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="nf">delimiter</span><span class="p">(</span><span class="o">.</span><span class="n">tab</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="nf">severity</span><span class="p">(</span><span class="o">.</span><span class="n">numeric</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="nf">delimiter</span><span class="p">(</span><span class="o">.</span><span class="n">tab</span><span class="p">),</span>
+                                                <span class="o">.</span><span class="n">payload</span><span class="p">])</span>
 </code></pre>
 
                         <a href="Classes/FieldBasedLogFormatter.html" class="slightly-smaller">See more</a>
@@ -676,20 +712,8 @@ more convenient to use within your code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> ideal for use within Xcode.</p>
-
-<p>By default, this formatter:</p>
-
-<ul>
-<li>Uses <code>.default</code> as the default <code><a href="Enums/TimestampStyle.html">TimestampStyle</a></code></li>
-<li>Uses <code>.xcode</code> as the default <code><a href="Enums/SeverityStyle.html">SeverityStyle</a></code></li>
-<li>Uses default field separator delimiters</li>
-<li>Outputs the call site</li>
-<li>Does not output the calling thread</li>
-</ul>
-
-<p>These defaults can be overridden by providing alternate values to the 
-initializer.</p>
+                        <p>A <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code> ideal for use within Xcode. This format is not well-suited
+for parsing.</p>
 
                         <a href="Classes/XcodeLogFormatter.html" class="slightly-smaller">See more</a>
                       </div>
@@ -697,7 +721,7 @@ initializer.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">XcodeLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Classes/StandardLogFormatter.html">StandardLogFormatter</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">XcodeLogFormatter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                         </div>
                       </div>
