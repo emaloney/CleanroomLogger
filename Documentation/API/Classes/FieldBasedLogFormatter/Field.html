@@ -38,6 +38,12 @@
                 <a href="../../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Classes/ConsoleLogRecorder.html">ConsoleLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -84,6 +90,9 @@
           <li class="nav-group-name">
             <a href="../../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Enums/CallingThreadStyle.html">CallingThreadStyle</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../../Enums/DelimiterStyle.html">DelimiterStyle</a>
               </li>
@@ -156,6 +165,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/ProcessIDLogFormatter.html">ProcessIDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/ProcessNameLogFormatter.html">ProcessNameLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="../../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
@@ -318,9 +333,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FOC15CleanroomLogger22FieldBasedLogFormatter5Field13callingThreadFMS1_S1_"></a>
+                    <a name="/s:FOC15CleanroomLogger22FieldBasedLogFormatter5Field13callingThreadFMS1_FOS_18CallingThreadStyleS1_"></a>
                     <a name="//apple_ref/swift/Element/callingThread" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC15CleanroomLogger22FieldBasedLogFormatter5Field13callingThreadFMS1_S1_">callingThread</a>
+                    <a class="token" href="#/s:FOC15CleanroomLogger22FieldBasedLogFormatter5Field13callingThreadFMS1_FOS_18CallingThreadStyleS1_">callingThread</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -329,15 +344,14 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Represents the ID of the thread on which the call was executed. 
- You should treat thread IDs as opaque strings whose values may be
- recycled over time.</p>
+ The <code><a href="../../Enums/CallingThreadStyle.html">CallingThreadStyle</a></code> specifies how the thread ID is represented.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">callingThread</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">callingThread</span><span class="p">(</span><span class="kt"><a href="../../Enums/CallingThreadStyle.html">CallingThreadStyle</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -361,7 +375,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents the <code>Payload</code> of a `LogEntry.</p>
+                        <p>Represents the <code>Payload</code> of a <code><a href="../../Structs/LogEntry.html">LogEntry</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -369,6 +383,68 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="k">case</span> <span class="n">payload</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC15CleanroomLogger22FieldBasedLogFormatter5Field11processNameFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/processName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC15CleanroomLogger22FieldBasedLogFormatter5Field11processNameFMS1_S1_">processName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the name of the currently executing process.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">processName</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FOC15CleanroomLogger22FieldBasedLogFormatter5Field9processIDFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/processID" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC15CleanroomLogger22FieldBasedLogFormatter5Field9processIDFMS1_S1_">processID</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the ID of the currently executing process.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">processID</span></code></pre>
 
                         </div>
                       </div>

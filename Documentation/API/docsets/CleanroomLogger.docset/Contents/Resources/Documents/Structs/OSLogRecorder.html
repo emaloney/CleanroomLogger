@@ -38,6 +38,12 @@
                 <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogRecorder.html">ConsoleLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -84,6 +90,9 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
               </li>
@@ -158,6 +167,12 @@
                 <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/ProcessIDLogFormatter.html">ProcessIDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProcessNameLogFormatter.html">ProcessNameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -192,6 +207,33 @@ This is consistent with the behavior of <code>NSLog()</code>.</p>
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZvV15CleanroomLogger13OSLogRecorder16isOSLogAvailableSb"></a>
+                    <a name="//apple_ref/swift/Variable/isOSLogAvailable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZvV15CleanroomLogger13OSLogRecorder16isOSLogAvailableSb">isOSLogAvailable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>true</code> if the <code>os_log()</code> function is available at runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">isOSLogAvailable</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -303,63 +345,9 @@ This is consistent with the behavior of <code>NSLog()</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV15CleanroomLogger13OSLogRecorder9subsystemSS"></a>
-                    <a name="//apple_ref/swift/Variable/subsystem" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV15CleanroomLogger13OSLogRecorder9subsystemSS">subsystem</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The default value used for the <code>OSLog</code>&rsquo;s <code>subsystem</code> property.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">subsystem</span> <span class="o">=</span> <span class="s">""</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZvV15CleanroomLogger13OSLogRecorder8categorySS"></a>
-                    <a name="//apple_ref/swift/Variable/category" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV15CleanroomLogger13OSLogRecorder8categorySS">category</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The default value used for the <code>OSLog</code>&rsquo;s <code>category</code> property.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">category</span> <span class="o">=</span> <span class="s">"CleanroomLogger"</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FV15CleanroomLogger13OSLogRecordercFT9formatterPS_12LogFormatter_9subsystemGSqSS_8categoryGSqSS_17logTypeTranslatorOS_19OSLogTypeTranslator_GSqS0__"></a>
-                    <a name="//apple_ref/swift/Method/init(formatter:subsystem:category:logTypeTranslator:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger13OSLogRecordercFT9formatterPS_12LogFormatter_9subsystemGSqSS_8categoryGSqSS_17logTypeTranslatorOS_19OSLogTypeTranslator_GSqS0__">init(formatter:subsystem:category:logTypeTranslator:)</a>
+                    <a name="/s:FV15CleanroomLogger13OSLogRecordercFT9formatterPS_12LogFormatter_9subsystemSS17logTypeTranslatorOS_19OSLogTypeTranslator_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(formatter:subsystem:logTypeTranslator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger13OSLogRecordercFT9formatterPS_12LogFormatter_9subsystemSS17logTypeTranslatorOS_19OSLogTypeTranslator_GSqS0__">init(formatter:subsystem:logTypeTranslator:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -368,11 +356,11 @@ This is consistent with the behavior of <code>NSLog()</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initialize an <code>OSLogRecorder</code> instance, which will record log entries
-using the <code>os_log</code> function.</p>
+using the <code>os_log()</code> function.</p>
 
 <div class="aside aside-important">
     <p class="aside-title">Important</p>
-    <p><code>os_log</code> is only supported as of iOS 10.0, macOS 10.12,
+    <p><code>os_log()</code> is only supported as of iOS 10.0, macOS 10.12,
 tvOS 10.0, and watchOS 3.0. On incompatible systems, this initializer
 will fail.</p>
 
@@ -383,7 +371,7 @@ will fail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">,</span> <span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">logTypeTranslator</span><span class="p">:</span> <span class="kt"><a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">strict</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">,</span> <span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="nv">logTypeTranslator</span><span class="p">:</span> <span class="kt"><a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">strict</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -412,20 +400,7 @@ will fail.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The name of the subsystem performing the logging. If <code>nil</code>, the default value <code>OSLogRecorder.subsystem</code> is used.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>category</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The log category. If <code>nil</code>, the default value <code>OSLogRecorder.category</code> is used.</p>
+                                  <p>The name of the subsystem performing the logging. Defaults to the empty string (<code>&quot;&quot;</code>) if not specified.</p>
 
                                 </div>
                               </td>
@@ -452,9 +427,9 @@ will fail.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger13OSLogRecordercFT10formattersGSaPS_12LogFormatter__9subsystemGSqSS_8categoryGSqSS_17logTypeTranslatorOS_19OSLogTypeTranslator_GSqS0__"></a>
-                    <a name="//apple_ref/swift/Method/init(formatters:subsystem:category:logTypeTranslator:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger13OSLogRecordercFT10formattersGSaPS_12LogFormatter__9subsystemGSqSS_8categoryGSqSS_17logTypeTranslatorOS_19OSLogTypeTranslator_GSqS0__">init(formatters:subsystem:category:logTypeTranslator:)</a>
+                    <a name="/s:FV15CleanroomLogger13OSLogRecordercFT10formattersGSaPS_12LogFormatter__9subsystemSS17logTypeTranslatorOS_19OSLogTypeTranslator_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(formatters:subsystem:logTypeTranslator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger13OSLogRecordercFT10formattersGSaPS_12LogFormatter__9subsystemSS17logTypeTranslatorOS_19OSLogTypeTranslator_GSqS0__">init(formatters:subsystem:logTypeTranslator:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -463,11 +438,11 @@ will fail.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initialize an <code>OSLogRecorder</code> instance, which will record log entries
-using the <code>os_log</code> function.</p>
+using the <code>os_log()</code> function.</p>
 
 <div class="aside aside-important">
     <p class="aside-title">Important</p>
-    <p><code>os_log</code> is only supported as of iOS 10.0, macOS 10.12,
+    <p><code>os_log()</code> is only supported as of iOS 10.0, macOS 10.12,
 tvOS 10.0, and watchOS 3.0. On incompatible systems, this initializer
 will fail.</p>
 
@@ -478,7 +453,7 @@ will fail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a></span><span class="p">()],</span> <span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">logTypeTranslator</span><span class="p">:</span> <span class="kt"><a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">strict</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a></span><span class="p">()],</span> <span class="nv">subsystem</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="nv">logTypeTranslator</span><span class="p">:</span> <span class="kt"><a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">strict</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -507,20 +482,7 @@ will fail.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The name of the subsystem performing the logging. If <code>nil</code>, the default value <code>OSLogRecorder.subsystem</code> is used.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>category</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The log category. If <code>nil</code>, the default value <code>OSLogRecorder.category</code> is used.</p>
+                                  <p>The name of the subsystem performing the logging. Defaults to the empty string (<code>&quot;&quot;</code>) if not specified.</p>
 
                                 </div>
                               </td>
@@ -557,7 +519,7 @@ will fail.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Called to record the specified message to the <code>os_log</code>.</p>
+                        <p>Called to record the specified using the <code>os_log()</code> function.</p>
 
 <div class="aside aside-note">
     <p class="aside-title">Note</p>

@@ -38,6 +38,12 @@
                 <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogRecorder.html">ConsoleLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -84,6 +90,9 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
               </li>
@@ -158,6 +167,12 @@
                 <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/ProcessIDLogFormatter.html">ProcessIDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProcessNameLogFormatter.html">ProcessNameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -189,9 +204,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger20StandardLogFormattercFT14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_14delimiterStyleGSqOS_14DelimiterStyle_12showCallSiteSb17showCallingThreadSb_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(timestampStyle:severityStyle:delimiterStyle:showCallSite:showCallingThread:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger20StandardLogFormattercFT14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_14delimiterStyleGSqOS_14DelimiterStyle_12showCallSiteSb17showCallingThreadSb_S0_">init(timestampStyle:severityStyle:delimiterStyle:showCallSite:showCallingThread:)</a>
+                    <a name="/s:FC15CleanroomLogger20StandardLogFormattercFT14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_14delimiterStyleGSqOS_14DelimiterStyle_18callingThreadStyleGSqOS_18CallingThreadStyle_12showCallSiteSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(timestampStyle:severityStyle:delimiterStyle:callingThreadStyle:showCallSite:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger20StandardLogFormattercFT14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_14delimiterStyleGSqOS_14DelimiterStyle_18callingThreadStyleGSqOS_18CallingThreadStyle_12showCallSiteSb_S0_">init(timestampStyle:severityStyle:delimiterStyle:callingThreadStyle:showCallSite:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -206,7 +221,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">simple</span><span class="p">,</span> <span class="nv">delimiterStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/DelimiterStyle.html">DelimiterStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallingThread</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">simple</span><span class="p">,</span> <span class="nv">delimiterStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/DelimiterStyle.html">DelimiterStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">callingThreadStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -256,12 +271,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>showCallSite</em>
+                                <em>callingThreadStyle</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the source file and line indicating the call site of the log request will be added to formatted log messages.</p>
+                                  <p>If provided, specifies a <code>CallingThreadStyle</code> to use for representing the calling thread. If <code>nil</code>, the calling thread is not shown.</p>
 
                                 </div>
                               </td>
@@ -269,12 +284,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>showCallingThread</em>
+                                <em>showCallSite</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, a hexadecimal string containing an opaque identifier for the calling thread will be added to formatted log messages.</p>
+                                  <p>If <code>true</code>, the source file and line indicating the call site of the log request will be added to formatted log messages.</p>
 
                                 </div>
                               </td>

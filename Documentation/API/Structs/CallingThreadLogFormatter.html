@@ -38,6 +38,12 @@
                 <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogRecorder.html">ConsoleLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -84,6 +90,9 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
               </li>
@@ -158,6 +167,12 @@
                 <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/ProcessIDLogFormatter.html">ProcessIDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProcessNameLogFormatter.html">ProcessNameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -180,8 +195,8 @@
 
                 </div>
               </div>
-            <p>A <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> that returns a hexadecimal string representation of a
-<code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>callingThreadID</code>.</p>
+            <p>A <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> that returns a string representation of a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s
+<code>callingThreadID</code>.</p>
 
 <p>This is typically combined with other <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s within a
 <code><a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
@@ -193,9 +208,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger25CallingThreadLogFormattercFT_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger25CallingThreadLogFormattercFT_S0_">init()</a>
+                    <a name="/s:vV15CleanroomLogger25CallingThreadLogFormatter5styleOS_18CallingThreadStyle"></a>
+                    <a name="//apple_ref/swift/Property/style" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV15CleanroomLogger25CallingThreadLogFormatter5styleOS_18CallingThreadStyle">style</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -203,14 +218,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Class initializer.</p>
+                        <p>Governs how the receiver represents <code>callingThreadID</code>s.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FV15CleanroomLogger25CallingThreadLogFormattercFT5styleOS_18CallingThreadStyle_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(style:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger25CallingThreadLogFormattercFT5styleOS_18CallingThreadStyle_S0_">init(style:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>CallingThreadLogFormatter</code> initializer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="kt"><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">hex</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -230,8 +272,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Formats the passed-in <code><a href="../Structs/LogEntry.html">LogEntry</a></code> by returning a hexadecimal string
-representation of its <code>callingThreadID</code>.</p>
+                        <p>Formats the passed-in <code><a href="../Structs/LogEntry.html">LogEntry</a></code> by returning a string representation of
+its <code>callingThreadID</code>. The format is governed by the value of the 
+receiver&rsquo;s <code><a href="../Structs/CallingThreadLogFormatter.html#/s:vV15CleanroomLogger25CallingThreadLogFormatter5styleOS_18CallingThreadStyle">style</a></code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -242,6 +285,26 @@ representation of its <code>callingThreadID</code>.</p>
         <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> to format.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div>
                         <h4>Return Value</h4>

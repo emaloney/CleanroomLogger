@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TimestampStyle Enum Reference</title>
+    <title>ConsoleLogConfiguration Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/TimestampStyle" class="dashAnchor"></a>
-    <a title="TimestampStyle Enum Reference"></a>
+    <a name="//apple_ref/swift/Class/ConsoleLogConfiguration" class="dashAnchor"></a>
+    <a title="ConsoleLogConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomLogger Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TimestampStyle Enum Reference
+        ConsoleLogConfiguration Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -188,15 +188,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TimestampStyle</h1>
+            <h1>ConsoleLogConfiguration</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TimestampStyle</span></code></pre>
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ConsoleLogConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Classes/BasicLogConfiguration.html">BasicLogConfiguration</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Encapsulates the various formatting styles that can be used by the
-<code><a href="../Structs/TimestampLogFormatter.html">TimestampLogFormatter</a></code>.</p>
+            <p>A standard <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> that, by default, uses the <code>os_log()</code> function
+(via the <code><a href="../Structs/OSLogRecorder.html">OSLogRecorder</a></code>), which is only available as of iOS 10.0, macOS 10.12, 
+tvOS 10.0, and watchOS 3.0.</p>
+
+<p>If <code>os_log()</code> is not available, or if the <code>StandardLogConfiguration</code> is
+configured to bypass it, log messages will be written to the <code>stdout</code>
+output stream of the running process (via the <code><a href="../Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a></code>).</p>
 
           </section>
           <section class="section task-group-section">
@@ -205,9 +210,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO15CleanroomLogger14TimestampStyle7defaultFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/default" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger14TimestampStyle7defaultFMS0_S0_">default</a>
+                    <a name="/s:FC15CleanroomLogger23ConsoleLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb13useStdoutOnlySb7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:useStdoutOnly:filters:formatters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger23ConsoleLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb13useStdoutOnlySb7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_">init(minimumSeverity:debugMode:verboseDebugMode:useStdoutOnly:filters:formatters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,80 +220,112 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies a timestamp style that uses the date format string
- <q>yyyy-MM-dd HH:mm:ss.SSS zzz</q>.</p>
+                        <p>Initializes a new <code>ConsoleLogConfiguration</code> instance.</p>
+
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Setting either <code>debugMode</code> or <code>verboseDebugMode</code> to <code>true</code> will
+result in <code>synchronousMode</code> being used when recording log entries.
+Synchronous mode is helpful while debugging, as it ensures that logs are
+always up-to-date when debug breakpoints are hit. However, synchronous
+mode can have a negative influence on performance and is therefore not
+recommended for use in production code.</p>
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">useStdoutOnly</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger14TimestampStyle4unixFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/unix" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger14TimestampStyle4unixFMS0_S0_">unix</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies a UNIX timestamp indicating the number of seconds elapsed
-since January 1, 1970.</p>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>minimumSeverity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The minimum supported <code>LogSeverity</code>. Any <code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently ignored.</p>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">unix</span></code></pre>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>debugMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
 
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger14TimestampStyle6customFMS0_FSSS0_"></a>
-                    <a name="//apple_ref/swift/Element/custom" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger14TimestampStyle6customFMS0_FSSS0_">custom</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies a custom date format.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>verboseDebugMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
 
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">custom</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>useStdoutOnly</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, the <code>os_log()</code> function is not used even if available; instead, all log messages are sent to <code>stdout</code> using the <code>StandardOutputLogRecorder</code>.</p>
 
-                        </div>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>filters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogFilter</code>s to use when deciding whether a given <code>LogEntry</code> should be passed along for recording.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of <code>LogFormatter</code>s to use for formatting log entries to be recorded.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>

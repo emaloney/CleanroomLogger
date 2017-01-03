@@ -38,6 +38,12 @@
                 <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogRecorder.html">ConsoleLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -84,6 +90,9 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enums</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
               </li>
@@ -158,6 +167,12 @@
                 <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/ProcessIDLogFormatter.html">ProcessIDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProcessNameLogFormatter.html">ProcessNameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -182,7 +197,7 @@
               </div>
             <p>Before a <code><a href="../Structs/LogEntry.html">LogEntry</a></code> is recorded, any <code>LogFilter</code>s specified in the active
 <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> are given a chance to prevent the entry from being recorded
-by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> function.</p>
+by returning <code>false</code> from the <code>shouldRecord(entry:)</code> function.</p>
 
           </section>
           <section class="section task-group-section">
@@ -191,9 +206,9 @@ by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> fun
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP15CleanroomLogger9LogFilter20shouldRecordLogEntryFVS_8LogEntrySb"></a>
-                    <a name="//apple_ref/swift/Method/shouldRecordLogEntry(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP15CleanroomLogger9LogFilter20shouldRecordLogEntryFVS_8LogEntrySb">shouldRecordLogEntry(_:)</a>
+                    <a name="/s:FP15CleanroomLogger9LogFilter12shouldRecordFT5entryVS_8LogEntry_Sb"></a>
+                    <a name="//apple_ref/swift/Method/shouldRecord(entry:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP15CleanroomLogger9LogFilter12shouldRecordFT5entryVS_8LogEntry_Sb">shouldRecord(entry:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -208,7 +223,7 @@ by returning <code>false</code> from the <code>shouldRecordLogEntry()</code> fun
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">shouldRecordLogEntry</span><span class="p">(</span><span class="n">_</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">shouldRecord</span><span class="p">(</span><span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

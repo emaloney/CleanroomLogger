@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TimestampStyle Enum Reference</title>
+    <title>ProcessNameLogFormatter Struct Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/TimestampStyle" class="dashAnchor"></a>
-    <a title="TimestampStyle Enum Reference"></a>
+    <a name="//apple_ref/swift/Struct/ProcessNameLogFormatter" class="dashAnchor"></a>
+    <a title="ProcessNameLogFormatter Struct Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomLogger Reference</a>
         <img id="carat" src="../img/carat.png" />
-        TimestampStyle Enum Reference
+        ProcessNameLogFormatter Struct Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -188,15 +188,17 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TimestampStyle</h1>
+            <h1>ProcessNameLogFormatter</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TimestampStyle</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ProcessNameLogFormatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Encapsulates the various formatting styles that can be used by the
-<code><a href="../Structs/TimestampLogFormatter.html">TimestampLogFormatter</a></code>.</p>
+            <p>A <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> that returns a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>processName</code> property.</p>
+
+<p>This is typically combined with other <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s within a
+<code><a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -205,9 +207,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO15CleanroomLogger14TimestampStyle7defaultFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/default" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger14TimestampStyle7defaultFMS0_S0_">default</a>
+                    <a name="/s:FV15CleanroomLogger23ProcessNameLogFormattercFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger23ProcessNameLogFormattercFT_S0_">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,31 +217,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies a timestamp style that uses the date format string
- <q>yyyy-MM-dd HH:mm:ss.SSS zzz</q>.</p>
+                        <p>The initializer.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO15CleanroomLogger14TimestampStyle4unixFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/unix" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger14TimestampStyle4unixFMS0_S0_">unix</a>
+                    <a name="/s:FV15CleanroomLogger23ProcessNameLogFormatter6formatFVS_8LogEntryGSqSS_"></a>
+                    <a name="//apple_ref/swift/Method/format(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV15CleanroomLogger23ProcessNameLogFormatter6formatFVS_8LogEntryGSqSS_">format(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -247,48 +244,42 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies a UNIX timestamp indicating the number of seconds elapsed
-since January 1, 1970.</p>
+                        <p>Formats the passed-in <code><a href="../Structs/LogEntry.html">LogEntry</a></code> by returning its <code>processName</code> property.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">unix</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">format</span><span class="p">(</span><span class="n">_</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FO15CleanroomLogger14TimestampStyle6customFMS0_FSSS0_"></a>
-                    <a name="//apple_ref/swift/Element/custom" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger14TimestampStyle6customFMS0_FSSS0_">custom</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies a custom date format.</p>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> to be formatted.</p>
 
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">custom</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The formatted result; never <code>nil</code>.</p>
 
-                        </div>
                       </div>
                     </section>
                   </div>
