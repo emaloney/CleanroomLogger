@@ -98,7 +98,7 @@ fileprivate extension SeverityStyle
 
 fileprivate extension SeverityStyle.TextRepresentation
 {
-    func formatSeverity(_ severity: LogSeverity)
+    func format(severity: LogSeverity)
         -> String
     {
         switch self {
@@ -111,7 +111,7 @@ fileprivate extension SeverityStyle.TextRepresentation
             case .verbose:  return "◽️"
             case .debug:    return "◾️"
             case .info:     return "🔷"
-            case .warning:  return "⚠️"
+            case .warning:  return "🔶"
             case .error:    return "🛑"
             }
         }
@@ -128,7 +128,7 @@ fileprivate extension SeverityStyle.TextRepresentation
 public struct SeverityLogFormatter: LogFormatter
 {
     /** The `SeverityStyle` that determines the return value of the
-     receiver's `formatLogEntry()` function. */
+     receiver's `format(_:)` function. */
     public let style: SeverityStyle
 
     /**
@@ -153,7 +153,7 @@ public struct SeverityLogFormatter: LogFormatter
     public func format(_ entry: LogEntry)
         -> String?
     {
-        var severityTag = style.textRepresentation.formatSeverity(entry.severity)
+        var severityTag = style.textRepresentation.format(severity: entry.severity)
 
         if let trunc = style.truncateAtWidth {
             if severityTag.characters.count > trunc {

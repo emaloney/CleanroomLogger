@@ -20,6 +20,14 @@ import os.log
  */
 public struct OSLogRecorder: LogRecorder
 {
+    /** `true` if the `os_log()` function is available at runtime. */
+    public static let isOSLogAvailable: Bool = {
+        guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) else {
+            return false
+        }
+        return true
+    }()
+    
     /** The `LogFormatter`s to be used in conjunction with the receiver. */
     public let formatters: [LogFormatter]
 
@@ -32,19 +40,11 @@ public struct OSLogRecorder: LogRecorder
     /** The GCD queue used by the receiver to record messages. */
     public let queue: DispatchQueue
 
-    /** The default value used for the `OSLog`'s `subsystem` property. */
-    public static let subsystem = ""
-    
-    /** The default value used for the `OSLog`'s `category` property. */
-    public static let category = "CleanroomLogger"
-    
-    private static let queueLabel = "CleanroomLogger.OSLogRecorder"
-
     /**
      Initialize an `OSLogRecorder` instance, which will record log entries
-     using the `os_log` function.
+     using the `os_log()` function.
      
-     - important: `os_log` is only supported as of iOS 10.0, macOS 10.12,
+     - important: `os_log()` is only supported as of iOS 10.0, macOS 10.12,
      tvOS 10.0, and watchOS 3.0. On incompatible systems, this initializer
      will fail.
      
@@ -52,24 +52,21 @@ public struct OSLogRecorder: LogRecorder
      to be recorded by the receiver.
      
      - parameter subsystem: The name of the subsystem performing the logging.
-     If `nil`, the default value `OSLogRecorder.subsystem` is used.
-     
-     - parameter category: The log category. If `nil`, the default value
-     `OSLogRecorder.category` is used.
+     Defaults to the empty string (`""`) if not specified.
      
      - parameter logTypeTranslator: An `OSLogTypeTranslator` value that governs
      how `OSLogType` values are determined for log entries.
      */
-    public init?(formatter: LogFormatter, subsystem: String? = nil, category: String? = nil, logTypeTranslator: OSLogTypeTranslator = .strict)
+    public init?(formatter: LogFormatter, subsystem: String = "", logTypeTranslator: OSLogTypeTranslator = .strict)
     {
-        self.init(formatters: [formatter], subsystem: subsystem, category: category, logTypeTranslator: logTypeTranslator)
+        self.init(formatters: [formatter], subsystem: subsystem, logTypeTranslator: logTypeTranslator)
     }
 
     /**
      Initialize an `OSLogRecorder` instance, which will record log entries
-     using the `os_log` function.
+     using the `os_log()` function.
      
-     - important: `os_log` is only supported as of iOS 10.0, macOS 10.12,
+     - important: `os_log()` is only supported as of iOS 10.0, macOS 10.12,
      tvOS 10.0, and watchOS 3.0. On incompatible systems, this initializer
      will fail.
      
@@ -81,28 +78,25 @@ public struct OSLogRecorder: LogRecorder
      every formatter returns `nil`.
      
      - parameter subsystem: The name of the subsystem performing the logging.
-     If `nil`, the default value `OSLogRecorder.subsystem` is used.
-     
-     - parameter category: The log category. If `nil`, the default value
-     `OSLogRecorder.category` is used.
+     Defaults to the empty string (`""`) if not specified.
      
      - parameter logTypeTranslator: An `OSLogTypeTranslator` value that governs
      how `OSLogType` values are determined for log entries.
      */
-    public init?(formatters: [LogFormatter] = [XcodeLogFormatter()], subsystem: String? = nil, category: String? = nil, logTypeTranslator: OSLogTypeTranslator = .strict)
+    public init?(formatters: [LogFormatter] = [XcodeLogFormatter()], subsystem: String = "", logTypeTranslator: OSLogTypeTranslator = .strict)
     {
         guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) else {
             return nil
         }
         
-        self.log = OSLog(subsystem: subsystem ?? OSLogRecorder.subsystem, category: category ?? OSLogRecorder.category)
-        self.queue = DispatchQueue(label: OSLogRecorder.queueLabel, attributes: [])
+        self.log = OSLog(subsystem: subsystem, category: "CleanroomLogger")
+        self.queue = DispatchQueue(label: "CleanroomLogger.OSLogRecorder", attributes: [])
         self.formatters = formatters
         self.logTypeTranslator = logTypeTranslator
     }
 
     /**
-     Called to record the specified message to the `os_log`.
+     Called to record the specified using the `os_log()` function.
 
      - note: This function is only called if one of the `formatters` associated
      with the receiver returned a non-`nil` string for the given `LogEntry`.

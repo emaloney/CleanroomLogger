@@ -16,7 +16,7 @@
 public struct LiteralLogFormatter: LogFormatter
 {
     /** The literal string used as the return value of the receiver's 
-     `formatLogEntry()` function. */
+     `format(_:)` function. */
     public let literal: String
 
     /**

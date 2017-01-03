@@ -9,18 +9,18 @@
 import Foundation
 
 /**
-`LogChannel` instances provide the high-level interface for accepting log
-messages.
-
-They are responsible for converting log requests into `LogEntry` instances
-that they then pass along to their associated `LogReceptacle`s to perform the
-actual logging.
-
-`LogChannel`s are provided as a convenience, exposed as static properties
-through `Log`. Use of `LogChannel`s and the `Log` is not required for logging;
-you can also perform logging by creating `LogEntry` instances manually and 
-passing them along to a `LogReceptacle`.
-*/
+ `LogChannel` instances provide the high-level interface for accepting log
+ messages.
+ 
+ They are responsible for converting log requests into `LogEntry` instances
+ that they then pass along to their associated `LogReceptacle`s to perform the
+ actual logging.
+ 
+ `LogChannel`s are provided as a convenience, exposed as static properties
+ through `Log`. Use of `LogChannel`s and the `Log` is not required for logging;
+ you can also perform logging by creating `LogEntry` instances manually and
+ passing them along to a `LogReceptacle`.
+ */
 public struct LogChannel
 {
     /** The `LogSeverity` of this `LogChannel`, which determines the severity

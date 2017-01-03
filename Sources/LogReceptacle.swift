@@ -97,7 +97,7 @@ public final class LogReceptacle
         -> Bool
     {
         for filter in filters {
-            if !filter.shouldRecordLogEntry(entry) {
+            if !filter.shouldRecord(entry: entry) {
                 return false
             }
         }

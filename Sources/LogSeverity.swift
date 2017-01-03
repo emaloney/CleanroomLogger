@@ -7,35 +7,35 @@
 //
 
 /**
-Used to indicate the *severity*, or importance, of a log message.
-
-Severity is a continuum, from `.verbose` being least severe to `.error` being
-most severe.
-
-The logging system may be configured so that messages lower than a given
-severity are ignored.
+ Used to indicate the *severity*, or importance, of a log message.
+ 
+ Severity is a continuum, from `.verbose` being least severe to `.error` being
+ most severe.
+ 
+ The logging system may be configured so that messages lower than a given
+ severity are ignored.
 */
 public enum LogSeverity: Int
 {
     /** The lowest severity, used for detailed or frequently occurring
-    debugging and diagnostic information. Not intended for use in production
-    code. */
+     debugging and diagnostic information. Not intended for use in production
+     code. */
     case verbose    = 1
-
+    
     /** Used for debugging and diagnostic information. Not intended for use
-    in production code. */
+     in production code. */
     case debug      = 2
-
+    
     /** Used to indicate something of interest that is not problematic. */
     case info       = 3
-
+    
     /** Used to indicate that something appears amiss and potentially
-    problematic. The situation bears looking into before a larger problem
-    arises. */
+     problematic. The situation bears looking into before a larger problem
+     arises. */
     case warning    = 4
-
+    
     /** The highest severity, used to indicate that something has gone wrong;
-    a fatal error may be imminent. */
+     a fatal error may be imminent. */
     case error      = 5
 }
 

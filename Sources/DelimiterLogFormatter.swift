@@ -52,7 +52,7 @@ public extension DelimiterStyle
 public struct DelimiterLogFormatter: LogFormatter
 {
     /** The `DelimiterStyle` that determines the return value of the
-     receiver's `formatLogEntry()` function. */
+     receiver's `format(_:)` function. */
     public let style: DelimiterStyle
 
     /** 

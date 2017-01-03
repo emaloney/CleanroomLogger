@@ -46,7 +46,7 @@ extension TimestampStyle
         return formatter
     }
 
-    fileprivate func stringFromDate(_ date: Date, usingFormatter formatter: DateFormatter?)
+    fileprivate func string(from date: Date, using formatter: DateFormatter?)
         -> String
     {
         switch self {
@@ -76,7 +76,7 @@ public struct TimestampLogFormatter: LogFormatter
      `TimestampStyle`.
 
      - parameter style: A `TimestampStyle` value that will govern the output
-     of the `formatLogEntry()` function.
+     of the `format(_:)` function.
      */
     public init(style: TimestampStyle = .default)
     {
@@ -95,6 +95,6 @@ public struct TimestampLogFormatter: LogFormatter
     public func format(_ entry: LogEntry)
         -> String?
     {
-        return style.stringFromDate(entry.timestamp, usingFormatter: formatter)
+        return style.string(from: entry.timestamp, using: formatter)
     }
 }

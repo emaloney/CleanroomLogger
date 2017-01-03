@@ -15,7 +15,7 @@
  */
 public struct PayloadLogFormatter: LogFormatter
 {
-    /** Class initializer. */
+    /** The initializer. */
     public init() {}
 
     /**
@@ -32,7 +32,7 @@ public struct PayloadLogFormatter: LogFormatter
         switch entry.payload {
         case .trace:                return entry.callingStackFrame
         case .message(let msg):     return msg
-        case .value(let value):     return String(describing: value)
+        case .value(let value):     return value != nil ? String(describing: value!) : "<nil>"
         }
     }
 }

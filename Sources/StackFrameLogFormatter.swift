@@ -14,7 +14,7 @@
  */
 public struct StackFrameLogFormatter: LogFormatter
 {
-    /** Class initializer. */
+    /** The initializer. */
     public init() {}
 
     /**

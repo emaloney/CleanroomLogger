@@ -18,7 +18,7 @@ import Foundation
  */
 public struct CallSiteLogFormatter: LogFormatter
 {
-    /** Class initializer. */
+    /** The initializer. */
     public init() {}
 
     /**

@@ -51,13 +51,18 @@ open class FieldBasedLogFormatter: ConcatenatingLogFormatter
         case stackFrame
 
         /** Represents the ID of the thread on which the call was executed. 
-         You should treat thread IDs as opaque strings whose values may be
-         recycled over time. */
-        case callingThread
+         The `CallingThreadStyle` specifies how the thread ID is represented. */
+        case callingThread(CallingThreadStyle)
 
-        /** Represents the `Payload` of a `LogEntry. */
+        /** Represents the `Payload` of a `LogEntry`. */
         case payload
 
+        /** Represents the name of the currently executing process. */
+        case processName
+        
+        /** Represents the ID of the currently executing process. */
+        case processID
+        
         /** Represents a text delimiter. The `DelimiterStyle` specifies the
          content of the delimiter string. */
         case delimiter(DelimiterStyle)
@@ -77,8 +82,10 @@ open class FieldBasedLogFormatter: ConcatenatingLogFormatter
             case .severity(let style):      return SeverityLogFormatter(style: style)
             case .callSite:                 return CallSiteLogFormatter()
             case .stackFrame:               return StackFrameLogFormatter()
-            case .callingThread:            return CallingThreadLogFormatter()
+            case .callingThread(let style): return CallingThreadLogFormatter(style: style)
             case .payload:                  return PayloadLogFormatter()
+            case .processName:              return ProcessNameLogFormatter()
+            case .processID:                return ProcessIDLogFormatter()
             case .delimiter(let style):     return DelimiterLogFormatter(style: style)
             case .literal(let literal):     return LiteralLogFormatter(literal)
             case .custom(let formatter):    return formatter

@@ -131,19 +131,23 @@ public struct Log
      will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
 
+     - parameter useStdoutOnly: If `true`, the `os_log()` function is not used
+     even if available; instead, all log messages are sent to `stdout` using
+     the `StandardOutputLogRecorder`.
+     
+     - parameter mimicOSLogOutput: If `true`, any output sent to `stdout` will
+     be formatted in such a way as to mimic the output seen when `os_log()` is
+     used.
+     
      - parameter showCallSite: If `true`, the source file and line indicating
      the call site of the log request will be added to formatted log messages.
-
-     - parameter showCallingThread: If `true`, a hexadecimal string containing
-     an opaque identifier for the calling thread will be added to formatted log
-     messages.
-
+    
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
      */
-    public static func enable(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, showCallSite: Bool = true, showCallingThread: Bool = false, filters: [LogFilter] = [])
+    public static func enable(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, useStdoutOnly: Bool = false, mimicOSLogOutput: Bool = true, showCallSite: Bool = true, filters: [LogFilter] = [])
     {
-        let config = XcodeLogConfiguration(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, showCallSite: showCallSite, filters: filters)
+        let config = XcodeLogConfiguration(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, useStdoutOnly: useStdoutOnly, mimicOSLogOutput: mimicOSLogOutput, showCallSite: showCallSite, filters: filters)
 
         enable(configuration: config)
     }

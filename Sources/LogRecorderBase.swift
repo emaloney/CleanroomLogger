@@ -29,11 +29,14 @@ open class LogRecorderBase: LogRecorder
      sequence, and the formatted string returned by the first formatter to
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
+     
+     - parameter queue: The `DispatchQueue` to use for the recorder. If `nil`,
+     a new queue will be created.
      */
-    public init(formatters: [LogFormatter])
+    public init(formatters: [LogFormatter], queue: DispatchQueue? = nil)
     {
         self.formatters = formatters
-        self.queue = DispatchQueue(label: String(describing: type(of: self)), attributes: [])
+        self.queue = queue != nil ? queue! : DispatchQueue(label: String(describing: type(of: self)), attributes: [])
     }
 
     /**

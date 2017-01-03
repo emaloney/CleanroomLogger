@@ -7,7 +7,7 @@
 //
 
 /**
-Defines an interface for specifying the configuration of the logging system.
+ Defines an interface for specifying the configuration of the logging system.
 */
 public protocol LogConfiguration
 {
