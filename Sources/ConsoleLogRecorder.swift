@@ -14,6 +14,8 @@ import Dispatch
  */
 public final class ConsoleLogRecorder: LogRecorderBase
 {
+    /** `true` if the receiver is logging to `stdout` instead of using the
+     `os_log()` function. */
     public let isUsingStdout: Bool
 
     private let recorder: LogRecorder
@@ -24,6 +26,10 @@ public final class ConsoleLogRecorder: LogRecorderBase
      
      - parameter formatters: The `LogFormatter`s to use for formatting log
      messages recorded by the receiver.
+     
+     - parameter useStdoutOnly: If `true`, the `os_log()` function is not used
+     even if available; instead, all log messages are sent to `stdout` using
+     the `StandardOutputLogRecorder`.
      */
     public init(formatters: [LogFormatter], useStdoutOnly: Bool = false)
     {
