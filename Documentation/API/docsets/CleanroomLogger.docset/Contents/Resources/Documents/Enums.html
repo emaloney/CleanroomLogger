@@ -87,6 +87,9 @@
                 <a href="Enums/LogSeverity.html">LogSeverity</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/SeverityStyle.html">SeverityStyle</a>
               </li>
               <li class="nav-group-task">
@@ -118,9 +121,6 @@
             <a href="Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -146,6 +146,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/OSLogRecorder.html">OSLogRecorder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
@@ -267,6 +270,47 @@ severity are ignored.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TimestampStyle</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:O15CleanroomLogger19OSLogTypeTranslator"></a>
+                    <a name="//apple_ref/swift/Enum/OSLogTypeTranslator" class="dashAnchor"></a>
+                    <a class="token" href="#/s:O15CleanroomLogger19OSLogTypeTranslator">OSLogTypeTranslator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies the manner in which an <code>OSLogType</code> is selected to represent a
+given <code><a href="Structs/LogEntry.html">LogEntry</a></code>.</p>
+
+<p>When a log entry is being recorded by an <code><a href="Structs/OSLogRecorder.html">OSLogRecorder</a></code>, an <code>OSLogType</code>
+value is used to specify the importance of the message; it is similar in
+concept to the <code><a href="Enums/LogSeverity.html">LogSeverity</a></code>.</p>
+
+<p>Because there is not an exact one-to-one mapping between <code>OSLogType</code> and
+<code><a href="Enums/LogSeverity.html">LogSeverity</a></code> values, <code>OSLogTypeTranslation</code> provides a mechanism for 
+deriving the appropriate <code>OSLogType</code> for a given <code><a href="Structs/LogEntry.html">LogEntry</a></code>.</p>
+
+                        <a href="Enums/OSLogTypeTranslator.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">OSLogTypeTranslator</span></code></pre>
 
                         </div>
                       </div>

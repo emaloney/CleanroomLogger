@@ -87,6 +87,9 @@
                 <a href="Enums/LogSeverity.html">LogSeverity</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/SeverityStyle.html">SeverityStyle</a>
               </li>
               <li class="nav-group-task">
@@ -118,9 +121,6 @@
             <a href="Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Structs/ASLLogRecorder.html">ASLLogRecorder</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -146,6 +146,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/OSLogRecorder.html">OSLogRecorder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
@@ -311,6 +314,44 @@ passing them along to a <code><a href="Classes/LogReceptacle.html">LogReceptacle
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogSeverityFilter</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogFilter.html">LogFilter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:V15CleanroomLogger13OSLogRecorder"></a>
+                    <a name="//apple_ref/swift/Struct/OSLogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:V15CleanroomLogger13OSLogRecorder">OSLogRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>OSLogRecorder</code> is an implemention of the <code><a href="Protocols/LogRecorder.html">LogRecorder</a></code> protocol that
+records log entries using the new unified logging system available
+as of iOS 10.0, macOS 10.12, tvOS 10.0, and watchOS 3.0.</p>
+
+<p>Unless a <code>LogTypeTranslator</code> is specified during construction, the
+<code>OSLogRecorder</code> will record log messages with an <code>OSLogType</code> of <code>.default</code>.
+This is consistent with the behavior of <code>NSLog()</code>.</p>
+
+                        <a href="Structs/OSLogRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">OSLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogRecorder.html">LogRecorder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -518,43 +559,6 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Log</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:V15CleanroomLogger14ASLLogRecorder"></a>
-                    <a name="//apple_ref/swift/Struct/ASLLogRecorder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V15CleanroomLogger14ASLLogRecorder">ASLLogRecorder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>ASLLogRecorder</code> is an implemention of the <code><a href="Protocols/LogRecorder.html">LogRecorder</a></code> protocol that
-records log entries to the Apple System Log (ASL) facility.</p>
-
-<p>Unless a <code>LogLevelTranslator</code> is specified during construction, the
-<code>ASLLogRecorder</code> will record log messages using <code>ASL_LEVEL_WARNING</code>. This
-is consistent with the behavior of <code>NSLog()</code>.</p>
-
-                        <a href="Structs/ASLLogRecorder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ASLLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogRecorder.html">LogRecorder</a></span></code></pre>
 
                         </div>
                       </div>

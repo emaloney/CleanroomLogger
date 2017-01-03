@@ -88,6 +88,9 @@
                 <a href="../Enums/LogSeverity.html">LogSeverity</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
               </li>
               <li class="nav-group-task">
@@ -119,9 +122,6 @@
             <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -147,6 +147,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OSLogRecorder.html">OSLogRecorder</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
@@ -176,7 +179,7 @@
               </div>
             <p>A <code><a href="../Protocols/LogConfiguration.html">LogConfiguration</a></code> optimized for use when running within Xcode.</p>
 
-<p>The <code>XcodeLogConfiguration</code> sets up a single recorder: an <code><a href="../Structs/ASLLogRecorder.html">ASLLogRecorder</a></code>
+<p>The <code>XcodeLogConfiguration</code> sets up a single recorder: an <code>ASLLogRecorder</code>
 configured to echo output to <code>stdout</code> as well as capturing to the ASL.</p>
 
           </section>
@@ -186,9 +189,9 @@ configured to echo output to <code>stdout</code> as well as capturing to the ASL
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb7filtersGSaPS_9LogFilter___S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:logToASL:timestampStyle:severityStyle:showCallSite:showCallingThread:showSeverity:filters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb7filtersGSaPS_9LogFilter___S0_">init(minimumSeverity:debugMode:verboseDebugMode:logToASL:timestampStyle:severityStyle:showCallSite:showCallingThread:showSeverity:filters:)</a>
+                    <a name="/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb7filtersGSaPS_9LogFilter___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:showSeverity:filters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14timestampStyleGSqOS_14TimestampStyle_13severityStyleGSqOS_13SeverityStyle_12showCallSiteSb17showCallingThreadSb12showSeveritySb7filtersGSaPS_9LogFilter___S0_">init(minimumSeverity:debugMode:verboseDebugMode:timestampStyle:severityStyle:showCallSite:showCallingThread:showSeverity:filters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -214,7 +217,7 @@ recommended for use in production code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">xcode</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallingThread</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">showSeverity</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">xcode</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallingThread</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">showSeverity</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
 
                         </div>
                       </div>
@@ -257,19 +260,6 @@ recommended for use in production code.</p>
                               <td>
                                 <div>
                                   <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>logToASL</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>true</code>, messages sent to the Xcode console will also be sent to the Apple System Log (ASL) facility.</p>
 
                                 </div>
                               </td>
@@ -348,9 +338,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb7filtersGSaPS_9LogFilter__9formatterPS_12LogFormatter__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:logToASL:filters:formatter:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb7filtersGSaPS_9LogFilter__9formatterPS_12LogFormatter__S0_">init(minimumSeverity:debugMode:verboseDebugMode:logToASL:filters:formatter:)</a>
+                    <a name="/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb7filtersGSaPS_9LogFilter__9formatterPS_12LogFormatter__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:filters:formatter:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb7filtersGSaPS_9LogFilter__9formatterPS_12LogFormatter__S0_">init(minimumSeverity:debugMode:verboseDebugMode:filters:formatter:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -376,7 +366,7 @@ recommended for use in production code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -419,19 +409,6 @@ recommended for use in production code.</p>
                               <td>
                                 <div>
                                   <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>logToASL</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>true</code>, messages sent to the Xcode console will also be sent to the Apple System Log (ASL) facility.</p>
 
                                 </div>
                               </td>
@@ -471,9 +448,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:logToASL:filters:formatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb8logToASLSb7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_">init(minimumSeverity:debugMode:verboseDebugMode:logToASL:filters:formatters:)</a>
+                    <a name="/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:filters:formatters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_">init(minimumSeverity:debugMode:verboseDebugMode:filters:formatters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -499,7 +476,7 @@ recommended for use in production code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logToASL</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">info</span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -542,19 +519,6 @@ recommended for use in production code.</p>
                               <td>
                                 <div>
                                   <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>logToASL</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>true</code>, messages sent to the Xcode console will also be sent to the Apple System Log (ASL) facility.</p>
 
                                 </div>
                               </td>

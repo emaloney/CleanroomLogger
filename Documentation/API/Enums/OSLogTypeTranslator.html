@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LogEntry Struct Reference</title>
+    <title>OSLogTypeTranslator Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/LogEntry" class="dashAnchor"></a>
-    <a title="LogEntry Struct Reference"></a>
+    <a name="//apple_ref/swift/Enum/OSLogTypeTranslator" class="dashAnchor"></a>
+    <a title="OSLogTypeTranslator Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomLogger Reference</a>
         <img id="carat" src="../img/carat.png" />
-        LogEntry Struct Reference
+        OSLogTypeTranslator Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -170,14 +170,23 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>LogEntry</h1>
+            <h1>OSLogTypeTranslator</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LogEntry</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">OSLogTypeTranslator</span></code></pre>
 
                 </div>
               </div>
-            <p>Represents an entry to be written to the log.</p>
+            <p>Specifies the manner in which an <code>OSLogType</code> is selected to represent a
+given <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
+
+<p>When a log entry is being recorded by an <code><a href="../Structs/OSLogRecorder.html">OSLogRecorder</a></code>, an <code>OSLogType</code>
+value is used to specify the importance of the message; it is similar in
+concept to the <code><a href="../Enums/LogSeverity.html">LogSeverity</a></code>.</p>
+
+<p>Because there is not an exact one-to-one mapping between <code>OSLogType</code> and
+<code><a href="../Enums/LogSeverity.html">LogSeverity</a></code> values, <code>OSLogTypeTranslation</code> provides a mechanism for 
+deriving the appropriate <code>OSLogType</code> for a given <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -186,9 +195,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OV15CleanroomLogger8LogEntry7Payload"></a>
-                    <a name="//apple_ref/swift/Enum/Payload" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OV15CleanroomLogger8LogEntry7Payload">Payload</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/default" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">default</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -196,27 +205,59 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents the payload contained within a log entry.</p>
+                        <p>The default translation from a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code> to an
+ <code>OSLogType</code> value:</p>
 
-                        <a href="../Structs/LogEntry/Payload.html" class="slightly-smaller">See more</a>
+<table><thead>
+<tr>
+<th>LogSeverity</th>
+<th>OSLogType</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.verbose</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.debug</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.info</code></td>
+<td><code>.default</code></td>
+</tr>
+<tr>
+<td><code>.warning</code></td>
+<td><code>.default</code></td>
+</tr>
+<tr>
+<td><code>.error</code></td>
+<td><code>.error</code></td>
+</tr>
+</tbody></table>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Payload</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV15CleanroomLogger8LogEntry7payloadOS0_7Payload"></a>
-                    <a name="//apple_ref/swift/Property/payload" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV15CleanroomLogger8LogEntry7payloadOS0_7Payload">payload</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator15promoteWarningsFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/promoteWarnings" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator15promoteWarningsFMS0_S0_">promoteWarnings</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -224,26 +265,59 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The payload of the log entry.</p>
+                        <p>Same as <code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code>, but with <code><a href="../Enums/LogSeverity.html#/s:FO15CleanroomLogger11LogSeverity7warningFMS0_S0_">LogSeverity.warning</a></code> promoted to
+ <code>OSLogType.error</code>.</p>
+
+<table><thead>
+<tr>
+<th>LogSeverity</th>
+<th>OSLogType</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.verbose</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.debug</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.info</code></td>
+<td><code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code></td>
+</tr>
+<tr>
+<td><code>.warning</code></td>
+<td><code>.error</code></td>
+</tr>
+<tr>
+<td><code>.error</code></td>
+<td><code>.error</code></td>
+</tr>
+</tbody></table>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry/Payload.html">Payload</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">promoteWarnings</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV15CleanroomLogger8LogEntry8severityOS_11LogSeverity"></a>
-                    <a name="//apple_ref/swift/Property/severity" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV15CleanroomLogger8LogEntry8severityOS_11LogSeverity">severity</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator24promoteWarningsAndErrorsFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/promoteWarningsAndErrors" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator24promoteWarningsAndErrorsFMS0_S0_">promoteWarningsAndErrors</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -251,26 +325,60 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The severity of the log entry.</p>
+                        <p>Same as <code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code>, but with <code><a href="../Enums/LogSeverity.html#/s:FO15CleanroomLogger11LogSeverity7warningFMS0_S0_">LogSeverity.warning</a></code> and
+ <code><a href="../Enums/LogSeverity.html#/s:FO15CleanroomLogger11LogSeverity5errorFMS0_S0_">LogSeverity.error</a></code> promoted to <code>OSLogType.error</code> and <code>OSLogType.fault</code>,
+ respectively.</p>
+
+<table><thead>
+<tr>
+<th>LogSeverity</th>
+<th>OSLogType</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.verbose</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.debug</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.info</code></td>
+<td><code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code></td>
+</tr>
+<tr>
+<td><code>.warning</code></td>
+<td><code>.error</code></td>
+</tr>
+<tr>
+<td><code>.error</code></td>
+<td><code>.error</code></td>
+</tr>
+</tbody></table>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">promoteWarningsAndErrors</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV15CleanroomLogger8LogEntry15callingFilePathSS"></a>
-                    <a name="//apple_ref/swift/Property/callingFilePath" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV15CleanroomLogger8LogEntry15callingFilePathSS">callingFilePath</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator12allAsDefaultFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/allAsDefault" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator12allAsDefaultFMS0_S0_">allAsDefault</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,27 +386,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The path of the source file containing the calling function that issued
- the log request.</p>
+                        <p><code>OSLogType.default</code> is used for all messages.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callingFilePath</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">allAsDefault</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV15CleanroomLogger8LogEntry15callingFileLineSi"></a>
-                    <a name="//apple_ref/swift/Property/callingFileLine" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV15CleanroomLogger8LogEntry15callingFileLineSi">callingFileLine</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator9allAsInfoFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/allAsInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator9allAsInfoFMS0_S0_">allAsInfo</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -306,26 +417,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The line within the source file at which the log request was issued.</p>
+                        <p><code>OSLogType.info</code> is used for all messages.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callingFileLine</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">allAsInfo</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV15CleanroomLogger8LogEntry17callingStackFrameSS"></a>
-                    <a name="//apple_ref/swift/Property/callingStackFrame" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV15CleanroomLogger8LogEntry17callingStackFrameSS">callingStackFrame</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator10allAsDebugFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/allAsDebug" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator10allAsDebugFMS0_S0_">allAsDebug</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -333,26 +448,30 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The stack frame signature of the caller that issued the log request.</p>
+                        <p><code>OSLogType.debug</code> is used for all messages.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callingStackFrame</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">allAsDebug</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV15CleanroomLogger8LogEntry15callingThreadIDVs6UInt64"></a>
-                    <a name="//apple_ref/swift/Property/callingThreadID" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV15CleanroomLogger8LogEntry15callingThreadIDVs6UInt64">callingThreadID</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator8functionFMS0_FFVS_8LogEntryVSC9OSLogTypeS0_"></a>
+                    <a name="//apple_ref/swift/Element/function" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator8functionFMS0_FFVS_8LogEntryVSC9OSLogTypeS0_">function</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -360,169 +479,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A numeric identifier for the calling thread. Note that thread IDs are
- recycled over time.</p>
+                        <p>Uses a custom function to determine the <code>OSLogType</code> to use for each
+ <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">callingThreadID</span><span class="p">:</span> <span class="kt">UInt64</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">function</span><span class="p">((</span><span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">OSLogType</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vV15CleanroomLogger8LogEntry9timestampV10Foundation4Date"></a>
-                    <a name="//apple_ref/swift/Property/timestamp" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV15CleanroomLogger8LogEntry9timestampV10Foundation4Date">timestamp</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The time at which the <code>LogEntry</code> was created.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">timestamp</span><span class="p">:</span> <span class="kt">Date</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FV15CleanroomLogger8LogEntrycFT7payloadOS0_7Payload8severityOS_11LogSeverity15callingFilePathSS15callingFileLineSi17callingStackFrameSS15callingThreadIDVs6UInt649timestampV10Foundation4Date_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(payload:severity:callingFilePath:callingFileLine:callingStackFrame:callingThreadID:timestamp:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger8LogEntrycFT7payloadOS0_7Payload8severityOS_11LogSeverity15callingFilePathSS15callingFileLineSi17callingStackFrameSS15callingThreadIDVs6UInt649timestampV10Foundation4Date_S0_">init(payload:severity:callingFilePath:callingFileLine:callingStackFrame:callingThreadID:timestamp:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code>LogEntry</code> initializer.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry/Payload.html">Payload</a></span><span class="p">,</span> <span class="nv">severity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span><span class="p">,</span> <span class="nv">callingFilePath</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">callingFileLine</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">callingStackFrame</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">callingThreadID</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="nv">timestamp</span><span class="p">:</span> <span class="kt">Date</span> <span class="o">=</span> <span class="kt">Date</span><span class="p">())</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>payload</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The payload of the <code>LogEntry</code> being constructed.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>severity</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>LogSeverity</code> of the message being logged.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>callingFilePath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The path of the source file containing the calling function that issued the log request.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>callingFileLine</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The line within the source file at which the log request was issued.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>callingStackFrame</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The stack frame signature of the caller that issued the log request.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>callingThreadID</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A numeric identifier for the calling thread. Note that thread IDs are recycled over time.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>timestamp</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The time at which the log entry was created. Defaults to the current time if not specified.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
