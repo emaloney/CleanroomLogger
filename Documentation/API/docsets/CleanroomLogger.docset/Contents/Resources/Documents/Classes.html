@@ -40,7 +40,7 @@
                 <a href="Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/ConsoleLogRecorder.html">ConsoleLogRecorder</a>
+                <a href="Classes/ConsoleLogConfiguration/StandardStreamsMode.html">– StandardStreamsMode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
@@ -58,6 +58,9 @@
                 <a href="Classes/LogRecorderBase.html">LogRecorderBase</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/OutputStreamLogRecorder.html">OutputStreamLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/ParsableLogFormatter.html">ParsableLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -70,10 +73,16 @@
                 <a href="Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/StandardErrorLogRecorder.html">StandardErrorLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/StandardLogFormatter.html">StandardLogFormatter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/StandardStreamsLogRecorder.html">StandardStreamsLogRecorder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a>
@@ -356,8 +365,9 @@ initializer documentation for details.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>StandardOutputLogRecorder</code> logs messages by writing to the standard output
-stream of the running process.</p>
+                        <p>The <code>StandardOutputLogRecorder</code> is an <code><a href="Classes/OutputStreamLogRecorder.html">OutputStreamLogRecorder</a></code> that writes 
+log messages to the standard output stream (<q>`stdout`</q>) of the running
+process.</p>
 
                         <a href="Classes/StandardOutputLogRecorder.html" class="slightly-smaller">See more</a>
                       </div>
@@ -365,7 +375,7 @@ stream of the running process.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">StandardOutputLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/LogRecorderBase.html">LogRecorderBase</a></span></code></pre>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">StandardOutputLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/OutputStreamLogRecorder.html">OutputStreamLogRecorder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -399,6 +409,39 @@ maintain a directory of log files that are rotated on a daily basis.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">RotatingLogFileConfiguration</span><span class="p">:</span> <span class="kt"><a href="Classes/BasicLogConfiguration.html">BasicLogConfiguration</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger23OutputStreamLogRecorder"></a>
+                    <a name="//apple_ref/swift/Class/OutputStreamLogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger23OutputStreamLogRecorder">OutputStreamLogRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>OutputStreamLogRecorder</code> logs messages by writing to the standard
+output stream of the running process.</p>
+
+                        <a href="Classes/OutputStreamLogRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">OutputStreamLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/LogRecorderBase.html">LogRecorderBase</a></span></code></pre>
 
                         </div>
                       </div>
@@ -574,39 +617,6 @@ more convenient to use within your code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C15CleanroomLogger18ConsoleLogRecorder"></a>
-                    <a name="//apple_ref/swift/Class/ConsoleLogRecorder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C15CleanroomLogger18ConsoleLogRecorder">ConsoleLogRecorder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>ConsoleLogRecorder</code> logs messages by writing to the standard output
-stream of the running process.</p>
-
-                        <a href="Classes/ConsoleLogRecorder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">ConsoleLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/LogRecorderBase.html">LogRecorderBase</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:C15CleanroomLogger25ConcatenatingLogFormatter"></a>
                     <a name="//apple_ref/swift/Class/ConcatenatingLogFormatter" class="dashAnchor"></a>
                     <a class="token" href="#/s:C15CleanroomLogger25ConcatenatingLogFormatter">ConcatenatingLogFormatter</a>
@@ -655,8 +665,8 @@ stream of the running process.</p>
 tvOS 10.0, and watchOS 3.0.</p>
 
 <p>If <code>os_log()</code> is not available, or if the <code>StandardLogConfiguration</code> is
-configured to bypass it, log messages will be written to the <code>stdout</code>
-output stream of the running process (via the <code><a href="Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a></code>).</p>
+configured to bypass it, log messages will be written to either the <code>stdout</code>
+or <code>stderr</code> output stream of the running process.</p>
 
                         <a href="Classes/ConsoleLogConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -665,6 +675,47 @@ output stream of the running process (via the <code><a href="Classes/StandardOut
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ConsoleLogConfiguration</span><span class="p">:</span> <span class="kt"><a href="Classes/BasicLogConfiguration.html">BasicLogConfiguration</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger26StandardStreamsLogRecorder"></a>
+                    <a name="//apple_ref/swift/Class/StandardStreamsLogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger26StandardStreamsLogRecorder">StandardStreamsLogRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>StandardStreamsLogRecorder</code> is a <code><a href="Protocols/LogRecorder.html">LogRecorder</a></code> that writes log messages
+to either the standard output stream (<q>`stdout`</q>) or the standard error stream
+(<q>`stderr`</q>) of the running process.</p>
+
+<p>Messages are directed to the appropriate stream depending on the <code>severity</code>
+property of the <code><a href="Structs/LogEntry.html">LogEntry</a></code> being recorded.</p>
+
+<p>Messages having a severity of <code>.verbose</code>, <code>.debug</code> and <code>.info</code> will be
+directed to <code>stdout</code>, while those with a severity of <code>.warning</code> and <code>.error</code>
+are directed to <code>stderr</code>.</p>
+
+                        <a href="Classes/StandardStreamsLogRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">StandardStreamsLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/LogRecorderBase.html">LogRecorderBase</a></span></code></pre>
 
                         </div>
                       </div>
@@ -697,6 +748,40 @@ output stream of the running process (via the <code><a href="Classes/StandardOut
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">LogRecorderBase</span><span class="p">:</span> <span class="kt"><a href="Protocols/LogRecorder.html">LogRecorder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger24StandardErrorLogRecorder"></a>
+                    <a name="//apple_ref/swift/Class/StandardErrorLogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger24StandardErrorLogRecorder">StandardErrorLogRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>StandardErrorLogRecorder</code> is an <code><a href="Classes/OutputStreamLogRecorder.html">OutputStreamLogRecorder</a></code> that writes
+log messages to the standard error stream (<q>`stderr`</q>) of the running
+process.</p>
+
+                        <a href="Classes/StandardErrorLogRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">StandardErrorLogRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/OutputStreamLogRecorder.html">OutputStreamLogRecorder</a></span></code></pre>
 
                         </div>
                       </div>

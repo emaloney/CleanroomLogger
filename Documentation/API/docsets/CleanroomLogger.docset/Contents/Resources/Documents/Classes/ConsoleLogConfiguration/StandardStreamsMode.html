@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TextRepresentation Enum Reference</title>
+    <title>StandardStreamsMode Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/TextRepresentation" class="dashAnchor"></a>
-    <a title="TextRepresentation Enum Reference"></a>
+    <a name="//apple_ref/swift/Enum/StandardStreamsMode" class="dashAnchor"></a>
+    <a title="StandardStreamsMode Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../../index.html">CleanroomLogger Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../../index.html">CleanroomLogger Reference</a>
         <img id="carat" src="../../img/carat.png" />
-        TextRepresentation Enum Reference
+        StandardStreamsMode Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -197,14 +197,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>TextRepresentation</h1>
+            <h1>StandardStreamsMode</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TextRepresentation</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">StandardStreamsMode</span></code></pre>
 
                 </div>
               </div>
-            <p>Specifies how a <code><a href="../../Enums/LogSeverity.html">LogSeverity</a></code> value should be represented in text.</p>
+            <p>Governs when a <code><a href="../../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a></code> directs log messages to 
+ <code>stdout</code> and <code>stderr</code>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -213,9 +214,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation11capitalizedFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/capitalized" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation11capitalizedFMS1_S1_">capitalized</a>
+                    <a name="/s:FOC15CleanroomLogger23ConsoleLogConfiguration19StandardStreamsMode13useAsFallbackFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/useAsFallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC15CleanroomLogger23ConsoleLogConfiguration19StandardStreamsMode13useAsFallbackFMS1_S1_">useAsFallback</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -223,15 +224,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies that the <code><a href="../../Enums/LogSeverity.html">LogSeverity</a></code> should be output as a
- human-readable word with the initial capitalization.</p>
+                        <p>Indicates that logging will be directed to <code>stdout</code> and <code>stderr</code>
+ only as a fallback on platforms where <code>os_log()</code> is not available.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">capitalized</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">useAsFallback</span></code></pre>
 
                         </div>
                       </div>
@@ -245,9 +246,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation9lowercaseFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/lowercase" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation9lowercaseFMS1_S1_">lowercase</a>
+                    <a name="/s:FOC15CleanroomLogger23ConsoleLogConfiguration19StandardStreamsMode9useAlwaysFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/useAlways" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC15CleanroomLogger23ConsoleLogConfiguration19StandardStreamsMode9useAlwaysFMS1_S1_">useAlways</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -255,15 +256,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies that the <code><a href="../../Enums/LogSeverity.html">LogSeverity</a></code> should be output as a 
- human-readable word in all lowercase characters.</p>
+                        <p>Indicates that <code>stdout</code> and <code>stderr</code> will always be used,
+ regardless of whether logging using <code>os_log()</code> is also occurring.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">lowercase</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">useAlways</span></code></pre>
 
                         </div>
                       </div>
@@ -277,9 +278,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation9uppercaseFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/uppercase" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation9uppercaseFMS1_S1_">uppercase</a>
+                    <a name="/s:FOC15CleanroomLogger23ConsoleLogConfiguration19StandardStreamsMode14useExclusivelyFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/useExclusively" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOC15CleanroomLogger23ConsoleLogConfiguration19StandardStreamsMode14useExclusivelyFMS1_S1_">useExclusively</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -287,82 +288,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies that the <code><a href="../../Enums/LogSeverity.html">LogSeverity</a></code> should be output as a 
- human-readable word in all uppercase characters.</p>
+                        <p>Indicates that <code>stdout</code> and <code>stderr</code> are to be used exclusively;
+ <code>os_log()</code> will not be used even when it is available.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">uppercase</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation7numericFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/numeric" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation7numericFMS1_S1_">numeric</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies that the <code>rawValue</code> of the <code><a href="../../Enums/LogSeverity.html">LogSeverity</a></code> should be output
- as an integer within a string.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">numeric</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation10colorCodedFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/colorCoded" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOO15CleanroomLogger13SeverityStyle18TextRepresentation10colorCodedFMS1_S1_">colorCoded</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specifies that the <code>rawValue</code> of the <code><a href="../../Enums/LogSeverity.html">LogSeverity</a></code> should be output
- as an emoji character whose color represents the level of severity. 
- The specific characters used to represent each severity level may
- change over time, so this representation is <em>not</em> suitable for 
- parsing.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="n">colorCoded</span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">useExclusively</span></code></pre>
 
                         </div>
                       </div>
