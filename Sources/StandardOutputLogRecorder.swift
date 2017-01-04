@@ -28,7 +28,7 @@ open class StandardOutputLogRecorder: OutputStreamLogRecorder
     */
     public init(formatters: [LogFormatter], queue: DispatchQueue? = nil)
     {
-        super.init(stream: __stdoutp, formatters: formatters, queue: queue)
+        super.init(stream: stdout, formatters: formatters, queue: queue)
     }
 }
 
