@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B2811471E1D63D300878EC2 /* OutputStreamLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2811461E1D63D300878EC2 /* OutputStreamLogRecorder.swift */; };
+		3B2811491E1D65E100878EC2 /* StandardErrorLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2811481E1D65E100878EC2 /* StandardErrorLogRecorder.swift */; };
+		3B28114B1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B28114A1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift */; };
 		3B475D271DB47B8A0047D397 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */; };
 		3B475D281DB47B8A0047D397 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */; };
 		3B475D291DB47B8A0047D397 /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */; };
@@ -43,7 +46,6 @@
 		3B4EE3521E1AEF49002A92BC /* OSLogTypeTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE3511E1AEF49002A92BC /* OSLogTypeTranslator.swift */; };
 		3B4EE3561E1BED6D002A92BC /* XcodeTraceLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE3551E1BED6D002A92BC /* XcodeTraceLogFormatter.swift */; };
 		3B4EE3581E1C0404002A92BC /* ConsoleLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE3571E1C0404002A92BC /* ConsoleLogConfiguration.swift */; };
-		3B4EE35A1E1C08FC002A92BC /* ConsoleLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE3591E1C08FC002A92BC /* ConsoleLogRecorder.swift */; };
 		3B4EE35C1E1C2A08002A92BC /* OSLogMimicFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE35B1E1C2A08002A92BC /* OSLogMimicFormatter.swift */; };
 		3B4EE35E1E1C3DFB002A92BC /* ProcessNameLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE35D1E1C3DFB002A92BC /* ProcessNameLogFormatter.swift */; };
 		3B4EE3601E1C3E84002A92BC /* ProcessIDLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE35F1E1C3E84002A92BC /* ProcessIDLogFormatter.swift */; };
@@ -61,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B2811461E1D63D300878EC2 /* OutputStreamLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputStreamLogRecorder.swift; sourceTree = "<group>"; };
+		3B2811481E1D65E100878EC2 /* StandardErrorLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorLogRecorder.swift; sourceTree = "<group>"; };
+		3B28114A1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardStreamsLogRecorder.swift; sourceTree = "<group>"; };
 		3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicLogConfiguration.swift; sourceTree = "<group>"; };
 		3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallingThreadLogFormatter.swift; sourceTree = "<group>"; };
 		3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSiteLogFormatter.swift; sourceTree = "<group>"; };
@@ -98,7 +103,6 @@
 		3B4EE3511E1AEF49002A92BC /* OSLogTypeTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogTypeTranslator.swift; sourceTree = "<group>"; };
 		3B4EE3551E1BED6D002A92BC /* XcodeTraceLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeTraceLogFormatter.swift; sourceTree = "<group>"; };
 		3B4EE3571E1C0404002A92BC /* ConsoleLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogConfiguration.swift; sourceTree = "<group>"; };
-		3B4EE3591E1C08FC002A92BC /* ConsoleLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogRecorder.swift; sourceTree = "<group>"; };
 		3B4EE35B1E1C2A08002A92BC /* OSLogMimicFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogMimicFormatter.swift; sourceTree = "<group>"; };
 		3B4EE35D1E1C3DFB002A92BC /* ProcessNameLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessNameLogFormatter.swift; sourceTree = "<group>"; };
 		3B4EE35F1E1C3E84002A92BC /* ProcessIDLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessIDLogFormatter.swift; sourceTree = "<group>"; };
@@ -140,7 +144,6 @@
 				3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */,
 				3B475D061DB47B8A0047D397 /* ConcatenatingLogFormatter.swift */,
 				3B4EE3571E1C0404002A92BC /* ConsoleLogConfiguration.swift */,
-				3B4EE3591E1C08FC002A92BC /* ConsoleLogRecorder.swift */,
 				3B475D081DB47B8A0047D397 /* DelimiterLogFormatter.swift */,
 				3B475D091DB47B8A0047D397 /* FieldBasedLogFormatter.swift */,
 				3B475D0A1DB47B8A0047D397 /* FileLogRecorder.swift */,
@@ -158,6 +161,7 @@
 				3B4EE35B1E1C2A08002A92BC /* OSLogMimicFormatter.swift */,
 				3B4EE34F1E1AEB3A002A92BC /* OSLogRecorder.swift */,
 				3B4EE3511E1AEF49002A92BC /* OSLogTypeTranslator.swift */,
+				3B2811461E1D63D300878EC2 /* OutputStreamLogRecorder.swift */,
 				3B475D161DB47B8A0047D397 /* ParsableLogFormatter.swift */,
 				3B475D171DB47B8A0047D397 /* PayloadLogFormatter.swift */,
 				3B4EE35F1E1C3E84002A92BC /* ProcessIDLogFormatter.swift */,
@@ -167,8 +171,10 @@
 				3B475D1C1DB47B8A0047D397 /* RotatingLogFileRecorder.swift */,
 				3B475D1D1DB47B8A0047D397 /* SeverityLogFormatter.swift */,
 				3B475D1E1DB47B8A0047D397 /* StackFrameLogFormatter.swift */,
+				3B2811481E1D65E100878EC2 /* StandardErrorLogRecorder.swift */,
 				3B475D1F1DB47B8A0047D397 /* StandardLogFormatter.swift */,
 				3B475D201DB47B8A0047D397 /* StandardOutputLogRecorder.swift */,
+				3B28114A1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift */,
 				3B475D221DB47B8A0047D397 /* TimestampLogFormatter.swift */,
 				3B475D241DB47B8A0047D397 /* XcodeLogConfiguration.swift */,
 				3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */,
@@ -364,6 +370,7 @@
 				3B475D471DB47B8A0047D397 /* StandardOutputLogRecorder.swift in Sources */,
 				3B475D421DB47B8A0047D397 /* RotatingLogFileConfiguration.swift in Sources */,
 				3B4EE35C1E1C2A08002A92BC /* OSLogMimicFormatter.swift in Sources */,
+				3B2811471E1D63D300878EC2 /* OutputStreamLogRecorder.swift in Sources */,
 				3B475D3E1DB47B8A0047D397 /* PayloadLogFormatter.swift in Sources */,
 				3B475D271DB47B8A0047D397 /* BasicLogConfiguration.swift in Sources */,
 				3B475D311DB47B8A0047D397 /* FileLogRecorder.swift in Sources */,
@@ -371,15 +378,16 @@
 				3B475D301DB47B8A0047D397 /* FieldBasedLogFormatter.swift in Sources */,
 				3B475D391DB47B8A0047D397 /* LogReceptacle.swift in Sources */,
 				3B475D351DB47B8A0047D397 /* LogConfiguration.swift in Sources */,
-				3B4EE35A1E1C08FC002A92BC /* ConsoleLogRecorder.swift in Sources */,
 				3B475D381DB47B8A0047D397 /* LogFormatter.swift in Sources */,
 				3B475D2D1DB47B8A0047D397 /* ConcatenatingLogFormatter.swift in Sources */,
 				3B4EE3581E1C0404002A92BC /* ConsoleLogConfiguration.swift in Sources */,
 				3B475D451DB47B8A0047D397 /* StackFrameLogFormatter.swift in Sources */,
 				3B475D3A1DB47B8A0047D397 /* LogRecorder.swift in Sources */,
+				3B28114B1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift in Sources */,
 				3B4EE3601E1C3E84002A92BC /* ProcessIDLogFormatter.swift in Sources */,
 				3B475D321DB47B8A0047D397 /* LiteralLogFormatter.swift in Sources */,
 				3B475D3B1DB47B8A0047D397 /* LogRecorderBase.swift in Sources */,
+				3B2811491E1D65E100878EC2 /* StandardErrorLogRecorder.swift in Sources */,
 				3B475D461DB47B8A0047D397 /* StandardLogFormatter.swift in Sources */,
 				3B475D3D1DB47B8A0047D397 /* ParsableLogFormatter.swift in Sources */,
 				3B475D4C1DB47B8A0047D397 /* XcodeLogFormatter.swift in Sources */,

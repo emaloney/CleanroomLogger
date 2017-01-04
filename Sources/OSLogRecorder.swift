@@ -21,7 +21,7 @@ import os.log
 public struct OSLogRecorder: LogRecorder
 {
     /** `true` if the `os_log()` function is available at runtime. */
-    public static let isOSLogAvailable: Bool = {
+    public static let isAvailable: Bool = {
         guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) else {
             return false
         }
@@ -48,28 +48,6 @@ public struct OSLogRecorder: LogRecorder
      tvOS 10.0, and watchOS 3.0. On incompatible systems, this initializer
      will fail.
      
-     - parameter formatter: A `LogFormatter`s to use for formatting log entries
-     to be recorded by the receiver.
-     
-     - parameter subsystem: The name of the subsystem performing the logging.
-     Defaults to the empty string (`""`) if not specified.
-     
-     - parameter logTypeTranslator: An `OSLogTypeTranslator` value that governs
-     how `OSLogType` values are determined for log entries.
-     */
-    public init?(formatter: LogFormatter, subsystem: String = "", logTypeTranslator: OSLogTypeTranslator = .strict)
-    {
-        self.init(formatters: [formatter], subsystem: subsystem, logTypeTranslator: logTypeTranslator)
-    }
-
-    /**
-     Initialize an `OSLogRecorder` instance, which will record log entries
-     using the `os_log()` function.
-     
-     - important: `os_log()` is only supported as of iOS 10.0, macOS 10.12,
-     tvOS 10.0, and watchOS 3.0. On incompatible systems, this initializer
-     will fail.
-     
      - parameter formatters: An array of `LogFormatter`s to use for formatting
      log entries to be recorded by the receiver. Each formatter is consulted in
      sequence, and the formatted string returned by the first formatter to
@@ -82,15 +60,18 @@ public struct OSLogRecorder: LogRecorder
      
      - parameter logTypeTranslator: An `OSLogTypeTranslator` value that governs
      how `OSLogType` values are determined for log entries.
+     
+     - parameter queue: The `DispatchQueue` to use for the recorder. If `nil`,
+     a new queue will be created.
      */
-    public init?(formatters: [LogFormatter] = [XcodeLogFormatter()], subsystem: String = "", logTypeTranslator: OSLogTypeTranslator = .strict)
+    public init?(formatters: [LogFormatter], subsystem: String = "", logTypeTranslator: OSLogTypeTranslator = .strict, queue: DispatchQueue? = nil)
     {
         guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) else {
             return nil
         }
         
         self.log = OSLog(subsystem: subsystem, category: "CleanroomLogger")
-        self.queue = DispatchQueue(label: "CleanroomLogger.OSLogRecorder", attributes: [])
+        self.queue = queue != nil ? queue! : DispatchQueue(label: String(describing: type(of: self)), attributes: [])
         self.formatters = formatters
         self.logTypeTranslator = logTypeTranslator
     }
@@ -110,39 +91,14 @@ public struct OSLogRecorder: LogRecorder
 
      - parameter synchronousMode: If `true`, the receiver should record the log
      entry synchronously and flush any buffers before returning.
-    */
+     */
     public func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) else {
             fatalError("os.log module not supported on this platform")    // things should never get this far; failable initializers should prevent this condition
         }
-
-        autoreleasepool {
-            let dispatch = dispatcher(currentQueue, synchronousMode: synchronousMode)
-            dispatch {
-                autoreleasepool {
-                    let type = self.logTypeTranslator.osLogType(logEntry: entry)
-                    os_log("%@", log: self.log, type: type, message)
-                }
-            }
-        }
-    }
-    
-    private func dispatcher(_ currentQueue: DispatchQueue, synchronousMode: Bool = false)
-        -> (@escaping () -> Void) -> Void
-    {
-        let dispatcher: (@escaping () -> Void) -> Void = { [queue] block in
-            if !queue.isEqual(currentQueue) {
-                if synchronousMode {
-                    return queue.sync(execute: block)
-                } else {
-                    return queue.async(execute: block)
-                }
-            }
-            else {
-                block()
-            }
-        }
-        return dispatcher
+        
+        let type = self.logTypeTranslator.osLogType(logEntry: entry)
+        os_log("%@", log: self.log, type: type, message)
     }
 }

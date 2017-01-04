@@ -33,10 +33,10 @@ open class XcodeLogConfiguration: ConsoleLogConfiguration
      will be lowered (if necessary) to `.verbose` and `synchronousMode` will be
      used when recording log entries.
      
-     - parameter useStdoutOnly: If `true`, the `os_log()` function is not used
-     even if available; instead, all log messages are sent to `stdout` using
-     the `StandardOutputLogRecorder`.
-     
+     - parameter stdStreamsMode: A `StandardStreamsMode` value that governs
+     when standard console streams (i.e., `stdout` and `stderr`) should be used
+     for recording log output.
+
      - parameter mimicOSLogOutput: If `true`, any output sent to `stdout` will
      be formatted in such a way as to mimic the output seen when `os_log()` is
      used.
@@ -47,17 +47,17 @@ open class XcodeLogConfiguration: ConsoleLogConfiguration
      - parameter filters: The `LogFilter`s to use when deciding whether a given
      `LogEntry` should be passed along for recording.
     */
-    public init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, useStdoutOnly: Bool = false, mimicOSLogOutput: Bool = true, showCallSite: Bool = true, filters: [LogFilter] = [])
+    public init(minimumSeverity: LogSeverity = .info, debugMode: Bool = false, verboseDebugMode: Bool = false, stdStreamsMode: StandardStreamsMode = .useAsFallback, mimicOSLogOutput: Bool = true, showCallSite: Bool = true, filters: [LogFilter] = [])
     {
         let origFormatter = XcodeLogFormatter(showCallSite: showCallSite)
 
-        let formatter: LogFormatter
-        if mimicOSLogOutput && !ConsoleLogRecorder.willUseOSLog(useStdoutOnly: useStdoutOnly) {
-            formatter = ConcatenatingLogFormatter(formatters: [OSLogMimicFormatter(), origFormatter])
+        let stdoutFormatters: [LogFormatter]
+        if mimicOSLogOutput && ConsoleLogConfiguration.shouldUseStandardStreams(mode: stdStreamsMode) {
+            stdoutFormatters = [ConcatenatingLogFormatter(formatters: [OSLogMimicFormatter(), origFormatter])]
         } else {
-            formatter = origFormatter
+            stdoutFormatters = [FieldBasedLogFormatter(fields: [.timestamp(.default), .delimiter(.spacedPipe), .callingThread(.hex), .delimiter(.space), .custom(origFormatter)])]
         }
         
-        super.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, useStdoutOnly: useStdoutOnly, filters: filters, formatters: [formatter])
+        super.init(minimumSeverity: minimumSeverity, debugMode: debugMode, verboseDebugMode: verboseDebugMode, stdStreamsMode: stdStreamsMode, filters: filters, osLogFormatters: [origFormatter], stdoutFormatters: stdoutFormatters)
     }
 }
