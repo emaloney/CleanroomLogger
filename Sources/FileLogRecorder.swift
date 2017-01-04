@@ -88,13 +88,15 @@ open class FileLogRecorder: LogRecorderBase
             addNewline = !newlines.contains(lastChar)
         }
 
-        var writeStr = message
+        fputs(message, file)
+
         if addNewline {
-            writeStr += "\n"
+            fputc(0x0A, file)
         }
 
-        fputs(writeStr, file)
-        fflush(file)
+        if synchronousMode {
+            fflush(file)
+        }
     }
 }
 
