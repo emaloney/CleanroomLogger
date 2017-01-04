@@ -48,28 +48,6 @@ public struct OSLogRecorder: LogRecorder
      tvOS 10.0, and watchOS 3.0. On incompatible systems, this initializer
      will fail.
      
-     - parameter formatter: A `LogFormatter`s to use for formatting log entries
-     to be recorded by the receiver.
-     
-     - parameter subsystem: The name of the subsystem performing the logging.
-     Defaults to the empty string (`""`) if not specified.
-     
-     - parameter logTypeTranslator: An `OSLogTypeTranslator` value that governs
-     how `OSLogType` values are determined for log entries.
-     */
-    public init?(formatter: LogFormatter, subsystem: String = "", logTypeTranslator: OSLogTypeTranslator = .strict)
-    {
-        self.init(formatters: [formatter], subsystem: subsystem, logTypeTranslator: logTypeTranslator)
-    }
-
-    /**
-     Initialize an `OSLogRecorder` instance, which will record log entries
-     using the `os_log()` function.
-     
-     - important: `os_log()` is only supported as of iOS 10.0, macOS 10.12,
-     tvOS 10.0, and watchOS 3.0. On incompatible systems, this initializer
-     will fail.
-     
      - parameter formatters: An array of `LogFormatter`s to use for formatting
      log entries to be recorded by the receiver. Each formatter is consulted in
      sequence, and the formatted string returned by the first formatter to

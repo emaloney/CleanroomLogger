@@ -15,27 +15,6 @@ stream of the running process.
 open class StandardOutputLogRecorder: LogRecorderBase
 {
     /**
-     Initializes a `StandardOutputLogRecorder` instance to use the
-     `XcodeLogFormatter` implementation for formatting log messages.
-     */
-    public init()
-    {
-        super.init(formatters: [XcodeLogFormatter()])
-    }
-
-    /**
-     Initializes a `StandardOutputLogRecorder` instance to use the specified
-     `LogFormatter` implementation for formatting log messages.
-
-     - parameter formatter: The `LogFormatter` to use for formatting log
-     messages recorded by the receiver.
-    */
-    public init(formatter: LogFormatter)
-    {
-        super.init(formatters: [formatter])
-    }
-
-    /**
      Initializes a `StandardOutputLogRecorder` instance to use the specified
      `LogFormatter` implementation for formatting log messages.
 
