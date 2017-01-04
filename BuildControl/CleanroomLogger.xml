@@ -27,13 +27,13 @@ The API provided by CleanroomLogger is designed to be readily understood by anyo
 	
 	<Var name="project:readme:preamble">^q(####) Why CleanroomLogger?
 
-If you’re familiar with [`NSLog()`](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Miscellaneous/Foundation_Functions/index.html#//apple_ref/c/func/NSLog), then you’ll understand the purpose of CleanroomLogger.
+CleanroomLogger can write messages to Apple's new Unified Logging System, to the UNIX `stdout` and `stderr` streams, and to files. CleanroomLogger is also heavily extensible, so you can roll your own implementations that send messages over sockets or HTTP connections.
 
-As with `NSLog()`, CleanroomLogger messages are (by default) directed to the Apple System Log and to the `stderr` output stream of the running process.
+If you’ve used another logging system such as CocoaLumberjack or log4j, then you’ll understand the basic purpose of CleanroomLogger.
 
-However, CleanroomLogger adds a number of important features not provided by `NSLog()`:
+In the past, Objective-C developers might have used `NSLog()` for logging; Swift users today might use the `print()` function. However, CleanroomLogger adds a number of important features not provided by these:
 
-1. **Each log message is associated with a [`LogSeverity`](${docs:api:root}/Enums/LogSeverity.html) value indicating the importance of that message.** This enables you to very easily do things like squelch out low-priority messages—such as those logged with `.Debug` and `.Verbose` severity values—in production binaries, thereby lessening the amount of work your App Store build does at runtime.
+1. **Each log message is associated with a [`LogSeverity`](${docs:api:root}/Enums/LogSeverity.html) value indicating the importance of that message.** This enables you to very easily do things like squelch out low-priority messages—such as those logged with `.debug` and `.verbose` severity values—in production binaries, thereby lessening the amount of work your App Store build does at runtime.
 
 2. **CleanroomLogger makes it easy to find the _where_ your code is issuing log messages.** With `NSLog()` and `print()`, it can sometimes be difficult to figure out what code is responsible for generating log messages. When a message is constructed programmatically, for example, it may not be possible to find its source. CleanroomLogger outputs the file and line responsible for each log message, so you can literally *go straight to the source*.
 
@@ -50,7 +50,7 @@ However, CleanroomLogger adds a number of important features not provided by `NS
 
 7. **CleanroomLogger is respectful of the calling thread.** `NSLog()` does a lot of work on the calling thread, and when used from the main thread, it can lead to lower display frame rates. When CleanroomLogger accepts a log request, it is immediately handed off to an asynchronous background queue for further dispatching, letting the calling thread get back to work as quickly as possible. Each `LogRecorder` also maintains its own asynchronous background queue, which is used to format log messages and write them to the underlying storage facility. This design ensures that if one recorder gets bogged down, it won’t prevent the processing of log messages by other recorders.
 
-8. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.Info` as the minimum `LogSeverity`, messages with a severity of `.Verbose` or `.Debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.</Var>
+8. **CleanroomLogger uses Swift short-circuiting to avoid needless code execution.** For example, in production code with `.info` as the minimum `LogSeverity`, messages with a severity of `.verbose` or `.debug` will always be ignored. To avoid unneeded code execution, `Log.debug` and `Log.verbose` in this case would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels.</Var>
 
 	<Var name="project:readme:summation">^q(##) Architectural Overview
 
@@ -73,22 +73,6 @@ In terms of threads of execution, each request to log *anything* can go through 
 3. On each `LogRecorder` queue:
   1. The `LogEntry` is passed sequentially to each `LogFormatter` provided by the `LogRecorder`, giving the formatters a chance to create the formatted message for the `LogEntry`.
     - If no `LogFormatter` returns a string representation of `LogEntry`, further processing stops and nothing is recorded.
-    - If any `LogFormatter` returns a non-`nil` value to represent the formatted message of the `LogEntry`, that string is then passed to the `LogRecorder` for final logging.
-
-^q(###) Full Disclosure: A Note about Global State
-
-If you’ve been reading the op-ed pages lately, you know that Global State is the enemy of civilization. You may also have noticed that `Log`’s static variables constitute global state.
-
-Before you pick up your phone and demand that Thought Control activates its network of Twitter shamebots because a heretic has been detected, consider:
-
-- In most cases, `Log` is used as an interface to two resources that are effectively singletons: the Apple System Log daemon of the device where the code will be running, and the `stderr` output stream of the running application. `Log` *maintains* global state because it *represents* global state.
-
-- The state represented by `Log` is effectively immutable. The public interface is read-only, and the values are guaranteed to only ever be set once: at app launch, when `Log.enable()` is called from within the app delegate. The design of this gives full control to the application developer over the logging performed within the application; even third-party libraries using CleanroomLogger will use the logging configuration specified by the app developer.
-
-- `Log` designed to be *convenient* to encourage the judicious use of logging. During debugging, you might want to quickly add some debug tracing to some already-existing code; you can simply add `Log.debug?.trace()` to the appropriate places without refactoring your codebase to pass around `LogChannel`s or `LogReceptacle`s everywhere. Given that every single function in your code is a candidate for logging, it’s impractical to use logging extensively *without* the convenience of `Log`.
-
-- If you have a compelling reason to avoid using `Log`, but you still wish to use the functionality provided by CleanroomLogger, you can always construct and manage your own `LogChannel`s and `LogReceptacle`s directly. The only global state within the CleanroomLogger project is contained in `Log` itself. Note, however, that this should **only** be done by the app developer; **vendors of embedded code should only ever interact with CleanroomLogger through the public API provided by `Log`** to ensure that the app developer is always in control of logging.
- 
-Although there are many good reasons why global state is to be generally avoided and otherwise looked at skeptically, in this particular case, our use of global state is deliberate, well-isolated and not required to take advantage of the core functionality provided by CleanroomLogger.</Var>
+    - If any `LogFormatter` returns a non-`nil` value to represent the formatted message of the `LogEntry`, that string is then passed to the `LogRecorder` for final logging.</Var>
 	
 </MBML>
