@@ -97,10 +97,18 @@ open class FieldBasedLogFormatter: ConcatenatingLogFormatter
      Initializes the `FieldBasedLogFormatter` to use the specified fields.
 
      - parameter fields: The `Field`s that will be used by the receiver.
+
+     - parameter hardFail: Determines the behavior of `format(_:)` when one of
+     the receiver's `formatters` returns `nil`. When `false`, if any formatter
+     returns `nil`, it is simply excluded from the concatenation, but formatting
+     continues. Unless _none_ of the `formatters` returns a string, the
+     receiver will always return a non-`nil` value. However, when `hardFail`
+     is `true`, _all_ of the `formatters` must return strings; if _any_
+     formatter returns `nil`, the receiver _also_ returns `nil`.
      */
-    public init(fields: [Field])
+    public init(fields: [Field], hardFail: Bool = false)
     {
-        super.init(formatters: fields.map{ $0.createLogFormatter() })
+        super.init(formatters: fields.map{ $0.createLogFormatter() }, hardFail: hardFail)
     }
 
     /**
@@ -108,9 +116,17 @@ open class FieldBasedLogFormatter: ConcatenatingLogFormatter
 
      - parameter formatters: The `LogFormatter`s that will be used by the
      receiver.
+
+     - parameter hardFail: Determines the behavior of `format(_:)` when one of
+     the receiver's `formatters` returns `nil`. When `false`, if any formatter
+     returns `nil`, it is simply excluded from the concatenation, but formatting
+     continues. Unless _none_ of the `formatters` returns a string, the
+     receiver will always return a non-`nil` value. However, when `hardFail`
+     is `true`, _all_ of the `formatters` must return strings; if _any_
+     formatter returns `nil`, the receiver _also_ returns `nil`.
      */
-    public override init(formatters: [LogFormatter])
+    public override init(formatters: [LogFormatter], hardFail: Bool = false)
     {
-        super.init(formatters: formatters)
+        super.init(formatters: formatters, hardFail: hardFail)
     }
 }
