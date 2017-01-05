@@ -30,7 +30,7 @@ extension TimestampStyle
 {
     fileprivate var dateFormat: String? {
         switch self {
-        case .default:          return "yyyy-MM-dd HH:mm:ss.SSS zzz"
+        case .default:          return "yyyy-MM-dd HH:mm:ss.SSS xxx"
         case .unix:             return nil
         case .custom(let fmt):  return fmt
         }
