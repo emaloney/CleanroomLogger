@@ -260,9 +260,9 @@ fields separated by tabs:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger22FieldBasedLogFormattercFT6fieldsGSaOS0_5Field__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(fields:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger22FieldBasedLogFormattercFT6fieldsGSaOS0_5Field__S0_">init(fields:)</a>
+                    <a name="/s:FC15CleanroomLogger22FieldBasedLogFormattercFT6fieldsGSaOS0_5Field_8hardFailSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(fields:hardFail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger22FieldBasedLogFormattercFT6fieldsGSaOS0_5Field_8hardFailSb_S0_">init(fields:hardFail:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -277,7 +277,7 @@ fields separated by tabs:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/FieldBasedLogFormatter/Field.html">Field</a></span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/FieldBasedLogFormatter/Field.html">Field</a></span><span class="p">],</span> <span class="nv">hardFail</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -298,6 +298,19 @@ fields separated by tabs:</p>
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hardFail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Determines the behavior of <code>format(_:)</code> when one of the receiver’s <code>formatters</code> returns <code>nil</code>. When <code>false</code>, if any formatter returns <code>nil</code>, it is simply excluded from the concatenation, but formatting continues. Unless  of the <code>formatters</code> returns a string, the receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code> is <code>true</code>,  of the <code>formatters</code> must return strings; if  formatter returns <code>nil</code>, the receiver  returns <code>nil</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -307,9 +320,9 @@ fields separated by tabs:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger22FieldBasedLogFormattercFT10formattersGSaPS_12LogFormatter___S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(formatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger22FieldBasedLogFormattercFT10formattersGSaPS_12LogFormatter___S0_">init(formatters:)</a>
+                    <a name="/s:FC15CleanroomLogger22FieldBasedLogFormattercFT10formattersGSaPS_12LogFormatter__8hardFailSb_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(formatters:hardFail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger22FieldBasedLogFormattercFT10formattersGSaPS_12LogFormatter__8hardFailSb_S0_">init(formatters:hardFail:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -324,7 +337,7 @@ fields separated by tabs:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">],</span> <span class="nv">hardFail</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -341,6 +354,19 @@ fields separated by tabs:</p>
                               <td>
                                 <div>
                                   <p>The <code>LogFormatter</code>s that will be used by the receiver.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hardFail</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Determines the behavior of <code>format(_:)</code> when one of the receiver’s <code>formatters</code> returns <code>nil</code>. When <code>false</code>, if any formatter returns <code>nil</code>, it is simply excluded from the concatenation, but formatting continues. Unless  of the <code>formatters</code> returns a string, the receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code> is <code>true</code>,  of the <code>formatters</code> must return strings; if  formatter returns <code>nil</code>, the receiver  returns <code>nil</code>.</p>
 
                                 </div>
                               </td>
