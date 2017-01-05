@@ -118,17 +118,35 @@ Ideally suited for live viewing during development, the [`XcodeLogConfiguration`
 
 When using the Unified Logging System, messages in the Xcode console appear prefixed with an informational header that looks like:
 
-<img alt="Unified Logging System header" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/asl-free/Documentation/Images/UnifiedLogging-header.png" width="567" height="129"/>
+```
+2017-01-04 22:56:47.448224 Gilt[5031:89847] [CleanroomLogger]	
+2017-01-04 22:56:47.448718 Gilt[5031:89847] [CleanroomLogger]	
+2017-01-04 22:56:47.449487 Gilt[5031:89847] [CleanroomLogger]	
+2017-01-04 22:56:47.450127 Gilt[5031:89847] [CleanroomLogger]	
+2017-01-04 22:56:47.450722 Gilt[5031:89847] [CleanroomLogger]	
+```
 
 This header is not added by CleanroomLogger; it is added as a result of using OSLog within Xcode. It shows the timestamp of the log entry, followed by the process name, the process ID, the calling thread ID, and the logging system name.
 
 To ensure consistent output across platforms, the `XcodeLogConfiguration` will mimic this header even when logging to `stdout` and `stderr`. You can disable this behavior by passing `false` as the `mimicOSLogOutput` argument. When disabled, a more concise header is used, showing just the timestamp and the calling thread ID:
 
-<img alt="Concise log header" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/asl-free/Documentation/Images/concise-header.png" width="396" height="129"/>
+```
+2017-01-04 23:46:17.225 -05:00 | 00071095
+2017-01-04 23:46:17.227 -05:00 | 00071095
+2017-01-04 23:46:17.227 -05:00 | 000716CA
+2017-01-04 23:46:17.228 -05:00 | 000716CA
+2017-01-04 23:46:17.258 -05:00 | 00071095
+```
 
 To make it easier to quickly identify important log messages at runtime, the `XcodeLogConfiguration` makes use of the [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogFormatter.html), which embeds a color-coded representation of each message's severity:
 
-<img alt="Color-coded severity" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/asl-free/Documentation/Images/color-coded-severity.png" width="717" height="129"/>
+```
+◽️ Verbose messages are tagged with a small gray square — easy to ignore
+◾️ Debug messages have a black square; easier to spot, but still de-emphasized
+🔷 Info messages add a splash of color in the form of a blue diamond
+🔶 Warnings are highlighted with a fire-orange diamond
+🛑 Error messages stand out with a red stop sign — hard to miss!
+```
 
 The simplest way to enable CleanroomLogger using the `XcodeLogConfiguration` is by calling:
 
