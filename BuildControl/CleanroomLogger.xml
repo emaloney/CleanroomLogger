@@ -27,9 +27,9 @@ The API provided by CleanroomLogger is designed to be readily understood by anyo
 	
 	<Var name="project:readme:preamble">^q(####) Why CleanroomLogger?
 
-CleanroomLogger can write messages to Apple's new Unified Logging System, to the UNIX `stdout` and `stderr` streams, and to files. CleanroomLogger is also heavily extensible, so you can roll your own implementations that send messages over sockets or HTTP connections.
-
 If you’ve used another logging system such as CocoaLumberjack or log4j, then you’ll understand the basic purpose of CleanroomLogger.
+
+CleanroomLogger can write messages to Apple's new [Unified Logging System](https://developer.apple.com/reference/os/logging), to the UNIX `stdout` and `stderr` streams, and to files. CleanroomLogger is also heavily extensible, so you can roll your own implementations that send messages over sockets or HTTP connections.
 
 In the past, Objective-C developers might have used `NSLog()` for logging; Swift users today might use the `print()` function. However, CleanroomLogger adds a number of important features not provided by these:
 
