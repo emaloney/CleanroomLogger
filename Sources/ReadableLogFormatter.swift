@@ -11,12 +11,13 @@
 
  By default, this formatter:
 
- - Uses `.default` as the default `TimestampStyle`
- - Uses `.simple` as the default `SeverityStyle`
+ - Uses `.default` as the `TimestampStyle`
+ - Uses `.simple` as the `SeverityStyle`
  - Uses default field separator delimiters
+ 
  - Outputs the call site and calling thread
 
- These defaults can be overridden during instantiation.
+ Each of these settings can be overridden during instantiation.
  */
 open class ReadableLogFormatter: StandardLogFormatter
 {

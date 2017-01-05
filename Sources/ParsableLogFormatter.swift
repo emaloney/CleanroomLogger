@@ -11,12 +11,12 @@
  
  By default, this formatter:
  
- - Uses `.unix` as the default `TimestampStyle`
- - Uses `.numeric` as the default `SeverityStyle`
- - Uses `.tab` as the default `DelimiterStyle`
+ - Uses `.unix` as the `TimestampStyle`
+ - Uses `.numeric` as the `SeverityStyle`
+ - Uses `.tab` as the `DelimiterStyle`
  - Outputs the call site and calling thread
  
- These defaults can be overridden during instantiation.
+ Each of these settings can be overridden during instantiation.
  */
 open class ParsableLogFormatter: StandardLogFormatter
 {
