@@ -98,7 +98,6 @@
 		3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeLogFormatter.swift; sourceTree = "<group>"; };
 		3B475D4E1DB47BD50047D397 /* LoggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTests.swift; sourceTree = "<group>"; };
 		3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverityTests.swift; sourceTree = "<group>"; };
-		3B475D531DB47BEA0047D397 /* CleanroomASL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomASL.framework; path = "../../../../Library/Developer/Xcode/DerivedData/CleanroomLogger-emhvmgjdlbcylcanebymdhmlvwwt/Build/Products/Debug-watchsimulator/CleanroomASL.framework"; sourceTree = "<group>"; };
 		3B4EE34F1E1AEB3A002A92BC /* OSLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogRecorder.swift; sourceTree = "<group>"; };
 		3B4EE3511E1AEF49002A92BC /* OSLogTypeTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogTypeTranslator.swift; sourceTree = "<group>"; };
 		3B4EE3551E1BED6D002A92BC /* XcodeTraceLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeTraceLogFormatter.swift; sourceTree = "<group>"; };
@@ -192,14 +191,6 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		3B475D521DB47BEA0047D397 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3B475D531DB47BEA0047D397 /* CleanroomASL.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		3B9058F91DAECB5200B4EEC0 = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +198,6 @@
 				3B90591D1DAECB9E00B4EEC0 /* BuildControl */,
 				3B475D4D1DB47BD50047D397 /* Tests */,
 				3B9059041DAECB5200B4EEC0 /* Products */,
-				3B475D521DB47BEA0047D397 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
