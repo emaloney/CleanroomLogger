@@ -253,7 +253,7 @@ The [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Docume
 
 CleanroomLogger ships with several high-level `LogFormatter` implementations for specific purposes:
 
-- [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogFormatter.html) — Used by the `XcodeLogConfiguration` by default.
+- [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogFormatter.html) — Optimized for live viewing of a log stream in Xcode. Used by the `XcodeLogConfiguration` by default.
 - [`ParsableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/ParsableLogFormatter.html) — Ideal for logs intended to be ingested for parsing by other processes.
 - [`ReadableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/ReadableLogFormatter.html) — Ideal for logs intended to be read by humans.
 
