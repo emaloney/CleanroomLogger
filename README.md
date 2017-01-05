@@ -191,13 +191,13 @@ When CleanroomLogger receives a request to log something, zero or more `LogConfi
 
 ##### XcodeLogConfiguration
 
-Ideally suited for live viewing during development, the [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogConfiguration.html) takes into account the runtime environment in order to configure CleanroomLogger for use within Xcode.
+Ideally suited for live viewing during development, the [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogConfiguration.html) examines the runtime environment to optimize CleanroomLogger for use within Xcode.
 
 `XcodeLogConfiguration` takes into account:
 
-- Whether or not the new Unified Logging System is available; it is only available as of iOS 10.0, macOS 10.12, tvOS 10.0, and watchOS 3.0. By default, logging falls back to `stdout` and `stderr` whenever Unified Logging is unavailable.
+- Whether or not the new Unified Logging System (also known as "OSLog") is available; it is only available as of iOS 10.0, macOS 10.12, tvOS 10.0, and watchOS 3.0. By default, logging falls back to `stdout` and `stderr` whenever Unified Logging is unavailable.
 
-- The value of the `OS_ACTIVITY_MODE` environment variable; when it is set to "`disable`", attempts to log via the Unified Logging System appear to be silently ignored. In such cases, log output is echoed to `stdout` and `stderr` to ensure that messages are visible in Xcode.
+- The value of the `OS_ACTIVITY_MODE` environment variable; when it is set to "`disable`", attempts to log via the OSLog appear to be silently ignored. In such cases, log output is echoed to `stdout` and `stderr` to ensure that messages are visible in Xcode.
 
 - The `severity` of the message. For UNIX-friendly behavior, `.verbose`, `.debug` and `.info` messages are directed to the `stdout` stream of the running process, while `.warning` and `.error` messages are sent to `stderr`. 
 
@@ -205,7 +205,7 @@ When using the Unified Logging System, messages in the Xcode console appear pref
 
 <img alt="Unified Logging System header" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/asl-free/Documentation/Images/UnifiedLogging-header.png" width="567" height="129"/>
 
-This header is not added by CleanroomLogger; it is added as a result of using the Unified Logging System within Xcode. It shows the timestamp of the log entry, followed by the process name, the process ID, the calling thread ID, and the logging system name.
+This header is not added by CleanroomLogger; it is added as a result of using OSLog within Xcode. It shows the timestamp of the log entry, followed by the process name, the process ID, the calling thread ID, and the logging system name.
 
 To ensure consistent output across platforms, the `XcodeLogConfiguration` will mimic this header even when logging to `stdout` and `stderr`. You can disable this behavior by passing `false` as the `mimicOSLogOutput` argument. When disabled, a more concise header is used, showing just the timestamp and the calling thread ID:
 
@@ -284,46 +284,49 @@ You can also subclass `BasicLogConfiguration` if you’d like to encapsulate you
 
 ##### A Complicated Example
 
-Let’s say you want CleanroomLogger to write to `stdout`, the Apple System Log (ASL) facility, and a set of rotating log files, and you want the log entries for each to be formatted differently:
+Let’s say you want configure CleanroomLogger to:
 
-1. An [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogFormatter.html) for `stdout` but not the ASL
-2. A [`ReadableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/ReadableLogFormatter.html) for the ASL
-3. A [`ParsableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/ParsableLogFormatter.html) for writing to the rotating log files
+1. Print `.verbose`, `.debug` and `.info` messages to `stdout` while directing `.warning` and `.error` messages to `stderr`
+2. Mirror all messages to OSLog, if it is available on the runtime platform
+3. Create a rotating log file directory at the path `/tmp/CleanroomLogger` to store `.info`, `.warning` and `.error` messages for up to 15 days
 
-To configure CleanroomLogger in this fashion, you could write:
+Further, you want the log entries for each to be formatted differently:
+
+1. An [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogFormatter.html) for `stdout` and `stderr`
+2. A [`ReadableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/ReadableLogFormatter.html) for OSLog
+3. A [`ParsableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/ParsableLogFormatter.html) for the log files
+
+To configure CleanroomLogger to do all this, you could write:
 
 ```swift
-// create 3 different types of formatters
-let xcodeFormat = XcodeLogFormatter()
-let aslFormat = ReadableLogFormatter()
-let fileFormat = ParsableLogFormatter()
+var configs = [LogConfiguration]()
 
-// create a configuration for logging to the Xcode console, but
-// disable ASL logging so we can use a different formatter for it
-let xcodeConfig = XcodeLogConfiguration(logToASL: false,
-									   formatter: xcodeFormat)
+// create a recorder for logging to stdout & stderr
+// and add a configuration that references it
+let stderr = StandardStreamsLogRecorder(formatters: [XcodeLogFormatter()])
+configs.append(BasicLogConfiguration(recorders: [stderr]))
 
-// create a configuration containing an ASL log recorder
-// using the aslFormat formatter. turn off stderr echoing
-// so we don’t see duplicate messages in the Xcode console
-let aslRecorder = ASLLogRecorder(formatter: aslFormat,
-							  echoToStdErr: false)
-let aslConfig = BasicLogConfiguration(recorders: [aslRecorder])
+// create a recorder for logging via OSLog (if possible)
+// and add a configuration that references it
+if let osLog = OSLogRecorder(formatters: [ReadableLogFormatter()]) {
+	// the OSLogRecorder initializer will fail if running on 
+	// a platform that doesn't support the os_log() function
+	configs.append(BasicLogConfiguration(recorders: [osLog]))
+}
 
-// create a configuration for a rotating log file directory
-// that uses the fileFormat formatter -- logDir is a String
-// holding the filesystem path to the log directory
+// create a configuration for a 15-day rotating log directory
 let fileCfg = RotatingLogFileConfiguration(minimumSeverity: .info,
 												daysToKeep: 15,
-											 directoryPath: logDir,
-												formatters: [fileFormat])
+											 directoryPath: "/tmp/CleanroomLogger",
+												formatters: [ParsableLogFormatter()])
 
 // crash if the log directory doesn’t exist yet & can’t be created
 try! fileCfg.createLogDirectory()
 
-// enable logging using the 3 different LogRecorders
-// that each use their own distinct LogFormatter
-Log.enable(configuration: [xcodeConfig, aslConfig, fileCfg])
+configs.append(fileCfg)
+
+// enable logging using the LogRecorders created above
+Log.enable(configuration: configs)
 ```
 
 
