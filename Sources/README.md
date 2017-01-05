@@ -108,9 +108,29 @@ When CleanroomLogger receives a request to log something, zero or more `LogConfi
 
 ##### XcodeLogConfiguration
 
-The [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogConfiguration.html) is ideally suited for use during development and in production.
+Ideally suited for live viewing during development, the [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/XcodeLogConfiguration.html) takes into account the runtime environment in order to configure CleanroomLogger for use within Xcode.
 
-By default, this configuration writes log entries to the running process’s `stdout` stream (which appears within the Xcode console pane) as well as to the Apple System Log (ASL) facility.
+`XcodeLogConfiguration` takes into account:
+
+- Whether or not the new Unified Logging System is available; it is only available as of iOS 10.0, macOS 10.12, tvOS 10.0, and watchOS 3.0. By default, logging falls back to `stdout` and `stderr` whenever Unified Logging is unavailable.
+
+- The value of the `OS_ACTIVITY_MODE` environment variable; when it is set to "`disable`", attempts to log via the Unified Logging System appear to be silently ignored. In such cases, log output is echoed to `stdout` and `stderr` to ensure that messages are visible in Xcode.
+
+- The `severity` of the message. For UNIX-friendly behavior, `.verbose`, `.debug` and `.info` messages are directed to the `stdout` stream of the running process, while `.warning` and `.error` messages are sent to `stderr`. 
+
+When using the Unified Logging System, messages in the Xcode console appear prefixed with an informational header that looks like:
+
+<img alt="Unified Logging System header" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/asl-free/Documentation/Images/UnifiedLogging-header.png" width="567" height="129"/>
+
+This header is not added by CleanroomLogger; it is added as a result of using the Unified Logging System within Xcode. It shows the timestamp of the log entry, followed by the process name, the process ID, the calling thread ID, and the logging system name.
+
+To ensure consistent output across platforms, the `XcodeLogConfiguration` will mimic this header even when logging to `stdout` and `stderr`. You can disable this behavior by passing `false` as the `mimicOSLogOutput` argument. When disabled, a more concise header is used, showing just the timestamp and the calling thread ID:
+
+<img alt="Concise log header" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/asl-free/Documentation/Images/concise-header.png" width="396" height="129"/>
+
+To make it easier to quickly identify important log messages at runtime, the `XcodeLogConfiguration` includes a color-coded representation of each message's severity:
+
+<img alt="Color-coded severity" src="https://raw.githubusercontent.com/emaloney/CleanroomLogger/asl-free/Documentation/Images/color-coded-severity.png" width="717" height="129"/>
 
 The simplest way to enable CleanroomLogger using the `XcodeLogConfiguration` is by calling:
 
