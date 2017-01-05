@@ -50,7 +50,7 @@ extension TimestampStyle
         -> String
     {
         switch self {
-        case .unix:     return "\(date.timeIntervalSince1970)"
+        case .unix:     return String(describing: date.timeIntervalSince1970)
         default:        return formatter!.string(from: date)
         }
     }
