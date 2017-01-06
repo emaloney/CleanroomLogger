@@ -96,9 +96,9 @@ fileprivate extension SeverityStyle
     }
 }
 
-fileprivate extension SeverityStyle.TextRepresentation
+public extension SeverityStyle.TextRepresentation
 {
-    func format(severity: LogSeverity)
+    public func format(severity: LogSeverity)
         -> String
     {
         switch self {
