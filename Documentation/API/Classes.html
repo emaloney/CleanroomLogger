@@ -221,13 +221,14 @@
 <p>By default, this formatter:</p>
 
 <ul>
-<li>Uses <code>.default</code> as the default <code><a href="Enums/TimestampStyle.html">TimestampStyle</a></code></li>
-<li>Uses <code>.simple</code> as the default <code><a href="Enums/SeverityStyle.html">SeverityStyle</a></code></li>
+<li>Uses <code>.default</code> as the <code><a href="Enums/TimestampStyle.html">TimestampStyle</a></code></li>
+<li>Uses a custom <code><a href="Enums/SeverityStyle.html">SeverityStyle</a></code> that pads the capitalized severity name</li>
+<li>Uses <code>.hex</code> as the <code><a href="Enums/CallingThreadStyle.html">CallingThreadStyle</a></code></li>
 <li>Uses default field separator delimiters</li>
-<li>Outputs the call site and calling thread</li>
+<li>Outputs the source code filename and line number of the call site</li>
 </ul>
 
-<p>These defaults can be overridden during instantiation.</p>
+<p>Each of these settings can be overridden during instantiation.</p>
 
                         <a href="Classes/ReadableLogFormatter.html" class="slightly-smaller">See more</a>
                       </div>
@@ -842,13 +843,14 @@ process.</p>
 <p>By default, this formatter:</p>
 
 <ul>
-<li>Uses <code>.unix</code> as the default <code><a href="Enums/TimestampStyle.html">TimestampStyle</a></code></li>
-<li>Uses <code>.numeric</code> as the default <code><a href="Enums/SeverityStyle.html">SeverityStyle</a></code></li>
-<li>Uses <code>.tab</code> as the default <code><a href="Enums/DelimiterStyle.html">DelimiterStyle</a></code></li>
-<li>Outputs the call site and calling thread</li>
+<li>Uses <code>.unix</code> as the <code><a href="Enums/TimestampStyle.html">TimestampStyle</a></code></li>
+<li>Uses <code>.numeric</code> as the <code><a href="Enums/SeverityStyle.html">SeverityStyle</a></code></li>
+<li>Uses <code>.hex</code> as the <code><a href="Enums/CallingThreadStyle.html">CallingThreadStyle</a></code></li>
+<li>Uses <code>.tab</code> as the <code><a href="Enums/DelimiterStyle.html">DelimiterStyle</a></code></li>
+<li>Outputs the source code filename and line number of the call site</li>
 </ul>
 
-<p>These defaults can be overridden during instantiation.</p>
+<p>Each of these settings can be overridden during instantiation.</p>
 
                         <a href="Classes/ParsableLogFormatter.html" class="slightly-smaller">See more</a>
                       </div>

@@ -209,13 +209,14 @@
 <p>By default, this formatter:</p>
 
 <ul>
-<li>Uses <code>.unix</code> as the default <code><a href="../Enums/TimestampStyle.html">TimestampStyle</a></code></li>
-<li>Uses <code>.numeric</code> as the default <code><a href="../Enums/SeverityStyle.html">SeverityStyle</a></code></li>
-<li>Uses <code>.tab</code> as the default <code><a href="../Enums/DelimiterStyle.html">DelimiterStyle</a></code></li>
-<li>Outputs the call site and calling thread</li>
+<li>Uses <code>.unix</code> as the <code><a href="../Enums/TimestampStyle.html">TimestampStyle</a></code></li>
+<li>Uses <code>.numeric</code> as the <code><a href="../Enums/SeverityStyle.html">SeverityStyle</a></code></li>
+<li>Uses <code>.hex</code> as the <code><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></code></li>
+<li>Uses <code>.tab</code> as the <code><a href="../Enums/DelimiterStyle.html">DelimiterStyle</a></code></li>
+<li>Outputs the source code filename and line number of the call site</li>
 </ul>
 
-<p>These defaults can be overridden during instantiation.</p>
+<p>Each of these settings can be overridden during instantiation.</p>
 
           </section>
           <section class="section task-group-section">
@@ -241,7 +242,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">simple</span><span class="p">,</span> <span class="nv">delimiterStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/DelimiterStyle.html">DelimiterStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">callingThreadStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">unix</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">numeric</span><span class="p">,</span> <span class="nv">delimiterStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/DelimiterStyle.html">DelimiterStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">tab</span><span class="p">,</span> <span class="nv">callingThreadStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">hex</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -278,6 +279,19 @@
                             <tr>
                               <td>
                                 <code>
+                                <em>callingThreadStyle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If provided, specifies a <code>CallingThreadStyle</code> to use for representing the calling thread. If <code>nil</code>, the calling thread is not shown.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>delimiterStyle</em>
                                 </code>
                               </td>
@@ -297,19 +311,6 @@
                               <td>
                                 <div>
                                   <p>If <code>true</code>, the source file and line indicating the call site of the log request will be added to formatted log messages.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>showCallingThread</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>If <code>true</code>, a hexadecimal string containing an opaque identifier for the calling thread will be added to formatted log messages.</p>
 
                                 </div>
                               </td>

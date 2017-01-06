@@ -209,13 +209,14 @@
 <p>By default, this formatter:</p>
 
 <ul>
-<li>Uses <code>.default</code> as the default <code><a href="../Enums/TimestampStyle.html">TimestampStyle</a></code></li>
-<li>Uses <code>.simple</code> as the default <code><a href="../Enums/SeverityStyle.html">SeverityStyle</a></code></li>
+<li>Uses <code>.default</code> as the <code><a href="../Enums/TimestampStyle.html">TimestampStyle</a></code></li>
+<li>Uses a custom <code><a href="../Enums/SeverityStyle.html">SeverityStyle</a></code> that pads the capitalized severity name</li>
+<li>Uses <code>.hex</code> as the <code><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></code></li>
 <li>Uses default field separator delimiters</li>
-<li>Outputs the call site and calling thread</li>
+<li>Outputs the source code filename and line number of the call site</li>
 </ul>
 
-<p>These defaults can be overridden during instantiation.</p>
+<p>Each of these settings can be overridden during instantiation.</p>
 
           </section>
           <section class="section task-group-section">
@@ -241,7 +242,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">simple</span><span class="p">,</span> <span class="nv">delimiterStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/DelimiterStyle.html">DelimiterStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">callingThreadStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">override</span> <span class="nf">init</span><span class="p">(</span><span class="nv">timestampStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/TimestampStyle.html">TimestampStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">severityStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeverityStyle.html">SeverityStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="nf">custom</span><span class="p">(</span><span class="nv">textRepresentation</span><span class="p">:</span> <span class="o">.</span><span class="n">capitalized</span><span class="p">,</span> <span class="nv">truncateAtWidth</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nv">padToWidth</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nv">rightAlign</span><span class="p">:</span> <span class="kc">false</span><span class="p">),</span> <span class="nv">delimiterStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/DelimiterStyle.html">DelimiterStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">callingThreadStyle</span><span class="p">:</span> <span class="kt"><a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">hex</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
