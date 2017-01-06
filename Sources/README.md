@@ -284,19 +284,3 @@ CleanroomLogger ships with several high-level `LogFormatter` implementations for
 The latter two `LogFormatter`s are both subclasses of [`StandardLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/StandardLogFormatter.html), which provides a basic mechanism for customizing the behavior of formatting.
 
 You can also assemble an entirely custom formatter quite easily using the [`FieldBasedLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/FieldBasedLogFormatter.html), which lets you mix and match [`Field`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/FieldBasedLogFormatter/Field.html)s to roll your own formatter.
-
-Let’s say you just wanted the following fields in your log output, each separated by a tab character:
-
-- UNIX timestamp
-- Numeric severity level
-- Log message
-
-You could build such a formatter with the code:
-
-```swift
-let formatter = FieldBasedLogFormatter(fields: [.timestamp(.unix),
-                                                .delimiter(.tab),
-                                                .severity(.numeric),
-                                                .delimiter(.tab),
-                                                .payload])
-```
