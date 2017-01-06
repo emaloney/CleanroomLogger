@@ -13,8 +13,9 @@
  
  - Uses `.unix` as the `TimestampStyle`
  - Uses `.numeric` as the `SeverityStyle`
+ - Uses `.hex` as the `CallingThreadStyle`
  - Uses `.tab` as the `DelimiterStyle`
- - Outputs the call site and calling thread
+ - Outputs the source code filename and line number of the call site
  
  Each of these settings can be overridden during instantiation.
  */
@@ -29,17 +30,17 @@ open class ParsableLogFormatter: StandardLogFormatter
      - parameter severityStyle: Governs the formatting of the `LogSeverity` in
      the log output. Pass `nil` to suppress output of the severity.
 
+     - parameter callingThreadStyle: If provided, specifies a
+     `CallingThreadStyle` to use for representing the calling thread. If `nil`,
+     the calling thread is not shown.
+
      - parameter delimiterStyle: If provided, overrides the default field
      separator delimiters. Pass `nil` to use the default delimiters.
 
      - parameter showCallSite: If `true`, the source file and line indicating
      the call site of the log request will be added to formatted log messages.
-
-     - parameter showCallingThread: If `true`, a hexadecimal string containing
-     an opaque identifier for the calling thread will be added to formatted log
-     messages.
      */
-    public override init(timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .simple, delimiterStyle: DelimiterStyle? = nil, callingThreadStyle: CallingThreadStyle? = nil, showCallSite: Bool = true)
+    public override init(timestampStyle: TimestampStyle? = .unix, severityStyle: SeverityStyle? = .numeric, delimiterStyle: DelimiterStyle? = .tab, callingThreadStyle: CallingThreadStyle? = .hex, showCallSite: Bool = true)
     {
         super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, callingThreadStyle: callingThreadStyle, showCallSite: showCallSite)
     }

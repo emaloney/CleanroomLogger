@@ -12,10 +12,10 @@
  By default, this formatter:
 
  - Uses `.default` as the `TimestampStyle`
- - Uses `.simple` as the `SeverityStyle`
+ - Uses a custom `SeverityStyle` that pads the capitalized severity name
+ - Uses `.hex` as the `CallingThreadStyle`
  - Uses default field separator delimiters
- 
- - Outputs the call site and calling thread
+ - Outputs the source code filename and line number of the call site
 
  Each of these settings can be overridden during instantiation.
  */
@@ -40,7 +40,7 @@ open class ReadableLogFormatter: StandardLogFormatter
      - parameter showCallSite: If `true`, the source file and line indicating
      the call site of the log request will be added to formatted log messages.
      */
-    public override init(timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .simple, delimiterStyle: DelimiterStyle? = nil, callingThreadStyle: CallingThreadStyle? = nil, showCallSite: Bool = true)
+    public override init(timestampStyle: TimestampStyle? = .default, severityStyle: SeverityStyle? = .custom(textRepresentation: .capitalized, truncateAtWidth: 7, padToWidth: 7, rightAlign: false), delimiterStyle: DelimiterStyle? = nil, callingThreadStyle: CallingThreadStyle? = .hex, showCallSite: Bool = true)
     {
         super.init(timestampStyle: timestampStyle, severityStyle: severityStyle, delimiterStyle: delimiterStyle, callingThreadStyle: callingThreadStyle, showCallSite: showCallSite)
     }
