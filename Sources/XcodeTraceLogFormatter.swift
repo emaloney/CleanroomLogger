@@ -18,7 +18,7 @@ public final class XcodeTraceLogFormatter: FieldBasedLogFormatter
     public init()
     {
         super.init(fields: [.severity(.xcode),
-                            .delimiter(.space),
+                            .literal(" —> "),
                             .callSite,
                             .delimiter(.spacedHyphen),
                             .payload])
