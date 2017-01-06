@@ -96,8 +96,16 @@ fileprivate extension SeverityStyle
     }
 }
 
-public extension SeverityStyle.TextRepresentation
+extension SeverityStyle.TextRepresentation
 {
+    /**
+     Returns a specific text representation of a given `LogSeverity` value.
+
+     - parameter severity: The `LogSeverity` for which a text representation is
+     sought.
+     
+     - returns: A `String` containing a text representation of `severity`.
+     */
     public func format(severity: LogSeverity)
         -> String
     {
