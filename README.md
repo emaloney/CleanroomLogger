@@ -18,6 +18,7 @@ CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Clean
 Branch|Build status
 --------|------------------------
 [`master`](https://github.com/emaloney/CleanroomLogger)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
+[`asl-free`](https://github.com/emaloney/CleanroomLogger/tree/asl-free)|[![Build status: asl-free branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=asl-free)](https://travis-ci.org/emaloney/CleanroomLogger)
 
 
 ### Key Features
