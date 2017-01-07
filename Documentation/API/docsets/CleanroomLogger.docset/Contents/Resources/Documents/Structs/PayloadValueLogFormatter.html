@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>StackFrameLogFormatter Struct Reference</title>
+    <title>PayloadValueLogFormatter Struct Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/StackFrameLogFormatter" class="dashAnchor"></a>
-    <a title="StackFrameLogFormatter Struct Reference"></a>
+    <a name="//apple_ref/swift/Struct/PayloadValueLogFormatter" class="dashAnchor"></a>
+    <a title="PayloadValueLogFormatter Struct Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CleanroomLogger Reference</a>
         <img id="carat" src="../img/carat.png" />
-        StackFrameLogFormatter Struct Reference
+        PayloadValueLogFormatter Struct Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -206,17 +206,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>StackFrameLogFormatter</h1>
+            <h1>PayloadValueLogFormatter</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StackFrameLogFormatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">PayloadValueLogFormatter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span></code></pre>
 
                 </div>
               </div>
-            <p>A <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> that returns the <code>callingStackFrame</code> property of a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
-
-<p>This is typically combined with other <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code>s within a
-<code><a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a></code>.</p>
+            <p>A <code><a href="../Protocols/LogFormatter.html">LogFormatter</a></code> that returns the message content of a <code><a href="../Structs/LogEntry.html">LogEntry</a></code> whose
+<code>payload</code> is a <code>.value</code> value.</p>
 
           </section>
           <section class="section task-group-section">
@@ -225,9 +223,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger22StackFrameLogFormattercFT_S0_"></a>
+                    <a name="/s:FV15CleanroomLogger24PayloadValueLogFormattercFT_S0_"></a>
                     <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger22StackFrameLogFormattercFT_S0_">init()</a>
+                    <a class="token" href="#/s:FV15CleanroomLogger24PayloadValueLogFormattercFT_S0_">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -252,9 +250,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV15CleanroomLogger22StackFrameLogFormatter6formatFVS_8LogEntryGSqSS_"></a>
+                    <a name="/s:FV15CleanroomLogger24PayloadValueLogFormatter6formatFVS_8LogEntryGSqSS_"></a>
                     <a name="//apple_ref/swift/Method/format(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV15CleanroomLogger22StackFrameLogFormatter6formatFVS_8LogEntryGSqSS_">format(_:)</a>
+                    <a class="token" href="#/s:FV15CleanroomLogger24PayloadValueLogFormatter6formatFVS_8LogEntryGSqSS_">format(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -262,8 +260,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Formats the passed-in <code><a href="../Structs/LogEntry.html">LogEntry</a></code> by returning the value of its 
-<code>callingStackFrame</code> property.</p>
+                        <p>Formats the passed-in <code><a href="../Structs/LogEntry.html">LogEntry</a></code> by returning a string representation of
+its <code>payload</code> property.</p>
 
                       </div>
                       <div class="declaration">
@@ -297,7 +295,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>The formatted result; never <code>nil</code>.</p>
+                        <p>The message content, or <code>nil</code> if <code>entry</code> doesn’t have a <code>payload</code> with a <code>.value</code> value.</p>
 
                       </div>
                     </section>
