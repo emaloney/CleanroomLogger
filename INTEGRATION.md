@@ -13,7 +13,7 @@ Macintosh|macOS 10.12|macOS 10.10
 Apple TV|tvOS 10.1|tvOS 9.0
 Apple Watch|watchOS 3.1|watchOS 2.0
 
-**This is the `asl-free` branch of CleanroomLogger.** It uses **Swift 3.0.2** and **requires Xcode 8.2** to compile.
+CleanroomLogger uses **Swift 3.0.2** and **requires Xcode 8.2** to compile.
 
 ### Options for integration
 
@@ -106,7 +106,7 @@ Select the appropriate Build Scheme for your Target, and press `⌘-B` to try to
 
 ### You're done!
 
-Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/index.html) provided by CleanroomLogger using the statement:
+Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) provided by CleanroomLogger using the statement:
 
 ```swift
 import CleanroomLogger
@@ -161,7 +161,7 @@ Select the appropriate Build Scheme for your Target, and press `⌘-B` to try to
 
 ### You're done!
 
-Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/index.html) provided by CleanroomLogger using the statement:
+Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) provided by CleanroomLogger using the statement:
 
 ```swift
 import CleanroomLogger
@@ -169,6 +169,6 @@ import CleanroomLogger
 
 ## Further Reading
 
-Want to learn more about CleanroomLogger? Check out [the README](https://github.com/emaloney/CleanroomLogger/blob/asl-free/README.md) or [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/index.html).
+Want to learn more about CleanroomLogger? Check out [the README](https://github.com/emaloney/CleanroomLogger/blob/master/README.md) or [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html).
 
 **_Happy coding!_**

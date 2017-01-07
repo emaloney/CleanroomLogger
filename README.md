@@ -11,25 +11,24 @@ CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Clean
 
 ### Swift compatibility
 
-**Important:** This is the `asl-free` branch. It uses **Swift 3.0.2** and **requires Xcode 8.2** to compile.
+This is the `master` branch. It uses **Swift 3.0.2** and **requires Xcode 8.2** to compile.
 
 #### Current status
 
 Branch|Build status
 --------|------------------------
 [`master`](https://github.com/emaloney/CleanroomLogger)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
-[`asl-free`](https://github.com/emaloney/CleanroomLogger/tree/asl-free)|[![Build status: asl-free branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=asl-free)](https://travis-ci.org/emaloney/CleanroomLogger)
 
 
 ### Key Features
 
-- **Built for speed:** You don't have to choose between smooth scrolling and collecting meaningful log information. CleanroomLogger does *very* little work on the calling thread, so it can get back to business ASAP.
+- **Built for speed:** You don’t have to choose between smooth scrolling and collecting meaningful log information. CleanroomLogger does *very* little work on the calling thread, so it can get back to business ASAP.
 
-- **Modern logging engine:** CleanroomLogger takes advantage of Apple's new [Unified Logging System](https://developer.apple.com/reference/os/2793189-logging) (aka "OSLog" or "os_log") when running on iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0 or higher.
+- **Modern logging engine:** CleanroomLogger takes advantage of Apple’s new [Unified Logging System](https://developer.apple.com/reference/os/2793189-logging) (aka “OSLog” or “os_log”) when running on iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0 or higher.
 
-- **First-class legacy support:** On systems where OSLog isn't available, CleanroomLogger gracefully falls back to other standard output mechanisms, automatically.
+- **First-class legacy support:** On systems where OSLog isn’t available, CleanroomLogger gracefully falls back to other standard output mechanisms, automatically.
 
-- **Prioritize messages by severity:** Messages are assigned one of five [_severity levels_](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Enums/LogSeverity.html): the most severe is _error_, followed by _warning_, _info_, _debug_ and _verbose_, the least severe. Knowing a message's severity lets you perform additional filtering; for example, you could record only warnings and errors in App Store binaries to minimize the overhead of logging.
+- **Prioritize messages by severity:** Messages are assigned one of five [_severity levels_](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html): the most severe is _error_, followed by _warning_, _info_, _debug_ and _verbose_, the least severe. Knowing a message’s severity lets you perform additional filtering; for example, you could record only warnings and errors in App Store binaries to minimize the overhead of logging.
 
 - **Color-coded log messages:** Quickly spot problems at runtime in the Xcode console, where log messages are color coded by severity:
 
@@ -41,9 +40,9 @@ Branch|Build status
 🛑 Error messages stand out with a red stop sign — hard to miss!
 ```
 
-- **Rotating log files:** CleanroomLogger provides [simple file-based logging](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/FileLogRecorder.html) support as well as [a self-pruning rotating log directory](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/RotatingLogFileConfiguration.html) implementation.
+- **Rotating log files:** CleanroomLogger provides [simple file-based logging](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/FileLogRecorder.html) support as well as [a self-pruning rotating log directory](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/RotatingLogFileConfiguration.html) implementation.
 
-- **Super-simple execution tracing:** Developers often use logging to perform tracing. Rather than writing lots of different log messages to figure out what your program is doing at runtime, just sprinkle your source with `Log.debug?.trace()` and `Log.verbose?.trace()` calls, and you'll see exactly what lines your code hits, when, and on what thread:
+- **Super-simple execution tracing:** Developers often use logging to perform tracing. Rather than writing lots of different log messages to figure out what your program is doing at runtime, just sprinkle your source with `Log.debug?.trace()` and `Log.verbose?.trace()` calls, and you’ll see exactly what lines your code hits, when, and on what thread:
 
 ```
 2017-01-05 13:46:16.681 -05:00 | 00071095 ◾️ —> DeepLinkRouterImpl.swift:140 - followDeepLink(to:via:displayOptions:completion:)
@@ -54,17 +53,17 @@ Branch|Build status
 2017-01-05 13:46:16.687 -05:00 | 00071095 ◽️ —> ViewControllerBase.swift:79 - viewWillAppear
 ```
 
-- **Quickly identify _where_ your code is logging.** If you're just using `print()` or `NSLog()` everywhere, it can sometimes be difficult to figure out what code is responsible for which log messages. CleanroomLogger outputs the file and line responsible for each log message, so you can go straight to the source:
+- **Quickly identify _where_ your code is logging.** If you’re just using `print()` or `NSLog()` everywhere, it can sometimes be difficult to figure out what code is responsible for which log messages. CleanroomLogger outputs the file and line responsible for each log message, so you can go straight to the source:
 
 ```
-🔶 AppleTart.framework didn't load due to running on iOS 8 (AppleTartShim.swift:19)
+🔶 AppleTart.framework didn’t load due to running on iOS 8 (AppleTartShim.swift:19)
 ◾️ Uploaded tapstream batch (TapstreamTracker.swift:166)
 ◽️ Presenting AccountNavigationController from SaleListingController (BackstopDeepLinkNavigator.swift:174)
 🔷 Successfully navigated to .account for URL: gilt://account (DeepLinkConsoleOutput.swift:104)
 🛑 Unrecognized URL: CountrySelector (GiltOnTheGoDeepLinkRouter.swift:100)
 ```
 
-- **Built-in formatting options:** CleanroomLogger ships with two general-purpose log formatters: the [`ReadableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/ReadableLogFormatter.html) is handy for human consumption, while the [`ParsableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/ParsableLogFormatter.html) is useful for machine processing. Both can be customized via the initializer.
+- **Built-in formatting options:** CleanroomLogger ships with two general-purpose log formatters: the [`ReadableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/ReadableLogFormatter.html) is handy for human consumption, while the [`ParsableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/ParsableLogFormatter.html) is useful for machine processing. Both can be customized via the initializer.
 
 Using a formatter constructed using `ReadableLogFormatter()` yields log output that looks like:
 
@@ -86,9 +85,9 @@ The same log messages look a bit different when handled by a formatter construct
 1483686422.39651	4	001BEF88	MemoryCache.swift:233 - Caching is temporarily disabled due to a recent memory warning
 ```
 
-- **Easy mix-and-match formatting:** If the built-in options don't fit the bill, you can use the [`FieldBasedLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/FieldBasedLogFormatter.html) to assemble just about any kind of log format possible. (And for all other cases, you can supply your own [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFormatter.html) implementation.)
+- **Easy mix-and-match formatting:** If the built-in options don’t fit the bill, you can use the [`FieldBasedLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/FieldBasedLogFormatter.html) to assemble just about any kind of log format possible. (And for all other cases, you can supply your own [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFormatter.html) implementation.)
 
-To output custom logs containing the UNIX timestamp, the calling thread ID in hexadecimal, the severity as a numeric value, and the log entry's payload all separated by tab characters, you would construct a formatter using:
+To output custom logs containing the UNIX timestamp, the calling thread ID in hexadecimal, the severity as a numeric value, and the log entry’s payload all separated by tab characters, you would construct a formatter using:
 
 ```swift
 FieldBasedLogFormatter(fields: [.timestamp(.unix),
@@ -100,19 +99,19 @@ FieldBasedLogFormatter(fields: [.timestamp(.unix),
                                 .payload])
 ```
 
-- **UNIX-friendly:** Support for standard UNIX output streams is built-in. Use [`StandardOutputLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/StandardOutputLogRecorder.html) and [`StandardErrorLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/StandardErrorLogRecorder.html) to direct output to `stdout` and `stderr`, respectively. Or, use the [`StandardStreamsLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/StandardStreamsLogRecorder.html) to direct _verbose_, _debug_ and _info_ messages to `stdout` while _warnings_ and _errors_ go to `stderr`.
+- **UNIX-friendly:** Support for standard UNIX output streams is built-in. Use [`StandardOutputLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardOutputLogRecorder.html) and [`StandardErrorLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardErrorLogRecorder.html) to direct output to `stdout` and `stderr`, respectively. Or, use the [`StandardStreamsLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardStreamsLogRecorder.html) to direct _verbose_, _debug_ and _info_ messages to `stdout` while _warnings_ and _errors_ go to `stderr`.
 
-- **Automatic handling of `OS_ACTIVITY_MODE`:** When Xcode 8 was introduced, the console pane got a lot more chatty. This was due to the replacement of [the ASL facility](https://github.com/emaloney/CleanroomASL#about-the-apple-system-log) with OSLog. To silence the extra chatter, developers discovered that [setting the `OS_ACTIVITY_MODE` environment variable to "`disable`"](http://stackoverflow.com/questions/37800790/hide-strange-unwanted-xcode-8-logs/39461256#39461256) would revert to the old logging behavior. It turns out that this bypasses OSLog altogether, and no output is sent to the console pane. CleanroomLogger notices when the setting is present, and echoes messages to `stdout` and `stderr`.
+- **Automatic handling of `OS_ACTIVITY_MODE`:** When Xcode 8 was introduced, the console pane got a lot more chatty. This was due to the replacement of [the ASL facility](https://github.com/emaloney/CleanroomASL#about-the-apple-system-log) with OSLog. To silence the extra chatter, developers discovered that [setting the `OS_ACTIVITY_MODE` environment variable to “`disable`”](http://stackoverflow.com/questions/37800790/hide-strange-unwanted-xcode-8-logs/39461256#39461256) would revert to the old logging behavior. It turns out that this bypasses OSLog altogether, and no output is sent to the console pane. CleanroomLogger notices when the setting is present, and echoes messages to `stdout` and `stderr`.
 
 - **Fully extensible:** In addition to the many ways you can control logging behavior through configuration, CleanroomLogger also exposes three primary extension points for implementing your own custom logic:
-  - [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Protocols/LogRecorder.html)s are used to record formatted log messages. Typically, this involves writing the message to a stream or some form of storage facility. You can provide your own implementations to utilize logging facilities not natively supported by CleanroomLogger. To store messages in a database table or send them to a remote HTTP endpoint, for example, a custom `LogRecorder` implementation would be required.
-  - [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Protocols/LogFormatter.html)s are used to generate text representations of each [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Structs/LogEntry.html) to be recorded.
-  - [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Protocols/LogFilter.html)s can inspect—and potentially exclude—any log message before it is recorded.
+  - [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogRecorder.html)s are used to record formatted log messages. Typically, this involves writing the message to a stream or some form of storage facility. You can provide your own implementations to utilize logging facilities not natively supported by CleanroomLogger. To store messages in a database table or send them to a remote HTTP endpoint, for example, a custom `LogRecorder` implementation would be required.
+  - [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFormatter.html)s are used to generate text representations of each [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html) to be recorded.
+  - [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFilter.html)s can inspect—and potentially exclude—any log message before it is recorded.
 
 
 ### License
 
-CleanroomLogger is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/asl-free/LICENSE).
+CleanroomLogger is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/master/LICENSE).
 
 CleanroomLogger is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
 
@@ -131,7 +130,7 @@ github "emaloney/CleanroomLogger" ~> 4.0.0
 
 Then, use the `carthage` command to [update your dependencies](https://github.com/Carthage/Carthage#upgrading-frameworks).
 
-Finally, you’ll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/asl-free/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/index.html) it provides.
+Finally, you’ll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) it provides.
 
 Once successfully integrated, just add the following `import` statement to any Swift file where you want to use CleanroomLogger:
 
@@ -139,7 +138,7 @@ Once successfully integrated, just add the following `import` statement to any S
 import CleanroomLogger
 ```
 
-See [the Integration document](https://github.com/emaloney/CleanroomLogger/blob/asl-free/INTEGRATION.md) for additional details on integrating CleanroomLogger into your project.
+See [the Integration document](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) for additional details on integrating CleanroomLogger into your project.
 
 ## Using CleanroomLogger
 
@@ -246,7 +245,7 @@ The [`LogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Docu
 
 Each `LogConfiguration` specifies:
 
-- The [`minimumSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity), a [`LogSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html) value that determines which log entries get recorded. Any [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html) with a [`severity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html#/s:vV15CleanroomLogger8LogEntry8severityOS_11LogSeverity) less than the configuration's `mimimumSeverity` will not be passed along to any [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogRecorder.html)s specified by that configuration.
+- The [`minimumSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity), a [`LogSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html) value that determines which log entries get recorded. Any [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html) with a [`severity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html#/s:vV15CleanroomLogger8LogEntry8severityOS_11LogSeverity) less than the configuration’s `mimimumSeverity` will not be passed along to any [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogRecorder.html)s specified by that configuration.
 - An array of [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFilter.html)s. Each `LogFilter` is given a chance to cause a given log entry to be ignored.
 - A [`synchronousMode`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15synchronousModeSb) property, which determines whether synchronous logging should be used when processing log entries for the given configuration. *This feature is intended to be used during debugging and is not recommended for production code.*
 - Zero or more contained `LogConfiguration`s. For organizational purposes, each `LogConfiguration` can in turn contain additional `LogConfiguration`s. The hierarchy is not meaningful, however, and is flattened at configuration time.
@@ -263,9 +262,9 @@ Ideally suited for live viewing during development, the [`XcodeLogConfiguration`
 
 `XcodeLogConfiguration` takes into account:
 
-- Whether the new Unified Logging System (also known as "OSLog") is available; it is only present as of iOS 10.0, macOS 10.12, tvOS 10.0, and watchOS 3.0. By default, logging falls back to `stdout` and `stderr` if Unified Logging is unavailable.
+- Whether the new Unified Logging System (also known as “OSLog”) is available; it is only present as of iOS 10.0, macOS 10.12, tvOS 10.0, and watchOS 3.0. By default, logging falls back to `stdout` and `stderr` if Unified Logging is unavailable.
 
-- The value of the `OS_ACTIVITY_MODE` environment variable; when it is set to "`disable`", attempts to log via OSLog are silently ignored. In such cases, log output is echoed to `stdout` and `stderr` to ensure that messages are visible in Xcode.
+- The value of the `OS_ACTIVITY_MODE` environment variable; when it is set to “`disable`”, attempts to log via OSLog are silently ignored. In such cases, log output is echoed to `stdout` and `stderr` to ensure that messages are visible in Xcode.
 
 - The `severity` of the message. For UNIX-friendly behavior, `.verbose`, `.debug` and `.info` messages are directed to the `stdout` stream of the running process, while `.warning` and `.error` messages are sent to `stderr`. 
 
@@ -291,7 +290,7 @@ To ensure consistent output across platforms, the `XcodeLogConfiguration` will m
 2017-01-04 23:46:17.258 -05:00 | 00071095
 ```
 
-To make it easier to quickly identify important log messages at runtime, the `XcodeLogConfiguration` makes use of the [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogFormatter.html), which embeds a color-coded representation of each message's severity:
+To make it easier to quickly identify important log messages at runtime, the `XcodeLogConfiguration` makes use of the [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogFormatter.html), which embeds a color-coded representation of each message’s severity:
 
 ```
 ◽️ Verbose messages are tagged with a small gray square — easy to ignore
@@ -354,7 +353,7 @@ The `RotatingLogFileConfiguration` can also be used to specify `synchronousMode`
 
 CleanroomLogger also supports multiple configurations, allowing different logging behaviors to be in use simultaneously.
 
-Whenever a message is logged, every [`LogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html) is consulted separately and given a chance to process the message. By supplying a [`minimumSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity) and unique set of [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration7filtersGSaPS_9LogFilter__)s, each configuration can specify its own logic for screening out unwanted messages. Surviving messages are then passed to the configuration's `LogFormatter`s, each in turn, until one returns a non-`nil` string. That string—the formatted log message—is ultimately passed to one or more `LogRecorder`s for writing to some underlying logging facility.
+Whenever a message is logged, every [`LogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html) is consulted separately and given a chance to process the message. By supplying a [`minimumSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity) and unique set of [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration7filtersGSaPS_9LogFilter__)s, each configuration can specify its own logic for screening out unwanted messages. Surviving messages are then passed to the configuration’s `LogFormatter`s, each in turn, until one returns a non-`nil` string. That string—the formatted log message—is ultimately passed to one or more `LogRecorder`s for writing to some underlying logging facility.
 
 > Note that each configuration is a self-contained, stand-alone entity. None of the settings, behaviors or actions of a given `LogConfiguration` will affect any other.
 
@@ -366,7 +365,7 @@ Log.enable(configuration: [XcodeLogConfiguration(debugMode: true), rotatingConf]
 
 In this example, both the [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html) and the [`RotatingLogFileConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/RotatingLogFileConfiguration.html) will be consulted as each logging call occurs. Because the `XcodeLogConfiguration` is declared with `debugMode: true`, it will operate in `synchronousMode` while `rotatingConf` will operate asynchronously.
 
-Further, the `XcodeLogConfiguration` will result in messages being logged via the Unified Logging System (if available) and/or the running process's `stdout` and `stderr` streams. The `RotatingLogFileConfiguration`, on the other hand, results in messages being written to a file.
+Further, the `XcodeLogConfiguration` will result in messages being logged via the Unified Logging System (if available) and/or the running process’s `stdout` and `stderr` streams. The `RotatingLogFileConfiguration`, on the other hand, results in messages being written to a file.
 
 Finally, each configuration results in a different message format being used.
 
@@ -404,7 +403,7 @@ configs.append(BasicLogConfiguration(recorders: [stderr]))
 // and add a configuration that references it
 if let osLog = OSLogRecorder(formatters: [ReadableLogFormatter()]) {
 	// the OSLogRecorder initializer will fail if running on 
-	// a platform that doesn't support the os_log() function
+	// a platform that doesn’t support the os_log() function
 	configs.append(BasicLogConfiguration(recorders: [osLog]))
 }
 
@@ -442,16 +441,16 @@ You can also assemble an entirely custom formatter quite easily using the [`Fiel
 
 ### API documentation
 
-For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/index.html) is available.
+For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) is available.
 
 
 ## Design Philosophy
 
 **The application developer should be in full control of logging process-wide.** As with any code that executes, there’s an expense to logging, and the application developer should get to decide how to handle the tradeoff between the utility of collecting logs and the expense of collecting them at a given level of detail.
 
-CleanroomLogger's configuration can only be set once during an application's lifecycle; after that, the configuration becomes immutable. Any third-party frameworks using CleanroomLogger will be limited to what is explicitly allowed by the application developer. Therefore, embedded code using CleanroomLogger is inherently *well behaved*.
+CleanroomLogger’s configuration can only be set once during an application’s lifecycle; after that, the configuration becomes immutable. Any third-party frameworks using CleanroomLogger will be limited to what is explicitly allowed by the application developer. Therefore, embedded code using CleanroomLogger is inherently *well behaved*.
 
-We believe so strongly in this philosophy that we even built a feature for developers that *never* want CleanroomLogger used within their applications. That's right, we created a way for developers to avoid using our project altogether. So if you need to include a third-party library that uses CleanroomLogger but you don't want to incur _any_ logging overhead, just call `Log.neverEnable()` instead of `Log.enable()`. CleanroomLogger will be disabled entirely.
+We believe so strongly in this philosophy that we even built a feature for developers that *never* want CleanroomLogger used within their applications. That’s right, we created a way for developers to avoid using our project altogether. So if you need to include a third-party library that uses CleanroomLogger but you don’t want to incur _any_ logging overhead, just call `Log.neverEnable()` instead of `Log.enable()`. CleanroomLogger will be disabled entirely.
 
 **Respect for the calling thread.** Functions like `print()` and `NSLog()` can do a lot of work on the calling thread, and when used from the main thread, that can lead to lower frame rates and choppy scrolling.
 
@@ -459,7 +458,7 @@ When CleanroomLogger is asked to log something, it is immediately handed off to 
 
 **Avoid needless code execution.** The logging API provided by CleanroomLogger takes advantage of Swift short-circuiting to avoid executing code when it is known that no messages of a given severity will ever be logged.
 
-For example, in production code with `.info` as the minimum `LogSeverity`, messages with a severity of `.verbose` or `.debug` will always be ignored. In such a case, `Log.debug` and `Log.verbose` would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels. Code like `Log.verbose?.trace()` and `Log.debug?.message("Loading URL: \(url)")` would effectively become no-ops at runtime. Debug logging adds zero overhead to your production builds, so don't be shy about taking advantage of it.
+For example, in production code with `.info` as the minimum `LogSeverity`, messages with a severity of `.verbose` or `.debug` will always be ignored. In such a case, `Log.debug` and `Log.verbose` would be `nil`, allowing efficient short-circuiting of any code attempting to use these inactive log channels. Code like `Log.verbose?.trace()` and `Log.debug?.message("Loading URL: \(url)")` would effectively become no-ops at runtime. Debug logging adds zero overhead to your production builds, so don’t be shy about taking advantage of it.
 
 ## Architectural Overview
 
@@ -505,5 +504,5 @@ If you’d like to contribute to this or any other Cleanroom Project repo, pleas
 
 ### Acknowledgements
 
-[API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
+[API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
 
