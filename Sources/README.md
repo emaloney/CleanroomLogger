@@ -103,7 +103,7 @@ The [`LogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Docu
 
 Each `LogConfiguration` specifies:
 
-- The [`minimumSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity), a [`LogSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html) value that determines which log entries get recorded. Any [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html) with a [`severity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html#/s:vV15CleanroomLogger8LogEntry8severityOS_11LogSeverity) less than the configuration's `mimimumSeverity` will not be passed along to any [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogRecorder.html)s specified by that configuration.
+- The [`minimumSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity), a [`LogSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html) value that determines which log entries get recorded. Any [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html) with a [`severity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html#/s:vV15CleanroomLogger8LogEntry8severityOS_11LogSeverity) less than the configuration’s `mimimumSeverity` will not be passed along to any [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogRecorder.html)s specified by that configuration.
 - An array of [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFilter.html)s. Each `LogFilter` is given a chance to cause a given log entry to be ignored.
 - A [`synchronousMode`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15synchronousModeSb) property, which determines whether synchronous logging should be used when processing log entries for the given configuration. *This feature is intended to be used during debugging and is not recommended for production code.*
 - Zero or more contained `LogConfiguration`s. For organizational purposes, each `LogConfiguration` can in turn contain additional `LogConfiguration`s. The hierarchy is not meaningful, however, and is flattened at configuration time.
@@ -120,9 +120,9 @@ Ideally suited for live viewing during development, the [`XcodeLogConfiguration`
 
 `XcodeLogConfiguration` takes into account:
 
-- Whether the new Unified Logging System (also known as "OSLog") is available; it is only present as of iOS 10.0, macOS 10.12, tvOS 10.0, and watchOS 3.0. By default, logging falls back to `stdout` and `stderr` if Unified Logging is unavailable.
+- Whether the new Unified Logging System (also known as “OSLog”) is available; it is only present as of iOS 10.0, macOS 10.12, tvOS 10.0, and watchOS 3.0. By default, logging falls back to `stdout` and `stderr` if Unified Logging is unavailable.
 
-- The value of the `OS_ACTIVITY_MODE` environment variable; when it is set to "`disable`", attempts to log via OSLog are silently ignored. In such cases, log output is echoed to `stdout` and `stderr` to ensure that messages are visible in Xcode.
+- The value of the `OS_ACTIVITY_MODE` environment variable; when it is set to “`disable`”, attempts to log via OSLog are silently ignored. In such cases, log output is echoed to `stdout` and `stderr` to ensure that messages are visible in Xcode.
 
 - The `severity` of the message. For UNIX-friendly behavior, `.verbose`, `.debug` and `.info` messages are directed to the `stdout` stream of the running process, while `.warning` and `.error` messages are sent to `stderr`. 
 
@@ -148,7 +148,7 @@ To ensure consistent output across platforms, the `XcodeLogConfiguration` will m
 2017-01-04 23:46:17.258 -05:00 | 00071095
 ```
 
-To make it easier to quickly identify important log messages at runtime, the `XcodeLogConfiguration` makes use of the [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogFormatter.html), which embeds a color-coded representation of each message's severity:
+To make it easier to quickly identify important log messages at runtime, the `XcodeLogConfiguration` makes use of the [`XcodeLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogFormatter.html), which embeds a color-coded representation of each message’s severity:
 
 ```
 ◽️ Verbose messages are tagged with a small gray square — easy to ignore
@@ -211,7 +211,7 @@ The `RotatingLogFileConfiguration` can also be used to specify `synchronousMode`
 
 CleanroomLogger also supports multiple configurations, allowing different logging behaviors to be in use simultaneously.
 
-Whenever a message is logged, every [`LogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html) is consulted separately and given a chance to process the message. By supplying a [`minimumSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity) and unique set of [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration7filtersGSaPS_9LogFilter__)s, each configuration can specify its own logic for screening out unwanted messages. Surviving messages are then passed to the configuration's `LogFormatter`s, each in turn, until one returns a non-`nil` string. That string—the formatted log message—is ultimately passed to one or more `LogRecorder`s for writing to some underlying logging facility.
+Whenever a message is logged, every [`LogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html) is consulted separately and given a chance to process the message. By supplying a [`minimumSeverity`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration15minimumSeverityOS_11LogSeverity) and unique set of [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogConfiguration.html#/s:vP15CleanroomLogger16LogConfiguration7filtersGSaPS_9LogFilter__)s, each configuration can specify its own logic for screening out unwanted messages. Surviving messages are then passed to the configuration’s `LogFormatter`s, each in turn, until one returns a non-`nil` string. That string—the formatted log message—is ultimately passed to one or more `LogRecorder`s for writing to some underlying logging facility.
 
 > Note that each configuration is a self-contained, stand-alone entity. None of the settings, behaviors or actions of a given `LogConfiguration` will affect any other.
 
@@ -223,7 +223,7 @@ Log.enable(configuration: [XcodeLogConfiguration(debugMode: true), rotatingConf]
 
 In this example, both the [`XcodeLogConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html) and the [`RotatingLogFileConfiguration`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/RotatingLogFileConfiguration.html) will be consulted as each logging call occurs. Because the `XcodeLogConfiguration` is declared with `debugMode: true`, it will operate in `synchronousMode` while `rotatingConf` will operate asynchronously.
 
-Further, the `XcodeLogConfiguration` will result in messages being logged via the Unified Logging System (if available) and/or the running process's `stdout` and `stderr` streams. The `RotatingLogFileConfiguration`, on the other hand, results in messages being written to a file.
+Further, the `XcodeLogConfiguration` will result in messages being logged via the Unified Logging System (if available) and/or the running process’s `stdout` and `stderr` streams. The `RotatingLogFileConfiguration`, on the other hand, results in messages being written to a file.
 
 Finally, each configuration results in a different message format being used.
 
@@ -261,7 +261,7 @@ configs.append(BasicLogConfiguration(recorders: [stderr]))
 // and add a configuration that references it
 if let osLog = OSLogRecorder(formatters: [ReadableLogFormatter()]) {
 	// the OSLogRecorder initializer will fail if running on 
-	// a platform that doesn't support the os_log() function
+	// a platform that doesn’t support the os_log() function
 	configs.append(BasicLogConfiguration(recorders: [osLog]))
 }
 
