@@ -465,22 +465,6 @@
 
 <p>You can also assemble an entirely custom formatter quite easily using the <a href="https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/FieldBasedLogFormatter.html"><code>FieldBasedLogFormatter</code></a>, which lets you mix and match <a href="https://rawgit.com/emaloney/CleanroomLogger/asl-free/Documentation/API/Classes/FieldBasedLogFormatter/Field.html"><code>Field</code></a>s to roll your own formatter.</p>
 
-<p>Let’s say you just wanted the following fields in your log output, each separated by a tab character:</p>
-
-<ul>
-<li>UNIX timestamp</li>
-<li>Numeric severity level</li>
-<li>Log message</li>
-</ul>
-
-<p>You could build such a formatter with the code:</p>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">formatter</span> <span class="o">=</span> <span class="kt">FieldBasedLogFormatter</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="nf">timestamp</span><span class="p">(</span><span class="o">.</span><span class="n">unix</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="nf">delimiter</span><span class="p">(</span><span class="o">.</span><span class="n">tab</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="nf">severity</span><span class="p">(</span><span class="o">.</span><span class="n">numeric</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="nf">delimiter</span><span class="p">(</span><span class="o">.</span><span class="n">tab</span><span class="p">),</span>
-                                                <span class="o">.</span><span class="n">payload</span><span class="p">])</span>
-</code></pre>
-
           </section>
         </section>
         <section id="footer">
