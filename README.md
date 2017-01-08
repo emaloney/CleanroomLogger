@@ -20,23 +20,31 @@ Branch|Build status
 [`master`](https://github.com/emaloney/CleanroomLogger)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
 
 
-### Key Benefits
+### Key Benefits of CleanroomLogger
 
 #### • Built for speed
 
 You don’t have to choose between smooth scrolling and collecting meaningful log information. CleanroomLogger does *very* little work on the calling thread, so it can get back to business ASAP.
 
-#### • Modern logging engine
+#### • A modern logging engine with first-class legacy support
 
 CleanroomLogger takes advantage of Apple’s new [Unified Logging System](https://developer.apple.com/reference/os/2793189-logging) (aka “OSLog” or “os_log”) when running on iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0 or higher.
 
-#### • First-class legacy support
-
 On systems where OSLog isn’t available, CleanroomLogger gracefully falls back to other standard output mechanisms, automatically.
+
+#### • 100% documented
+
+Good documentation is critical to the usefulness of any open-source framework. In addition to the extensive high-level documentation you'll find below, [the CleanroomLogger API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) itself is 100% documented.
 
 #### • Prioritize messages by severity
 
 Messages are assigned one of five [_severity levels_](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html): the most severe is _error_, followed by _warning_, _info_, _debug_ and _verbose_, the least severe. Knowing a message’s severity lets you perform additional filtering; for example, to minimize the overhead of logging in App Store binaries, you could choose to log only warnings and errors in release builds.
+
+#### • UNIX-friendly
+
+Support for standard UNIX output streams is built-in. Use [`StandardOutputLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardOutputLogRecorder.html) and [`StandardErrorLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardErrorLogRecorder.html) to direct output to `stdout` and `stderr`, respectively.
+
+Or, use the [`StandardStreamsLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardStreamsLogRecorder.html) to direct _verbose_, _debug_ and _info_ messages to `stdout` while _warnings_ and _errors_ go to `stderr`.
 
 #### • Color-coded log messages
 
@@ -56,7 +64,7 @@ CleanroomLogger provides [simple file-based logging](https://rawgit.com/emaloney
 
 #### • Super-simple execution tracing
 
-Developers often use logging to perform tracing. Rather than writing lots of different log messages to figure out what your program is doing at runtime, just sprinkle your source with `Log.debug?.trace()` and `Log.verbose?.trace()` calls, and you’ll see exactly what lines your code hits, when, and on what thread:
+Developers often use logging to perform tracing. Rather than writing lots of different log messages to figure out what your program is doing at runtime, just sprinkle your source with `Log.debug?.trace()` and `Log.verbose?.trace()` calls, and you’ll see exactly what lines your code hits, when, and on what thread, as well as the signature of the executing function:
 
 ```
 2017-01-05 13:46:16.681 -05:00 | 0001AEC4 ◾️ —> StoreDataTransaction.swift:42 - executeTransaction()
@@ -79,11 +87,11 @@ If you’re just using `print()` or `NSLog()` everywhere, it can sometimes be di
 🛑 Unrecognized URL: CountrySelector (GiltOnTheGoDeepLinkRouter.swift:100)
 ```
 
-#### • Built-in formatting options
+#### • Useful built-in formatters
 
 CleanroomLogger ships with two general-purpose log formatters: the [`ReadableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/ReadableLogFormatter.html) is handy for human consumption, while the [`ParsableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/ParsableLogFormatter.html) is useful for machine processing. Both can be customized via the initializer.
 
-Using a formatter constructed using `ReadableLogFormatter()` yields log output that looks like:
+A formatter constructed using `ReadableLogFormatter()` yields log output that looks like:
 
 ```
 2017-01-06 02:06:53.679 -05:00 | Debug   | 001BEF88 | DeepLinkRouterImpl.swift:132 - displayOptions(for:via:displaying:)
@@ -107,7 +115,7 @@ When the same log messages are handled by a formatter constructed using `Parsabl
 
 If the built-in options don’t fit the bill, you can use the [`FieldBasedLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/FieldBasedLogFormatter.html) to assemble just about any kind of log format possible. (And for all other cases not supported by `FieldBasedLogFormatter`, you can supply your own [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFormatter.html) implementation.)
 
-Let’s say you wanted a log formatter with the following characteristics: the timestamp in ISO 8601 date format, followed by a tab character, the source file and line number of the call site, followed by the severity as an uppercase string right-justified in a 8-character field, then a colon and a space, and finally the log entry’s payload. You could do this by construct a formatter as follows:
+Let’s say you wanted a log formatter with the following characteristics: the timestamp in ISO 8601 date format, followed by a tab character, the source file and line number of the call site, followed by the severity as an uppercase string right-justified in a 8-character field, then a colon and a space, and finally the log entry’s payload. You could do this by constructing a `FieldBasedLogFormatter` as follows:
 
 ```swift
 FieldBasedLogFormatter(fields: [
@@ -129,20 +137,16 @@ The resulting output would look like:
 2017-01-08T12:55:33.457-0500	ProductViewController.swift:92    VERBOSE: deinit
 ```
 
-#### • UNIX-friendly
-
-Support for standard UNIX output streams is built-in. Use [`StandardOutputLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardOutputLogRecorder.html) and [`StandardErrorLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardErrorLogRecorder.html) to direct output to `stdout` and `stderr`, respectively. Or, use the [`StandardStreamsLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardStreamsLogRecorder.html) to direct _verbose_, _debug_ and _info_ messages to `stdout` while _warnings_ and _errors_ go to `stderr`.
-
 #### • Automatic handling of `OS_ACTIVITY_MODE`
 
-When Xcode 8 was introduced, the console pane got a lot more chatty. This was due to the replacement of [the ASL facility](https://github.com/emaloney/CleanroomASL#about-the-apple-system-log) with OSLog. To silence the extra chatter, developers discovered that [setting the `OS_ACTIVITY_MODE` environment variable to “`disable`”](http://stackoverflow.com/questions/37800790/hide-strange-unwanted-xcode-8-logs/39461256#39461256) would revert to the old logging behavior. It turns out that this bypasses OSLog altogether, and no output is sent to the console pane. CleanroomLogger notices when the setting is present, and echoes messages to `stdout` and `stderr`.
+When Xcode 8 was introduced, the console pane got a lot more chatty. This was due to the replacement of [the ASL facility](https://github.com/emaloney/CleanroomASL#about-the-apple-system-log) with OSLog. To silence the extra chatter, developers discovered that [setting the `OS_ACTIVITY_MODE` environment variable to “`disable`”](http://stackoverflow.com/questions/37800790/hide-strange-unwanted-xcode-8-logs/39461256#39461256) would revert to the old logging behavior. It turns out that this silences OSLog altogether, so no output is sent to the console pane. CleanroomLogger notices when the setting is present, and echoes messages to `stdout` or `stderr` in addition to logging them through the [`os_log()`](https://developer.apple.com/reference/os/2320718-os_log) function.
 
 #### • Fully extensible
 
-In addition to the many ways you can control logging behavior through configuration, CleanroomLogger also exposes three primary extension points for implementing your own custom logic:
-  - [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogRecorder.html)s are used to record formatted log messages. Typically, this involves writing the message to a stream or some form of storage facility. You can provide your own implementations to utilize logging facilities not natively supported by CleanroomLogger. To store messages in a database table or send them to a remote HTTP endpoint, for example, a custom `LogRecorder` implementation would be required.
+CleanroomLogger exposes three primary extension points for implementing your own custom logic:
+  - [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogRecorder.html)s are used to record formatted log messages. Typically, this involves writing the message to a stream or data store. You can provide your own `LogRecorder` implementations to utilize facilities not natively supported by CleanroomLogger: to store messages in a database table or send them to a remote HTTP endpoint, for example.
   - [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFormatter.html)s are used to generate text representations of each [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html) to be recorded.
-  - [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFilter.html)s can inspect—and potentially exclude—any log message before it is recorded.
+  - [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFilter.html)s get a chance to inspect—and potentially reject—a `LogEntry` before it is passed to a `LogRecorder`.
 
 
 ### License
