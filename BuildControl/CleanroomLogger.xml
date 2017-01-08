@@ -27,23 +27,23 @@ The API provided by CleanroomLogger is designed to be readily understood by anyo
 	
 	<Var name="project:readme:preamble">^q(###) Key Benefits
 
-^q(####) Built for speed
+^q(####) • Built for speed
 
 You don’t have to choose between smooth scrolling and collecting meaningful log information. CleanroomLogger does *very* little work on the calling thread, so it can get back to business ASAP.
 
-^q(####) Modern logging engine
+^q(####) • Modern logging engine
 
 CleanroomLogger takes advantage of Apple’s new [Unified Logging System](https://developer.apple.com/reference/os/2793189-logging) (aka “OSLog” or “os_log”) when running on iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0 or higher.
 
-^q(####) First-class legacy support
+^q(####) • First-class legacy support
 
 On systems where OSLog isn’t available, CleanroomLogger gracefully falls back to other standard output mechanisms, automatically.
 
-^q(####) Prioritize messages by severity
+^q(####) • Prioritize messages by severity
 
 Messages are assigned one of five [_severity levels_](${docs:api:root}/Enums/LogSeverity.html): the most severe is _error_, followed by _warning_, _info_, _debug_ and _verbose_, the least severe. Knowing a message’s severity lets you perform additional filtering; for example, to minimize the overhead of logging in App Store binaries, you could choose to log only warnings and errors in release builds.
 
-^q(####) Color-coded log messages
+^q(####) • Color-coded log messages
 
 Quickly spot problems at runtime in the Xcode console, where log messages are color coded by severity:
 
@@ -55,11 +55,11 @@ Quickly spot problems at runtime in the Xcode console, where log messages are co
 🛑 Error messages stand out with a red stop sign — hard to miss!
 ```
 
-^q(####) Rotating log files
+^q(####) • Rotating log files
 
 CleanroomLogger provides [simple file-based logging](${docs:api:root}/Classes/FileLogRecorder.html) support as well as [a self-pruning rotating log directory](${docs:api:root}/Classes/RotatingLogFileConfiguration.html) implementation.
 
-^q(####) Super-simple execution tracing
+^q(####) • Super-simple execution tracing
 
 Developers often use logging to perform tracing. Rather than writing lots of different log messages to figure out what your program is doing at runtime, just sprinkle your source with `Log.debug?.trace()` and `Log.verbose?.trace()` calls, and you’ll see exactly what lines your code hits, when, and on what thread:
 
@@ -72,7 +72,7 @@ Developers often use logging to perform tracing. Rather than writing lots of dif
 2017-01-05 13:46:16.687 -05:00 | 00071095 ◽️ —> ViewControllerBase.swift:79 - viewWillAppear
 ```
 
-^q(####) Quickly identify _where_ your code is logging
+^q(####) • Quickly identify _where_ your code is logging
 
 If you’re just using `print()` or `NSLog()` everywhere, it can sometimes be difficult to figure out what code is responsible for which log messages. CleanroomLogger outputs the file and line responsible for each log message, so you can go straight to the source:
 
@@ -84,7 +84,7 @@ If you’re just using `print()` or `NSLog()` everywhere, it can sometimes be di
 🛑 Unrecognized URL: CountrySelector (GiltOnTheGoDeepLinkRouter.swift:100)
 ```
 
-^q(####) Built-in formatting options
+^q(####) • Built-in formatting options
 
 CleanroomLogger ships with two general-purpose log formatters: the [`ReadableLogFormatter`](${docs:api:root}/Classes/ReadableLogFormatter.html) is handy for human consumption, while the [`ParsableLogFormatter`](${docs:api:root}/Classes/ParsableLogFormatter.html) is useful for machine processing. Both can be customized via the initializer.
 
@@ -108,7 +108,7 @@ When the same log messages are handled by a formatter constructed using `Parsabl
 1483686422.39651	4	001BEF88	MemoryCache.swift:233 - Caching is temporarily disabled due to a recent memory warning
 ```
 
-^q(####) Easy mix-and-match formatting
+^q(####) • Easy mix-and-match formatting
 
 If the built-in options don’t fit the bill, you can use the [`FieldBasedLogFormatter`](${docs:api:root}/Classes/FieldBasedLogFormatter.html) to assemble just about any kind of log format possible. (And for all other cases not supported by `FieldBasedLogFormatter`, you can supply your own [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFormatter.html) implementation.)
 
@@ -134,15 +134,15 @@ The resulting output would look like:
 2017-01-08T12:55:33.457-0500	ProductViewController.swift:92    VERBOSE: deinit
 ```
 
-^q(####) UNIX-friendly
+^q(####) • UNIX-friendly
 
 Support for standard UNIX output streams is built-in. Use [`StandardOutputLogRecorder`](${docs:api:root}/Classes/StandardOutputLogRecorder.html) and [`StandardErrorLogRecorder`](${docs:api:root}/Classes/StandardErrorLogRecorder.html) to direct output to `stdout` and `stderr`, respectively. Or, use the [`StandardStreamsLogRecorder`](${docs:api:root}/Classes/StandardStreamsLogRecorder.html) to direct _verbose_, _debug_ and _info_ messages to `stdout` while _warnings_ and _errors_ go to `stderr`.
 
-^q(####) Automatic handling of `OS_ACTIVITY_MODE`
+^q(####) • Automatic handling of `OS_ACTIVITY_MODE`
 
 When Xcode 8 was introduced, the console pane got a lot more chatty. This was due to the replacement of [the ASL facility](https://github.com/emaloney/CleanroomASL#about-the-apple-system-log) with OSLog. To silence the extra chatter, developers discovered that [setting the `OS_ACTIVITY_MODE` environment variable to “`disable`”](http://stackoverflow.com/questions/37800790/hide-strange-unwanted-xcode-8-logs/39461256#39461256) would revert to the old logging behavior. It turns out that this bypasses OSLog altogether, and no output is sent to the console pane. CleanroomLogger notices when the setting is present, and echoes messages to `stdout` and `stderr`.
 
-^q(####) Fully extensible
+^q(####) • Fully extensible
 
 In addition to the many ways you can control logging behavior through configuration, CleanroomLogger also exposes three primary extension points for implementing your own custom logic:
   - [`LogRecorder`](${docs:api:root}/Protocols/LogRecorder.html)s are used to record formatted log messages. Typically, this involves writing the message to a stream or some form of storage facility. You can provide your own implementations to utilize logging facilities not natively supported by CleanroomLogger. To store messages in a database table or send them to a remote HTTP endpoint, for example, a custom `LogRecorder` implementation would be required.
