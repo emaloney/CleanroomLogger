@@ -99,6 +99,6 @@ public struct OSLogRecorder: LogRecorder
         }
         
         let type = self.logTypeTranslator.osLogType(logEntry: entry)
-        os_log("%@", log: self.log, type: type, message)
+        os_log("%{public}@", log: self.log, type: type, message)
     }
 }
