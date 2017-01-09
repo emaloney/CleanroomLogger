@@ -22,9 +22,29 @@ import os.log
   */
 public enum OSLogTypeTranslator
 {
+    /** The most direct translation from a `LogEntry`'s `severity` to the
+     corresponding `OSLogType` value.
+
+     This value strikes a sensible balance between the higher-overhead logging
+     provided by `.strict` and the more ephemeral logging of `.relaxed`.
+
+     LogSeverity|OSLogType
+     -----------|---------
+     `.verbose`|`.debug`
+     `.debug`|`.debug`
+     `.info`|`.info`
+     `.warning`|`.default`
+     `.error`|`.error`
+     */
+    case `default`
+
     /** A strict translation from a `LogEntry`'s `severity` to an
-     `OSLogType` value. Warnings are treated as errors.
+     `OSLogType` value. Warnings are treated as errors; errors are
+     treated as faults.
      
+     This will result in additional logging overhead being recorded by OSLog,
+     and is not recommended unless you have a specific need for this.
+
      LogSeverity|OSLogType
      -----------|---------
      `.verbose`|`.debug`
@@ -36,21 +56,24 @@ public enum OSLogTypeTranslator
     case strict
 
     /** A relaxed translation from a `LogEntry`'s `severity` to an
-     `OSLogType` value. Warnings are treated as informational log messages.
+     `OSLogType` value. Nothing is treated as an error.
+     
+     This results in low-overhead logging, but log entries are more
+     ephemeral and may not contain as much OSLog metadata.
      
      LogSeverity|OSLogType
      -----------|---------
      `.verbose`|`.debug`
      `.debug`|`.debug`
-     `.info`|`.default`
+     `.info`|`.info`
      `.warning`|`.default`
-     `.error`|`.error`
+     `.error`|`.default`
      */
     case relaxed
-    
+
     /** `OSLogType.default` is used for all messages. */
     case allAsDefault
-    
+
     /** `OSLogType.info` is used for all messages. */
     case allAsInfo
     
@@ -77,6 +100,17 @@ extension OSLogTypeTranslator
         }
         
         switch self {
+        case .default:
+            return { entry -> OSLogType in
+                switch entry.severity {
+                case .verbose:      return .debug
+                case .debug:        return .debug
+                case .info:         return .info
+                case .warning:      return .default
+                case .error:        return .error
+                }
+            }
+
         case .strict:
             return { entry -> OSLogType in
                 switch entry.severity {
@@ -87,15 +121,15 @@ extension OSLogTypeTranslator
                 case .error:        return .fault
                 }
             }
-            
+
         case .relaxed:
             return { entry -> OSLogType in
                 switch entry.severity {
                 case .verbose:      return .debug
                 case .debug:        return .debug
-                case .info:         return .default
+                case .info:         return .info
                 case .warning:      return .default
-                case .error:        return .error
+                case .error:        return .default
                 }
             }
             
