@@ -20,6 +20,8 @@ Branch|Build status
 [`master`](https://github.com/emaloney/CleanroomLogger)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
 
 
+### Contents
+	
 - [Key Benefits of CleanroomLogger](#key-benefits-of-cleanroomlogger)
 - [Adding CleanroomLogger to your project](#adding-cleanroomlogger-to-your-project)
 - [Using CleanroomLogger](#using-cleanroomlogger)
