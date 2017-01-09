@@ -231,9 +231,9 @@ deriving the appropriate <code>OSLogType</code> for a given <code><a href="../St
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator6strictFMS0_S0_"></a>
-                    <a name="//apple_ref/swift/Element/strict" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator6strictFMS0_S0_">strict</a>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/default" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">default</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -241,8 +241,11 @@ deriving the appropriate <code>OSLogType</code> for a given <code><a href="../St
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A strict translation from a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code> to an
- <code>OSLogType</code> value. Warnings are treated as errors.</p>
+                        <p>The most direct translation from a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code> to the
+ corresponding <code>OSLogType</code> value.</p>
+
+<p>This value strikes a sensible balance between the higher-overhead logging
+ provided by <code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator6strictFMS0_S0_">.strict</a></code> and the more ephemeral logging of <code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7relaxedFMS0_S0_">.relaxed</a></code>.</p>
 
 <table><thead>
 <tr>
@@ -260,7 +263,71 @@ deriving the appropriate <code>OSLogType</code> for a given <code><a href="../St
 </tr>
 <tr>
 <td><code>.info</code></td>
+<td><code>.info</code></td>
+</tr>
+<tr>
+<td><code>.warning</code></td>
 <td><code>.default</code></td>
+</tr>
+<tr>
+<td><code>.error</code></td>
+<td><code>.error</code></td>
+</tr>
+</tbody></table>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="err">`</span><span class="k">default</span><span class="err">`</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO15CleanroomLogger19OSLogTypeTranslator6strictFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/strict" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO15CleanroomLogger19OSLogTypeTranslator6strictFMS0_S0_">strict</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A strict translation from a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code> to an
+ <code>OSLogType</code> value. Warnings are treated as errors; errors are
+ treated as faults.</p>
+
+<p>This will result in additional logging overhead being recorded by OSLog,
+ and is not recommended unless you have a specific need for this.</p>
+
+<table><thead>
+<tr>
+<th>LogSeverity</th>
+<th>OSLogType</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.verbose</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.debug</code></td>
+<td><code>.debug</code></td>
+</tr>
+<tr>
+<td><code>.info</code></td>
+<td><code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code></td>
 </tr>
 <tr>
 <td><code>.warning</code></td>
@@ -302,7 +369,10 @@ deriving the appropriate <code>OSLogType</code> for a given <code><a href="../St
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A relaxed translation from a <code><a href="../Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>severity</code> to an
- <code>OSLogType</code> value. Warnings are treated as informational log messages.</p>
+ <code>OSLogType</code> value. Nothing is treated as an error.</p>
+
+<p>This results in low-overhead logging, but log entries are more
+ ephemeral and may not contain as much OSLog metadata.</p>
 
 <table><thead>
 <tr>
@@ -320,15 +390,15 @@ deriving the appropriate <code>OSLogType</code> for a given <code><a href="../St
 </tr>
 <tr>
 <td><code>.info</code></td>
-<td><code>.default</code></td>
+<td><code>.info</code></td>
 </tr>
 <tr>
 <td><code>.warning</code></td>
-<td><code>.default</code></td>
+<td><code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code></td>
 </tr>
 <tr>
 <td><code>.error</code></td>
-<td><code>.error</code></td>
+<td><code><a href="../Enums/OSLogTypeTranslator.html#/s:FO15CleanroomLogger19OSLogTypeTranslator7defaultFMS0_S0_">.default</a></code></td>
 </tr>
 </tbody></table>
 
