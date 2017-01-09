@@ -64,7 +64,7 @@ public struct OSLogRecorder: LogRecorder
      - parameter queue: The `DispatchQueue` to use for the recorder. If `nil`,
      a new queue will be created.
      */
-    public init?(formatters: [LogFormatter], subsystem: String = "", logTypeTranslator: OSLogTypeTranslator = .strict, queue: DispatchQueue? = nil)
+    public init?(formatters: [LogFormatter], subsystem: String = "", logTypeTranslator: OSLogTypeTranslator = .default, queue: DispatchQueue? = nil)
     {
         guard #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) else {
             return nil
