@@ -20,6 +20,18 @@ Branch|Build status
 [`master`](https://github.com/emaloney/CleanroomLogger)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
 
 
+- [Key Benefits of CleanroomLogger](#key-benefits-of-cleanroomlogger)
+- [Adding CleanroomLogger to your project](#adding-cleanroomlogger-to-your-project)
+- [Using CleanroomLogger](#using-cleanroomlogger)
+	- [Enabling logging](#enabling-logging)
+	- [Logging Examples](#logging-examples)
+- [CleanroomLogger In Depth](#cleanroomlogger-in-depth)
+	- [Configuring CleanroomLogger](#configuring-cleanroomlogger)
+	- [Customized Log Formatting](#customized-log-formatting)
+	- [API Documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html)
+- [Design Philosophy](#design-philosophy)	
+- [Architectural Overview](#architectural-overview)
+
 ### Key Benefits of CleanroomLogger
 
 #### ▶︎ Built for speed
@@ -36,7 +48,7 @@ On systems where OSLog isn’t available, CleanroomLogger gracefully falls back 
 
 Good documentation is critical to the usefulness of any open-source framework. In addition to the extensive high-level documentation you’ll find below, [the CleanroomLogger API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) itself is 100% documented.
 
-#### ▶ Prioritize messages by severity
+#### ▶ Organize and filter messages by severity
 
 Messages are assigned one of five [_severity levels_](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html): the most severe is _error_, followed by _warning_, _info_, _debug_ and _verbose_, the least severe. Knowing a message’s severity lets you perform additional filtering; for example, to minimize the overhead of logging in App Store binaries, you could choose to log only warnings and errors in release builds.
 
