@@ -155,7 +155,7 @@ To make it easier to quickly identify important log messages at runtime, the `Xc
 ◾️ Debug messages have a black square; easier to spot, but still de-emphasized
 🔷 Info messages add a splash of color in the form of a blue diamond
 🔶 Warnings are highlighted with a fire-orange diamond
-🛑 Error messages stand out with a red stop sign — hard to miss!
+❌ Error messages stand out with a big red X — hard to miss!
 ```
 
 The simplest way to enable CleanroomLogger using the `XcodeLogConfiguration` is by calling:

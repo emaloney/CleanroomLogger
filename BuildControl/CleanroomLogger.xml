@@ -47,7 +47,7 @@ You don’t have to choose between smooth scrolling and collecting meaningful lo
 
 ^q(####) ▶ A modern logging engine with first-class legacy support
 
-CleanroomLogger takes advantage of Apple’s new [Unified Logging System](https://developer.apple.com/reference/os/2793189-logging) (aka “OSLog” or “os_log”) when running on iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0 or higher.
+CleanroomLogger takes advantage of Apple’s new [Unified Logging System](https://developer.apple.com/reference/os/2793189-logging) (_aka_ “OSLog” or “os_log”) when running on iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0 or higher.
 
 On systems where OSLog isn’t available, CleanroomLogger gracefully falls back to other standard output mechanisms, automatically.
 
@@ -68,7 +68,7 @@ Quickly spot problems at runtime in the Xcode console, where log messages are co
 ◾️ Debug messages have a black square; easier to spot, but still de-emphasized
 🔷 Info messages add a splash of color in the form of a blue diamond
 🔶 Warnings are highlighted with a fire-orange diamond
-🛑 Error messages stand out with a red stop sign — hard to miss!
+❌ Error messages stand out with a big red X — hard to miss!
 ```
 
 ^q(####) ▶ UNIX-friendly
@@ -90,7 +90,7 @@ If you’re just using `print()` or `NSLog()` everywhere, it can sometimes be di
 ◾️ Uploaded tapstream batch (TapstreamTracker.swift:166)
 ◽️ Presenting AccountNavigationController from SaleListingController (BackstopDeepLinkNavigator.swift:174)
 🔷 Successfully navigated to .account for URL: gilt://account (DeepLinkConsoleOutput.swift:104)
-🛑 Unrecognized URL: CountrySelector (GiltOnTheGoDeepLinkRouter.swift:100)
+❌ Unrecognized URL: CountrySelector (GiltOnTheGoDeepLinkRouter.swift:100)
 ```
 
 ^q(####) ▶ Rotating log files
