@@ -10,6 +10,8 @@
 		3B1712671E20A50600682E89 /* PayloadTraceLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1712661E20A50600682E89 /* PayloadTraceLogFormatter.swift */; };
 		3B1712691E20A66000682E89 /* PayloadMessageLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1712681E20A66000682E89 /* PayloadMessageLogFormatter.swift */; };
 		3B17126B1E20A7AB00682E89 /* PayloadValueLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17126A1E20A7AB00682E89 /* PayloadValueLogFormatter.swift */; };
+		3B25B1191E3EF7FA001FD668 /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25B1171E3EF7FA001FD668 /* LoggingTests.swift */; };
+		3B25B11A1E3EF7FA001FD668 /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25B1181E3EF7FA001FD668 /* LogSeverityTests.swift */; };
 		3B2811471E1D63D300878EC2 /* OutputStreamLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2811461E1D63D300878EC2 /* OutputStreamLogRecorder.swift */; };
 		3B2811491E1D65E100878EC2 /* StandardErrorLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2811481E1D65E100878EC2 /* StandardErrorLogRecorder.swift */; };
 		3B28114B1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B28114A1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift */; };
@@ -43,8 +45,6 @@
 		3B475D491DB47B8A0047D397 /* TimestampLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D221DB47B8A0047D397 /* TimestampLogFormatter.swift */; };
 		3B475D4B1DB47B8A0047D397 /* XcodeLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D241DB47B8A0047D397 /* XcodeLogConfiguration.swift */; };
 		3B475D4C1DB47B8A0047D397 /* XcodeLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */; };
-		3B475D501DB47BD50047D397 /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D4E1DB47BD50047D397 /* LoggingTests.swift */; };
-		3B475D511DB47BD50047D397 /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */; };
 		3B4EE3501E1AEB3A002A92BC /* OSLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE34F1E1AEB3A002A92BC /* OSLogRecorder.swift */; };
 		3B4EE3521E1AEF49002A92BC /* OSLogTypeTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE3511E1AEF49002A92BC /* OSLogTypeTranslator.swift */; };
 		3B4EE3561E1BED6D002A92BC /* XcodeTraceLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EE3551E1BED6D002A92BC /* XcodeTraceLogFormatter.swift */; };
@@ -69,6 +69,8 @@
 		3B1712661E20A50600682E89 /* PayloadTraceLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTraceLogFormatter.swift; sourceTree = "<group>"; };
 		3B1712681E20A66000682E89 /* PayloadMessageLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadMessageLogFormatter.swift; sourceTree = "<group>"; };
 		3B17126A1E20A7AB00682E89 /* PayloadValueLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadValueLogFormatter.swift; sourceTree = "<group>"; };
+		3B25B1171E3EF7FA001FD668 /* LoggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingTests.swift; path = CleanroomLoggerTests/LoggingTests.swift; sourceTree = "<group>"; };
+		3B25B1181E3EF7FA001FD668 /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogSeverityTests.swift; path = CleanroomLoggerTests/LogSeverityTests.swift; sourceTree = "<group>"; };
 		3B2811461E1D63D300878EC2 /* OutputStreamLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputStreamLogRecorder.swift; sourceTree = "<group>"; };
 		3B2811481E1D65E100878EC2 /* StandardErrorLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorLogRecorder.swift; sourceTree = "<group>"; };
 		3B28114A1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardStreamsLogRecorder.swift; sourceTree = "<group>"; };
@@ -102,8 +104,6 @@
 		3B475D221DB47B8A0047D397 /* TimestampLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimestampLogFormatter.swift; sourceTree = "<group>"; };
 		3B475D241DB47B8A0047D397 /* XcodeLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeLogConfiguration.swift; sourceTree = "<group>"; };
 		3B475D251DB47B8A0047D397 /* XcodeLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeLogFormatter.swift; sourceTree = "<group>"; };
-		3B475D4E1DB47BD50047D397 /* LoggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingTests.swift; sourceTree = "<group>"; };
-		3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogSeverityTests.swift; sourceTree = "<group>"; };
 		3B4EE34F1E1AEB3A002A92BC /* OSLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogRecorder.swift; sourceTree = "<group>"; };
 		3B4EE3511E1AEF49002A92BC /* OSLogTypeTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogTypeTranslator.swift; sourceTree = "<group>"; };
 		3B4EE3551E1BED6D002A92BC /* XcodeTraceLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeTraceLogFormatter.swift; sourceTree = "<group>"; };
@@ -194,8 +194,8 @@
 		3B475D4D1DB47BD50047D397 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3B475D4E1DB47BD50047D397 /* LoggingTests.swift */,
-				3B475D4F1DB47BD50047D397 /* LogSeverityTests.swift */,
+				3B25B1171E3EF7FA001FD668 /* LoggingTests.swift */,
+				3B25B1181E3EF7FA001FD668 /* LogSeverityTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -308,6 +308,7 @@
 					3B90590B1DAECB5200B4EEC0 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = MTP6A36P8K;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -402,8 +403,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B475D501DB47BD50047D397 /* LoggingTests.swift in Sources */,
-				3B475D511DB47BD50047D397 /* LogSeverityTests.swift in Sources */,
+				3B25B1191E3EF7FA001FD668 /* LoggingTests.swift in Sources */,
+				3B25B11A1E3EF7FA001FD668 /* LogSeverityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +547,9 @@
 			baseConfigurationReference = 3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -555,6 +559,8 @@
 			baseConfigurationReference = 3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
