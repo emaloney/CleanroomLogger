@@ -1,3 +1,4 @@
+![HBC Digital logo](https://raw.githubusercontent.com/gilt/Cleanroom/master/Assets/hbc-digital-logo.png)     
 ![Gilt Tech logo](https://raw.githubusercontent.com/gilt/Cleanroom/master/Assets/gilt-tech-logo.png)
 
 # CleanroomLogger
@@ -12,6 +13,7 @@ CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Clean
 ### Swift compatibility
 
 This is the `master` branch. It uses **Swift 3.0.2** and **requires Xcode 8.2** to compile.
+
 
 #### Current status
 
