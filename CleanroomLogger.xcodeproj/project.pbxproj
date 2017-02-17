@@ -10,11 +10,14 @@
 		3B1712671E20A50600682E89 /* PayloadTraceLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1712661E20A50600682E89 /* PayloadTraceLogFormatter.swift */; };
 		3B1712691E20A66000682E89 /* PayloadMessageLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1712681E20A66000682E89 /* PayloadMessageLogFormatter.swift */; };
 		3B17126B1E20A7AB00682E89 /* PayloadValueLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17126A1E20A7AB00682E89 /* PayloadValueLogFormatter.swift */; };
-		3B25B1191E3EF7FA001FD668 /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25B1171E3EF7FA001FD668 /* LoggingTests.swift */; };
-		3B25B11A1E3EF7FA001FD668 /* LogSeverityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25B1181E3EF7FA001FD668 /* LogSeverityTests.swift */; };
+		3B25B1191E3EF7FA001FD668 /* LogEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25B1171E3EF7FA001FD668 /* LogEntryTests.swift */; };
+		3B25B11A1E3EF7FA001FD668 /* LogSeverityComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25B1181E3EF7FA001FD668 /* LogSeverityComparisonTests.swift */; };
 		3B2811471E1D63D300878EC2 /* OutputStreamLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2811461E1D63D300878EC2 /* OutputStreamLogRecorder.swift */; };
 		3B2811491E1D65E100878EC2 /* StandardErrorLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2811481E1D65E100878EC2 /* StandardErrorLogRecorder.swift */; };
 		3B28114B1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B28114A1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift */; };
+		3B2AFD551E562EEB00C115F7 /* BufferedLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD541E562EEB00C115F7 /* BufferedLogRecorder.swift */; };
+		3B2AFD581E579E9500C115F7 /* KeyedMessageBufferExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD561E579E7100C115F7 /* KeyedMessageBufferExtension.swift */; };
+		3B2AFD5A1E579EEC00C115F7 /* LoggerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD591E579EEC00C115F7 /* LoggerTestCase.swift */; };
 		3B475D271DB47B8A0047D397 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */; };
 		3B475D281DB47B8A0047D397 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */; };
 		3B475D291DB47B8A0047D397 /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */; };
@@ -69,11 +72,14 @@
 		3B1712661E20A50600682E89 /* PayloadTraceLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadTraceLogFormatter.swift; sourceTree = "<group>"; };
 		3B1712681E20A66000682E89 /* PayloadMessageLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadMessageLogFormatter.swift; sourceTree = "<group>"; };
 		3B17126A1E20A7AB00682E89 /* PayloadValueLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayloadValueLogFormatter.swift; sourceTree = "<group>"; };
-		3B25B1171E3EF7FA001FD668 /* LoggingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingTests.swift; path = CleanroomLoggerTests/LoggingTests.swift; sourceTree = "<group>"; };
-		3B25B1181E3EF7FA001FD668 /* LogSeverityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogSeverityTests.swift; path = CleanroomLoggerTests/LogSeverityTests.swift; sourceTree = "<group>"; };
+		3B25B1171E3EF7FA001FD668 /* LogEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogEntryTests.swift; path = CleanroomLoggerTests/LogEntryTests.swift; sourceTree = "<group>"; };
+		3B25B1181E3EF7FA001FD668 /* LogSeverityComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogSeverityComparisonTests.swift; path = CleanroomLoggerTests/LogSeverityComparisonTests.swift; sourceTree = "<group>"; };
 		3B2811461E1D63D300878EC2 /* OutputStreamLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputStreamLogRecorder.swift; sourceTree = "<group>"; };
 		3B2811481E1D65E100878EC2 /* StandardErrorLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorLogRecorder.swift; sourceTree = "<group>"; };
 		3B28114A1E1D66D700878EC2 /* StandardStreamsLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardStreamsLogRecorder.swift; sourceTree = "<group>"; };
+		3B2AFD541E562EEB00C115F7 /* BufferedLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferedLogRecorder.swift; sourceTree = "<group>"; };
+		3B2AFD561E579E7100C115F7 /* KeyedMessageBufferExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyedMessageBufferExtension.swift; path = CleanroomLoggerTests/KeyedMessageBufferExtension.swift; sourceTree = "<group>"; };
+		3B2AFD591E579EEC00C115F7 /* LoggerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggerTestCase.swift; path = CleanroomLoggerTests/LoggerTestCase.swift; sourceTree = "<group>"; };
 		3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicLogConfiguration.swift; sourceTree = "<group>"; };
 		3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallingThreadLogFormatter.swift; sourceTree = "<group>"; };
 		3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSiteLogFormatter.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */,
+				3B2AFD541E562EEB00C115F7 /* BufferedLogRecorder.swift */,
 				3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */,
 				3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */,
 				3B475D061DB47B8A0047D397 /* ConcatenatingLogFormatter.swift */,
@@ -194,8 +201,10 @@
 		3B475D4D1DB47BD50047D397 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3B25B1171E3EF7FA001FD668 /* LoggingTests.swift */,
-				3B25B1181E3EF7FA001FD668 /* LogSeverityTests.swift */,
+				3B2AFD561E579E7100C115F7 /* KeyedMessageBufferExtension.swift */,
+				3B25B1171E3EF7FA001FD668 /* LogEntryTests.swift */,
+				3B2AFD591E579EEC00C115F7 /* LoggerTestCase.swift */,
+				3B25B1181E3EF7FA001FD668 /* LogSeverityComparisonTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -375,6 +384,7 @@
 				3B2811471E1D63D300878EC2 /* OutputStreamLogRecorder.swift in Sources */,
 				3B475D3E1DB47B8A0047D397 /* PayloadLogFormatter.swift in Sources */,
 				3B475D271DB47B8A0047D397 /* BasicLogConfiguration.swift in Sources */,
+				3B2AFD551E562EEB00C115F7 /* BufferedLogRecorder.swift in Sources */,
 				3B475D311DB47B8A0047D397 /* FileLogRecorder.swift in Sources */,
 				3B475D331DB47B8A0047D397 /* Log.swift in Sources */,
 				3B475D301DB47B8A0047D397 /* FieldBasedLogFormatter.swift in Sources */,
@@ -403,8 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B25B1191E3EF7FA001FD668 /* LoggingTests.swift in Sources */,
-				3B25B11A1E3EF7FA001FD668 /* LogSeverityTests.swift in Sources */,
+				3B25B1191E3EF7FA001FD668 /* LogEntryTests.swift in Sources */,
+				3B2AFD581E579E9500C115F7 /* KeyedMessageBufferExtension.swift in Sources */,
+				3B25B11A1E3EF7FA001FD668 /* LogSeverityComparisonTests.swift in Sources */,
+				3B2AFD5A1E579EEC00C115F7 /* LoggerTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
