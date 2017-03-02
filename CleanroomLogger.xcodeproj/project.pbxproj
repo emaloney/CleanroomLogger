@@ -18,6 +18,10 @@
 		3B2AFD551E562EEB00C115F7 /* BufferedLogRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD541E562EEB00C115F7 /* BufferedLogRecorder.swift */; };
 		3B2AFD581E579E9500C115F7 /* KeyedMessageBufferExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD561E579E7100C115F7 /* KeyedMessageBufferExtension.swift */; };
 		3B2AFD5A1E579EEC00C115F7 /* LoggerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD591E579EEC00C115F7 /* LoggerTestCase.swift */; };
+		3B2AFD5F1E57A81400C115F7 /* LiveLogInspectorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD5E1E57A81400C115F7 /* LiveLogInspectorConfiguration.swift */; };
+		3B2AFD611E59254400C115F7 /* LiveLogInspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD601E59254400C115F7 /* LiveLogInspectorView.swift */; };
+		3B2AFD631E59256D00C115F7 /* LiveLogInspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD621E59256D00C115F7 /* LiveLogInspectorViewController.swift */; };
+		3B2AFD651E5CEA8E00C115F7 /* CallbackRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2AFD641E5CEA8E00C115F7 /* CallbackRegistry.swift */; };
 		3B475D271DB47B8A0047D397 /* BasicLogConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */; };
 		3B475D281DB47B8A0047D397 /* CallingThreadLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */; };
 		3B475D291DB47B8A0047D397 /* CallSiteLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */; };
@@ -80,6 +84,10 @@
 		3B2AFD541E562EEB00C115F7 /* BufferedLogRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferedLogRecorder.swift; sourceTree = "<group>"; };
 		3B2AFD561E579E7100C115F7 /* KeyedMessageBufferExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyedMessageBufferExtension.swift; path = CleanroomLoggerTests/KeyedMessageBufferExtension.swift; sourceTree = "<group>"; };
 		3B2AFD591E579EEC00C115F7 /* LoggerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggerTestCase.swift; path = CleanroomLoggerTests/LoggerTestCase.swift; sourceTree = "<group>"; };
+		3B2AFD5E1E57A81400C115F7 /* LiveLogInspectorConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveLogInspectorConfiguration.swift; sourceTree = "<group>"; };
+		3B2AFD601E59254400C115F7 /* LiveLogInspectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveLogInspectorView.swift; sourceTree = "<group>"; };
+		3B2AFD621E59256D00C115F7 /* LiveLogInspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveLogInspectorViewController.swift; sourceTree = "<group>"; };
+		3B2AFD641E5CEA8E00C115F7 /* CallbackRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackRegistry.swift; sourceTree = "<group>"; };
 		3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicLogConfiguration.swift; sourceTree = "<group>"; };
 		3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallingThreadLogFormatter.swift; sourceTree = "<group>"; };
 		3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallSiteLogFormatter.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 			children = (
 				3B475D001DB47B8A0047D397 /* BasicLogConfiguration.swift */,
 				3B2AFD541E562EEB00C115F7 /* BufferedLogRecorder.swift */,
+				3B2AFD641E5CEA8E00C115F7 /* CallbackRegistry.swift */,
 				3B475D011DB47B8A0047D397 /* CallingThreadLogFormatter.swift */,
 				3B475D021DB47B8A0047D397 /* CallSiteLogFormatter.swift */,
 				3B475D061DB47B8A0047D397 /* ConcatenatingLogFormatter.swift */,
@@ -160,6 +169,9 @@
 				3B475D091DB47B8A0047D397 /* FieldBasedLogFormatter.swift */,
 				3B475D0A1DB47B8A0047D397 /* FileLogRecorder.swift */,
 				3B475D0B1DB47B8A0047D397 /* LiteralLogFormatter.swift */,
+				3B2AFD5E1E57A81400C115F7 /* LiveLogInspectorConfiguration.swift */,
+				3B2AFD601E59254400C115F7 /* LiveLogInspectorView.swift */,
+				3B2AFD621E59256D00C115F7 /* LiveLogInspectorViewController.swift */,
 				3B475D0C1DB47B8A0047D397 /* Log.swift */,
 				3B475D0D1DB47B8A0047D397 /* LogChannel.swift */,
 				3B475D0E1DB47B8A0047D397 /* LogConfiguration.swift */,
@@ -375,6 +387,7 @@
 				3B4EE3561E1BED6D002A92BC /* XcodeTraceLogFormatter.swift in Sources */,
 				3B17126B1E20A7AB00682E89 /* PayloadValueLogFormatter.swift in Sources */,
 				3B475D4B1DB47B8A0047D397 /* XcodeLogConfiguration.swift in Sources */,
+				3B2AFD631E59256D00C115F7 /* LiveLogInspectorViewController.swift in Sources */,
 				3B1712671E20A50600682E89 /* PayloadTraceLogFormatter.swift in Sources */,
 				3B4EE3521E1AEF49002A92BC /* OSLogTypeTranslator.swift in Sources */,
 				3B475D431DB47B8A0047D397 /* RotatingLogFileRecorder.swift in Sources */,
@@ -399,7 +412,10 @@
 				3B4EE3601E1C3E84002A92BC /* ProcessIDLogFormatter.swift in Sources */,
 				3B475D321DB47B8A0047D397 /* LiteralLogFormatter.swift in Sources */,
 				3B475D3B1DB47B8A0047D397 /* LogRecorderBase.swift in Sources */,
+				3B2AFD5F1E57A81400C115F7 /* LiveLogInspectorConfiguration.swift in Sources */,
+				3B2AFD651E5CEA8E00C115F7 /* CallbackRegistry.swift in Sources */,
 				3B2811491E1D65E100878EC2 /* StandardErrorLogRecorder.swift in Sources */,
+				3B2AFD611E59254400C115F7 /* LiveLogInspectorView.swift in Sources */,
 				3B1712691E20A66000682E89 /* PayloadMessageLogFormatter.swift in Sources */,
 				3B475D461DB47B8A0047D397 /* StandardLogFormatter.swift in Sources */,
 				3B475D3D1DB47B8A0047D397 /* ParsableLogFormatter.swift in Sources */,
@@ -535,6 +551,7 @@
 				DYLIB_CURRENT_VERSION = 27;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -549,6 +566,7 @@
 				DYLIB_CURRENT_VERSION = 27;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};

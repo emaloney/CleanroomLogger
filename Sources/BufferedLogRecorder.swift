@@ -28,8 +28,14 @@ import Dispatch
 open class BufferedLogRecorder<BufferItem>: LogRecorderBase
 {
     /** The maximum number if items that will be stored in the receiver's
-     buffer */
+     buffer. */
     open let bufferLimit: Int
+
+    /** If `true`, the items in the buffer are stored in reverse chronological
+     order: the first item in the buffer array will be the newest, while the
+     last item will be the oldest. Otherwise, the array will be ordered from
+     oldest to newest. */
+    open let reverseChronological: Bool
 
     /** The function used to create a `BufferItem` given a `LogEntry` and a
      formatted message string. */
@@ -38,6 +44,21 @@ open class BufferedLogRecorder<BufferItem>: LogRecorderBase
     /** The buffer, an array of `BufferItem`s created to represent the 
      `LogEntry` values recorded by the receiver. */
     open private(set) var buffer: [BufferItem]
+
+    private var didRecordItemCallbacks: CallbackRegistry<(_ recorder: BufferedLogRecorder<BufferItem>, _ item: BufferItem, _ didTruncateBuffer: Bool) -> Void>
+    private var didClearBufferCallbacks: CallbackRegistry<(_ recorder: BufferedLogRecorder<BufferItem>) -> Void>
+
+    /** A callback function that gets executed on the main thread once for each
+     call to `record()`. The caller and the recorded `BufferItem` are passed as
+     parameters, along with a flag indicating whether the buffer was truncated
+     due to hitting the `bufferLimit`. When this function is called, the item
+     will have already been added to the buffer array. */
+//    open var didRecordBufferItem: (_ recorder: BufferedLogRecorder<BufferItem>, _ item: BufferItem, _ didTruncateBuffer: Bool) -> Void = { _, _, _ in }
+
+    /** A callback function that gets executed on the main thread whenever the
+     buffer is cleared. The caller is passed as the parameter. When this 
+     function is called, the buffer will have already been cleared. */
+//    open var didClearBuffer: (_ recorder: BufferedLogRecorder<BufferItem>) -> Void = { _ in }
 
     /**
      Initializes a new `BufferedLogRecorder`.
@@ -56,22 +77,48 @@ open class BufferedLogRecorder<BufferItem>: LogRecorderBase
      consumption will grow endlessly unless you manually clear the buffer
      periodically.
 
+     - parameter reverseChronological: If `true`, the items in the buffer will
+     be stored in reverse chronological order: the first item in the buffer
+     array will be the newest, while the last item will be the oldest. 
+     Otherwise, the array will be ordered from oldest to newest.
+
      - parameter queue: The `DispatchQueue` to use for the recorder. If `nil`,
      a new queue will be created.
-     
+
      - parameter createBufferItem: The function used to create `BufferItem`
      instances for each `LogEntry` and formatted message string passed to the
      receiver's `record`()` function.
      */
-    public init(formatters: [LogFormatter], bufferLimit: Int = 10_000, queue: DispatchQueue? = nil, createBufferItem: @escaping (LogEntry, String) -> BufferItem)
+    public init(formatters: [LogFormatter], bufferLimit: Int = 10_000, reverseChronological: Bool = false, queue: DispatchQueue? = nil, createBufferItem: @escaping (LogEntry, String) -> BufferItem)
     {
         self.buffer = []
         self.bufferLimit = bufferLimit
+        self.reverseChronological = reverseChronological
         self.createBufferItem = createBufferItem
+
+        self.didRecordItemCallbacks = CallbackRegistry<(_ recorder: BufferedLogRecorder<BufferItem>, _ item: BufferItem, _ didTruncateBuffer: Bool) -> Void>()
+        self.didClearBufferCallbacks = CallbackRegistry<(_ recorder: BufferedLogRecorder<BufferItem>) -> Void>()
 
         super.init(formatters: formatters, queue: queue)
     }
-    
+
+    open func addCallback(didRecordBufferItem: @escaping (_ recorder: BufferedLogRecorder<BufferItem>, _ item: BufferItem, _ didTruncateBuffer: Bool) -> Void)
+        -> CallbackHandle
+    {
+        return didRecordItemCallbacks.addCallback(didRecordBufferItem)
+    }
+
+    open func addCallback(didClearBuffer: @escaping (_ recorder: BufferedLogRecorder<BufferItem>) -> Void)
+        -> CallbackHandle
+    {
+        return didClearBufferCallbacks.addCallback(didClearBuffer)
+    }
+
+    open func removeCallback(handle: CallbackHandle)
+    {
+        handle.stopCallbacks()
+    }
+
     /**
      Called by the `LogReceptacle` to record the formatted log message.
 
@@ -92,10 +139,24 @@ open class BufferedLogRecorder<BufferItem>: LogRecorderBase
     {
         let item = createBufferItem(entry, message)
 
-        buffer.append(item)
+        var didTruncate = false
+        if bufferLimit > 0 && buffer.count + 1 > bufferLimit {
+            if reverseChronological {
+                buffer.removeLast()
+            } else {
+                buffer.removeFirst()
+            }
+            didTruncate = true
+        }
 
-        if bufferLimit > 0 && buffer.count > bufferLimit {
-            buffer.remove(at: 0)
+        if reverseChronological {
+            buffer.insert(item, at: 0)
+        } else {
+            buffer.append(item)
+        }
+
+        for callback in didRecordItemCallbacks.callbacks() {
+            callback(self, item, didTruncate)
         }
     }
 
@@ -107,10 +168,14 @@ open class BufferedLogRecorder<BufferItem>: LogRecorderBase
      */
     public func clear()
     {
-        // ensures consistent access to buffer, preventing race conditions
-//        queue.sync {
-            self.buffer = []
-//        }
+        // ensures consistent access to buffer
+        queue.sync {
+            self.buffer.removeAll(keepingCapacity: true)
+
+            for callback in didClearBufferCallbacks.callbacks() {
+                callback(self)
+            }
+        }
     }
 }
 
