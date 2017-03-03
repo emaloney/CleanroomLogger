@@ -47,36 +47,45 @@ open class LiveLogInspectorView: UIView
         label.textColor = .darkGray
     }
 
-    /** A function called when the close button is tapped in the view.
-     By default, removes the view from its superview. However, when the view
-     is in a presented `UIViewController`, this function is replaced with an
+    /** A function called when the close button is tapped in the view. By
+     default, removes the view from its superview. However, when the view is
+     in a `LiveLogInspectorViewController`, this function is replaced with an
      implementation that dismisses the view controller. */
     open var closeButtonTriggered: (LiveLogInspectorView) -> Void = { view in
         view.removeFromSuperview()
     }
 
+    /** If `true`, log entries are displayed in newest-first (reverse
+     chronological) order. If `false`, entries are displayed oldest-first. */
     open var isSortedNewestFirst = true {
         didSet {
             tableView.reloadData()
         }
     }
 
+    /** Governs the minimum `LogSeverity` to be shown in the view. Log entries
+     with a severity lower than the `minimumSeverity` are not displayed. A
+     value of `.verbose` causes all entries to be shown. */
     open var minimumSeverity = LogSeverity.verbose {
         didSet {
             tableView.reloadData()
         }
     }
 
+    /** If `true`, new log entries will be scrolled into view automatically
+     as they are recorded. */
     open var isFollowing = true {
         didSet {
             headerView.updateFollowingButton()
 
             if isFollowing && !oldValue {
-                self.follow()
+                follow()
             }
         }
     }
 
+    /** Controls the affordance given to the status bar when displayed in a
+     fullscreen view controller. */
     open var statusBarHeight = CGFloat(0) {
         didSet {
             guard statusBarHeight != oldValue else { return }
@@ -188,6 +197,15 @@ open class LiveLogInspectorView: UIView
 
     public required init?(coder: NSCoder) { fatalError() }
 
+    open override func willMove(toWindow window: UIWindow?)
+    {
+        if window != nil && itemCount != recorder.buffer.count {
+            tableView.reloadData()
+        }
+
+        super.willMove(toWindow: window)
+    }
+
     open override func didMoveToWindow()
     {
         if self.window != nil {
@@ -246,13 +264,21 @@ open class LiveLogInspectorView: UIView
             clearBufferCallbackHandle = nil
             recordItemCallbackHandle = nil
         }
+
+        super.didMoveToWindow()
     }
 
+    /**
+     Toggles the value of the `isSortedNewestFirst` property.
+     */
     open func toggleSortOrder()
     {
         isSortedNewestFirst = !isSortedNewestFirst
     }
 
+    /**
+     Toggles the value of the `isFollowing` property.
+     */
     open func toggleIsFollowing()
     {
         isFollowing = !isFollowing
@@ -453,11 +479,13 @@ private class LogInspectorHeaderView: UIView
 
     required init?(coder: NSCoder) { fatalError() }
 
-    override func didMoveToWindow()
+    override func willMove(toWindow window: UIWindow?)
     {
         if window != nil {
             updateState()
         }
+
+        super.willMove(toWindow: window)
     }
 
     @objc private func closeButtonTriggered()
