@@ -55,9 +55,11 @@ open class LiveLogInspectorViewController: UIViewController
      */
     public required init?(coder: NSCoder) { fatalError() }
 
+#if os(iOS)
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
+#endif
 
     open override func loadView()
     {

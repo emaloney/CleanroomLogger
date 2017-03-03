@@ -27,7 +27,11 @@ open class LiveLogInspectorView: UIView
      has been set. You may replace this function to customize the appearance 
      of the label. */
     open var styleMessageLabel: (UILabel) -> Void = { label in
+#if os(iOS)
         label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+#elseif os(tvOS)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+#endif
     }
 
     /** A function applies styling to the `UILabel` used to display the
@@ -35,7 +39,11 @@ open class LiveLogInspectorView: UIView
      `text` of the label has been set. You may replace this function to
      customize the appearance of the label. */
     open var styleSeverityLabel: (UILabel) -> Void = { label in
+#if os(iOS)
         label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+#elseif os(tvOS)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+#endif
     }
 
     /** A function applies styling to the `UILabel` used to display the
@@ -43,8 +51,11 @@ open class LiveLogInspectorView: UIView
      `text` of the label has been set. You may replace this function to
      customize the appearance of the label. */
     open var styleTimestampLabel: (UILabel) -> Void = { label in
+#if os(iOS)
         label.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-        label.textColor = .darkGray
+#elseif os(tvOS)
+        label.font = UIFont.preferredFont(forTextStyle: .footnote)
+#endif
     }
 
     /** A function called when the close button is tapped in the view. By
@@ -430,7 +441,11 @@ private class LogInspectorHeaderView: UIView
 
         super.init(frame: .zero)
 
+#if os(iOS)
         let buttonFontSize = UIFont.smallSystemFontSize
+#elseif os(tvOS)
+        let buttonFontSize = CGFloat(18)
+#endif
 
         closeButton.backgroundColor = UIColor(white: 0.0, alpha: 0.65)
         closeButton.setTitle("✖︎", for: .normal)
