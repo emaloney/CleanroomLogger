@@ -5,7 +5,7 @@ TARGETED_DEVICE_FAMILY = 1,2,3,4
 //
 // iOS-specific settings
 //
-IPHONEOS_DEPLOYMENT_TARGET = 8.0
+IPHONEOS_DEPLOYMENT_TARGET = 9.0
 
 VALID_ARCHS[sdk=iphoneos*] = arm64 armv7 armv7s
 VALID_ARCHS[sdk=iphonesimulator*] = i386 x86_64
@@ -20,7 +20,7 @@ ENABLE_BITCODE[sdk=iphone*] = YES
 //
 // macOS-specific settings
 //
-MACOSX_DEPLOYMENT_TARGET = 10.10
+MACOSX_DEPLOYMENT_TARGET = 10.11
 
 VALID_ARCHS[sdk=macosx*] = i386 x86_64
 

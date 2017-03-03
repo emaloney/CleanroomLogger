@@ -9,12 +9,12 @@ CleanroomLogger is designed as a *universal Swift framework* with support for th
 
 Platform|Latest supported OS|Oldest supported OS
 --------|-------------------|-------------------
-iPhone/iPad|iOS 10.2|iOS 8.0
-Macintosh|macOS 10.12|macOS 10.10
+iPhone/iPad|iOS 10.2|iOS 9.0
+Macintosh|macOS 10.12|macOS 10.11
 Apple TV|tvOS 10.1|tvOS 9.0
 Apple Watch|watchOS 3.1|watchOS 2.0
 
-CleanroomLogger uses **Swift 3.0.2** and **requires Xcode 8.2** to compile.
+**This is the `live-log-viewer` branch of CleanroomLogger.** It uses **Swift 3.0.2** and **requires Xcode 8.2** to compile.
 
 ### Options for integration
 
@@ -107,7 +107,7 @@ Select the appropriate Build Scheme for your Target, and press `⌘-B` to try to
 
 ### You're done!
 
-Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) provided by CleanroomLogger using the statement:
+Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/live-log-viewer/Documentation/API/index.html) provided by CleanroomLogger using the statement:
 
 ```swift
 import CleanroomLogger
@@ -162,7 +162,7 @@ Select the appropriate Build Scheme for your Target, and press `⌘-B` to try to
 
 ### You're done!
 
-Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) provided by CleanroomLogger using the statement:
+Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/live-log-viewer/Documentation/API/index.html) provided by CleanroomLogger using the statement:
 
 ```swift
 import CleanroomLogger
@@ -170,6 +170,6 @@ import CleanroomLogger
 
 ## Further Reading
 
-Want to learn more about CleanroomLogger? Check out [the README](https://github.com/emaloney/CleanroomLogger/blob/master/README.md) or [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html).
+Want to learn more about CleanroomLogger? Check out [the README](https://github.com/emaloney/CleanroomLogger/blob/live-log-viewer/README.md) or [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/live-log-viewer/Documentation/API/index.html).
 
 **_Happy coding!_**

@@ -30,17 +30,25 @@
 		</Var>
 	</Var>
 
-	<Var name="platforms:active" value="xcode-8.2"/>
-	<Var name="platforms:build" value="$platforms[$platforms:active]"/>
-	<Var name="platforms:ci" value="$platforms[$platforms:active]"/>
+	<Var name="buildPlatform:default" literal="xcode-8.2"/>
+	<Var name="buildPlatform:active" type="dynamic" expression="^if(^matchesRegex($repo:branch|^^xcode-([0-9]+){1}(\.[0-9]+){1,2}^q($))|$repo:branch|$buildPlatform:default)"/>
+	<Var name="buildPlatform:supportsCI" type="dynamic" expression="^if($versions[$repo:branch][Travis]|1|0)"/>
+	<Var name="platforms:build" type="dynamic" expression="$platforms[$buildPlatform:active]"/>
+	<Var name="platforms:ci" type="dynamic" expression="$platforms[$buildPlatform:active]"/>
 
 	<Var name="branches" type="list">
 		<Var literal="master"/>
 	</Var>
 
-	<Var name="xcode:version" type="dynamic" expression="$versions[$repo:branch][Xcode]"/>
-	<Var name="swift:version" type="dynamic" expression="$versions[$repo:branch][Swift]"/>
-	<Var name="project:travisImage" type="dynamic" expression="$versions[$repo:branch][Travis]"/>
+	<Var name="branchForVersions" type="dynamic" expression="^if($versions[$repo:branch]|$repo:branch|master)"/> 
+
+	<Var name="xcode:version" type="dynamic" expression="$versions[$branchForVersions][Xcode]"/>
+	<Var name="swift:version" type="dynamic" expression="$versions[$branchForVersions][Swift]"/>
+	<Var name="iOS:version:minimum" type="dynamic" expression="$versions[$branchForVersions][minimum][iOS]"/>
+	<Var name="macOS:version:minimum" type="dynamic" expression="$versions[$branchForVersions][minimum][macOS]"/>
+	<Var name="tvOS:version:minimum" type="dynamic" expression="$versions[$branchForVersions][minimum][tvOS]"/>
+	<Var name="watchOS:version:minimum" type="dynamic" expression="$versions[$branchForVersions][minimum][watchOS]"/>
+	<Var name="project:travisImage" type="dynamic" expression="$versions[$branchForVersions][Travis]"/>
 
 	<Var name="versions" type="map">
 		<!-- master branch declarations -->
@@ -59,8 +67,8 @@
 			</Var>
 			
 			<Var name="minimum" type="map">
-				<Var name="iOS" literal="8.0"/> 
-				<Var name="macOS" literal="10.10"/> 
+				<Var name="iOS" literal="9.0"/> 
+				<Var name="macOS" literal="10.11"/> 
 				<Var name="tvOS" literal="9.0"/> 
 				<Var name="watchOS" literal="2.0"/> 
 			</Var>
