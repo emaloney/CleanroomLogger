@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BufferedLogRecorder Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/BufferedLogRecorder" class="dashAnchor"></a>
+    <a title="BufferedLogRecorder Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CleanroomLogger Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/emaloney/CleanroomLogger"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CleanroomLogger Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        BufferedLogRecorder Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BasicLogConfiguration.html">BasicLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BufferedLogEntryMessageRecorder.html">BufferedLogEntryMessageRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BufferedLogEntryRecorder.html">BufferedLogEntryRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BufferedLogRecorder.html">BufferedLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BufferedMessageRecorder.html">BufferedMessageRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CallbackHandle.html">CallbackHandle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ConsoleLogConfiguration/StandardStreamsMode.html">– StandardStreamsMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter.html">FieldBasedLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FieldBasedLogFormatter/Field.html">– Field</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileLogRecorder.html">FileLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LiveLogInspectorConfiguration.html">LiveLogInspectorConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LiveLogInspectorView.html">LiveLogInspectorView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LiveLogInspectorViewController.html">LiveLogInspectorViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LogReceptacle.html">LogReceptacle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/LogRecorderBase.html">LogRecorderBase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OutputStreamLogRecorder.html">OutputStreamLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ParsableLogFormatter.html">ParsableLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ReadableLogFormatter.html">ReadableLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileConfiguration.html">RotatingLogFileConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardErrorLogRecorder.html">StandardErrorLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardLogFormatter.html">StandardLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardOutputLogRecorder.html">StandardOutputLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StandardStreamsLogRecorder.html">StandardStreamsLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogConfiguration.html">XcodeLogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeLogFormatter.html">XcodeLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/XcodeTraceLogFormatter.html">XcodeTraceLogFormatter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallingThreadStyle.html">CallingThreadStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DelimiterStyle.html">DelimiterStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LogSeverity.html">LogSeverity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/OSLogTypeTranslator.html">OSLogTypeTranslator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle.html">SeverityStyle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SeverityStyle/TextRepresentation.html">– TextRepresentation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TimestampStyle.html">TimestampStyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/LogConfiguration.html">LogConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFilter.html">LogFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogFormatter.html">LogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/LogRecorder.html">LogRecorder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/CallSiteLogFormatter.html">CallSiteLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CallingThreadLogFormatter.html">CallingThreadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/DelimiterLogFormatter.html">DelimiterLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LiteralLogFormatter.html">LiteralLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Log.html">Log</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogChannel.html">LogChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogEntry.html">LogEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogEntry/Payload.html">– Payload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/LogSeverityFilter.html">LogSeverityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/OSLogRecorder.html">OSLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayloadLogFormatter.html">PayloadLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayloadMessageLogFormatter.html">PayloadMessageLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayloadTraceLogFormatter.html">PayloadTraceLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/PayloadValueLogFormatter.html">PayloadValueLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProcessIDLogFormatter.html">ProcessIDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ProcessNameLogFormatter.html">ProcessNameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SeverityLogFormatter.html">SeverityLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/StackFrameLogFormatter.html">StackFrameLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/TimestampLogFormatter.html">TimestampLogFormatter</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>BufferedLogRecorder</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">BufferedLogRecorder</span><span class="o">&lt;</span><span class="kt">BufferItem</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Classes/LogRecorderBase.html">LogRecorderBase</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>BufferedLogRecorder</code> is a generic <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code> that buffers the log
+messages passed to its <code>record()</code> function.</p>
+
+<p>Construction requires a <code>createBufferItem</code> function, which is responsible
+for converting the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and formatted message <code>String</code> into the
+generic <code>BufferItem</code> type.</p>
+
+<p>Three specific subclasses are also provided which will buffer a different
+<code>BufferItem</code> type for each call to <code>record()</code>:</p>
+
+<ul>
+<li><code><a href="../Classes/BufferedMessageRecorder.html">BufferedMessageRecorder</a></code> stores <code>String</code>s containing the formatted log
+message.</li>
+<li><code><a href="../Classes/BufferedLogEntryRecorder.html">BufferedLogEntryRecorder</a></code> stores the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> values passed to <code>record()</code>.</li>
+<li><code><a href="../Classes/BufferedLogEntryMessageRecorder.html">BufferedLogEntryMessageRecorder</a></code> stores a <code>(LogEntry, String)</code> tuple
+containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and formatted log message.</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC15CleanroomLogger19BufferedLogRecorder11bufferLimitSi"></a>
+                    <a name="//apple_ref/swift/Property/bufferLimit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC15CleanroomLogger19BufferedLogRecorder11bufferLimitSi">bufferLimit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum number if items that will be stored in the receiver&rsquo;s
+ buffer.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">let</span> <span class="nv">bufferLimit</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC15CleanroomLogger19BufferedLogRecorder20reverseChronologicalSb"></a>
+                    <a name="//apple_ref/swift/Property/reverseChronological" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC15CleanroomLogger19BufferedLogRecorder20reverseChronologicalSb">reverseChronological</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If <code>true</code>, the items in the buffer are stored in reverse chronological
+ order: the first item in the buffer array will be the newest, while the
+ last item will be the oldest. Otherwise, the array will be ordered from
+ oldest to newest.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">let</span> <span class="nv">reverseChronological</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC15CleanroomLogger19BufferedLogRecorder16createBufferItemFTVS_8LogEntrySS_x"></a>
+                    <a name="//apple_ref/swift/Property/createBufferItem" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC15CleanroomLogger19BufferedLogRecorder16createBufferItemFTVS_8LogEntrySS_x">createBufferItem</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The function used to create a <code>BufferItem</code> given a <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and a
+ formatted message string.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">let</span> <span class="nv">createBufferItem</span><span class="p">:</span> <span class="p">(</span><span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BufferItem</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC15CleanroomLogger19BufferedLogRecorder6bufferGSax_"></a>
+                    <a name="//apple_ref/swift/Property/buffer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC15CleanroomLogger19BufferedLogRecorder6bufferGSax_">buffer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The buffer, an array of <code>BufferItem</code>s created to represent the 
+ <code><a href="../Structs/LogEntry.html">LogEntry</a></code> values recorded by the receiver.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">buffer</span><span class="p">:</span> <span class="p">[</span><span class="kt">BufferItem</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger19BufferedLogRecordercFT10formattersGSaPS_12LogFormatter__11bufferLimitSi20reverseChronologicalSb5queueGSqCSo13DispatchQueue_16createBufferItemFTVS_8LogEntrySS_x_GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(formatters:bufferLimit:reverseChronological:queue:createBufferItem:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger19BufferedLogRecordercFT10formattersGSaPS_12LogFormatter__11bufferLimitSi20reverseChronologicalSb5queueGSqCSo13DispatchQueue_16createBufferItemFTVS_8LogEntrySS_x_GS0_x_">init(formatters:bufferLimit:reverseChronological:queue:createBufferItem:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>BufferedLogRecorder</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">formatters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFormatter.html">LogFormatter</a></span><span class="p">],</span> <span class="nv">bufferLimit</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">10_000</span><span class="p">,</span> <span class="nv">reverseChronological</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">queue</span><span class="p">:</span> <span class="kt">DispatchQueue</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">createBufferItem</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BufferItem</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>formatters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An array of <code>LogFormatter</code>s to use for formatting log entries to be recorded by the receiver. Each formatter is consulted in sequence, and the formatted string returned by the first formatter to yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>, the log entry is silently ignored and not recorded.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bufferLimit</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If this value is positive, it specifies the maximum number of items to store in the buffer. If <code>record()</code> is called when the buffer limit has been reached, the oldest item in the buffer will be dropped. If this value is zero or negative, no limit will be applied. Note that this is potentially dangerous in production code, since memory consumption will grow endlessly unless you manually clear the buffer periodically.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>reverseChronological</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, the items in the buffer will be stored in reverse chronological order: the first item in the buffer array will be the newest, while the last item will be the oldest. Otherwise, the array will be ordered from oldest to newest.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>DispatchQueue</code> to use for the recorder. If <code>nil</code>, a new queue will be created.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>createBufferItem</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The function used to create <code>BufferItem</code> instances for each <code>LogEntry</code> and formatted message string passed to the receiver’s <code>record</code>()` function.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger19BufferedLogRecorder11addCallbackFT19didRecordBufferItemFTGS0_x_xSb_T__CS_14CallbackHandle"></a>
+                    <a name="//apple_ref/swift/Method/addCallback(didRecordBufferItem:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger19BufferedLogRecorder11addCallbackFT19didRecordBufferItemFTGS0_x_xSb_T__CS_14CallbackHandle">addCallback(didRecordBufferItem:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a callback function that will be executed on the main thread once for
+each call to <code>record()</code>.</p>
+
+<p>When the callback function is executed, the receiver will be passed as the
+<code>recorder</code> parameter, along with the recorded <code>BufferItem</code> and a boolean
+flag indicating whether the buffer was truncated due to hitting the
+<code><a href="../Classes/BufferedLogRecorder.html#/s:vC15CleanroomLogger19BufferedLogRecorder11bufferLimitSi">bufferLimit</a></code>.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>By the time <code>callback</code> is executed, the item will have already
+been added to the buffer array.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">addCallback</span><span class="p">(</span><span class="n">didRecordBufferItem</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">recorder</span><span class="p">:</span> <span class="kt">BufferedLogRecorder</span><span class="o">&lt;</span><span class="kt">BufferItem</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">_</span> <span class="nv">item</span><span class="p">:</span> <span class="kt">BufferItem</span><span class="p">,</span> <span class="n">_</span> <span class="nv">didTruncateBuffer</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CallbackHandle.html">CallbackHandle</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback function to be executed whenever a log entry is recorded.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/CallbackHandle.html">CallbackHandle</a></code> that governs the time during which <code>callback</code> is eligible for execution. Once the <code><a href="../Classes/CallbackHandle.html">CallbackHandle</a></code> deallocates—or its <code>stop()</code> function—<code>callback</code> will no longer be executed. You must therefore retain this <code><a href="../Classes/CallbackHandle.html">CallbackHandle</a></code> for as long as you want <code>callback</code> to be considered for execution.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger19BufferedLogRecorder11addCallbackFT14didClearBufferFGS0_x_T__CS_14CallbackHandle"></a>
+                    <a name="//apple_ref/swift/Method/addCallback(didClearBuffer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger19BufferedLogRecorder11addCallbackFT14didClearBufferFGS0_x_T__CS_14CallbackHandle">addCallback(didClearBuffer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a callback function that will be executed on the main thread whenever
+the receiver&rsquo;s <code><a href="../Classes/BufferedLogRecorder.html#/s:FC15CleanroomLogger19BufferedLogRecorder5clearFT_T_">clear()</a></code> function is called.</p>
+
+<p>When the callback function is executed, the receiver will be passed as 
+the <code>recorder</code> parameter.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>By the time <code>callback</code> is executed, the buffer will have already 
+been cleared.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">addCallback</span><span class="p">(</span><span class="n">didClearBuffer</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">recorder</span><span class="p">:</span> <span class="kt">BufferedLogRecorder</span><span class="o">&lt;</span><span class="kt">BufferItem</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span>
+        <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CallbackHandle.html">CallbackHandle</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback function to be executed whenever the buffer is cleared.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/CallbackHandle.html">CallbackHandle</a></code> that governs the time during which <code>callback</code> is eligible for execution. Once the <code><a href="../Classes/CallbackHandle.html">CallbackHandle</a></code> deallocates—or its <code>stop()</code> function—<code>callback</code> will no longer be executed. You must therefore retain this <code><a href="../Classes/CallbackHandle.html">CallbackHandle</a></code> for as long as you want <code>callback</code> to be considered for execution.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger19BufferedLogRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/record(message:for:currentQueue:synchronousMode:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger19BufferedLogRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_">record(message:for:currentQueue:synchronousMode:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called by the <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> to record the formatted log message.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This function is only called if one of the <code>formatters</code> associated
+with the receiver returned a non-<code>nil</code> string for the given <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">record</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="k">for</span> <span class="nv">entry</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogEntry.html">LogEntry</a></span><span class="p">,</span> <span class="nv">currentQueue</span><span class="p">:</span> <span class="kt">DispatchQueue</span><span class="p">,</span> <span class="nv">synchronousMode</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message to record.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entry</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currentQueue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The GCD queue on which the function is being executed.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>synchronousMode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If <code>true</code>, the receiver should record the log entry synchronously and flush any buffers before returning.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC15CleanroomLogger19BufferedLogRecorder5clearFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/clear()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC15CleanroomLogger19BufferedLogRecorder5clearFT_T_">clear()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clears the contents of the buffer.</p>
+
+<p>This operation is performed synchronously on the receiver&rsquo;s <code>queue</code>
+to ensure thread safety.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clear</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
