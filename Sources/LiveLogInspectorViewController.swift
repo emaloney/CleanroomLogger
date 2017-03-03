@@ -62,8 +62,8 @@ open class LiveLogInspectorViewController: UIViewController
     open override func loadView()
     {
         let logView = LiveLogInspectorView(recorder: recorder)
-        logView.closeButtonTriggered = { _ in
-            self.presentingViewController?.dismiss(animated: true, completion: nil)
+        logView.closeButtonTriggered = { [weak self] _ in
+            self?.presentingViewController?.dismiss(animated: true, completion: nil)
         }
         view = logView
     }
