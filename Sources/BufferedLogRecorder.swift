@@ -48,18 +48,6 @@ open class BufferedLogRecorder<BufferItem>: LogRecorderBase
     private var didRecordItemCallbacks: CallbackRegistry<(_ recorder: BufferedLogRecorder<BufferItem>, _ item: BufferItem, _ didTruncateBuffer: Bool) -> Void>
     private var didClearBufferCallbacks: CallbackRegistry<(_ recorder: BufferedLogRecorder<BufferItem>) -> Void>
 
-    /** A callback function that gets executed on the main thread once for each
-     call to `record()`. The caller and the recorded `BufferItem` are passed as
-     parameters, along with a flag indicating whether the buffer was truncated
-     due to hitting the `bufferLimit`. When this function is called, the item
-     will have already been added to the buffer array. */
-//    open var didRecordBufferItem: (_ recorder: BufferedLogRecorder<BufferItem>, _ item: BufferItem, _ didTruncateBuffer: Bool) -> Void = { _, _, _ in }
-
-    /** A callback function that gets executed on the main thread whenever the
-     buffer is cleared. The caller is passed as the parameter. When this 
-     function is called, the buffer will have already been cleared. */
-//    open var didClearBuffer: (_ recorder: BufferedLogRecorder<BufferItem>) -> Void = { _ in }
-
     /**
      Initializes a new `BufferedLogRecorder`.
 
@@ -102,21 +90,56 @@ open class BufferedLogRecorder<BufferItem>: LogRecorderBase
         super.init(formatters: formatters, queue: queue)
     }
 
-    open func addCallback(didRecordBufferItem: @escaping (_ recorder: BufferedLogRecorder<BufferItem>, _ item: BufferItem, _ didTruncateBuffer: Bool) -> Void)
+    /**
+     Adds a callback function that will be executed on the main thread once for
+     each call to `record()`.
+     
+     When the callback function is executed, the receiver will be passed as the
+     `recorder` parameter, along with the recorded `BufferItem` and a boolean
+     flag indicating whether the buffer was truncated due to hitting the
+     `bufferLimit`.
+     
+     - note: By the time `callback` is executed, the item will have already
+     been added to the buffer array.
+
+     - parameter callback: The callback function to be executed whenever a
+     log entry is recorded.
+     
+     - returns: A `CallbackHandle` that governs the time during which `callback`
+     is eligible for execution. Once the `CallbackHandle` deallocates—or its
+     `stop()` function—`callback` will no longer be executed. You must therefore
+     retain this `CallbackHandle` for as long as you want `callback` to be
+     considered for execution.
+     */
+    open func addCallback(didRecordBufferItem callback: @escaping (_ recorder: BufferedLogRecorder<BufferItem>, _ item: BufferItem, _ didTruncateBuffer: Bool) -> Void)
         -> CallbackHandle
     {
-        return didRecordItemCallbacks.addCallback(didRecordBufferItem)
+        return didRecordItemCallbacks.addCallback(callback)
     }
 
-    open func addCallback(didClearBuffer: @escaping (_ recorder: BufferedLogRecorder<BufferItem>) -> Void)
+    /**
+     Adds a callback function that will be executed on the main thread whenever
+     the receiver's `clear()` function is called.
+
+     When the callback function is executed, the receiver will be passed as 
+     the `recorder` parameter.
+
+     - note: By the time `callback` is executed, the buffer will have already 
+     been cleared.
+
+     - parameter callback: The callback function to be executed whenever the
+     buffer is cleared.
+
+     - returns: A `CallbackHandle` that governs the time during which `callback`
+     is eligible for execution. Once the `CallbackHandle` deallocates—or its
+     `stop()` function—`callback` will no longer be executed. You must therefore
+     retain this `CallbackHandle` for as long as you want `callback` to be 
+     considered for execution.
+     */
+    open func addCallback(didClearBuffer callback: @escaping (_ recorder: BufferedLogRecorder<BufferItem>) -> Void)
         -> CallbackHandle
     {
-        return didClearBufferCallbacks.addCallback(didClearBuffer)
-    }
-
-    open func removeCallback(handle: CallbackHandle)
-    {
-        handle.stopCallbacks()
+        return didClearBufferCallbacks.addCallback(callback)
     }
 
     /**
