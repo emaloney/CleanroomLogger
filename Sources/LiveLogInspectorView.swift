@@ -12,9 +12,20 @@ import Foundation
 import UIKit
 
 private let cellID = "LogEntryCell"
+
+#if os(iOS)
+private let hPadding = CGFloat(6)
+private let vPadding = CGFloat(4)
 private let headerHeight = CGFloat(50)
-private let padding = CGFloat(6)
-private let closeButtonSize = CGFloat(38)
+private let severityLabelWidth = CGFloat(25)
+private let iconButtonSize = CGFloat(38)
+#elseif os(tvOS)
+private let hPadding = CGFloat(50)
+private let vPadding = CGFloat(25)
+private let headerHeight = CGFloat(100)
+private let severityLabelWidth = CGFloat(50)
+private let iconButtonSize = CGFloat(76)
+#endif
 
 /**
  The `LiveLogInspectorView` provides a live view of the `LogEntry` messages
@@ -26,37 +37,13 @@ open class LiveLogInspectorView: UIView
      of a log message. This function is called after the `text` of the label
      has been set. You may replace this function to customize the appearance 
      of the label. */
-    open var styleMessageLabel: (UILabel) -> Void = { label in
+    open var messageFont: UIFont = {
 #if os(iOS)
-        label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        return UIFont.systemFont(ofSize: UIFont.systemFontSize)
 #elseif os(tvOS)
-        label.font = UIFont.preferredFont(forTextStyle: .body)
+        return UIFont.preferredFont(forTextStyle: .body)
 #endif
-    }
-
-    /** A function applies styling to the `UILabel` used to display the
-     `severity` property of a `LogEntry`. This function is called after the
-     `text` of the label has been set. You may replace this function to
-     customize the appearance of the label. */
-    open var styleSeverityLabel: (UILabel) -> Void = { label in
-#if os(iOS)
-        label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
-#elseif os(tvOS)
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-#endif
-    }
-
-    /** A function applies styling to the `UILabel` used to display the
-     `timestamp` property of a `LogEntry`. This function is called after the
-     `text` of the label has been set. You may replace this function to
-     customize the appearance of the label. */
-    open var styleTimestampLabel: (UILabel) -> Void = { label in
-#if os(iOS)
-        label.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
-#elseif os(tvOS)
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-#endif
-    }
+    }()
 
     /** A function called when the close button is tapped in the view. By
      default, removes the view from its superview. However, when the view is
@@ -112,21 +99,16 @@ open class LiveLogInspectorView: UIView
     fileprivate var modifiedWhileUserInteracting = false
     fileprivate var itemCount = 0
 
-    fileprivate let calendar: Calendar
-    fileprivate let timeFormatter: DateFormatter
-    fileprivate let dateFormatter: DateFormatter
     fileprivate let recorder: BufferedLogEntryMessageRecorder
 
     fileprivate var reverseNativeBufferOrder: Bool {
         return recorder.reverseChronological != isSortedNewestFirst
     }
 
-    private let blurView: UIVisualEffectView
-    private let vibrancyView: UIVisualEffectView
     private let tableView: UITableView
     private var headerView: LogInspectorHeaderView!
-    private let tableFeeder: LiveLogTableFeeder
     private var headerBackgroundHeightConstraint: NSLayoutConstraint!
+    private let tableFeeder: LiveLogTableFeeder
     private var headerTopConstraint: NSLayoutConstraint!
     private var recordItemCallbackHandle: CallbackHandle?
     private var clearBufferCallbackHandle: CallbackHandle?
@@ -136,19 +118,6 @@ open class LiveLogInspectorView: UIView
         self.recorder = recorder
         tableView = UITableView(frame: .zero, style: .plain)
         tableFeeder = LiveLogTableFeeder()
-        calendar = Calendar(identifier: .gregorian)
-
-        timeFormatter = DateFormatter()
-        timeFormatter.setLocalizedDateFormatFromTemplate("jmsSSS")
-
-        dateFormatter = DateFormatter()
-        dateFormatter.doesRelativeDateFormatting = true
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-
-        let blur = UIBlurEffect(style: .extraLight)
-        blurView = UIVisualEffectView(effect: blur)
-        vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: blur))
 
         super.init(frame: .zero)
 
@@ -156,25 +125,23 @@ open class LiveLogInspectorView: UIView
         tableView.delegate = tableFeeder
         tableView.dataSource = tableFeeder
 
+        tableView.separatorStyle = .none
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
         tableView.contentInset = UIEdgeInsets(top: headerHeight, left: 0, bottom: 0, right: 0)
         tableView.register(LogEntryCell.self, forCellReuseIdentifier: cellID)
 
-        headerView = LogInspectorHeaderView(owner: self)
-        let headerBackgroundView = UIVisualEffectView(effect: UIBlurEffect())
+        let headerBgColor = UIColor(white: 0.95, alpha: 1.0)
 
-        blurView.translatesAutoresizingMaskIntoConstraints = false
-        vibrancyView.translatesAutoresizingMaskIntoConstraints = false
+        let headerBackgroundView = UIView()
+        headerBackgroundView.backgroundColor = headerBgColor
+        headerView = LogInspectorHeaderView(owner: self)
+        headerView.backgroundColor = headerBgColor
+
         headerBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         headerView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
-        tableView.backgroundView = nil
-        tableView.backgroundColor = .clear
-
-        blurView.contentView.addSubview(vibrancyView)
-        addSubview(blurView)
         addSubview(tableView)
         addSubview(headerBackgroundView)
         addSubview(headerView)
@@ -189,16 +156,6 @@ open class LiveLogInspectorView: UIView
         headerBackgroundView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         headerBackgroundHeightConstraint = headerBackgroundView.heightAnchor.constraint(equalToConstant: headerHeight)
         headerBackgroundHeightConstraint.isActive = true
-
-        blurView.topAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
-        blurView.bottomAnchor.constraint(equalTo: tableView.bottomAnchor).isActive = true
-        blurView.leadingAnchor.constraint(equalTo: tableView.leadingAnchor).isActive = true
-        blurView.trailingAnchor.constraint(equalTo: tableView.trailingAnchor).isActive = true
-
-        vibrancyView.topAnchor.constraint(equalTo: blurView.topAnchor).isActive = true
-        vibrancyView.bottomAnchor.constraint(equalTo: blurView.bottomAnchor).isActive = true
-        vibrancyView.leadingAnchor.constraint(equalTo: blurView.leadingAnchor).isActive = true
-        vibrancyView.trailingAnchor.constraint(equalTo: blurView.trailingAnchor).isActive = true
 
         tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
@@ -339,6 +296,19 @@ private class LiveLogTableFeeder: NSObject, UITableViewDataSource, UITableViewDe
     // the LiveLogTableFeeder will never outlive the LiveLogInspectorView that
     // owns it; therefore, the implicitly-unwrapped optional here is safe
     weak var owner: LiveLogInspectorView!
+    private let style: NSParagraphStyle
+    private let alternatingBarColor: UIColor
+
+    override init()
+    {
+        let style = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+        style.lineBreakMode = .byCharWrapping
+        self.style = style
+
+        self.alternatingBarColor = UIColor(red: 0.97, green: 1.0, blue: 0.99, alpha: 1.0)
+
+        super.init()
+    }
 
     fileprivate var buffer: [(LogEntry, String)] {
         var buffer = owner.recorder.buffer
@@ -346,6 +316,16 @@ private class LiveLogTableFeeder: NSObject, UITableViewDataSource, UITableViewDe
             buffer = buffer.filter{ $0.0.severity >= self.owner.minimumSeverity }
         }
         return buffer
+    }
+
+    func bufferIndex(for indexPath: IndexPath)
+        -> Int
+    {
+        let index = owner.reverseNativeBufferOrder
+            ? owner.itemCount - indexPath.row - 1
+            : indexPath.row
+
+        return index
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
@@ -357,6 +337,23 @@ private class LiveLogTableFeeder: NSObject, UITableViewDataSource, UITableViewDe
         return owner.itemCount
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath)
+        -> CGFloat
+    {
+        let width = tableView.bounds.width - (hPadding * 2)
+        let size = CGSize(width: width, height: CGFloat.infinity)
+
+        let index = bufferIndex(for: indexPath)
+        let (_, message) = buffer[index]
+        let rect = message.boundingRect(with: size,
+                                       options: [.usesFontLeading, .usesLineFragmentOrigin, .truncatesLastVisibleLine],
+                                       attributes: [NSFontAttributeName: owner.messageFont, NSParagraphStyleAttributeName: style],
+                                       context: nil)
+
+        let height = rect.height + (vPadding * 2)
+        return height
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
         -> UITableViewCell
     {
@@ -364,24 +361,13 @@ private class LiveLogTableFeeder: NSObject, UITableViewDataSource, UITableViewDe
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! LogEntryCell
 
-        let index = owner.reverseNativeBufferOrder
-            ? owner.itemCount - indexPath.row - 1
-            : indexPath.row
-
+        let index = bufferIndex(for: indexPath)
         let (logEntry, message) = buffer[index]
         cell.set(owner: owner, logEntry: logEntry, message: message)
 
+        cell.backgroundColor = (index % 2 == 0) ? .white : alternatingBarColor
+
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        (cell as! LogEntryCell).refreshTimestampIfNeeded()
-    }
-
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        (cell as! LogEntryCell).setTimestampNeedsRefresh()
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView)
@@ -429,6 +415,15 @@ private class LogInspectorHeaderView: UIView
     private let sortButton: UIButton
     private let filterButton: UIButton
     private let followButton: UIButton
+    private let clearButton: UIButton
+    private var interfaceWidth = InterfaceWidth.medium
+    private var lastLayoutWidth = CGFloat(0)
+
+    private enum InterfaceWidth {
+        case small
+        case medium
+        case large
+    }
 
     init(owner: LiveLogInspectorView)
     {
@@ -438,65 +433,109 @@ private class LogInspectorHeaderView: UIView
         self.sortButton = UIButton(type: .custom)
         self.filterButton = UIButton(type: .custom)
         self.followButton = UIButton(type: .custom)
+        self.clearButton = UIButton(type: .custom)
 
         super.init(frame: .zero)
 
-#if os(iOS)
-        let buttonFontSize = UIFont.smallSystemFontSize
-#elseif os(tvOS)
-        let buttonFontSize = CGFloat(18)
-#endif
-
-        closeButton.backgroundColor = UIColor(white: 0.0, alpha: 0.65)
-        closeButton.setTitle("✖︎", for: .normal)
-        closeButton.setTitleColor(.white, for: .normal)
-        closeButton.layer.cornerRadius = (closeButtonSize / 2)
-        closeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+        closeButton.setTitle("⊠", for: .normal)
+        closeButton.setTitleColor(.black, for: .normal)
+        closeButton.layer.cornerRadius = (iconButtonSize / 2)
         closeButton.addTarget(self, action: #selector(closeButtonTriggered), for: .primaryActionTriggered)
 
         sortButton.contentHorizontalAlignment = .left
         sortButton.setTitleColor(.black, for: .normal)
-        sortButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: buttonFontSize)
         sortButton.addTarget(self, action: #selector(sortButtonTriggered), for: .primaryActionTriggered)
 
         filterButton.contentHorizontalAlignment = .left
         filterButton.setTitleColor(.black, for: .normal)
-        filterButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: buttonFontSize)
         filterButton.addTarget(self, action: #selector(filterButtonTriggered), for: .primaryActionTriggered)
 
         followButton.contentHorizontalAlignment = .left
         followButton.setTitleColor(.black, for: .normal)
-        followButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: buttonFontSize)
         followButton.addTarget(self, action: #selector(followButtonTriggered), for: .primaryActionTriggered)
-        followButton.setTitle("⚪️ No follow", for: .normal)
-        followButton.setTitle("🔘 Following", for: .selected)
+
+        clearButton.setTitle("🗑", for: .normal)
+        clearButton.setTitleColor(.black, for: .normal)
+        clearButton.addTarget(self, action: #selector(clearButtonTriggered), for: .primaryActionTriggered)
 
         closeButton.translatesAutoresizingMaskIntoConstraints = false
+        clearButton.translatesAutoresizingMaskIntoConstraints = false
 
         let stackView = UIStackView(arrangedSubviews: [sortButton, filterButton, followButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = padding
+        stackView.spacing = hPadding
         stackView.distribution = .fillEqually
 
         addSubview(closeButton)
         addSubview(stackView)
+        addSubview(clearButton)
 
         closeButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        closeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding).isActive = true
-        closeButton.widthAnchor.constraint(equalToConstant: closeButtonSize).isActive = true
-        closeButton.heightAnchor.constraint(equalToConstant: closeButtonSize).isActive = true
+        closeButton.leadingAnchor.constraint(equalTo: readableContentGuide.leadingAnchor, constant: hPadding).isActive = true
+        closeButton.widthAnchor.constraint(equalToConstant: iconButtonSize).isActive = true
+        closeButton.heightAnchor.constraint(equalToConstant: iconButtonSize).isActive = true
 
-        stackView.topAnchor.constraint(equalTo: topAnchor, constant: padding).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: closeButton.trailingAnchor, constant: padding * 2).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding).isActive = true
+        stackView.topAnchor.constraint(equalTo: topAnchor, constant: vPadding).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: closeButton.trailingAnchor, constant: hPadding * 2).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: clearButton.leadingAnchor, constant: hPadding * -2).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -vPadding).isActive = true
+
+        clearButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        clearButton.trailingAnchor.constraint(equalTo: readableContentGuide.trailingAnchor, constant: -hPadding).isActive = true
+        clearButton.widthAnchor.constraint(equalToConstant: iconButtonSize).isActive = true
+        clearButton.heightAnchor.constraint(equalToConstant: iconButtonSize).isActive = true
     }
 
     required init?(coder: NSCoder) { fatalError() }
 
+    private func adjust(to windowWidth: CGFloat)
+    {
+        guard windowWidth != lastLayoutWidth else { return }
+
+        if windowWidth < 375 {
+            interfaceWidth = .small
+        }
+        else if windowWidth > 375 {
+            interfaceWidth = .large
+        }
+        else {
+            interfaceWidth = .medium
+        }
+
+        Log.verbose?.value(windowWidth)
+        Log.verbose?.value(lastLayoutWidth)
+        Log.verbose?.value(interfaceWidth)
+
+#if os(iOS)
+        let textSize: CGFloat
+        switch interfaceWidth {
+        case .small, .medium:
+            textSize = UIFont.smallSystemFontSize
+
+        case .large:
+            textSize = UIFont.systemFontSize
+        }
+
+        let textFont = UIFont.boldSystemFont(ofSize: textSize)
+        let iconFont = UIFont.boldSystemFont(ofSize: 24)
+#elseif os(tvOS)
+        let textFont = UIFont.preferredFont(forTextStyle: .body)
+        let iconFont = UIFont.preferredFont(forTextStyle: .headline)
+#endif
+        closeButton.titleLabel?.font = iconFont
+        sortButton.titleLabel?.font = textFont
+        filterButton.titleLabel?.font = textFont
+        followButton.titleLabel?.font = textFont
+        clearButton.titleLabel?.font = iconFont
+
+        lastLayoutWidth = windowWidth
+    }
+
     override func willMove(toWindow window: UIWindow?)
     {
-        if window != nil {
+        if let window = window {
+            adjust(to: window.bounds.width)
+
             updateState()
         }
 
@@ -537,144 +576,124 @@ private class LogInspectorHeaderView: UIView
         owner.toggleIsFollowing()
     }
 
+    @objc private func clearButtonTriggered()
+    {
+        owner.recorder.clear()
+    }
+
     private func updateState()
     {
-        if owner.isSortedNewestFirst {
-            sortButton.setTitle("▲ New first", for: .normal)
-        } else {
-            sortButton.setTitle("▼ Old first", for: .normal)
+        let shortSortTitle = owner.isSortedNewestFirst ? "▲ New" : "▼ Old"
+        let sortTitle: String
+        switch interfaceWidth {
+        case .small:    sortTitle = shortSortTitle
+        case .medium:   sortTitle = "\(shortSortTitle)est"
+        case .large:    sortTitle = "\(shortSortTitle) first"
         }
+        sortButton.setTitle(sortTitle, for: .normal)
 
+        let filterTitle: String
         switch owner.minimumSeverity {
         case .verbose:
-            filterButton.setTitle("Showing all", for: .normal)
+            switch interfaceWidth {
+            case .small:            filterTitle = "All"
+            case .medium, .large:   filterTitle = "Showing all"
+            }
 
         case .debug:
-            filterButton.setTitle(">=▪️debug", for: .normal)
-            
+            switch interfaceWidth {
+            case .small:    filterTitle = ">=debug"
+            case .medium:   filterTitle = ">=▪️debug"
+            case .large:    filterTitle = ">= ▪️debug"
+            }
+
         case .info:
-            filterButton.setTitle(">=🔷info", for: .normal)
+            switch interfaceWidth {
+            case .small:    filterTitle = ">=info"
+            case .medium:   filterTitle = ">=🔷info"
+            case .large:    filterTitle = ">= 🔷info"
+            }
 
         case .warning:
-            filterButton.setTitle(">=🔶warning", for: .normal)
+            switch interfaceWidth {
+            case .small:    filterTitle = ">=warn"
+            case .medium:   filterTitle = ">=🔶warn"
+            case .large:    filterTitle = ">= 🔶warning"
+            }
 
         case .error:
-            filterButton.setTitle(">=❌error", for: .normal)
+            switch interfaceWidth {
+            case .small:    filterTitle = ">=error"
+            case .medium:   filterTitle = ">=❌error"
+            case .large:    filterTitle = ">= ❌error"
+            }
         }
+        filterButton.setTitle(filterTitle, for: .normal)
 
         updateFollowingButton()
     }
 
     fileprivate func updateFollowingButton()
     {
-        followButton.isSelected = owner.isFollowing
+        let title: String
+        if owner.isFollowing {
+            switch interfaceWidth {
+            case .small:            title = "🔘 Follow"
+            case .medium, .large:   title = "🔘 Following"
+            }
+        } else {
+            switch interfaceWidth {
+            case .small:            title = "⚪️ Follow"
+            case .medium, .large:   title = "⚪️ Following"
+            }
+        }
+        followButton.setTitle(title, for: .normal)
     }
 }
 
 private class LogEntryCell: UITableViewCell
 {
-    private weak var owner: LiveLogInspectorView?
-    private var logEntry: LogEntry?
-    private var message: String?
-    private var timestampNeedsRefresh = false
-    private let severityLabel: UILabel
     private let messageLabel: UILabel
-    private let timestampLabel: UILabel
-    private let severityFormatter: SeverityLogFormatter
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?)
     {
-        severityFormatter = SeverityLogFormatter(style: .custom(textRepresentation: .colorCoded, truncateAtWidth: 1, padToWidth: 1, rightAlign: false))
-
-        severityLabel = UILabel()
         messageLabel = UILabel()
-        timestampLabel = UILabel()
 
         super.init(style: .subtitle, reuseIdentifier: cellID)
-
-        severityLabel.translatesAutoresizingMaskIntoConstraints = false
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        timestampLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        severityLabel.textAlignment = .center
 
         messageLabel.numberOfLines = 0
         messageLabel.lineBreakMode = .byCharWrapping
 
-        timestampLabel.textAlignment = .right
-
-        backgroundColor = .clear
-        contentView.backgroundColor = .clear
-
-        contentView.addSubview(severityLabel)
         contentView.addSubview(messageLabel)
-        contentView.addSubview(timestampLabel)
-
-        severityLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding).isActive = true
-        severityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding).isActive = true
-        severityLabel.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        severityLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -padding).isActive = true
-
-        messageLabel.topAnchor.constraint(equalTo: severityLabel.topAnchor).isActive = true
-        messageLabel.leadingAnchor.constraint(equalTo: severityLabel.trailingAnchor, constant: padding).isActive = true
-        messageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding).isActive = true
-        messageLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -padding).isActive = true
-
-        timestampLabel.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: padding).isActive = true
-        timestampLabel.leadingAnchor.constraint(equalTo: messageLabel.leadingAnchor).isActive = true
-        timestampLabel.trailingAnchor.constraint(equalTo: messageLabel.trailingAnchor).isActive = true
-        timestampLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding).isActive = true
     }
 
     required init?(coder: NSCoder) { fatalError() }
 
     func set(owner: LiveLogInspectorView, logEntry: LogEntry, message: String)
     {
-        self.owner = owner
-        self.logEntry = logEntry
-        self.message = message
+        switch logEntry.severity {
+        case .verbose:  messageLabel.textColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
+        case .debug:    messageLabel.textColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
+        case .info:     messageLabel.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.8, alpha: 1.0)
+        case .warning:  messageLabel.textColor = UIColor(red: 0.867, green: 0.467, blue: 0.133, alpha: 1.0)
+        case .error:    messageLabel.textColor = UIColor(red: 0.8, green: 0.0, blue: 0.0, alpha: 1.0)
+        }
 
-        refreshDisplay()
-    }
-
-    func setTimestampNeedsRefresh()
-    {
-        timestampNeedsRefresh = true
-    }
-
-    func refreshDisplay()
-    {
-        severityLabel.text = logEntry.flatMap { severityFormatter.format($0) }
+        messageLabel.font = owner.messageFont
         messageLabel.text = message
-
-        timestampNeedsRefresh = true
-        refreshTimestampIfNeeded()
-
-        owner?.styleSeverityLabel(severityLabel)
-        owner?.styleMessageLabel(messageLabel)
     }
 
-    func refreshTimestampIfNeeded()
+    override func layoutSubviews()
     {
-        guard timestampNeedsRefresh,
-            let owner = owner,
-            let logEntry = logEntry
-        else {
-            return
-        }
+        super.layoutSubviews()
 
-        let timeStr = owner.timeFormatter.string(from: logEntry.timestamp)
+        var frame = contentView.bounds
+        frame.origin.x += hPadding
+        frame.origin.y += vPadding
+        frame.size.width -= (hPadding * 2)
+        frame.size.height -= (vPadding * 2)
 
-        if owner.calendar.isDateInToday(logEntry.timestamp) {
-            timestampLabel.text = timeStr
-        } else {
-            let dateStr = owner.dateFormatter.string(from: logEntry.timestamp)
-            timestampLabel.text = dateStr + " " + timeStr
-        }
-
-        owner.styleTimestampLabel(timestampLabel)
-
-        timestampNeedsRefresh = false
+        messageLabel.frame = frame
     }
 }
 
