@@ -125,7 +125,9 @@ open class LiveLogInspectorView: UIView
         tableView.delegate = tableFeeder
         tableView.dataSource = tableFeeder
 
+#if os(iOS)
         tableView.separatorStyle = .none
+#endif
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
         tableView.contentInset = UIEdgeInsets(top: headerHeight, left: 0, bottom: 0, right: 0)
