@@ -108,9 +108,9 @@ open class BufferedLogRecorder<BufferItem>: LogRecorderBase
     public func clear()
     {
         // ensures consistent access to buffer, preventing race conditions
-//        queue.sync {
+        queue.sync {
             self.buffer = []
-//        }
+        }
     }
 }
 
