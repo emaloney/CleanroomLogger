@@ -128,8 +128,8 @@ open class RotatingLogFileRecorder: LogRecorderBase
      - parameter currentQueue: The GCD queue on which the function is being
      executed.
 
-     - parameter synchronousMode: If `true`, the receiver should record the log
-     entry synchronously and flush any buffers before returning.
+     - parameter synchronousMode: If `true`, the recording is being done in
+     synchronous mode, and the recorder should act accordingly.
     */
     open override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
