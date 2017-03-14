@@ -34,6 +34,18 @@
                 <a href="Classes/BasicLogConfiguration.html">BasicLogConfiguration</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/BufferedLogEntryMessageRecorder.html">BufferedLogEntryMessageRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/BufferedLogEntryRecorder.html">BufferedLogEntryRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/BufferedLogRecorder.html">BufferedLogRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/BufferedMessageRecorder.html">BufferedMessageRecorder</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/ConcatenatingLogFormatter.html">ConcatenatingLogFormatter</a>
               </li>
               <li class="nav-group-task">
@@ -498,6 +510,141 @@ provides a basic implementation of the <code><a href="Protocols/LogConfiguration
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C15CleanroomLogger19BufferedLogRecorder"></a>
+                    <a name="//apple_ref/swift/Class/BufferedLogRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger19BufferedLogRecorder">BufferedLogRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>BufferedLogRecorder</code> is a generic <code><a href="Protocols/LogRecorder.html">LogRecorder</a></code> that buffers the log
+messages passed to its <code>record()</code> function.</p>
+
+<p>Construction requires a <code>createBufferItem</code> function, which is responsible
+for converting the <code><a href="Structs/LogEntry.html">LogEntry</a></code> and formatted message <code>String</code> into the
+generic <code>BufferItem</code> type.</p>
+
+<p>Three specific subclasses are also provided which will buffer a different
+<code>BufferItem</code> type for each call to <code>record()</code>:</p>
+
+<ul>
+<li><code><a href="Classes/BufferedMessageRecorder.html">BufferedMessageRecorder</a></code> stores <code>String</code>s containing the formatted log
+message.</li>
+<li><code><a href="Classes/BufferedLogEntryRecorder.html">BufferedLogEntryRecorder</a></code> stores the <code><a href="Structs/LogEntry.html">LogEntry</a></code> values passed to <code>record()</code>.</li>
+<li><code><a href="Classes/BufferedLogEntryMessageRecorder.html">BufferedLogEntryMessageRecorder</a></code> stores a <code>(LogEntry, String)</code> tuple
+containing the <code><a href="Structs/LogEntry.html">LogEntry</a></code> and formatted log message.</li>
+</ul>
+
+                        <a href="Classes/BufferedLogRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">BufferedLogRecorder</span><span class="o">&lt;</span><span class="kt">BufferItem</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Classes/LogRecorderBase.html">LogRecorderBase</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger23BufferedMessageRecorder"></a>
+                    <a name="//apple_ref/swift/Class/BufferedMessageRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger23BufferedMessageRecorder">BufferedMessageRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>BufferedMessageRecorder</code> buffers the formatted log messages passed to
+its <code>record()</code> function.</p>
+
+                        <a href="Classes/BufferedMessageRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">BufferedMessageRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/BufferedLogRecorder.html">BufferedLogRecorder</a></span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger24BufferedLogEntryRecorder"></a>
+                    <a name="//apple_ref/swift/Class/BufferedLogEntryRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger24BufferedLogEntryRecorder">BufferedLogEntryRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>BufferedLogEntryRecorder</code> buffers each <code><a href="Structs/LogEntry.html">LogEntry</a></code> passed to its
+<code>record()</code> function.</p>
+
+                        <a href="Classes/BufferedLogEntryRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">BufferedLogEntryRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/BufferedLogRecorder.html">BufferedLogRecorder</a></span><span class="o">&lt;</span><span class="kt"><a href="Structs/LogEntry.html">LogEntry</a></span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C15CleanroomLogger31BufferedLogEntryMessageRecorder"></a>
+                    <a name="//apple_ref/swift/Class/BufferedLogEntryMessageRecorder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C15CleanroomLogger31BufferedLogEntryMessageRecorder">BufferedLogEntryMessageRecorder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>BufferedLogEntryMessageRecorder</code> buffers each <code><a href="Structs/LogEntry.html">LogEntry</a></code> and formatted
+message passed to its <code>record()</code> function.</p>
+
+                        <a href="Classes/BufferedLogEntryMessageRecorder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">BufferedLogEntryMessageRecorder</span><span class="p">:</span> <span class="kt"><a href="Classes/BufferedLogRecorder.html">BufferedLogRecorder</a></span><span class="o">&lt;</span><span class="p">(</span><span class="kt"><a href="Structs/LogEntry.html">LogEntry</a></span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C15CleanroomLogger15FileLogRecorder"></a>
                     <a name="//apple_ref/swift/Class/FileLogRecorder" class="dashAnchor"></a>
                     <a class="token" href="#/s:C15CleanroomLogger15FileLogRecorder">FileLogRecorder</a>
@@ -557,7 +704,7 @@ a customized <code><a href="Protocols/LogFormatter.html">LogFormatter</a></code>
 fields separated by tabs:</p>
 
 <ul>
-<li>The <code><a href="Structs/LogEntry.html">LogEntry</a></code>&rsquo;s <code>timestamp</code> property as a UNIX time value</li>
+<li>The <code><a href="Structs/LogEntry.html">LogEntry</a></code>&lsquo;s <code>timestamp</code> property as a UNIX time value</li>
 <li>The <code>severity</code> of the <code><a href="Structs/LogEntry.html">LogEntry</a></code> as a numeric value</li>
 <li>The <code>Payload</code> of the <code><a href="Structs/LogEntry.html">LogEntry</a></code></li>
 </ul>
@@ -913,7 +1060,7 @@ for parsing.</p>
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
