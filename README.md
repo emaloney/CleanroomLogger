@@ -463,11 +463,13 @@ if let osLog = OSLogRecorder(formatters: [ReadableLogFormatter()]) {
 	configs.append(BasicLogConfiguration(recorders: [osLog]))
 }
 
-// create a configuration for a 15-day rotating log directory
+// create a configuration for a 15-day rotating log directory in the app's Caches directory
+let cachesDir = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
+let logsPath = cachesDir + "/CleanroomLogger"
 let fileCfg = RotatingLogFileConfiguration(minimumSeverity: .info,
-												daysToKeep: 15,
-											 directoryPath: "/tmp/CleanroomLogger",
-												formatters: [ParsableLogFormatter()])
+					   daysToKeep: 15,
+					   directoryPath: logsPath,
+					   formatters: [ParsableLogFormatter()])
 
 // crash if the log directory doesn’t exist yet & can’t be created
 try! fileCfg.createLogDirectory()
