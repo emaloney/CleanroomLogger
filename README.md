@@ -181,7 +181,7 @@ The simplest way to integrate CleanroomLogger is with the [Carthage](https://git
 First, add this line to your [`Cartfile`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile):
 
 ```
-github "emaloney/CleanroomLogger" ~> 5.0.0
+github "emaloney/CleanroomLogger" ~> 5.1.0
 ```
 
 Then, use the `carthage` command to [update your dependencies](https://github.com/Carthage/Carthage#upgrading-frameworks).

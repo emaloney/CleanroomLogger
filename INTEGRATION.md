@@ -37,12 +37,12 @@ Within to your project’s root directory, Carthage-based projects will store a 
 To integrate CleanroomLogger in your workspace, you would start by adding the following line to the `Cartfile`:
 
 ```
-github "emaloney/CleanroomLogger" ~> 5.0.0
+github "emaloney/CleanroomLogger" ~> 5.1.0
 ```
 
-This specifies that Carthage use the latest version of CleanroomLogger that is API-compatible with 5.0, i.e. any 5.0.*x* version.
+This specifies that Carthage use the latest version of CleanroomLogger that is API-compatible with 5.1, i.e. any 5.1.*x* version.
 
-**Note:** Be sure to check the [latest releases](https://github.com/emaloney/CleanroomLogger/releases); there may be a newer version than 5.0 that is no longer API-compatible.
+**Note:** Be sure to check the [latest releases](https://github.com/emaloney/CleanroomLogger/releases); there may be a newer version than 5.1 that is no longer API-compatible.
 
 ### 2. Download CleanroomLogger using Carthage
 
