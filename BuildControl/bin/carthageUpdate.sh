@@ -1,1 +1,1 @@
-carthage update --use-submodules --no-build
+carthage update $@ --use-submodules --no-build
