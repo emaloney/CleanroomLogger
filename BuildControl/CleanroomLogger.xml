@@ -21,6 +21,13 @@ The API provided by CleanroomLogger is designed to be readily understood by anyo
         <Var literal="watchOS"/>
 	</Var>
 
+	<Var name="project:platform:versions" type="map">
+		<Var name="minimum" type="map">
+			<Var name="iOS" literal="8.0"/> 
+			<Var name="macOS" literal="10.9"/> 
+		</Var>
+	</Var>
+	
 	<Var name="project:settings" type="map">
 		<Var name="app-extension-only" boolean="T"/>
 	</Var>
