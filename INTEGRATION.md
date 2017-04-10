@@ -24,6 +24,13 @@ There are two supported options for integration:
 
 - **[Manual integration](#manual-integration)** involves embedding the `CleanroomLogger.xcodeproj` file within your project’s Xcode workspace.
 
+Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) provided by CleanroomLogger in any Swift file using the statement:
+
+```swift
+import CleanroomLogger
+```
+
+
 ## Carthage Integration
 
 Carthage is a third-party package dependency manager for Apple platforms. As of this writing, the current supported version of Carthage is 0.18.1.
@@ -105,13 +112,6 @@ Otherwise, it should go into **Linked Frameworks and Libraries**.
 
 Select the appropriate Build Scheme for your Target, and press `⌘-B` to try to build. If all goes well, your integration was successful!
 
-### You're done!
-
-Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) provided by CleanroomLogger using the statement:
-
-```swift
-import CleanroomLogger
-```
 
 ## Manual Integration
 
@@ -160,13 +160,6 @@ Otherwise, it should go into **Linked Frameworks and Libraries**.
 
 Select the appropriate Build Scheme for your Target, and press `⌘-B` to try to build. If all goes well, your integration was successful!
 
-### You're done!
-
-Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) provided by CleanroomLogger using the statement:
-
-```swift
-import CleanroomLogger
-```
 
 ## Further Reading
 

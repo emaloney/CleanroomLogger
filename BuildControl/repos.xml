@@ -12,7 +12,7 @@
 	<Var name="platforms" type="map">
 		<Var name="xcode-8.3" type="map">
 			<Var name="iOS" type="map">
-				<Var name="runDestination" literal="platform=iOS Simulator,OS=10.3,name=iPad Pro (9.7 inch)"/> 
+				<Var name="runDestination" literal="platform=iOS Simulator,OS=10.3,name=iPad Air 2"/> 
 				<Var name="supportsUnitTests" boolean="T"/> 
 			</Var>
 			<Var name="macOS" type="map">
@@ -44,10 +44,6 @@
 
 	<Var name="xcode:version" type="dynamic" expression="$versions[$branchForVersions][Xcode]"/>
 	<Var name="swift:version" type="dynamic" expression="$versions[$branchForVersions][Swift]"/>
-	<Var name="iOS:version:minimum" type="dynamic" expression="$versions[$branchForVersions][minimum][iOS]"/>
-	<Var name="macOS:version:minimum" type="dynamic" expression="$versions[$branchForVersions][minimum][macOS]"/>
-	<Var name="tvOS:version:minimum" type="dynamic" expression="$versions[$branchForVersions][minimum][tvOS]"/>
-	<Var name="watchOS:version:minimum" type="dynamic" expression="$versions[$branchForVersions][minimum][watchOS]"/>
 	<Var name="project:travisImage" type="dynamic" expression="$versions[$branchForVersions][Travis]"/>
 
 	<Var name="versions" type="map">
@@ -83,6 +79,16 @@
 	<Var name="supports:tvOS" type="dynamic" expression="^containsValue($project:platforms|tvOS)"/>
 	<Var name="supports:watchOS" type="dynamic" expression="^containsValue($project:platforms|watchOS)"/>
 
+	<Var name="platform:current:iOS" type="dynamic" expression="^if($project:platform:versions[current][iOS]|$project:platform:versions[current][iOS]|$versions[$repo:branch:settings][current][iOS])"/>
+	<Var name="platform:current:macOS" type="dynamic" expression="^if($project:platform:versions[current][macOS]|$project:platform:versions[current][macOS]|$versions[$repo:branch:settings][current][macOS])"/>
+	<Var name="platform:current:tvOS" type="dynamic" expression="^if($project:platform:versions[current][tvOS]|$project:platform:versions[current][tvOS]|$versions[$repo:branch:settings][current][tvOS])"/>
+	<Var name="platform:current:watchOS" type="dynamic" expression="^if($project:platform:versions[current][watchOS]|$project:platform:versions[current][watchOS]|$versions[$repo:branch:settings][current][watchOS])"/>
+	
+	<Var name="platform:minimum:iOS" type="dynamic" expression="^if($project:platform:versions[minimum][iOS]|$project:platform:versions[minimum][iOS]|$versions[$repo:branch:settings][minimum][iOS])"/>
+	<Var name="platform:minimum:macOS" type="dynamic" expression="^if($project:platform:versions[minimum][macOS]|$project:platform:versions[minimum][macOS]|$versions[$repo:branch:settings][minimum][macOS])"/>
+	<Var name="platform:minimum:tvOS" type="dynamic" expression="^if($project:platform:versions[minimum][tvOS]|$project:platform:versions[minimum][tvOS]|$versions[$repo:branch:settings][minimum][tvOS])"/>
+	<Var name="platform:minimum:watchOS" type="dynamic" expression="^if($project:platform:versions[minimum][watchOS]|$project:platform:versions[minimum][watchOS]|$versions[$repo:branch:settings][minimum][watchOS])"/>
+
 	<Var name="project:version" value="$ENV[FRAMEWORK_VERSION]"/> <!-- expect calling script to set this environment variable -->
 	<Var name="project:version:public" value="$ENV[FRAMEWORK_VERSION_PUBLIC]"/> <!-- expect calling script to set this environment variable -->
 	<Var name="project:file" type="dynamic" expression="${project:name}.xcodeproj"/>
@@ -91,11 +97,48 @@
 	<Var name="project:container" type="dynamic" expression="^if($project:hasWorkspace|$project:workspace|$project:file)"/>
 
 	<Var name="project:framework" type="dynamic" expression="${project:name}.framework"/>
-	<Var name="project:import" type="dynamic" expression="import ${project:name}"/>
-	
+	<Var name="project:language:name" type="dynamic" expression="^if($project:language == ObjC|Objective-C|Swift)"/>
+	<Var name="project:import:swift" type="dynamic" expression="import ${project:name}"/>
+	<Var name="project:import:swift:block" type="dynamic" expression="```swift\n${project:import:swift}\n```"/>
+	<Var name="project:import:objc" type="dynamic" expression="@import ${project:name};"/>
+	<Var name="project:import:objc:block" type="dynamic" expression="```objc\n${project:import:objc}\n```"/>
+	<Var name="project:import" type="dynamic" expression="^if($project:language == ObjC|$project:import:objc|$project:import:swift)"/>
+	<Var name="project:import:block" type="dynamic" expression="^if($project:language == ObjC|$project:import:objc:block|$project:import:swift:block)"/>
+
 	<Var name="project:readme:description" type="dynamic" expression="^selectFirstValue($project:description:formats[markdown]|$project:description:formats[text]|$project:description)"/>
 	<Var name="project:readme:examples:file" type="dynamic" expression="../../${repo:name}/Sources/README.md"/>
 	<Var name="project:readme:examples" type="dynamic" expression="^if(^fileExists($project:readme:examples:file)|^fileContents($project:readme:examples:file))"/>
+	
+	<Var name="project:meta" type="map">
+		<Var name="Cleanroom" type="map">
+			<Var name="title" literal="Cleanroom Project"/>
+			<Var name="project:url" literal="https://github.com/gilt/Cleanroom"/>
+			<Var name="owner:name" literal="Gilt Tech"/>
+			<Var name="owner:url" literal="http://tech.gilt.com"/>
+			<Var name="about">The Cleanroom Project began as an experiment to re-imagine Gilt’s iOS codebase in a legacy-free, Swift-based incarnation.
+
+Since then, we’ve expanded the Cleanroom Project to include multi-platform support. Much of our codebase now supports tvOS in addition to iOS, and our lower-level code is usable on macOS and watchOS as well.
+
+Cleanroom Project code serves as the foundation of Gilt on TV, our tvOS app [featured by Apple during the launch of the new Apple TV](http://www.apple.com/apple-events/september-2015/). And as time goes on, we'll be replacing more and more of our existing Objective-C codebase with Cleanroom implementations.
+
+In the meantime, we’ll be tracking the latest releases of Swift &amp; Xcode, and [open-sourcing major portions of our codebase](https://github.com/gilt/Cleanroom#open-source-by-default) along the way.</Var>
+			<Var name="contributing">If you’d like to contribute to this or any other Cleanroom Project repo, please read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).</Var>
+			<Var name="acknowledgements">API documentation is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).</Var>
+		</Var>
+		<Var name="Mockingbird" type="map">
+			<Var name="title" literal="Mockingbird Library"/>
+			<Var name="owner:name" literal="Gilt Tech"/>
+			<Var name="owner:url" literal="http://tech.gilt.com"/>
+			<Var name="about">Over the years, Gilt Groupe has used and refined Mockingbird Library as the base for its various Apple Platform projects.
+
+Mockingbird began life as AppFramework, created by Jesse Boyes.
+
+AppFramework found a home at Gilt Groupe and eventually became Mockingbird Library.
+
+In recent years, Mockingbird Library has been developed and maintained by Evan Maloney.</Var>
+			<Var name="acknowledgements">API documentation is generated using [appledoc](http://gentlebytes.com/appledoc/) from [Gentle Bytes](http://gentlebytes.com/).</Var>
+		</Var>
+	</Var>
 	
 	<Var name="docs:root" type="dynamic" expression="https://rawgit.com/${repo:owner}/${repo:name}/${repo:branch}/Documentation"/>
 	<Var name="docs:api:root" type="dynamic" expression="${docs:root}/API"/>

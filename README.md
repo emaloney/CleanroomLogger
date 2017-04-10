@@ -188,7 +188,7 @@ Then, use the `carthage` command to [update your dependencies](https://github.co
 
 Finally, you’ll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) it provides.
 
-Once successfully integrated, just add the following `import` statement to any Swift file where you want to use CleanroomLogger:
+Once successfully integrated, just add the following statement to any Swift file where you want to use CleanroomLogger:
 
 ```swift
 import CleanroomLogger
@@ -494,7 +494,6 @@ The latter two `LogFormatter`s are both subclasses of [`StandardLogFormatter`](h
 You can also assemble an entirely custom formatter quite easily using the [`FieldBasedLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/FieldBasedLogFormatter.html), which lets you mix and match [`Field`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/FieldBasedLogFormatter/Field.html)s to roll your own formatter.
 
 
-
 ### API documentation
 
 For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) is available.
@@ -560,5 +559,4 @@ If you’d like to contribute to this or any other Cleanroom Project repo, pleas
 
 ### Acknowledgements
 
-[API documentation for CleanroomLogger](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).
-
+API documentation is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).

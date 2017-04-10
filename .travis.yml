@@ -11,6 +11,8 @@ before_install:
 
 install:
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - rm -rf ~/Library/Developer/CoreSimulator
+  - sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService
 
 script:
   - ./BuildControl/bin/travisBuildHelper.sh build iOS

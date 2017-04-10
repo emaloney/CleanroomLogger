@@ -1,9 +1,12 @@
 <MBML>
 	<Var name="project:name" literal="CleanroomLogger"/>
+	<Var name="project:publisher" literal="Gilt Groupe"/>
 	<Var name="repo:owner" literal="emaloney"/>
 	<Var name="project:creator:name" literal="Evan Maloney"/>
 	<Var name="project:license" literal="MIT"/>
 	<Var name="project:bundlePrefix" literal="com.gilt.cleanroom"/>
+	<Var name="project:language" literal="Swift"/>
+	<Var name="project:grouping" literal="Cleanroom"/>
 
 	<Var name="project:description:formats" type="map">
 		<Var name="text">CleanroomLogger provides an extensible Swift-based logging API that is simple, lightweight and performant.

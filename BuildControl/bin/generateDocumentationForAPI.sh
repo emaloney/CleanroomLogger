@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-if [[ "$DEVELOPER_DIR" == "/Applications/Xcode-beta.app/Contents/Developer" ]]; then
-	export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
-fi
-
 JAZZY_EXECUTABLE=`which jazzy`
 if [[ $? != 0 ]]; then
 	echo "error: The jazzy documentation generator must be installed. Visit https://github.com/realm/jazzy for installation information."
