@@ -7,7 +7,9 @@
 	<Var name="repo:url:branch" type="dynamic" expression="${repo:url:home}/tree"/>
 	<Var name="repo:url:http" type="dynamic" expression="${repo:url:home}"/>
 	<Var name="repo:url:ssh" type="dynamic" expression="git@github.com:${repo:owner}/${repo:name}"/>
-	<Var name="repo:dir" type="dynamic" expression="../../${repo:name}"/>
+	<Var name="repo:root" literal=".." if="!$ENV[REPO_ROOT]"/>
+	<Var name="repo:root" value="$ENV[REPO_ROOT]" if="$ENV[REPO_ROOT]"/>
+	<Var name="repo:dir" type="dynamic" expression="${repo:root}/${repo:name}"/>
 
 	<Var name="platforms" type="map">
 		<Var name="xcode-8.3" type="map">
@@ -89,8 +91,8 @@
 	<Var name="platform:minimum:tvOS" type="dynamic" expression="^if($project:platform:versions[minimum][tvOS]|$project:platform:versions[minimum][tvOS]|$versions[$repo:branch:settings][minimum][tvOS])"/>
 	<Var name="platform:minimum:watchOS" type="dynamic" expression="^if($project:platform:versions[minimum][watchOS]|$project:platform:versions[minimum][watchOS]|$versions[$repo:branch:settings][minimum][watchOS])"/>
 
-	<Var name="project:version" value="$ENV[FRAMEWORK_VERSION]"/> <!-- expect calling script to set this environment variable -->
-	<Var name="project:version:public" value="$ENV[FRAMEWORK_VERSION_PUBLIC]"/> <!-- expect calling script to set this environment variable -->
+	<Var name="project:version" value="$ENV[PROJECT_VERSION]"/> <!-- expect calling script to set this environment variable -->
+	<Var name="project:version:public" value="$ENV[PROJECT_VERSION_PUBLIC]"/> <!-- expect calling script to set this environment variable -->
 	<Var name="project:file" type="dynamic" expression="${project:name}.xcodeproj"/>
 	<Var name="project:workspace" type="dynamic" expression="${project:name}.xcworkspace"/>
 	<Var name="project:hasWorkspace" type="dynamic" expression="^fileExists(${repo:dir}/${project:workspace})"/>
@@ -106,7 +108,7 @@
 	<Var name="project:import:block" type="dynamic" expression="^if($project:language == ObjC|$project:import:objc:block|$project:import:swift:block)"/>
 
 	<Var name="project:readme:description" type="dynamic" expression="^selectFirstValue($project:description:formats[markdown]|$project:description:formats[text]|$project:description)"/>
-	<Var name="project:readme:examples:file" type="dynamic" expression="../../${repo:name}/Sources/README.md"/>
+	<Var name="project:readme:examples:file" type="dynamic" expression="${repo:dir}/Sources/README.md"/>
 	<Var name="project:readme:examples" type="dynamic" expression="^if(^fileExists($project:readme:examples:file)|^fileContents($project:readme:examples:file))"/>
 	
 	<Var name="project:meta" type="map">
@@ -140,6 +142,7 @@ In recent years, Mockingbird Library has been developed and maintained by Evan M
 		</Var>
 	</Var>
 	
+	<Var name="project:hasGeneratedDocumentation" type="dynamic" expression="^if(^setContains(^setWithArray(^array(framework|application))|$project:skeleton)|#(1)|#(0))"/>
 	<Var name="docs:root" type="dynamic" expression="https://rawgit.com/${repo:owner}/${repo:name}/${repo:branch}/Documentation"/>
 	<Var name="docs:api:root" type="dynamic" expression="${docs:root}/API"/>
 	<Var name="docs:api:index" type="dynamic" expression="${docs:api:root}/index.html"/>

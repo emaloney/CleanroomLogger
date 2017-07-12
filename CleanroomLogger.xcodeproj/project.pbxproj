@@ -120,12 +120,12 @@
 		3B9059031DAECB5200B4EEC0 /* CleanroomLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanroomLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B90590C1DAECB5200B4EEC0 /* CleanroomLoggerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanroomLoggerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
 		3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
-		3B90592B1DAECD9800B4EEC0 /* Info-Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Framework.plist"; sourceTree = "<group>"; };
 		3B90592C1DAECD9800B4EEC0 /* Info-Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Tests.plist"; sourceTree = "<group>"; };
+		3BDB181F1F15B19900803117 /* Info-Target.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-Target.plist"; sourceTree = "<group>"; };
+		3BDB18201F15B1C200803117 /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				3B9059241DAECB9E00B4EEC0 /* config */,
-				3B90592B1DAECD9800B4EEC0 /* Info-Framework.plist */,
+				3BDB181F1F15B19900803117 /* Info-Target.plist */,
 				3B90592C1DAECD9800B4EEC0 /* Info-Tests.plist */,
 			);
 			path = BuildControl;
@@ -242,9 +242,9 @@
 			isa = PBXGroup;
 			children = (
 				3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */,
-				3B9059261DAECB9E00B4EEC0 /* Framework.xcconfig */,
 				3B9059271DAECB9E00B4EEC0 /* Project.xcconfig */,
 				3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */,
+				3BDB18201F15B1C200803117 /* Target.xcconfig */,
 				3B9059291DAECB9E00B4EEC0 /* Tests.xcconfig */,
 			);
 			path = config;

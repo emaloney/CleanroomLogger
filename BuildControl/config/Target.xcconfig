@@ -1,6 +1,6 @@
 PRODUCT_NAME = CleanroomLogger
 PRODUCT_BUNDLE_IDENTIFIER = com.gilt.cleanroom.$(PRODUCT_NAME:rfc1034identifier)
-INFOPLIST_FILE = BuildControl/Info-Framework.plist
+INFOPLIST_FILE = BuildControl/Info-Target.plist
 DYLIB_CURRENT_VERSION = $(CURRENT_PROJECT_VERSION)
 APPLICATION_EXTENSION_API_ONLY = YES
 

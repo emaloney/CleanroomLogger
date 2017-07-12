@@ -7,6 +7,7 @@
 	<Var name="project:bundlePrefix" literal="com.gilt.cleanroom"/>
 	<Var name="project:language" literal="Swift"/>
 	<Var name="project:grouping" literal="Cleanroom"/>
+	<Var name="project:skeleton" literal="framework"/>
 
 	<Var name="project:description:formats" type="map">
 		<Var name="text">CleanroomLogger provides an extensible Swift-based logging API that is simple, lightweight and performant.
