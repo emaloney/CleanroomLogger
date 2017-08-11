@@ -548,7 +548,7 @@ runDestinationForPlatform()
 {
 	case $1 in
 	iOS)
-		SIMULATOR_ID=`xcrun simctl list | grep -v unavailable | grep "iPad Pro" | tail -1 | sed "s/^.*inch) (//" | sed "s/).*$//"`
+		SIMULATOR_ID=`xcrun simctl list | grep -v unavailable | grep "iPad Pro" | grep inch | tail -1 | sed "s/^.*inch) (//" | sed "s/).*$//"`
 		echo "id=$SIMULATOR_ID"
 		;;
 
