@@ -14,20 +14,16 @@
 	<Var name="platforms" type="map">
 		<Var name="xcode-8.3" type="map">
 			<Var name="iOS" type="map">
-				<Var name="runDestination" literal="platform=iOS Simulator,OS=10.3,name=iPad Air 2"/> 
-				<Var name="supportsUnitTests" boolean="T"/> 
+				<Var name="supportsUnitTests" boolean="T"/>
 			</Var>
 			<Var name="macOS" type="map">
-				<Var name="runDestination" literal="platform=macOS"/> 
-				<Var name="supportsUnitTests" boolean="T"/> 
+				<Var name="supportsUnitTests" boolean="T"/>
 			</Var>
 			<Var name="tvOS" type="map">
-				<Var name="runDestination" literal="platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p"/> 
-				<Var name="supportsUnitTests" boolean="T"/> 
+				<Var name="supportsUnitTests" boolean="T"/>
 			</Var>
 			<Var name="watchOS" type="map">
-				<Var name="runDestination" literal="platform=watchOS Simulator,OS=3.2,name=Apple Watch Series 2 - 42mm"/> 
-				<Var name="supportsUnitTests" boolean="F"/> 
+				<Var name="supportsUnitTests" boolean="F"/>
 			</Var>
 		</Var>
 	</Var>
@@ -42,7 +38,7 @@
 		<Var literal="master"/>
 	</Var>
 
-	<Var name="branchForVersions" type="dynamic" expression="^if($versions[$repo:branch]|$repo:branch|master)"/> 
+	<Var name="branchForVersions" type="dynamic" expression="^if($versions[$repo:branch]|$repo:branch|master)"/>
 
 	<Var name="xcode:version" type="dynamic" expression="$versions[$branchForVersions][Xcode]"/>
 	<Var name="swift:version" type="dynamic" expression="$versions[$branchForVersions][Swift]"/>
@@ -51,24 +47,24 @@
 	<Var name="versions" type="map">
 		<!-- master branch declarations -->
 		<Var name="master" type="map">
-			<Var name="Swift" literal="3.1"/> 
+			<Var name="Swift" literal="3.1"/>
 			<Var name="Xcode" literal="8.3"/>
 			<Var name="Travis" literal="xcode8.3"/>
 
 			<Var name="Carthage" literal="0.18.1"/>
-			
+
 			<Var name="current" type="map">
-				<Var name="iOS" literal="10.3"/> 
-				<Var name="macOS" literal="10.12"/> 
-				<Var name="tvOS" literal="10.2"/> 
-				<Var name="watchOS" literal="3.2"/> 
+				<Var name="iOS" literal="10.3"/>
+				<Var name="macOS" literal="10.12"/>
+				<Var name="tvOS" literal="10.2"/>
+				<Var name="watchOS" literal="3.2"/>
 			</Var>
-			
+
 			<Var name="minimum" type="map">
-				<Var name="iOS" literal="9.0"/> 
-				<Var name="macOS" literal="10.11"/> 
-				<Var name="tvOS" literal="9.0"/> 
-				<Var name="watchOS" literal="2.0"/> 
+				<Var name="iOS" literal="9.0"/>
+				<Var name="macOS" literal="10.11"/>
+				<Var name="tvOS" literal="9.0"/>
+				<Var name="watchOS" literal="2.0"/>
 			</Var>
 		</Var>
 	</Var>
@@ -85,7 +81,7 @@
 	<Var name="platform:current:macOS" type="dynamic" expression="^if($project:platform:versions[current][macOS]|$project:platform:versions[current][macOS]|$versions[$repo:branch:settings][current][macOS])"/>
 	<Var name="platform:current:tvOS" type="dynamic" expression="^if($project:platform:versions[current][tvOS]|$project:platform:versions[current][tvOS]|$versions[$repo:branch:settings][current][tvOS])"/>
 	<Var name="platform:current:watchOS" type="dynamic" expression="^if($project:platform:versions[current][watchOS]|$project:platform:versions[current][watchOS]|$versions[$repo:branch:settings][current][watchOS])"/>
-	
+
 	<Var name="platform:minimum:iOS" type="dynamic" expression="^if($project:platform:versions[minimum][iOS]|$project:platform:versions[minimum][iOS]|$versions[$repo:branch:settings][minimum][iOS])"/>
 	<Var name="platform:minimum:macOS" type="dynamic" expression="^if($project:platform:versions[minimum][macOS]|$project:platform:versions[minimum][macOS]|$versions[$repo:branch:settings][minimum][macOS])"/>
 	<Var name="platform:minimum:tvOS" type="dynamic" expression="^if($project:platform:versions[minimum][tvOS]|$project:platform:versions[minimum][tvOS]|$versions[$repo:branch:settings][minimum][tvOS])"/>
@@ -110,7 +106,7 @@
 	<Var name="project:readme:description" type="dynamic" expression="^selectFirstValue($project:description:formats[markdown]|$project:description:formats[text]|$project:description)"/>
 	<Var name="project:readme:examples:file" type="dynamic" expression="${repo:dir}/Sources/README.md"/>
 	<Var name="project:readme:examples" type="dynamic" expression="^if(^fileExists($project:readme:examples:file)|^fileContents($project:readme:examples:file))"/>
-	
+
 	<Var name="project:meta" type="map">
 		<Var name="Cleanroom" type="map">
 			<Var name="title" literal="Cleanroom Project"/>
@@ -141,7 +137,7 @@ In recent years, Mockingbird Library has been developed and maintained by Evan M
 			<Var name="acknowledgements">API documentation is generated using [appledoc](http://gentlebytes.com/appledoc/) from [Gentle Bytes](http://gentlebytes.com/).</Var>
 		</Var>
 	</Var>
-	
+
 	<Var name="project:hasGeneratedDocumentation" type="dynamic" expression="^if(^setContains(^setWithArray(^array(framework|application))|$project:skeleton)|#(1)|#(0))"/>
 	<Var name="docs:root" type="dynamic" expression="https://rawgit.com/${repo:owner}/${repo:name}/${repo:branch}/Documentation"/>
 	<Var name="docs:api:root" type="dynamic" expression="${docs:root}/API"/>

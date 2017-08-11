@@ -22,11 +22,11 @@ showHelp()
 $SCRIPT_NAME
 
 	Issues a new release of the project contained in this git repository.
-	
+
 Usage:
 
 	$SCRIPT_NAME <release-type> [...]
-	
+
 Where:
 
 	<release-type> is 'major', 'minor' or 'patch', depending on which portion
@@ -48,10 +48,10 @@ Optional arguments:
 
 		--amend
 			Causes any commits to be amends to the previous commit
-		
+
 		--branch <branch>
 			Specifies <branch> be used as the git branch for operations
-		
+
 		--commit-message-file <file>
 			Specifies the contents <file> should be used as the commit message
 
@@ -78,7 +78,7 @@ Optional arguments:
 
 		--quiet
 			Silences output
-			
+
 		--summarize
 			Minimizes output (ideal for invoking from other scripts)
 
@@ -104,14 +104,14 @@ How it works
 		version components remain unchanged, while the patch component
 		is incremented. 2.1.3 becomes 2.1.4.
 
-	The script then updates all necessary references to the version	
+	The script then updates all necessary references to the version
 	elsewhere in the project.
 
 	Then, the API documentation is rebuilt, and the repository is tagged
 	with the appropriate version number for the release.
 
-	Finally, if the --push argument was supplied, the entire release is	
-	pushed to the repo's origin remote.	
+	Finally, if the --push argument was supplied, the entire release is
+	pushed to the repo's origin remote.
 
 Specifying the version explicitly
 
@@ -215,7 +215,7 @@ validateVersion()
 updateStatus()
 {
 	if [[ ! $QUIET ]]; then
-		echo 
+		echo
 		echo "$1"
 		echo
 	fi
@@ -292,53 +292,53 @@ while [[ $1 ]]; do
 			SET_VERSION=$1
 		fi
 		;;
-	
+
 	--auto|-a)
 		AUTOMATED_MODE=1
 		;;
-		
+
 	--amend)
 		AMEND_ARGS="--amend --no-edit"
 		;;
-		
+
 	--stash-dirty-files)
 		STASH_DIRTY_FILES=1
 		;;
-		
+
 	--commit-dirty-files)
 		COMMIT_DIRTY_FILES=1
 		;;
-		
+
 	--ignore-dirty-files)
 		IGNORE_DIRTY_FILES=1
 		NO_COMMIT=1
 		NO_TAG=1
 		;;
-	
+
 	--no-commit)
 		NO_COMMIT=1
 		NO_TAG=1
 		;;
-	
+
 	--no-tag)
 		NO_TAG=1
 		;;
-	
+
 	--tag)
 		TAG_WHEN_DONE=1
 		;;
-	
+
 	--push)
 		PUSH_WHEN_DONE=1
 		;;
-	
+
 	--branch|-b)
 		if [[ $2 ]]; then
 			BRANCH="$2"
 			shift
 		fi
 		;;
-	
+
 	--commit-message-file|-m)
 		if [[ $2 ]]; then
 			COMMIT_MESSAGE=`cat "$2"`
@@ -349,37 +349,37 @@ while [[ $1 ]]; do
 	--skip-docs)
 		SKIP_DOCUMENTATION=1
 		;;
-		
+
 	--skip-tests)
 		SKIP_TESTS=1
 		;;
-		
+
 	--quiet|-q)
 		QUIET=1
 		QUIET_ARG="-q"
 		;;
-	
+
 	--summarize|-z)
 		SUMMARIZE=1
 		QUIET=1
 		QUIET_ARG="-q"
 		;;
-	
+
 	--rebase)
 		REBASE=1
 		;;
-	
+
 	--help|-help|-h|-\?)
 		SHOW_HELP=1
 		;;
-		
+
 	-*)
 		exitWithErrorSuggestHelp "Unrecognized argument: $1"
 		;;
-		
+
 	*)
 		if [[ -z $ARGS ]]; then
-			ARGS=$1		
+			ARGS=$1
 		else
 			ARGS="$ARGS $1"
 		fi
@@ -395,7 +395,7 @@ fi
 for ARG in $ARGS; do
 	if [[ -z $RELEASE_TYPE ]]; then
 		RELEASE_TYPE="$ARG"
-	else 
+	else
 		exitWithErrorSuggestHelp "Unrecognized argument: $ARG"
 	fi
 done
@@ -443,17 +443,17 @@ elif [[ ! -z $RELEASE_TYPE ]]; then
 		MINOR_VERSION=0
 		PATCH_VERSION=0
 		;;
-		
+
 	minor)
 		MINOR_VERSION=$(( $MINOR_VERSION + 1 ))
 		PATCH_VERSION=0
 		;;
-		
+
 	patch)
 		PATCH_VERSION=$(( $PATCH_VERSION + 1 ))
 		;;
 	esac
-	
+
 	VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION}"
 fi
 
@@ -538,7 +538,7 @@ testActionForPlatform()
 {
 	case $1 in
 	iOS) 		echo "test";;
-	macOS) 		echo "test";;	
+	macOS) 		echo "test";;
 	tvOS) 		echo "test";;
 	watchOS)	echo "build";;
 	esac
@@ -547,10 +547,25 @@ testActionForPlatform()
 runDestinationForPlatform()
 {
 	case $1 in
-	iOS) 		echo "platform=iOS Simulator,OS=10.3,name=iPad Air 2";;
-	macOS) 		echo "platform=macOS";;	
-	tvOS) 		echo "platform=tvOS Simulator,OS=10.2,name=Apple TV 1080p";;
-	watchOS)	echo "platform=watchOS Simulator,OS=3.2,name=Apple Watch Series 2 - 42mm";;
+	iOS)
+		SIMULATOR_ID=`xcrun simctl list | grep -v unavailable | grep "iPad Pro" | tail -1 | sed "s/^.*inch) (//" | sed "s/).*$//"`
+		echo "id=$SIMULATOR_ID"
+		;;
+
+	macOS)
+		echo "platform=macOS"
+		;;
+
+	tvOS)
+		SIMULATOR_ID=`xcrun simctl list | grep -v unavailable | grep "Apple TV" | tail -1 | sed "s/) (.*)\$//" | sed "s/^.*(//"`
+		echo "id=$SIMULATOR_ID"
+		;;
+
+	watchOS)
+		SIMULATOR_ID=`xcrun simctl list | grep -v unavailable | grep -v "Watch:" | grep "Apple Watch Series" | tail -1 | sed "s/) (.*)\$//" | sed "s/^.*(//"`
+		echo "id=$SIMULATOR_ID"
+		;;
+
 	esac
 }
 
