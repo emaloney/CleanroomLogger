@@ -12,7 +12,9 @@ CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Clean
 
 ### Swift compatibility
 
-This is the `master` branch. It uses **Swift 3.1** and **requires Xcode 8.3** to compile.
+**Important:** This is the `swift-4` branch. It uses **Swift 4.0** and **requires Xcode 9.0 beta** to compile.
+
+If you need Swift 3.1 compatibility, use the [`master`](https://github.com/emaloney/CleanroomLogger) branch, which requires Xcode 8.3.
 
 
 #### Current status
@@ -20,7 +22,7 @@ This is the `master` branch. It uses **Swift 3.1** and **requires Xcode 8.3** to
 Branch|Build status
 --------|------------------------
 [`master`](https://github.com/emaloney/CleanroomLogger)|[![Build status: master branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=master)](https://travis-ci.org/emaloney/CleanroomLogger)
-
+[`swift-4`](https://github.com/emaloney/CleanroomLogger/tree/swift-4)|[![Build status: swift-4 branch](https://travis-ci.org/emaloney/CleanroomLogger.svg?branch=swift-4)](https://travis-ci.org/emaloney/CleanroomLogger)
 
 ### Contents
 	
@@ -32,7 +34,7 @@ Branch|Build status
 - [CleanroomLogger In Depth](#cleanroomlogger-in-depth)
 	- [Configuring CleanroomLogger](#configuring-cleanroomlogger)
 	- [Customized Log Formatting](#customized-log-formatting)
-	- [API Documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html)
+	- [API Documentation](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/index.html)
 - [Design Philosophy](#design-philosophy)	
 - [Architectural Overview](#architectural-overview)
 
@@ -50,11 +52,11 @@ On systems where OSLog isn’t available, CleanroomLogger gracefully falls back 
 
 #### ▶ 100% documented
 
-Good documentation is critical to the usefulness of any open-source framework. In addition to the extensive high-level documentation you’ll find below, [the CleanroomLogger API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) itself is 100% documented.
+Good documentation is critical to the usefulness of any open-source framework. In addition to the extensive high-level documentation you’ll find below, [the CleanroomLogger API](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/index.html) itself is 100% documented.
 
 #### ▶ Organize and filter messages by severity
 
-Messages are assigned one of five [_severity levels_](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html): the most severe is _error_, followed by _warning_, _info_, _debug_ and _verbose_, the least severe. Knowing a message’s severity lets you perform additional filtering; for example, to minimize the overhead of logging in App Store binaries, you could choose to log only warnings and errors in release builds.
+Messages are assigned one of five [_severity levels_](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Enums/LogSeverity.html): the most severe is _error_, followed by _warning_, _info_, _debug_ and _verbose_, the least severe. Knowing a message’s severity lets you perform additional filtering; for example, to minimize the overhead of logging in App Store binaries, you could choose to log only warnings and errors in release builds.
 
 #### ▶ Color-coded log messages
 
@@ -70,9 +72,9 @@ Quickly spot problems at runtime in the Xcode console, where log messages are co
 
 #### ▶ UNIX-friendly
 
-Support for standard UNIX output streams is built-in. Use [`StandardOutputLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardOutputLogRecorder.html) and [`StandardErrorLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardErrorLogRecorder.html) to direct output to `stdout` and `stderr`, respectively.
+Support for standard UNIX output streams is built-in. Use [`StandardOutputLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Classes/StandardOutputLogRecorder.html) and [`StandardErrorLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Classes/StandardErrorLogRecorder.html) to direct output to `stdout` and `stderr`, respectively.
 
-Or, use the [`StandardStreamsLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/StandardStreamsLogRecorder.html) to send verbose, debug and info messages to `stdout` while warnings and errors go to `stderr`.
+Or, use the [`StandardStreamsLogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Classes/StandardStreamsLogRecorder.html) to send verbose, debug and info messages to `stdout` while warnings and errors go to `stderr`.
 
 #### ▶ Automatic handling of `OS_ACTIVITY_MODE`
 
@@ -92,7 +94,7 @@ If you’re just using `print()` or `NSLog()` everywhere, it can sometimes be di
 
 #### ▶ Rotating log files
 
-CleanroomLogger provides [simple file-based logging](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/FileLogRecorder.html) support as well as [a self-pruning rotating log directory](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/RotatingLogFileConfiguration.html) implementation.
+CleanroomLogger provides [simple file-based logging](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Classes/FileLogRecorder.html) support as well as [a self-pruning rotating log directory](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Classes/RotatingLogFileConfiguration.html) implementation.
 
 #### ▶ Super-simple execution tracing
 
@@ -109,7 +111,7 @@ Developers often use logging to perform tracing. Rather than writing lots of dif
 
 #### ▶ Useful built-in formatters
 
-CleanroomLogger ships with two general-purpose log formatters: the [`ReadableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/ReadableLogFormatter.html) is handy for human consumption, while the [`ParsableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/ParsableLogFormatter.html) is useful for machine processing. Both can be customized via the initializer.
+CleanroomLogger ships with two general-purpose log formatters: the [`ReadableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Classes/ReadableLogFormatter.html) is handy for human consumption, while the [`ParsableLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Classes/ParsableLogFormatter.html) is useful for machine processing. Both can be customized via the initializer.
 
 A formatter constructed using `ReadableLogFormatter()` yields log output that looks like:
 
@@ -133,7 +135,7 @@ When the same log messages are handled by a formatter constructed using `Parsabl
 
 #### ▶ Easy mix-and-match formatting
 
-If the built-in formatters don’t fit the bill, you can use the [`FieldBasedLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/FieldBasedLogFormatter.html) to assemble just about any kind of log format possible.
+If the built-in formatters don’t fit the bill, you can use the [`FieldBasedLogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Classes/FieldBasedLogFormatter.html) to assemble just about any kind of log format possible.
 
 Let’s say you wanted a log formatter with the timestamp in ISO 8601 date format, a tab character, the source file and line number of the call site, followed by the severity as an uppercase string right-justified in a 8-character field, then a colon and a space, and finally the log entry’s payload. You could do this by constructing a `FieldBasedLogFormatter` as follows:
 
@@ -160,14 +162,14 @@ The resulting output would look like:
 #### ▶ Fully extensible
 
 CleanroomLogger exposes three primary extension points for implementing your own custom logic:
-  - [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogRecorder.html)s are used to record formatted log messages. Typically, this involves writing the message to a stream or data store of some kind. You can provide your own `LogRecorder` implementations to utilize facilities not natively supported by CleanroomLogger: to store messages in a database table or send them to a remote HTTP endpoint, for example.
-  - [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFormatter.html)s are used to generate text representations of each [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html) to be recorded.
-  - [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFilter.html)s get a chance to inspect—and potentially reject—a `LogEntry` before it is passed to a `LogRecorder`.
+  - [`LogRecorder`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Protocols/LogRecorder.html)s are used to record formatted log messages. Typically, this involves writing the message to a stream or data store of some kind. You can provide your own `LogRecorder` implementations to utilize facilities not natively supported by CleanroomLogger: to store messages in a database table or send them to a remote HTTP endpoint, for example.
+  - [`LogFormatter`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Protocols/LogFormatter.html)s are used to generate text representations of each [`LogEntry`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Structs/LogEntry.html) to be recorded.
+  - [`LogFilter`](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/Protocols/LogFilter.html)s get a chance to inspect—and potentially reject—a `LogEntry` before it is passed to a `LogRecorder`.
 
 
 ### License
 
-CleanroomLogger is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/master/LICENSE).
+CleanroomLogger is distributed under [the MIT license](https://github.com/emaloney/CleanroomLogger/blob/swift-4/LICENSE).
 
 CleanroomLogger is provided for your use—free-of-charge—on an as-is basis. We make no guarantees, promises or apologies. *Caveat developer.*
 
@@ -186,7 +188,7 @@ github "emaloney/CleanroomLogger" ~> 5.1.0
 
 Then, use the `carthage` command to [update your dependencies](https://github.com/Carthage/Carthage#upgrading-frameworks).
 
-Finally, you’ll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) it provides.
+Finally, you’ll need to [integrate CleanroomLogger into your project](https://github.com/emaloney/CleanroomLogger/blob/swift-4/INTEGRATION.md) in order to use [the API](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/index.html) it provides.
 
 Once successfully integrated, just add the following statement to any Swift file where you want to use CleanroomLogger:
 
@@ -194,7 +196,7 @@ Once successfully integrated, just add the following statement to any Swift file
 import CleanroomLogger
 ```
 
-See [the Integration document](https://github.com/emaloney/CleanroomLogger/blob/master/INTEGRATION.md) for additional details on integrating CleanroomLogger into your project.
+See [the Integration document](https://github.com/emaloney/CleanroomLogger/blob/swift-4/INTEGRATION.md) for additional details on integrating CleanroomLogger into your project.
 
 ## Using CleanroomLogger
 
@@ -496,7 +498,7 @@ You can also assemble an entirely custom formatter quite easily using the [`Fiel
 
 ### API documentation
 
-For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) is available.
+For detailed information on using CleanroomLogger, [API documentation](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/index.html) is available.
 
 
 ## Design Philosophy
