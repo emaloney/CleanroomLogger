@@ -167,7 +167,7 @@ public struct SeverityLogFormatter: LogFormatter
             if severityTag.characters.count > trunc {
                 let startIndex = severityTag.characters.startIndex
                 let endIndex = severityTag.characters.index(startIndex, offsetBy: trunc)
-                severityTag = severityTag.substring(to: endIndex)
+                severityTag = String(severityTag[..<endIndex])
             }
         }
 
