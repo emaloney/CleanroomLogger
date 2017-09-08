@@ -12,20 +12,6 @@
 	<Var name="repo:dir" type="dynamic" expression="${repo:root}/${repo:name}"/>
 
 	<Var name="platforms" type="map">
-		<Var name="xcode-8.3" type="map">
-			<Var name="iOS" type="map">
-				<Var name="supportsUnitTests" boolean="T"/>
-			</Var>
-			<Var name="macOS" type="map">
-				<Var name="supportsUnitTests" boolean="T"/>
-			</Var>
-			<Var name="tvOS" type="map">
-				<Var name="supportsUnitTests" boolean="T"/>
-			</Var>
-			<Var name="watchOS" type="map">
-				<Var name="supportsUnitTests" boolean="F"/>
-			</Var>
-		</Var>
 		<Var name="xcode-9" type="map">
 			<Var name="iOS" type="map">
 				<Var name="supportsUnitTests" boolean="T"/>
@@ -50,7 +36,6 @@
 
 	<Var name="branches" type="list">
 		<Var literal="master"/>
-		<Var literal="swift-4"/>
 	</Var>
 
 	<Var name="branchForVersions" type="dynamic" expression="^if($versions[$repo:branch]|$repo:branch|master)"/>
@@ -62,33 +47,11 @@
 	<Var name="versions" type="map">
 		<!-- master branch declarations -->
 		<Var name="master" type="map">
-			<Var name="Swift" literal="3.1"/>
-			<Var name="Xcode" literal="8.3"/>
-			<Var name="Travis" literal="xcode8.3"/>
-
-			<Var name="Carthage" literal="0.18.1"/>
-
-			<Var name="current" type="map">
-				<Var name="iOS" literal="10.3"/>
-				<Var name="macOS" literal="10.12"/>
-				<Var name="tvOS" literal="10.2"/>
-				<Var name="watchOS" literal="3.2"/>
-			</Var>
-
-			<Var name="minimum" type="map">
-				<Var name="iOS" literal="9.0"/>
-				<Var name="macOS" literal="10.11"/>
-				<Var name="tvOS" literal="9.0"/>
-				<Var name="watchOS" literal="2.0"/>
-			</Var>
-		</Var>
-		<!-- Swift 4 (Xcode 9) branch declarations -->
-		<Var name="swift-4" type="map">
 			<Var name="Swift" literal="4.0"/>
-			<Var name="Xcode" literal="9.0 beta"/>
+			<Var name="Xcode" literal="9.0"/>
 			<Var name="Travis" literal="xcode9"/>
 
-			<Var name="Carthage" literal="0.24.0"/>
+			<Var name="Carthage" literal="0.25.0"/>
 
 			<Var name="current" type="map">
 				<Var name="iOS" literal="11.0"/>

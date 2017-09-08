@@ -14,7 +14,7 @@ Macintosh|macOS 10.13|macOS 10.9
 Apple TV|tvOS 11.0|tvOS 9.0
 Apple Watch|watchOS 4.0|watchOS 2.0
 
-**This is the `swift-4` branch of CleanroomLogger.** It uses **Swift 4.0** and **requires Xcode 9.0 beta** to compile.
+CleanroomLogger uses **Swift 4.0** and **requires Xcode 9.0** to compile.
 
 ### Options for integration
 
@@ -24,7 +24,7 @@ There are two supported options for integration:
 
 - **[Manual integration](#manual-integration)** involves embedding the `CleanroomLogger.xcodeproj` file within your project’s Xcode workspace.
 
-Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/index.html) provided by CleanroomLogger in any Swift file using the statement:
+Once properly integrated, you can make use of [the API](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html) provided by CleanroomLogger in any Swift file using the statement:
 
 ```swift
 import CleanroomLogger
@@ -33,7 +33,7 @@ import CleanroomLogger
 
 ## Carthage Integration
 
-Carthage is a third-party package dependency manager for Apple platforms. As of this writing, the current supported version of Carthage is 0.24.0.
+Carthage is a third-party package dependency manager for Apple platforms. As of this writing, the current supported version of Carthage is 0.25.0.
 
 Installing and using Carthage is beyond the scope of this document. If you do not have Carthage installed but would like to use it, [you can find installation instructions on the project page](https://github.com/Carthage/Carthage#installing-carthage). 
 
@@ -44,12 +44,12 @@ Within to your project’s root directory, Carthage-based projects will store a 
 To integrate CleanroomLogger in your workspace, you would start by adding the following line to the `Cartfile`:
 
 ```
-github "emaloney/CleanroomLogger" ~> 5.1.0
+github "emaloney/CleanroomLogger" ~> 6.0.0
 ```
 
-This specifies that Carthage use the latest version of CleanroomLogger that is API-compatible with 5.1.0, i.e. any 5.1.*x* version.
+This specifies that Carthage use the latest version of CleanroomLogger that is API-compatible with 6.0.0, i.e. any 6.0.*x* version.
 
-**Note:** Be sure to check the [latest releases](https://github.com/emaloney/CleanroomLogger/releases); there may be a newer version than 5.1.0 that is no longer API-compatible.
+**Note:** Be sure to check the [latest releases](https://github.com/emaloney/CleanroomLogger/releases); there may be a newer version than 6.0.0 that is no longer API-compatible.
 
 ### 2. Download CleanroomLogger using Carthage
 
@@ -163,6 +163,6 @@ Select the appropriate Build Scheme for your Target, and press `⌘-B` to try to
 
 ## Further Reading
 
-Want to learn more about CleanroomLogger? Check out [the README](https://github.com/emaloney/CleanroomLogger/blob/swift-4/README.md) or [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/swift-4/Documentation/API/index.html).
+Want to learn more about CleanroomLogger? Check out [the README](https://github.com/emaloney/CleanroomLogger/blob/master/README.md) or [the API documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html).
 
 **_Happy coding!_**

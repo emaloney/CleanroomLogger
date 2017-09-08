@@ -1,6 +1,11 @@
 language: objective-c
 xcode_project: CleanroomLogger.xcodeproj
+os: osx
 osx_image: xcode9
+
+branches:
+  only:
+    - master
 
 git:
   depth: 1
