@@ -240,9 +240,9 @@ or <code>stderr</code> output stream of the running process.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC15CleanroomLogger23ConsoleLogConfiguration19StandardStreamsMode"></a>
+                    <a name="/s:15CleanroomLogger23ConsoleLogConfigurationC19StandardStreamsModeO"></a>
                     <a name="//apple_ref/swift/Enum/StandardStreamsMode" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC15CleanroomLogger23ConsoleLogConfiguration19StandardStreamsMode">StandardStreamsMode</a>
+                    <a class="token" href="#/s:15CleanroomLogger23ConsoleLogConfigurationC19StandardStreamsModeO">StandardStreamsMode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -269,9 +269,9 @@ or <code>stderr</code> output stream of the running process.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger23ConsoleLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14stdStreamsModeOS0_19StandardStreamsMode7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_"></a>
+                    <a name="/s:15CleanroomLogger23ConsoleLogConfigurationCAcA0D8SeverityO07minimumF0_Sb9debugModeSb012verboseDebugI0AC015StandardStreamsI0O03stdmI0SayAA0D6Filter_pG7filtersSayAA0D9Formatter_pG10formatterstcfc"></a>
                     <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:filters:formatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger23ConsoleLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14stdStreamsModeOS0_19StandardStreamsMode7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_">init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:filters:formatters:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger23ConsoleLogConfigurationCAcA0D8SeverityO07minimumF0_Sb9debugModeSb012verboseDebugI0AC015StandardStreamsI0O03stdmI0SayAA0D6Filter_pG7filtersSayAA0D9Formatter_pG10formatterstcfc">init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:filters:formatters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -280,7 +280,6 @@ or <code>stderr</code> output stream of the running process.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes a new <code>ConsoleLogConfiguration</code> instance.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>Setting either <code>debugMode</code> or <code>verboseDebugMode</code> to <code>true</code> will
@@ -313,8 +312,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The minimum supported <code>LogSeverity</code>. Any <code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently ignored.</p>
-
+                                  <p>The minimum supported <code>LogSeverity</code>. Any
+<code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently
+ignored.</p>
                                 </div>
                               </td>
                             </tr>
@@ -326,8 +326,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will
+be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used
+when recording log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -339,8 +340,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code>
+will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be
+used when recording log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -352,8 +354,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code>StandardStreamsMode</code> value that governs when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used for recording log output.</p>
-
+                                  <p>A <code>StandardStreamsMode</code> value that governs
+when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used
+for recording log output.</p>
                                 </div>
                               </td>
                             </tr>
@@ -365,8 +368,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogFilter</code>s to use when deciding whether a given <code>LogEntry</code> should be passed along for recording.</p>
-
+                                  <p>The <code>LogFilter</code>s to use when deciding whether a given
+<code>LogEntry</code> should be passed along for recording.</p>
                                 </div>
                               </td>
                             </tr>
@@ -378,8 +381,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogFormatter</code>s to use when formatting log entries.</p>
-
+                                  <p>An array of <code>LogFormatter</code>s to use when
+formatting log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -392,9 +395,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger23ConsoleLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14stdStreamsModeOS0_19StandardStreamsMode7filtersGSaPS_9LogFilter__15osLogFormattersGSaPS_12LogFormatter__16stdoutFormattersGSaPS4____S0_"></a>
+                    <a name="/s:15CleanroomLogger23ConsoleLogConfigurationCAcA0D8SeverityO07minimumF0_Sb9debugModeSb012verboseDebugI0AC015StandardStreamsI0O03stdmI0SayAA0D6Filter_pG7filtersSayAA0D9Formatter_pG02osD10FormattersAP06stdoutS0tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:filters:osLogFormatters:stdoutFormatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger23ConsoleLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14stdStreamsModeOS0_19StandardStreamsMode7filtersGSaPS_9LogFilter__15osLogFormattersGSaPS_12LogFormatter__16stdoutFormattersGSaPS4____S0_">init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:filters:osLogFormatters:stdoutFormatters:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger23ConsoleLogConfigurationCAcA0D8SeverityO07minimumF0_Sb9debugModeSb012verboseDebugI0AC015StandardStreamsI0O03stdmI0SayAA0D6Filter_pG7filtersSayAA0D9Formatter_pG02osD10FormattersAP06stdoutS0tcfc">init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:filters:osLogFormatters:stdoutFormatters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -403,7 +406,6 @@ recommended for use in production code.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes a new <code>ConsoleLogConfiguration</code> instance.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>Setting either <code>debugMode</code> or <code>verboseDebugMode</code> to <code>true</code> will
@@ -436,8 +438,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The minimum supported <code>LogSeverity</code>. Any <code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently ignored.</p>
-
+                                  <p>The minimum supported <code>LogSeverity</code>. Any
+<code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently
+ignored.</p>
                                 </div>
                               </td>
                             </tr>
@@ -449,8 +452,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will
+be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used
+when recording log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -462,8 +466,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code>
+will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be
+used when recording log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -475,8 +480,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code>StandardStreamsMode</code> value that governs when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used for recording log output.</p>
-
+                                  <p>A <code>StandardStreamsMode</code> value that governs
+when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used
+for recording log output.</p>
                                 </div>
                               </td>
                             </tr>
@@ -488,8 +494,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogFilter</code>s to use when deciding whether a given <code>LogEntry</code> should be passed along for recording.</p>
-
+                                  <p>The <code>LogFilter</code>s to use when deciding whether a given
+<code>LogEntry</code> should be passed along for recording.</p>
                                 </div>
                               </td>
                             </tr>
@@ -501,8 +507,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogFormatter</code>s to use when formatting log entries bound for the <code>OSLogRecorder</code>.</p>
-
+                                  <p>An array of <code>LogFormatter</code>s to use when
+formatting log entries bound for the <code>OSLogRecorder</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -514,8 +520,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogFormatter</code>s to use when formatting log entries bound for the <code>StandardOutputLogRecorder</code>.</p>
-
+                                  <p>An array of <code>LogFormatter</code>s to use when
+formatting log entries bound for the <code>StandardOutputLogRecorder</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -532,9 +538,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC15CleanroomLogger23ConsoleLogConfiguration12willUseOSLogFT4modeOS0_19StandardStreamsMode_Sb"></a>
+                    <a name="/s:15CleanroomLogger23ConsoleLogConfigurationC12willUseOSLogSbAC19StandardStreamsModeO4mode_tFZ"></a>
                     <a name="//apple_ref/swift/Method/willUseOSLog(mode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC15CleanroomLogger23ConsoleLogConfiguration12willUseOSLogFT4modeOS0_19StandardStreamsMode_Sb">willUseOSLog(mode:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger23ConsoleLogConfigurationC12willUseOSLogSbAC19StandardStreamsModeO4mode_tFZ">willUseOSLog(mode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -567,8 +573,9 @@ environment and the value of <code>mode</code>.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code>StandardStreamsMode</code> value that governs when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used for recording log output.</p>
-
+                                  <p>A <code>StandardStreamsMode</code> value that governs when standard
+console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used for recording
+log output.</p>
                                 </div>
                               </td>
                             </tr>
@@ -577,8 +584,8 @@ environment and the value of <code>mode</code>.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>true</code> if <code>os_log()</code> is available and will be used given the value of <code>mode</code>.</p>
-
+                        <p><code>true</code> if <code>os_log()</code> is available and will be used given 
+the value of <code>mode</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -586,9 +593,9 @@ environment and the value of <code>mode</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC15CleanroomLogger23ConsoleLogConfiguration24shouldUseStandardStreamsFT4modeOS0_19StandardStreamsMode_Sb"></a>
+                    <a name="/s:15CleanroomLogger23ConsoleLogConfigurationC24shouldUseStandardStreamsSbAC0hI4ModeO4mode_tFZ"></a>
                     <a name="//apple_ref/swift/Method/shouldUseStandardStreams(mode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC15CleanroomLogger23ConsoleLogConfiguration24shouldUseStandardStreamsFT4modeOS0_19StandardStreamsMode_Sb">shouldUseStandardStreams(mode:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger23ConsoleLogConfigurationC24shouldUseStandardStreamsSbAC0hI4ModeO4mode_tFZ">shouldUseStandardStreams(mode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -621,8 +628,9 @@ the runtime environment and the value of <code>mode</code>.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code>StandardStreamsMode</code> value that governs when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used for recording log output.</p>
-
+                                  <p>A <code>StandardStreamsMode</code> value that governs when standard
+console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used for recording
+log output.</p>
                                 </div>
                               </td>
                             </tr>
@@ -631,8 +639,8 @@ the runtime environment and the value of <code>mode</code>.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p><code>true</code> if <code>stdout</code> and <code>stderr</code> will be used given the value of <code>mode</code>.</p>
-
+                        <p><code>true</code> if <code>stdout</code> and <code>stderr</code> will be used given the value of
+<code>mode</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -643,7 +651,7 @@ the runtime environment and the value of <code>mode</code>.</p>
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

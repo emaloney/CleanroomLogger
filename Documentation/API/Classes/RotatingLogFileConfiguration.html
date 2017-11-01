@@ -235,9 +235,9 @@ maintain a directory of log files that are rotated on a daily basis.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger28RotatingLogFileConfiguration13directoryPathSS"></a>
+                    <a name="/s:15CleanroomLogger28RotatingLogFileConfigurationC13directoryPathSSv"></a>
                     <a name="//apple_ref/swift/Property/directoryPath" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger28RotatingLogFileConfiguration13directoryPathSS">directoryPath</a>
+                    <a class="token" href="#/s:15CleanroomLogger28RotatingLogFileConfigurationC13directoryPathSSv">directoryPath</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -263,9 +263,9 @@ maintain a directory of log files that are rotated on a daily basis.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger28RotatingLogFileConfigurationcFT15minimumSeverityOS_11LogSeverity10daysToKeepSi13directoryPathSS15synchronousModeSb7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_"></a>
+                    <a name="/s:15CleanroomLogger28RotatingLogFileConfigurationCAcA0D8SeverityO07minimumG0_Si10daysToKeepSS13directoryPathSb15synchronousModeSayAA0D6Filter_pG7filtersSayAA0D9Formatter_pG10formatterstcfc"></a>
                     <a name="//apple_ref/swift/Method/init(minimumSeverity:daysToKeep:directoryPath:synchronousMode:filters:formatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger28RotatingLogFileConfigurationcFT15minimumSeverityOS_11LogSeverity10daysToKeepSi13directoryPathSS15synchronousModeSb7filtersGSaPS_9LogFilter__10formattersGSaPS_12LogFormatter___S0_">init(minimumSeverity:daysToKeep:directoryPath:synchronousMode:filters:formatters:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger28RotatingLogFileConfigurationCAcA0D8SeverityO07minimumG0_Si10daysToKeepSS13directoryPathSb15synchronousModeSayAA0D6Filter_pG7filtersSayAA0D9Formatter_pG10formatterstcfc">init(minimumSeverity:daysToKeep:directoryPath:synchronousMode:filters:formatters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -274,15 +274,14 @@ maintain a directory of log files that are rotated on a daily basis.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes a new <code>RotatingLogFileConfiguration</code> instance.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>The <code><a href="../Classes/RotatingLogFileRecorder.html">RotatingLogFileRecorder</a></code> created by this configuration
-assumes full control over the log directory specified as <code><a href="../Classes/RotatingLogFileConfiguration.html#/s:vC15CleanroomLogger28RotatingLogFileConfiguration13directoryPathSS">directoryPath</a></code>.
+assumes full control over the log directory specified as <code><a href="../Classes/RotatingLogFileConfiguration.html#/s:15CleanroomLogger28RotatingLogFileConfigurationC13directoryPathSSv">directoryPath</a></code>.
 Any file not recognized as an active log file will be deleted during the
 automatic pruning process, which may occur at any time. Therefore, be
 <strong>extremely careful</strong> when constructing the value passed in as the
-<code><a href="../Classes/RotatingLogFileConfiguration.html#/s:vC15CleanroomLogger28RotatingLogFileConfiguration13directoryPathSS">directoryPath</a></code>.</p>
+<code><a href="../Classes/RotatingLogFileConfiguration.html#/s:15CleanroomLogger28RotatingLogFileConfigurationC13directoryPathSSv">directoryPath</a></code>.</p>
 
 </div>
 
@@ -307,8 +306,9 @@ automatic pruning process, which may occur at any time. Therefore, be
                               </td>
                               <td>
                                 <div>
-                                  <p>The minimum supported <code>LogSeverity</code>. Any <code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently ignored by the configuration.</p>
-
+                                  <p>The minimum supported <code>LogSeverity</code>. Any
+<code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently
+ignored by the configuration.</p>
                                 </div>
                               </td>
                             </tr>
@@ -320,8 +320,8 @@ automatic pruning process, which may occur at any time. Therefore, be
                               </td>
                               <td>
                                 <div>
-                                  <p>The number of days for which log files should be retained.</p>
-
+                                  <p>The number of days for which log files should be
+retained.</p>
                                 </div>
                               </td>
                             </tr>
@@ -333,8 +333,9 @@ automatic pruning process, which may occur at any time. Therefore, be
                               </td>
                               <td>
                                 <div>
-                                  <p>The filesystem path of the directory where the log files will be stored. Please note the warning above regarding the <code>directoryPath</code>.</p>
-
+                                  <p>The filesystem path of the directory where the
+log files will be stored. Please note the warning above regarding the
+<code>directoryPath</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -346,8 +347,12 @@ automatic pruning process, which may occur at any time. Therefore, be
                               </td>
                               <td>
                                 <div>
-                                  <p>Determines whether synchronous mode will be used by the underlying <code>RotatingLogFileRecorder</code>. Synchronous mode is helpful while debugging, as it ensures that logs are always up-to-date when debug breakpoints are hit. However, synchronous mode can have a negative influence on performance and is therefore not recommended for use in production code.</p>
-
+                                  <p>Determines whether synchronous mode will be
+used by the underlying <code>RotatingLogFileRecorder</code>. Synchronous mode is
+helpful while debugging, as it ensures that logs are always up-to-date
+when debug breakpoints are hit. However, synchronous mode can have a 
+negative influence on performance and is therefore not recommended for
+use in production code.</p>
                                 </div>
                               </td>
                             </tr>
@@ -359,8 +364,8 @@ automatic pruning process, which may occur at any time. Therefore, be
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogFilter</code>s to use when deciding whether a given <code>LogEntry</code> should be passed along for recording.</p>
-
+                                  <p>The <code>LogFilter</code>s to use when deciding whether a given
+<code>LogEntry</code> should be passed along for recording.</p>
                                 </div>
                               </td>
                             </tr>
@@ -372,8 +377,11 @@ automatic pruning process, which may occur at any time. Therefore, be
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogFormatter</code>s to use for formatting log entries to be recorded by the receiver. Each formatter is consulted in sequence, and the formatted string returned by the first formatter to yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>, the log entry is silently ignored and not recorded.</p>
-
+                                  <p>An array of <code>LogFormatter</code>s to use for formatting
+log entries to be recorded by the receiver. Each formatter is consulted in
+sequence, and the formatted string returned by the first formatter to
+yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>,
+the log entry is silently ignored and not recorded.</p>
                                 </div>
                               </td>
                             </tr>
@@ -386,9 +394,9 @@ automatic pruning process, which may occur at any time. Therefore, be
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger28RotatingLogFileConfiguration18createLogDirectoryFzT_T_"></a>
+                    <a name="/s:15CleanroomLogger28RotatingLogFileConfigurationC06createD9DirectoryyyKF"></a>
                     <a name="//apple_ref/swift/Method/createLogDirectory()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger28RotatingLogFileConfiguration18createLogDirectoryFzT_T_">createLogDirectory()</a>
+                    <a class="token" href="#/s:15CleanroomLogger28RotatingLogFileConfigurationC06createD9DirectoryyyKF">createLogDirectory()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -397,11 +405,10 @@ automatic pruning process, which may occur at any time. Therefore, be
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Attempts to create—if it does not already exist—the directory indicated
-by the <code><a href="../Classes/RotatingLogFileConfiguration.html#/s:vC15CleanroomLogger28RotatingLogFileConfiguration13directoryPathSS">directoryPath</a></code> property.</p>
-
+by the <code><a href="../Classes/RotatingLogFileConfiguration.html#/s:15CleanroomLogger28RotatingLogFileConfigurationC13directoryPathSSv">directoryPath</a></code> property.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    If the function fails to create a directory at <code><a href="../Classes/RotatingLogFileConfiguration.html#/s:vC15CleanroomLogger28RotatingLogFileConfiguration13directoryPathSS">directoryPath</a></code>.
+    If the function fails to create a directory at <code><a href="../Classes/RotatingLogFileConfiguration.html#/s:15CleanroomLogger28RotatingLogFileConfigurationC13directoryPathSSv">directoryPath</a></code>.
 
 </div>
 
@@ -424,7 +431,7 @@ by the <code><a href="../Classes/RotatingLogFileConfiguration.html#/s:vC15Cleanr
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -234,9 +234,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger15LogRecorderBase10formattersGSaPS_12LogFormatter__"></a>
+                    <a name="/s:15CleanroomLogger15LogRecorderBaseC10formattersSayAA0C9Formatter_pGv"></a>
                     <a name="//apple_ref/swift/Property/formatters" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger15LogRecorderBase10formattersGSaPS_12LogFormatter__">formatters</a>
+                    <a class="token" href="#/s:15CleanroomLogger15LogRecorderBaseC10formattersSayAA0C9Formatter_pGv">formatters</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -262,9 +262,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger15LogRecorderBase5queueCSo13DispatchQueue"></a>
+                    <a name="/s:15CleanroomLogger15LogRecorderBaseC5queueSo13DispatchQueueCv"></a>
                     <a name="//apple_ref/swift/Property/queue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger15LogRecorderBase5queueCSo13DispatchQueue">queue</a>
+                    <a class="token" href="#/s:15CleanroomLogger15LogRecorderBaseC5queueSo13DispatchQueueCv">queue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -290,9 +290,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger15LogRecorderBasecFT10formattersGSaPS_12LogFormatter__5queueGSqCSo13DispatchQueue__S0_"></a>
+                    <a name="/s:15CleanroomLogger15LogRecorderBaseCACSayAA0C9Formatter_pG10formatters_So13DispatchQueueCSg5queuetcfc"></a>
                     <a name="//apple_ref/swift/Method/init(formatters:queue:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger15LogRecorderBasecFT10formattersGSaPS_12LogFormatter__5queueGSqCSo13DispatchQueue__S0_">init(formatters:queue:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger15LogRecorderBaseCACSayAA0C9Formatter_pG10formatters_So13DispatchQueueCSg5queuetcfc">init(formatters:queue:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -323,8 +323,11 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogFormatter</code>s to use for formatting log entries to be recorded by the receiver. Each formatter is consulted in sequence, and the formatted string returned by the first formatter to yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>, the log entry is silently ignored and not recorded.</p>
-
+                                  <p>An array of <code>LogFormatter</code>s to use for formatting
+log entries to be recorded by the receiver. Each formatter is consulted in
+sequence, and the formatted string returned by the first formatter to
+yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>,
+the log entry is silently ignored and not recorded.</p>
                                 </div>
                               </td>
                             </tr>
@@ -336,8 +339,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>DispatchQueue</code> to use for the recorder. If <code>nil</code>, a new queue will be created.</p>
-
+                                  <p>The <code>DispatchQueue</code> to use for the recorder. If <code>nil</code>,
+a new queue will be created.</p>
                                 </div>
                               </td>
                             </tr>
@@ -350,9 +353,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger15LogRecorderBase6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_"></a>
+                    <a name="/s:15CleanroomLogger15LogRecorderBaseC6recordySS7message_AA0C5EntryV3forSo13DispatchQueueC07currentK0Sb15synchronousModetF"></a>
                     <a name="//apple_ref/swift/Method/record(message:for:currentQueue:synchronousMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger15LogRecorderBase6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_">record(message:for:currentQueue:synchronousMode:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger15LogRecorderBaseC6recordySS7message_AA0C5EntryV3forSo13DispatchQueueC07currentK0Sb15synchronousModetF">record(message:for:currentQueue:synchronousMode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -363,10 +366,9 @@
                         <p>This implementation, which does nothing, is present to satisfy the
 <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code> protocol. Subclasses must override this function to provide
 actual log recording functionality.</p>
-
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
-    <p>This function is only called if one of the <code><a href="../Classes/LogRecorderBase.html#/s:vC15CleanroomLogger15LogRecorderBase10formattersGSaPS_12LogFormatter__">formatters</a></code> associated
+    <p>This function is only called if one of the <code><a href="../Classes/LogRecorderBase.html#/s:15CleanroomLogger15LogRecorderBaseC10formattersSayAA0C9Formatter_pGv">formatters</a></code> associated
 with the receiver returned a non-<code>nil</code> string for the given <code><a href="../Structs/LogEntry.html">LogEntry</a></code>.</p>
 
 </div>
@@ -393,7 +395,6 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               <td>
                                 <div>
                                   <p>The message to record.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -406,7 +407,6 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               <td>
                                 <div>
                                   <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -418,8 +418,8 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               </td>
                               <td>
                                 <div>
-                                  <p>The GCD queue on which the function is being executed.</p>
-
+                                  <p>The GCD queue on which the function is being
+executed.</p>
                                 </div>
                               </td>
                             </tr>
@@ -431,8 +431,8 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the recording is being done in synchronous mode, and the recorder should act accordingly.</p>
-
+                                  <p>If <code>true</code>, the recording is being done in
+synchronous mode, and the recorder should act accordingly.</p>
                                 </div>
                               </td>
                             </tr>
@@ -448,7 +448,7 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

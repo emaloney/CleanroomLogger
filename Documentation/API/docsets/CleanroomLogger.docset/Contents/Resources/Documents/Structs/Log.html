@@ -235,13 +235,13 @@ message.</p>
 level is represented by a read-only static variable maintained by the <code>Log</code>:</p>
 
 <ul>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">Log.error</a></code> — The highest severity; something has gone wrong and a fatal error
+<li><p><code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV5errorAA0C7ChannelVSgvZ">Log.error</a></code> — The highest severity; something has gone wrong and a fatal error
 may be imminent</p></li>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">Log.warning</a></code> — Something appears amiss and might bear looking into before a
+<li><p><code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV7warningAA0C7ChannelVSgvZ">Log.warning</a></code> — Something appears amiss and might bear looking into before a
 larger problem arises</p></li>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">Log.info</a></code> — Something notable happened, but it isn&rsquo;t anything to worry about</p></li>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">Log.debug</a></code> — Used for debugging and diagnostic information</p></li>
-<li><p><code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">Log.verbose</a></code> - The lowest severity; used for detailed or frequently occurring
+<li><p><code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV4infoAA0C7ChannelVSgvZ">Log.info</a></code> — Something notable happened, but it isn&rsquo;t anything to worry about</p></li>
+<li><p><code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV5debugAA0C7ChannelVSgvZ">Log.debug</a></code> — Used for debugging and diagnostic information</p></li>
+<li><p><code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV7verboseAA0C7ChannelVSgvZ">Log.verbose</a></code> - The lowest severity; used for detailed or frequently occurring
 debugging and diagnostic information</p></li>
 </ul>
 
@@ -252,14 +252,12 @@ debugging and diagnostic information</p></li>
 file, source line, and function name of the caller. It is intended to be called
 with no arguments, as follows:</li>
 </ul>
-
 <pre class="highlight plaintext"><code>Log.debug?.trace()
 </code></pre>
 
 <ul>
 <li>The <code>message()</code> function records a message specified by the caller:</li>
 </ul>
-
 <pre class="highlight plaintext"><code>Log.info?.message("The application has finished launching.")
 </code></pre>
 
@@ -272,7 +270,6 @@ messages.</p>
 <li>Finally, the <code>value()</code> function records a string representation of an
 arbitrary <code>Any</code> value:</li>
 </ul>
-
 <pre class="highlight plaintext"><code>Log.verbose?.value(delegate)
 </code></pre>
 
@@ -284,8 +281,7 @@ into a string representation.</p>
 
 <p>Note that some implementations may not be able to convert certain values into
 strings; in those cases, log requests may be silently ignored.</p>
-
-<p><a href='#enabling-logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling-logging'>Enabling logging</h3></p>
+<h3 id='enabling-logging' class='heading'>Enabling logging</h3>
 
 <p>By default, logging is disabled, meaning that none of the <code>Log</code>&lsquo;s <em>log channels</em>
 have been populated. As a result, attempts to perform any logging will silently
@@ -301,9 +297,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_"></a>
+                    <a name="/s:15CleanroomLogger3LogV5errorAA0C7ChannelVSgvZ"></a>
                     <a name="//apple_ref/swift/Variable/error" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">error</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV5errorAA0C7ChannelVSgvZ">error</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -330,9 +326,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_"></a>
+                    <a name="/s:15CleanroomLogger3LogV7warningAA0C7ChannelVSgvZ"></a>
                     <a name="//apple_ref/swift/Variable/warning" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">warning</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV7warningAA0C7ChannelVSgvZ">warning</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -359,9 +355,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_"></a>
+                    <a name="/s:15CleanroomLogger3LogV4infoAA0C7ChannelVSgvZ"></a>
                     <a name="//apple_ref/swift/Variable/info" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">info</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV4infoAA0C7ChannelVSgvZ">info</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -388,9 +384,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_"></a>
+                    <a name="/s:15CleanroomLogger3LogV5debugAA0C7ChannelVSgvZ"></a>
                     <a name="//apple_ref/swift/Variable/debug" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">debug</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV5debugAA0C7ChannelVSgvZ">debug</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -417,9 +413,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_"></a>
+                    <a name="/s:15CleanroomLogger3LogV7verboseAA0C7ChannelVSgvZ"></a>
                     <a name="//apple_ref/swift/Variable/verbose" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">verbose</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV7verboseAA0C7ChannelVSgvZ">verbose</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -446,9 +442,9 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14stdStreamsModeOCS_23ConsoleLogConfiguration19StandardStreamsMode16mimicOSLogOutputSb12showCallSiteSb7filtersGSaPS_9LogFilter___T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV6enableyAA0C8SeverityO07minimumE0_Sb9debugModeSb012verboseDebugH0AA07ConsoleC13ConfigurationC015StandardStreamsH0O03stdnH0Sb16mimicOSLogOutputSb12showCallSiteSayAA0C6Filter_pG7filterstFZ"></a>
                     <a name="//apple_ref/swift/Method/enable(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:mimicOSLogOutput:showCallSite:filters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14stdStreamsModeOCS_23ConsoleLogConfiguration19StandardStreamsMode16mimicOSLogOutputSb12showCallSiteSb7filtersGSaPS_9LogFilter___T_">enable(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:mimicOSLogOutput:showCallSite:filters:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV6enableyAA0C8SeverityO07minimumE0_Sb9debugModeSb012verboseDebugH0AA07ConsoleC13ConfigurationC015StandardStreamsH0O03stdnH0Sb16mimicOSLogOutputSb12showCallSiteSayAA0C6Filter_pG7filterstFZ">enable(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:mimicOSLogOutput:showCallSite:filters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -461,7 +457,6 @@ is done by calling the appropriate <code>Log.enable()</code> function.</p>
 <p>Log entries are recorded by being written to the Apple System Log and to
 the <code>stderr</code> output stream of the running process. In Xcode, log entries
 will appear in the console.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>Setting either <code>debugMode</code> or <code>verboseDebugMode</code> to <code>true</code> will
@@ -478,7 +473,7 @@ recommended for use in production code.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n"><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">info</a></span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">stdStreamsMode</span><span class="p">:</span> <span class="kt"><a href="../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a></span><span class="o">.</span><span class="kt">StandardStreamsMode</span> <span class="o">=</span> <span class="o">.</span><span class="n">useAsFallback</span><span class="p">,</span> <span class="nv">mimicOSLogOutput</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">(</span><span class="nv">minimumSeverity</span><span class="p">:</span> <span class="kt"><a href="../Enums/LogSeverity.html">LogSeverity</a></span> <span class="o">=</span> <span class="o">.</span><span class="n"><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV4infoAA0C7ChannelVSgvZ">info</a></span><span class="p">,</span> <span class="nv">debugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">verboseDebugMode</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">stdStreamsMode</span><span class="p">:</span> <span class="kt"><a href="../Classes/ConsoleLogConfiguration.html">ConsoleLogConfiguration</a></span><span class="o">.</span><span class="kt">StandardStreamsMode</span> <span class="o">=</span> <span class="o">.</span><span class="n">useAsFallback</span><span class="p">,</span> <span class="nv">mimicOSLogOutput</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">showCallSite</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">filters</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/LogFilter.html">LogFilter</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span></code></pre>
 
                         </div>
                       </div>
@@ -494,8 +489,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The minimum supported <code>LogSeverity</code>. Any <code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently ignored.</p>
-
+                                  <p>The minimum supported <code>LogSeverity</code>. Any
+<code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently
+ignored.</p>
                                 </div>
                               </td>
                             </tr>
@@ -507,8 +503,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will
+be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used
+when recording log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -520,8 +517,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code>
+will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be
+used when recording log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -533,8 +531,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code>StandardStreamsMode</code> value that governs when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used for recording log output.</p>
-
+                                  <p>A <code>StandardStreamsMode</code> value that governs
+when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used
+for recording log output.</p>
                                 </div>
                               </td>
                             </tr>
@@ -546,8 +545,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, any output sent to <code>stdout</code> will be formatted in such a way as to mimic the output seen when <code>os_log()</code> is used.</p>
-
+                                  <p>If <code>true</code>, any output sent to <code>stdout</code> will
+be formatted in such a way as to mimic the output seen when <code>os_log()</code> is
+used.</p>
                                 </div>
                               </td>
                             </tr>
@@ -559,8 +559,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the source file and line indicating the call site of the log request will be added to formatted log messages.</p>
-
+                                  <p>If <code>true</code>, the source file and line indicating
+the call site of the log request will be added to formatted log messages.</p>
                                 </div>
                               </td>
                             </tr>
@@ -572,8 +572,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogFilter</code>s to use when deciding whether a given <code>LogEntry</code> should be passed along for recording.</p>
-
+                                  <p>The <code>LogFilter</code>s to use when deciding whether a given
+<code>LogEntry</code> should be passed along for recording.</p>
                                 </div>
                               </td>
                             </tr>
@@ -586,9 +586,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT13configurationPS_16LogConfiguration__T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV6enableyAA0C13Configuration_p13configuration_tFZ"></a>
                     <a name="//apple_ref/swift/Method/enable(configuration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT13configurationPS_16LogConfiguration__T_">enable(configuration:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV6enableyAA0C13Configuration_p13configuration_tFZ">enable(configuration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -619,8 +619,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogConfiguration</code> to use for controlling the behavior of logging.</p>
-
+                                  <p>The <code>LogConfiguration</code> to use for controlling
+the behavior of logging.</p>
                                 </div>
                               </td>
                             </tr>
@@ -633,9 +633,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT13configurationGSaPS_16LogConfiguration___T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV6enableySayAA0C13Configuration_pG13configuration_tFZ"></a>
                     <a name="//apple_ref/swift/Method/enable(configuration:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT13configurationGSaPS_16LogConfiguration___T_">enable(configuration:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV6enableySayAA0C13Configuration_pG13configuration_tFZ">enable(configuration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -666,8 +666,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogConfiguration</code>s specifying the behavior of logging.</p>
-
+                                  <p>An array of <code>LogConfiguration</code>s specifying
+the behavior of logging.</p>
                                 </div>
                               </td>
                             </tr>
@@ -680,9 +680,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT10receptacleCS_13LogReceptacle_T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV6enableyAA0C10ReceptacleC10receptacle_tFZ"></a>
                     <a name="//apple_ref/swift/Method/enable(receptacle:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT10receptacleCS_13LogReceptacle_T_">enable(receptacle:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV6enableyAA0C10ReceptacleC10receptacle_tFZ">enable(receptacle:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -692,8 +692,8 @@ recommended for use in production code.</p>
                       <div class="abstract">
                         <p>Enables logging using the specified <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code>.</p>
 
-<p>Individual <code><a href="../Structs/LogChannel.html">LogChannel</a></code>s for <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">error</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">warning</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">info</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">debug</a></code>, and
-<code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">verbose</a></code> may or may not be constructed depending on the receptacle&rsquo;s
+<p>Individual <code><a href="../Structs/LogChannel.html">LogChannel</a></code>s for <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV5errorAA0C7ChannelVSgvZ">error</a></code>, <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV7warningAA0C7ChannelVSgvZ">warning</a></code>, <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV4infoAA0C7ChannelVSgvZ">info</a></code>, <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV5debugAA0C7ChannelVSgvZ">debug</a></code>, and
+<code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV7verboseAA0C7ChannelVSgvZ">verbose</a></code> may or may not be constructed depending on the receptacle&rsquo;s
 <code>minimumSeverity</code>.</p>
 
                       </div>
@@ -717,8 +717,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogReceptacle</code> to use when creating the <code>LogChannel</code>s for the five severity levels.</p>
-
+                                  <p>The <code>LogReceptacle</code> to use when creating the
+<code>LogChannel</code>s for the five severity levels.</p>
                                 </div>
                               </td>
                             </tr>
@@ -731,9 +731,9 @@ recommended for use in production code.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log6enableFT12errorChannelGSqVS_10LogChannel_14warningChannelGSqS1__11infoChannelGSqS1__12debugChannelGSqS1__14verboseChannelGSqS1___T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV6enableyAA0C7ChannelVSg05errorE0_AG07warningE0AG04infoE0AG05debugE0AG07verboseE0tFZ"></a>
                     <a name="//apple_ref/swift/Method/enable(errorChannel:warningChannel:infoChannel:debugChannel:verboseChannel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log6enableFT12errorChannelGSqVS_10LogChannel_14warningChannelGSqS1__11infoChannelGSqS1__12debugChannelGSqS1__14verboseChannelGSqS1___T_">enable(errorChannel:warningChannel:infoChannel:debugChannel:verboseChannel:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV6enableyAA0C7ChannelVSg05errorE0_AG07warningE0AG04infoE0AG05debugE0AG07verboseE0tFZ">enable(errorChannel:warningChannel:infoChannel:debugChannel:verboseChannel:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -743,7 +743,7 @@ recommended for use in production code.</p>
                       <div class="abstract">
                         <p>Enables logging using the specified <code><a href="../Structs/LogChannel.html">LogChannel</a></code>s.</p>
 
-<p>The static <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5errorGSqVS_10LogChannel_">error</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7warningGSqVS_10LogChannel_">warning</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_">info</a></code>, <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log5debugGSqVS_10LogChannel_">debug</a></code>, and <code><a href="../Structs/Log.html#/s:ZvV15CleanroomLogger3Log7verboseGSqVS_10LogChannel_">verbose</a></code> properties of
+<p>The static <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV5errorAA0C7ChannelVSgvZ">error</a></code>, <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV7warningAA0C7ChannelVSgvZ">warning</a></code>, <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV4infoAA0C7ChannelVSgvZ">info</a></code>, <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV5debugAA0C7ChannelVSgvZ">debug</a></code>, and <code><a href="../Structs/Log.html#/s:15CleanroomLogger3LogV7verboseAA0C7ChannelVSgvZ">verbose</a></code> properties of
 <code>Log</code> will be set using the specified values.</p>
 
 <p>If you know that the configuration of a given <code><a href="../Structs/LogChannel.html">LogChannel</a></code> guarantees that
@@ -771,8 +771,8 @@ needless overhead will be added to the application.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with a <code>severity</code> of <code>.error</code>.</p>
-
+                                  <p>The <code>LogChannel</code> to use for logging messages with
+a <code>severity</code> of <code>.error</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -784,8 +784,8 @@ needless overhead will be added to the application.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with a <code>severity</code> of <code>.warning</code>.</p>
-
+                                  <p>The <code>LogChannel</code> to use for logging messages
+with a <code>severity</code> of <code>.warning</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -797,8 +797,8 @@ needless overhead will be added to the application.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with a <code>severity</code> of <code>.info</code>.</p>
-
+                                  <p>The <code>LogChannel</code> to use for logging messages with
+a <code>severity</code> of <code>.info</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -810,8 +810,8 @@ needless overhead will be added to the application.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with a <code>severity</code> of <code>.debug</code>.</p>
-
+                                  <p>The <code>LogChannel</code> to use for logging messages with
+a <code>severity</code> of <code>.debug</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -823,8 +823,8 @@ needless overhead will be added to the application.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogChannel</code> to use for logging messages with a <code>severity</code> of <code>.verbose</code>.</p>
-
+                                  <p>The <code>LogChannel</code> to use for logging messages
+with a <code>severity</code> of <code>.verbose</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -837,9 +837,9 @@ needless overhead will be added to the application.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log11neverEnableFT_T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV11neverEnableyyFZ"></a>
                     <a name="//apple_ref/swift/Method/neverEnable()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log11neverEnableFT_T_">neverEnable()</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV11neverEnableyyFZ">neverEnable()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -855,7 +855,6 @@ of the lifetime of the running executable.</p>
 in applications that link against libraries requiring CleanroomLogger.
 Application developers who did not choose to use CleanroomLogger can
 ensure that embedded third-party libraries don&rsquo;t use it, either.</p>
-
 <div class="aside aside-important">
     <p class="aside-title">Important</p>
     If <code>Log.enable()</code> has already been called, calling
@@ -878,9 +877,9 @@ ensure that embedded third-party libraries don&rsquo;t use it, either.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log7channelFT8severityOS_11LogSeverity_GSqVS_10LogChannel_"></a>
+                    <a name="/s:15CleanroomLogger3LogV7channelAA0C7ChannelVSgAA0C8SeverityO8severity_tFZ"></a>
                     <a name="//apple_ref/swift/Method/channel(severity:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log7channelFT8severityOS_11LogSeverity_GSqVS_10LogChannel_">channel(severity:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV7channelAA0C7ChannelVSgAA0C8SeverityO8severity_tFZ">channel(severity:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -912,8 +911,8 @@ ensure that embedded third-party libraries don&rsquo;t use it, either.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogSeverity</code> level of the <code>LogChannel</code> to return.</p>
-
+                                  <p>The <code>LogSeverity</code> level of the <code>LogChannel</code> to
+return.</p>
                                 </div>
                               </td>
                             </tr>
@@ -922,8 +921,9 @@ ensure that embedded third-party libraries don&rsquo;t use it, either.</p>
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> used by <code>Log</code> to perform logging at the given severity; will be <code>nil</code> if <code>Log</code> is not configured to perform logging at that severity.</p>
-
+                        <p>The <code><a href="../Structs/LogChannel.html">LogChannel</a></code> used by <code>Log</code> to perform logging at the given
+severity; will be <code>nil</code> if <code>Log</code> is not configured to perform logging at
+that severity.</p>
                       </div>
                     </section>
                   </div>
@@ -931,9 +931,9 @@ ensure that embedded third-party libraries don&rsquo;t use it, either.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log5traceFTOS_11LogSeverity8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV5traceyAA0C8SeverityO_SS8functionSS8filePathSi0G4LinetFZ"></a>
                     <a name="//apple_ref/swift/Method/trace(_:function:filePath:fileLine:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log5traceFTOS_11LogSeverity8functionSS8filePathSS8fileLineSi_T_">trace(_:function:filePath:fileLine:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV5traceyAA0C8SeverityO_SS8functionSS8filePathSi0G4LinetFZ">trace(_:function:filePath:fileLine:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -967,7 +967,6 @@ well as the stack frame signature of the caller.</p>
                               <td>
                                 <div>
                                   <p>The <code>LogSeverity</code> for the message being recorded.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -979,8 +978,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the signature of the calling function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the signature of the calling function. You should not provide a
+value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -992,8 +992,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the file path of the code issuing the call to this function.
+You should not provide a value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1005,8 +1006,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the line number issuing the call to this function. You should
+not provide a value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1019,9 +1021,9 @@ well as the stack frame signature of the caller.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log7messageFTOS_11LogSeverity7messageSS8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV7messageyAA0C8SeverityO_SSADSS8functionSS8filePathSi0G4LinetFZ"></a>
                     <a name="//apple_ref/swift/Method/message(_:message:function:filePath:fileLine:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log7messageFTOS_11LogSeverity7messageSS8functionSS8filePathSS8fileLineSi_T_">message(_:message:function:filePath:fileLine:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV7messageyAA0C8SeverityO_SSADSS8functionSS8filePathSi0G4LinetFZ">message(_:message:function:filePath:fileLine:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1053,7 +1055,6 @@ well as the stack frame signature of the caller.</p>
                               <td>
                                 <div>
                                   <p>The <code>LogSeverity</code> for the log entry.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1066,7 +1067,6 @@ well as the stack frame signature of the caller.</p>
                               <td>
                                 <div>
                                   <p>The message to log.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1078,8 +1078,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the signature of the calling function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the signature of the calling function. You should not provide a
+value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1091,8 +1092,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the file path of the code issuing the call to this function.
+You should not provide a value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1104,8 +1106,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the line number issuing the call to this function. You should
+not provide a value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1118,9 +1121,9 @@ well as the stack frame signature of the caller.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFV15CleanroomLogger3Log5valueFTOS_11LogSeverity5valueGSqP__8functionSS8filePathSS8fileLineSi_T_"></a>
+                    <a name="/s:15CleanroomLogger3LogV5valueyAA0C8SeverityO_ypSgADSS8functionSS8filePathSi0G4LinetFZ"></a>
                     <a name="//apple_ref/swift/Method/value(_:value:function:filePath:fileLine:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFV15CleanroomLogger3Log5valueFTOS_11LogSeverity5valueGSqP__8functionSS8filePathSS8fileLineSi_T_">value(_:value:function:filePath:fileLine:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger3LogV5valueyAA0C8SeverityO_ypSgADSS8functionSS8filePathSi0G4LinetFZ">value(_:value:function:filePath:fileLine:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1152,7 +1155,6 @@ well as the stack frame signature of the caller.</p>
                               <td>
                                 <div>
                                   <p>The <code>LogSeverity</code> for the log entry.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1164,8 +1166,10 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The value to send to the log. Determining how (and whether) arbitrary values are captured and represented will be handled by the <code>LogRecorder</code> implementation(s) that are ultimately called upon to record the log entry.</p>
-
+                                  <p>The value to send to the log. Determining how (and
+whether) arbitrary values are captured and represented will be handled by
+the <code>LogRecorder</code> implementation(s) that are ultimately called upon to
+record the log entry.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1177,8 +1181,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the signature of the calling function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the signature of the calling function. You should not provide a
+value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1190,8 +1195,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the file path of the code issuing the call to this function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the file path of the code issuing the call to this function.
+You should not provide a value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1203,8 +1209,9 @@ well as the stack frame signature of the caller.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The default value provided for this parameter captures the line number issuing the call to this function. You should not provide a value for this parameter.</p>
-
+                                  <p>The default value provided for this parameter
+captures the line number issuing the call to this function. You should
+not provide a value for this parameter.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1220,7 +1227,7 @@ well as the stack frame signature of the caller.</p>
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

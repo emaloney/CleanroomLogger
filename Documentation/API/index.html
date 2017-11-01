@@ -218,7 +218,7 @@
         <section>
           <section class="section">
             
-            <a href='#using-cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='using-cleanroomlogger'>Using CleanroomLogger</h2>
+            <h2 id='using-cleanroomlogger' class='heading'>Using CleanroomLogger</h2>
 
 <p>The main public API for CleanroomLogger is provided by <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html"><code>Log</code></a>.</p>
 
@@ -239,7 +239,7 @@
 <li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel7messageFTSS8functionSS8filePathSS8fileLineSi_T_"><code>message(String)</code></a> — This function records the log message passed to it.</li>
 <li><a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5valueFTGSqP__8functionSS8filePathSS8fileLineSi_T_"><code>value(Any?)</code></a> — This function attempts to record a log message containing a string representation of the optional <code>Any</code> value passed to it.</li>
 </ul>
-<a href='#enabling-logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='enabling-logging'>Enabling logging</h3>
+<h3 id='enabling-logging' class='heading'>Enabling logging</h3>
 
 <p>By default, logging is disabled, meaning that none of the <code>Log</code>’s channels have been populated. As a result, they have <code>nil</code> values and any attempts to perform logging will silently fail.</p>
 
@@ -254,17 +254,17 @@
 <blockquote>
 <p><strong>Note:</strong> During the running lifetime of an application process, only the <em>first</em> call to <code>Log.enable()</code> function will have any effect. All subsequent calls are ignored silently. You can also prevent CleanroomLogger from being enabled altogether by calling <code>Log.neverEnable()</code>.</p>
 </blockquote>
-<a href='#logging-examples' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='logging-examples'>Logging examples</h3>
+<h3 id='logging-examples' class='heading'>Logging examples</h3>
 
 <p>To record items in the log, simply select the appropriate channel and call the appropriate function.</p>
 
 <p>Here are a few examples:</p>
-<a href='#logging-an-arbitrary-text-message' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging-an-arbitrary-text-message'>Logging an arbitrary text message</h4>
+<h4 id='logging-an-arbitrary-text-message' class='heading'>Logging an arbitrary text message</h4>
 
 <p>Let’s say your application just finished launching. This is a significant event, but it isn’t an error. You also might want to see this information in production app logs. Therefore, you decide the appropriate <code>LogSeverity</code> is <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Enums/LogSeverity.html#/s:FO15CleanroomLogger11LogSeverity4infoFMS0_S0_"><code>.info</code></a> and you select the corresponding <code>LogChannel</code>, which is <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/Log.html#/s:ZvV15CleanroomLogger3Log4infoGSqVS_10LogChannel_"><code>Log.info</code></a>. Then, to log a message, just call the channel’s <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel7messageFTSS8functionSS8filePathSS8fileLineSi_T_"><code>message()</code></a> function:</p>
 <pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="n">info</span><span class="p">?</span><span class="o">.</span><span class="nf">message</span><span class="p">(</span><span class="s">"The application has finished launching."</span><span class="p">)</span>
 </code></pre>
-<a href='#logging-a-trace-message' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging-a-trace-message'>Logging a trace message</h4>
+<h4 id='logging-a-trace-message' class='heading'>Logging a trace message</h4>
 
 <p>If you’re working on some code and you’re curious about the order of execution, you can sprinkle some <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5traceFTSS8filePathSS8fileLineSi_T_"><code>trace()</code></a> calls around.</p>
 
@@ -277,7 +277,7 @@
 <p>Assuming logging is enabled for the <code>.debug</code> severity, the following message would be logged when that line gets executed:</p>
 <pre class="highlight plaintext"><code>ModularTable.swift:364 — tableView(_:cellForRowAt:)
 </code></pre>
-<a href='#logging-an-arbitrary-value' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='logging-an-arbitrary-value'>Logging an arbitrary value</h4>
+<h4 id='logging-an-arbitrary-value' class='heading'>Logging an arbitrary value</h4>
 
 <p>The <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5valueFTGSqP__8functionSS8filePathSS8fileLineSi_T_"><code>value()</code></a> function can be used for outputting information about a specific value. The function takes an argument of type <code>Any?</code> and is intended to accept any valid runtime value.</p>
 
@@ -297,10 +297,10 @@
 <p>The output for this would be:</p>
 <pre class="highlight plaintext"><code>= nil
 </code></pre>
-<a href='#cleanroomlogger-in-depth' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cleanroomlogger-in-depth'>CleanroomLogger In Depth</h3>
+<h3 id='cleanroomlogger-in-depth' class='heading'>CleanroomLogger In Depth</h3>
 
 <p>This section delves into the particulars of configuring and customizing CleanroomLogger to suit your needs.</p>
-<a href='#configuring-cleanroomlogger' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='configuring-cleanroomlogger'>Configuring CleanroomLogger</h4>
+<h4 id='configuring-cleanroomlogger' class='heading'>Configuring CleanroomLogger</h4>
 
 <p>CleanroomLogger is configured when one of the <code>Log.enable()</code> function variants is called. Configuration can occur at most once within the lifetime of the running process. And once set, the configuration can’t be changed; it’s immutable.</p>
 
@@ -322,7 +322,7 @@
 <li>The <code>severity</code> of the incoming <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html"><code>LogEntry</code></a> is compared against the <code>minimumSeverity</code> of each <code>LogConfiguration</code>. Any <code>LogConfiguration</code> whose <code>minimumSeverity</code> is equal to or less than the <code>severity</code> of the <code>LogEntry</code> is selected for further consideration.</li>
 <li>The <code>LogEntry</code> is then passed sequentially to the <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFilter.html#/s:FP15CleanroomLogger9LogFilter12shouldRecordFT5entryVS_8LogEntry_Sb"><code>shouldRecord(entry:)</code></a> function of each of the <code>LogConfiguration</code>’s <code>filters</code>. If any <code>LogFilter</code> returns <code>false</code>, the associated configuration will <em>not</em> be selected to record that log entry.</li>
 </ol>
-<a href='#xcodelogconfiguration' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h5 id='xcodelogconfiguration'>XcodeLogConfiguration</h5>
+<h5 id='xcodelogconfiguration' class='heading'>XcodeLogConfiguration</h5>
 
 <p>Ideally suited for live viewing during development, the <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/XcodeLogConfiguration.html"><code>XcodeLogConfiguration</code></a> examines the runtime environment to optimize CleanroomLogger for use within Xcode.</p>
 
@@ -383,7 +383,7 @@
 <p>The call above is also equivalent to:</p>
 <pre class="highlight swift"><code><span class="kt">Log</span><span class="o">.</span><span class="nf">enable</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="kt">XcodeLogConfiguration</span><span class="p">())</span>
 </code></pre>
-<a href='#rotatinglogfileconfiguration' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h5 id='rotatinglogfileconfiguration'>RotatingLogFileConfiguration</h5>
+<h5 id='rotatinglogfileconfiguration' class='heading'>RotatingLogFileConfiguration</h5>
 
 <p>The <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/RotatingLogFileConfiguration.html"><code>RotatingLogFileConfiguration</code></a> can be used to maintain a directory of log files that are rotated daily.</p>
 
@@ -403,7 +403,7 @@
 <p>The code above would record any log entry with a severity of <code>.info</code> or higher in a file that would be kept for at least 7 days before being pruned. This particular configuration uses the <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/ReadableLogFormatter.html"><code>ReadableLogFormatter</code></a> to format log entries.</p>
 
 <p>The <code>RotatingLogFileConfiguration</code> can also be used to specify <code>synchronousMode</code>, a set of <code>LogFilter</code>s to apply, and one or more custom <code>LogFormatter</code>s.</p>
-<a href='#multiple-configurations' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h5 id='multiple-configurations'>Multiple Configurations</h5>
+<h5 id='multiple-configurations' class='heading'>Multiple Configurations</h5>
 
 <p>CleanroomLogger also supports multiple configurations, allowing different logging behaviors to be in use simultaneously.</p>
 
@@ -422,12 +422,12 @@
 <p>Further, the <code>XcodeLogConfiguration</code> will result in messages being logged via the Unified Logging System (if available) and/or the running process’s <code>stdout</code> and <code>stderr</code> streams. The <code>RotatingLogFileConfiguration</code>, on the other hand, results in messages being written to a file.</p>
 
 <p>Finally, each configuration results in a different message format being used.</p>
-<a href='#implementing-your-own-configuration' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h5 id='implementing-your-own-configuration'>Implementing Your Own Configuration</h5>
+<h5 id='implementing-your-own-configuration' class='heading'>Implementing Your Own Configuration</h5>
 
 <p>Although you can provide your own implementation of the <code>LogConfiguration</code> protocol, it may be simpler to create a <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/BasicLogConfiguration.html"><code>BasicLogConfiguration</code></a> instance and pass the relevant parameters to <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Classes/BasicLogConfiguration.html#/s:FC15CleanroomLogger21BasicLogConfigurationcFT15minimumSeverityOS_11LogSeverity7filtersGSaPS_9LogFilter__9recordersGSaPS_11LogRecorder__15synchronousModeSb14configurationsGSqGSaPS_16LogConfiguration____S0_">the initializer</a>.</p>
 
 <p>You can also subclass <code>BasicLogConfiguration</code> if you’d like to encapsulate your configuration further.</p>
-<a href='#a-complicated-example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h5 id='a-complicated-example'>A Complicated Example</h5>
+<h5 id='a-complicated-example' class='heading'>A Complicated Example</h5>
 
 <p>Let’s say you want configure CleanroomLogger to:</p>
 
@@ -475,7 +475,7 @@
 <span class="c1">// enable logging using the LogRecorders created above</span>
 <span class="kt">Log</span><span class="o">.</span><span class="nf">enable</span><span class="p">(</span><span class="nv">configuration</span><span class="p">:</span> <span class="n">configs</span><span class="p">)</span>
 </code></pre>
-<a href='#customized-log-formatting' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='customized-log-formatting'>Customized Log Formatting</h4>
+<h4 id='customized-log-formatting' class='heading'>Customized Log Formatting</h4>
 
 <p>The <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Protocols/LogFormatter.html"><code>LogFormatter</code></a> protocol is consulted when attempting to convert a <a href="https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogEntry.html"><code>LogEntry</code></a> into a string.</p>
 
@@ -495,7 +495,7 @@
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

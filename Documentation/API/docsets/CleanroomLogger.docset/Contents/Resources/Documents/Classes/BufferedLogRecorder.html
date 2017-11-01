@@ -250,9 +250,9 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger19BufferedLogRecorder11bufferLimitSi"></a>
+                    <a name="/s:15CleanroomLogger19BufferedLogRecorderC11bufferLimitSiv"></a>
                     <a name="//apple_ref/swift/Property/bufferLimit" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger19BufferedLogRecorder11bufferLimitSi">bufferLimit</a>
+                    <a class="token" href="#/s:15CleanroomLogger19BufferedLogRecorderC11bufferLimitSiv">bufferLimit</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,9 +278,9 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger19BufferedLogRecorder16createBufferItemFTVS_8LogEntrySS_x"></a>
+                    <a name="/s:15CleanroomLogger19BufferedLogRecorderC16createBufferItemxAA0D5EntryV_SStcv"></a>
                     <a name="//apple_ref/swift/Property/createBufferItem" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger19BufferedLogRecorder16createBufferItemFTVS_8LogEntrySS_x">createBufferItem</a>
+                    <a class="token" href="#/s:15CleanroomLogger19BufferedLogRecorderC16createBufferItemxAA0D5EntryV_SStcv">createBufferItem</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -306,9 +306,9 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger19BufferedLogRecorder6bufferGSax_"></a>
+                    <a name="/s:15CleanroomLogger19BufferedLogRecorderC6bufferSayxGv"></a>
                     <a name="//apple_ref/swift/Property/buffer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger19BufferedLogRecorder6bufferGSax_">buffer</a>
+                    <a class="token" href="#/s:15CleanroomLogger19BufferedLogRecorderC6bufferSayxGv">buffer</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -334,9 +334,9 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger19BufferedLogRecordercFT10formattersGSaPS_12LogFormatter__11bufferLimitSi5queueGSqCSo13DispatchQueue_16createBufferItemFTVS_8LogEntrySS_x_GS0_x_"></a>
+                    <a name="/s:15CleanroomLogger19BufferedLogRecorderCACyxGSayAA0D9Formatter_pG10formatters_Si11bufferLimitSo13DispatchQueueCSg5queuexAA0D5EntryV_SStc16createBufferItemtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(formatters:bufferLimit:queue:createBufferItem:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger19BufferedLogRecordercFT10formattersGSaPS_12LogFormatter__11bufferLimitSi5queueGSqCSo13DispatchQueue_16createBufferItemFTVS_8LogEntrySS_x_GS0_x_">init(formatters:bufferLimit:queue:createBufferItem:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger19BufferedLogRecorderCACyxGSayAA0D9Formatter_pG10formatters_Si11bufferLimitSo13DispatchQueueCSg5queuexAA0D5EntryV_SStc16createBufferItemtcfc">init(formatters:bufferLimit:queue:createBufferItem:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -367,8 +367,11 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogFormatter</code>s to use for formatting log entries to be recorded by the receiver. Each formatter is consulted in sequence, and the formatted string returned by the first formatter to yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>, the log entry is silently ignored and not recorded.</p>
-
+                                  <p>An array of <code>LogFormatter</code>s to use for formatting
+log entries to be recorded by the receiver. Each formatter is consulted in
+sequence, and the formatted string returned by the first formatter to
+yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>,
+the log entry is silently ignored and not recorded.</p>
                                 </div>
                               </td>
                             </tr>
@@ -380,8 +383,13 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                               </td>
                               <td>
                                 <div>
-                                  <p>If this value is positive, it specifies the maximum number of items to store in the buffer. If <code>record()</code> is called when the buffer limit has been reached, the oldest item in the buffer will be dropped. If this value is zero or negative, no limit will be applied. Note that this is potentially dangerous in production code, since memory consumption will grow endlessly unless you manually clear the buffer periodically.</p>
-
+                                  <p>If this value is positive, it specifies the
+maximum number of items to store in the buffer. If <code>record()</code> is called
+when the buffer limit has been reached, the oldest item in the buffer will
+be dropped. If this value is zero or negative, no limit will be applied.
+Note that this is potentially dangerous in production code, since memory
+consumption will grow endlessly unless you manually clear the buffer
+periodically.</p>
                                 </div>
                               </td>
                             </tr>
@@ -393,8 +401,8 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>DispatchQueue</code> to use for the recorder. If <code>nil</code>, a new queue will be created.</p>
-
+                                  <p>The <code>DispatchQueue</code> to use for the recorder. If <code>nil</code>,
+a new queue will be created.</p>
                                 </div>
                               </td>
                             </tr>
@@ -406,8 +414,9 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                               </td>
                               <td>
                                 <div>
-                                  <p>The function used to create <code>BufferItem</code> instances for each <code>LogEntry</code> and formatted message string passed to the receiver’s <code>record</code>()` function.</p>
-
+                                  <p>The function used to create <code>BufferItem</code>
+instances for each <code>LogEntry</code> and formatted message string passed to the
+receiver&rsquo;s <code>record</code>()` function.</p>
                                 </div>
                               </td>
                             </tr>
@@ -420,9 +429,9 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger19BufferedLogRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_"></a>
+                    <a name="/s:15CleanroomLogger19BufferedLogRecorderC6recordySS7message_AA0D5EntryV3forSo13DispatchQueueC07currentK0Sb15synchronousModetF"></a>
                     <a name="//apple_ref/swift/Method/record(message:for:currentQueue:synchronousMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger19BufferedLogRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_">record(message:for:currentQueue:synchronousMode:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger19BufferedLogRecorderC6recordySS7message_AA0D5EntryV3forSo13DispatchQueueC07currentK0Sb15synchronousModetF">record(message:for:currentQueue:synchronousMode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -431,7 +440,6 @@ containing the <code><a href="../Structs/LogEntry.html">LogEntry</a></code> and 
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Called by the <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> to record the formatted log message.</p>
-
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     <p>This function is only called if one of the <code>formatters</code> associated
@@ -461,7 +469,6 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               <td>
                                 <div>
                                   <p>The message to record.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -474,7 +481,6 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               <td>
                                 <div>
                                   <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -486,8 +492,8 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               </td>
                               <td>
                                 <div>
-                                  <p>The GCD queue on which the function is being executed.</p>
-
+                                  <p>The GCD queue on which the function is being
+executed.</p>
                                 </div>
                               </td>
                             </tr>
@@ -499,8 +505,8 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the recording is being done in synchronous mode, and the recorder should act accordingly.</p>
-
+                                  <p>If <code>true</code>, the recording is being done in
+synchronous mode, and the recorder should act accordingly.</p>
                                 </div>
                               </td>
                             </tr>
@@ -513,9 +519,9 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger19BufferedLogRecorder5clearFT_T_"></a>
+                    <a name="/s:15CleanroomLogger19BufferedLogRecorderC5clearyyF"></a>
                     <a name="//apple_ref/swift/Method/clear()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger19BufferedLogRecorder5clearFT_T_">clear()</a>
+                    <a class="token" href="#/s:15CleanroomLogger19BufferedLogRecorderC5clearyyF">clear()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -546,7 +552,7 @@ to ensure thread safety.</p>
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

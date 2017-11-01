@@ -235,9 +235,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger25ConcatenatingLogFormatter10formattersGSaPS_12LogFormatter__"></a>
+                    <a name="/s:15CleanroomLogger25ConcatenatingLogFormatterC10formattersSayAA0dE0_pGv"></a>
                     <a name="//apple_ref/swift/Property/formatters" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger25ConcatenatingLogFormatter10formattersGSaPS_12LogFormatter__">formatters</a>
+                    <a class="token" href="#/s:15CleanroomLogger25ConcatenatingLogFormatterC10formattersSayAA0dE0_pGv">formatters</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -262,9 +262,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger25ConcatenatingLogFormatter8hardFailSb"></a>
+                    <a name="/s:15CleanroomLogger25ConcatenatingLogFormatterC8hardFailSbv"></a>
                     <a name="//apple_ref/swift/Property/hardFail" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger25ConcatenatingLogFormatter8hardFailSb">hardFail</a>
+                    <a class="token" href="#/s:15CleanroomLogger25ConcatenatingLogFormatterC8hardFailSbv">hardFail</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -272,12 +272,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Determines the behavior of <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:FC15CleanroomLogger25ConcatenatingLogFormatter6formatFVS_8LogEntryGSqSS_">format(_:)</a></code> when one of the receiver&rsquo;s
- <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:vC15CleanroomLogger25ConcatenatingLogFormatter10formattersGSaPS_12LogFormatter__">formatters</a></code> returns <code>nil</code>. When <code>false</code>, if any formatter returns
+                        <p>Determines the behavior of <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:15CleanroomLogger25ConcatenatingLogFormatterC6formatSSSgAA0D5EntryVF">format(_:)</a></code> when one of the receiver&rsquo;s
+ <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:15CleanroomLogger25ConcatenatingLogFormatterC10formattersSayAA0dE0_pGv">formatters</a></code> returns <code>nil</code>. When <code>false</code>, if any formatter returns
  <code>nil</code>, it is simply excluded from the concatenation, but formatting
- continues. Unless <em>none</em> of the <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:vC15CleanroomLogger25ConcatenatingLogFormatter10formattersGSaPS_12LogFormatter__">formatters</a></code> returns a string, the 
+ continues. Unless <em>none</em> of the <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:15CleanroomLogger25ConcatenatingLogFormatterC10formattersSayAA0dE0_pGv">formatters</a></code> returns a string, the 
  receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code>
- is <code>true</code>, <em>all</em> of the <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:vC15CleanroomLogger25ConcatenatingLogFormatter10formattersGSaPS_12LogFormatter__">formatters</a></code> must return strings; if <em>any</em>
+ is <code>true</code>, <em>all</em> of the <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:15CleanroomLogger25ConcatenatingLogFormatterC10formattersSayAA0dE0_pGv">formatters</a></code> must return strings; if <em>any</em>
  formatter returns <code>nil</code>, the receiver <em>also</em> returns <code>nil</code>.</p>
 
                       </div>
@@ -295,9 +295,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger25ConcatenatingLogFormattercFT10formattersGSaPS_12LogFormatter__8hardFailSb_S0_"></a>
+                    <a name="/s:15CleanroomLogger25ConcatenatingLogFormatterCACSayAA0dE0_pG10formatters_Sb8hardFailtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(formatters:hardFail:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger25ConcatenatingLogFormattercFT10formattersGSaPS_12LogFormatter__8hardFailSb_S0_">init(formatters:hardFail:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger25ConcatenatingLogFormatterCACSayAA0dE0_pG10formatters_Sb8hardFailtcfc">init(formatters:hardFail:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -328,8 +328,8 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogFormatter</code>s whose output will be concatenated.</p>
-
+                                  <p>The <code>LogFormatter</code>s whose output will be
+concatenated.</p>
                                 </div>
                               </td>
                             </tr>
@@ -341,8 +341,13 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>Determines the behavior of <code>format(_:)</code> when one of the receiver’s <code>formatters</code> returns <code>nil</code>. When <code>false</code>, if any formatter returns <code>nil</code>, it is simply excluded from the concatenation, but formatting continues. Unless  of the <code>formatters</code> returns a string, the receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code> is <code>true</code>,  of the <code>formatters</code> must return strings; if  formatter returns <code>nil</code>, the receiver  returns <code>nil</code>.</p>
-
+                                  <p>Determines the behavior of <code>format(_:)</code> when one of 
+the receiver&rsquo;s <code>formatters</code> returns <code>nil</code>. When <code>false</code>, if any formatter
+returns <code>nil</code>, it is simply excluded from the concatenation, but formatting
+continues. Unless <em>none</em> of the <code>formatters</code> returns a string, the
+receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code>
+is <code>true</code>, <em>all</em> of the <code>formatters</code> must return strings; if <em>any</em>
+formatter returns <code>nil</code>, the receiver <em>also</em> returns <code>nil</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -355,9 +360,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger25ConcatenatingLogFormatter6formatFVS_8LogEntryGSqSS_"></a>
+                    <a name="/s:15CleanroomLogger25ConcatenatingLogFormatterC6formatSSSgAA0D5EntryVF"></a>
                     <a name="//apple_ref/swift/Method/format(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger25ConcatenatingLogFormatter6formatFVS_8LogEntryGSqSS_">format(_:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger25ConcatenatingLogFormatterC6formatSSSgAA0D5EntryVF">format(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -391,7 +396,6 @@
                               <td>
                                 <div>
                                   <p>The <code>LogEntry</code> to be formatted.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -400,8 +404,8 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>The formatted result, or <code>nil</code> if formatting failed according to the receiver’s <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:vC15CleanroomLogger25ConcatenatingLogFormatter8hardFailSb">hardFail</a></code> property.</p>
-
+                        <p>The formatted result, or <code>nil</code> if formatting failed according
+to the receiver&rsquo;s <code><a href="../Classes/ConcatenatingLogFormatter.html#/s:15CleanroomLogger25ConcatenatingLogFormatterC8hardFailSbv">hardFail</a></code> property.</p>
                       </div>
                     </section>
                   </div>
@@ -412,7 +416,7 @@
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

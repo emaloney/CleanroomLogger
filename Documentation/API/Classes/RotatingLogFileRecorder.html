@@ -227,7 +227,6 @@
               </div>
             <p>A <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code> implementation that maintains a set of daily rotating log
 files, kept for a user-specified number of days.</p>
-
 <div class="aside aside-important">
     <p class="aside-title">Important</p>
     A <code>RotatingLogFileRecorder</code> instance assumes full control over
@@ -243,9 +242,9 @@ initializer documentation for details.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger23RotatingLogFileRecorder10daysToKeepSi"></a>
+                    <a name="/s:15CleanroomLogger23RotatingLogFileRecorderC10daysToKeepSiv"></a>
                     <a name="//apple_ref/swift/Property/daysToKeep" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger23RotatingLogFileRecorder10daysToKeepSi">daysToKeep</a>
+                    <a class="token" href="#/s:15CleanroomLogger23RotatingLogFileRecorderC10daysToKeepSiv">daysToKeep</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -271,9 +270,9 @@ initializer documentation for details.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS"></a>
+                    <a name="/s:15CleanroomLogger23RotatingLogFileRecorderC13directoryPathSSv"></a>
                     <a name="//apple_ref/swift/Property/directoryPath" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a>
+                    <a class="token" href="#/s:15CleanroomLogger23RotatingLogFileRecorderC13directoryPathSSv">directoryPath</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -299,9 +298,9 @@ initializer documentation for details.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger23RotatingLogFileRecordercFT10daysToKeepSi13directoryPathSS10formattersGSaPS_12LogFormatter___S0_"></a>
+                    <a name="/s:15CleanroomLogger23RotatingLogFileRecorderCACSi10daysToKeep_SS13directoryPathSayAA0D9Formatter_pG10formatterstcfc"></a>
                     <a name="//apple_ref/swift/Method/init(daysToKeep:directoryPath:formatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger23RotatingLogFileRecordercFT10daysToKeepSi13directoryPathSS10formattersGSaPS_12LogFormatter___S0_">init(daysToKeep:directoryPath:formatters:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger23RotatingLogFileRecorderCACSi10daysToKeep_SS13directoryPathSayAA0D9Formatter_pG10formatterstcfc">init(daysToKeep:directoryPath:formatters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -310,14 +309,13 @@ initializer documentation for details.
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes a new <code>RotatingLogFileRecorder</code> instance.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>The <code>RotatingLogFileRecorder</code> expects to have full control over
-the contents of its <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>. Any file not recognized as an active 
+the contents of its <code><a href="../Classes/RotatingLogFileRecorder.html#/s:15CleanroomLogger23RotatingLogFileRecorderC13directoryPathSSv">directoryPath</a></code>. Any file not recognized as an active 
 log file will be deleted during the automatic pruning process, which may
 occur at any time. Therefore, be <strong>extremely careful</strong> when constructing
-the value passed in as the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>.</p>
+the value passed in as the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:15CleanroomLogger23RotatingLogFileRecorderC13directoryPathSSv">directoryPath</a></code>.</p>
 
 </div>
 
@@ -342,8 +340,8 @@ the value passed in as the <code><a href="../Classes/RotatingLogFileRecorder.htm
                               </td>
                               <td>
                                 <div>
-                                  <p>The number of days for which log files should be retained.</p>
-
+                                  <p>The number of days for which log files should be
+retained.</p>
                                 </div>
                               </td>
                             </tr>
@@ -355,8 +353,9 @@ the value passed in as the <code><a href="../Classes/RotatingLogFileRecorder.htm
                               </td>
                               <td>
                                 <div>
-                                  <p>The filesystem path of the directory where the log files will be stored. Please note the warning above regarding the <code>directoryPath</code>.</p>
-
+                                  <p>The filesystem path of the directory where the
+log files will be stored. Please note the warning above regarding the
+<code>directoryPath</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -368,8 +367,11 @@ the value passed in as the <code><a href="../Classes/RotatingLogFileRecorder.htm
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogFormatter</code>s to use for formatting log entries to be recorded by the receiver. Each formatter is consulted in sequence, and the formatted string returned by the first formatter to yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>, the log entry is silently ignored and not recorded.</p>
-
+                                  <p>An array of <code>LogFormatter</code>s to use for formatting
+log entries to be recorded by the receiver. Each formatter is consulted in
+sequence, and the formatted string returned by the first formatter to
+yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>,
+the log entry is silently ignored and not recorded.</p>
                                 </div>
                               </td>
                             </tr>
@@ -382,9 +384,9 @@ the value passed in as the <code><a href="../Classes/RotatingLogFileRecorder.htm
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFC15CleanroomLogger23RotatingLogFileRecorder11logFilenameFT7forDateV10Foundation4Date_SS"></a>
+                    <a name="/s:15CleanroomLogger23RotatingLogFileRecorderC11logFilenameSS10Foundation4DateV03forJ0_tFZ"></a>
                     <a name="//apple_ref/swift/Method/logFilename(forDate:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFC15CleanroomLogger23RotatingLogFileRecorder11logFilenameFT7forDateV10Foundation4Date_SS">logFilename(forDate:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger23RotatingLogFileRecorderC11logFilenameSS10Foundation4DateV03forJ0_tFZ">logFilename(forDate:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -418,7 +420,6 @@ recorded on the given date.</p>
                               <td>
                                 <div>
                                   <p>The <code>Date</code> for which the log file name is desired.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -428,7 +429,6 @@ recorded on the given date.</p>
                       <div>
                         <h4>Return Value</h4>
                         <p>The filename.</p>
-
                       </div>
                     </section>
                   </div>
@@ -436,9 +436,9 @@ recorded on the given date.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger23RotatingLogFileRecorder18createLogDirectoryFzT_T_"></a>
+                    <a name="/s:15CleanroomLogger23RotatingLogFileRecorderC06createD9DirectoryyyKF"></a>
                     <a name="//apple_ref/swift/Method/createLogDirectory()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger23RotatingLogFileRecorder18createLogDirectoryFzT_T_">createLogDirectory()</a>
+                    <a class="token" href="#/s:15CleanroomLogger23RotatingLogFileRecorderC06createD9DirectoryyyKF">createLogDirectory()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -447,11 +447,10 @@ recorded on the given date.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Attempts to create—if it does not already exist—the directory indicated
-by the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code> property.</p>
-
+by the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:15CleanroomLogger23RotatingLogFileRecorderC13directoryPathSSv">directoryPath</a></code> property.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    If the function fails to create a directory at <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>.
+    If the function fails to create a directory at <code><a href="../Classes/RotatingLogFileRecorder.html#/s:15CleanroomLogger23RotatingLogFileRecorderC13directoryPathSSv">directoryPath</a></code>.
 
 </div>
 
@@ -471,9 +470,9 @@ by the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLo
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger23RotatingLogFileRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_"></a>
+                    <a name="/s:15CleanroomLogger23RotatingLogFileRecorderC6recordySS7message_AA0D5EntryV3forSo13DispatchQueueC07currentL0Sb15synchronousModetF"></a>
                     <a name="//apple_ref/swift/Method/record(message:for:currentQueue:synchronousMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger23RotatingLogFileRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_">record(message:for:currentQueue:synchronousMode:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger23RotatingLogFileRecorderC6recordySS7message_AA0D5EntryV3forSo13DispatchQueueC07currentL0Sb15synchronousModetF">record(message:for:currentQueue:synchronousMode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -482,7 +481,6 @@ by the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLo
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Called by the <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> to record the specified log message.</p>
-
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     <p>This function is only called if one of the <code>formatters</code> associated
@@ -512,7 +510,6 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               <td>
                                 <div>
                                   <p>The message to record.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -525,7 +522,6 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               <td>
                                 <div>
                                   <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -537,8 +533,8 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               </td>
                               <td>
                                 <div>
-                                  <p>The GCD queue on which the function is being executed.</p>
-
+                                  <p>The GCD queue on which the function is being
+executed.</p>
                                 </div>
                               </td>
                             </tr>
@@ -550,8 +546,8 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the recording is being done in synchronous mode, and the recorder should act accordingly.</p>
-
+                                  <p>If <code>true</code>, the recording is being done in
+synchronous mode, and the recorder should act accordingly.</p>
                                 </div>
                               </td>
                             </tr>
@@ -564,9 +560,9 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger23RotatingLogFileRecorder5pruneFT_T_"></a>
+                    <a name="/s:15CleanroomLogger23RotatingLogFileRecorderC5pruneyyF"></a>
                     <a name="//apple_ref/swift/Method/prune()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger23RotatingLogFileRecorder5pruneFT_T_">prune()</a>
+                    <a class="token" href="#/s:15CleanroomLogger23RotatingLogFileRecorderC5pruneyyF">prune()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -575,11 +571,10 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Deletes any expired log files (and any other detritus that may be hanging
-around inside our <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code>).</p>
-
+around inside our <code><a href="../Classes/RotatingLogFileRecorder.html#/s:15CleanroomLogger23RotatingLogFileRecorderC13directoryPathSSv">directoryPath</a></code>).</p>
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
-    Any file within the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:vC15CleanroomLogger23RotatingLogFileRecorder13directoryPathSS">directoryPath</a></code> not recognized as an active
+    Any file within the <code><a href="../Classes/RotatingLogFileRecorder.html#/s:15CleanroomLogger23RotatingLogFileRecorderC13directoryPathSSv">directoryPath</a></code> not recognized as an active
 log file will be deleted during pruning.
 
 </div>
@@ -602,7 +597,7 @@ log file will be deleted during pruning.
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

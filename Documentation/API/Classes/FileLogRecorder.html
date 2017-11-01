@@ -226,7 +226,6 @@
                 </div>
               </div>
             <p>A <code><a href="../Protocols/LogRecorder.html">LogRecorder</a></code> implementation that appends log entries to a file.</p>
-
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     <code>FileLogRecorder</code> is a simple log appender that provides no mechanism
@@ -244,9 +243,9 @@ concern yourself with such details.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC15CleanroomLogger15FileLogRecorder8filePathSS"></a>
+                    <a name="/s:15CleanroomLogger15FileLogRecorderC8filePathSSv"></a>
                     <a name="//apple_ref/swift/Property/filePath" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC15CleanroomLogger15FileLogRecorder8filePathSS">filePath</a>
+                    <a class="token" href="#/s:15CleanroomLogger15FileLogRecorderC8filePathSSv">filePath</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -271,9 +270,9 @@ concern yourself with such details.
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger15FileLogRecordercFT8filePathSS10formattersGSaPS_12LogFormatter___GSqS0__"></a>
+                    <a name="/s:15CleanroomLogger15FileLogRecorderCACSgSS8filePath_SayAA0D9Formatter_pG10formatterstcfc"></a>
                     <a name="//apple_ref/swift/Method/init(filePath:formatters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger15FileLogRecordercFT8filePathSS10formattersGSaPS_12LogFormatter___GSqS0__">init(filePath:formatters:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger15FileLogRecorderCACSgSS8filePath_SayAA0D9Formatter_pG10formatterstcfc">init(filePath:formatters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -282,7 +281,7 @@ concern yourself with such details.
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Attempts to initialize a new <code>FileLogRecorder</code> instance to use the
-given file path and log formatters. This will fail if <code><a href="../Classes/FileLogRecorder.html#/s:vC15CleanroomLogger15FileLogRecorder8filePathSS">filePath</a></code> could
+given file path and log formatters. This will fail if <code><a href="../Classes/FileLogRecorder.html#/s:15CleanroomLogger15FileLogRecorderC8filePathSSv">filePath</a></code> could
 not be opened for writing.</p>
 
                       </div>
@@ -306,8 +305,10 @@ not be opened for writing.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The path of the file to be written. The containing directory must exist and be writable by the process. If the file does not yet exist, it will be created; if it does exist, new log messages will be appended to the end of the file.</p>
-
+                                  <p>The path of the file to be written. The containing
+directory must exist and be writable by the process. If the file does not
+yet exist, it will be created; if it does exist, new log messages will be
+appended to the end of the file.</p>
                                 </div>
                               </td>
                             </tr>
@@ -319,8 +320,11 @@ not be opened for writing.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>An array of <code>LogFormatter</code>s to use for formatting log entries to be recorded by the receiver. Each formatter is consulted in sequence, and the formatted string returned by the first formatter to yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>, the log entry is silently ignored and not recorded.</p>
-
+                                  <p>An array of <code>LogFormatter</code>s to use for formatting
+log entries to be recorded by the receiver. Each formatter is consulted in
+sequence, and the formatted string returned by the first formatter to
+yield a non-<code>nil</code> value will be recorded. If every formatter returns <code>nil</code>,
+the log entry is silently ignored and not recorded.</p>
                                 </div>
                               </td>
                             </tr>
@@ -333,9 +337,9 @@ not be opened for writing.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger15FileLogRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_"></a>
+                    <a name="/s:15CleanroomLogger15FileLogRecorderC6recordySS7message_AA0D5EntryV3forSo13DispatchQueueC07currentK0Sb15synchronousModetF"></a>
                     <a name="//apple_ref/swift/Method/record(message:for:currentQueue:synchronousMode:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger15FileLogRecorder6recordFT7messageSS3forVS_8LogEntry12currentQueueCSo13DispatchQueue15synchronousModeSb_T_">record(message:for:currentQueue:synchronousMode:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger15FileLogRecorderC6recordySS7message_AA0D5EntryV3forSo13DispatchQueueC07currentK0Sb15synchronousModetF">record(message:for:currentQueue:synchronousMode:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -344,7 +348,6 @@ not be opened for writing.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Called by the <code><a href="../Classes/LogReceptacle.html">LogReceptacle</a></code> to record the specified log message.</p>
-
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     <p>This function is only called if one of the <code>formatters</code> associated
@@ -374,7 +377,6 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               <td>
                                 <div>
                                   <p>The message to record.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -387,7 +389,6 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               <td>
                                 <div>
                                   <p>The <code>LogEntry</code> for which <code>message</code> was created.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -399,8 +400,8 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               </td>
                               <td>
                                 <div>
-                                  <p>The GCD queue on which the function is being executed.</p>
-
+                                  <p>The GCD queue on which the function is being
+executed.</p>
                                 </div>
                               </td>
                             </tr>
@@ -412,8 +413,8 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the recording is being done in synchronous mode, and the recorder should act accordingly.</p>
-
+                                  <p>If <code>true</code>, the recording is being done in
+synchronous mode, and the recorder should act accordingly.</p>
                                 </div>
                               </td>
                             </tr>
@@ -429,7 +430,7 @@ with the receiver returned a non-<code>nil</code> string for the given <code><a 
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

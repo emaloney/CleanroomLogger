@@ -238,7 +238,6 @@ fields separated by tabs:</p>
 </ul>
 
 <p>You could do this by constructing a <code>FieldBasedLogFormatter</code> as follows:</p>
-
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">formatter</span> <span class="o">=</span> <span class="kt">FieldBasedLogFormatter</span><span class="p">(</span><span class="nv">fields</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="nf">timestamp</span><span class="p">(</span><span class="o">.</span><span class="n">unix</span><span class="p">),</span>
                                                 <span class="o">.</span><span class="nf">delimiter</span><span class="p">(</span><span class="o">.</span><span class="n">tab</span><span class="p">),</span>
                                                 <span class="o">.</span><span class="nf">severity</span><span class="p">(</span><span class="o">.</span><span class="n">numeric</span><span class="p">),</span>
@@ -253,9 +252,9 @@ fields separated by tabs:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:OC15CleanroomLogger22FieldBasedLogFormatter5Field"></a>
+                    <a name="/s:15CleanroomLogger22FieldBasedLogFormatterC0C0O"></a>
                     <a name="//apple_ref/swift/Enum/Field" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC15CleanroomLogger22FieldBasedLogFormatter5Field">Field</a>
+                    <a class="token" href="#/s:15CleanroomLogger22FieldBasedLogFormatterC0C0O">Field</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -281,9 +280,9 @@ fields separated by tabs:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger22FieldBasedLogFormattercFT6fieldsGSaOS0_5Field_8hardFailSb_S0_"></a>
+                    <a name="/s:15CleanroomLogger22FieldBasedLogFormatterCACSayAC0C0OG6fields_Sb8hardFailtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(fields:hardFail:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger22FieldBasedLogFormattercFT6fieldsGSaOS0_5Field_8hardFailSb_S0_">init(fields:hardFail:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger22FieldBasedLogFormatterCACSayAC0C0OG6fields_Sb8hardFailtcfc">init(fields:hardFail:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -315,7 +314,6 @@ fields separated by tabs:</p>
                               <td>
                                 <div>
                                   <p>The <code>Field</code>s that will be used by the receiver.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -327,8 +325,13 @@ fields separated by tabs:</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Determines the behavior of <code>format(_:)</code> when one of the receiver’s <code>formatters</code> returns <code>nil</code>. When <code>false</code>, if any formatter returns <code>nil</code>, it is simply excluded from the concatenation, but formatting continues. Unless  of the <code>formatters</code> returns a string, the receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code> is <code>true</code>,  of the <code>formatters</code> must return strings; if  formatter returns <code>nil</code>, the receiver  returns <code>nil</code>.</p>
-
+                                  <p>Determines the behavior of <code>format(_:)</code> when one of
+the receiver&rsquo;s <code>formatters</code> returns <code>nil</code>. When <code>false</code>, if any formatter
+returns <code>nil</code>, it is simply excluded from the concatenation, but formatting
+continues. Unless <em>none</em> of the <code>formatters</code> returns a string, the
+receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code>
+is <code>true</code>, <em>all</em> of the <code>formatters</code> must return strings; if <em>any</em>
+formatter returns <code>nil</code>, the receiver <em>also</em> returns <code>nil</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -341,9 +344,9 @@ fields separated by tabs:</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger22FieldBasedLogFormattercFT10formattersGSaPS_12LogFormatter__8hardFailSb_S0_"></a>
+                    <a name="/s:15CleanroomLogger22FieldBasedLogFormatterCACSayAA0eF0_pG10formatters_Sb8hardFailtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(formatters:hardFail:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger22FieldBasedLogFormattercFT10formattersGSaPS_12LogFormatter__8hardFailSb_S0_">init(formatters:hardFail:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger22FieldBasedLogFormatterCACSayAA0eF0_pG10formatters_Sb8hardFailtcfc">init(formatters:hardFail:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -374,8 +377,8 @@ fields separated by tabs:</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogFormatter</code>s that will be used by the receiver.</p>
-
+                                  <p>The <code>LogFormatter</code>s that will be used by the
+receiver.</p>
                                 </div>
                               </td>
                             </tr>
@@ -387,8 +390,13 @@ fields separated by tabs:</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>Determines the behavior of <code>format(_:)</code> when one of the receiver’s <code>formatters</code> returns <code>nil</code>. When <code>false</code>, if any formatter returns <code>nil</code>, it is simply excluded from the concatenation, but formatting continues. Unless  of the <code>formatters</code> returns a string, the receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code> is <code>true</code>,  of the <code>formatters</code> must return strings; if  formatter returns <code>nil</code>, the receiver  returns <code>nil</code>.</p>
-
+                                  <p>Determines the behavior of <code>format(_:)</code> when one of
+the receiver&rsquo;s <code>formatters</code> returns <code>nil</code>. When <code>false</code>, if any formatter
+returns <code>nil</code>, it is simply excluded from the concatenation, but formatting
+continues. Unless <em>none</em> of the <code>formatters</code> returns a string, the
+receiver will always return a non-<code>nil</code> value. However, when <code>hardFail</code>
+is <code>true</code>, <em>all</em> of the <code>formatters</code> must return strings; if <em>any</em>
+formatter returns <code>nil</code>, the receiver <em>also</em> returns <code>nil</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -404,7 +412,7 @@ fields separated by tabs:</p>
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

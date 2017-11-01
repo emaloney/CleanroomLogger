@@ -234,9 +234,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14stdStreamsModeOCS_23ConsoleLogConfiguration19StandardStreamsMode16mimicOSLogOutputSb12showCallSiteSb7filtersGSaPS_9LogFilter___S0_"></a>
+                    <a name="/s:15CleanroomLogger21XcodeLogConfigurationCAcA0D8SeverityO07minimumF0_Sb9debugModeSb012verboseDebugI0AA07ConsoledE0C015StandardStreamsI0O03stdnI0Sb16mimicOSLogOutputSb12showCallSiteSayAA0D6Filter_pG7filterstcfc"></a>
                     <a name="//apple_ref/swift/Method/init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:mimicOSLogOutput:showCallSite:filters:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC15CleanroomLogger21XcodeLogConfigurationcFT15minimumSeverityOS_11LogSeverity9debugModeSb16verboseDebugModeSb14stdStreamsModeOCS_23ConsoleLogConfiguration19StandardStreamsMode16mimicOSLogOutputSb12showCallSiteSb7filtersGSaPS_9LogFilter___S0_">init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:mimicOSLogOutput:showCallSite:filters:)</a>
+                    <a class="token" href="#/s:15CleanroomLogger21XcodeLogConfigurationCAcA0D8SeverityO07minimumF0_Sb9debugModeSb012verboseDebugI0AA07ConsoledE0C015StandardStreamsI0O03stdnI0Sb16mimicOSLogOutputSb12showCallSiteSayAA0D6Filter_pG7filterstcfc">init(minimumSeverity:debugMode:verboseDebugMode:stdStreamsMode:mimicOSLogOutput:showCallSite:filters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -245,7 +245,6 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes a new <code>XcodeLogConfiguration</code> instance.</p>
-
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>Setting either <code>debugMode</code> or <code>verboseDebugMode</code> to <code>true</code> will
@@ -278,8 +277,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The minimum supported <code>LogSeverity</code>. Any <code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently ignored.</p>
-
+                                  <p>The minimum supported <code>LogSeverity</code>. Any
+<code>LogEntry</code> having a <code>severity</code> less than <code>minimumSeverity</code> will be silently
+ignored.</p>
                                 </div>
                               </td>
                             </tr>
@@ -291,8 +291,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will
+be lowered (if necessary) to <code>.debug</code> and <code>synchronousMode</code> will be used
+when recording log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -304,8 +305,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code> will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be used when recording log entries.</p>
-
+                                  <p>If <code>true</code>, the value of <code>minimumSeverity</code>
+will be lowered (if necessary) to <code>.verbose</code> and <code>synchronousMode</code> will be
+used when recording log entries.</p>
                                 </div>
                               </td>
                             </tr>
@@ -317,8 +319,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>A <code>StandardStreamsMode</code> value that governs when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used for recording log output.</p>
-
+                                  <p>A <code>StandardStreamsMode</code> value that governs
+when standard console streams (i.e., <code>stdout</code> and <code>stderr</code>) should be used
+for recording log output.</p>
                                 </div>
                               </td>
                             </tr>
@@ -330,8 +333,9 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, any output sent to <code>stdout</code> will be formatted in such a way as to mimic the output seen when <code>os_log()</code> is used.</p>
-
+                                  <p>If <code>true</code>, any output sent to <code>stdout</code> will
+be formatted in such a way as to mimic the output seen when <code>os_log()</code> is
+used.</p>
                                 </div>
                               </td>
                             </tr>
@@ -343,8 +347,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>If <code>true</code>, the source file and line indicating the call site of the log request will be added to formatted log messages.</p>
-
+                                  <p>If <code>true</code>, the source file and line indicating
+the call site of the log request will be added to formatted log messages.</p>
                                 </div>
                               </td>
                             </tr>
@@ -356,8 +360,8 @@ recommended for use in production code.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>LogFilter</code>s to use when deciding whether a given <code>LogEntry</code> should be passed along for recording.</p>
-
+                                  <p>The <code>LogFilter</code>s to use when deciding whether a given
+<code>LogEntry</code> should be passed along for recording.</p>
                                 </div>
                               </td>
                             </tr>
@@ -373,7 +377,7 @@ recommended for use in production code.</p>
         </section>
         <section id="footer">
           <p>© 2015-2017 <a class="link" href="http://tech.gilt.com/" target="_blank" rel="external">Gilt Groupe</a></p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
