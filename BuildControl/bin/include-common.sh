@@ -101,7 +101,7 @@ runDestinationForPlatform()
 		;;
 
 	tvOS)
-		SIMULATOR_ID=`xcrun simctl list | grep -v unavailable | grep "Apple TV" | tail -1 | sed "s/) (.*)\$//" | sed "s/^.*(//"`
+		SIMULATOR_ID=`xcrun simctl list | grep -v unavailable | grep "Apple TV" | grep -v "(at " | tail -1 | sed "s/) (.*)\$//" | sed "s/^.*(//"`
 		echo "id=$SIMULATOR_ID"
 		;;
 

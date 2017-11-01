@@ -11,7 +11,7 @@ set -o pipefail		# to ensure xcodebuild pipeline errors are propagated correctly
 SCRIPT_NAME=$(basename "$0")
 SCRIPT_DIR=$(cd "$PWD" ; cd `dirname "$0"` ; echo "$PWD")
 
-source "${SCRIPT_DIR}/common.sh"
+source "${SCRIPT_DIR}/include-common.sh"
 
 showHelp()
 {
