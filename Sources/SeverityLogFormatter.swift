@@ -164,16 +164,16 @@ public struct SeverityLogFormatter: LogFormatter
         var severityTag = style.textRepresentation.format(severity: entry.severity)
 
         if let trunc = style.truncateAtWidth {
-            if severityTag.characters.count > trunc {
-                let startIndex = severityTag.characters.startIndex
-                let endIndex = severityTag.characters.index(startIndex, offsetBy: trunc)
+            if severityTag.count > trunc {
+                let startIndex = severityTag.startIndex
+                let endIndex = severityTag.index(startIndex, offsetBy: trunc)
                 severityTag = String(severityTag[..<endIndex])
             }
         }
 
         if let pad = style.padToWidth {
             let rightAlign = style.rightAlign
-            while severityTag.characters.count < pad {
+            while severityTag.count < pad {
                 if rightAlign {
                     severityTag = " " + severityTag
                 } else {

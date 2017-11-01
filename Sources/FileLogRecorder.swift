@@ -82,9 +82,8 @@ open class FileLogRecorder: LogRecorderBase
     open override func record(message: String, for entry: LogEntry, currentQueue: DispatchQueue, synchronousMode: Bool)
     {
         var addNewline = true
-        let chars = message.characters
-        if chars.count > 0 {
-            let lastChar = chars[chars.index(before: chars.endIndex)]
+        if !message.isEmpty {
+            let lastChar = message[message.index(before: message.endIndex)]
             addNewline = !newlines.contains(lastChar)
         }
 
