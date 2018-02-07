@@ -120,7 +120,7 @@ Since then, we’ve expanded the Cleanroom Project to include multi-platform sup
 Cleanroom Project code serves as the foundation of Gilt on TV, our tvOS app [featured by Apple during the launch of the new Apple TV](http://www.apple.com/apple-events/september-2015/). And as time goes on, we'll be replacing more and more of our existing Objective-C codebase with Cleanroom implementations.
 
 In the meantime, we’ll be tracking the latest releases of Swift &amp; Xcode, and [open-sourcing major portions of our codebase](https://github.com/gilt/Cleanroom#open-source-by-default) along the way.</Var>
-			<Var name="contributing">If you’d like to contribute to this or any other Cleanroom Project repo, please read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project).</Var>
+			<Var name="contributing">If you’d like to contribute to this or any other Cleanroom Project repo, please read [the contribution guidelines](https://github.com/gilt/Cleanroom#contributing-to-the-cleanroom-project). If you have any questions, please reach out to project owner [Paul Lee](http://github.com/pauljlee).</Var>
 			<Var name="acknowledgements">API documentation is generated using [Realm](http://realm.io)’s [jazzy](https://github.com/realm/jazzy/) project, maintained by [JP Simard](https://github.com/jpsim) and [Samuel E. Giddins](https://github.com/segiddins).</Var>
 		</Var>
 		<Var name="Mockingbird" type="map">
