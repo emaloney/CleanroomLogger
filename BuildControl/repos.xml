@@ -47,9 +47,9 @@
 	<Var name="versions" type="map">
 		<!-- master branch declarations -->
 		<Var name="master" type="map">
-			<Var name="Swift" literal="4.0"/>
-			<Var name="Xcode" literal="9.0"/>
-			<Var name="Travis" literal="xcode9"/>
+			<Var name="Swift" literal="4.1"/>
+			<Var name="Xcode" literal="9.3"/>
+			<Var name="Travis" literal="xcode9.3"/>
 
 			<Var name="Carthage" literal="0.25.0"/>
 

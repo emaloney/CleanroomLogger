@@ -14,7 +14,7 @@ Macintosh|macOS 10.13|macOS 10.9
 Apple TV|tvOS 11.0|tvOS 9.0
 Apple Watch|watchOS 4.0|watchOS 2.0
 
-CleanroomLogger uses **Swift 4.0** and **requires Xcode 9.0** to compile.
+CleanroomLogger uses **Swift 4.1** and **requires Xcode 9.3** to compile.
 
 ### Options for integration
 
