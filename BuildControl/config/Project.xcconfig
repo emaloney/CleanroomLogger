@@ -47,7 +47,7 @@ ENABLE_BITCODE[sdk=appletv*] = YES
 //
 WATCHOS_DEPLOYMENT_TARGET = 2.0
 
-VALID_ARCHS[sdk=watchos*] = armv7k
+VALID_ARCHS[sdk=watchos*] = arm64_32 armv7k
 VALID_ARCHS[sdk=watchsimulator*] = i386
 
 LD_RUNPATH_SEARCH_PATHS[sdk=watchos*] =  @executable_path/Frameworks @loader_path/Frameworks
