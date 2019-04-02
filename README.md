@@ -4,7 +4,7 @@
 # CleanroomLogger
 
 CleanroomLogger provides an extensible Swift-based logging API that is simple, lightweight and performant.
-		
+
 The API provided by CleanroomLogger is designed to be readily understood by anyone familiar with packages such as [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) and [log4j](https://en.wikipedia.org/wiki/Log4j).
 
 CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Cleanroom) from [Gilt Tech](http://tech.gilt.com).
@@ -12,7 +12,7 @@ CleanroomLogger is part of [the Cleanroom Project](https://github.com/gilt/Clean
 
 ### Swift compatibility
 
-This is the `master` branch. It uses **Swift 4.1** and **requires Xcode 9.3** to compile.
+This is the `master` branch. It uses **Swift 5.0** and **requires Xcode 10.2** to compile.
 
 
 #### Current status
@@ -23,7 +23,7 @@ Branch|Build status
 
 
 ### Contents
-	
+
 - [Key Benefits of CleanroomLogger](#key-benefits-of-cleanroomlogger)
 - [Adding CleanroomLogger to your project](#adding-cleanroomlogger-to-your-project)
 - [Using CleanroomLogger](#using-cleanroomlogger)
@@ -33,7 +33,7 @@ Branch|Build status
 	- [Configuring CleanroomLogger](#configuring-cleanroomlogger)
 	- [Customized Log Formatting](#customized-log-formatting)
 	- [API Documentation](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/index.html)
-- [Design Philosophy](#design-philosophy)	
+- [Design Philosophy](#design-philosophy)
 - [Architectural Overview](#architectural-overview)
 
 ### Key Benefits of CleanroomLogger
@@ -212,7 +212,7 @@ Each of these `LogChannel`s provide three functions to record log messages:
 
 - [`trace()`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5traceFTSS8filePathSS8fileLineSi_T_) — This function records a log message with program execution trace information including the source code filename, line number and name of the calling function.
 - [`message(String)`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel7messageFTSS8functionSS8filePathSS8fileLineSi_T_) — This function records the log message passed to it.
-- [`value(Any?)`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5valueFTGSqP__8functionSS8filePathSS8fileLineSi_T_) — This function attempts to record a log message containing a string representation of the optional `Any` value passed to it. 
+- [`value(Any?)`](https://rawgit.com/emaloney/CleanroomLogger/master/Documentation/API/Structs/LogChannel.html#/s:FV15CleanroomLogger10LogChannel5valueFTGSqP__8functionSS8filePathSS8fileLineSi_T_) — This function attempts to record a log message containing a string representation of the optional `Any` value passed to it.
 
 ### Enabling logging
 
@@ -322,16 +322,16 @@ Ideally suited for live viewing during development, the [`XcodeLogConfiguration`
 
 - The value of the `OS_ACTIVITY_MODE` environment variable; when it is set to “`disable`”, attempts to log via OSLog are silently ignored. In such cases, log output is echoed to `stdout` and `stderr` to ensure that messages are visible in Xcode.
 
-- The `severity` of the message. For UNIX-friendly behavior, `.verbose`, `.debug` and `.info` messages are directed to the `stdout` stream of the running process, while `.warning` and `.error` messages are sent to `stderr`. 
+- The `severity` of the message. For UNIX-friendly behavior, `.verbose`, `.debug` and `.info` messages are directed to the `stdout` stream of the running process, while `.warning` and `.error` messages are sent to `stderr`.
 
 When using the Unified Logging System, messages in the Xcode console appear prefixed with an informational header that looks like:
 
 ```
-2017-01-04 22:56:47.448224 Gilt[5031:89847] [CleanroomLogger]	
-2017-01-04 22:56:47.448718 Gilt[5031:89847] [CleanroomLogger]	
-2017-01-04 22:56:47.449487 Gilt[5031:89847] [CleanroomLogger]	
-2017-01-04 22:56:47.450127 Gilt[5031:89847] [CleanroomLogger]	
-2017-01-04 22:56:47.450722 Gilt[5031:89847] [CleanroomLogger]	
+2017-01-04 22:56:47.448224 Gilt[5031:89847] [CleanroomLogger]
+2017-01-04 22:56:47.448718 Gilt[5031:89847] [CleanroomLogger]
+2017-01-04 22:56:47.449487 Gilt[5031:89847] [CleanroomLogger]
+2017-01-04 22:56:47.450127 Gilt[5031:89847] [CleanroomLogger]
+2017-01-04 22:56:47.450722 Gilt[5031:89847] [CleanroomLogger]
 ```
 
 This header is not added by CleanroomLogger; it is added as a result of using OSLog within Xcode. It shows the timestamp of the log entry, followed by the process name, the process ID, the calling thread ID, and the logging system name.
@@ -458,7 +458,7 @@ configs.append(BasicLogConfiguration(recorders: [stderr]))
 // create a recorder for logging via OSLog (if possible)
 // and add a configuration that references it
 if let osLog = OSLogRecorder(formatters: [ReadableLogFormatter()]) {
-	// the OSLogRecorder initializer will fail if running on 
+	// the OSLogRecorder initializer will fail if running on
 	// a platform that doesn’t support the os_log() function
 	configs.append(BasicLogConfiguration(recorders: [osLog]))
 }
@@ -523,9 +523,9 @@ In terms of threads of execution, each request to log *anything* can go through 
 
 1. On the calling thread:
   1. Caller attempts to issue a log request by calling a logging function (eg., `message()`, `trace()` or `value()`) of the appropriate `LogChannel` maintained by `Log`.
-    - If there is no `LogChannel` for the given *severity* of the log message (because CleanroomLogger hasn’t yet been `enabled()` or it is not configured to log at that severity), Swift short-circuiting prevents further execution. This makes it possible to leave debug logging calls in place when shipping production code without affecting performance. 
+    - If there is no `LogChannel` for the given *severity* of the log message (because CleanroomLogger hasn’t yet been `enabled()` or it is not configured to log at that severity), Swift short-circuiting prevents further execution. This makes it possible to leave debug logging calls in place when shipping production code without affecting performance.
   2. If a `LogChannel` does exist, it creates an immutable `LogEntry` struct to represent the *thing* being logged.
-  3. The `LogEntry` is then passed to the `LogReceptacle` associated with the `LogChannel`. 
+  3. The `LogEntry` is then passed to the `LogReceptacle` associated with the `LogChannel`.
   4. Based on the severity of the `LogEntry`, the `LogReceptacle` selects one or more `LogConfiguration`s to use for recording the message. Among other things, these configurations determine whether further processing proceeds synchronously or asynchronously when passed to the underlying `LogReceptacle`’s GCD queue. (Synchronous processing is useful during debugging, but is not recommended for general production code.)
 
 2. On the `LogReceptacle` queue:
