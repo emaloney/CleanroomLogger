@@ -15,11 +15,11 @@ open class LogRecorderBase: LogRecorder
 {
     /** The `LogFormatter`s that will be used to format messages for the
      `LogEntry`s to be logged. */
-    open let formatters: [LogFormatter]
+    public let formatters: [LogFormatter]
 
     /** The GCD queue that should be used for logging actions related to the
      receiver. */
-    open let queue: DispatchQueue
+    public let queue: DispatchQueue
 
     /**
      Initialize a new `LogRecorderBase` instance.

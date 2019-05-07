@@ -20,11 +20,11 @@ open class RotatingLogFileRecorder: LogRecorderBase
 {
     /** The number of days for which the receiver will retain log files
      before they're eligible for pruning. */
-    open let daysToKeep: Int
+    public let daysToKeep: Int
 
     /** The filesystem path to a directory where the log files will be
      stored. */
-    open let directoryPath: String
+    public let directoryPath: String
 
     private static let filenameFormatter: DateFormatter = {
         let fmt = DateFormatter()

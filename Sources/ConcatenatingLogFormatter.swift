@@ -13,7 +13,7 @@
 open class ConcatenatingLogFormatter: LogFormatter
 {
     /** The `LogFormatter`s whose output will be concatenated. */
-    open let formatters: [LogFormatter]
+    public let formatters: [LogFormatter]
 
     /** Determines the behavior of `format(_:)` when one of the receiver's
      `formatters` returns `nil`. When `false`, if any formatter returns
@@ -22,7 +22,7 @@ open class ConcatenatingLogFormatter: LogFormatter
      receiver will always return a non-`nil` value. However, when `hardFail`
      is `true`, _all_ of the `formatters` must return strings; if _any_
      formatter returns `nil`, the receiver _also_ returns `nil`. */
-    open let hardFail: Bool
+    public let hardFail: Bool
 
     /**
      Initializes a new `ConcatenatingLogFormatter` instance.

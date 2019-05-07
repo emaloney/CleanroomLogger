@@ -21,7 +21,7 @@ import Dispatch
 open class FileLogRecorder: LogRecorderBase
 {
     /** The path of the file to which log entries will be written. */
-    open let filePath: String
+    public let filePath: String
 
     private let file: UnsafeMutablePointer<FILE>?
     private let newlines: [Character] = ["\n", "\r"]

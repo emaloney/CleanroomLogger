@@ -32,7 +32,7 @@ public final class XcodeTraceLogFormatter: FieldBasedLogFormatter
      - returns:  A `String` representation of `entry`, or `nil` if the
      receiver could not format the `LogEntry`.
      */
-    open override func format(_ entry: LogEntry)
+    public override func format(_ entry: LogEntry)
         -> String?
     {
         guard case .trace = entry.payload else {
