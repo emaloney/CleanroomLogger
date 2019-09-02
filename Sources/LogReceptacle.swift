@@ -70,11 +70,11 @@ public final class LogReceptacle
     {
         let synchronous = config.synchronousMode
         let acceptDispatcher = dispatcherForQueue(acceptQueue, synchronous: synchronous)
-        acceptDispatcher {
-            if self.doesLogEntry(entry, passFilters: config.filters) {
+        acceptDispatcher { [weak self] in
+            if self?.doesLogEntry(entry, passFilters: config.filters) ?? false {
                 for recorder in config.recorders {
-                    let recordDispatcher = self.dispatcherForQueue(recorder.queue, synchronous: synchronous)
-                    recordDispatcher {
+                    let recordDispatcher = self?.dispatcherForQueue(recorder.queue, synchronous: synchronous)
+                    recordDispatcher? {
                         for formatter in recorder.formatters {
                             var shouldBreak = false
                             autoreleasepool {
