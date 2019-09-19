@@ -32,7 +32,7 @@ public extension DelimiterStyle
     /**
      Returns the field delimiter string indicated by the receiver's value.
      */
-    public var delimiter: String {
+    var delimiter: String {
         switch self {
         case .spacedPipe:       return " | "
         case .spacedHyphen:     return " - "

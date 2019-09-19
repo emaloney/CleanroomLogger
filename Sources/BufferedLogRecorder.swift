@@ -29,11 +29,11 @@ open class BufferedLogRecorder<BufferItem>: LogRecorderBase
 {
     /** The maximum number if items that will be stored in the receiver's
      buffer */
-    open let bufferLimit: Int
+    public let bufferLimit: Int
 
     /** The function used to create a `BufferItem` given a `LogEntry` and a
      formatted message string. */
-    open let createBufferItem: (LogEntry, String) -> BufferItem
+    public let createBufferItem: (LogEntry, String) -> BufferItem
 
     /** The buffer, an array of `BufferItem`s created to represent the 
      `LogEntry` values recorded by the receiver. */

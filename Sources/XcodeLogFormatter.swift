@@ -46,7 +46,7 @@ public final class XcodeLogFormatter: LogFormatter
      - returns:  A `String` representation of `entry`, or `nil` if the
      receiver could not format the `LogEntry`.
      */
-    open func format(_ entry: LogEntry) -> String?
+    public func format(_ entry: LogEntry) -> String?
     {
         return traceFormatter.format(entry) ?? defaultFormatter.format(entry)
     }
