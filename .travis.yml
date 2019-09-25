@@ -16,7 +16,7 @@ before_install:
   - travis_wait 30 git submodule update --init
 
 install:
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - gem install xcpretty --no-document --quiet
   - rm -rf ~/Library/Developer/CoreSimulator					  	# these two lines are a hack around a recurring Travis problem: multiple versions of the
   - sudo killall -9 com.apple.CoreSimulator.CoreSimulatorService	# same simulator: https://github.com/travis-ci/travis-ci/issues/7580#issuecomment-292974395
 
