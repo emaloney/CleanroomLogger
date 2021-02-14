@@ -7,9 +7,6 @@ TARGETED_DEVICE_FAMILY = 1,2,3,4
 //
 IPHONEOS_DEPLOYMENT_TARGET = 8.0
 
-VALID_ARCHS[sdk=iphoneos*] = arm64 armv7 armv7s
-VALID_ARCHS[sdk=iphonesimulator*] = i386 x86_64
-
 LD_RUNPATH_SEARCH_PATHS[sdk=iphoneos*] =  @executable_path/Frameworks @loader_path/Frameworks
 LD_RUNPATH_SEARCH_PATHS[sdk=iphonesimulator*] =  @executable_path/Frameworks @loader_path/Frameworks
 
