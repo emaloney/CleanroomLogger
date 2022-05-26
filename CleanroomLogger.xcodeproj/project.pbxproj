@@ -311,7 +311,6 @@
 				TargetAttributes = {
 					3B9059021DAECB5200B4EEC0 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = MTP6A36P8K;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -328,6 +327,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 3B9058F91DAECB5200B4EEC0;
@@ -548,6 +548,7 @@
 			baseConfigurationReference = 3B9059251DAECB9E00B4EEC0 /* Debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 35;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -562,6 +563,7 @@
 			baseConfigurationReference = 3B9059281DAECB9E00B4EEC0 /* Release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 35;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
