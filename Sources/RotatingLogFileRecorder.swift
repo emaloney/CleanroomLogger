@@ -25,6 +25,11 @@ open class RotatingLogFileRecorder: LogRecorderBase
     /** The filesystem path to a directory where the log files will be
      stored. */
     public let directoryPath: String
+    
+    /** The approximate maximum size (in bytes) to allow log files to grow.
+         If a log file is larger than this value after a log statement is appended,
+         then the log file is rolled.  */
+    public let maximumFileSize: Int64?
 
     private static let filenameFormatter: DateFormatter = {
         let fmt = DateFormatter()
@@ -56,11 +61,15 @@ open class RotatingLogFileRecorder: LogRecorderBase
      sequence, and the formatted string returned by the first formatter to
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
+     
+     - parameter maximumFileSize: The approximate maximum size (in bytes) to allow log files to grow.
+     If a log file is larger than this value after a log statement is appended, then the log file is rolled.
     */
-    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [ReadableLogFormatter()])
+    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [ReadableLogFormatter()], maximumFileSize: Int64? = nil)
     {
         self.daysToKeep = daysToKeep
         self.directoryPath = directoryPath
+        self.maximumFileSize = maximumFileSize
 
         super.init(formatters: formatters)
     }

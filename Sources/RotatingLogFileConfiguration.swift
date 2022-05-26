@@ -56,10 +56,13 @@ open class RotatingLogFileConfiguration: BasicLogConfiguration
      sequence, and the formatted string returned by the first formatter to
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
+     
+     - parameter maximumFileSize: The approximate maximum size (in bytes) to allow log files to grow.
+     If a log file is larger than this value after a log statement is appended, then the log file is rolled.
      */
-    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, filters: [LogFilter] = [], formatters: [LogFormatter] = [ReadableLogFormatter()])
+    public init(minimumSeverity: LogSeverity, daysToKeep: Int, directoryPath: String, synchronousMode: Bool = false, filters: [LogFilter] = [], formatters: [LogFormatter] = [ReadableLogFormatter()], maximumFileSize: Int64? = nil)
     {
-        logFileRecorder = RotatingLogFileRecorder(daysToKeep: daysToKeep, directoryPath: directoryPath, formatters: formatters)
+        logFileRecorder = RotatingLogFileRecorder(daysToKeep: daysToKeep, directoryPath: directoryPath, formatters: formatters, maximumFileSize: maximumFileSize)
 
         super.init(minimumSeverity: minimumSeverity, filters: filters, recorders: [logFileRecorder], synchronousMode: synchronousMode)
     }
