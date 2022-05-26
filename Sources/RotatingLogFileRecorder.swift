@@ -94,6 +94,14 @@ open class RotatingLogFileRecorder: LogRecorderBase
         return "\(filenameFormatter.string(from: date))(\(rolledLogFileNumber))\(withExtension ? ".log" : "")"
     }
     
+    /**
+     Returns a bool defining whether the size of the file at the provided path is greater than the provided file size
+
+     - parameter fileSize: The file size `(in bytes)` that is used as the max size for file
+     - parameter path: The path to the file to be checked
+
+     - returns: A bool indicating if the file exceeds the given file size.
+    */
     private class func hasExceeded(fileSize: Int64, at path: String) -> Bool
     {
         guard let fileAttributes = try? FileManager.default.attributesOfItem(atPath: path),
