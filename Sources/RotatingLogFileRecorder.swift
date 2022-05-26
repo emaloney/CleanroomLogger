@@ -188,8 +188,12 @@ open class RotatingLogFileRecorder: LogRecorderBase
         return firstDateStr == secondDateStr
     }
     
-    /// Checks if the current log file exceeds the maximum file size allowed for a log file
-    private func validateMaxLogSize(_ entry: LogEntry)
+    /**
+     Checks if the current log file exceeds the maximum file size allowed, if it does, the log files are rolled.
+
+     - parameter entry: the log entry to base the new log file off if required
+     */
+    private func rollLogFileIfNeeded(_ entry: LogEntry)
     {
         guard let maximumFileSize = self.maximumFileSize,
               let filePath = currentFileRecorder?.filePath,
@@ -238,7 +242,7 @@ open class RotatingLogFileRecorder: LogRecorderBase
 
         currentFileRecorder?.record(message: message, for: entry, currentQueue: queue, synchronousMode: synchronousMode)
         
-        validateMaxLogSize(entry)
+        rollLogFileIfNeeded(entry)
     }
 
     /**
