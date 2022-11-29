@@ -241,6 +241,11 @@ public struct Log
 
         if didEnable
         {
+            self.error = nil
+            self.warning = nil
+            self.info = nil
+            self.debug = nil
+            self.verbose = nil
             didEnable = false
         }
 
