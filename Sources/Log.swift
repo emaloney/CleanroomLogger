@@ -233,6 +233,19 @@ public struct Log
         }
         logLock.unlock()
     }
+    
+    /// Experimental - Try to use in case you need to disable logger to change the configuration and restart.
+    public static func disable()
+    {
+        logLock.lock()
+
+        if didEnable
+        {
+            didEnable = false
+        }
+
+        logLock.unlock()
+    }
 
     private static let logLock = NSLock()
     private static var didEnable = false
