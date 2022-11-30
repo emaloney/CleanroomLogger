@@ -234,7 +234,11 @@ public struct Log
         logLock.unlock()
     }
     
-    /// Experimental - Try to use in case you need to disable logger to change the configuration and restart.
+    /**
+     Disables the logger, setting all existing channels to nil.
+    
+     Disabling the logger allows you to restart/reconfigure the logger in real-time without the need to restart the whole app.
+     */
     public static func disable()
     {
         logLock.lock()
