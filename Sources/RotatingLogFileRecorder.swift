@@ -25,21 +25,27 @@ open class RotatingLogFileRecorder: LogRecorderBase
     /** The filesystem path to a directory where the log files will be
      stored. */
     public let directoryPath: String
+    
+    /** The approximate maximum size (in bytes) to allow log files to grow.
+     If a log file is larger than this value after a log statement is appended,
+     then the log file is rolled.  */
+    public let maximumFileSize: Int64?
 
     private static let filenameFormatter: DateFormatter = {
         let fmt = DateFormatter()
-        fmt.dateFormat = "yyyy-MM-dd'.log'"
+        fmt.dateFormat = "yyyy-MM-dd"
         return fmt
     }()
 
     private var mostRecentLogTime: Date?
     private var currentFileRecorder: FileLogRecorder?
+    private static var currentNumberOfRolledFiles: Int?
 
     /**
      Initializes a new `RotatingLogFileRecorder` instance.
 
      - warning: The `RotatingLogFileRecorder` expects to have full control over
-     the contents of its `directoryPath`. Any file not recognized as an active 
+     the contents of its `directoryPath`. Any file not recognized as an active
      log file will be deleted during the automatic pruning process, which may
      occur at any time. Therefore, be __extremely careful__ when constructing
      the value passed in as the `directoryPath`.
@@ -56,11 +62,15 @@ open class RotatingLogFileRecorder: LogRecorderBase
      sequence, and the formatted string returned by the first formatter to
      yield a non-`nil` value will be recorded. If every formatter returns `nil`,
      the log entry is silently ignored and not recorded.
+     
+     - parameter maximumFileSize: The approximate maximum size (in bytes) to allow log files to grow.
+     If a log file is larger than this value after a log statement is appended, then the log file is rolled.
     */
-    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [ReadableLogFormatter()])
+    public init(daysToKeep: Int, directoryPath: String, formatters: [LogFormatter] = [ReadableLogFormatter()], maximumFileSize: Int64? = nil)
     {
         self.daysToKeep = daysToKeep
         self.directoryPath = directoryPath
+        self.maximumFileSize = maximumFileSize
 
         super.init(formatters: formatters)
     }
@@ -73,24 +83,109 @@ open class RotatingLogFileRecorder: LogRecorderBase
 
      - returns: The filename.
     */
-    open class func logFilename(forDate date: Date)
+    open class func logFilename(forDate date: Date, rolledLogFileNumber: Int? = nil, withExtension: Bool = true)
         -> String
     {
-        return filenameFormatter.string(from: date)
+        guard let rolledLogFileNumber = rolledLogFileNumber,
+        rolledLogFileNumber > 0 else
+        {
+            return "\(filenameFormatter.string(from: date))\(withExtension ? ".log" : "")"
+        }
+        return "\(filenameFormatter.string(from: date))(\(rolledLogFileNumber))\(withExtension ? ".log" : "")"
+    }
+    
+    /**
+     Returns a bool defining whether the size of the file at the provided path is greater than the provided file size
+
+     - parameter fileSize: The file size `(in bytes)` that is used as the max size for file
+     - parameter path: The path to the file to be checked
+
+     - returns: A bool indicating if the file exceeds the given file size.
+    */
+    private class func hasExceeded(fileSize: Int64, at path: String) -> Bool
+    {
+        guard let fileAttributes = try? FileManager.default.attributesOfItem(atPath: path),
+              let bytes = fileAttributes[.size] as? Int64,
+              bytes >= fileSize else
+        {
+            return false
+        }
+        
+        return true
     }
 
-    private class func fileLogRecorder(_ date: Date, directoryPath: String, formatters: [LogFormatter])
+    private class func fileLogRecorder(_ date: Date, directoryPath: String, formatters: [LogFormatter], maximumFileSize: Int64? = nil)
         -> FileLogRecorder?
     {
-        let fileName = logFilename(forDate: date)
-        let filePath = (directoryPath as NSString).appendingPathComponent(fileName)
+        let fileNameWithoutExtension = logFilename(forDate: date, withExtension: false)
+        var fileName = logFilename(forDate: date)
+        var filePath = (directoryPath as NSString).appendingPathComponent(fileName)
+        
+        guard let maximumFileSize = maximumFileSize else
+        {
+            return FileLogRecorder(filePath: filePath, formatters: formatters)
+        }
+
+        if FileManager.default.fileExists(atPath: filePath)
+        {
+            // Check if the first file is larger than the maxLogSize
+            guard hasExceeded(fileSize: maximumFileSize, at: filePath) else
+            {
+                return FileLogRecorder(filePath: filePath, formatters: formatters)
+            }
+            
+            if let currentNumberOfRolledFiles = self.currentNumberOfRolledFiles
+            {
+                let nextRolledNumber = currentNumberOfRolledFiles + 1
+                
+                fileName = logFilename(forDate: date, rolledLogFileNumber: nextRolledNumber)
+                filePath = (directoryPath as NSString).appendingPathComponent(fileName)
+                self.currentNumberOfRolledFiles = nextRolledNumber
+                return FileLogRecorder(filePath: filePath, formatters: formatters)
+            }
+            else
+            {
+                // Identify the current number of rolled log files for this date
+                let directoryContents = try? FileManager.default.contentsOfDirectory(atPath: directoryPath)
+                    .filter { return $0 != fileName }
+                    .filter { return $0.contains(fileNameWithoutExtension) }
+                    .sorted()
+                
+                guard directoryContents?.isEmpty == false else
+                {
+                    // If no rolled files, start with 1
+                    fileName = logFilename(forDate: date, rolledLogFileNumber: 1)
+                    filePath = (directoryPath as NSString).appendingPathComponent(fileName)
+                    self.currentNumberOfRolledFiles = 1
+                    return FileLogRecorder(filePath: filePath, formatters: formatters)
+                }
+                
+                // Check if the newest rolled file exceeds the limit or not
+                let newestFilePath = (directoryPath as NSString).appendingPathComponent(directoryContents!.last!)
+                guard hasExceeded(fileSize: maximumFileSize, at: newestFilePath) else
+                {
+                    self.currentNumberOfRolledFiles = directoryContents!.count
+                    fileName = logFilename(forDate: date, rolledLogFileNumber: directoryContents!.count)
+                    filePath = (directoryPath as NSString).appendingPathComponent(fileName)
+                    return FileLogRecorder(filePath: filePath, formatters: formatters)
+                }
+                
+                // If it does, create a new file
+                // +1 because the initial (non-rolled) file has been filtered from the directoryContents
+                fileName = logFilename(forDate: date, rolledLogFileNumber: directoryContents!.count + 1)
+                filePath = (directoryPath as NSString).appendingPathComponent(fileName)
+                self.currentNumberOfRolledFiles = directoryContents!.count + 1
+                    
+                }
+            }
+        
         return FileLogRecorder(filePath: filePath, formatters: formatters)
     }
 
     private func fileLogRecorder(_ date: Date)
         -> FileLogRecorder?
     {
-        return type(of: self).fileLogRecorder(date, directoryPath: directoryPath, formatters: formatters)
+        return type(of: self).fileLogRecorder(date, directoryPath: directoryPath, formatters: formatters, maximumFileSize: self.maximumFileSize)
     }
 
     private func isDate(_ firstDate: Date, onSameDayAs secondDate: Date)
@@ -99,6 +194,20 @@ open class RotatingLogFileRecorder: LogRecorderBase
         let firstDateStr = type(of: self).logFilename(forDate: firstDate)
         let secondDateStr = type(of: self).logFilename(forDate: secondDate)
         return firstDateStr == secondDateStr
+    }
+    
+    /**
+     Checks if the current log file exceeds the maximum file size allowed, if it does, the log files are rolled.
+
+     - parameter entry: the log entry to base the new log file off if required
+     */
+    private func rollLogFileIfNeeded(_ entry: LogEntry)
+    {
+        guard let maximumFileSize = self.maximumFileSize,
+              let filePath = currentFileRecorder?.filePath,
+              RotatingLogFileRecorder.hasExceeded(fileSize: maximumFileSize, at: filePath) else { return }
+        
+        currentFileRecorder = fileLogRecorder(entry.timestamp)
     }
 
     /**
@@ -140,6 +249,8 @@ open class RotatingLogFileRecorder: LogRecorderBase
         mostRecentLogTime = entry.timestamp as Date
 
         currentFileRecorder?.record(message: message, for: entry, currentQueue: queue, synchronousMode: synchronousMode)
+        
+        rollLogFileIfNeeded(entry)
     }
 
     /**
@@ -156,7 +267,7 @@ open class RotatingLogFileRecorder: LogRecorderBase
         var date = Date()
         var filesToKeep = Set<String>()
         for _ in 0..<daysToKeep {
-            let filename = type(of: self).logFilename(forDate: date)
+            let filename = type(of: self).logFilename(forDate: date, withExtension: false)
             filesToKeep.insert(filename)
             date = cal.date(byAdding: .day, value: -1, to: date, wrappingComponents: true)!
         }
@@ -164,10 +275,10 @@ open class RotatingLogFileRecorder: LogRecorderBase
         do {
             let fileMgr = FileManager.default
             let filenames = try fileMgr.contentsOfDirectory(atPath: directoryPath)
-
+            
             let pathsToRemove = filenames
                 .filter { return !$0.hasPrefix(".") }
-                .filter { return !filesToKeep.contains($0) }
+                .filter { return !$0.contains(Array(filesToKeep)) }
                 .map { return (self.directoryPath as NSString).appendingPathComponent($0) }
 
             for path in pathsToRemove {
@@ -185,3 +296,8 @@ open class RotatingLogFileRecorder: LogRecorderBase
     }
 }
 
+extension String {
+    func contains(_ strings: [String]) -> Bool {
+        strings.contains { contains($0) }
+    }
+}
