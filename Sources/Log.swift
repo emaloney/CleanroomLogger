@@ -233,6 +233,28 @@ public struct Log
         }
         logLock.unlock()
     }
+    
+    /**
+     Disables the logger, setting all existing channels to nil.
+    
+     Disabling the logger allows you to restart/reconfigure the logger in real-time without the need to restart the whole app.
+     */
+    public static func disable()
+    {
+        logLock.lock()
+
+        if didEnable
+        {
+            self.error = nil
+            self.warning = nil
+            self.info = nil
+            self.debug = nil
+            self.verbose = nil
+            didEnable = false
+        }
+
+        logLock.unlock()
+    }
 
     private static let logLock = NSLock()
     private static var didEnable = false
